@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wolt Vilnius Discounts</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Vilnius, Lithuania</p>
+        <h1>Wolt discount monitor</h1>
+      </div>
+      <a class="source-link" href="data/latest.json">latest.json</a>
+    </header>
+
+    <main>
+      <section class="stats" aria-label="Summary">
+        <div>
+          <span class="metric" id="promoCount">-</span>
+          <span class="label">promo venues</span>
+        </div>
+        <div>
+          <span class="metric" id="restaurantCount">-</span>
+          <span class="label">restaurants total</span>
+        </div>
+        <div>
+          <span class="metric" id="updatedAt">-</span>
+          <span class="label">last update</span>
+        </div>
+      </section>
+
+      <section class="controls" aria-label="Table controls">
+        <label class="search">
+          <span>Search</span>
+          <input id="searchInput" type="search" placeholder="Venue, offer, slug..." />
+        </label>
+
+        <label>
+          <span>Type</span>
+          <select id="productFilter"></select>
+        </label>
+
+        <label>
+          <span>Sort</span>
+          <select id="sortSelect">
+            <option value="amount-desc">Best discount</option>
+            <option value="name-asc">Name A-Z</option>
+            <option value="type-asc">Type</option>
+            <option value="delivery-asc">Delivery price</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="table-wrap" aria-label="Venues">
+        <table>
+          <thead>
+            <tr>
+              <th>Venue</th>
+              <th>Type</th>
+              <th>Offer</th>
+              <th>Best</th>
+              <th>Delivery</th>
+              <th>ETA</th>
+            </tr>
+          </thead>
+          <tbody id="venueRows">
+            <tr>
+              <td colspan="6" class="empty">Loading...</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>

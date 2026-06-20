@@ -1,0 +1,15 @@
+{
+  "name": "wolt-vilnius-discounts",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node src/check-discounts.mjs",
+    "dashboard": "node src/build-dashboard-data.mjs",
+    "start": "node src/check-discounts.mjs",
+    "target": "node src/wolt-promotions-poc.mjs --slug lukiskiu-kalejimas-20 --dynamic"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

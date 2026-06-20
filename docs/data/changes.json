@@ -1,0 +1,21 @@
+{
+  "generatedAt": "2026-06-20T15:32:30.164Z",
+  "previousGeneratedAt": "2026-06-20T15:32:30.164Z",
+  "counts": {
+    "restaurantsUniqueVenues": 825,
+    "promotionsUniqueVenues": 1359,
+    "productLines": {
+      "alcohol": 80,
+      "florist": 68,
+      "general_merchandise": 46,
+      "grocery": 224,
+      "health_and_beauty": 43,
+      "pet_supply": 57,
+      "pharmacy": 16,
+      "restaurant": 825
+    }
+  },
+  "appeared": [],
+  "disappeared": [],
+  "interestingAppeared": []
+}
