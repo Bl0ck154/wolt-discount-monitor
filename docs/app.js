@@ -121,7 +121,7 @@ function renderVenueRow(venue, visibleOffers, index, groupSize = 1) {
     : `<div class="venue-image" aria-hidden="true"></div>`;
   const offers = visibleOffers.length
     ? visibleOffers.map((offer) => `<span class="offer ${offerClass(offer)}">${escapeHtml(offer.text)}</span>`).join("")
-    : `<span class="venue-meta">No visible offer badges</span>`;
+    : "";
   const best = bestDiscount(venue);
   const mapUrl = mapLink(venue);
   const hours = openingLabel(venue);
@@ -155,7 +155,7 @@ function renderGroupDetailRow(venue, visibleOffers, index) {
   const mapUrl = mapLink(venue);
   const offers = visibleOffers.length
     ? visibleOffers.map((offer) => `<span class="offer ${offerClass(offer)}">${escapeHtml(offer.text)}</span>`).join("")
-    : `<span class="venue-meta">No visible offer badges</span>`;
+    : "";
 
   return `<tr>
     <td class="nested-num">${index}</td>
