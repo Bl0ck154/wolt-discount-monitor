@@ -1,1 +1,214 @@
-[]
+[
+  {
+    "generatedAt": "2026-06-20T17:03:00.395Z",
+    "previousGeneratedAt": "2026-06-20T15:32:30.164Z",
+    "appeared": 7,
+    "disappeared": 0,
+    "interestingAppeared": 7,
+    "interesting": [
+      {
+        "venue": {
+          "id": "61fd25d89e6ce7e36e0328a5",
+          "slug": "monami-akropolis",
+          "name": "MonAmi kepyklėlė (Akropolis)",
+          "productLine": "grocery",
+          "link": "https://wolt.com/en/ltu/vilnius/venue/monami-akropolis",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/03fff7c8-e4a7-41ab-b9e6-5f4f476a4fe1/a23c8028-be08-4b6a-aba6-0264dcb0270c"
+        },
+        "key": "venue.promotions_for_telemetry:6a01e1c3104381a1472df9ad",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a01e1c3104381a1472df9ad",
+        "text": "-50% off selected item",
+        "amount": 50,
+        "amountType": "percent",
+        "amountLabel": "50%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 1050,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a01e1c3104381a1472df9ad",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-50% off selected item",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "61fd213da3125d2dbd03d0e4",
+          "slug": "monami-domus-pro",
+          "name": "MonAmi kepyklėlė (Domus Pro)",
+          "productLine": "grocery",
+          "link": "https://wolt.com/en/ltu/vilnius/venue/monami-domus-pro",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/03fff7c8-e4a7-41ab-b9e6-5f4f476a4fe1/a23c8028-be08-4b6a-aba6-0264dcb0270c"
+        },
+        "key": "venue.promotions_for_telemetry:6a01e1c3104381a1472df9ad",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a01e1c3104381a1472df9ad",
+        "text": "-50% off selected item",
+        "amount": 50,
+        "amountType": "percent",
+        "amountLabel": "50%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 1050,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a01e1c3104381a1472df9ad",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-50% off selected item",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "61fd198bbb86e6ea5f3d28d1",
+          "slug": "monami-gedimino-pr",
+          "name": "MonAmi kepyklėlė (Gedimino pr.)",
+          "productLine": "grocery",
+          "link": "https://wolt.com/en/ltu/vilnius/venue/monami-gedimino-pr",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/03fff7c8-e4a7-41ab-b9e6-5f4f476a4fe1/a23c8028-be08-4b6a-aba6-0264dcb0270c"
+        },
+        "key": "venue.promotions_for_telemetry:6a01e1c3104381a1472df9ad",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a01e1c3104381a1472df9ad",
+        "text": "-50% off selected item",
+        "amount": 50,
+        "amountType": "percent",
+        "amountLabel": "50%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 1050,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a01e1c3104381a1472df9ad",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-50% off selected item",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "61fd28621bc6bc9a91b1ba2b",
+          "slug": "monami-jeruzale",
+          "name": "MonAmi kepyklėlė (Jeruzalė)",
+          "productLine": "grocery",
+          "link": "https://wolt.com/en/ltu/vilnius/venue/monami-jeruzale",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/03fff7c8-e4a7-41ab-b9e6-5f4f476a4fe1/a23c8028-be08-4b6a-aba6-0264dcb0270c"
+        },
+        "key": "venue.promotions_for_telemetry:6a01e1c3104381a1472df9ad",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a01e1c3104381a1472df9ad",
+        "text": "-50% off selected item",
+        "amount": 50,
+        "amountType": "percent",
+        "amountLabel": "50%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 1050,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a01e1c3104381a1472df9ad",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-50% off selected item",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "61fd238e559d91b47a35275c",
+          "slug": "monami-kedru",
+          "name": "MonAmi kepyklėlė (Kedrų g.)",
+          "productLine": "grocery",
+          "link": "https://wolt.com/en/ltu/vilnius/venue/monami-kedru",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/03fff7c8-e4a7-41ab-b9e6-5f4f476a4fe1/a23c8028-be08-4b6a-aba6-0264dcb0270c"
+        },
+        "key": "venue.promotions_for_telemetry:6a01e1c3104381a1472df9ad",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a01e1c3104381a1472df9ad",
+        "text": "-50% off selected item",
+        "amount": 50,
+        "amountType": "percent",
+        "amountLabel": "50%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 1050,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a01e1c3104381a1472df9ad",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-50% off selected item",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "61a0aea0dc3aea76a5972f5b",
+          "slug": "monami-kepyklele-panorama",
+          "name": "MonAmi kepyklėlė (PC Panorama)",
+          "productLine": "grocery",
+          "link": "https://wolt.com/en/ltu/vilnius/venue/monami-kepyklele-panorama",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/03fff7c8-e4a7-41ab-b9e6-5f4f476a4fe1/a23c8028-be08-4b6a-aba6-0264dcb0270c"
+        },
+        "key": "venue.promotions_for_telemetry:6a01e1c3104381a1472df9ad",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a01e1c3104381a1472df9ad",
+        "text": "-50% off selected item",
+        "amount": 50,
+        "amountType": "percent",
+        "amountLabel": "50%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 1050,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a01e1c3104381a1472df9ad",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-50% off selected item",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "61a628cf6a71cc6cf89768f7",
+          "slug": "monami-kepyklele-siaures-miestelis",
+          "name": "MonAmi kepyklėlė (Šiaurės miestelis)",
+          "productLine": "grocery",
+          "link": "https://wolt.com/en/ltu/vilnius/venue/monami-kepyklele-siaures-miestelis",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/03fff7c8-e4a7-41ab-b9e6-5f4f476a4fe1/a23c8028-be08-4b6a-aba6-0264dcb0270c"
+        },
+        "key": "venue.promotions_for_telemetry:6a01e1c3104381a1472df9ad",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a01e1c3104381a1472df9ad",
+        "text": "-50% off selected item",
+        "amount": 50,
+        "amountType": "percent",
+        "amountLabel": "50%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 1050,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a01e1c3104381a1472df9ad",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-50% off selected item",
+          "variant": "discount"
+        }
+      }
+    ]
+  }
+]
