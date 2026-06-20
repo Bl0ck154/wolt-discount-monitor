@@ -21,9 +21,11 @@ export const PATHS = {
   latest: "docs/data/latest.json",
   changes: "docs/data/changes.json",
   log: "docs/data/changes-log.json",
+  notified: "docs/data/notified-offers.json",
 };
 
 export const NOTIFY_RULES = {
-  minDiscountEur: Number(process.env.MIN_DISCOUNT_EUR ?? 2),
+  minDiscountEur: Number(process.env.MIN_DISCOUNT_EUR ?? 3),
+  minDiscountPercent: Number(process.env.MIN_DISCOUNT_PERCENT ?? 20),
   includeZeroDelivery: process.env.INCLUDE_ZERO_DELIVERY === "true",
 };

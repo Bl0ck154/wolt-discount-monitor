@@ -1,5 +1,24 @@
 [
   {
+    "generatedAt": "2026-06-20T18:34:38.430Z",
+    "previousGeneratedAt": "2026-06-20T18:31:11.661Z",
+    "appeared": 0,
+    "disappeared": 0,
+    "interestingAppeared": 0,
+    "notifiedNew": 0,
+    "notifiedEnded": 0,
+    "interesting": [],
+    "ended": []
+  },
+  {
+    "generatedAt": "2026-06-20T18:31:11.661Z",
+    "previousGeneratedAt": "2026-06-20T17:03:00.395Z",
+    "appeared": 0,
+    "disappeared": 0,
+    "interestingAppeared": 0,
+    "interesting": []
+  },
+  {
     "generatedAt": "2026-06-20T17:03:00.395Z",
     "previousGeneratedAt": "2026-06-20T15:32:30.164Z",
     "appeared": 7,

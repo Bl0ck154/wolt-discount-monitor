@@ -26,28 +26,55 @@ export async function sendTelegramMessage(text) {
   return { skipped: false };
 }
 
-export function formatTelegramMessage(changes) {
-  const offers = changes.interestingAppeared.slice(0, 20);
+export function formatTelegramMessage(notification) {
+  const appeared = notification.appeared ?? notification.interestingAppeared ?? [];
+  const ended = notification.ended ?? [];
   const lines = [
     "<b>Wolt Vilnius discounts</b>",
-    `New interesting offers: <b>${changes.interestingAppeared.length}</b>`,
-    `All appeared: ${changes.appeared.length}, disappeared: ${changes.disappeared.length}`,
+    `New valuable offers: <b>${appeared.length}</b>`,
+    `Ended tracked offers: <b>${ended.length}</b>`,
+    notification.allAppeared !== undefined
+      ? `All appeared: ${notification.allAppeared}, disappeared: ${notification.allDisappeared}`
+      : null,
     "",
-  ];
+  ].filter((line) => line !== null);
 
-  for (const offer of offers) {
-    const venueName = escapeHtml(offer.venue.name);
-    const offerText = escapeHtml(offer.text);
-    const amount = offer.amountLabel ? ` (${escapeHtml(offer.amountLabel)})` : "";
-    const link = offer.venue.link ? `\n${escapeHtml(offer.venue.link)}` : "";
-    lines.push(`• <b>${venueName}</b>: ${offerText}${amount}${link}`);
+  if (appeared.length) {
+    lines.push("<b>New:</b>");
+    for (const offer of appeared.slice(0, 30)) {
+      lines.push(formatOfferLine("•", offer));
+    }
+    if (appeared.length > 30) {
+      lines.push(`...and ${appeared.length - 30} more new offers.`);
+    }
   }
 
-  if (changes.interestingAppeared.length > offers.length) {
-    lines.push(`...and ${changes.interestingAppeared.length - offers.length} more.`);
+  if (ended.length) {
+    if (appeared.length) {
+      lines.push("");
+    }
+    lines.push("<b>Ended / акції більше немає:</b>");
+    for (const offer of ended.slice(0, 30)) {
+      lines.push(formatOfferLine("✖", offer));
+    }
+    if (ended.length > 30) {
+      lines.push(`...and ${ended.length - 30} more ended offers.`);
+    }
+  }
+
+  if (!appeared.length && !ended.length) {
+    lines.push("No notification-worthy changes.");
   }
 
   return lines.join("\n");
+}
+
+function formatOfferLine(prefix, offer) {
+  const venueName = escapeHtml(offer.venue.name);
+  const offerText = escapeHtml(offer.text);
+  const amount = offer.amountLabel ? ` (${escapeHtml(offer.amountLabel)})` : "";
+  const link = offer.venue.link ? `\n${escapeHtml(offer.venue.link)}` : "";
+  return `${prefix} <b>${venueName}</b>: ${offerText}${amount}${link}`;
 }
 
 function escapeHtml(value) {

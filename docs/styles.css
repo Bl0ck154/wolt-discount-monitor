@@ -388,6 +388,53 @@ th {
   text-decoration: none;
 }
 
+.group-details-row > td {
+  padding-top: 0;
+  background: #fbfcfd;
+  border-bottom: 1px solid var(--line);
+}
+
+.group-details {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.group-details summary {
+  width: max-content;
+  cursor: pointer;
+  list-style: none;
+}
+
+.group-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.group-details[open] summary {
+  margin-bottom: 6px;
+  color: var(--brand);
+}
+
+.nested-table {
+  min-width: 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.nested-table td {
+  padding: 5px 8px;
+  font-size: 12px;
+}
+
+.nested-num {
+  width: 34px;
+  color: var(--muted);
+  text-align: right;
+  font-weight: 800;
+}
+
 .empty {
   padding: 30px;
   color: var(--muted);

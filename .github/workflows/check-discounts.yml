@@ -30,6 +30,7 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           MIN_DISCOUNT_EUR: ${{ vars.MIN_DISCOUNT_EUR }}
+          MIN_DISCOUNT_PERCENT: ${{ vars.MIN_DISCOUNT_PERCENT }}
           INCLUDE_ZERO_DELIVERY: ${{ vars.INCLUDE_ZERO_DELIVERY }}
         run: node src/check-discounts.mjs
 

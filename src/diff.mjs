@@ -25,19 +25,21 @@ export function diffSnapshots(previous, current) {
     appeared,
     disappeared,
     interestingAppeared: appeared.filter(isInterestingOffer),
+    interestingDisappeared: disappeared.filter(isInterestingOffer),
   };
 }
 
 export function isInterestingOffer(offer) {
   const text = offer.text.toLowerCase();
   const isDelivery = /delivery/.test(text);
+  const isSelectedItem = /selected\s+(?:item|items|product|products)|specific\s+(?:item|items|product|products)/i.test(text);
 
-  if (!NOTIFY_RULES.includeZeroDelivery && isDelivery) {
+  if (offer.isUtilityBadge || isSelectedItem || (!NOTIFY_RULES.includeZeroDelivery && isDelivery)) {
     return false;
   }
 
   if (offer.amountType === "percent" && Number.isFinite(offer.amount)) {
-    return true;
+    return offer.amount >= NOTIFY_RULES.minDiscountPercent;
   }
 
   if (
@@ -49,6 +51,10 @@ export function isInterestingOffer(offer) {
   }
 
   return /%|off|discount|deal|save|nuolaid/i.test(offer.text) && !isDelivery;
+}
+
+export function interestingOfferIndex(snapshot) {
+  return new Map([...offerIndex(snapshot)].filter(([, offer]) => isInterestingOffer(offer)));
 }
 
 function offerIndex(snapshot) {
@@ -63,7 +69,6 @@ function offerIndex(snapshot) {
       const stableKey = [
         venue.slug ?? venue.id,
         offer.campaignId ?? offer.text,
-        offer.sourcePath,
       ].join("|");
 
       map.set(stableKey, {
@@ -75,6 +80,7 @@ function offerIndex(snapshot) {
           link: venue.link,
           imageUrl: venue.imageUrl,
         },
+        stableKey,
         ...offer,
       });
     }

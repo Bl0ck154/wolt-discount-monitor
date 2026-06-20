@@ -77,21 +77,45 @@ function renderRows() {
     .filter(({ venue }) => !productLine || venue.productLine === productLine)
     .filter(({ venue }) => matchesQuery(venue, query))
     .filter(({ visibleOffers }) => visibleOffers.length > 0)
-    .sort(sorter())
-    .slice(0, 1000);
+    .sort(sorter());
+  const groups = groupRows(rows).slice(0, 1000);
 
-  elements.shownCount.textContent = `${formatNumber(rows.length)} shown / ${formatNumber(state.rows.length)} total`;
+  elements.shownCount.textContent = `${formatNumber(groups.length)} groups / ${formatNumber(rows.length)} venues / ${formatNumber(state.rows.length)} total`;
   syncSortUi();
 
-  if (!rows.length) {
+  if (!groups.length) {
     elements.venueRows.innerHTML = `<tr><td colspan="7" class="empty">No matching venues</td></tr>`;
     return;
   }
 
-  elements.venueRows.innerHTML = rows.map((row, index) => renderVenueRow(row.venue, row.visibleOffers, index + 1)).join("");
+  elements.venueRows.innerHTML = groups.map((group, index) => renderVenueGroup(group, index + 1)).join("");
 }
 
-function renderVenueRow(venue, visibleOffers, index) {
+function renderVenueGroup(group, index) {
+  const main = renderVenueRow(group.primary.venue, group.primary.visibleOffers, index, group.rows.length);
+  if (group.rows.length === 1) {
+    return main;
+  }
+
+  const detailRows = group.rows
+    .map(({ venue, visibleOffers }, locationIndex) => renderGroupDetailRow(venue, visibleOffers, locationIndex + 1))
+    .join("");
+
+  return `${main}
+    <tr class="group-details-row">
+      <td></td>
+      <td colspan="6">
+        <details class="group-details">
+          <summary>▸ ${escapeHtml(group.rootName)} locations (${group.rows.length})</summary>
+          <table class="nested-table">
+            <tbody>${detailRows}</tbody>
+          </table>
+        </details>
+      </td>
+    </tr>`;
+}
+
+function renderVenueRow(venue, visibleOffers, index, groupSize = 1) {
   const image = venue.imageUrl
     ? `<img class="venue-image" src="${escapeHtml(venue.imageUrl)}" alt="" loading="lazy" />`
     : `<div class="venue-image" aria-hidden="true"></div>`;
@@ -112,7 +136,7 @@ function renderVenueRow(venue, visibleOffers, index) {
             <a class="venue-title" href="${escapeHtml(venue.link ?? "#")}" target="_blank" rel="noreferrer">
               ${escapeHtml(venue.name)}
             </a>
-            <div class="venue-meta">${escapeHtml([venue.address, venue.slug].filter(Boolean).join(" · "))}</div>
+            <div class="venue-meta">${escapeHtml([venue.address, venue.slug, groupSize > 1 ? `${groupSize} locations` : null].filter(Boolean).join(" · "))}</div>
           </div>
         </div>
       </td>
@@ -123,6 +147,59 @@ function renderVenueRow(venue, visibleOffers, index) {
       <td>${mapUrl ? `<a class="map-link" href="${escapeHtml(mapUrl)}" target="_blank" rel="noreferrer" title="Open in Google Maps">🗺️</a>` : "-"}</td>
     </tr>
   `;
+}
+
+function renderGroupDetailRow(venue, visibleOffers, index) {
+  const best = bestDiscount(venue);
+  const hours = openingLabel(venue);
+  const mapUrl = mapLink(venue);
+  const offers = visibleOffers.map((offer) => `<span class="offer ${offerClass(offer)}">${escapeHtml(offer.text)}</span>`).join("");
+
+  return `<tr>
+    <td class="nested-num">${index}</td>
+    <td>
+      <a class="venue-title" href="${escapeHtml(venue.link ?? "#")}" target="_blank" rel="noreferrer">${escapeHtml(venue.name)}</a>
+      <div class="venue-meta">${escapeHtml([venue.address, venue.slug].filter(Boolean).join(" · "))}</div>
+    </td>
+    <td><div class="offer-list">${offers}</div></td>
+    <td class="amount">${escapeHtml(best?.label ?? "-")}</td>
+    <td><span class="hours ${hours.className}">${escapeHtml(hours.icon)} ${escapeHtml(hours.text)}</span></td>
+    <td>${mapUrl ? `<a class="map-link" href="${escapeHtml(mapUrl)}" target="_blank" rel="noreferrer" title="Open in Google Maps">🗺️</a>` : "-"}</td>
+  </tr>`;
+}
+
+function groupRows(rows) {
+  const groups = [];
+  const byKey = new Map();
+
+  for (const row of rows) {
+    const rootName = chainRootName(row.venue.name);
+    const key = [rootName.toLowerCase(), offerSignature(row.visibleOffers)].join("|");
+    let group = byKey.get(key);
+    if (!group) {
+      group = { key, rootName, primary: row, rows: [] };
+      byKey.set(key, group);
+      groups.push(group);
+    }
+    group.rows.push(row);
+  }
+
+  return groups.map((group) => ({
+    ...group,
+    rows: group.rows.sort((a, b) => a.venue.name.localeCompare(b.venue.name)),
+  }));
+}
+
+function chainRootName(name = "") {
+  return String(name)
+    .replace(/\s*\([^)]*\)\s*$/g, "")
+    .replace(/\s+-\s+[^-]+$/g, "")
+    .replace(/\s{2,}/g, " ")
+    .trim() || String(name);
+}
+
+function offerSignature(offers) {
+  return offers.map((offer) => normalizeOfferText(offer.text).toLowerCase()).sort().join("|");
 }
 
 function visibleOffers(venue) {
@@ -339,13 +416,16 @@ function openingLabel(venue) {
     return { icon: "🔴", text: humanOpeningText(opening.label ?? venue.openingStatus, "Closed"), className: "hours-closed" };
   }
   if (venue.estimateRange) {
-    return { icon: "🟢", text: "Likely open", className: "hours-open" };
+    return { icon: "🟢", text: "Open now", className: "hours-open" };
   }
-  return { icon: "⚪", text: opening.label ?? venue.openingStatus ?? venue.openingHours ?? "Unknown", className: "hours-unknown" };
+  return { icon: "⚪", text: opening.label ?? venue.openingStatus ?? venue.openingHours ?? "No status", className: "hours-unknown" };
 }
 
 function humanOpeningText(text, fallback) {
-  const normalized = normalizeOfferText(text);
+  const normalized = normalizeOfferText(text)
+    .replace(/\bSchedule order\b/gi, "")
+    .replace(/\bClosed\b/gi, "")
+    .trim();
   if (!normalized || normalized.toLowerCase() === "min") {
     return fallback;
   }

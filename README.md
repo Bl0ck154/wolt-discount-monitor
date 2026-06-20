@@ -127,7 +127,8 @@ TELEGRAM_CHAT_ID
 Optional repository variables:
 
 ```text
-MIN_DISCOUNT_EUR=2
+MIN_DISCOUNT_EUR=3
+MIN_DISCOUNT_PERCENT=20
 INCLUDE_ZERO_DELIVERY=false
 ```
 
@@ -137,6 +138,7 @@ The checker writes:
 docs/data/latest.json
 docs/data/changes.json
 docs/data/changes-log.json
+docs/data/notified-offers.json
 ```
 
 GitHub Pages is deployed by `.github/workflows/deploy-pages.yml` from the `docs/` folder.

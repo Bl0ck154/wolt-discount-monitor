@@ -25,7 +25,7 @@ function normalizeVenueRow(row, sourceEndpoint) {
   const offers = extractOffers(venue);
   const best = bestDiscount(offers);
   const coordinates = extractCoordinates(venue) ?? extractCoordinates(row.item);
-  const opening = extractOpening(venue);
+  const opening = extractOpening(venue, row.item);
 
   return {
     id: venue.id ?? null,
@@ -267,12 +267,15 @@ function buildMapUrl(venue, coordinates) {
   return query ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}` : null;
 }
 
-function extractOpening(venue) {
+function extractOpening(venue, item) {
   const rawStatus = [
     venue.online_status,
     venue.opening_status,
     venue.status,
     venue.status_label,
+    item?.overlay_v2?.primary_text,
+    item?.overlay_v2?.secondary_text,
+    item?.overlay,
   ]
     .filter(Boolean)
     .join(" ");
@@ -293,9 +296,24 @@ function extractOpening(venue) {
   }
 
   const hours = venue.opening_hours?.text ?? venue.opening_times?.text ?? venue.opening_time ?? null;
-  const label = rawStatus || (isOpen === true ? "Open now" : isOpen === false ? "Closed" : hours ?? "Unknown");
+  const rawLabel = humanStatusLabel(rawStatus);
+  const label = isOpen === true ? "Open now" : rawLabel || (isOpen === false ? "Closed" : hours ?? "No status");
 
   return { isOpen, label, hours };
+}
+
+function humanStatusLabel(value = "") {
+  const normalized = String(value)
+    .replace(/\s+/g, " ")
+    .replace(/\bSchedule order\b/gi, "")
+    .replace(/\bClosed\b/gi, "")
+    .trim();
+
+  if (!normalized || normalized.toLowerCase() === "min") {
+    return null;
+  }
+
+  return normalized;
 }
 
 function scoreOffer(offer) {
