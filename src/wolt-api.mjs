@@ -20,9 +20,10 @@ export async function fetchJson(url) {
 
     if (response.status === 429 && attempt < maxAttempts) {
       const retryAfter = Number(response.headers.get("retry-after"));
-      const delayMs = Number.isFinite(retryAfter)
-        ? retryAfter * 1000
-        : 5000 * attempt * attempt;
+      const delayMs = Math.max(
+        Number.isFinite(retryAfter) ? retryAfter * 1000 : 0,
+        15000 * attempt,
+      );
       await sleep(delayMs);
       continue;
     }
