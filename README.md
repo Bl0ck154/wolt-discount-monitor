@@ -82,6 +82,66 @@ No package install is required. The script only uses Node's built-in `fetch`.
 The workflow in `.github/workflows/check-discounts.yml` runs on a fixed cron schedule.
 There is no random sleep inside the script.
 
+The Wolt check job intentionally runs on a self-hosted runner instead of a
+GitHub-hosted runner:
+
+```yaml
+runs-on: [self-hosted, Linux, X64, wolt]
+```
+
+Reason: Wolt currently returns `429 Too Many Requests` from GitHub-hosted runner
+IP ranges even with browser-like headers and retry/backoff. The Contabo VPS IP
+is accepted by Wolt, so the scheduled checker runs from that server.
+
+Current runner details for future maintainers/agents:
+
+```text
+Provider: Contabo
+IP: [redacted-server-ip]
+Host: [redacted-server-host]
+OS: Ubuntu 24.04 LTS
+SSH key on local machine: ~/.ssh/[redacted-ssh-key-name]
+SSH user: root
+Runner install dir: /opt/actions-runner-wolt
+Runner service: actions.runner.Bl0ck154-wolt-vilnius-discounts.contabo-wolt.service
+Runner OS user: github-runner
+Runner name in GitHub: contabo-wolt
+Runner labels: self-hosted, Linux, X64, wolt, contabo
+```
+
+Useful maintenance commands on the VPS:
+
+```bash
+systemctl status actions.runner.Bl0ck154-wolt-vilnius-discounts.contabo-wolt.service
+systemctl restart actions.runner.Bl0ck154-wolt-vilnius-discounts.contabo-wolt.service
+journalctl -u actions.runner.Bl0ck154-wolt-vilnius-discounts.contabo-wolt.service -n 200 --no-pager
+cd /opt/actions-runner-wolt && ./svc.sh status
+```
+
+Useful GitHub-side checks:
+
+```bash
+gh api repos/Bl0ck154/wolt-vilnius-discounts/actions/runners \
+  --jq '.runners[] | {name,status,busy,labels:[.labels[].name]}'
+
+gh workflow run "Check Wolt discounts" --repo Bl0ck154/wolt-vilnius-discounts --ref main
+gh run list --repo Bl0ck154/wolt-vilnius-discounts --workflow "Check Wolt discounts" --limit 5
+```
+
+Before changing the runner/server, verify Wolt works from that machine:
+
+```bash
+curl -i 'https://consumer-api.wolt.com/v1/pages/venue-list/promotions-near-you?lon=25.2682558&lat=54.6901231' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Platform: Web' \
+  -H 'Referer: https://wolt.com/' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Safari/537.36'
+```
+
+Expected result is HTTP `200` with JSON. HTTP `429` means the server/IP is not a
+good runner for this checker.
+
 Required repository secrets for Telegram notifications:
 
 ```text
