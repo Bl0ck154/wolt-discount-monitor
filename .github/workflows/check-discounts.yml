@@ -3,11 +3,12 @@ name: Check Wolt discounts
 on:
   workflow_dispatch:
   schedule:
-    # GitHub cron is UTC and can be delayed. Run several attempts around the
-    # target Vilnius windows; the local-time guard below skips late attempts.
-    # Includes both summer and winter UTC offsets for 12:30 and 17:30 Vilnius.
-    - cron: "30-59/5 9,10,14,15 * * *"
-    - cron: "0-5/5 10,11,15,16 * * *"
+    # GitHub cron is UTC and can be delayed. Use plain explicit cron entries
+    # that GitHub Actions reliably accepts; the local-time guard below skips
+    # late attempts. Includes summer and winter UTC offsets for 12:30 and
+    # 17:30 Europe/Vilnius.
+    - cron: "30,35,40,45,50,55 9,10,14,15 * * *"
+    - cron: "0,5 10,11,15,16 * * *"
 
 permissions:
   contents: write
