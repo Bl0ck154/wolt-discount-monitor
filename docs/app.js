@@ -1,11 +1,17 @@
 const state = {
   snapshot: null,
+  citiesIndex: null,
+  selectedCity: null,
   rows: [],
   sortKey: "best",
   sortDir: "desc",
 };
 
 const elements = {
+  cityLabel: document.querySelector("#cityLabel"),
+  cityMapLink: document.querySelector("#cityMapLink"),
+  citySelect: document.querySelector("#citySelect"),
+  sourceLink: document.querySelector("#sourceLink"),
   promoCount: document.querySelector("#promoCount"),
   restaurantCount: document.querySelector("#restaurantCount"),
   updatedAt: document.querySelector("#updatedAt"),
@@ -24,27 +30,116 @@ init().catch((error) => {
 });
 
 async function init() {
-  const response = await fetch("data/latest.json", { cache: "no-store" });
+  state.citiesIndex = await loadCitiesIndex();
+  hydrateCitySelect();
+  elements.citySelect.addEventListener("change", () => {
+    const cityId = elements.citySelect.value;
+    setCityInUrl(cityId);
+    loadSnapshotForCity(cityId).catch((error) => showError(error));
+  });
+
+  const cityId = requestedCityId();
+  await loadSnapshotForCity(cityId);
+  bindControls();
+}
+
+async function loadSnapshotForCity(cityId) {
+  const city = cityById(cityId) ?? defaultCity();
+  const response = await fetch(dataPathForCity(city), { cache: "no-store" });
   if (!response.ok) {
-    throw new Error("No data yet. Run the checker first.");
+    state.selectedCity = city;
+    state.snapshot = null;
+    state.rows = [];
+    elements.citySelect.value = city.id;
+    hydrateSummary();
+    hydrateFilters();
+    renderRows();
+    throw new Error(`No cached discount data yet for ${city.label ?? city.name}. Run the checker for this city first.`);
   }
 
   state.snapshot = await response.json();
+  state.selectedCity = { ...(state.snapshot.city ?? {}), ...city };
   state.rows = state.snapshot.venues ?? [];
+  elements.citySelect.value = state.selectedCity.id;
   hydrateSummary();
   hydrateFilters();
-  bindControls();
   renderRows();
 }
 
+async function loadCitiesIndex() {
+  const response = await fetch("data/cities.json", { cache: "no-store" });
+  if (response.ok) {
+    return response.json();
+  }
+
+  return {
+    defaultCityId: "ltu/vilnius",
+    cities: [
+      {
+        id: "ltu/vilnius",
+        key: "ltu-vilnius",
+        slug: "vilnius",
+        name: "Vilnius",
+        country: "Lithuania",
+        countryCode: "ltu",
+        countryCode2: "LT",
+        countryCode3: "LTU",
+        lat: 54.6901231,
+        lon: 25.2682558,
+        locale: "en",
+        label: "Vilnius, Lithuania",
+        latestPath: "data/latest.json",
+        dataPath: "data/latest.json",
+      },
+    ],
+  };
+}
+
+function hydrateCitySelect() {
+  elements.citySelect.innerHTML = groupedCityOptions(state.citiesIndex.cities ?? [])
+    .join("");
+}
+
+function groupedCityOptions(cities) {
+  const groups = new Map();
+  for (const city of cities) {
+    const country = city.country ?? "Other";
+    if (!groups.has(country)) {
+      groups.set(country, []);
+    }
+    groups.get(country).push(city);
+  }
+
+  return [...groups.entries()]
+    .sort(([a], [b]) => a.localeCompare(b, "en"))
+    .map(([country, countryCities]) => {
+      const options = countryCities
+        .sort((a, b) => a.name.localeCompare(b.name, "en"))
+        .map((city) => {
+          const suffix = city.updatedAt ? "" : " · not cached";
+          return `<option value="${escapeHtml(city.id)}">${escapeHtml(`${city.name}${suffix}`)}</option>`;
+        })
+        .join("");
+      return `<optgroup label="${escapeHtml(country)}">${options}</optgroup>`;
+    });
+}
+
 function hydrateSummary() {
-  elements.promoCount.textContent = formatNumber(state.snapshot.counts.promotionsUniqueVenues);
-  elements.restaurantCount.textContent = formatNumber(state.snapshot.counts.restaurantsUniqueVenues);
-  elements.updatedAt.textContent = new Date(state.snapshot.generatedAt).toLocaleString();
+  const city = state.selectedCity ?? {};
+  const label = city.label ?? [city.name, city.country].filter(Boolean).join(", ");
+  elements.cityLabel.textContent = label || "Unknown city";
+  elements.cityMapLink.href = cityMapUrl(city);
+  elements.cityMapLink.title = `Open ${label} coordinates in Maps`;
+  elements.cityMapLink.setAttribute("aria-label", `Open ${label} coordinates in Maps`);
+  elements.sourceLink.href = dataPathForCity(cityById(city.id) ?? city);
+  elements.sourceLink.textContent = `${city.key ?? city.id ?? "latest"}.json`;
+  elements.promoCount.textContent = formatNumber(state.snapshot?.counts?.promotionsUniqueVenues);
+  elements.restaurantCount.textContent = formatNumber(state.snapshot?.counts?.restaurantsUniqueVenues);
+  elements.updatedAt.textContent = state.snapshot?.generatedAt ? new Date(state.snapshot.generatedAt).toLocaleString() : "not cached";
 }
 
 function hydrateFilters() {
-  const productLines = Object.keys(state.snapshot.counts.productLines ?? {});
+  const productLines = Object.keys(state.snapshot?.counts?.productLines ?? {});
   elements.productFilter.innerHTML = [
     `<option value="">All types</option>`,
     ...productLines.map((line) => `<option value="${escapeHtml(line)}">${escapeHtml(label(line))}</option>`),
@@ -52,6 +147,11 @@ function hydrateFilters() {
 }
 
 function bindControls() {
+  if (bindControls.bound) {
+    return;
+  }
+  bindControls.bound = true;
+
   elements.searchInput.addEventListener("input", renderRows);
   elements.productFilter.addEventListener("change", renderRows);
   elements.hideNewUserDelivery.addEventListener("change", renderRows);
@@ -66,6 +166,10 @@ function bindControls() {
       renderRows();
     });
   });
+}
+
+function showError(error) {
+  elements.venueRows.innerHTML = `<tr><td colspan="7" class="empty">${escapeHtml(error.message)}</td></tr>`;
 }
 
 function renderRows() {
@@ -458,9 +562,54 @@ function mapLink(venue) {
     return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${lat},${lon}`)}`;
   }
   if (venue.address || venue.name) {
-    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent([venue.name, venue.address, "Vilnius"].filter(Boolean).join(" "))}`;
+    const city = state.selectedCity ?? {};
+    const cityText = city.label ?? [city.name, city.country].filter(Boolean).join(", ");
+    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent([venue.name, venue.address, cityText].filter(Boolean).join(" "))}`;
   }
   return null;
+}
+
+function requestedCityId() {
+  const requested = new URLSearchParams(window.location.search).get("city");
+  return cityById(requested)?.id ?? defaultCity().id;
+}
+
+function setCityInUrl(cityId) {
+  const url = new URL(window.location.href);
+  if (cityId === defaultCity().id) {
+    url.searchParams.delete("city");
+  } else {
+    url.searchParams.set("city", cityId);
+  }
+  window.history.replaceState({}, "", url);
+}
+
+function cityById(cityId) {
+  const defaultCityId = state.citiesIndex?.defaultCityId ?? "ltu/vilnius";
+  return (state.citiesIndex?.cities ?? []).find((city) => city.id === cityId || city.key === cityId || city.slug === cityId && city.id === defaultCityId);
+}
+
+function defaultCity() {
+  return cityById(state.citiesIndex?.defaultCityId) ?? state.citiesIndex?.cities?.[0] ?? { id: "ltu/vilnius", key: "ltu-vilnius", slug: "vilnius", name: "Vilnius", country: "Lithuania" };
+}
+
+function dataPathForCity(city) {
+  if (city?.latestPath) {
+    return city.latestPath;
+  }
+  if (city?.dataPath) {
+    return city.dataPath;
+  }
+  const key = city?.key ?? String(city?.id ?? "").replace("/", "-");
+  return city?.id === "ltu/vilnius" || city?.id === "vilnius" ? "data/latest.json" : `data/cities/${key}/latest.json`;
+}
+
+function cityMapUrl(city) {
+  if (Number.isFinite(city?.lat) && Number.isFinite(city?.lon)) {
+    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${city.lat},${city.lon}`)}`;
+  }
+  const label = city?.label ?? [city?.name, city?.country].filter(Boolean).join(", ");
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(label)}`;
 }
 
 function setSortFromSelect(value) {

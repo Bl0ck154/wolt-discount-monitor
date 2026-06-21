@@ -1,0 +1,1244 @@
+[
+  {
+    "generatedAt": "2026-06-21T19:13:30.475Z",
+    "previousGeneratedAt": null,
+    "appeared": 720,
+    "disappeared": 0,
+    "interestingAppeared": 41,
+    "notifiedNew": 41,
+    "notifiedEnded": 0,
+    "interesting": [
+      {
+        "venue": {
+          "id": "682b1c8f4686426642c3737d",
+          "slug": "arabia-mickeviciaus-g",
+          "name": "Arabia",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/arabia-mickeviciaus-g",
+          "imageUrl": "https://imageproxy.wolt.com/assets/6841520cce4ac5a6172f02b6"
+        },
+        "stableKey": "arabia-mickeviciaus-g|69ccee88e332c923f18e6f60",
+        "key": "venue.promotions:69ccee88e332c923f18e6f60",
+        "sourcePath": "venue.promotions",
+        "campaignId": "69ccee88e332c923f18e6f60",
+        "text": "30% off",
+        "amount": 30,
+        "amountType": "percent",
+        "amountLabel": "30%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4030,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "69ccee88e332c923f18e6f60",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "30% off",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "63033e8ad2f8528973cbc697",
+          "slug": "araratas-pramones-pr",
+          "name": "Araratas (Pramonės pr.)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/araratas-pramones-pr",
+          "imageUrl": "https://imageproxy.wolt.com/assets/6733114d479a971266a6d622"
+        },
+        "stableKey": "araratas-pramones-pr|69f51b98fea7f85ade5c2541",
+        "key": "venue.promotions_for_telemetry:69f51b98fea7f85ade5c2541",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "69f51b98fea7f85ade5c2541",
+        "text": "5 € off (spend 25 €)",
+        "amount": 5,
+        "amountType": "money",
+        "amountLabel": "5 EUR",
+        "category": "money",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 2005,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "69f51b98fea7f85ade5c2541",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "5 € off (spend 25 €)",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "6644aa536ebf190f7b65f0fe",
+          "slug": "balionai-gimtadieniui",
+          "name": "Balionai gimtadieniui",
+          "productLine": "general_merchandise",
+          "link": "https://wolt.com/en/ltu/kaunas/venue/balionai-gimtadieniui",
+          "imageUrl": "https://imageproxy.wolt.com/assets/679b40b572cfd659ee801cca"
+        },
+        "stableKey": "balionai-gimtadieniui|698ee9e43cc61509c00d6193",
+        "key": "venue.promotions_for_telemetry:698ee9e43cc61509c00d6193",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "698ee9e43cc61509c00d6193",
+        "text": "1.50 € off (spend 30 €)",
+        "amount": 1.5,
+        "amountType": "money",
+        "amountLabel": "1.5 EUR",
+        "category": "money",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 2001.5,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "698ee9e43cc61509c00d6193",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "1.50 € off (spend 30 €)",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "664c768dfa7f50327cb7fea8",
+          "slug": "breakfast-brothers-pc-akropolis",
+          "name": "Breakfast Brothers (Akropolis Kaunas)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/breakfast-brothers-pc-akropolis",
+          "imageUrl": "https://imageproxy.wolt.com/assets/67335dbd40111921ceedbcb4"
+        },
+        "stableKey": "breakfast-brothers-pc-akropolis|6954d6e546d1f70255d61eb1",
+        "key": "venue.promotions:6954d6e546d1f70255d61eb1",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6954d6e546d1f70255d61eb1",
+        "text": "-25% basket discount",
+        "amount": 25,
+        "amountType": "percent",
+        "amountLabel": "25%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 5025,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6954d6e546d1f70255d61eb1",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-25% basket discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "664c97f456d5d946b40b16d4",
+          "slug": "breakfast-brothers-mega",
+          "name": "Breakfast Brothers (Mega)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/breakfast-brothers-mega",
+          "imageUrl": "https://imageproxy.wolt.com/assets/67335dbf29cd4b694e52a671"
+        },
+        "stableKey": "breakfast-brothers-mega|6954d6e546d1f70255d61eb1",
+        "key": "venue.promotions:6954d6e546d1f70255d61eb1",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6954d6e546d1f70255d61eb1",
+        "text": "-25% basket discount",
+        "amount": 25,
+        "amountType": "percent",
+        "amountLabel": "25%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 5025,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6954d6e546d1f70255d61eb1",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-25% basket discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "664c74c7fa7f50327cb7fea1",
+          "slug": "breakfast-brothers-pc-molas",
+          "name": "Breakfast Brothers (Molas Kaunas)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/breakfast-brothers-pc-molas",
+          "imageUrl": "https://imageproxy.wolt.com/assets/67335dbc40111921ceedbca5"
+        },
+        "stableKey": "breakfast-brothers-pc-molas|6954d6e546d1f70255d61eb1",
+        "key": "venue.promotions:6954d6e546d1f70255d61eb1",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6954d6e546d1f70255d61eb1",
+        "text": "-25% basket discount",
+        "amount": 25,
+        "amountType": "percent",
+        "amountLabel": "25%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 5025,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6954d6e546d1f70255d61eb1",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-25% basket discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "664c735c2273de480c2513c0",
+          "slug": "breakfast-brothers-pc-savas",
+          "name": "Breakfast Brothers (Savas)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/breakfast-brothers-pc-savas",
+          "imageUrl": "https://imageproxy.wolt.com/assets/67335dbb18b8c2487381d624"
+        },
+        "stableKey": "breakfast-brothers-pc-savas|6954d6e546d1f70255d61eb1",
+        "key": "venue.promotions:6954d6e546d1f70255d61eb1",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6954d6e546d1f70255d61eb1",
+        "text": "-25% basket discount",
+        "amount": 25,
+        "amountType": "percent",
+        "amountLabel": "25%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 5025,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6954d6e546d1f70255d61eb1",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-25% basket discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "646d92838dab216f8b587946",
+          "slug": "buffalo-wings-kaunas",
+          "name": "Buffalo wings",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/buffalo-wings-kaunas",
+          "imageUrl": "https://imageproxy.wolt.com/assets/673213e9479a971266a6a169"
+        },
+        "stableKey": "buffalo-wings-kaunas|69736330006e2ef9765372ad",
+        "key": "venue.promotions_for_telemetry:69736330006e2ef9765372ad",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "69736330006e2ef9765372ad",
+        "text": "Buy 3, get €1 off",
+        "amount": 1,
+        "amountType": "money",
+        "amountLabel": "1 EUR",
+        "category": "money",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 3001,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "69736330006e2ef9765372ad",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "Buy 3, get €1 off",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "646d92838dab216f8b587946",
+          "slug": "buffalo-wings-kaunas",
+          "name": "Buffalo wings",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/buffalo-wings-kaunas",
+          "imageUrl": "https://imageproxy.wolt.com/assets/673213e9479a971266a6a169"
+        },
+        "stableKey": "buffalo-wings-kaunas|6973641563fc1db176b6d5ad",
+        "key": "venue.promotions_for_telemetry:6973641563fc1db176b6d5ad",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6973641563fc1db176b6d5ad",
+        "text": "Buy 4, get €1,50 off",
+        "amount": 1.5,
+        "amountType": "money",
+        "amountLabel": "1.5 EUR",
+        "category": "money",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 3001.5,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6973641563fc1db176b6d5ad",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "Buy 4, get €1,50 off",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "646d92838dab216f8b587946",
+          "slug": "buffalo-wings-kaunas",
+          "name": "Buffalo wings",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/buffalo-wings-kaunas",
+          "imageUrl": "https://imageproxy.wolt.com/assets/673213e9479a971266a6a169"
+        },
+        "stableKey": "buffalo-wings-kaunas|69736827006e2ef9765372b9",
+        "key": "venue.promotions_for_telemetry:69736827006e2ef9765372b9",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "69736827006e2ef9765372b9",
+        "text": "Buy 5, get €2 off",
+        "amount": 2,
+        "amountType": "money",
+        "amountLabel": "2 EUR",
+        "category": "money",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 3002,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "69736827006e2ef9765372b9",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "Buy 5, get €2 off",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "6098e1fb195cc0db915ef9ab",
+          "slug": "chick-n-roll",
+          "name": "Chick N' Roll",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/chick-n-roll",
+          "imageUrl": "https://imageproxy.wolt.com/assets/67331cf887540c2a1d3f47f7"
+        },
+        "stableKey": "chick-n-roll|6978be74e7387b93fdb33617",
+        "key": "venue.promotions_for_telemetry:6978be74e7387b93fdb33617",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6978be74e7387b93fdb33617",
+        "text": "2.50 € off (spend 25 €)",
+        "amount": 2.5,
+        "amountType": "money",
+        "amountLabel": "2.5 EUR",
+        "category": "money",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 2002.5,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6978be74e7387b93fdb33617",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "2.50 € off (spend 25 €)",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "698d99339707ea5796caddfc",
+          "slug": "cili-kaimas-savas",
+          "name": "Čili kaimas (Savas)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/cili-kaimas-savas",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/c7c3963c-8565-4038-9bdb-dd4481726c38/8a4c074b-a636-4fe1-a49c-8ffa3b999820"
+        },
+        "stableKey": "cili-kaimas-savas|69944b3ac8b7c074e4be69a4",
+        "key": "venue.promotions_for_telemetry:69944b3ac8b7c074e4be69a4",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "69944b3ac8b7c074e4be69a4",
+        "text": "-25% basket discount",
+        "amount": 25,
+        "amountType": "percent",
+        "amountLabel": "25%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 5025,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "69944b3ac8b7c074e4be69a4",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-25% basket discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5c88f8a244c0f8000a517b08",
+          "slug": "cili-pizza-akropolis-kaunas",
+          "name": "Čili pizza (Akropolis Kaunas)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/cili-pizza-akropolis-kaunas",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/473b21dc-0e94-4220-9a10-93572aeb342d/fe27f512-11e4-4d60-8700-ace67c33c7c0"
+        },
+        "stableKey": "cili-pizza-akropolis-kaunas|695e2eb13e8c9ed35d3e9982",
+        "key": "venue.promotions:695e2eb13e8c9ed35d3e9982",
+        "sourcePath": "venue.promotions",
+        "campaignId": "695e2eb13e8c9ed35d3e9982",
+        "text": "-25% off the basket",
+        "amount": 25,
+        "amountType": "percent",
+        "amountLabel": "25%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 5025,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "695e2eb13e8c9ed35d3e9982",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-25% off the basket",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5c88f7efc4ee62000a6f5168",
+          "slug": "cili-pizza-mega",
+          "name": "Čili pizza (Mega)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/cili-pizza-mega",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/473b21dc-0e94-4220-9a10-93572aeb342d/fe27f512-11e4-4d60-8700-ace67c33c7c0"
+        },
+        "stableKey": "cili-pizza-mega|695e2eb13e8c9ed35d3e9982",
+        "key": "venue.promotions:695e2eb13e8c9ed35d3e9982",
+        "sourcePath": "venue.promotions",
+        "campaignId": "695e2eb13e8c9ed35d3e9982",
+        "text": "-25% off the basket",
+        "amount": 25,
+        "amountType": "percent",
+        "amountLabel": "25%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 5025,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "695e2eb13e8c9ed35d3e9982",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-25% off the basket",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5c88f7b421f5ae000b83c933",
+          "slug": "cili-pizza-k-barsausko-g",
+          "name": "Čili pizza (Molas Kaunas)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/cili-pizza-k-barsausko-g",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/473b21dc-0e94-4220-9a10-93572aeb342d/fe27f512-11e4-4d60-8700-ace67c33c7c0"
+        },
+        "stableKey": "cili-pizza-k-barsausko-g|695e2eb13e8c9ed35d3e9982",
+        "key": "venue.promotions:695e2eb13e8c9ed35d3e9982",
+        "sourcePath": "venue.promotions",
+        "campaignId": "695e2eb13e8c9ed35d3e9982",
+        "text": "-25% off the basket",
+        "amount": 25,
+        "amountType": "percent",
+        "amountLabel": "25%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 5025,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "695e2eb13e8c9ed35d3e9982",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-25% off the basket",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5c88f77585b894000c185ec5",
+          "slug": "cili-pizza-savanoriu-pr",
+          "name": "Čili pizza (Savas)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/cili-pizza-savanoriu-pr",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/473b21dc-0e94-4220-9a10-93572aeb342d/fe27f512-11e4-4d60-8700-ace67c33c7c0"
+        },
+        "stableKey": "cili-pizza-savanoriu-pr|69e76742dceef26b291c58e5",
+        "key": "venue.promotions:69e76742dceef26b291c58e5",
+        "sourcePath": "venue.promotions",
+        "campaignId": "69e76742dceef26b291c58e5",
+        "text": "-20% off the basket",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 5020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "69e76742dceef26b291c58e5",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-20% off the basket",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "62e17ff178bf861cb26a3bcc",
+          "slug": "dodo-pizza-laisves-al",
+          "name": "Dodo Pizza (Laisvės al.)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/dodo-pizza-laisves-al",
+          "imageUrl": "https://imageproxy.wolt.com/assets/67320795c87b187b8ec52055"
+        },
+        "stableKey": "dodo-pizza-laisves-al|6a28052116ce14d1b540d2ab",
+        "key": "venue.promotions_for_telemetry:6a28052116ce14d1b540d2ab",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a28052116ce14d1b540d2ab",
+        "text": "30% Off Your Favourites",
+        "amount": 30,
+        "amountType": "percent",
+        "amountLabel": "30%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4030,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a28052116ce14d1b540d2ab",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "30% Off Your Favourites",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "6a06b9523bcfe1051793667e",
+          "slug": "gorilla-sushi",
+          "name": "Gorilla Sushi",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/gorilla-sushi",
+          "imageUrl": "https://imageproxy.wolt.com/assets/6a06ba6acf8c9f142af4e4fa"
+        },
+        "stableKey": "gorilla-sushi|6a2c6350c61b8311aa855543",
+        "key": "venue.promotions:6a2c6350c61b8311aa855543",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a2c6350c61b8311aa855543",
+        "text": "20% off (up to 50 €)",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a2c6350c61b8311aa855543",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "20% off (up to 50 €)",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "65c38b10559c3fd024b94a50",
+          "slug": "kaimukaimas",
+          "name": "Kaimų kaimas  (Akropolis Kaunas)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/kaimukaimas",
+          "imageUrl": "https://imageproxy.wolt.com/assets/67331cae87540c2a1d3f44b1"
+        },
+        "stableKey": "kaimukaimas|6954d65846d1f70255d61ea8",
+        "key": "venue.promotions:6954d65846d1f70255d61ea8",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6954d65846d1f70255d61ea8",
+        "text": "-25% basket discount",
+        "amount": 25,
+        "amountType": "percent",
+        "amountLabel": "25%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 5025,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6954d65846d1f70255d61ea8",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-25% basket discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "661fc128ff1b1568e5361628",
+          "slug": "kaimu-kaimas-mega",
+          "name": "Kaimų kaimas (Mega)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/kaimu-kaimas-mega",
+          "imageUrl": "https://imageproxy.wolt.com/assets/6733303af45db57ef600c9c2"
+        },
+        "stableKey": "kaimu-kaimas-mega|6954d65846d1f70255d61ea8",
+        "key": "venue.promotions:6954d65846d1f70255d61ea8",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6954d65846d1f70255d61ea8",
+        "text": "-25% basket discount",
+        "amount": 25,
+        "amountType": "percent",
+        "amountLabel": "25%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 5025,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6954d65846d1f70255d61ea8",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-25% basket discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "631b39ca3bdbd3f1b22742fd",
+          "slug": "kaimu-kaimas-k-barsausko-g",
+          "name": "Kaimų kaimas (Molas Kaunas)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/kaimu-kaimas-k-barsausko-g",
+          "imageUrl": "https://imageproxy.wolt.com/assets/6732144ab0d9132803d448f1"
+        },
+        "stableKey": "kaimu-kaimas-k-barsausko-g|6954d65846d1f70255d61ea8",
+        "key": "venue.promotions:6954d65846d1f70255d61ea8",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6954d65846d1f70255d61ea8",
+        "text": "-25% basket discount",
+        "amount": 25,
+        "amountType": "percent",
+        "amountLabel": "25%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 5025,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6954d65846d1f70255d61ea8",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-25% basket discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "631b36a4eed476df284cce5f",
+          "slug": "kaimu-kaimas-savanoriu-pr",
+          "name": "Kaimų kaimas (Savas)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/kaimu-kaimas-savanoriu-pr",
+          "imageUrl": "https://imageproxy.wolt.com/assets/673213fef45db57ef6005262"
+        },
+        "stableKey": "kaimu-kaimas-savanoriu-pr|6954d65846d1f70255d61ea8",
+        "key": "venue.promotions:6954d65846d1f70255d61ea8",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6954d65846d1f70255d61ea8",
+        "text": "-25% basket discount",
+        "amount": 25,
+        "amountType": "percent",
+        "amountLabel": "25%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 5025,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6954d65846d1f70255d61ea8",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-25% basket discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "6188f0bd6150b88a069f18ea",
+          "slug": "kfc-kaunas",
+          "name": "KFC (Kaunas)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/kfc-kaunas",
+          "imageUrl": "https://imageproxy.wolt.com/assets/6732072d55bbaf14ece7fb21"
+        },
+        "stableKey": "kfc-kaunas|6a2bda38bd2192c2fd1972fe",
+        "key": "venue.promotions:6a2bda38bd2192c2fd1972fe",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a2bda38bd2192c2fd1972fe",
+        "text": "Basket discount -30%",
+        "amount": 30,
+        "amountType": "percent",
+        "amountLabel": "30%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 5030,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a2bda38bd2192c2fd1972fe",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "Basket discount -30%",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "658169befebd9911644d67a0",
+          "slug": "lunchin-akropolis",
+          "name": "Lunchin' (Akropolis Kaunas)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/lunchin-akropolis",
+          "imageUrl": "https://imageproxy.wolt.com/assets/673214a9d626ac704e40bfca"
+        },
+        "stableKey": "lunchin-akropolis|6954d6cefe5ffba0f8450932",
+        "key": "venue.promotions:6954d6cefe5ffba0f8450932",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6954d6cefe5ffba0f8450932",
+        "text": "-25% basket discount",
+        "amount": 25,
+        "amountType": "percent",
+        "amountLabel": "25%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 5025,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6954d6cefe5ffba0f8450932",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-25% basket discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "662b8038aca678580e20f2e7",
+          "slug": "lunchin-pc-mega",
+          "name": "Lunchin' (Mega)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/lunchin-pc-mega",
+          "imageUrl": "https://imageproxy.wolt.com/assets/67335d99355e20019c75b155"
+        },
+        "stableKey": "lunchin-pc-mega|6954d6cefe5ffba0f8450932",
+        "key": "venue.promotions:6954d6cefe5ffba0f8450932",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6954d6cefe5ffba0f8450932",
+        "text": "-25% basket discount",
+        "amount": 25,
+        "amountType": "percent",
+        "amountLabel": "25%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 5025,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6954d6cefe5ffba0f8450932",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-25% basket discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "658169befebd9911644d679f",
+          "slug": "lunchin-barsausko",
+          "name": "Lunchin' (Molas Kaunas)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/lunchin-barsausko",
+          "imageUrl": "https://imageproxy.wolt.com/assets/67331cee8eb99221ab03cf3d"
+        },
+        "stableKey": "lunchin-barsausko|6954d6cefe5ffba0f8450932",
+        "key": "venue.promotions:6954d6cefe5ffba0f8450932",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6954d6cefe5ffba0f8450932",
+        "text": "-25% basket discount",
+        "amount": 25,
+        "amountType": "percent",
+        "amountLabel": "25%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 5025,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6954d6cefe5ffba0f8450932",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-25% basket discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "658169befebd9911644d679e",
+          "slug": "lunchin-pcsavas",
+          "name": "Lunchin' (Savas)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/lunchin-pcsavas",
+          "imageUrl": "https://imageproxy.wolt.com/assets/673214f2a94945236d40be64"
+        },
+        "stableKey": "lunchin-pcsavas|6954d6cefe5ffba0f8450932",
+        "key": "venue.promotions:6954d6cefe5ffba0f8450932",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6954d6cefe5ffba0f8450932",
+        "text": "-25% basket discount",
+        "amount": 25,
+        "amountType": "percent",
+        "amountLabel": "25%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 5025,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6954d6cefe5ffba0f8450932",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-25% basket discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "661fc5bb8872f810f97b1b33",
+          "slug": "pizzelle-akropolis-kaunas",
+          "name": "Pizzelle (Akropolis Kaunas)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/pizzelle-akropolis-kaunas",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/32d360fb-c5a6-459f-98d0-43f45b6effe6/f979ce20-eb81-4c65-b10c-c4475a5395a5"
+        },
+        "stableKey": "pizzelle-akropolis-kaunas|6954d6b346d1f70255d61eac",
+        "key": "venue.promotions:6954d6b346d1f70255d61eac",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6954d6b346d1f70255d61eac",
+        "text": "-25% basket discount",
+        "amount": 25,
+        "amountType": "percent",
+        "amountLabel": "25%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 5025,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6954d6b346d1f70255d61eac",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-25% basket discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "661fc1adff1b1568e536162a",
+          "slug": "pizzelle-mega",
+          "name": "Pizzelle (Mega)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/pizzelle-mega",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/32d360fb-c5a6-459f-98d0-43f45b6effe6/f979ce20-eb81-4c65-b10c-c4475a5395a5"
+        },
+        "stableKey": "pizzelle-mega|6954d6b346d1f70255d61eac",
+        "key": "venue.promotions:6954d6b346d1f70255d61eac",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6954d6b346d1f70255d61eac",
+        "text": "-25% basket discount",
+        "amount": 25,
+        "amountType": "percent",
+        "amountLabel": "25%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 5025,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6954d6b346d1f70255d61eac",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-25% basket discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "624ae19b2b09bbe5e4c470bf",
+          "slug": "pizzelle-k-barsausko-g",
+          "name": "Pizzelle (Molas Kaunas)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/pizzelle-k-barsausko-g",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/32d360fb-c5a6-459f-98d0-43f45b6effe6/f979ce20-eb81-4c65-b10c-c4475a5395a5"
+        },
+        "stableKey": "pizzelle-k-barsausko-g|6954d6b346d1f70255d61eac",
+        "key": "venue.promotions:6954d6b346d1f70255d61eac",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6954d6b346d1f70255d61eac",
+        "text": "-25% basket discount",
+        "amount": 25,
+        "amountType": "percent",
+        "amountLabel": "25%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 5025,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6954d6b346d1f70255d61eac",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-25% basket discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "624adee00650f76d3a17b6b8",
+          "slug": "pizzelle-savanoriu-pr",
+          "name": "Pizzelle (Savas)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/pizzelle-savanoriu-pr",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/32d360fb-c5a6-459f-98d0-43f45b6effe6/f979ce20-eb81-4c65-b10c-c4475a5395a5"
+        },
+        "stableKey": "pizzelle-savanoriu-pr|6954d6b346d1f70255d61eac",
+        "key": "venue.promotions:6954d6b346d1f70255d61eac",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6954d6b346d1f70255d61eac",
+        "text": "-25% basket discount",
+        "amount": 25,
+        "amountType": "percent",
+        "amountLabel": "25%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 5025,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6954d6b346d1f70255d61eac",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-25% basket discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "657af2b3a7b3da05cb312c11",
+          "slug": "ridikelis-ir-salota-akropolis-kaunas",
+          "name": "Ridikėlis ir salota (Akropolis Kaunas)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/ridikelis-ir-salota-akropolis-kaunas",
+          "imageUrl": "https://imageproxy.wolt.com/assets/67331ccb9c282655618a13e2"
+        },
+        "stableKey": "ridikelis-ir-salota-akropolis-kaunas|6954d68ffe5ffba0f845092d",
+        "key": "venue.promotions:6954d68ffe5ffba0f845092d",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6954d68ffe5ffba0f845092d",
+        "text": "-25% basket discount",
+        "amount": 25,
+        "amountType": "percent",
+        "amountLabel": "25%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 5025,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6954d68ffe5ffba0f845092d",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-25% basket discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "661fc438ff1b1568e5361635",
+          "slug": "ridikelis-ir-salota-mega",
+          "name": "Ridikėlis ir salota (Mega)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/ridikelis-ir-salota-mega",
+          "imageUrl": "https://imageproxy.wolt.com/assets/6733303b8e594205e1011e64"
+        },
+        "stableKey": "ridikelis-ir-salota-mega|6954d68ffe5ffba0f845092d",
+        "key": "venue.promotions:6954d68ffe5ffba0f845092d",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6954d68ffe5ffba0f845092d",
+        "text": "-25% basket discount",
+        "amount": 25,
+        "amountType": "percent",
+        "amountLabel": "25%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 5025,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6954d68ffe5ffba0f845092d",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-25% basket discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "657af2b3a7b3da05cb312c10",
+          "slug": "ridikelis-ir-salota-molas-kaunas",
+          "name": "Ridikėlis ir salota (PC Molas Kaunas)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/ridikelis-ir-salota-molas-kaunas",
+          "imageUrl": "https://imageproxy.wolt.com/assets/673214d276049a2184577d23"
+        },
+        "stableKey": "ridikelis-ir-salota-molas-kaunas|6954d68ffe5ffba0f845092d",
+        "key": "venue.promotions:6954d68ffe5ffba0f845092d",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6954d68ffe5ffba0f845092d",
+        "text": "-25% basket discount",
+        "amount": 25,
+        "amountType": "percent",
+        "amountLabel": "25%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 5025,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6954d68ffe5ffba0f845092d",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-25% basket discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "657af2b3a7b3da05cb312c0f",
+          "slug": "ridikelis-ir-salota-savas",
+          "name": "Ridikėlis ir salota (Savas)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/ridikelis-ir-salota-savas",
+          "imageUrl": "https://imageproxy.wolt.com/assets/673214e836490b6739cf610d"
+        },
+        "stableKey": "ridikelis-ir-salota-savas|6954d68ffe5ffba0f845092d",
+        "key": "venue.promotions:6954d68ffe5ffba0f845092d",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6954d68ffe5ffba0f845092d",
+        "text": "-25% basket discount",
+        "amount": 25,
+        "amountType": "percent",
+        "amountLabel": "25%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 5025,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6954d68ffe5ffba0f845092d",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-25% basket discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "6011c87de84da906ae23ee4c",
+          "slug": "sotus-svecias-vytauto-pr",
+          "name": "Sotus Svečias (Vytauto pr. )",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/sotus-svecias-vytauto-pr",
+          "imageUrl": "https://imageproxy.wolt.com/assets/673208e639260268ebd25754"
+        },
+        "stableKey": "sotus-svecias-vytauto-pr|696cc24dbdc2fba933e4f591",
+        "key": "venue.promotions_for_telemetry:696cc24dbdc2fba933e4f591",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "696cc24dbdc2fba933e4f591",
+        "text": "2.50 € off (spend 25 €)",
+        "amount": 2.5,
+        "amountType": "money",
+        "amountLabel": "2.5 EUR",
+        "category": "money",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 2002.5,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "696cc24dbdc2fba933e4f591",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "2.50 € off (spend 25 €)",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "60670204aab20b62f2b722a5",
+          "slug": "sushi-lounge-laisves-al",
+          "name": "Sushi Lounge (Laisvės al.)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/sushi-lounge-laisves-al",
+          "imageUrl": "https://imageproxy.wolt.com/assets/6732090c3d9125692aad32d3"
+        },
+        "stableKey": "sushi-lounge-laisves-al|698079e1435c6349abdc9382",
+        "key": "venue.promotions:698079e1435c6349abdc9382",
+        "sourcePath": "venue.promotions",
+        "campaignId": "698079e1435c6349abdc9382",
+        "text": "20% off (orders over 25 €)",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "698079e1435c6349abdc9382",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "20% off (orders over 25 €)",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "69a6c23b367e1fc69df05ffe",
+          "slug": "tikra-vista-akropolis-kaunas",
+          "name": "Tikra Višta (Akropolis Kaunas)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/tikra-vista-akropolis-kaunas",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/579a75ea-82c3-4978-b515-f8c7de671d79/5995df39-8b0b-454e-9443-61e1c0deed11"
+        },
+        "stableKey": "tikra-vista-akropolis-kaunas|69ba6af08a8953a4eda623cc",
+        "key": "venue.promotions_for_telemetry:69ba6af08a8953a4eda623cc",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "69ba6af08a8953a4eda623cc",
+        "text": "-25% basket discount",
+        "amount": 25,
+        "amountType": "percent",
+        "amountLabel": "25%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 5025,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "69ba6af08a8953a4eda623cc",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-25% basket discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "69a6c50dd96623b17e1889d1",
+          "slug": "tikra-vista-mega",
+          "name": "Tikra Višta (Mega)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/tikra-vista-mega",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/579a75ea-82c3-4978-b515-f8c7de671d79/5995df39-8b0b-454e-9443-61e1c0deed11"
+        },
+        "stableKey": "tikra-vista-mega|69ba6af08a8953a4eda623cc",
+        "key": "venue.promotions_for_telemetry:69ba6af08a8953a4eda623cc",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "69ba6af08a8953a4eda623cc",
+        "text": "-25% basket discount",
+        "amount": 25,
+        "amountType": "percent",
+        "amountLabel": "25%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 5025,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "69ba6af08a8953a4eda623cc",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-25% basket discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "69a6c2d7d96623b17e188967",
+          "slug": "tikra-vista-molas-kaunas",
+          "name": "Tikra Višta (Molas Kaunas)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/tikra-vista-molas-kaunas",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/579a75ea-82c3-4978-b515-f8c7de671d79/5995df39-8b0b-454e-9443-61e1c0deed11"
+        },
+        "stableKey": "tikra-vista-molas-kaunas|69ba6af08a8953a4eda623cc",
+        "key": "venue.promotions_for_telemetry:69ba6af08a8953a4eda623cc",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "69ba6af08a8953a4eda623cc",
+        "text": "-25% basket discount",
+        "amount": 25,
+        "amountType": "percent",
+        "amountLabel": "25%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 5025,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "69ba6af08a8953a4eda623cc",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-25% basket discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "69a6c16b367e1fc69df05ffa",
+          "slug": "tikra-vista-savas",
+          "name": "Tikra Višta (Savas)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/kaunas/restaurant/tikra-vista-savas",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/579a75ea-82c3-4978-b515-f8c7de671d79/5995df39-8b0b-454e-9443-61e1c0deed11"
+        },
+        "stableKey": "tikra-vista-savas|69ba6af08a8953a4eda623cc",
+        "key": "venue.promotions_for_telemetry:69ba6af08a8953a4eda623cc",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "69ba6af08a8953a4eda623cc",
+        "text": "-25% basket discount",
+        "amount": 25,
+        "amountType": "percent",
+        "amountLabel": "25%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 5025,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "69ba6af08a8953a4eda623cc",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-25% basket discount",
+          "variant": "discount"
+        }
+      }
+    ],
+    "ended": []
+  }
+]

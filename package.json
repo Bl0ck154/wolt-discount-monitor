@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "check": "node src/check-discounts.mjs",
+    "cities": "node src/build-city-catalog.mjs",
     "dashboard": "node src/build-dashboard-data.mjs",
     "start": "node src/check-discounts.mjs",
     "target": "node src/wolt-promotions-poc.mjs --slug lukiskiu-kalejimas-20 --dynamic"

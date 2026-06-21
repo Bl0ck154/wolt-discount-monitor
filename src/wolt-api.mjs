@@ -1,4 +1,4 @@
-import { CITY, WOLT_HEADERS } from "./config.mjs";
+import { CACHE_TTL_MS, CITY, WOLT_HEADERS } from "./config.mjs";
 
 export function endpoints({ lat = CITY.lat, lon = CITY.lon } = {}) {
   return {
@@ -66,8 +66,8 @@ export function uniqueByVenue(rows) {
   return [...byKey.values()];
 }
 
-export async function fetchVilniusData() {
-  const urls = endpoints();
+export async function fetchCityData(city = CITY) {
+  const urls = endpoints(city);
   const restaurantsPayload = await fetchJson(urls.restaurants);
   await sleep(2500);
   const promotionsPayload = await fetchJson(urls.promotions);
@@ -76,12 +76,26 @@ export async function fetchVilniusData() {
   const promoRows = uniqueByVenue(collectVenueItems(promotionsPayload));
 
   return {
+    city,
     urls,
     restaurantsPayload,
     promotionsPayload,
     restaurantRows,
     promoRows,
   };
+}
+
+export async function fetchVilniusData() {
+  return fetchCityData(CITY);
+}
+
+export function isSnapshotFresh(snapshot, { now = Date.now(), ttlMs = CACHE_TTL_MS } = {}) {
+  if (!snapshot?.generatedAt || ttlMs <= 0) {
+    return false;
+  }
+
+  const generatedAt = Date.parse(snapshot.generatedAt);
+  return Number.isFinite(generatedAt) && now - generatedAt < ttlMs;
 }
 
 function sleep(ms) {

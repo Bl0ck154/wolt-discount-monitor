@@ -3,26 +3,33 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Wolt Vilnius Discounts</title>
+    <title>Wolt Discounts</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="topbar">
       <div>
         <p class="eyebrow-row">
-          <span class="eyebrow">Vilnius, Lithuania</span>
+          <span class="eyebrow" id="cityLabel">Loading city...</span>
           <a
             class="location-map-link"
-            href="https://www.google.com/maps/search/?api=1&query=54.6901231,25.2682558"
+            id="cityMapLink"
+            href="#"
             target="_blank"
             rel="noreferrer"
-            title="Open Vilnius coordinates in Maps"
-            aria-label="Open Vilnius coordinates in Maps"
+            title="Open city coordinates in Maps"
+            aria-label="Open city coordinates in Maps"
           >🗺️</a>
         </p>
         <h1>Wolt discount monitor</h1>
       </div>
-      <a class="source-link" href="data/latest.json">latest.json</a>
+      <div class="header-actions">
+        <label class="city-picker-label">
+          <span>City</span>
+          <select id="citySelect"></select>
+        </label>
+        <a class="source-link" id="sourceLink" href="data/latest.json">latest.json</a>
+      </div>
     </header>
 
     <main>

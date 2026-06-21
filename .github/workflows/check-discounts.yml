@@ -2,6 +2,16 @@ name: Check Wolt discounts
 
 on:
   workflow_dispatch:
+    inputs:
+      cities:
+        description: "Comma-separated Wolt city ids, for example ltu/vilnius,deu/berlin"
+        required: false
+        default: "ltu/vilnius"
+      all_cities:
+        description: "Check every city from the Wolt catalog (large run)"
+        required: false
+        default: false
+        type: boolean
   schedule:
     # GitHub cron is UTC and can be delayed. Use plain explicit cron entries
     # that GitHub Actions reliably accepts; the local-time guard below skips
@@ -56,6 +66,10 @@ jobs:
           MIN_DISCOUNT_EUR: ${{ vars.MIN_DISCOUNT_EUR }}
           MIN_DISCOUNT_PERCENT: ${{ vars.MIN_DISCOUNT_PERCENT }}
           INCLUDE_ZERO_DELIVERY: ${{ vars.INCLUDE_ZERO_DELIVERY }}
+          WOLT_CACHE_TTL_HOURS: ${{ vars.WOLT_CACHE_TTL_HOURS }}
+          WOLT_REFRESH_CITY_CATALOG: "true"
+          WOLT_CITIES: ${{ github.event.inputs.cities }}
+          WOLT_ALL_CITIES: ${{ github.event.inputs.all_cities }}
         run: node src/check-discounts.mjs
 
       - name: Commit updated data
@@ -63,4 +77,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Update Wolt discount data"
-          file_pattern: "docs/data/*.json"
+          file_pattern: "docs/data/*.json docs/data/cities/**/*.json"

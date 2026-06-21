@@ -1,0 +1,1514 @@
+[
+  {
+    "generatedAt": "2026-06-21T19:13:36.215Z",
+    "previousGeneratedAt": null,
+    "appeared": 1448,
+    "disappeared": 0,
+    "interestingAppeared": 127,
+    "notifiedNew": 127,
+    "notifiedEnded": 0,
+    "interesting": [
+      {
+        "venue": {
+          "id": "69c2c61081a028f6e0c5008a",
+          "slug": "altaza-kebabs-brivibas",
+          "name": "Al Taza Kebabs",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/altaza-kebabs-brivibas",
+          "imageUrl": "https://imageproxy.wolt.com/assets/69c50c242e428a020f56425a"
+        },
+        "stableKey": "altaza-kebabs-brivibas|6a37f314717ae299e3378c64",
+        "key": "venue.promotions:6a37f314717ae299e3378c64",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a37f314717ae299e3378c64",
+        "text": "25% off",
+        "amount": 25,
+        "amountType": "percent",
+        "amountLabel": "25%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4025,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a37f314717ae299e3378c64",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "25% off",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "68481ca6391f3ad859ada245",
+          "slug": "artisian-kebab-and-pizza-riga",
+          "name": "Artisian Kebab and Pizza",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/artisian-kebab-and-pizza-riga",
+          "imageUrl": "https://imageproxy.wolt.com/assets/684c108bd9ec7ea7c3f4e069"
+        },
+        "stableKey": "artisian-kebab-and-pizza-riga|6a37f3af4de89a85e14c8881",
+        "key": "venue.promotions:6a37f3af4de89a85e14c8881",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a37f3af4de89a85e14c8881",
+        "text": "25% off (up to 50 €)",
+        "amount": 25,
+        "amountType": "percent",
+        "amountLabel": "25%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4025,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a37f3af4de89a85e14c8881",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "25% off (up to 50 €)",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "685bee36ac8328d7129b634d",
+          "slug": "billi-grill-bar-riga",
+          "name": "Billi - Grill Bar",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/billi-grill-bar-riga",
+          "imageUrl": "https://imageproxy.wolt.com/assets/686e2b0a9aa298f40fedc547"
+        },
+        "stableKey": "billi-grill-bar-riga|6a1c569d60d97ffb6cf172ba",
+        "key": "venue.promotions:6a1c569d60d97ffb6cf172ba",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a1c569d60d97ffb6cf172ba",
+        "text": "20% off (up to 50 €)",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a1c569d60d97ffb6cf172ba",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "20% off (up to 50 €)",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "67a5bfff9c073d261206438c",
+          "slug": "bistro-abrakadabra-riga",
+          "name": "Bistro Abrakadabra (Skanstes)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/bistro-abrakadabra-riga",
+          "imageUrl": "https://imageproxy.wolt.com/assets/67a5c1537bcf8b4700f5c2c5"
+        },
+        "stableKey": "bistro-abrakadabra-riga|69d8c240f8c4950b7761fd08",
+        "key": "venue.promotions:69d8c240f8c4950b7761fd08",
+        "sourcePath": "venue.promotions",
+        "campaignId": "69d8c240f8c4950b7761fd08",
+        "text": "3 € off",
+        "amount": 3,
+        "amountType": "money",
+        "amountLabel": "3 EUR",
+        "category": "money",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 3003,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "69d8c240f8c4950b7761fd08",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "3 € off",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5fdcb59e1d4635e3e1cc7257",
+          "slug": "cantatadomina",
+          "name": "Cantata (Domina)",
+          "productLine": "grocery",
+          "link": "https://wolt.com/en/lva/riga/venue/cantatadomina",
+          "imageUrl": "https://imageproxy.wolt.com/assets/67866169bac07d46359c019f"
+        },
+        "stableKey": "cantatadomina|698ca2f9ac0887b3cc13bd48",
+        "key": "venue.promotions:698ca2f9ac0887b3cc13bd48",
+        "sourcePath": "venue.promotions",
+        "campaignId": "698ca2f9ac0887b3cc13bd48",
+        "text": "5 € off (spend 30 €)",
+        "amount": 5,
+        "amountType": "money",
+        "amountLabel": "5 EUR",
+        "category": "money",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 2005,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "698ca2f9ac0887b3cc13bd48",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "5 € off (spend 30 €)",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5fdcb59e1d4635e3e1cc7257",
+          "slug": "cantatadomina",
+          "name": "Cantata (Domina)",
+          "productLine": "grocery",
+          "link": "https://wolt.com/en/lva/riga/venue/cantatadomina",
+          "imageUrl": "https://imageproxy.wolt.com/assets/67866169bac07d46359c019f"
+        },
+        "stableKey": "cantatadomina|698ca2d2cdc12db805c2047d",
+        "key": "venue.promotions_for_telemetry:698ca2d2cdc12db805c2047d",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "698ca2d2cdc12db805c2047d",
+        "text": "3 € off (spend 20 €)",
+        "amount": 3,
+        "amountType": "money",
+        "amountLabel": "3 EUR",
+        "category": "money",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 2003,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "698ca2d2cdc12db805c2047d",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "3 € off (spend 20 €)",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "69aec67a0a9c3183e7692a68",
+          "slug": "chaatwala",
+          "name": "Chaatwala",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/chaatwala",
+          "imageUrl": "https://imageproxy.wolt.com/assets/69b9509a7c9c9b060ee5e326"
+        },
+        "stableKey": "chaatwala|69c15417a6cb653a14fc2934",
+        "key": "venue.promotions:69c15417a6cb653a14fc2934",
+        "sourcePath": "venue.promotions",
+        "campaignId": "69c15417a6cb653a14fc2934",
+        "text": "20% off (up to 50 €)",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "69c15417a6cb653a14fc2934",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "20% off (up to 50 €)",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "69b278a6dded409647968236",
+          "slug": "delight-kebab",
+          "name": "Delight Kebab",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/delight-kebab",
+          "imageUrl": "https://imageproxy.wolt.com/assets/69b7c416c1a1772fbd187d7e"
+        },
+        "stableKey": "delight-kebab|69baacec2e492e8a38d5c98d",
+        "key": "venue.promotions:69baacec2e492e8a38d5c98d",
+        "sourcePath": "venue.promotions",
+        "campaignId": "69baacec2e492e8a38d5c98d",
+        "text": "20% off (up to 50 €)",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "69baacec2e492e8a38d5c98d",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "20% off (up to 50 €)",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "6454d6b6197dcd69e467c6bf",
+          "slug": "dilettante",
+          "name": "Dilettante",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/dilettante",
+          "imageUrl": "https://imageproxy.wolt.com/assets/67b4329516aace6c1c777a03"
+        },
+        "stableKey": "dilettante|69ce5120d60d7384a4fa4f01",
+        "key": "venue.promotions:69ce5120d60d7384a4fa4f01",
+        "sourcePath": "venue.promotions",
+        "campaignId": "69ce5120d60d7384a4fa4f01",
+        "text": "3 € off (spend 30 €)",
+        "amount": 3,
+        "amountType": "money",
+        "amountLabel": "3 EUR",
+        "category": "money",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 2003,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "69ce5120d60d7384a4fa4f01",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "3 € off (spend 30 €)",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "685128a880435858f402cd49",
+          "slug": "dirty-fries",
+          "name": "Dirty Fries",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/dirty-fries",
+          "imageUrl": "https://imageproxy.wolt.com/assets/6853cd7d2ae352e4b7d12fdc"
+        },
+        "stableKey": "dirty-fries|69d54c548842a7e8742d74dc",
+        "key": "venue.promotions:69d54c548842a7e8742d74dc",
+        "sourcePath": "venue.promotions",
+        "campaignId": "69d54c548842a7e8742d74dc",
+        "text": "30% off (orders over 30 €)",
+        "amount": 30,
+        "amountType": "percent",
+        "amountLabel": "30%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4030,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "69d54c548842a7e8742d74dc",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "30% off (orders over 30 €)",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "685128a880435858f402cd49",
+          "slug": "dirty-fries",
+          "name": "Dirty Fries",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/dirty-fries",
+          "imageUrl": "https://imageproxy.wolt.com/assets/6853cd7d2ae352e4b7d12fdc"
+        },
+        "stableKey": "dirty-fries|69d79f7446669a4cc2c1dde2",
+        "key": "venue.promotions_for_telemetry:69d79f7446669a4cc2c1dde2",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "69d79f7446669a4cc2c1dde2",
+        "text": "3 € off (spend 15 €)",
+        "amount": 3,
+        "amountType": "money",
+        "amountLabel": "3 EUR",
+        "category": "money",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 2003,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "69d79f7446669a4cc2c1dde2",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "3 € off (spend 15 €)",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "65e86f2e28562e6920872294",
+          "slug": "dumplings-king-blaumana",
+          "name": "Dumpling's King (Blaumaņa)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/dumplings-king-blaumana",
+          "imageUrl": "https://imageproxy.wolt.com/assets/673214c85e9fa56b919d4de3"
+        },
+        "stableKey": "dumplings-king-blaumana|66bb9ff0a664e7a34183f885",
+        "key": "venue.promotions:66bb9ff0a664e7a34183f885",
+        "sourcePath": "venue.promotions",
+        "campaignId": "66bb9ff0a664e7a34183f885",
+        "text": "20% off",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "66bb9ff0a664e7a34183f885",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "20% off",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "67c5697102dfa81bf67ff7bc",
+          "slug": "erocity-ilukstes",
+          "name": "Erocity (Ilūkstes)",
+          "productLine": "general_merchandise",
+          "link": "https://wolt.com/en/lva/riga/venue/erocity-ilukstes",
+          "imageUrl": "https://imageproxy.wolt.com/assets/67c569d2150e92790bee6d7c"
+        },
+        "stableKey": "erocity-ilukstes|6a19f0bdf44685636bc52e9b",
+        "key": "venue.promotions:6a19f0bdf44685636bc52e9b",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a19f0bdf44685636bc52e9b",
+        "text": "25% off",
+        "amount": 25,
+        "amountType": "percent",
+        "amountLabel": "25%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4025,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a19f0bdf44685636bc52e9b",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "25% off",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "66e95418b6d4962e5674b6c3",
+          "slug": "erocity",
+          "name": "Erocity (Pētersalas)",
+          "productLine": "general_merchandise",
+          "link": "https://wolt.com/en/lva/riga/venue/erocity",
+          "imageUrl": "https://imageproxy.wolt.com/assets/67335edc555d8d6d801e1337"
+        },
+        "stableKey": "erocity|6a19f0bdf44685636bc52e9b",
+        "key": "venue.promotions:6a19f0bdf44685636bc52e9b",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a19f0bdf44685636bc52e9b",
+        "text": "25% off",
+        "amount": 25,
+        "amountType": "percent",
+        "amountLabel": "25%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4025,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a19f0bdf44685636bc52e9b",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "25% off",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "69982564763dfd3713a90fe6",
+          "slug": "firebox-pizzaburger",
+          "name": "FireBox Pizza&Burger",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/firebox-pizzaburger",
+          "imageUrl": "https://imageproxy.wolt.com/assets/69d60352f73c504e2e5f6d1a"
+        },
+        "stableKey": "firebox-pizzaburger|69e23327dc59dd2477d85d50",
+        "key": "venue.promotions:69e23327dc59dd2477d85d50",
+        "sourcePath": "venue.promotions",
+        "campaignId": "69e23327dc59dd2477d85d50",
+        "text": "25% off",
+        "amount": 25,
+        "amountType": "percent",
+        "amountLabel": "25%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4025,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "69e23327dc59dd2477d85d50",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "25% off",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "6a1e9502493e94eb6eabfbcb",
+          "slug": "frescoland-kebab-1",
+          "name": "Frescoland Kebab",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/frescoland-kebab-1",
+          "imageUrl": "https://imageproxy.wolt.com/assets/6a27fd467de32cf3fb46b6ca"
+        },
+        "stableKey": "frescoland-kebab-1|6a2bfce7530677ff17c6f49b",
+        "key": "venue.promotions:6a2bfce7530677ff17c6f49b",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a2bfce7530677ff17c6f49b",
+        "text": "20% off (up to 50 €)",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a2bfce7530677ff17c6f49b",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "20% off (up to 50 €)",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5fb3df1b4c24710a6f2f37b1",
+          "slug": "good-sushi",
+          "name": "Good Sushi",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/good-sushi",
+          "imageUrl": "https://imageproxy.wolt.com/assets/6732076a80eb896202a8a4a2"
+        },
+        "stableKey": "good-sushi|69c2b2b121b91500d9025a54",
+        "key": "venue.promotions:69c2b2b121b91500d9025a54",
+        "sourcePath": "venue.promotions",
+        "campaignId": "69c2b2b121b91500d9025a54",
+        "text": "20% off (up to 50 €)",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "69c2b2b121b91500d9025a54",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "20% off (up to 50 €)",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5cd938b89bb6ffd8669115dc",
+          "slug": "hesburger-barona-iela",
+          "name": "Hesburger (Barona 44)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/hesburger-barona-iela",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/054a78a9-3914-400b-b39b-817360bfdd1f/27eac0e1-9687-4f7f-ad43-7451528b404d"
+        },
+        "stableKey": "hesburger-barona-iela|6a06d583025503c51bc9935a",
+        "key": "venue.promotions:6a06d583025503c51bc9935a",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a06d583025503c51bc9935a",
+        "text": "24% off Double Cheeseburger",
+        "amount": 24,
+        "amountType": "percent",
+        "amountLabel": "24%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4024,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a06d583025503c51bc9935a",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "24% off Double Cheeseburger",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5cd938b89bb6ffd8669115dc",
+          "slug": "hesburger-barona-iela",
+          "name": "Hesburger (Barona 44)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/hesburger-barona-iela",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/054a78a9-3914-400b-b39b-817360bfdd1f/27eac0e1-9687-4f7f-ad43-7451528b404d"
+        },
+        "stableKey": "hesburger-barona-iela|6a06d696f25f7d16d7ad95f3",
+        "key": "venue.promotions_for_telemetry:6a06d696f25f7d16d7ad95f3",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a06d696f25f7d16d7ad95f3",
+        "text": "21% off Cheeseburger",
+        "amount": 21,
+        "amountType": "percent",
+        "amountLabel": "21%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4021,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a06d696f25f7d16d7ad95f3",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "21% off Cheeseburger",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5cd938b89bb6ffd8669115dc",
+          "slug": "hesburger-barona-iela",
+          "name": "Hesburger (Barona 44)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/hesburger-barona-iela",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/054a78a9-3914-400b-b39b-817360bfdd1f/27eac0e1-9687-4f7f-ad43-7451528b404d"
+        },
+        "stableKey": "hesburger-barona-iela|6a2fd4191c959be4b6c84d51",
+        "key": "venue.promotions_for_telemetry:6a2fd4191c959be4b6c84d51",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a2fd4191c959be4b6c84d51",
+        "text": "20% off BBQ large meal",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a2fd4191c959be4b6c84d51",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "20% off BBQ large meal",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5d83833045bd01fefc249492",
+          "slug": "hesburger-brivibas-62",
+          "name": "Hesburger (Brīvības 62)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/hesburger-brivibas-62",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/054a78a9-3914-400b-b39b-817360bfdd1f/27eac0e1-9687-4f7f-ad43-7451528b404d"
+        },
+        "stableKey": "hesburger-brivibas-62|6a06d583025503c51bc9935a",
+        "key": "venue.promotions:6a06d583025503c51bc9935a",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a06d583025503c51bc9935a",
+        "text": "24% off Double Cheeseburger",
+        "amount": 24,
+        "amountType": "percent",
+        "amountLabel": "24%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4024,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a06d583025503c51bc9935a",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "24% off Double Cheeseburger",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5d83833045bd01fefc249492",
+          "slug": "hesburger-brivibas-62",
+          "name": "Hesburger (Brīvības 62)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/hesburger-brivibas-62",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/054a78a9-3914-400b-b39b-817360bfdd1f/27eac0e1-9687-4f7f-ad43-7451528b404d"
+        },
+        "stableKey": "hesburger-brivibas-62|6a06d696f25f7d16d7ad95f3",
+        "key": "venue.promotions_for_telemetry:6a06d696f25f7d16d7ad95f3",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a06d696f25f7d16d7ad95f3",
+        "text": "21% off Cheeseburger",
+        "amount": 21,
+        "amountType": "percent",
+        "amountLabel": "21%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4021,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a06d696f25f7d16d7ad95f3",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "21% off Cheeseburger",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5d83833045bd01fefc249492",
+          "slug": "hesburger-brivibas-62",
+          "name": "Hesburger (Brīvības 62)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/hesburger-brivibas-62",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/054a78a9-3914-400b-b39b-817360bfdd1f/27eac0e1-9687-4f7f-ad43-7451528b404d"
+        },
+        "stableKey": "hesburger-brivibas-62|6a2fd4191c959be4b6c84d51",
+        "key": "venue.promotions_for_telemetry:6a2fd4191c959be4b6c84d51",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a2fd4191c959be4b6c84d51",
+        "text": "20% off BBQ large meal",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a2fd4191c959be4b6c84d51",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "20% off BBQ large meal",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5cd96ffea23fa9cd3e093210",
+          "slug": "hesburger-brivibas-90",
+          "name": "Hesburger (Brīvības 90)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/hesburger-brivibas-90",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/054a78a9-3914-400b-b39b-817360bfdd1f/27eac0e1-9687-4f7f-ad43-7451528b404d"
+        },
+        "stableKey": "hesburger-brivibas-90|6a06d583025503c51bc9935a",
+        "key": "venue.promotions:6a06d583025503c51bc9935a",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a06d583025503c51bc9935a",
+        "text": "24% off Double Cheeseburger",
+        "amount": 24,
+        "amountType": "percent",
+        "amountLabel": "24%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4024,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a06d583025503c51bc9935a",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "24% off Double Cheeseburger",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5cd96ffea23fa9cd3e093210",
+          "slug": "hesburger-brivibas-90",
+          "name": "Hesburger (Brīvības 90)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/hesburger-brivibas-90",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/054a78a9-3914-400b-b39b-817360bfdd1f/27eac0e1-9687-4f7f-ad43-7451528b404d"
+        },
+        "stableKey": "hesburger-brivibas-90|6a06d696f25f7d16d7ad95f3",
+        "key": "venue.promotions_for_telemetry:6a06d696f25f7d16d7ad95f3",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a06d696f25f7d16d7ad95f3",
+        "text": "21% off Cheeseburger",
+        "amount": 21,
+        "amountType": "percent",
+        "amountLabel": "21%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4021,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a06d696f25f7d16d7ad95f3",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "21% off Cheeseburger",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5cd96ffea23fa9cd3e093210",
+          "slug": "hesburger-brivibas-90",
+          "name": "Hesburger (Brīvības 90)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/hesburger-brivibas-90",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/054a78a9-3914-400b-b39b-817360bfdd1f/27eac0e1-9687-4f7f-ad43-7451528b404d"
+        },
+        "stableKey": "hesburger-brivibas-90|6a2fd4191c959be4b6c84d51",
+        "key": "venue.promotions_for_telemetry:6a2fd4191c959be4b6c84d51",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a2fd4191c959be4b6c84d51",
+        "text": "20% off BBQ large meal",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a2fd4191c959be4b6c84d51",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "20% off BBQ large meal",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5cda552d7db9ef58ae4b81ba",
+          "slug": "hesburger-dzelzavas-iela",
+          "name": "Hesburger (Dzelzavas)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/hesburger-dzelzavas-iela",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/054a78a9-3914-400b-b39b-817360bfdd1f/27eac0e1-9687-4f7f-ad43-7451528b404d"
+        },
+        "stableKey": "hesburger-dzelzavas-iela|6a06d583025503c51bc9935a",
+        "key": "venue.promotions:6a06d583025503c51bc9935a",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a06d583025503c51bc9935a",
+        "text": "24% off Double Cheeseburger",
+        "amount": 24,
+        "amountType": "percent",
+        "amountLabel": "24%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4024,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a06d583025503c51bc9935a",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "24% off Double Cheeseburger",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5cda552d7db9ef58ae4b81ba",
+          "slug": "hesburger-dzelzavas-iela",
+          "name": "Hesburger (Dzelzavas)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/hesburger-dzelzavas-iela",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/054a78a9-3914-400b-b39b-817360bfdd1f/27eac0e1-9687-4f7f-ad43-7451528b404d"
+        },
+        "stableKey": "hesburger-dzelzavas-iela|6a06d696f25f7d16d7ad95f3",
+        "key": "venue.promotions_for_telemetry:6a06d696f25f7d16d7ad95f3",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a06d696f25f7d16d7ad95f3",
+        "text": "21% off Cheeseburger",
+        "amount": 21,
+        "amountType": "percent",
+        "amountLabel": "21%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4021,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a06d696f25f7d16d7ad95f3",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "21% off Cheeseburger",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5cda552d7db9ef58ae4b81ba",
+          "slug": "hesburger-dzelzavas-iela",
+          "name": "Hesburger (Dzelzavas)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/hesburger-dzelzavas-iela",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/054a78a9-3914-400b-b39b-817360bfdd1f/27eac0e1-9687-4f7f-ad43-7451528b404d"
+        },
+        "stableKey": "hesburger-dzelzavas-iela|6a2fd4191c959be4b6c84d51",
+        "key": "venue.promotions_for_telemetry:6a2fd4191c959be4b6c84d51",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a2fd4191c959be4b6c84d51",
+        "text": "20% off BBQ large meal",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a2fd4191c959be4b6c84d51",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "20% off BBQ large meal",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5cda5592f5b89c94077153ac",
+          "slug": "hesburger-krasta-iela",
+          "name": "Hesburger (Krasta 85)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/hesburger-krasta-iela",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/054a78a9-3914-400b-b39b-817360bfdd1f/27eac0e1-9687-4f7f-ad43-7451528b404d"
+        },
+        "stableKey": "hesburger-krasta-iela|6a06d583025503c51bc9935a",
+        "key": "venue.promotions:6a06d583025503c51bc9935a",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a06d583025503c51bc9935a",
+        "text": "24% off Double Cheeseburger",
+        "amount": 24,
+        "amountType": "percent",
+        "amountLabel": "24%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4024,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a06d583025503c51bc9935a",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "24% off Double Cheeseburger",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5cda5592f5b89c94077153ac",
+          "slug": "hesburger-krasta-iela",
+          "name": "Hesburger (Krasta 85)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/hesburger-krasta-iela",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/054a78a9-3914-400b-b39b-817360bfdd1f/27eac0e1-9687-4f7f-ad43-7451528b404d"
+        },
+        "stableKey": "hesburger-krasta-iela|6a06d696f25f7d16d7ad95f3",
+        "key": "venue.promotions_for_telemetry:6a06d696f25f7d16d7ad95f3",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a06d696f25f7d16d7ad95f3",
+        "text": "21% off Cheeseburger",
+        "amount": 21,
+        "amountType": "percent",
+        "amountLabel": "21%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4021,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a06d696f25f7d16d7ad95f3",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "21% off Cheeseburger",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5cda5592f5b89c94077153ac",
+          "slug": "hesburger-krasta-iela",
+          "name": "Hesburger (Krasta 85)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/hesburger-krasta-iela",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/054a78a9-3914-400b-b39b-817360bfdd1f/27eac0e1-9687-4f7f-ad43-7451528b404d"
+        },
+        "stableKey": "hesburger-krasta-iela|6a2fd4191c959be4b6c84d51",
+        "key": "venue.promotions_for_telemetry:6a2fd4191c959be4b6c84d51",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a2fd4191c959be4b6c84d51",
+        "text": "20% off BBQ large meal",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a2fd4191c959be4b6c84d51",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "20% off BBQ large meal",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "606d446359252a5dcfe806b1",
+          "slug": "hesburger-merkela",
+          "name": "Hesburger (Merķeļa 6)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/hesburger-merkela",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/054a78a9-3914-400b-b39b-817360bfdd1f/27eac0e1-9687-4f7f-ad43-7451528b404d"
+        },
+        "stableKey": "hesburger-merkela|6a06d583025503c51bc9935a",
+        "key": "venue.promotions:6a06d583025503c51bc9935a",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a06d583025503c51bc9935a",
+        "text": "24% off Double Cheeseburger",
+        "amount": 24,
+        "amountType": "percent",
+        "amountLabel": "24%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4024,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a06d583025503c51bc9935a",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "24% off Double Cheeseburger",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "606d446359252a5dcfe806b1",
+          "slug": "hesburger-merkela",
+          "name": "Hesburger (Merķeļa 6)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/hesburger-merkela",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/054a78a9-3914-400b-b39b-817360bfdd1f/27eac0e1-9687-4f7f-ad43-7451528b404d"
+        },
+        "stableKey": "hesburger-merkela|6a06d696f25f7d16d7ad95f3",
+        "key": "venue.promotions_for_telemetry:6a06d696f25f7d16d7ad95f3",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a06d696f25f7d16d7ad95f3",
+        "text": "21% off Cheeseburger",
+        "amount": 21,
+        "amountType": "percent",
+        "amountLabel": "21%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4021,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a06d696f25f7d16d7ad95f3",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "21% off Cheeseburger",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "606d446359252a5dcfe806b1",
+          "slug": "hesburger-merkela",
+          "name": "Hesburger (Merķeļa 6)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/hesburger-merkela",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/054a78a9-3914-400b-b39b-817360bfdd1f/27eac0e1-9687-4f7f-ad43-7451528b404d"
+        },
+        "stableKey": "hesburger-merkela|6a2fd4191c959be4b6c84d51",
+        "key": "venue.promotions_for_telemetry:6a2fd4191c959be4b6c84d51",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a2fd4191c959be4b6c84d51",
+        "text": "20% off BBQ large meal",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a2fd4191c959be4b6c84d51",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "20% off BBQ large meal",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5d83a1537dbc28c1d12f8689",
+          "slug": "hesburger-mukusalas-iela",
+          "name": "Hesburger (Mūkusalas)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/hesburger-mukusalas-iela",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/054a78a9-3914-400b-b39b-817360bfdd1f/27eac0e1-9687-4f7f-ad43-7451528b404d"
+        },
+        "stableKey": "hesburger-mukusalas-iela|6a06d583025503c51bc9935a",
+        "key": "venue.promotions:6a06d583025503c51bc9935a",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a06d583025503c51bc9935a",
+        "text": "24% off Double Cheeseburger",
+        "amount": 24,
+        "amountType": "percent",
+        "amountLabel": "24%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4024,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a06d583025503c51bc9935a",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "24% off Double Cheeseburger",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5d83a1537dbc28c1d12f8689",
+          "slug": "hesburger-mukusalas-iela",
+          "name": "Hesburger (Mūkusalas)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/hesburger-mukusalas-iela",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/054a78a9-3914-400b-b39b-817360bfdd1f/27eac0e1-9687-4f7f-ad43-7451528b404d"
+        },
+        "stableKey": "hesburger-mukusalas-iela|6a06d696f25f7d16d7ad95f3",
+        "key": "venue.promotions_for_telemetry:6a06d696f25f7d16d7ad95f3",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a06d696f25f7d16d7ad95f3",
+        "text": "21% off Cheeseburger",
+        "amount": 21,
+        "amountType": "percent",
+        "amountLabel": "21%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4021,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a06d696f25f7d16d7ad95f3",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "21% off Cheeseburger",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5d83a1537dbc28c1d12f8689",
+          "slug": "hesburger-mukusalas-iela",
+          "name": "Hesburger (Mūkusalas)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/hesburger-mukusalas-iela",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/054a78a9-3914-400b-b39b-817360bfdd1f/27eac0e1-9687-4f7f-ad43-7451528b404d"
+        },
+        "stableKey": "hesburger-mukusalas-iela|6a2fd4191c959be4b6c84d51",
+        "key": "venue.promotions_for_telemetry:6a2fd4191c959be4b6c84d51",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a2fd4191c959be4b6c84d51",
+        "text": "20% off BBQ large meal",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a2fd4191c959be4b6c84d51",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "20% off BBQ large meal",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "60939653a78e22c5449c7851",
+          "slug": "hesburger-tc-olimpia",
+          "name": "Hesburger (Olimpia)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/hesburger-tc-olimpia",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/054a78a9-3914-400b-b39b-817360bfdd1f/27eac0e1-9687-4f7f-ad43-7451528b404d"
+        },
+        "stableKey": "hesburger-tc-olimpia|6a06d583025503c51bc9935a",
+        "key": "venue.promotions:6a06d583025503c51bc9935a",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a06d583025503c51bc9935a",
+        "text": "24% off Double Cheeseburger",
+        "amount": 24,
+        "amountType": "percent",
+        "amountLabel": "24%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4024,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a06d583025503c51bc9935a",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "24% off Double Cheeseburger",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "60939653a78e22c5449c7851",
+          "slug": "hesburger-tc-olimpia",
+          "name": "Hesburger (Olimpia)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/hesburger-tc-olimpia",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/054a78a9-3914-400b-b39b-817360bfdd1f/27eac0e1-9687-4f7f-ad43-7451528b404d"
+        },
+        "stableKey": "hesburger-tc-olimpia|6a06d696f25f7d16d7ad95f3",
+        "key": "venue.promotions_for_telemetry:6a06d696f25f7d16d7ad95f3",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a06d696f25f7d16d7ad95f3",
+        "text": "21% off Cheeseburger",
+        "amount": 21,
+        "amountType": "percent",
+        "amountLabel": "21%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4021,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a06d696f25f7d16d7ad95f3",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "21% off Cheeseburger",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "60939653a78e22c5449c7851",
+          "slug": "hesburger-tc-olimpia",
+          "name": "Hesburger (Olimpia)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/hesburger-tc-olimpia",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/054a78a9-3914-400b-b39b-817360bfdd1f/27eac0e1-9687-4f7f-ad43-7451528b404d"
+        },
+        "stableKey": "hesburger-tc-olimpia|6a2fd4191c959be4b6c84d51",
+        "key": "venue.promotions_for_telemetry:6a2fd4191c959be4b6c84d51",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a2fd4191c959be4b6c84d51",
+        "text": "20% off BBQ large meal",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a2fd4191c959be4b6c84d51",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "20% off BBQ large meal",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "68385bd6f913d7a34b9d0fdd",
+          "slug": "hesburger-origo",
+          "name": "Hesburger (Origo)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/hesburger-origo",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/054a78a9-3914-400b-b39b-817360bfdd1f/27eac0e1-9687-4f7f-ad43-7451528b404d"
+        },
+        "stableKey": "hesburger-origo|6a06d583025503c51bc9935a",
+        "key": "venue.promotions:6a06d583025503c51bc9935a",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a06d583025503c51bc9935a",
+        "text": "24% off Double Cheeseburger",
+        "amount": 24,
+        "amountType": "percent",
+        "amountLabel": "24%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4024,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a06d583025503c51bc9935a",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "24% off Double Cheeseburger",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "68385bd6f913d7a34b9d0fdd",
+          "slug": "hesburger-origo",
+          "name": "Hesburger (Origo)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/hesburger-origo",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/054a78a9-3914-400b-b39b-817360bfdd1f/27eac0e1-9687-4f7f-ad43-7451528b404d"
+        },
+        "stableKey": "hesburger-origo|6a06d696f25f7d16d7ad95f3",
+        "key": "venue.promotions_for_telemetry:6a06d696f25f7d16d7ad95f3",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a06d696f25f7d16d7ad95f3",
+        "text": "21% off Cheeseburger",
+        "amount": 21,
+        "amountType": "percent",
+        "amountLabel": "21%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4021,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a06d696f25f7d16d7ad95f3",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "21% off Cheeseburger",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "68385bd6f913d7a34b9d0fdd",
+          "slug": "hesburger-origo",
+          "name": "Hesburger (Origo)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/hesburger-origo",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/054a78a9-3914-400b-b39b-817360bfdd1f/27eac0e1-9687-4f7f-ad43-7451528b404d"
+        },
+        "stableKey": "hesburger-origo|6a2fd4191c959be4b6c84d51",
+        "key": "venue.promotions_for_telemetry:6a2fd4191c959be4b6c84d51",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a2fd4191c959be4b6c84d51",
+        "text": "20% off BBQ large meal",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a2fd4191c959be4b6c84d51",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "20% off BBQ large meal",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5f3e0370a6e49fbb1609945e",
+          "slug": "hesburger-skanstes-iela",
+          "name": "Hesburger (Skanstes)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/hesburger-skanstes-iela",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/054a78a9-3914-400b-b39b-817360bfdd1f/27eac0e1-9687-4f7f-ad43-7451528b404d"
+        },
+        "stableKey": "hesburger-skanstes-iela|6a06d583025503c51bc9935a",
+        "key": "venue.promotions:6a06d583025503c51bc9935a",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a06d583025503c51bc9935a",
+        "text": "24% off Double Cheeseburger",
+        "amount": 24,
+        "amountType": "percent",
+        "amountLabel": "24%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4024,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a06d583025503c51bc9935a",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "24% off Double Cheeseburger",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5f3e0370a6e49fbb1609945e",
+          "slug": "hesburger-skanstes-iela",
+          "name": "Hesburger (Skanstes)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/hesburger-skanstes-iela",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/054a78a9-3914-400b-b39b-817360bfdd1f/27eac0e1-9687-4f7f-ad43-7451528b404d"
+        },
+        "stableKey": "hesburger-skanstes-iela|6a06d696f25f7d16d7ad95f3",
+        "key": "venue.promotions_for_telemetry:6a06d696f25f7d16d7ad95f3",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a06d696f25f7d16d7ad95f3",
+        "text": "21% off Cheeseburger",
+        "amount": 21,
+        "amountType": "percent",
+        "amountLabel": "21%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4021,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a06d696f25f7d16d7ad95f3",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "21% off Cheeseburger",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5f3e0370a6e49fbb1609945e",
+          "slug": "hesburger-skanstes-iela",
+          "name": "Hesburger (Skanstes)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/hesburger-skanstes-iela",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/054a78a9-3914-400b-b39b-817360bfdd1f/27eac0e1-9687-4f7f-ad43-7451528b404d"
+        },
+        "stableKey": "hesburger-skanstes-iela|6a2fd4191c959be4b6c84d51",
+        "key": "venue.promotions_for_telemetry:6a2fd4191c959be4b6c84d51",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a2fd4191c959be4b6c84d51",
+        "text": "20% off BBQ large meal",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a2fd4191c959be4b6c84d51",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "20% off BBQ large meal",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "606c24e8494adab96dbc5449",
+          "slug": "hesburger-skunu",
+          "name": "Hesburger (Šķūņu)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/hesburger-skunu",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/054a78a9-3914-400b-b39b-817360bfdd1f/27eac0e1-9687-4f7f-ad43-7451528b404d"
+        },
+        "stableKey": "hesburger-skunu|6a06d583025503c51bc9935a",
+        "key": "venue.promotions:6a06d583025503c51bc9935a",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a06d583025503c51bc9935a",
+        "text": "24% off Double Cheeseburger",
+        "amount": 24,
+        "amountType": "percent",
+        "amountLabel": "24%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4024,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a06d583025503c51bc9935a",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "24% off Double Cheeseburger",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "606c24e8494adab96dbc5449",
+          "slug": "hesburger-skunu",
+          "name": "Hesburger (Šķūņu)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/hesburger-skunu",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/054a78a9-3914-400b-b39b-817360bfdd1f/27eac0e1-9687-4f7f-ad43-7451528b404d"
+        },
+        "stableKey": "hesburger-skunu|6a06d696f25f7d16d7ad95f3",
+        "key": "venue.promotions_for_telemetry:6a06d696f25f7d16d7ad95f3",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a06d696f25f7d16d7ad95f3",
+        "text": "21% off Cheeseburger",
+        "amount": 21,
+        "amountType": "percent",
+        "amountLabel": "21%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4021,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a06d696f25f7d16d7ad95f3",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "21% off Cheeseburger",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "606c24e8494adab96dbc5449",
+          "slug": "hesburger-skunu",
+          "name": "Hesburger (Šķūņu)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/lva/riga/restaurant/hesburger-skunu",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/054a78a9-3914-400b-b39b-817360bfdd1f/27eac0e1-9687-4f7f-ad43-7451528b404d"
+        },
+        "stableKey": "hesburger-skunu|6a2fd4191c959be4b6c84d51",
+        "key": "venue.promotions_for_telemetry:6a2fd4191c959be4b6c84d51",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a2fd4191c959be4b6c84d51",
+        "text": "20% off BBQ large meal",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a2fd4191c959be4b6c84d51",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "20% off BBQ large meal",
+          "variant": "discount"
+        }
+      }
+    ],
+    "ended": []
+  }
+]

@@ -1,6 +1,8 @@
-# Wolt Vilnius discounts
+# Wolt discounts monitor
 
-Public Wolt web endpoint research plus a small scheduled monitor for Vilnius discounts.
+Public Wolt web endpoint research plus a small scheduled monitor for city discounts.
+The dashboard is city-aware; Telegram notifications intentionally remain enabled
+only for Vilnius.
 It does not depend on the old project files.
 
 ## Findings
@@ -62,6 +64,40 @@ For this venue it returns normalized banner texts equivalent to `2.50 EUR off`, 
 ```bash
 npm run check
 ```
+
+City selection and cache controls:
+
+```bash
+# Default: Vilnius only
+node src/check-discounts.mjs
+
+# Refresh the full public Wolt city catalog
+npm run cities
+
+# One city
+WOLT_CITY=ltu/kaunas node src/check-discounts.mjs
+
+# Several cities
+WOLT_CITIES=ltu/vilnius,ltu/kaunas,lva/riga node src/check-discounts.mjs
+
+# All Wolt cities from the catalog (large run)
+WOLT_ALL_CITIES=true node src/check-discounts.mjs
+
+# Cache TTL in hours; default is 2
+WOLT_CACHE_TTL_HOURS=4 node src/check-discounts.mjs
+```
+
+The city list is fetched from Wolt's public city endpoint:
+
+```text
+https://restaurant-api.wolt.com/v1/cities
+```
+
+The generated catalog is stored at `docs/data/city-catalog.json` and currently
+contains hundreds of cities across all active Wolt countries. City ids use the
+stable `country/city-slug` form, for example `ltu/vilnius`, `deu/berlin`,
+`jpn/tokyo`. The Wolt API is queried again only when that city's last snapshot
+is older than the cache TTL.
 
 Target venue plus dynamic endpoint check:
 
@@ -130,6 +166,7 @@ Optional repository variables:
 MIN_DISCOUNT_EUR=3
 MIN_DISCOUNT_PERCENT=20
 INCLUDE_ZERO_DELIVERY=false
+WOLT_CACHE_TTL_HOURS=2
 ```
 
 The checker writes:
@@ -139,6 +176,11 @@ docs/data/latest.json
 docs/data/changes.json
 docs/data/changes-log.json
 docs/data/notified-offers.json
+docs/data/city-catalog.json
+docs/data/cities.json
+docs/data/cities/<country-city-slug>/latest.json
+docs/data/cities/<country-city-slug>/changes.json
+docs/data/cities/<country-city-slug>/changes-log.json
 ```
 
 GitHub Pages is deployed by `.github/workflows/deploy-pages.yml` from the `docs/` folder.

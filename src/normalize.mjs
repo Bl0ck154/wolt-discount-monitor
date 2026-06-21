@@ -1,11 +1,14 @@
-export function normalizeSnapshot({ urls, restaurantRows, promoRows }) {
+import { CITY, cityLabel } from "./config.mjs";
+
+export function normalizeSnapshot({ city = CITY, urls, restaurantRows, promoRows }) {
   const generatedAt = new Date().toISOString();
   const venues = promoRows
-    .map((row) => normalizeVenueRow(row, urls.promotions))
+    .map((row) => normalizeVenueRow(row, urls.promotions, city))
     .sort((a, b) => a.name.localeCompare(b.name, "en"));
 
   return {
     generatedAt,
+    city: publicCity(city),
     source: {
       promotionsEndpoint: urls.promotions,
       restaurantsEndpoint: urls.restaurants,
@@ -20,7 +23,7 @@ export function normalizeSnapshot({ urls, restaurantRows, promoRows }) {
   };
 }
 
-function normalizeVenueRow(row, sourceEndpoint) {
+function normalizeVenueRow(row, sourceEndpoint, city) {
   const venue = row.venue;
   const offers = extractOffers(venue);
   const best = bestDiscount(offers);
@@ -34,8 +37,8 @@ function normalizeVenueRow(row, sourceEndpoint) {
     productLine: venue.product_line ?? null,
     address: formatAddress(venue.address),
     coordinates,
-    mapUrl: buildMapUrl(venue, coordinates),
-    link: row.item?.link?.target ?? buildWoltLink(venue),
+    mapUrl: buildMapUrl(venue, coordinates, city),
+    link: row.item?.link?.target ?? buildWoltLink(venue, city),
     imageUrl: venue.image?.url ?? venue.brand_image?.url ?? row.item?.image?.url ?? null,
     brandImageUrl: venue.brand_image?.url ?? null,
     rating: venue.rating ?? null,
@@ -61,6 +64,27 @@ function normalizeVenueRow(row, sourceEndpoint) {
       badges_v2: venue.badges_v2 ?? [],
       promotions_for_telemetry: venue.promotions_for_telemetry ?? [],
     },
+  };
+}
+
+function publicCity(city) {
+  return {
+    id: city.id,
+    key: city.key,
+    woltCityId: city.woltCityId,
+    slug: city.slug,
+    name: city.name,
+    country: city.country,
+    countryEmoji: city.countryEmoji,
+    countryCode: city.countryCode,
+    countryCode2: city.countryCode2,
+    countryCode3: city.countryCode3,
+    lat: city.lat,
+    lon: city.lon,
+    locale: city.locale ?? "en",
+    timezone: city.timezone,
+    label: cityLabel(city),
+    notificationsEnabled: city.notificationsEnabled === true,
   };
 }
 
@@ -258,12 +282,12 @@ function finiteCoordinates(lat, lon) {
   return null;
 }
 
-function buildMapUrl(venue, coordinates) {
+function buildMapUrl(venue, coordinates, city) {
   if (coordinates) {
     return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${coordinates.lat},${coordinates.lon}`)}`;
   }
 
-  const query = [venue.name, formatAddress(venue.address), "Vilnius"].filter(Boolean).join(" ");
+  const query = [venue.name, formatAddress(venue.address), cityLabel(city)].filter(Boolean).join(" ");
   return query ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}` : null;
 }
 
@@ -346,13 +370,13 @@ function scoreOffer(offer) {
   return -1;
 }
 
-function buildWoltLink(venue) {
+function buildWoltLink(venue, city) {
   if (!venue.slug) {
     return null;
   }
 
   const kind = venue.product_line === "restaurant" ? "restaurant" : "venue";
-  return `https://wolt.com/en/ltu/vilnius/${kind}/${venue.slug}`;
+  return `https://wolt.com/${city.locale ?? "en"}/${city.countryCode}/${city.slug ?? city.id}/${kind}/${venue.slug}`;
 }
 
 function countBy(items, keyFn) {

@@ -1,0 +1,1514 @@
+[
+  {
+    "generatedAt": "2026-06-21T19:13:41.986Z",
+    "previousGeneratedAt": null,
+    "appeared": 1877,
+    "disappeared": 0,
+    "interestingAppeared": 491,
+    "notifiedNew": 491,
+    "notifiedEnded": 0,
+    "interesting": [
+      {
+        "venue": {
+          "id": "648073c9190c6a412220aca4",
+          "slug": "amijami-sushi-lahepea",
+          "name": "Amijami Sushi Haabersti",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/amijami-sushi-lahepea",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/94602f01-b7f9-4dc5-9f85-4ff6a2263eab/5b2cd50e-91b0-462b-b03e-1ebba255bc36"
+        },
+        "stableKey": "amijami-sushi-lahepea|69f9a265ecf058668a4f9ad2",
+        "key": "venue.promotions_for_telemetry:69f9a265ecf058668a4f9ad2",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "69f9a265ecf058668a4f9ad2",
+        "text": "40% off Lemonades",
+        "amount": 40,
+        "amountType": "percent",
+        "amountLabel": "40%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4040,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "69f9a265ecf058668a4f9ad2",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "40% off Lemonades",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5e3aa1d75d76d692ce018f80",
+          "slug": "amijami-kadrioru-plaza",
+          "name": "Amijami Sushi Kadriorg",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/amijami-kadrioru-plaza",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/94602f01-b7f9-4dc5-9f85-4ff6a2263eab/5b2cd50e-91b0-462b-b03e-1ebba255bc36"
+        },
+        "stableKey": "amijami-kadrioru-plaza|69f9a265ecf058668a4f9ad2",
+        "key": "venue.promotions_for_telemetry:69f9a265ecf058668a4f9ad2",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "69f9a265ecf058668a4f9ad2",
+        "text": "40% off Lemonades",
+        "amount": 40,
+        "amountType": "percent",
+        "amountLabel": "40%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4040,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "69f9a265ecf058668a4f9ad2",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "40% off Lemonades",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "57ec00158560db13ffae5aa3",
+          "slug": "amijami-sushi",
+          "name": "Amijami Sushi Kesklinn",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/amijami-sushi",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/94602f01-b7f9-4dc5-9f85-4ff6a2263eab/5b2cd50e-91b0-462b-b03e-1ebba255bc36"
+        },
+        "stableKey": "amijami-sushi|69f9a265ecf058668a4f9ad2",
+        "key": "venue.promotions_for_telemetry:69f9a265ecf058668a4f9ad2",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "69f9a265ecf058668a4f9ad2",
+        "text": "40% off Lemonades",
+        "amount": 40,
+        "amountType": "percent",
+        "amountLabel": "40%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4040,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "69f9a265ecf058668a4f9ad2",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "40% off Lemonades",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "64749c4d70d17a1b7055bdaf",
+          "slug": "amijami-sushi-kristiine",
+          "name": "Amijami Sushi Kristiine",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/amijami-sushi-kristiine",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/94602f01-b7f9-4dc5-9f85-4ff6a2263eab/5b2cd50e-91b0-462b-b03e-1ebba255bc36"
+        },
+        "stableKey": "amijami-sushi-kristiine|69f9a265ecf058668a4f9ad2",
+        "key": "venue.promotions_for_telemetry:69f9a265ecf058668a4f9ad2",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "69f9a265ecf058668a4f9ad2",
+        "text": "40% off Lemonades",
+        "amount": 40,
+        "amountType": "percent",
+        "amountLabel": "40%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4040,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "69f9a265ecf058668a4f9ad2",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "40% off Lemonades",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "6989f62ec156b3924c0f72f1",
+          "slug": "amijami-sushi-marati",
+          "name": "Amijami Sushi Põhja-Tallinn",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/amijami-sushi-marati",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/94602f01-b7f9-4dc5-9f85-4ff6a2263eab/5b2cd50e-91b0-462b-b03e-1ebba255bc36"
+        },
+        "stableKey": "amijami-sushi-marati|69f9a265ecf058668a4f9ad2",
+        "key": "venue.promotions_for_telemetry:69f9a265ecf058668a4f9ad2",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "69f9a265ecf058668a4f9ad2",
+        "text": "40% off Lemonades",
+        "amount": 40,
+        "amountType": "percent",
+        "amountLabel": "40%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4040,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "69f9a265ecf058668a4f9ad2",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "40% off Lemonades",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "691ae372e075f9a6a3955099",
+          "slug": "armudu-haabersti-restoran",
+          "name": "Armudu Haabersti",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/armudu-haabersti-restoran",
+          "imageUrl": "https://imageproxy.wolt.com/assets/69257bcf38bc8f1db396cc12"
+        },
+        "stableKey": "armudu-haabersti-restoran|69f852272cb1c262a4ecd9fb",
+        "key": "venue.promotions:69f852272cb1c262a4ecd9fb",
+        "sourcePath": "venue.promotions",
+        "campaignId": "69f852272cb1c262a4ecd9fb",
+        "text": "20% discount",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "69f852272cb1c262a4ecd9fb",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "20% discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "691ae372e075f9a6a3955099",
+          "slug": "armudu-haabersti-restoran",
+          "name": "Armudu Haabersti",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/armudu-haabersti-restoran",
+          "imageUrl": "https://imageproxy.wolt.com/assets/69257bcf38bc8f1db396cc12"
+        },
+        "stableKey": "armudu-haabersti-restoran|6930385494a03aa1bfffc006",
+        "key": "venue.promotions_for_telemetry:6930385494a03aa1bfffc006",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6930385494a03aa1bfffc006",
+        "text": "50% Discount",
+        "amount": 50,
+        "amountType": "percent",
+        "amountLabel": "50%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4050,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6930385494a03aa1bfffc006",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "50% Discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "691ae372e075f9a6a3955096",
+          "slug": "armudu-kopli-restoran",
+          "name": "Armudu Kopli",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/armudu-kopli-restoran",
+          "imageUrl": "https://imageproxy.wolt.com/assets/69257f8ba5b1c9945b96621d"
+        },
+        "stableKey": "armudu-kopli-restoran|69f8526249a786f62bfa2709",
+        "key": "venue.promotions:69f8526249a786f62bfa2709",
+        "sourcePath": "venue.promotions",
+        "campaignId": "69f8526249a786f62bfa2709",
+        "text": "30% discount",
+        "amount": 30,
+        "amountType": "percent",
+        "amountLabel": "30%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4030,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "69f8526249a786f62bfa2709",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "30% discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "691ae372e075f9a6a3955096",
+          "slug": "armudu-kopli-restoran",
+          "name": "Armudu Kopli",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/armudu-kopli-restoran",
+          "imageUrl": "https://imageproxy.wolt.com/assets/69257f8ba5b1c9945b96621d"
+        },
+        "stableKey": "armudu-kopli-restoran|6930385494a03aa1bfffc006",
+        "key": "venue.promotions_for_telemetry:6930385494a03aa1bfffc006",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6930385494a03aa1bfffc006",
+        "text": "50% Discount",
+        "amount": 50,
+        "amountType": "percent",
+        "amountLabel": "50%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4050,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6930385494a03aa1bfffc006",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "50% Discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "691ae372e075f9a6a395509a",
+          "slug": "armudu-kristiine-restoran",
+          "name": "Armudu Kristiine",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/armudu-kristiine-restoran",
+          "imageUrl": "https://imageproxy.wolt.com/assets/691c706f0caefe55a9635874"
+        },
+        "stableKey": "armudu-kristiine-restoran|69f852272cb1c262a4ecd9fb",
+        "key": "venue.promotions:69f852272cb1c262a4ecd9fb",
+        "sourcePath": "venue.promotions",
+        "campaignId": "69f852272cb1c262a4ecd9fb",
+        "text": "20% discount",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "69f852272cb1c262a4ecd9fb",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "20% discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "691ae372e075f9a6a395509a",
+          "slug": "armudu-kristiine-restoran",
+          "name": "Armudu Kristiine",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/armudu-kristiine-restoran",
+          "imageUrl": "https://imageproxy.wolt.com/assets/691c706f0caefe55a9635874"
+        },
+        "stableKey": "armudu-kristiine-restoran|6930385494a03aa1bfffc006",
+        "key": "venue.promotions_for_telemetry:6930385494a03aa1bfffc006",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6930385494a03aa1bfffc006",
+        "text": "50% Discount",
+        "amount": 50,
+        "amountType": "percent",
+        "amountLabel": "50%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4050,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6930385494a03aa1bfffc006",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "50% Discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "691ae372e075f9a6a3955095",
+          "slug": "armudu-lasname-restoran",
+          "name": "Armudu Lasnamäe",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/armudu-lasname-restoran",
+          "imageUrl": "https://imageproxy.wolt.com/assets/6925805aa5b1c9945b9662be"
+        },
+        "stableKey": "armudu-lasname-restoran|69f852272cb1c262a4ecd9fb",
+        "key": "venue.promotions:69f852272cb1c262a4ecd9fb",
+        "sourcePath": "venue.promotions",
+        "campaignId": "69f852272cb1c262a4ecd9fb",
+        "text": "20% discount",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "69f852272cb1c262a4ecd9fb",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "20% discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "691ae372e075f9a6a3955095",
+          "slug": "armudu-lasname-restoran",
+          "name": "Armudu Lasnamäe",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/armudu-lasname-restoran",
+          "imageUrl": "https://imageproxy.wolt.com/assets/6925805aa5b1c9945b9662be"
+        },
+        "stableKey": "armudu-lasname-restoran|6930385494a03aa1bfffc006",
+        "key": "venue.promotions_for_telemetry:6930385494a03aa1bfffc006",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6930385494a03aa1bfffc006",
+        "text": "50% Discount",
+        "amount": 50,
+        "amountType": "percent",
+        "amountLabel": "50%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4050,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6930385494a03aa1bfffc006",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "50% Discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "691ae372e075f9a6a3955097",
+          "slug": "armudu-lootsi-restoran",
+          "name": "Armudu Lootsi",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/armudu-lootsi-restoran",
+          "imageUrl": "https://imageproxy.wolt.com/assets/69257ea1a5b1c9945b9661c4"
+        },
+        "stableKey": "armudu-lootsi-restoran|69f852272cb1c262a4ecd9fb",
+        "key": "venue.promotions:69f852272cb1c262a4ecd9fb",
+        "sourcePath": "venue.promotions",
+        "campaignId": "69f852272cb1c262a4ecd9fb",
+        "text": "20% discount",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "69f852272cb1c262a4ecd9fb",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "20% discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "691ae372e075f9a6a3955097",
+          "slug": "armudu-lootsi-restoran",
+          "name": "Armudu Lootsi",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/armudu-lootsi-restoran",
+          "imageUrl": "https://imageproxy.wolt.com/assets/69257ea1a5b1c9945b9661c4"
+        },
+        "stableKey": "armudu-lootsi-restoran|6930385494a03aa1bfffc006",
+        "key": "venue.promotions_for_telemetry:6930385494a03aa1bfffc006",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6930385494a03aa1bfffc006",
+        "text": "50% Discount",
+        "amount": 50,
+        "amountType": "percent",
+        "amountLabel": "50%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4050,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6930385494a03aa1bfffc006",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "50% Discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "691ae372e075f9a6a395509b",
+          "slug": "armudu-peetri-restoran",
+          "name": "Armudu Peetri",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/armudu-peetri-restoran",
+          "imageUrl": "https://imageproxy.wolt.com/assets/69257a6e38bc8f1db396cb7b"
+        },
+        "stableKey": "armudu-peetri-restoran|69f8526249a786f62bfa2709",
+        "key": "venue.promotions:69f8526249a786f62bfa2709",
+        "sourcePath": "venue.promotions",
+        "campaignId": "69f8526249a786f62bfa2709",
+        "text": "30% discount",
+        "amount": 30,
+        "amountType": "percent",
+        "amountLabel": "30%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4030,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "69f8526249a786f62bfa2709",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "30% discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "691ae372e075f9a6a395509b",
+          "slug": "armudu-peetri-restoran",
+          "name": "Armudu Peetri",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/armudu-peetri-restoran",
+          "imageUrl": "https://imageproxy.wolt.com/assets/69257a6e38bc8f1db396cb7b"
+        },
+        "stableKey": "armudu-peetri-restoran|6930385494a03aa1bfffc006",
+        "key": "venue.promotions_for_telemetry:6930385494a03aa1bfffc006",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6930385494a03aa1bfffc006",
+        "text": "50% Discount",
+        "amount": 50,
+        "amountType": "percent",
+        "amountLabel": "50%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4050,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6930385494a03aa1bfffc006",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "50% Discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "691ae372e075f9a6a3955098",
+          "slug": "armudu-pirita-restoran",
+          "name": "Armudu Pirita",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/armudu-pirita-restoran",
+          "imageUrl": "https://imageproxy.wolt.com/assets/69257dc046255756c0dd2c54"
+        },
+        "stableKey": "armudu-pirita-restoran|69f8526249a786f62bfa2709",
+        "key": "venue.promotions:69f8526249a786f62bfa2709",
+        "sourcePath": "venue.promotions",
+        "campaignId": "69f8526249a786f62bfa2709",
+        "text": "30% discount",
+        "amount": 30,
+        "amountType": "percent",
+        "amountLabel": "30%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4030,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "69f8526249a786f62bfa2709",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "30% discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "691ae372e075f9a6a3955098",
+          "slug": "armudu-pirita-restoran",
+          "name": "Armudu Pirita",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/armudu-pirita-restoran",
+          "imageUrl": "https://imageproxy.wolt.com/assets/69257dc046255756c0dd2c54"
+        },
+        "stableKey": "armudu-pirita-restoran|6930385494a03aa1bfffc006",
+        "key": "venue.promotions_for_telemetry:6930385494a03aa1bfffc006",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6930385494a03aa1bfffc006",
+        "text": "50% Discount",
+        "amount": 50,
+        "amountType": "percent",
+        "amountLabel": "50%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4050,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6930385494a03aa1bfffc006",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "50% Discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "606d67feb45a922d5c01b4a9",
+          "slug": "asian-wok",
+          "name": "Asian Wok",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/asian-wok",
+          "imageUrl": "https://imageproxy.wolt.com/assets/6732145136490b6739cf534a"
+        },
+        "stableKey": "asian-wok|69984e939d278c51f1ceda14",
+        "key": "venue.promotions:69984e939d278c51f1ceda14",
+        "sourcePath": "venue.promotions",
+        "campaignId": "69984e939d278c51f1ceda14",
+        "text": "4 € off (spend 24 €)",
+        "amount": 4,
+        "amountType": "money",
+        "amountLabel": "4 EUR",
+        "category": "money",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 2004,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "69984e939d278c51f1ceda14",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "4 € off (spend 24 €)",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "673b1a3768667f19a0777c93",
+          "slug": "bad-habits",
+          "name": "Bad Habits",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/bad-habits",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/3dfa75d1-7c32-44d4-93d9-cb660da1fdc7/cb22b8b5-5826-4aea-8309-b6e9b0f40ef0"
+        },
+        "stableKey": "bad-habits|696f60bebce02643004e9045",
+        "key": "venue.promotions:696f60bebce02643004e9045",
+        "sourcePath": "venue.promotions",
+        "campaignId": "696f60bebce02643004e9045",
+        "text": "20% off",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "696f60bebce02643004e9045",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "20% off",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "67ea6166efbc1499766cb47d",
+          "slug": "bad-habits-t1",
+          "name": "Bad Habits Fun Town T1",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/bad-habits-t1",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/3dfa75d1-7c32-44d4-93d9-cb660da1fdc7/cb22b8b5-5826-4aea-8309-b6e9b0f40ef0"
+        },
+        "stableKey": "bad-habits-t1|696f60bebce02643004e9045",
+        "key": "venue.promotions:696f60bebce02643004e9045",
+        "sourcePath": "venue.promotions",
+        "campaignId": "696f60bebce02643004e9045",
+        "text": "20% off",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "696f60bebce02643004e9045",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "20% off",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "68a2d9d6a53be07032f9de21",
+          "slug": "badass-pizza-kristiine",
+          "name": "BADASS Pizza Kristiine",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/badass-pizza-kristiine",
+          "imageUrl": "https://imageproxy.wolt.com/assets/68a2da36f52a4fe9d4d1790f"
+        },
+        "stableKey": "badass-pizza-kristiine|696f60bebce02643004e9045",
+        "key": "venue.promotions:696f60bebce02643004e9045",
+        "sourcePath": "venue.promotions",
+        "campaignId": "696f60bebce02643004e9045",
+        "text": "20% off",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "696f60bebce02643004e9045",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "20% off",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "67fcc294a888c3e99ea01c15",
+          "slug": "badass-pizza",
+          "name": "BADASS Pizza T1",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/badass-pizza",
+          "imageUrl": "https://imageproxy.wolt.com/assets/67ff785f2d0e0589bff93777"
+        },
+        "stableKey": "badass-pizza|696f60bebce02643004e9045",
+        "key": "venue.promotions:696f60bebce02643004e9045",
+        "sourcePath": "venue.promotions",
+        "campaignId": "696f60bebce02643004e9045",
+        "text": "20% off",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "696f60bebce02643004e9045",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "20% off",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "68d65683ef1e3058dcac79a3",
+          "slug": "badass-pizza-vanalinn",
+          "name": "BADASS Pizza Vanalinn",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/badass-pizza-vanalinn",
+          "imageUrl": "https://imageproxy.wolt.com/assets/68d6570e66c47a763c3dc9a8"
+        },
+        "stableKey": "badass-pizza-vanalinn|696f60bebce02643004e9045",
+        "key": "venue.promotions:696f60bebce02643004e9045",
+        "sourcePath": "venue.promotions",
+        "campaignId": "696f60bebce02643004e9045",
+        "text": "20% off",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "696f60bebce02643004e9045",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "20% off",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "6560a1b3474f8d0c8ae795f3",
+          "slug": "beer-and-barrel",
+          "name": "Beer & Barrel",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/beer-and-barrel",
+          "imageUrl": "https://imageproxy.wolt.com/assets/673208bcb5de01710c50a779"
+        },
+        "stableKey": "beer-and-barrel|69c66f80fbac6ce62f973b06",
+        "key": "venue.promotions:69c66f80fbac6ce62f973b06",
+        "sourcePath": "venue.promotions",
+        "campaignId": "69c66f80fbac6ce62f973b06",
+        "text": "2 € off",
+        "amount": 2,
+        "amountType": "money",
+        "amountLabel": "2 EUR",
+        "category": "money",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 3002,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "69c66f80fbac6ce62f973b06",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "2 € off",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "6762bf5d2291005d73675519",
+          "slug": "bill-the-butcher-vorstitsehh",
+          "name": "Bill the Butcher American Hot Subs",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/bill-the-butcher-vorstitsehh",
+          "imageUrl": "https://imageproxy.wolt.com/assets/678e2ed879b89042e84bd9f7"
+        },
+        "stableKey": "bill-the-butcher-vorstitsehh|6903196cf185b3274fc4092d",
+        "key": "venue.promotions_for_telemetry:6903196cf185b3274fc4092d",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6903196cf185b3274fc4092d",
+        "text": "20% discount",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6903196cf185b3274fc4092d",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "20% discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "684942ab6eeb43e64e72addc",
+          "slug": "bill-the-butcher-solaris",
+          "name": "Bill the Butcher Solaris",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/bill-the-butcher-solaris",
+          "imageUrl": "https://imageproxy.wolt.com/assets/684a9277ec1bccbed0b5c8e8"
+        },
+        "stableKey": "bill-the-butcher-solaris|6903196cf185b3274fc4092d",
+        "key": "venue.promotions_for_telemetry:6903196cf185b3274fc4092d",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6903196cf185b3274fc4092d",
+        "text": "20% discount",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6903196cf185b3274fc4092d",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "20% discount",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "6893187fc184916dcf555354",
+          "slug": "biofarmacija",
+          "name": "Biofarmacija",
+          "productLine": "health_and_beauty",
+          "link": "https://wolt.com/en/est/tallinn/venue/biofarmacija",
+          "imageUrl": "https://imageproxy.wolt.com/assets/6895bcb5adc3cb623be2e7f6"
+        },
+        "stableKey": "biofarmacija|698058e9ebb3ca84db326d1b",
+        "key": "venue.promotions:698058e9ebb3ca84db326d1b",
+        "sourcePath": "venue.promotions",
+        "campaignId": "698058e9ebb3ca84db326d1b",
+        "text": "5 € off",
+        "amount": 5,
+        "amountType": "money",
+        "amountLabel": "5 EUR",
+        "category": "money",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 3005,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "698058e9ebb3ca84db326d1b",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "5 € off",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "6477333d36415936829c6eaf",
+          "slug": "biomarket-balti-jaam",
+          "name": "Biomarket Balti Jaama Turg",
+          "productLine": "grocery",
+          "link": "https://wolt.com/en/est/tallinn/venue/biomarket-balti-jaam",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/ed3e0209-8a6f-47a0-af1f-f16f14f9a09d/423d0f57-938e-46ee-af70-5c2aea0ab7e8"
+        },
+        "stableKey": "biomarket-balti-jaam|6a157ea662d373932ad52da9",
+        "key": "venue.promotions:6a157ea662d373932ad52da9",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a157ea662d373932ad52da9",
+        "text": "Midsummer offers -20%",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a157ea662d373932ad52da9",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "Midsummer offers -20%",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "6477333d36415936829c6eaf",
+          "slug": "biomarket-balti-jaam",
+          "name": "Biomarket Balti Jaama Turg",
+          "productLine": "grocery",
+          "link": "https://wolt.com/en/est/tallinn/venue/biomarket-balti-jaam",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/ed3e0209-8a6f-47a0-af1f-f16f14f9a09d/423d0f57-938e-46ee-af70-5c2aea0ab7e8"
+        },
+        "stableKey": "biomarket-balti-jaam|6a157f6dd5245818e2c4f870",
+        "key": "venue.promotions_for_telemetry:6a157f6dd5245818e2c4f870",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a157f6dd5245818e2c4f870",
+        "text": "Monthly offers -20%",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a157f6dd5245818e2c4f870",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "Monthly offers -20%",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "6477333d36415936829c6eb0",
+          "slug": "biomarket-kaubamaja",
+          "name": "Biomarket Kaubamaja",
+          "productLine": "grocery",
+          "link": "https://wolt.com/en/est/tallinn/venue/biomarket-kaubamaja",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/ed3e0209-8a6f-47a0-af1f-f16f14f9a09d/423d0f57-938e-46ee-af70-5c2aea0ab7e8"
+        },
+        "stableKey": "biomarket-kaubamaja|6a157ea662d373932ad52da9",
+        "key": "venue.promotions:6a157ea662d373932ad52da9",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a157ea662d373932ad52da9",
+        "text": "Midsummer offers -20%",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a157ea662d373932ad52da9",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "Midsummer offers -20%",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "6477333d36415936829c6eb0",
+          "slug": "biomarket-kaubamaja",
+          "name": "Biomarket Kaubamaja",
+          "productLine": "grocery",
+          "link": "https://wolt.com/en/est/tallinn/venue/biomarket-kaubamaja",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/ed3e0209-8a6f-47a0-af1f-f16f14f9a09d/423d0f57-938e-46ee-af70-5c2aea0ab7e8"
+        },
+        "stableKey": "biomarket-kaubamaja|6a157f6dd5245818e2c4f870",
+        "key": "venue.promotions_for_telemetry:6a157f6dd5245818e2c4f870",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a157f6dd5245818e2c4f870",
+        "text": "Monthly offers -20%",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a157f6dd5245818e2c4f870",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "Monthly offers -20%",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "6477333d36415936829c6eb3",
+          "slug": "biomarket-mustame",
+          "name": "Biomarket Mustamäe",
+          "productLine": "grocery",
+          "link": "https://wolt.com/en/est/tallinn/venue/biomarket-mustame",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/ed3e0209-8a6f-47a0-af1f-f16f14f9a09d/423d0f57-938e-46ee-af70-5c2aea0ab7e8"
+        },
+        "stableKey": "biomarket-mustame|6a157ea662d373932ad52da9",
+        "key": "venue.promotions:6a157ea662d373932ad52da9",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a157ea662d373932ad52da9",
+        "text": "Midsummer offers -20%",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a157ea662d373932ad52da9",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "Midsummer offers -20%",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "6477333d36415936829c6eb3",
+          "slug": "biomarket-mustame",
+          "name": "Biomarket Mustamäe",
+          "productLine": "grocery",
+          "link": "https://wolt.com/en/est/tallinn/venue/biomarket-mustame",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/ed3e0209-8a6f-47a0-af1f-f16f14f9a09d/423d0f57-938e-46ee-af70-5c2aea0ab7e8"
+        },
+        "stableKey": "biomarket-mustame|6a157f6dd5245818e2c4f870",
+        "key": "venue.promotions_for_telemetry:6a157f6dd5245818e2c4f870",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a157f6dd5245818e2c4f870",
+        "text": "Monthly offers -20%",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a157f6dd5245818e2c4f870",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "Monthly offers -20%",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "6477333d36415936829c6eb1",
+          "slug": "biomarket-rocca-al-mare",
+          "name": "Biomarket Rocca al Mare",
+          "productLine": "grocery",
+          "link": "https://wolt.com/en/est/tallinn/venue/biomarket-rocca-al-mare",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/ed3e0209-8a6f-47a0-af1f-f16f14f9a09d/423d0f57-938e-46ee-af70-5c2aea0ab7e8"
+        },
+        "stableKey": "biomarket-rocca-al-mare|6a157ea662d373932ad52da9",
+        "key": "venue.promotions:6a157ea662d373932ad52da9",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a157ea662d373932ad52da9",
+        "text": "Midsummer offers -20%",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a157ea662d373932ad52da9",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "Midsummer offers -20%",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "6477333d36415936829c6eb1",
+          "slug": "biomarket-rocca-al-mare",
+          "name": "Biomarket Rocca al Mare",
+          "productLine": "grocery",
+          "link": "https://wolt.com/en/est/tallinn/venue/biomarket-rocca-al-mare",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/ed3e0209-8a6f-47a0-af1f-f16f14f9a09d/423d0f57-938e-46ee-af70-5c2aea0ab7e8"
+        },
+        "stableKey": "biomarket-rocca-al-mare|6a157f6dd5245818e2c4f870",
+        "key": "venue.promotions_for_telemetry:6a157f6dd5245818e2c4f870",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a157f6dd5245818e2c4f870",
+        "text": "Monthly offers -20%",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a157f6dd5245818e2c4f870",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "Monthly offers -20%",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "6477333d36415936829c6eb2",
+          "slug": "biomarket-lemiste",
+          "name": "Biomarket Ülemiste",
+          "productLine": "grocery",
+          "link": "https://wolt.com/en/est/tallinn/venue/biomarket-lemiste",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/ed3e0209-8a6f-47a0-af1f-f16f14f9a09d/423d0f57-938e-46ee-af70-5c2aea0ab7e8"
+        },
+        "stableKey": "biomarket-lemiste|6a157ea662d373932ad52da9",
+        "key": "venue.promotions:6a157ea662d373932ad52da9",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a157ea662d373932ad52da9",
+        "text": "Midsummer offers -20%",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a157ea662d373932ad52da9",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "Midsummer offers -20%",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "6477333d36415936829c6eb2",
+          "slug": "biomarket-lemiste",
+          "name": "Biomarket Ülemiste",
+          "productLine": "grocery",
+          "link": "https://wolt.com/en/est/tallinn/venue/biomarket-lemiste",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/ed3e0209-8a6f-47a0-af1f-f16f14f9a09d/423d0f57-938e-46ee-af70-5c2aea0ab7e8"
+        },
+        "stableKey": "biomarket-lemiste|6a157f6dd5245818e2c4f870",
+        "key": "venue.promotions_for_telemetry:6a157f6dd5245818e2c4f870",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a157f6dd5245818e2c4f870",
+        "text": "Monthly offers -20%",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a157f6dd5245818e2c4f870",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "Monthly offers -20%",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "64e6fb0a58149e078c58940a",
+          "slug": "biryani-by-kilo",
+          "name": "BIRYANI BY KILO",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/biryani-by-kilo",
+          "imageUrl": "https://imageproxy.wolt.com/assets/67331cd68c53ee661d0bbac9"
+        },
+        "stableKey": "biryani-by-kilo|6a0cace44b19a3a9311f7af0",
+        "key": "venue.promotions:6a0cace44b19a3a9311f7af0",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a0cace44b19a3a9311f7af0",
+        "text": "20% off (up to 8 €)",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a0cace44b19a3a9311f7af0",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "20% off (up to 8 €)",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "615c3faa7f8e0d7e943a7d1a",
+          "slug": "black-grill-house",
+          "name": "Black Grill House",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/black-grill-house",
+          "imageUrl": "https://imageproxy.wolt.com/assets/6732088763ae2357e7f7c479"
+        },
+        "stableKey": "black-grill-house|69f39c74fea7f85ade5bf356",
+        "key": "venue.promotions:69f39c74fea7f85ade5bf356",
+        "sourcePath": "venue.promotions",
+        "campaignId": "69f39c74fea7f85ade5bf356",
+        "text": "20% off",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "69f39c74fea7f85ade5bf356",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "20% off",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "590b9ba32e71635d8d9641b2",
+          "slug": "blender-kristiine",
+          "name": "Blender Kristiine",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/blender-kristiine",
+          "imageUrl": "https://imageproxy.wolt.com/assets/673208fb5521ce1fc3441dd1"
+        },
+        "stableKey": "blender-kristiine|6a2f1f5265c06697ec3fa73a",
+        "key": "venue.promotions:6a2f1f5265c06697ec3fa73a",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a2f1f5265c06697ec3fa73a",
+        "text": "Smoothies & Sandwiches -20%",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a2f1f5265c06697ec3fa73a",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "Smoothies & Sandwiches -20%",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "590b9bd32e71635d8d9641da",
+          "slug": "blender-mustamae-keskus",
+          "name": "Blender Mustamäe Keskus",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/blender-mustamae-keskus",
+          "imageUrl": "https://imageproxy.wolt.com/assets/673208065c02197d8ff64d3e"
+        },
+        "stableKey": "blender-mustamae-keskus|6a2f1f5265c06697ec3fa73a",
+        "key": "venue.promotions:6a2f1f5265c06697ec3fa73a",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a2f1f5265c06697ec3fa73a",
+        "text": "Smoothies & Sandwiches -20%",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a2f1f5265c06697ec3fa73a",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "Smoothies & Sandwiches -20%",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "656712cca74471c84b86a791",
+          "slug": "blender-mustika",
+          "name": "Blender Mustika",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/blender-mustika",
+          "imageUrl": "https://imageproxy.wolt.com/assets/67331c51f45db57ef600a642"
+        },
+        "stableKey": "blender-mustika|6a2f1f5265c06697ec3fa73a",
+        "key": "venue.promotions:6a2f1f5265c06697ec3fa73a",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a2f1f5265c06697ec3fa73a",
+        "text": "Smoothies & Sandwiches -20%",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a2f1f5265c06697ec3fa73a",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "Smoothies & Sandwiches -20%",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5d356ef44a499816e311e718",
+          "slug": "blender-nautica",
+          "name": "Blender Nautica",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/blender-nautica",
+          "imageUrl": "https://imageproxy.wolt.com/assets/673208a463ae2357e7f7c68d"
+        },
+        "stableKey": "blender-nautica|6a2f1f5265c06697ec3fa73a",
+        "key": "venue.promotions:6a2f1f5265c06697ec3fa73a",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a2f1f5265c06697ec3fa73a",
+        "text": "Smoothies & Sandwiches -20%",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a2f1f5265c06697ec3fa73a",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "Smoothies & Sandwiches -20%",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "590b9b6cf5e4a562ebac661b",
+          "slug": "blender-rocca-al-mare",
+          "name": "Blender Rocca al Mare",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/blender-rocca-al-mare",
+          "imageUrl": "https://imageproxy.wolt.com/assets/673207db479a971266a68e67"
+        },
+        "stableKey": "blender-rocca-al-mare|6a2f1f5265c06697ec3fa73a",
+        "key": "venue.promotions:6a2f1f5265c06697ec3fa73a",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a2f1f5265c06697ec3fa73a",
+        "text": "Smoothies & Sandwiches -20%",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a2f1f5265c06697ec3fa73a",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "Smoothies & Sandwiches -20%",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "590b9b40f5e4a562ee6986e1",
+          "slug": "blender-ylemiste",
+          "name": "Blender Ülemiste",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/blender-ylemiste",
+          "imageUrl": "https://imageproxy.wolt.com/assets/6732073e1aa2ca295a5e2223"
+        },
+        "stableKey": "blender-ylemiste|6a2f1f5265c06697ec3fa73a",
+        "key": "venue.promotions:6a2f1f5265c06697ec3fa73a",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a2f1f5265c06697ec3fa73a",
+        "text": "Smoothies & Sandwiches -20%",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a2f1f5265c06697ec3fa73a",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "Smoothies & Sandwiches -20%",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5c51b9c0963e5e000c08fb2e",
+          "slug": "blender-viru-keskus",
+          "name": "Blender Viru Keskus",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/blender-viru-keskus",
+          "imageUrl": "https://imageproxy.wolt.com/assets/67320812219f1f216bab2437"
+        },
+        "stableKey": "blender-viru-keskus|6a2f1f5265c06697ec3fa73a",
+        "key": "venue.promotions:6a2f1f5265c06697ec3fa73a",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a2f1f5265c06697ec3fa73a",
+        "text": "Smoothies & Sandwiches -20%",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a2f1f5265c06697ec3fa73a",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "Smoothies & Sandwiches -20%",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "693fb4e0a30dc87105c6a3ad",
+          "slug": "captain-roosters",
+          "name": "CAPTAIN ROOSTERS",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/est/tallinn/restaurant/captain-roosters",
+          "imageUrl": "https://imageproxy.wolt.com/assets/6943c380d07ddbce97c736e3"
+        },
+        "stableKey": "captain-roosters|6a2d1f82301aa8d5f710d46a",
+        "key": "venue.promotions:6a2d1f82301aa8d5f710d46a",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a2d1f82301aa8d5f710d46a",
+        "text": "25% off (up to 8 €)",
+        "amount": 25,
+        "amountType": "percent",
+        "amountLabel": "25%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4025,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a2d1f82301aa8d5f710d46a",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "25% off (up to 8 €)",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "669a20af32246f6c6dcf17a4",
+          "slug": "delice-solaris",
+          "name": "Delice Solaris",
+          "productLine": "grocery",
+          "link": "https://wolt.com/en/est/tallinn/venue/delice-solaris",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/9d3dd0d4-176d-437e-9d25-f35b36242209/05339364-adae-4f2d-b995-605abb9e461f"
+        },
+        "stableKey": "delice-solaris|6a157235d6cc8d6ebe08867d",
+        "key": "venue.promotions:6a157235d6cc8d6ebe08867d",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a157235d6cc8d6ebe08867d",
+        "text": "Offers up to -40%",
+        "amount": 40,
+        "amountType": "percent",
+        "amountLabel": "40%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4040,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a157235d6cc8d6ebe08867d",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "Offers up to -40%",
+          "variant": "discount"
+        }
+      }
+    ],
+    "ended": []
+  }
+]

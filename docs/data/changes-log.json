@@ -1,5 +1,55 @@
 [
   {
+    "generatedAt": "2026-06-21T18:40:45.098Z",
+    "previousGeneratedAt": "2026-06-21T15:59:07.819Z",
+    "appeared": 7,
+    "disappeared": 2,
+    "interestingAppeared": 0,
+    "notifiedNew": 0,
+    "notifiedEnded": 2,
+    "interesting": [],
+    "ended": [
+      {
+        "stableKey": "du-kebabai|6a37115e4391212ba6fa2ba2",
+        "firstNotifiedAt": "2026-06-21T11:59:32.360Z",
+        "lastSeenAt": "2026-06-21T15:59:07.819Z",
+        "venue": {
+          "id": "699462b7e86be0dbaddc3c7b",
+          "slug": "du-kebabai",
+          "name": "Du Kebabai",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/vilnius/restaurant/du-kebabai",
+          "imageUrl": "https://imageproxy.wolt.com/assets/69a162e396d75d61e246da73"
+        },
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a37115e4391212ba6fa2ba2",
+        "text": "5 € off",
+        "amount": 5,
+        "amountType": "money",
+        "amountLabel": "5 EUR"
+      },
+      {
+        "stableKey": "shark-tail-sushi|6a2b08702fc35c67b1c34e3b",
+        "firstNotifiedAt": "2026-06-21T11:59:32.360Z",
+        "lastSeenAt": "2026-06-21T15:59:07.819Z",
+        "venue": {
+          "id": "5a0c03b05ce41f000b3d7830",
+          "slug": "shark-tail-sushi",
+          "name": "Pokito",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/vilnius/restaurant/shark-tail-sushi",
+          "imageUrl": "https://imageproxy.wolt.com/assets/691c32e1f6a3afc908653a60"
+        },
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a2b08702fc35c67b1c34e3b",
+        "text": "15% off (up to 50 €)",
+        "amount": 15,
+        "amountType": "percent",
+        "amountLabel": "15%"
+      }
+    ]
+  },
+  {
     "generatedAt": "2026-06-21T15:59:07.819Z",
     "previousGeneratedAt": "2026-06-21T11:59:32.360Z",
     "appeared": 0,
