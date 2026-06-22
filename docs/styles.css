@@ -197,6 +197,16 @@ label span {
   font-weight: 700;
 }
 
+.hidden-offers {
+  max-width: 520px;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 input,
 select {
   width: 100%;

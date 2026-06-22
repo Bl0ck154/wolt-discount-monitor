@@ -9,6 +9,7 @@ const state = {
   snapshotSourceLabel: null,
   loadRequestId: 0,
   ubiquitousOfferKeys: new Set(),
+  ubiquitousOfferLabels: [],
   rows: [],
   sortKey: "best",
   sortDir: "desc",
@@ -27,6 +28,7 @@ const elements = {
   sortSelect: document.querySelector("#sortSelect"),
   hideNewUserDelivery: document.querySelector("#hideNewUserDelivery"),
   hideDeliveryDiscounts: document.querySelector("#hideDeliveryDiscounts"),
+  hiddenCitywideOffers: document.querySelector("#hiddenCitywideOffers"),
   shownCount: document.querySelector("#shownCount"),
   venueRows: document.querySelector("#venueRows"),
   sortHeaders: document.querySelectorAll(".sort-header"),
@@ -127,7 +129,9 @@ function applySnapshot(city, snapshot, sourceUrl, sourceLabel) {
   state.snapshotSourceUrl = sourceUrl;
   state.snapshotSourceLabel = sourceLabel;
   state.rows = state.snapshot.venues ?? [];
-  state.ubiquitousOfferKeys = ubiquitousOfferKeys(state.rows);
+  const ubiquitousOffers = ubiquitousOfferIndex(state.rows);
+  state.ubiquitousOfferKeys = ubiquitousOffers.keys;
+  state.ubiquitousOfferLabels = ubiquitousOffers.labels;
   elements.citySelect.value = state.selectedCity.id;
   rememberCachedCity(state.selectedCity, state.snapshot);
   hydrateSummary();
@@ -141,10 +145,12 @@ function showLoading(city) {
   state.snapshotSourceUrl = null;
   state.snapshotSourceLabel = null;
   state.ubiquitousOfferKeys = new Set();
+  state.ubiquitousOfferLabels = [];
   state.rows = [];
   elements.citySelect.value = city.id;
   hydrateSummary();
   hydrateFilters();
+  hydrateHiddenCitywideOffers();
   elements.venueRows.innerHTML = `<tr><td colspan="7" class="empty">Loading ${escapeHtml(city.label ?? city.name)}...</td></tr>`;
 }
 
@@ -303,6 +309,7 @@ function renderRows() {
   const rowsWithVisibleOffers = rows.filter(({ visibleOffers }) => visibleOffers.length > 0).length;
 
   elements.shownCount.textContent = `${formatNumber(rows.length)} shown venues · ${formatNumber(rowsWithVisibleOffers)} with visible offers · ${formatNumber(state.rows.length)} total venues`;
+  hydrateHiddenCitywideOffers();
   syncSortUi();
 
   if (!groups.length) {
@@ -705,16 +712,25 @@ function visibleOffers(venue) {
   return offers;
 }
 
-function ubiquitousOfferKeys(venues) {
+function ubiquitousOfferIndex(venues) {
   const counts = new Map();
+  const labels = new Map();
   let venuesWithOffers = 0;
 
   for (const venue of venues) {
-    const keys = new Set(
-      sourceOffers(venue)
-        .map((offer) => normalizeOfferText(offer.text).toLowerCase())
-        .filter((key) => key && !isUtilityOfferText(key)),
-    );
+    const keys = new Set();
+
+    for (const offer of sourceOffers(venue)) {
+      const label = normalizeOfferText(offer.text);
+      const key = label.toLowerCase();
+      if (!key || isUtilityOfferText(key)) {
+        continue;
+      }
+      keys.add(key);
+      if (!labels.has(key)) {
+        labels.set(key, label);
+      }
+    }
 
     if (!keys.size) {
       continue;
@@ -727,15 +743,37 @@ function ubiquitousOfferKeys(venues) {
   }
 
   if (venuesWithOffers < 10) {
-    return new Set();
+    return { keys: new Set(), labels: [] };
   }
 
   const threshold = Math.max(10, Math.ceil(venuesWithOffers * 0.75));
-  return new Set(
-    [...counts.entries()]
-      .filter(([, count]) => count >= threshold)
-      .map(([key]) => key),
-  );
+  const entries = [...counts.entries()]
+    .filter(([, count]) => count >= threshold)
+    .sort((a, b) => b[1] - a[1] || labels.get(a[0]).localeCompare(labels.get(b[0]), "en"));
+
+  return {
+    keys: new Set(entries.map(([key]) => key)),
+    labels: entries.map(([key]) => labels.get(key)),
+  };
+}
+
+function hydrateHiddenCitywideOffers() {
+  if (!elements.hiddenCitywideOffers) {
+    return;
+  }
+
+  if (!state.ubiquitousOfferLabels.length) {
+    elements.hiddenCitywideOffers.textContent = "";
+    elements.hiddenCitywideOffers.title = "";
+    return;
+  }
+
+  const prefix = elements.hideNewUserDelivery.checked ? "Hidden citywide" : "Detected citywide";
+  const labels = state.ubiquitousOfferLabels;
+  const visible = labels.slice(0, 4).join(" · ");
+  const suffix = labels.length > 4 ? ` · +${labels.length - 4} more` : "";
+  elements.hiddenCitywideOffers.textContent = `${prefix}: ${visible}${suffix}`;
+  elements.hiddenCitywideOffers.title = labels.join(" · ");
 }
 
 function sourceOffers(venue) {
