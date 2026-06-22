@@ -76,5 +76,6 @@ export function cityDataPaths(city) {
 export const NOTIFY_RULES = {
   minDiscountEur: Number(process.env.MIN_DISCOUNT_EUR ?? 3),
   minDiscountPercent: Number(process.env.MIN_DISCOUNT_PERCENT ?? 20),
+  maxMinimumSpendEur: Number(process.env.MAX_MINIMUM_SPEND_EUR ?? 15),
   includeZeroDelivery: process.env.INCLUDE_ZERO_DELIVERY === "true",
 };

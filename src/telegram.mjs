@@ -29,10 +29,12 @@ export async function sendTelegramMessage(text) {
 export function formatTelegramMessage(notification) {
   const appeared = notification.appeared ?? notification.interestingAppeared ?? [];
   const ended = notification.ended ?? [];
+  const appearedGroups = groupOffers(appeared);
+  const endedGroups = groupOffers(ended);
   const lines = [
     "<b>Wolt discount monitor · Vilnius</b>",
-    `New valuable offers: <b>${appeared.length}</b>`,
-    `Ended tracked offers: <b>${ended.length}</b>`,
+    `New valuable offers: <b>${appearedGroups.length}</b>`,
+    `Ended tracked offers: <b>${endedGroups.length}</b>`,
     notification.allAppeared !== undefined
       ? `All appeared: ${notification.allAppeared}, disappeared: ${notification.allDisappeared}`
       : null,
@@ -41,11 +43,11 @@ export function formatTelegramMessage(notification) {
 
   if (appeared.length) {
     lines.push("<b>New:</b>");
-    for (const offer of appeared.slice(0, 30)) {
-      lines.push(formatOfferLine("•", offer));
+    for (const group of appearedGroups.slice(0, 30)) {
+      lines.push(formatOfferGroupLine("•", group));
     }
-    if (appeared.length > 30) {
-      lines.push(`...and ${appeared.length - 30} more new offers.`);
+    if (appearedGroups.length > 30) {
+      lines.push(`...and ${appearedGroups.length - 30} more new grouped offers.`);
     }
   }
 
@@ -53,12 +55,12 @@ export function formatTelegramMessage(notification) {
     if (appeared.length) {
       lines.push("");
     }
-    lines.push("<b>Ended / акції більше немає:</b>");
-    for (const offer of ended.slice(0, 30)) {
-      lines.push(formatOfferLine("✖", offer));
+    lines.push("<b>Ended:</b>");
+    for (const group of endedGroups.slice(0, 30)) {
+      lines.push(formatOfferGroupLine("✖", group));
     }
-    if (ended.length > 30) {
-      lines.push(`...and ${ended.length - 30} more ended offers.`);
+    if (endedGroups.length > 30) {
+      lines.push(`...and ${endedGroups.length - 30} more ended grouped offers.`);
     }
   }
 
@@ -69,12 +71,36 @@ export function formatTelegramMessage(notification) {
   return lines.join("\n");
 }
 
-function formatOfferLine(prefix, offer) {
-  const venueName = escapeHtml(offer.venue.name);
+function groupOffers(offers) {
+  const groups = new Map();
+
+  for (const offer of offers) {
+    const rootName = chainRootName(offer.venue.name);
+    const key = [rootName.toLowerCase(), offer.campaignId ?? offer.text].join("|");
+    const group = groups.get(key) ?? { rootName, offer, offers: [] };
+    group.offers.push(offer);
+    groups.set(key, group);
+  }
+
+  return [...groups.values()];
+}
+
+function formatOfferGroupLine(prefix, group) {
+  const offer = group.offer;
+  const venueName = escapeHtml(group.rootName);
   const offerText = escapeHtml(offer.text);
   const amount = offer.amountLabel ? ` (${escapeHtml(offer.amountLabel)})` : "";
+  const locationCount = group.offers.length > 1 ? ` · ${group.offers.length} locations` : "";
   const link = offer.venue.link ? `\n${escapeHtml(offer.venue.link)}` : "";
-  return `${prefix} <b>${venueName}</b>: ${offerText}${amount}${link}`;
+  return `${prefix} <b>${venueName}</b>${locationCount}: ${offerText}${amount}${link}`;
+}
+
+function chainRootName(name = "") {
+  return String(name)
+    .replace(/\s*\([^)]*\)\s*$/g, "")
+    .replace(/\s+-\s+[^-]+$/g, "")
+    .replace(/\s{2,}/g, " ")
+    .trim() || String(name);
 }
 
 function escapeHtml(value) {

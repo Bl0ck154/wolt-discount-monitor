@@ -876,10 +876,6 @@ function extractDiscount(text = "") {
 }
 
 function offerScore(offer) {
-  if (Number.isFinite(offer.score)) {
-    return offer.score;
-  }
-
   const text = normalizeOfferText(offer.text).toLowerCase();
   const discount = offer.discount ?? offerDiscount(offer);
   const amount = Number(discount?.amount);
@@ -887,25 +883,71 @@ function offerScore(offer) {
     return -1;
   }
 
-  const selectedItems = /selected items?|selected products?|specific items?/i.test(text);
-  const hasMinimumSpend = /\bspend\b|minimum|min\.?\s*(?:order|spend|basket)|from\s+\d|over\s+\d|orders?\s+over/i.test(text);
+  const selectedItems = isSpecificItemOffer(text);
+  const minSpend = minimumSpendAmount(text);
+  const hasMinimumSpend = minSpend !== null;
+  const smallMinimumSpend = minSpend !== null && minSpend <= 15;
+  const wholeMenu = isWholeMenuOffer(text);
+
+  if (selectedItems) {
+    return 500 + amount;
+  }
+
+  if (discount.type === "money") {
+    if (!hasMinimumSpend) {
+      return 7000 + amount;
+    }
+    if (smallMinimumSpend) {
+      return 6500 + amount;
+    }
+    return 2500 + amount;
+  }
 
   if (discount.type === "percent") {
-    if (/basket|menu|entire|everything|all items?|whole order|order discount/i.test(text)) {
-      return 5000 + amount;
+    if (wholeMenu && !hasMinimumSpend) {
+      return 6000 + amount;
     }
-    if (selectedItems) {
-      return 1000 + amount;
+    if (wholeMenu && smallMinimumSpend) {
+      return 5500 + amount;
     }
-    return 4000 + amount;
-  }
-  if (discount.type === "money") {
-    if (hasMinimumSpend) {
+    if (wholeMenu) {
       return 2000 + amount;
     }
-    return 3000 + amount;
+    return 1500 + amount;
   }
   return -1;
+}
+
+function isWholeMenuOffer(text) {
+  return /\b(?:all|entire|whole|everything)\b.*\b(?:menu|basket|order|items?)\b/i.test(text) ||
+    /\b(?:menu|basket|whole order|entire order|order discount|all items?|everything)\b/i.test(text);
+}
+
+function isSpecificItemOffer(text) {
+  return /selected\s+(?:item|items|product|products)|specific\s+(?:item|items|product|products)/i.test(text) ||
+    /\b(?:burger|burgers|tortilla|tortillas|meal|meals|combo|combos|set|sets|pizza|pizzas|sushi set)\b/i.test(text);
+}
+
+function minimumSpendAmount(text) {
+  const normalized = String(text).replace(/,/g, ".");
+  const patterns = [
+    /\bspend\s*(?:€\s*)?(\d+(?:\.\d+)?)\s*(?:€|eur|euro)?/i,
+    /\bminimum\s*(?:order|spend|basket)?\s*(?:€\s*)?(\d+(?:\.\d+)?)\s*(?:€|eur|euro)?/i,
+    /\bmin\.?\s*(?:order|spend|basket)?\s*(?:€\s*)?(\d+(?:\.\d+)?)\s*(?:€|eur|euro)?/i,
+    /\bfrom\s*(?:€\s*)?(\d+(?:\.\d+)?)\s*(?:€|eur|euro)/i,
+    /\borders?\s+over\s*(?:€\s*)?(\d+(?:\.\d+)?)\s*(?:€|eur|euro)?/i,
+    /\bover\s*(?:€\s*)?(\d+(?:\.\d+)?)\s*(?:€|eur|euro)/i,
+  ];
+
+  for (const pattern of patterns) {
+    const match = normalized.match(pattern);
+    if (match) {
+      const amount = Number(match[1]);
+      return Number.isFinite(amount) ? amount : null;
+    }
+  }
+
+  return null;
 }
 
 function formatDiscountLabel(amount, type) {

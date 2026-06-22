@@ -214,6 +214,7 @@ Optional notification variables:
 ```text
 MIN_DISCOUNT_EUR=3
 MIN_DISCOUNT_PERCENT=20
+MAX_MINIMUM_SPEND_EUR=15
 INCLUDE_ZERO_DELIVERY=false
 ```
 

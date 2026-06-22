@@ -1,7 +1,7 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname } from "node:path";
 import { CACHE_TTL_MS, CITY, PATHS, cityDataPaths, cityKey, cityLabel, isDefaultCity } from "./config.mjs";
-import { diffSnapshots, interestingOfferIndex } from "./diff.mjs";
+import { diffSnapshots, interestingOfferIndex, offerIndex } from "./diff.mjs";
 import { fetchCityData, isSnapshotFresh } from "./wolt-api.mjs";
 import { fetchWoltCityCatalog } from "./wolt-cities.mjs";
 import { normalizeSnapshot } from "./normalize.mjs";
@@ -46,10 +46,11 @@ async function checkCity(city) {
 
   const current = normalizeSnapshot(await fetchCityData(city));
   const changes = diffSnapshots(previous, current);
+  const currentOffers = offerIndex(current);
   const currentInteresting = interestingOfferIndex(current);
   const notifiedByKey = new Map((notified.activeOffers ?? []).filter((offer) => offer.stableKey).map((offer) => [offer.stableKey, offer]));
   const newInteresting = changes.interestingAppeared.filter((offer) => !notifiedByKey.has(offer.stableKey));
-  const endedNotified = [...notifiedByKey.values()].filter((offer) => !currentInteresting.has(offer.stableKey));
+  const endedNotified = [...notifiedByKey.values()].filter((offer) => !currentOffers.has(offer.stableKey));
   const hasChanges =
     process.env.FORCE_WRITE === "true" ||
     !previous ||
@@ -210,7 +211,7 @@ function buildNotifiedState({ previous, currentInteresting, appeared, ended, gen
   const byKey = new Map();
 
   for (const offer of previous.activeOffers ?? []) {
-    if (!endedKeys.has(offer.stableKey)) {
+    if (!endedKeys.has(offer.stableKey) && currentInteresting.has(offer.stableKey)) {
       byKey.set(offer.stableKey, {
         ...offer,
         lastSeenAt: currentInteresting.has(offer.stableKey) ? generatedAt : offer.lastSeenAt,
