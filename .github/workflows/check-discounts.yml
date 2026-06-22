@@ -13,10 +13,8 @@ on:
         default: false
         type: boolean
   schedule:
-    # GitHub cron is UTC and has been observed to create runs hours late.
-    # Probe every 15 minutes across the possible delay span; the first step
-    # below skips everything outside the Vilnius notification windows.
-    - cron: "0,15,30,45 6-16 * * *"
+    # GitHub cron is UTC. These are 12:30 and 17:30 for Kyiv/Vilnius summer time.
+    - cron: "30 9,14 * * *"
 
 permissions:
   contents: write
@@ -29,37 +27,15 @@ jobs:
   check:
     runs-on: [self-hosted, Linux, X64, wolt]
     steps:
-      - name: Check default notification window
-        id: schedule-window
-        if: ${{ github.event_name == 'schedule' }}
-        shell: bash
-        run: |
-          hour=$(TZ=Europe/Vilnius date +%H)
-          minute=$(TZ=Europe/Vilnius date +%M)
-          now_minutes=$((10#$hour * 60 + 10#$minute))
-
-          # Allow 12:30-13:05 and 17:30-18:05 Europe/Vilnius for notifications.
-          if { [ "$now_minutes" -ge 750 ] && [ "$now_minutes" -le 785 ]; } || \
-             { [ "$now_minutes" -ge 1050 ] && [ "$now_minutes" -le 1085 ]; }; then
-            echo "run_check=true" >> "$GITHUB_OUTPUT"
-            echo "Scheduled run is inside the default notification window: ${hour}:${minute} Europe/Vilnius"
-          else
-            echo "run_check=false" >> "$GITHUB_OUTPUT"
-            echo "Skipping delayed scheduled run outside default notification windows: ${hour}:${minute} Europe/Vilnius"
-          fi
-
       - name: Checkout
-        if: ${{ github.event_name != 'schedule' || steps.schedule-window.outputs.run_check == 'true' }}
         uses: actions/checkout@v4
 
       - name: Setup Node
-        if: ${{ github.event_name != 'schedule' || steps.schedule-window.outputs.run_check == 'true' }}
         uses: actions/setup-node@v4
         with:
           node-version: "22"
 
       - name: Update discount data
-        if: ${{ github.event_name != 'schedule' || steps.schedule-window.outputs.run_check == 'true' }}
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -73,7 +49,6 @@ jobs:
         run: node src/check-discounts.mjs
 
       - name: Commit updated data
-        if: ${{ github.event_name != 'schedule' || steps.schedule-window.outputs.run_check == 'true' }}
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Update Wolt discount monitor data"
