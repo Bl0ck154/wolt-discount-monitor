@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-21T19:46:47.169Z",
+  "generatedAt": "2026-06-22T10:57:05.983Z",
   "defaultCityId": "ltu/vilnius",
-  "cacheTtlMs": 7200000,
+  "cacheTtlMs": 0,
   "totalCities": 948,
   "totalCountries": 30,
   "countries": [
@@ -99,7 +99,7 @@
       "code3": "DEU",
       "name": "Germany",
       "emoji": "🇩🇪",
-      "cityCount": 78
+      "cityCount": 79
     },
     {
       "code": "grc",
@@ -187,7 +187,7 @@
       "code3": "NOR",
       "name": "Norway",
       "emoji": "🇳🇴",
-      "cityCount": 59
+      "cityCount": 58
     },
     {
       "code": "pol",
@@ -8819,6 +8819,28 @@
       "counts": null
     },
     {
+      "id": "deu/pforzheim",
+      "key": "deu-pforzheim",
+      "woltCityId": "6584125a88e28083f90ffd45",
+      "slug": "pforzheim",
+      "name": "Pforzheim",
+      "country": "Germany",
+      "countryEmoji": "🇩🇪",
+      "countryCode": "deu",
+      "countryCode2": "DE",
+      "countryCode3": "DEU",
+      "lat": 48.88978329434414,
+      "lon": 8.701863865547779,
+      "locale": "en",
+      "timezone": "Europe/Berlin",
+      "label": "Pforzheim, Germany",
+      "notificationsEnabled": false,
+      "dataPath": "data/cities/deu-pforzheim/latest.json",
+      "latestPath": "data/cities/deu-pforzheim/latest.json",
+      "updatedAt": null,
+      "counts": null
+    },
+    {
       "id": "deu/potsdam",
       "key": "deu-potsdam",
       "woltCityId": "6538c2c54965d637bb357e47",
@@ -14341,10 +14363,10 @@
       "notificationsEnabled": true,
       "dataPath": "data/latest.json",
       "latestPath": "data/latest.json",
-      "updatedAt": "2026-06-21T18:40:45.098Z",
+      "updatedAt": "2026-06-22T10:57:05.022Z",
       "counts": {
-        "restaurantsUniqueVenues": 824,
-        "promotionsUniqueVenues": 1358,
+        "restaurantsUniqueVenues": 819,
+        "promotionsUniqueVenues": 1353,
         "productLines": {
           "alcohol": 80,
           "florist": 68,
@@ -14353,7 +14375,7 @@
           "health_and_beauty": 43,
           "pet_supply": 57,
           "pharmacy": 16,
-          "restaurant": 824
+          "restaurant": 819
         }
       }
     },
@@ -15036,28 +15058,6 @@
       "notificationsEnabled": false,
       "dataPath": "data/cities/nor-horten/latest.json",
       "latestPath": "data/cities/nor-horten/latest.json",
-      "updatedAt": null,
-      "counts": null
-    },
-    {
-      "id": "nor/idyll-festivalen",
-      "key": "nor-idyll-festivalen",
-      "woltCityId": "6a30fb74406f9e52acbc2e90",
-      "slug": "idyll-festivalen",
-      "name": "IDYLL Festivalen",
-      "country": "Norway",
-      "countryEmoji": "🇳🇴",
-      "countryCode": "nor",
-      "countryCode2": "NO",
-      "countryCode3": "NOR",
-      "lat": 59.20289663445553,
-      "lon": 10.945144089099529,
-      "locale": "en",
-      "timezone": "Europe/Oslo",
-      "label": "IDYLL Festivalen, Norway",
-      "notificationsEnabled": false,
-      "dataPath": "data/cities/nor-idyll-festivalen/latest.json",
-      "latestPath": "data/cities/nor-idyll-festivalen/latest.json",
       "updatedAt": null,
       "counts": null
     },

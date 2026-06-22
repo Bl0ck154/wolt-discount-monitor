@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-21T18:40:45.098Z",
-  "previousGeneratedAt": "2026-06-21T15:59:07.819Z",
+  "generatedAt": "2026-06-22T10:57:05.022Z",
+  "previousGeneratedAt": "2026-06-21T18:40:45.098Z",
   "counts": {
-    "restaurantsUniqueVenues": 824,
-    "promotionsUniqueVenues": 1358,
+    "restaurantsUniqueVenues": 819,
+    "promotionsUniqueVenues": 1353,
     "productLines": {
       "alcohol": 80,
       "florist": 68,
@@ -12,10 +12,972 @@
       "health_and_beauty": 43,
       "pet_supply": 57,
       "pharmacy": 16,
-      "restaurant": 824
+      "restaurant": 819
     }
   },
   "appeared": [
+    {
+      "venue": {
+        "id": "664c71eefa7f50327cb7fe94",
+        "slug": "breakfast-brothers-pc-nordika",
+        "name": "Breakfast Brothers (Nordika)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/breakfast-brothers-pc-nordika",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67335dbc4d6df41fd765944d"
+      },
+      "stableKey": "breakfast-brothers-pc-nordika|69d5edd82091a802abd998bc",
+      "key": "venue.promotions_for_telemetry:69d5edd82091a802abd998bc",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "69d5edd82091a802abd998bc",
+      "text": "1.99 € off delivery",
+      "amount": 1.99,
+      "amountType": "money",
+      "amountLabel": "1.99 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69d5edd82091a802abd998bc",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "1.99 € off delivery",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5fa53c3cd2697f83c1b19e9b",
+        "slug": "chief-pizza-zemaites-g",
+        "name": "Chief Pizza (Žemaitės g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/chief-pizza-zemaites-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67320836479a971266a692c7"
+      },
+      "stableKey": "chief-pizza-zemaites-g|6a390e3aba53abe9d0ce888e",
+      "key": "venue.promotions_for_telemetry:6a390e3aba53abe9d0ce888e",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a390e3aba53abe9d0ce888e",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 1020,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a390e3aba53abe9d0ce888e",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5c88ed02fe33c5000dcb1d09",
+        "slug": "cili-pizza-nordika",
+        "name": "Čili pizza (Nordika)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/cili-pizza-nordika",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/473b21dc-0e94-4220-9a10-93572aeb342d/fe27f512-11e4-4d60-8700-ace67c33c7c0"
+      },
+      "stableKey": "cili-pizza-nordika|69d5edd82091a802abd998bc",
+      "key": "venue.promotions_for_telemetry:69d5edd82091a802abd998bc",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "69d5edd82091a802abd998bc",
+      "text": "1.99 € off delivery",
+      "amount": 1.99,
+      "amountType": "money",
+      "amountLabel": "1.99 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69d5edd82091a802abd998bc",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "1.99 € off delivery",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "663e2bc445eaec1c1362dcc1",
+        "slug": "fresh-krautuvele",
+        "name": "Fresh Krautuvėlė",
+        "productLine": "grocery",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/fresh-krautuvele",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6799d7dfa2da890ebfeb8c3a"
+      },
+      "stableKey": "fresh-krautuvele|6a3844944de89a85e14c9715",
+      "key": "venue.promotions_for_telemetry:6a3844944de89a85e14c9715",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a3844944de89a85e14c9715",
+      "text": "5 € off (spend 30 €)",
+      "amount": 5,
+      "amountType": "money",
+      "amountLabel": "5 EUR",
+      "category": "money",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 2005,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a3844944de89a85e14c9715",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "5 € off (spend 30 €)",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "631b46068b8e91cd0a043198",
+        "slug": "kaimu-kaimas-vikingu",
+        "name": "Kaimų kaimas (Nordika)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kaimu-kaimas-vikingu",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67331caf8c53ee661d0bb925"
+      },
+      "stableKey": "kaimu-kaimas-vikingu|69d5edd82091a802abd998bc",
+      "key": "venue.promotions_for_telemetry:69d5edd82091a802abd998bc",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "69d5edd82091a802abd998bc",
+      "text": "1.99 € off delivery",
+      "amount": 1.99,
+      "amountType": "money",
+      "amountLabel": "1.99 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69d5edd82091a802abd998bc",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "1.99 € off delivery",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "685d2cd29df8286ecef2d48e",
+        "slug": "kfc-akropolis",
+        "name": "KFC (Akropolis)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-akropolis",
+        "imageUrl": "https://imageproxy.wolt.com/assets/685d2d0a614bb013e9319b62"
+      },
+      "stableKey": "kfc-akropolis|6a33d5bbd4b4b0fa7fa2b5ca",
+      "key": "venue.promotions_for_telemetry:6a33d5bbd4b4b0fa7fa2b5ca",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a33d5bbd4b4b0fa7fa2b5ca",
+      "text": "-30% Burger & Tortilla meals",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 4030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a33d5bbd4b4b0fa7fa2b5ca",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% Burger & Tortilla meals",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "693ff6852524d6ca70c0c79b",
+        "slug": "kfc-cup",
+        "name": "KFC (CUP)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-cup",
+        "imageUrl": "https://imageproxy.wolt.com/assets/693ff6a9412f4b47cf4c30fc"
+      },
+      "stableKey": "kfc-cup|6a33d5bbd4b4b0fa7fa2b5ca",
+      "key": "venue.promotions_for_telemetry:6a33d5bbd4b4b0fa7fa2b5ca",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a33d5bbd4b4b0fa7fa2b5ca",
+      "text": "-30% Burger & Tortilla meals",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 4030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a33d5bbd4b4b0fa7fa2b5ca",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% Burger & Tortilla meals",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5b1d572ec18b47000b6b22e0",
+        "slug": "kfc",
+        "name": "KFC (Gedimino pr.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fbc308c8149ae83548b"
+      },
+      "stableKey": "kfc|6a33d5bbd4b4b0fa7fa2b5ca",
+      "key": "venue.promotions_for_telemetry:6a33d5bbd4b4b0fa7fa2b5ca",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a33d5bbd4b4b0fa7fa2b5ca",
+      "text": "-30% Burger & Tortilla meals",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 4030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a33d5bbd4b4b0fa7fa2b5ca",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% Burger & Tortilla meals",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "655cc794b29932b3fcf99ff8",
+        "slug": "kfc-mandarinas",
+        "name": "KFC (Mandarinas)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-mandarinas",
+        "imageUrl": "https://imageproxy.wolt.com/assets/673208e6d775830ca1efcd77"
+      },
+      "stableKey": "kfc-mandarinas|6a33d5bbd4b4b0fa7fa2b5ca",
+      "key": "venue.promotions_for_telemetry:6a33d5bbd4b4b0fa7fa2b5ca",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a33d5bbd4b4b0fa7fa2b5ca",
+      "text": "-30% Burger & Tortilla meals",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 4030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a33d5bbd4b4b0fa7fa2b5ca",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% Burger & Tortilla meals",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5b4489fc009fa7000e843af2",
+        "slug": "kfc-ozas",
+        "name": "KFC (Ozas)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-ozas",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fd8ac5de37683d5e0c1"
+      },
+      "stableKey": "kfc-ozas|6a33d5bbd4b4b0fa7fa2b5ca",
+      "key": "venue.promotions_for_telemetry:6a33d5bbd4b4b0fa7fa2b5ca",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a33d5bbd4b4b0fa7fa2b5ca",
+      "text": "-30% Burger & Tortilla meals",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 4030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a33d5bbd4b4b0fa7fa2b5ca",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% Burger & Tortilla meals",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "616eb3a33c67e1eb00ab3d19",
+        "slug": "kfc-pilaite",
+        "name": "KFC (Pilaitė)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-pilaite",
+        "imageUrl": "https://imageproxy.wolt.com/assets/673214e5e34d3d02aa5a34ec"
+      },
+      "stableKey": "kfc-pilaite|6a33d5bbd4b4b0fa7fa2b5ca",
+      "key": "venue.promotions_for_telemetry:6a33d5bbd4b4b0fa7fa2b5ca",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a33d5bbd4b4b0fa7fa2b5ca",
+      "text": "-30% Burger & Tortilla meals",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 4030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a33d5bbd4b4b0fa7fa2b5ca",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% Burger & Tortilla meals",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "684c110176484b5f23e5413b",
+        "slug": "kfc-stotis",
+        "name": "KFC (Stotis)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-stotis",
+        "imageUrl": "https://imageproxy.wolt.com/assets/684c11478baf0fa6c3998f21"
+      },
+      "stableKey": "kfc-stotis|6a33d5bbd4b4b0fa7fa2b5ca",
+      "key": "venue.promotions_for_telemetry:6a33d5bbd4b4b0fa7fa2b5ca",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a33d5bbd4b4b0fa7fa2b5ca",
+      "text": "-30% Burger & Tortilla meals",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 4030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a33d5bbd4b4b0fa7fa2b5ca",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% Burger & Tortilla meals",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "658169befebd9911644d679d",
+        "slug": "lunchin-nordika",
+        "name": "Lunchin' (Nordika)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/lunchin-nordika",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6732082df45db57ef60041de"
+      },
+      "stableKey": "lunchin-nordika|69d5edd82091a802abd998bc",
+      "key": "venue.promotions_for_telemetry:69d5edd82091a802abd998bc",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "69d5edd82091a802abd998bc",
+      "text": "1.99 € off delivery",
+      "amount": 1.99,
+      "amountType": "money",
+      "amountLabel": "1.99 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69d5edd82091a802abd998bc",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "1.99 € off delivery",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "60decf931b264dcf1ea34cce",
+        "slug": "peliukas-flower",
+        "name": "Peliukas Flower Shop",
+        "productLine": "florist",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/peliukas-flower",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/480a73b5-bda8-4d13-81cd-459f8b1170d4/780e8bec-098d-4372-a829-47ddc64fa74b"
+      },
+      "stableKey": "peliukas-flower|6a3906c16e8d61455ff694a5",
+      "key": "venue.promotions_for_telemetry:6a3906c16e8d61455ff694a5",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a3906c16e8d61455ff694a5",
+      "text": "40% off selected items",
+      "amount": 40,
+      "amountType": "percent",
+      "amountLabel": "40%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 1040,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a3906c16e8d61455ff694a5",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "40% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "624adc0ed4fcb418fca92b17",
+        "slug": "pizzelle-vikingu",
+        "name": "Pizzelle (Nordika)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/pizzelle-vikingu",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/32d360fb-c5a6-459f-98d0-43f45b6effe6/f979ce20-eb81-4c65-b10c-c4475a5395a5"
+      },
+      "stableKey": "pizzelle-vikingu|69d5edd82091a802abd998bc",
+      "key": "venue.promotions_for_telemetry:69d5edd82091a802abd998bc",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "69d5edd82091a802abd998bc",
+      "text": "1.99 € off delivery",
+      "amount": 1.99,
+      "amountType": "money",
+      "amountLabel": "1.99 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69d5edd82091a802abd998bc",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "1.99 € off delivery",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "69a6b08535dee232b2310333",
+        "slug": "tikra-vista-nordika",
+        "name": "Tikra Višta (Nordika)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/tikra-vista-nordika",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/579a75ea-82c3-4978-b515-f8c7de671d79/5995df39-8b0b-454e-9443-61e1c0deed11"
+      },
+      "stableKey": "tikra-vista-nordika|69d5edd82091a802abd998bc",
+      "key": "venue.promotions_for_telemetry:69d5edd82091a802abd998bc",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "69d5edd82091a802abd998bc",
+      "text": "1.99 € off delivery",
+      "amount": 1.99,
+      "amountType": "money",
+      "amountLabel": "1.99 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69d5edd82091a802abd998bc",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "1.99 € off delivery",
+        "variant": "discount"
+      }
+    }
+  ],
+  "disappeared": [
+    {
+      "venue": {
+        "id": "5eaaa8abf0c5c8df3eb89b98",
+        "slug": "bacchus-grill-house",
+        "name": "Bacchus grill house",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/bacchus-grill-house",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fc040111921ceedb440"
+      },
+      "stableKey": "bacchus-grill-house|6a2bb9ab2579f27f0d5e87c1",
+      "key": "venue.promotions:6a2bb9ab2579f27f0d5e87c1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bb9ab2579f27f0d5e87c1",
+      "text": "0€ delivery for new users",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "new-user-delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bb9ab2579f27f0d5e87c1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0€ delivery for new users",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "674ec25a720dc327a93c6737",
+        "slug": "baltu-kebabine",
+        "name": "Baltų Kebabinė",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/baltu-kebabine",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67615dc8ab4f9f4331ad8d1c"
+      },
+      "stableKey": "baltu-kebabine|6a2bb9ab2579f27f0d5e87c1",
+      "key": "venue.promotions:6a2bb9ab2579f27f0d5e87c1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bb9ab2579f27f0d5e87c1",
+      "text": "0€ delivery for new users",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "new-user-delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bb9ab2579f27f0d5e87c1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0€ delivery for new users",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "664c71eefa7f50327cb7fe94",
+        "slug": "breakfast-brothers-pc-nordika",
+        "name": "Breakfast Brothers (Nordika)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/breakfast-brothers-pc-nordika",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67335dbc4d6df41fd765944d"
+      },
+      "stableKey": "breakfast-brothers-pc-nordika|69d5ededa7f9fab2e9fedbcb",
+      "key": "venue.promotions_for_telemetry:69d5ededa7f9fab2e9fedbcb",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "69d5ededa7f9fab2e9fedbcb",
+      "text": "3.89 € off delivery",
+      "amount": 3.89,
+      "amountType": "money",
+      "amountLabel": "3.89 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69d5ededa7f9fab2e9fedbcb",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "3.89 € off delivery",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5c88ed02fe33c5000dcb1d09",
+        "slug": "cili-pizza-nordika",
+        "name": "Čili pizza (Nordika)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/cili-pizza-nordika",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/473b21dc-0e94-4220-9a10-93572aeb342d/fe27f512-11e4-4d60-8700-ace67c33c7c0"
+      },
+      "stableKey": "cili-pizza-nordika|69d5ededa7f9fab2e9fedbcb",
+      "key": "venue.promotions_for_telemetry:69d5ededa7f9fab2e9fedbcb",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "69d5ededa7f9fab2e9fedbcb",
+      "text": "3.89 € off delivery",
+      "amount": 3.89,
+      "amountType": "money",
+      "amountLabel": "3.89 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69d5ededa7f9fab2e9fedbcb",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "3.89 € off delivery",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6454d7d9d95640ea7f3e5fef",
+        "slug": "din-capri",
+        "name": "DIN Capri",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/din-capri",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6732148145d01a14eccab1fc"
+      },
+      "stableKey": "din-capri|6a2bb9ab2579f27f0d5e87c1",
+      "key": "venue.promotions:6a2bb9ab2579f27f0d5e87c1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bb9ab2579f27f0d5e87c1",
+      "text": "0€ delivery for new users",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "new-user-delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bb9ab2579f27f0d5e87c1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0€ delivery for new users",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "68d10576b44133157ebeff68",
+        "slug": "gardenija-antakalnio-g",
+        "name": "Gardenija (Antakalnio g.)",
+        "productLine": "florist",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/gardenija-antakalnio-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/68d106d91d0b08040075d36c"
+      },
+      "stableKey": "gardenija-antakalnio-g|6a27cd6445faca410a32c26f",
+      "key": "venue.promotions_for_telemetry:6a27cd6445faca410a32c26f",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a27cd6445faca410a32c26f",
+      "text": "5 € off (spend 30 €)",
+      "amount": 5,
+      "amountType": "money",
+      "amountLabel": "5 EUR",
+      "category": "money",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 2005,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a27cd6445faca410a32c26f",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "5 € off (spend 30 €)",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "631b46068b8e91cd0a043198",
+        "slug": "kaimu-kaimas-vikingu",
+        "name": "Kaimų kaimas (Nordika)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kaimu-kaimas-vikingu",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67331caf8c53ee661d0bb925"
+      },
+      "stableKey": "kaimu-kaimas-vikingu|69d5ededa7f9fab2e9fedbcb",
+      "key": "venue.promotions_for_telemetry:69d5ededa7f9fab2e9fedbcb",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "69d5ededa7f9fab2e9fedbcb",
+      "text": "3.89 € off delivery",
+      "amount": 3.89,
+      "amountType": "money",
+      "amountLabel": "3.89 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69d5ededa7f9fab2e9fedbcb",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "3.89 € off delivery",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "685d2cd29df8286ecef2d48e",
+        "slug": "kfc-akropolis",
+        "name": "KFC (Akropolis)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-akropolis",
+        "imageUrl": "https://imageproxy.wolt.com/assets/685d2d0a614bb013e9319b62"
+      },
+      "stableKey": "kfc-akropolis|6a2bda38bd2192c2fd1972fe",
+      "key": "venue.promotions:6a2bda38bd2192c2fd1972fe",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bda38bd2192c2fd1972fe",
+      "text": "Basket discount -30%",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 5030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bda38bd2192c2fd1972fe",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket discount -30%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "693ff6852524d6ca70c0c79b",
+        "slug": "kfc-cup",
+        "name": "KFC (CUP)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-cup",
+        "imageUrl": "https://imageproxy.wolt.com/assets/693ff6a9412f4b47cf4c30fc"
+      },
+      "stableKey": "kfc-cup|6a2bda38bd2192c2fd1972fe",
+      "key": "venue.promotions:6a2bda38bd2192c2fd1972fe",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bda38bd2192c2fd1972fe",
+      "text": "Basket discount -30%",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 5030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bda38bd2192c2fd1972fe",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket discount -30%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5b1d572ec18b47000b6b22e0",
+        "slug": "kfc",
+        "name": "KFC (Gedimino pr.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fbc308c8149ae83548b"
+      },
+      "stableKey": "kfc|6a2bda38bd2192c2fd1972fe",
+      "key": "venue.promotions:6a2bda38bd2192c2fd1972fe",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bda38bd2192c2fd1972fe",
+      "text": "Basket discount -30%",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 5030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bda38bd2192c2fd1972fe",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket discount -30%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "655cc794b29932b3fcf99ff8",
+        "slug": "kfc-mandarinas",
+        "name": "KFC (Mandarinas)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-mandarinas",
+        "imageUrl": "https://imageproxy.wolt.com/assets/673208e6d775830ca1efcd77"
+      },
+      "stableKey": "kfc-mandarinas|6a2bda38bd2192c2fd1972fe",
+      "key": "venue.promotions:6a2bda38bd2192c2fd1972fe",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bda38bd2192c2fd1972fe",
+      "text": "Basket discount -30%",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 5030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bda38bd2192c2fd1972fe",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket discount -30%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5b4489fc009fa7000e843af2",
+        "slug": "kfc-ozas",
+        "name": "KFC (Ozas)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-ozas",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fd8ac5de37683d5e0c1"
+      },
+      "stableKey": "kfc-ozas|6a2bda38bd2192c2fd1972fe",
+      "key": "venue.promotions:6a2bda38bd2192c2fd1972fe",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bda38bd2192c2fd1972fe",
+      "text": "Basket discount -30%",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 5030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bda38bd2192c2fd1972fe",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket discount -30%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "616eb3a33c67e1eb00ab3d19",
+        "slug": "kfc-pilaite",
+        "name": "KFC (Pilaitė)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-pilaite",
+        "imageUrl": "https://imageproxy.wolt.com/assets/673214e5e34d3d02aa5a34ec"
+      },
+      "stableKey": "kfc-pilaite|6a2bda38bd2192c2fd1972fe",
+      "key": "venue.promotions:6a2bda38bd2192c2fd1972fe",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bda38bd2192c2fd1972fe",
+      "text": "Basket discount -30%",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 5030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bda38bd2192c2fd1972fe",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket discount -30%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "684c110176484b5f23e5413b",
+        "slug": "kfc-stotis",
+        "name": "KFC (Stotis)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-stotis",
+        "imageUrl": "https://imageproxy.wolt.com/assets/684c11478baf0fa6c3998f21"
+      },
+      "stableKey": "kfc-stotis|6a2bda38bd2192c2fd1972fe",
+      "key": "venue.promotions:6a2bda38bd2192c2fd1972fe",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bda38bd2192c2fd1972fe",
+      "text": "Basket discount -30%",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 5030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bda38bd2192c2fd1972fe",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket discount -30%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "60f57b6ea5f0a7254239cdc4",
+        "slug": "kinu-virtuve",
+        "name": "Kinų virtuvė",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kinu-virtuve",
+        "imageUrl": "https://imageproxy.wolt.com/assets/673206f9ae168d77add711f2"
+      },
+      "stableKey": "kinu-virtuve|6a2bb9ab2579f27f0d5e87c1",
+      "key": "venue.promotions:6a2bb9ab2579f27f0d5e87c1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bb9ab2579f27f0d5e87c1",
+      "text": "0€ delivery for new users",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "new-user-delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bb9ab2579f27f0d5e87c1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0€ delivery for new users",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "658169befebd9911644d679d",
+        "slug": "lunchin-nordika",
+        "name": "Lunchin' (Nordika)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/lunchin-nordika",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6732082df45db57ef60041de"
+      },
+      "stableKey": "lunchin-nordika|69d5ededa7f9fab2e9fedbcb",
+      "key": "venue.promotions_for_telemetry:69d5ededa7f9fab2e9fedbcb",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "69d5ededa7f9fab2e9fedbcb",
+      "text": "3.89 € off delivery",
+      "amount": 3.89,
+      "amountType": "money",
+      "amountLabel": "3.89 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69d5ededa7f9fab2e9fedbcb",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "3.89 € off delivery",
+        "variant": "discount"
+      }
+    },
     {
       "venue": {
         "id": "61fd25d89e6ce7e36e0328a5",
@@ -225,104 +1187,854 @@
         "text": "-50% off selected item",
         "variant": "discount"
       }
-    }
-  ],
-  "disappeared": [
+    },
     {
       "venue": {
-        "id": "699462b7e86be0dbaddc3c7b",
-        "slug": "du-kebabai",
-        "name": "Du Kebabai",
+        "id": "624adc0ed4fcb418fca92b17",
+        "slug": "pizzelle-vikingu",
+        "name": "Pizzelle (Nordika)",
         "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/du-kebabai",
-        "imageUrl": "https://imageproxy.wolt.com/assets/69a162e396d75d61e246da73"
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/pizzelle-vikingu",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/32d360fb-c5a6-459f-98d0-43f45b6effe6/f979ce20-eb81-4c65-b10c-c4475a5395a5"
       },
-      "stableKey": "du-kebabai|6a37115e4391212ba6fa2ba2",
-      "key": "venue.promotions:6a37115e4391212ba6fa2ba2",
-      "sourcePath": "venue.promotions",
-      "campaignId": "6a37115e4391212ba6fa2ba2",
-      "text": "5 € off",
-      "amount": 5,
+      "stableKey": "pizzelle-vikingu|69d5ededa7f9fab2e9fedbcb",
+      "key": "venue.promotions_for_telemetry:69d5ededa7f9fab2e9fedbcb",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "69d5ededa7f9fab2e9fedbcb",
+      "text": "3.89 € off delivery",
+      "amount": 3.89,
       "amountType": "money",
-      "amountLabel": "5 EUR",
-      "category": "money",
-      "isDeliveryRelated": false,
+      "amountLabel": "3.89 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
       "isUtilityBadge": false,
-      "score": 3005,
+      "score": -1,
       "variant": "discount",
       "raw": {
-        "campaign_id": "6a37115e4391212ba6fa2ba2",
+        "campaign_id": "69d5ededa7f9fab2e9fedbcb",
         "icon": "coupon-fill",
         "is_offer_stackable": false,
-        "text": "5 € off",
+        "text": "3.89 € off delivery",
         "variant": "discount"
       }
     },
     {
       "venue": {
-        "id": "59c20d038903136dd383f13b",
-        "slug": "piano-piano",
-        "name": "Piano Piano (Vilniaus g.)",
-        "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/piano-piano",
-        "imageUrl": "https://imageproxy.wolt.com/assets/67332fac149445354de03e9f"
+        "id": "678e4936181346461fff055c",
+        "slug": "savam-kieme",
+        "name": "Savam kieme",
+        "productLine": "grocery",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/savam-kieme",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67dc24ef829e4a2306e07b55"
       },
-      "stableKey": "piano-piano|696f72829a22d46087295fde",
-      "key": "venue.promotions_for_telemetry:696f72829a22d46087295fde",
+      "stableKey": "savam-kieme|6a3427761487ca1d585852be",
+      "key": "venue.promotions_for_telemetry:6a3427761487ca1d585852be",
       "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "696f72829a22d46087295fde",
-      "text": "20% off selected items",
-      "amount": 20,
+      "campaignId": "6a3427761487ca1d585852be",
+      "text": "10% off selected items",
+      "amount": 10,
       "amountType": "percent",
-      "amountLabel": "20%",
+      "amountLabel": "10%",
       "category": "percent",
       "isDeliveryRelated": false,
       "isUtilityBadge": false,
-      "score": 1020,
+      "score": 1010,
       "variant": "discount",
       "raw": {
-        "campaign_id": "696f72829a22d46087295fde",
+        "campaign_id": "6a3427761487ca1d585852be",
         "icon": "coupon-fill",
         "is_offer_stackable": true,
-        "text": "20% off selected items",
+        "text": "10% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5fb5390696d58311eba6fc44",
+        "slug": "skonio-chuliganai",
+        "name": "Skonio chuliganai",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/skonio-chuliganai",
+        "imageUrl": "https://imageproxy.wolt.com/assets/673208c163ae2357e7f7c7a9"
+      },
+      "stableKey": "skonio-chuliganai|6a2bb9ab2579f27f0d5e87c1",
+      "key": "venue.promotions:6a2bb9ab2579f27f0d5e87c1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bb9ab2579f27f0d5e87c1",
+      "text": "0€ delivery for new users",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "new-user-delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bb9ab2579f27f0d5e87c1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0€ delivery for new users",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "69a6b08535dee232b2310333",
+        "slug": "tikra-vista-nordika",
+        "name": "Tikra Višta (Nordika)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/tikra-vista-nordika",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/579a75ea-82c3-4978-b515-f8c7de671d79/5995df39-8b0b-454e-9443-61e1c0deed11"
+      },
+      "stableKey": "tikra-vista-nordika|69d5ededa7f9fab2e9fedbcb",
+      "key": "venue.promotions_for_telemetry:69d5ededa7f9fab2e9fedbcb",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "69d5ededa7f9fab2e9fedbcb",
+      "text": "3.89 € off delivery",
+      "amount": 3.89,
+      "amountType": "money",
+      "amountLabel": "3.89 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69d5ededa7f9fab2e9fedbcb",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "3.89 € off delivery",
         "variant": "discount"
       }
     }
   ],
-  "interestingAppeared": [],
-  "interestingDisappeared": [
+  "interestingAppeared": [
     {
       "venue": {
-        "id": "699462b7e86be0dbaddc3c7b",
-        "slug": "du-kebabai",
-        "name": "Du Kebabai",
-        "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/du-kebabai",
-        "imageUrl": "https://imageproxy.wolt.com/assets/69a162e396d75d61e246da73"
+        "id": "663e2bc445eaec1c1362dcc1",
+        "slug": "fresh-krautuvele",
+        "name": "Fresh Krautuvėlė",
+        "productLine": "grocery",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/fresh-krautuvele",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6799d7dfa2da890ebfeb8c3a"
       },
-      "stableKey": "du-kebabai|6a37115e4391212ba6fa2ba2",
-      "key": "venue.promotions:6a37115e4391212ba6fa2ba2",
-      "sourcePath": "venue.promotions",
-      "campaignId": "6a37115e4391212ba6fa2ba2",
-      "text": "5 € off",
+      "stableKey": "fresh-krautuvele|6a3844944de89a85e14c9715",
+      "key": "venue.promotions_for_telemetry:6a3844944de89a85e14c9715",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a3844944de89a85e14c9715",
+      "text": "5 € off (spend 30 €)",
       "amount": 5,
       "amountType": "money",
       "amountLabel": "5 EUR",
       "category": "money",
       "isDeliveryRelated": false,
       "isUtilityBadge": false,
-      "score": 3005,
+      "score": 2005,
       "variant": "discount",
       "raw": {
-        "campaign_id": "6a37115e4391212ba6fa2ba2",
+        "campaign_id": "6a3844944de89a85e14c9715",
         "icon": "coupon-fill",
         "is_offer_stackable": false,
-        "text": "5 € off",
+        "text": "5 € off (spend 30 €)",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "685d2cd29df8286ecef2d48e",
+        "slug": "kfc-akropolis",
+        "name": "KFC (Akropolis)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-akropolis",
+        "imageUrl": "https://imageproxy.wolt.com/assets/685d2d0a614bb013e9319b62"
+      },
+      "stableKey": "kfc-akropolis|6a33d5bbd4b4b0fa7fa2b5ca",
+      "key": "venue.promotions_for_telemetry:6a33d5bbd4b4b0fa7fa2b5ca",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a33d5bbd4b4b0fa7fa2b5ca",
+      "text": "-30% Burger & Tortilla meals",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 4030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a33d5bbd4b4b0fa7fa2b5ca",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% Burger & Tortilla meals",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "693ff6852524d6ca70c0c79b",
+        "slug": "kfc-cup",
+        "name": "KFC (CUP)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-cup",
+        "imageUrl": "https://imageproxy.wolt.com/assets/693ff6a9412f4b47cf4c30fc"
+      },
+      "stableKey": "kfc-cup|6a33d5bbd4b4b0fa7fa2b5ca",
+      "key": "venue.promotions_for_telemetry:6a33d5bbd4b4b0fa7fa2b5ca",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a33d5bbd4b4b0fa7fa2b5ca",
+      "text": "-30% Burger & Tortilla meals",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 4030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a33d5bbd4b4b0fa7fa2b5ca",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% Burger & Tortilla meals",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5b1d572ec18b47000b6b22e0",
+        "slug": "kfc",
+        "name": "KFC (Gedimino pr.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fbc308c8149ae83548b"
+      },
+      "stableKey": "kfc|6a33d5bbd4b4b0fa7fa2b5ca",
+      "key": "venue.promotions_for_telemetry:6a33d5bbd4b4b0fa7fa2b5ca",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a33d5bbd4b4b0fa7fa2b5ca",
+      "text": "-30% Burger & Tortilla meals",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 4030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a33d5bbd4b4b0fa7fa2b5ca",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% Burger & Tortilla meals",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "655cc794b29932b3fcf99ff8",
+        "slug": "kfc-mandarinas",
+        "name": "KFC (Mandarinas)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-mandarinas",
+        "imageUrl": "https://imageproxy.wolt.com/assets/673208e6d775830ca1efcd77"
+      },
+      "stableKey": "kfc-mandarinas|6a33d5bbd4b4b0fa7fa2b5ca",
+      "key": "venue.promotions_for_telemetry:6a33d5bbd4b4b0fa7fa2b5ca",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a33d5bbd4b4b0fa7fa2b5ca",
+      "text": "-30% Burger & Tortilla meals",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 4030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a33d5bbd4b4b0fa7fa2b5ca",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% Burger & Tortilla meals",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5b4489fc009fa7000e843af2",
+        "slug": "kfc-ozas",
+        "name": "KFC (Ozas)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-ozas",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fd8ac5de37683d5e0c1"
+      },
+      "stableKey": "kfc-ozas|6a33d5bbd4b4b0fa7fa2b5ca",
+      "key": "venue.promotions_for_telemetry:6a33d5bbd4b4b0fa7fa2b5ca",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a33d5bbd4b4b0fa7fa2b5ca",
+      "text": "-30% Burger & Tortilla meals",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 4030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a33d5bbd4b4b0fa7fa2b5ca",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% Burger & Tortilla meals",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "616eb3a33c67e1eb00ab3d19",
+        "slug": "kfc-pilaite",
+        "name": "KFC (Pilaitė)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-pilaite",
+        "imageUrl": "https://imageproxy.wolt.com/assets/673214e5e34d3d02aa5a34ec"
+      },
+      "stableKey": "kfc-pilaite|6a33d5bbd4b4b0fa7fa2b5ca",
+      "key": "venue.promotions_for_telemetry:6a33d5bbd4b4b0fa7fa2b5ca",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a33d5bbd4b4b0fa7fa2b5ca",
+      "text": "-30% Burger & Tortilla meals",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 4030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a33d5bbd4b4b0fa7fa2b5ca",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% Burger & Tortilla meals",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "684c110176484b5f23e5413b",
+        "slug": "kfc-stotis",
+        "name": "KFC (Stotis)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-stotis",
+        "imageUrl": "https://imageproxy.wolt.com/assets/684c11478baf0fa6c3998f21"
+      },
+      "stableKey": "kfc-stotis|6a33d5bbd4b4b0fa7fa2b5ca",
+      "key": "venue.promotions_for_telemetry:6a33d5bbd4b4b0fa7fa2b5ca",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a33d5bbd4b4b0fa7fa2b5ca",
+      "text": "-30% Burger & Tortilla meals",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 4030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a33d5bbd4b4b0fa7fa2b5ca",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% Burger & Tortilla meals",
         "variant": "discount"
       }
     }
   ],
-  "newInteresting": [],
+  "interestingDisappeared": [
+    {
+      "venue": {
+        "id": "68d10576b44133157ebeff68",
+        "slug": "gardenija-antakalnio-g",
+        "name": "Gardenija (Antakalnio g.)",
+        "productLine": "florist",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/gardenija-antakalnio-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/68d106d91d0b08040075d36c"
+      },
+      "stableKey": "gardenija-antakalnio-g|6a27cd6445faca410a32c26f",
+      "key": "venue.promotions_for_telemetry:6a27cd6445faca410a32c26f",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a27cd6445faca410a32c26f",
+      "text": "5 € off (spend 30 €)",
+      "amount": 5,
+      "amountType": "money",
+      "amountLabel": "5 EUR",
+      "category": "money",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 2005,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a27cd6445faca410a32c26f",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "5 € off (spend 30 €)",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "685d2cd29df8286ecef2d48e",
+        "slug": "kfc-akropolis",
+        "name": "KFC (Akropolis)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-akropolis",
+        "imageUrl": "https://imageproxy.wolt.com/assets/685d2d0a614bb013e9319b62"
+      },
+      "stableKey": "kfc-akropolis|6a2bda38bd2192c2fd1972fe",
+      "key": "venue.promotions:6a2bda38bd2192c2fd1972fe",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bda38bd2192c2fd1972fe",
+      "text": "Basket discount -30%",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 5030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bda38bd2192c2fd1972fe",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket discount -30%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "693ff6852524d6ca70c0c79b",
+        "slug": "kfc-cup",
+        "name": "KFC (CUP)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-cup",
+        "imageUrl": "https://imageproxy.wolt.com/assets/693ff6a9412f4b47cf4c30fc"
+      },
+      "stableKey": "kfc-cup|6a2bda38bd2192c2fd1972fe",
+      "key": "venue.promotions:6a2bda38bd2192c2fd1972fe",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bda38bd2192c2fd1972fe",
+      "text": "Basket discount -30%",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 5030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bda38bd2192c2fd1972fe",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket discount -30%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5b1d572ec18b47000b6b22e0",
+        "slug": "kfc",
+        "name": "KFC (Gedimino pr.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fbc308c8149ae83548b"
+      },
+      "stableKey": "kfc|6a2bda38bd2192c2fd1972fe",
+      "key": "venue.promotions:6a2bda38bd2192c2fd1972fe",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bda38bd2192c2fd1972fe",
+      "text": "Basket discount -30%",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 5030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bda38bd2192c2fd1972fe",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket discount -30%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "655cc794b29932b3fcf99ff8",
+        "slug": "kfc-mandarinas",
+        "name": "KFC (Mandarinas)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-mandarinas",
+        "imageUrl": "https://imageproxy.wolt.com/assets/673208e6d775830ca1efcd77"
+      },
+      "stableKey": "kfc-mandarinas|6a2bda38bd2192c2fd1972fe",
+      "key": "venue.promotions:6a2bda38bd2192c2fd1972fe",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bda38bd2192c2fd1972fe",
+      "text": "Basket discount -30%",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 5030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bda38bd2192c2fd1972fe",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket discount -30%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5b4489fc009fa7000e843af2",
+        "slug": "kfc-ozas",
+        "name": "KFC (Ozas)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-ozas",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fd8ac5de37683d5e0c1"
+      },
+      "stableKey": "kfc-ozas|6a2bda38bd2192c2fd1972fe",
+      "key": "venue.promotions:6a2bda38bd2192c2fd1972fe",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bda38bd2192c2fd1972fe",
+      "text": "Basket discount -30%",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 5030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bda38bd2192c2fd1972fe",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket discount -30%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "616eb3a33c67e1eb00ab3d19",
+        "slug": "kfc-pilaite",
+        "name": "KFC (Pilaitė)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-pilaite",
+        "imageUrl": "https://imageproxy.wolt.com/assets/673214e5e34d3d02aa5a34ec"
+      },
+      "stableKey": "kfc-pilaite|6a2bda38bd2192c2fd1972fe",
+      "key": "venue.promotions:6a2bda38bd2192c2fd1972fe",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bda38bd2192c2fd1972fe",
+      "text": "Basket discount -30%",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 5030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bda38bd2192c2fd1972fe",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket discount -30%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "684c110176484b5f23e5413b",
+        "slug": "kfc-stotis",
+        "name": "KFC (Stotis)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-stotis",
+        "imageUrl": "https://imageproxy.wolt.com/assets/684c11478baf0fa6c3998f21"
+      },
+      "stableKey": "kfc-stotis|6a2bda38bd2192c2fd1972fe",
+      "key": "venue.promotions:6a2bda38bd2192c2fd1972fe",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bda38bd2192c2fd1972fe",
+      "text": "Basket discount -30%",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 5030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bda38bd2192c2fd1972fe",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket discount -30%",
+        "variant": "discount"
+      }
+    }
+  ],
+  "newInteresting": [
+    {
+      "venue": {
+        "id": "663e2bc445eaec1c1362dcc1",
+        "slug": "fresh-krautuvele",
+        "name": "Fresh Krautuvėlė",
+        "productLine": "grocery",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/fresh-krautuvele",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6799d7dfa2da890ebfeb8c3a"
+      },
+      "stableKey": "fresh-krautuvele|6a3844944de89a85e14c9715",
+      "key": "venue.promotions_for_telemetry:6a3844944de89a85e14c9715",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a3844944de89a85e14c9715",
+      "text": "5 € off (spend 30 €)",
+      "amount": 5,
+      "amountType": "money",
+      "amountLabel": "5 EUR",
+      "category": "money",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 2005,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a3844944de89a85e14c9715",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "5 € off (spend 30 €)",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "685d2cd29df8286ecef2d48e",
+        "slug": "kfc-akropolis",
+        "name": "KFC (Akropolis)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-akropolis",
+        "imageUrl": "https://imageproxy.wolt.com/assets/685d2d0a614bb013e9319b62"
+      },
+      "stableKey": "kfc-akropolis|6a33d5bbd4b4b0fa7fa2b5ca",
+      "key": "venue.promotions_for_telemetry:6a33d5bbd4b4b0fa7fa2b5ca",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a33d5bbd4b4b0fa7fa2b5ca",
+      "text": "-30% Burger & Tortilla meals",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 4030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a33d5bbd4b4b0fa7fa2b5ca",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% Burger & Tortilla meals",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "693ff6852524d6ca70c0c79b",
+        "slug": "kfc-cup",
+        "name": "KFC (CUP)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-cup",
+        "imageUrl": "https://imageproxy.wolt.com/assets/693ff6a9412f4b47cf4c30fc"
+      },
+      "stableKey": "kfc-cup|6a33d5bbd4b4b0fa7fa2b5ca",
+      "key": "venue.promotions_for_telemetry:6a33d5bbd4b4b0fa7fa2b5ca",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a33d5bbd4b4b0fa7fa2b5ca",
+      "text": "-30% Burger & Tortilla meals",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 4030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a33d5bbd4b4b0fa7fa2b5ca",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% Burger & Tortilla meals",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5b1d572ec18b47000b6b22e0",
+        "slug": "kfc",
+        "name": "KFC (Gedimino pr.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fbc308c8149ae83548b"
+      },
+      "stableKey": "kfc|6a33d5bbd4b4b0fa7fa2b5ca",
+      "key": "venue.promotions_for_telemetry:6a33d5bbd4b4b0fa7fa2b5ca",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a33d5bbd4b4b0fa7fa2b5ca",
+      "text": "-30% Burger & Tortilla meals",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 4030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a33d5bbd4b4b0fa7fa2b5ca",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% Burger & Tortilla meals",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "655cc794b29932b3fcf99ff8",
+        "slug": "kfc-mandarinas",
+        "name": "KFC (Mandarinas)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-mandarinas",
+        "imageUrl": "https://imageproxy.wolt.com/assets/673208e6d775830ca1efcd77"
+      },
+      "stableKey": "kfc-mandarinas|6a33d5bbd4b4b0fa7fa2b5ca",
+      "key": "venue.promotions_for_telemetry:6a33d5bbd4b4b0fa7fa2b5ca",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a33d5bbd4b4b0fa7fa2b5ca",
+      "text": "-30% Burger & Tortilla meals",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 4030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a33d5bbd4b4b0fa7fa2b5ca",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% Burger & Tortilla meals",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5b4489fc009fa7000e843af2",
+        "slug": "kfc-ozas",
+        "name": "KFC (Ozas)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-ozas",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fd8ac5de37683d5e0c1"
+      },
+      "stableKey": "kfc-ozas|6a33d5bbd4b4b0fa7fa2b5ca",
+      "key": "venue.promotions_for_telemetry:6a33d5bbd4b4b0fa7fa2b5ca",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a33d5bbd4b4b0fa7fa2b5ca",
+      "text": "-30% Burger & Tortilla meals",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 4030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a33d5bbd4b4b0fa7fa2b5ca",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% Burger & Tortilla meals",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "616eb3a33c67e1eb00ab3d19",
+        "slug": "kfc-pilaite",
+        "name": "KFC (Pilaitė)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-pilaite",
+        "imageUrl": "https://imageproxy.wolt.com/assets/673214e5e34d3d02aa5a34ec"
+      },
+      "stableKey": "kfc-pilaite|6a33d5bbd4b4b0fa7fa2b5ca",
+      "key": "venue.promotions_for_telemetry:6a33d5bbd4b4b0fa7fa2b5ca",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a33d5bbd4b4b0fa7fa2b5ca",
+      "text": "-30% Burger & Tortilla meals",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 4030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a33d5bbd4b4b0fa7fa2b5ca",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% Burger & Tortilla meals",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "684c110176484b5f23e5413b",
+        "slug": "kfc-stotis",
+        "name": "KFC (Stotis)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-stotis",
+        "imageUrl": "https://imageproxy.wolt.com/assets/684c11478baf0fa6c3998f21"
+      },
+      "stableKey": "kfc-stotis|6a33d5bbd4b4b0fa7fa2b5ca",
+      "key": "venue.promotions_for_telemetry:6a33d5bbd4b4b0fa7fa2b5ca",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a33d5bbd4b4b0fa7fa2b5ca",
+      "text": "-30% Burger & Tortilla meals",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 4030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a33d5bbd4b4b0fa7fa2b5ca",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% Burger & Tortilla meals",
+        "variant": "discount"
+      }
+    }
+  ],
   "endedNotified": [
     {
       "stableKey": "du-kebabai|6a37115e4391212ba6fa2ba2",
@@ -342,29 +2054,10 @@
       "amount": 5,
       "amountType": "money",
       "amountLabel": "5 EUR"
-    },
-    {
-      "stableKey": "shark-tail-sushi|6a2b08702fc35c67b1c34e3b",
-      "firstNotifiedAt": "2026-06-21T11:59:32.360Z",
-      "lastSeenAt": "2026-06-21T15:59:07.819Z",
-      "venue": {
-        "id": "5a0c03b05ce41f000b3d7830",
-        "slug": "shark-tail-sushi",
-        "name": "Pokito",
-        "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/shark-tail-sushi",
-        "imageUrl": "https://imageproxy.wolt.com/assets/691c32e1f6a3afc908653a60"
-      },
-      "sourcePath": "venue.promotions",
-      "campaignId": "6a2b08702fc35c67b1c34e3b",
-      "text": "15% off (up to 50 €)",
-      "amount": 15,
-      "amountType": "percent",
-      "amountLabel": "15%"
     }
   ],
   "notifiedSummary": {
-    "newInteresting": 0,
-    "endedNotified": 2
+    "newInteresting": 8,
+    "endedNotified": 1
   }
 }

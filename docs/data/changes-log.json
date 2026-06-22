@@ -1,5 +1,277 @@
 [
   {
+    "generatedAt": "2026-06-22T10:57:05.022Z",
+    "previousGeneratedAt": "2026-06-21T18:40:45.098Z",
+    "appeared": 16,
+    "disappeared": 27,
+    "interestingAppeared": 8,
+    "notifiedNew": 8,
+    "notifiedEnded": 1,
+    "interesting": [
+      {
+        "venue": {
+          "id": "663e2bc445eaec1c1362dcc1",
+          "slug": "fresh-krautuvele",
+          "name": "Fresh Krautuvėlė",
+          "productLine": "grocery",
+          "link": "https://wolt.com/en/ltu/vilnius/venue/fresh-krautuvele",
+          "imageUrl": "https://imageproxy.wolt.com/assets/6799d7dfa2da890ebfeb8c3a"
+        },
+        "stableKey": "fresh-krautuvele|6a3844944de89a85e14c9715",
+        "key": "venue.promotions_for_telemetry:6a3844944de89a85e14c9715",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a3844944de89a85e14c9715",
+        "text": "5 € off (spend 30 €)",
+        "amount": 5,
+        "amountType": "money",
+        "amountLabel": "5 EUR",
+        "category": "money",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 2005,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a3844944de89a85e14c9715",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "5 € off (spend 30 €)",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "685d2cd29df8286ecef2d48e",
+          "slug": "kfc-akropolis",
+          "name": "KFC (Akropolis)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-akropolis",
+          "imageUrl": "https://imageproxy.wolt.com/assets/685d2d0a614bb013e9319b62"
+        },
+        "stableKey": "kfc-akropolis|6a33d5bbd4b4b0fa7fa2b5ca",
+        "key": "venue.promotions_for_telemetry:6a33d5bbd4b4b0fa7fa2b5ca",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a33d5bbd4b4b0fa7fa2b5ca",
+        "text": "-30% Burger & Tortilla meals",
+        "amount": 30,
+        "amountType": "percent",
+        "amountLabel": "30%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4030,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a33d5bbd4b4b0fa7fa2b5ca",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-30% Burger & Tortilla meals",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "693ff6852524d6ca70c0c79b",
+          "slug": "kfc-cup",
+          "name": "KFC (CUP)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-cup",
+          "imageUrl": "https://imageproxy.wolt.com/assets/693ff6a9412f4b47cf4c30fc"
+        },
+        "stableKey": "kfc-cup|6a33d5bbd4b4b0fa7fa2b5ca",
+        "key": "venue.promotions_for_telemetry:6a33d5bbd4b4b0fa7fa2b5ca",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a33d5bbd4b4b0fa7fa2b5ca",
+        "text": "-30% Burger & Tortilla meals",
+        "amount": 30,
+        "amountType": "percent",
+        "amountLabel": "30%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4030,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a33d5bbd4b4b0fa7fa2b5ca",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-30% Burger & Tortilla meals",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5b1d572ec18b47000b6b22e0",
+          "slug": "kfc",
+          "name": "KFC (Gedimino pr.)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc",
+          "imageUrl": "https://imageproxy.wolt.com/assets/67332fbc308c8149ae83548b"
+        },
+        "stableKey": "kfc|6a33d5bbd4b4b0fa7fa2b5ca",
+        "key": "venue.promotions_for_telemetry:6a33d5bbd4b4b0fa7fa2b5ca",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a33d5bbd4b4b0fa7fa2b5ca",
+        "text": "-30% Burger & Tortilla meals",
+        "amount": 30,
+        "amountType": "percent",
+        "amountLabel": "30%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4030,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a33d5bbd4b4b0fa7fa2b5ca",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-30% Burger & Tortilla meals",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "655cc794b29932b3fcf99ff8",
+          "slug": "kfc-mandarinas",
+          "name": "KFC (Mandarinas)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-mandarinas",
+          "imageUrl": "https://imageproxy.wolt.com/assets/673208e6d775830ca1efcd77"
+        },
+        "stableKey": "kfc-mandarinas|6a33d5bbd4b4b0fa7fa2b5ca",
+        "key": "venue.promotions_for_telemetry:6a33d5bbd4b4b0fa7fa2b5ca",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a33d5bbd4b4b0fa7fa2b5ca",
+        "text": "-30% Burger & Tortilla meals",
+        "amount": 30,
+        "amountType": "percent",
+        "amountLabel": "30%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4030,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a33d5bbd4b4b0fa7fa2b5ca",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-30% Burger & Tortilla meals",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5b4489fc009fa7000e843af2",
+          "slug": "kfc-ozas",
+          "name": "KFC (Ozas)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-ozas",
+          "imageUrl": "https://imageproxy.wolt.com/assets/67332fd8ac5de37683d5e0c1"
+        },
+        "stableKey": "kfc-ozas|6a33d5bbd4b4b0fa7fa2b5ca",
+        "key": "venue.promotions_for_telemetry:6a33d5bbd4b4b0fa7fa2b5ca",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a33d5bbd4b4b0fa7fa2b5ca",
+        "text": "-30% Burger & Tortilla meals",
+        "amount": 30,
+        "amountType": "percent",
+        "amountLabel": "30%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4030,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a33d5bbd4b4b0fa7fa2b5ca",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-30% Burger & Tortilla meals",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "616eb3a33c67e1eb00ab3d19",
+          "slug": "kfc-pilaite",
+          "name": "KFC (Pilaitė)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-pilaite",
+          "imageUrl": "https://imageproxy.wolt.com/assets/673214e5e34d3d02aa5a34ec"
+        },
+        "stableKey": "kfc-pilaite|6a33d5bbd4b4b0fa7fa2b5ca",
+        "key": "venue.promotions_for_telemetry:6a33d5bbd4b4b0fa7fa2b5ca",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a33d5bbd4b4b0fa7fa2b5ca",
+        "text": "-30% Burger & Tortilla meals",
+        "amount": 30,
+        "amountType": "percent",
+        "amountLabel": "30%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4030,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a33d5bbd4b4b0fa7fa2b5ca",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-30% Burger & Tortilla meals",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "684c110176484b5f23e5413b",
+          "slug": "kfc-stotis",
+          "name": "KFC (Stotis)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-stotis",
+          "imageUrl": "https://imageproxy.wolt.com/assets/684c11478baf0fa6c3998f21"
+        },
+        "stableKey": "kfc-stotis|6a33d5bbd4b4b0fa7fa2b5ca",
+        "key": "venue.promotions_for_telemetry:6a33d5bbd4b4b0fa7fa2b5ca",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a33d5bbd4b4b0fa7fa2b5ca",
+        "text": "-30% Burger & Tortilla meals",
+        "amount": 30,
+        "amountType": "percent",
+        "amountLabel": "30%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 4030,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a33d5bbd4b4b0fa7fa2b5ca",
+          "icon": "coupon-fill",
+          "is_offer_stackable": true,
+          "text": "-30% Burger & Tortilla meals",
+          "variant": "discount"
+        }
+      }
+    ],
+    "ended": [
+      {
+        "stableKey": "du-kebabai|6a37115e4391212ba6fa2ba2",
+        "firstNotifiedAt": "2026-06-21T11:59:32.360Z",
+        "lastSeenAt": "2026-06-21T15:59:07.819Z",
+        "venue": {
+          "id": "699462b7e86be0dbaddc3c7b",
+          "slug": "du-kebabai",
+          "name": "Du Kebabai",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/vilnius/restaurant/du-kebabai",
+          "imageUrl": "https://imageproxy.wolt.com/assets/69a162e396d75d61e246da73"
+        },
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a37115e4391212ba6fa2ba2",
+        "text": "5 € off",
+        "amount": 5,
+        "amountType": "money",
+        "amountLabel": "5 EUR"
+      }
+    ]
+  },
+  {
     "generatedAt": "2026-06-21T18:40:45.098Z",
     "previousGeneratedAt": "2026-06-21T15:59:07.819Z",
     "appeared": 7,

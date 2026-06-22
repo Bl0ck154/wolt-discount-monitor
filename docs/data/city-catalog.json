@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-21T19:11:53.281Z",
+  "generatedAt": "2026-06-22T10:56:58.155Z",
   "source": {
     "citiesEndpoint": "https://restaurant-api.wolt.com/v1/cities",
     "countryListEndpoint": "https://wolt.com/v1/country_list?languageCode=en"
@@ -101,7 +101,7 @@
       "code3": "DEU",
       "name": "Germany",
       "emoji": "🇩🇪",
-      "cityCount": 78
+      "cityCount": 79
     },
     {
       "code": "grc",
@@ -189,7 +189,7 @@
       "code3": "NOR",
       "name": "Norway",
       "emoji": "🇳🇴",
-      "cityCount": 59
+      "cityCount": 58
     },
     {
       "code": "pol",
@@ -9197,6 +9197,29 @@
       "latestPath": "data/cities/deu-paderborn/latest.json"
     },
     {
+      "id": "deu/pforzheim",
+      "key": "deu-pforzheim",
+      "woltCityId": "6584125a88e28083f90ffd45",
+      "slug": "pforzheim",
+      "name": "Pforzheim",
+      "country": "Germany",
+      "countryEmoji": "🇩🇪",
+      "countryCode": "deu",
+      "countryCode2": "DE",
+      "countryCode3": "DEU",
+      "lat": 48.88978329434414,
+      "lon": 8.701863865547779,
+      "locale": "en",
+      "timezone": "Europe/Berlin",
+      "hasFrontpage": true,
+      "hidden": false,
+      "notificationsEnabled": false,
+      "label": "Pforzheim, Germany",
+      "url": "https://wolt.com/en/deu/pforzheim",
+      "dataPath": "data/cities/deu-pforzheim/latest.json",
+      "latestPath": "data/cities/deu-pforzheim/latest.json"
+    },
+    {
       "id": "deu/potsdam",
       "key": "deu-potsdam",
       "woltCityId": "6538c2c54965d637bb357e47",
@@ -15658,29 +15681,6 @@
       "url": "https://wolt.com/en/nor/horten",
       "dataPath": "data/cities/nor-horten/latest.json",
       "latestPath": "data/cities/nor-horten/latest.json"
-    },
-    {
-      "id": "nor/idyll-festivalen",
-      "key": "nor-idyll-festivalen",
-      "woltCityId": "6a30fb74406f9e52acbc2e90",
-      "slug": "idyll-festivalen",
-      "name": "IDYLL Festivalen",
-      "country": "Norway",
-      "countryEmoji": "🇳🇴",
-      "countryCode": "nor",
-      "countryCode2": "NO",
-      "countryCode3": "NOR",
-      "lat": 59.20289663445553,
-      "lon": 10.945144089099529,
-      "locale": "en",
-      "timezone": "Europe/Oslo",
-      "hasFrontpage": true,
-      "hidden": false,
-      "notificationsEnabled": false,
-      "label": "IDYLL Festivalen, Norway",
-      "url": "https://wolt.com/en/nor/idyll-festivalen",
-      "dataPath": "data/cities/nor-idyll-festivalen/latest.json",
-      "latestPath": "data/cities/nor-idyll-festivalen/latest.json"
     },
     {
       "id": "nor/indre-oestfold",
