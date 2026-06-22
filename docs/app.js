@@ -7,6 +7,8 @@ const state = {
   apiBaseUrl: apiBaseUrl(),
   snapshotSourceUrl: null,
   snapshotSourceLabel: null,
+  loadRequestId: 0,
+  ubiquitousOfferKeys: new Set(),
   rows: [],
   sortKey: "best",
   sortDir: "desc",
@@ -49,18 +51,37 @@ async function init() {
 }
 
 async function loadSnapshotForCity(cityId) {
+  const requestId = ++state.loadRequestId;
   const city = cityById(cityId) ?? defaultCity();
   showLoading(city);
 
-  const staticResult = await loadStaticSnapshot(city);
+  let staticResult;
+  try {
+    staticResult = await loadStaticSnapshot(city);
+  } catch (error) {
+    if (!isCurrentLoad(requestId)) {
+      return;
+    }
+    throw error;
+  }
+  if (!isCurrentLoad(requestId)) {
+    return;
+  }
+
   const shouldUseApi = state.apiBaseUrl && (!staticResult.ok || isSnapshotStale(staticResult.snapshot));
 
   if (shouldUseApi) {
     try {
       const apiResult = await loadApiSnapshot(city);
+      if (!isCurrentLoad(requestId)) {
+        return;
+      }
       applySnapshot(city, apiResult.snapshot, apiResult.url, "live API cache");
       return;
     } catch (error) {
+      if (!isCurrentLoad(requestId)) {
+        return;
+      }
       if (!staticResult.ok) {
         throw error;
       }
@@ -75,6 +96,10 @@ async function loadSnapshotForCity(cityId) {
   }
 
   applySnapshot(city, staticResult.snapshot, staticResult.url, "static cache");
+}
+
+function isCurrentLoad(requestId) {
+  return requestId === state.loadRequestId;
 }
 
 async function loadStaticSnapshot(city) {
@@ -102,6 +127,7 @@ function applySnapshot(city, snapshot, sourceUrl, sourceLabel) {
   state.snapshotSourceUrl = sourceUrl;
   state.snapshotSourceLabel = sourceLabel;
   state.rows = state.snapshot.venues ?? [];
+  state.ubiquitousOfferKeys = ubiquitousOfferKeys(state.rows);
   elements.citySelect.value = state.selectedCity.id;
   rememberCachedCity(state.selectedCity, state.snapshot);
   hydrateSummary();
@@ -114,6 +140,7 @@ function showLoading(city) {
   state.snapshot = null;
   state.snapshotSourceUrl = null;
   state.snapshotSourceLabel = null;
+  state.ubiquitousOfferKeys = new Set();
   state.rows = [];
   elements.citySelect.value = city.id;
   hydrateSummary();
@@ -366,12 +393,14 @@ function renderGroupDetailRow(venue, visibleOffers, index) {
 }
 
 function groupRows(rows) {
+  const chainIndex = buildChainIndex(rows);
   const groups = [];
   const byKey = new Map();
 
   for (const row of rows) {
-    const rootName = chainRootName(row.venue.name, row.venue.slug);
-    const key = rootName.toLowerCase();
+    const root = chainRootName(row.venue, chainIndex);
+    const rootName = root.label;
+    const key = root.key;
     let group = byKey.get(key);
     if (!group) {
       group = { key, rootName, primary: row, rows: [] };
@@ -387,93 +416,265 @@ function groupRows(rows) {
   }));
 }
 
-const KNOWN_CHAIN_ROOTS = [
-  [/^bageterie\s+boulevard\b/i, "Bageterie Boulevard"],
-  [/^burger\s+king\b/i, "Burger King"],
-  [/^mcdonald'?s\b/i, "McDonald's"],
-  [/^pizza\s+hut(?:\s+express)?\b/i, "Pizza Hut"],
-  [/^kfc\b/i, "KFC"],
-  [/^starbucks\b/i, "Starbucks"],
-  [/^subway\b/i, "Subway"],
-  [/^popeyes\b/i, "Popeyes"],
-  [/^tesco\b/i, "Tesco"],
-  [/^billa\b/i, "BILLA"],
-  [/^albert\b/i, "Albert"],
-  [/^lidl\b/i, "Lidl"],
-  [/^kaufland\b/i, "Kaufland"],
-  [/^dm\s+drogerie\b/i, "dm drogerie"],
-  [/^rossmann\b/i, "Rossmann"],
-  [/^dr\.?\s*max\b/i, "Dr. Max"],
-  [/^hesburger\b/i, "Hesburger"],
-  [/^kika\b/i, "KIKA"],
-  [/^pepco\b/i, "PEPCO"],
-  [/^wingstreet\s+by\s+pizza\s+hut\b/i, "WingStreet by Pizza Hut"],
-  [/^t[eě]stoviny\s+z\s+pece\s+by\s+pizza\s+hut\b/i, "Těstoviny z pece by Pizza Hut"],
-];
+const MIN_CHAIN_LOCATIONS = 2;
+const MAX_CHAIN_PREFIX_TOKENS = 5;
+const LOCATION_SUFFIX_TOKENS = new Set([
+  "praha",
+  "prague",
+  "vilnius",
+  "kaunas",
+  "riga",
+  "tallinn",
+  "berlin",
+  "warsaw",
+  "wroclaw",
+  "krakow",
+]);
+const FORMAT_SUFFIX_TOKENS = new Set([
+  "express",
+  "expres",
+  "hypermarket",
+  "supermarket",
+  "market",
+  "kiosk",
+  "kiosek",
+  "restaurant",
+  "restaurace",
+  "oc",
+  "tc",
+  "pc",
+  "cc",
+  "mall",
+]);
+const COMMON_SINGLE_TOKEN_ROOTS = new Set([
+  "bar",
+  "bistro",
+  "burger",
+  "cafe",
+  "coffee",
+  "doner",
+  "food",
+  "grill",
+  "kebab",
+  "pizza",
+  "poke",
+  "ramen",
+  "restaurant",
+  "restaurace",
+  "sushi",
+  "thai",
+  "wok",
+]);
 
-function chainRootName(name = "", slug = "") {
-  const original = String(name).trim();
-  const cleaned = original
-    .replace(/\s*\([^)]*\)\s*$/g, "")
-    .replace(/\s+-\s+[^-]+$/g, "")
-    .replace(/\s{2,}/g, " ")
-    .trim();
+function buildChainIndex(rows) {
+  const candidates = new Map();
+  const rowsByBrandImage = new Map();
 
-  for (const [pattern, root] of KNOWN_CHAIN_ROOTS) {
-    if (pattern.test(cleaned)) {
-      return root;
+  rows.forEach((row, rowIndex) => {
+    const imageKey = brandImageKey(row.venue);
+    if (!imageKey) {
+      return;
+    }
+    if (!rowsByBrandImage.has(imageKey)) {
+      rowsByBrandImage.set(imageKey, []);
+    }
+    rowsByBrandImage.get(imageKey).push(rowIndex);
+  });
+
+  for (const [imageKey, rowIndexes] of rowsByBrandImage.entries()) {
+    if (rowIndexes.length < MIN_CHAIN_LOCATIONS) {
+      continue;
+    }
+
+    for (const rowIndex of rowIndexes) {
+      const row = rows[rowIndex];
+      const venue = row.venue;
+      const sources = [tokensFromText(venue.slug), tokensFromText(venue.name)];
+      const rowCandidateKeys = new Set();
+
+      for (const tokens of sources) {
+        for (const prefix of chainPrefixes(tokens)) {
+          const prefixKey = prefix.join("-");
+          const key = `${imageKey}|${prefixKey}`;
+          if (!key || rowCandidateKeys.has(key)) {
+            continue;
+          }
+          rowCandidateKeys.add(key);
+
+          if (!candidates.has(key)) {
+            candidates.set(key, {
+              key,
+              tokens: prefix,
+              rowIndexes: new Set(),
+              displayCounts: new Map(),
+            });
+          }
+
+          const candidate = candidates.get(key);
+          candidate.rowIndexes.add(rowIndex);
+          const display = displayRootForPrefix(venue.name, prefix);
+          candidate.displayCounts.set(display, (candidate.displayCounts.get(display) ?? 0) + 1);
+        }
+      }
     }
   }
 
-  const slugRoot = chainRootFromSlug(slug);
-  if (slugRoot) {
-    return slugRoot;
+  const valid = new Map();
+  for (const candidate of candidates.values()) {
+    if (isValidChainCandidate(candidate, rows)) {
+      valid.set(candidate.key, {
+        ...candidate,
+        label: bestCandidateLabel(candidate),
+      });
+    }
   }
 
-  return genericChainRoot(cleaned) || original;
+  return valid;
 }
 
-function chainRootFromSlug(slug = "") {
-  const normalized = String(slug).toLowerCase();
-  const knownSlugRoots = [
-    ["bageterie-boulevard", "Bageterie Boulevard"],
-    ["burger-king", "Burger King"],
-    ["mcdonalds", "McDonald's"],
-    ["pizza-hut", "Pizza Hut"],
-    ["kfc", "KFC"],
-    ["starbucks", "Starbucks"],
-    ["subway", "Subway"],
-    ["popeyes", "Popeyes"],
-    ["tesco", "Tesco"],
-    ["billa", "BILLA"],
-    ["albert", "Albert"],
-    ["lidl", "Lidl"],
-    ["kaufland", "Kaufland"],
-    ["dm-drogerie", "dm drogerie"],
-    ["rossmann", "Rossmann"],
-    ["dr-max", "Dr. Max"],
-    ["hesburger", "Hesburger"],
-    ["kika", "KIKA"],
-    ["pepco", "PEPCO"],
-    ["wingstreet-by-pizza-hut", "WingStreet by Pizza Hut"],
-    ["tstoviny-z-pece-by-pizza-hut", "Těstoviny z pece by Pizza Hut"],
-  ];
+function chainRootName(venue, chainIndex) {
+  const imageKey = brandImageKey(venue);
+  const candidates = [tokensFromText(venue.slug), tokensFromText(venue.name)]
+    .flatMap((tokens) => chainPrefixes(tokens))
+    .map((tokens) => imageKey ? chainIndex.get(`${imageKey}|${tokens.join("-")}`) : null)
+    .filter(Boolean)
+    .sort((a, b) => b.tokens.length - a.tokens.length || b.rowIndexes.size - a.rowIndexes.size);
 
-  return knownSlugRoots.find(([prefix]) => normalized.startsWith(prefix))?.[1] ?? null;
-}
-
-function genericChainRoot(name) {
-  if (!name) {
-    return "";
+  const best = candidates[0];
+  if (best) {
+    return { key: best.key, label: best.label };
   }
 
-  return name
-    .replace(/\b(?:praha|prague|vilnius|kaunas|riga|tallinn)\b\s*/i, "")
-    .replace(/\s+\b(?:oc|tc|pc|cc|mall)\b\s+.+$/i, "")
-    .replace(/\s+\b(?:express|expres|hypermarket)\b\s+.+$/i, "")
-    .replace(/\s+\d+[\w.\-/]*.*$/i, "")
+  const label = singleVenueRootName(venue.name);
+  return { key: `venue:${normalizeForGrouping(label)}`, label };
+}
+
+function brandImageKey(venue) {
+  return String(venue?.brandImageUrl ?? "").trim();
+}
+
+function chainPrefixes(tokens) {
+  const prefixes = [];
+  const maxLength = Math.min(MAX_CHAIN_PREFIX_TOKENS, tokens.length - 1);
+  for (let length = 1; length <= maxLength; length += 1) {
+    const prefix = trimChainPrefix(tokens.slice(0, length));
+    if (prefix.length) {
+      prefixes.push(prefix);
+    }
+  }
+
+  return uniqueTokenLists(prefixes);
+}
+
+function trimChainPrefix(tokens) {
+  const result = [...tokens];
+  while (result.length > 1 && (LOCATION_SUFFIX_TOKENS.has(last(result)) || FORMAT_SUFFIX_TOKENS.has(last(result)))) {
+    result.pop();
+  }
+  return result;
+}
+
+function isValidChainCandidate(candidate, rows) {
+  if (candidate.rowIndexes.size < MIN_CHAIN_LOCATIONS) {
+    return false;
+  }
+
+  if (candidate.tokens.length === 1) {
+    const token = candidate.tokens[0];
+    if (token.length < 3 || COMMON_SINGLE_TOKEN_ROOTS.has(token)) {
+      return false;
+    }
+  }
+
+  return !isMostlyAddressPrefix(candidate, rows);
+}
+
+function isMostlyAddressPrefix(candidate, rows) {
+  if (candidate.tokens.length < 2) {
+    return false;
+  }
+
+  const suffixTokens = candidate.tokens.slice(1);
+  let addressMatches = 0;
+  for (const rowIndex of candidate.rowIndexes) {
+    const addressTokens = new Set(tokensFromText(rows[rowIndex].venue.address));
+    if (suffixTokens.some((token) => addressTokens.has(token))) {
+      addressMatches += 1;
+    }
+  }
+
+  return addressMatches / candidate.rowIndexes.size >= 0.6;
+}
+
+function bestCandidateLabel(candidate) {
+  return [...candidate.displayCounts.entries()]
+    .sort((a, b) => b[1] - a[1] || a[0].length - b[0].length)[0]?.[0] ?? candidate.tokens.join(" ");
+}
+
+function displayRootForPrefix(name, prefixTokens) {
+  const words = String(name ?? "").trim().split(/\s+/).filter(Boolean);
+  const display = [];
+  const normalized = [];
+
+  for (const word of words) {
+    display.push(word.replace(/[,:;]+$/g, ""));
+    normalized.push(...tokensFromText(word));
+
+    const stillMatches = normalized.every((token, index) => prefixTokens[index] === token);
+    if (!stillMatches) {
+      break;
+    }
+
+    if (normalized.length >= prefixTokens.length) {
+      return display.join(" ").trim();
+    }
+  }
+
+  return titleCaseTokens(prefixTokens);
+}
+
+function singleVenueRootName(name = "") {
+  return String(name)
+    .replace(/\s*\([^)]*\)\s*$/g, "")
+    .replace(/\s+-\s+[^-]+$/g, "")
+    .replace(/\s{2,}/g, " ")
+    .trim() || String(name);
+}
+
+function tokensFromText(value) {
+  return normalizeForGrouping(value).split(" ").filter(Boolean);
+}
+
+function normalizeForGrouping(value) {
+  return String(value ?? "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[’']/g, "")
+    .replace(/&/g, " and ")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
     .replace(/\s{2,}/g, " ")
     .trim();
+}
+
+function uniqueTokenLists(lists) {
+  const seen = new Set();
+  return lists.filter((tokens) => {
+    const key = tokens.join("-");
+    if (!key || seen.has(key)) {
+      return false;
+    }
+    seen.add(key);
+    return true;
+  });
+}
+
+function titleCaseTokens(tokens) {
+  return tokens.map((token) => token.charAt(0).toUpperCase() + token.slice(1)).join(" ");
+}
+
+function last(items) {
+  return items[items.length - 1];
 }
 
 function visibleOffers(venue) {
@@ -492,6 +693,9 @@ function visibleOffers(venue) {
     if (elements.hideNewUserDelivery.checked && isNewUserZeroDelivery(offer.text)) {
       return false;
     }
+    if (elements.hideNewUserDelivery.checked && state.ubiquitousOfferKeys.has(key)) {
+      return false;
+    }
     if (elements.hideDeliveryDiscounts.checked && isDeliveryDiscount(offer.text)) {
       return false;
     }
@@ -499,6 +703,39 @@ function visibleOffers(venue) {
   });
 
   return offers;
+}
+
+function ubiquitousOfferKeys(venues) {
+  const counts = new Map();
+  let venuesWithOffers = 0;
+
+  for (const venue of venues) {
+    const keys = new Set(
+      sourceOffers(venue)
+        .map((offer) => normalizeOfferText(offer.text).toLowerCase())
+        .filter((key) => key && !isUtilityOfferText(key)),
+    );
+
+    if (!keys.size) {
+      continue;
+    }
+
+    venuesWithOffers += 1;
+    for (const key of keys) {
+      counts.set(key, (counts.get(key) ?? 0) + 1);
+    }
+  }
+
+  if (venuesWithOffers < 10) {
+    return new Set();
+  }
+
+  const threshold = Math.max(10, Math.ceil(venuesWithOffers * 0.75));
+  return new Set(
+    [...counts.entries()]
+      .filter(([, count]) => count >= threshold)
+      .map(([key]) => key),
+  );
 }
 
 function sourceOffers(venue) {

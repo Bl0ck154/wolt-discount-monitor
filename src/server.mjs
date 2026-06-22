@@ -16,6 +16,7 @@ const ALLOWED_ORIGINS = parseAllowedOrigins(process.env.WOLT_API_ALLOWED_ORIGINS
 const inFlight = new Map();
 const rateBuckets = new Map();
 let catalogPromise = null;
+let refreshQueue = Promise.resolve();
 
 const server = createServer((request, response) => {
   handleRequest(request, response).catch((error) => {
@@ -86,9 +87,19 @@ async function latestSnapshot(city) {
 }
 
 async function refreshSnapshot(city, cachePath) {
-  const snapshot = normalizeSnapshot(await fetchCityData(city));
+  const snapshot = await enqueueRefresh(() => normalizeSnapshotFromWolt(city));
   await writeJson(cachePath, snapshot);
   return snapshot;
+}
+
+function enqueueRefresh(task) {
+  const queued = refreshQueue.catch(() => {}).then(task);
+  refreshQueue = queued.catch(() => {});
+  return queued;
+}
+
+async function normalizeSnapshotFromWolt(city) {
+  return normalizeSnapshot(await fetchCityData(city));
 }
 
 async function citiesResponse(catalog) {
