@@ -8,7 +8,8 @@ export function endpoints({ lat = CITY.lat, lon = CITY.lon } = {}) {
 }
 
 export async function fetchJson(url) {
-  const maxAttempts = 4;
+  const maxAttempts = Number(process.env.WOLT_API_MAX_ATTEMPTS ?? 7);
+  const retryBaseMs = Number(process.env.WOLT_API_RETRY_BASE_MS ?? 30000);
 
   for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
     const response = await fetch(url, { headers: WOLT_HEADERS });
@@ -20,10 +21,12 @@ export async function fetchJson(url) {
 
     if (response.status === 429 && attempt < maxAttempts) {
       const retryAfter = Number(response.headers.get("retry-after"));
+      const jitterMs = Math.round(Math.random() * 5000);
       const delayMs = Math.max(
         Number.isFinite(retryAfter) ? retryAfter * 1000 : 0,
-        15000 * attempt,
+        retryBaseMs * attempt + jitterMs,
       );
+      console.warn(`Wolt API returned 429; retrying attempt ${attempt + 1}/${maxAttempts} in ${Math.round(delayMs / 1000)}s: ${url}`);
       await sleep(delayMs);
       continue;
     }
@@ -68,9 +71,15 @@ export function uniqueByVenue(rows) {
 
 export async function fetchCityData(city = CITY) {
   const urls = endpoints(city);
-  const restaurantsPayload = await fetchJson(urls.restaurants);
-  await sleep(2500);
   const promotionsPayload = await fetchJson(urls.promotions);
+  await sleep(5000);
+
+  let restaurantsPayload = { sections: [] };
+  try {
+    restaurantsPayload = await fetchJson(urls.restaurants);
+  } catch (error) {
+    console.warn(`Could not fetch restaurants endpoint; continuing with promotion venues only: ${error.message}`);
+  }
 
   const restaurantRows = uniqueByVenue(collectVenueItems(restaurantsPayload));
   const promoRows = uniqueByVenue(collectVenueItems(promotionsPayload));
@@ -80,7 +89,7 @@ export async function fetchCityData(city = CITY) {
     urls,
     restaurantsPayload,
     promotionsPayload,
-    restaurantRows,
+    restaurantRows: restaurantRows.length ? restaurantRows : promoRows,
     promoRows,
   };
 }
