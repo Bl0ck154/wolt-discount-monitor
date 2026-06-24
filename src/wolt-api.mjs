@@ -7,9 +7,9 @@ export function endpoints({ lat = CITY.lat, lon = CITY.lon } = {}) {
   };
 }
 
-export async function fetchJson(url) {
-  const maxAttempts = Number(process.env.WOLT_API_MAX_ATTEMPTS ?? 7);
-  const retryBaseMs = Number(process.env.WOLT_API_RETRY_BASE_MS ?? 30000);
+export async function fetchJson(url, options = {}) {
+  const maxAttempts = Number(options.maxAttempts ?? process.env.WOLT_API_MAX_ATTEMPTS ?? 7);
+  const retryBaseMs = Number(options.retryBaseMs ?? process.env.WOLT_API_RETRY_BASE_MS ?? 30000);
 
   for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
     const response = await fetch(url, { headers: WOLT_HEADERS });
@@ -71,18 +71,29 @@ export function uniqueByVenue(rows) {
 
 export async function fetchCityData(city = CITY) {
   const urls = endpoints(city);
-  const promotionsPayload = await fetchJson(urls.promotions);
+  let promotionsPayload = { sections: [] };
+  let restaurantsPayload = { sections: [] };
+
+  try {
+    promotionsPayload = await fetchJson(urls.promotions, { maxAttempts: 3 });
+  } catch (error) {
+    console.warn(`Could not fetch promotions endpoint; falling back to restaurant venues: ${error.message}`);
+  }
+
   await sleep(5000);
 
-  let restaurantsPayload = { sections: [] };
   try {
-    restaurantsPayload = await fetchJson(urls.restaurants);
+    restaurantsPayload = await fetchJson(urls.restaurants, { maxAttempts: promotionsPayload.sections?.length ? 3 : 7 });
   } catch (error) {
+    if (!promotionsPayload.sections?.length) {
+      throw error;
+    }
     console.warn(`Could not fetch restaurants endpoint; continuing with promotion venues only: ${error.message}`);
   }
 
   const restaurantRows = uniqueByVenue(collectVenueItems(restaurantsPayload));
-  const promoRows = uniqueByVenue(collectVenueItems(promotionsPayload));
+  const promotionRows = uniqueByVenue(collectVenueItems(promotionsPayload));
+  const promoRows = promotionRows.length ? promotionRows : restaurantRows.filter(hasRawOffers);
 
   return {
     city,
@@ -92,6 +103,15 @@ export async function fetchCityData(city = CITY) {
     restaurantRows: restaurantRows.length ? restaurantRows : promoRows,
     promoRows,
   };
+}
+
+function hasRawOffers(row) {
+  const venue = row.venue ?? {};
+  return Boolean(
+    venue.promotions?.length ||
+    venue.promotions_for_telemetry?.length ||
+    venue.badges_v2?.some((badge) => badge?.text),
+  );
 }
 
 export async function fetchDefaultCityData() {
