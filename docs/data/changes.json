@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-06-25T09:30:25.363Z",
-  "previousGeneratedAt": "2026-06-25T06:26:05.415Z",
+  "generatedAt": "2026-06-25T14:30:31.275Z",
+  "previousGeneratedAt": "2026-06-25T09:30:25.363Z",
   "counts": {
     "restaurantsUniqueVenues": 817,
-    "promotionsUniqueVenues": 1351,
+    "promotionsUniqueVenues": 1349,
     "productLines": {
       "alcohol": 80,
       "florist": 68,
       "general_merchandise": 46,
-      "grocery": 224,
-      "health_and_beauty": 43,
+      "grocery": 223,
+      "health_and_beauty": 42,
       "pet_supply": 57,
       "pharmacy": 16,
       "restaurant": 817
@@ -18,17 +18,17 @@
   "appeared": [
     {
       "venue": {
-        "id": "5e84aa2942cdedcf8dc677d5",
-        "slug": "chief-pizza-dzuku-g",
-        "name": "Chief Pizza (Dzūkų g.)",
+        "id": "59c20d038903136dd383f13b",
+        "slug": "piano-piano",
+        "name": "Piano Piano (Vilniaus g.)",
         "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/chief-pizza-dzuku-g",
-        "imageUrl": "https://imageproxy.wolt.com/assets/67332fad29cd4b694e529aa4"
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/piano-piano",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fac149445354de03e9f"
       },
-      "stableKey": "chief-pizza-dzuku-g|6a3919f14de89a85e14ce613",
-      "key": "venue.promotions_for_telemetry:6a3919f14de89a85e14ce613",
+      "stableKey": "piano-piano|696f72829a22d46087295fde",
+      "key": "venue.promotions_for_telemetry:696f72829a22d46087295fde",
       "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a3919f14de89a85e14ce613",
+      "campaignId": "696f72829a22d46087295fde",
       "text": "20% off selected items",
       "amount": 20,
       "amountType": "percent",
@@ -39,97 +39,7 @@
       "score": 520,
       "variant": "discount",
       "raw": {
-        "campaign_id": "6a3919f14de89a85e14ce613",
-        "icon": "coupon-fill",
-        "is_offer_stackable": true,
-        "text": "20% off selected items",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "5e8b21c27b8427c54e1794d6",
-        "slug": "chief-pizza-sauletekis",
-        "name": "Chief Pizza (Saulėtekis)",
-        "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/chief-pizza-sauletekis",
-        "imageUrl": "https://imageproxy.wolt.com/assets/6733302729cd4b694e52a1b3"
-      },
-      "stableKey": "chief-pizza-sauletekis|6a391b10ba53abe9d0ce8ae6",
-      "key": "venue.promotions_for_telemetry:6a391b10ba53abe9d0ce8ae6",
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a391b10ba53abe9d0ce8ae6",
-      "text": "20% off selected items",
-      "amount": 20,
-      "amountType": "percent",
-      "amountLabel": "20%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 520,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a391b10ba53abe9d0ce8ae6",
-        "icon": "coupon-fill",
-        "is_offer_stackable": true,
-        "text": "20% off selected items",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "5fa53c3cd2697f83c1b19e9b",
-        "slug": "chief-pizza-zemaites-g",
-        "name": "Chief Pizza (Žemaitės g.)",
-        "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/chief-pizza-zemaites-g",
-        "imageUrl": "https://imageproxy.wolt.com/assets/67320836479a971266a692c7"
-      },
-      "stableKey": "chief-pizza-zemaites-g|6a390e3aba53abe9d0ce888e",
-      "key": "venue.promotions_for_telemetry:6a390e3aba53abe9d0ce888e",
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a390e3aba53abe9d0ce888e",
-      "text": "20% off selected items",
-      "amount": 20,
-      "amountType": "percent",
-      "amountLabel": "20%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 520,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a390e3aba53abe9d0ce888e",
-        "icon": "coupon-fill",
-        "is_offer_stackable": true,
-        "text": "20% off selected items",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "678e4936181346461fff055c",
-        "slug": "savam-kieme",
-        "name": "Savam kieme",
-        "productLine": "grocery",
-        "link": "https://wolt.com/en/ltu/vilnius/venue/savam-kieme",
-        "imageUrl": "https://imageproxy.wolt.com/assets/67dc24ef829e4a2306e07b55"
-      },
-      "stableKey": "savam-kieme|6a3ccbac1d8850fe27f89e78",
-      "key": "venue.promotions_for_telemetry:6a3ccbac1d8850fe27f89e78",
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a3ccbac1d8850fe27f89e78",
-      "text": "20% off selected items",
-      "amount": 20,
-      "amountType": "percent",
-      "amountLabel": "20%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 520,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a3ccbac1d8850fe27f89e78",
+        "campaign_id": "696f72829a22d46087295fde",
         "icon": "coupon-fill",
         "is_offer_stackable": true,
         "text": "20% off selected items",
@@ -137,7 +47,98 @@
       }
     }
   ],
-  "disappeared": [],
+  "disappeared": [
+    {
+      "venue": {
+        "id": "6978824e449b454efcde6a60",
+        "slug": "chocodreams-siltnamiu-g",
+        "name": "Chocodreams",
+        "productLine": "grocery",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/chocodreams-siltnamiu-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6981a79ae4940faa6a4eb6f0"
+      },
+      "stableKey": "chocodreams-siltnamiu-g|6a2bb9ab2579f27f0d5e87c1",
+      "key": "venue.promotions:6a2bb9ab2579f27f0d5e87c1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bb9ab2579f27f0d5e87c1",
+      "text": "0€ delivery for new users",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "new-user-delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bb9ab2579f27f0d5e87c1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0€ delivery for new users",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5e1db4d8b459eea4f2801f36",
+        "slug": "darts-pizza",
+        "name": "Darts Pica",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/darts-pizza",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fc7827209684f08e3ff"
+      },
+      "stableKey": "darts-pizza|69ca46adcf67c2e1c25e9751",
+      "key": "venue.promotions_for_telemetry:69ca46adcf67c2e1c25e9751",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "69ca46adcf67c2e1c25e9751",
+      "text": "2.50 € off (spend 30 €)",
+      "amount": 2.5,
+      "amountType": "money",
+      "amountLabel": "2.5 EUR",
+      "category": "money",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 2502.5,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69ca46adcf67c2e1c25e9751",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "2.50 € off (spend 30 €)",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6356664218a01df0886a099a",
+        "slug": "sla-paris-cosmetics",
+        "name": "SLA Paris Cosmetics",
+        "productLine": "health_and_beauty",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/sla-paris-cosmetics",
+        "imageUrl": "https://imageproxy.wolt.com/assets/673208363023fb35876a65af"
+      },
+      "stableKey": "sla-paris-cosmetics|6a2bb9ab2579f27f0d5e87c1",
+      "key": "venue.promotions:6a2bb9ab2579f27f0d5e87c1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bb9ab2579f27f0d5e87c1",
+      "text": "0€ delivery for new users",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "new-user-delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bb9ab2579f27f0d5e87c1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0€ delivery for new users",
+        "variant": "discount"
+      }
+    }
+  ],
   "interestingAppeared": [],
   "interestingDisappeared": [],
   "newInteresting": [],
