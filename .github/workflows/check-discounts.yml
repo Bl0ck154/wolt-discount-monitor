@@ -24,7 +24,7 @@ concurrency:
 
 jobs:
   check:
-    runs-on: [self-hosted, Linux, X64, wolt]
+    runs-on: [self-hosted, Windows, X64, wolt-residential]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
