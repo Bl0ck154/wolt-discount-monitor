@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-06-28T09:30:35.065Z",
-  "previousGeneratedAt": "2026-06-27T14:30:39.126Z",
+  "generatedAt": "2026-06-28T14:30:26.360Z",
+  "previousGeneratedAt": "2026-06-28T09:30:35.065Z",
   "counts": {
     "restaurantsUniqueVenues": 818,
     "promotionsUniqueVenues": 1351,
@@ -18,135 +18,72 @@
   "appeared": [
     {
       "venue": {
-        "id": "699462b7e86be0dbaddc3c7b",
-        "slug": "du-kebabai",
-        "name": "Du Kebabai",
+        "id": "59c20d038903136dd383f13b",
+        "slug": "piano-piano",
+        "name": "Piano Piano (Vilniaus g.)",
         "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/du-kebabai",
-        "imageUrl": "https://imageproxy.wolt.com/assets/69a162e396d75d61e246da73"
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/piano-piano",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fac149445354de03e9f"
       },
-      "stableKey": "du-kebabai|6a37115e4391212ba6fa2ba2",
-      "key": "venue.promotions:6a37115e4391212ba6fa2ba2",
-      "sourcePath": "venue.promotions",
-      "campaignId": "6a37115e4391212ba6fa2ba2",
-      "text": "5 € off",
-      "amount": 5,
-      "amountType": "money",
-      "amountLabel": "5 EUR",
-      "category": "money",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 7005,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a37115e4391212ba6fa2ba2",
-        "icon": "coupon-fill",
-        "is_offer_stackable": false,
-        "text": "5 € off",
-        "variant": "discount"
-      }
-    }
-  ],
-  "disappeared": [
-    {
-      "venue": {
-        "id": "62c69460d5cba8f2a7c0f276",
-        "slug": "pink-ocean-geles",
-        "name": "Pink Ocean Gėlės",
-        "productLine": "florist",
-        "link": "https://wolt.com/en/ltu/vilnius/venue/pink-ocean-geles",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/bce1d6dd-d83d-405c-b1ba-e8a89a131c03/c693660d-3226-4c83-acd0-1d80f157558f"
-      },
-      "stableKey": "pink-ocean-geles|6a3a7bfb6eaa45dc621e51d5",
-      "key": "venue.promotions:6a3a7bfb6eaa45dc621e51d5",
-      "sourcePath": "venue.promotions",
-      "campaignId": "6a3a7bfb6eaa45dc621e51d5",
-      "text": "20% off (up to 50 €)",
+      "stableKey": "piano-piano|696f72829a22d46087295fde",
+      "key": "venue.promotions_for_telemetry:696f72829a22d46087295fde",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "696f72829a22d46087295fde",
+      "text": "20% off selected items",
       "amount": 20,
       "amountType": "percent",
       "amountLabel": "20%",
       "category": "percent",
       "isDeliveryRelated": false,
       "isUtilityBadge": false,
-      "score": 1520,
+      "score": 520,
       "variant": "discount",
       "raw": {
-        "campaign_id": "6a3a7bfb6eaa45dc621e51d5",
+        "campaign_id": "696f72829a22d46087295fde",
         "icon": "coupon-fill",
-        "is_offer_stackable": false,
-        "text": "20% off (up to 50 €)",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
         "variant": "discount"
       }
-    }
-  ],
-  "interestingAppeared": [
+    },
     {
       "venue": {
-        "id": "699462b7e86be0dbaddc3c7b",
-        "slug": "du-kebabai",
-        "name": "Du Kebabai",
-        "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/du-kebabai",
-        "imageUrl": "https://imageproxy.wolt.com/assets/69a162e396d75d61e246da73"
+        "id": "678e4936181346461fff055c",
+        "slug": "savam-kieme",
+        "name": "Savam kieme",
+        "productLine": "grocery",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/savam-kieme",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67dc24ef829e4a2306e07b55"
       },
-      "stableKey": "du-kebabai|6a37115e4391212ba6fa2ba2",
-      "key": "venue.promotions:6a37115e4391212ba6fa2ba2",
-      "sourcePath": "venue.promotions",
-      "campaignId": "6a37115e4391212ba6fa2ba2",
-      "text": "5 € off",
-      "amount": 5,
-      "amountType": "money",
-      "amountLabel": "5 EUR",
-      "category": "money",
+      "stableKey": "savam-kieme|6a412ebb1bdfbfebd5c4e847",
+      "key": "venue.promotions_for_telemetry:6a412ebb1bdfbfebd5c4e847",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a412ebb1bdfbfebd5c4e847",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
       "isDeliveryRelated": false,
       "isUtilityBadge": false,
-      "score": 7005,
+      "score": 520,
       "variant": "discount",
       "raw": {
-        "campaign_id": "6a37115e4391212ba6fa2ba2",
+        "campaign_id": "6a412ebb1bdfbfebd5c4e847",
         "icon": "coupon-fill",
-        "is_offer_stackable": false,
-        "text": "5 € off",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
         "variant": "discount"
       }
     }
   ],
+  "disappeared": [],
+  "interestingAppeared": [],
   "interestingDisappeared": [],
-  "newInteresting": [
-    {
-      "venue": {
-        "id": "699462b7e86be0dbaddc3c7b",
-        "slug": "du-kebabai",
-        "name": "Du Kebabai",
-        "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/du-kebabai",
-        "imageUrl": "https://imageproxy.wolt.com/assets/69a162e396d75d61e246da73"
-      },
-      "stableKey": "du-kebabai|6a37115e4391212ba6fa2ba2",
-      "key": "venue.promotions:6a37115e4391212ba6fa2ba2",
-      "sourcePath": "venue.promotions",
-      "campaignId": "6a37115e4391212ba6fa2ba2",
-      "text": "5 € off",
-      "amount": 5,
-      "amountType": "money",
-      "amountLabel": "5 EUR",
-      "category": "money",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 7005,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a37115e4391212ba6fa2ba2",
-        "icon": "coupon-fill",
-        "is_offer_stackable": false,
-        "text": "5 € off",
-        "variant": "discount"
-      }
-    }
-  ],
+  "newInteresting": [],
   "endedNotified": [],
   "notifiedSummary": {
-    "newInteresting": 1,
+    "newInteresting": 0,
     "endedNotified": 0
   }
 }
