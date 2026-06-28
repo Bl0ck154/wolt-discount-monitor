@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-06-27T09:30:24.538Z",
-  "previousGeneratedAt": "2026-06-26T14:30:27.869Z",
+  "generatedAt": "2026-06-28T09:30:35.065Z",
+  "previousGeneratedAt": "2026-06-27T14:30:39.126Z",
   "counts": {
     "restaurantsUniqueVenues": 818,
     "promotionsUniqueVenues": 1351,
@@ -18,31 +18,31 @@
   "appeared": [
     {
       "venue": {
-        "id": "669f68cefde47b5ea1b840b2",
-        "slug": "rice-and-spice-svitrigailos-g",
-        "name": "Indian Curry Street",
+        "id": "699462b7e86be0dbaddc3c7b",
+        "slug": "du-kebabai",
+        "name": "Du Kebabai",
         "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/rice-and-spice-svitrigailos-g",
-        "imageUrl": "https://imageproxy.wolt.com/assets/68ca9eb46321faefb5f88664"
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/du-kebabai",
+        "imageUrl": "https://imageproxy.wolt.com/assets/69a162e396d75d61e246da73"
       },
-      "stableKey": "rice-and-spice-svitrigailos-g|6a3e91ab961a020dc0d7ba31",
-      "key": "venue.promotions:6a3e91ab961a020dc0d7ba31",
+      "stableKey": "du-kebabai|6a37115e4391212ba6fa2ba2",
+      "key": "venue.promotions:6a37115e4391212ba6fa2ba2",
       "sourcePath": "venue.promotions",
-      "campaignId": "6a3e91ab961a020dc0d7ba31",
-      "text": "15% off (up to 50 €)",
-      "amount": 15,
-      "amountType": "percent",
-      "amountLabel": "15%",
-      "category": "percent",
+      "campaignId": "6a37115e4391212ba6fa2ba2",
+      "text": "5 € off",
+      "amount": 5,
+      "amountType": "money",
+      "amountLabel": "5 EUR",
+      "category": "money",
       "isDeliveryRelated": false,
       "isUtilityBadge": false,
-      "score": 1515,
+      "score": 7005,
       "variant": "discount",
       "raw": {
-        "campaign_id": "6a3e91ab961a020dc0d7ba31",
+        "campaign_id": "6a37115e4391212ba6fa2ba2",
         "icon": "coupon-fill",
         "is_offer_stackable": false,
-        "text": "15% off (up to 50 €)",
+        "text": "5 € off",
         "variant": "discount"
       }
     }
@@ -50,41 +50,103 @@
   "disappeared": [
     {
       "venue": {
-        "id": "642aa344f8b8dd06df40ceff",
-        "slug": "agnifood",
-        "name": "AgniFood",
-        "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/agnifood",
-        "imageUrl": "https://imageproxy.wolt.com/assets/6732083626e644617b063d79"
+        "id": "62c69460d5cba8f2a7c0f276",
+        "slug": "pink-ocean-geles",
+        "name": "Pink Ocean Gėlės",
+        "productLine": "florist",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/pink-ocean-geles",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/bce1d6dd-d83d-405c-b1ba-e8a89a131c03/c693660d-3226-4c83-acd0-1d80f157558f"
       },
-      "stableKey": "agnifood|6a2d268f7888e11acd1e1f58",
-      "key": "venue.promotions_for_telemetry:6a2d268f7888e11acd1e1f58",
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a2d268f7888e11acd1e1f58",
-      "text": "20% off selected items",
+      "stableKey": "pink-ocean-geles|6a3a7bfb6eaa45dc621e51d5",
+      "key": "venue.promotions:6a3a7bfb6eaa45dc621e51d5",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a3a7bfb6eaa45dc621e51d5",
+      "text": "20% off (up to 50 €)",
       "amount": 20,
       "amountType": "percent",
       "amountLabel": "20%",
       "category": "percent",
       "isDeliveryRelated": false,
       "isUtilityBadge": false,
-      "score": 520,
+      "score": 1520,
       "variant": "discount",
       "raw": {
-        "campaign_id": "6a2d268f7888e11acd1e1f58",
+        "campaign_id": "6a3a7bfb6eaa45dc621e51d5",
         "icon": "coupon-fill",
-        "is_offer_stackable": true,
-        "text": "20% off selected items",
+        "is_offer_stackable": false,
+        "text": "20% off (up to 50 €)",
         "variant": "discount"
       }
     }
   ],
-  "interestingAppeared": [],
+  "interestingAppeared": [
+    {
+      "venue": {
+        "id": "699462b7e86be0dbaddc3c7b",
+        "slug": "du-kebabai",
+        "name": "Du Kebabai",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/du-kebabai",
+        "imageUrl": "https://imageproxy.wolt.com/assets/69a162e396d75d61e246da73"
+      },
+      "stableKey": "du-kebabai|6a37115e4391212ba6fa2ba2",
+      "key": "venue.promotions:6a37115e4391212ba6fa2ba2",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a37115e4391212ba6fa2ba2",
+      "text": "5 € off",
+      "amount": 5,
+      "amountType": "money",
+      "amountLabel": "5 EUR",
+      "category": "money",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 7005,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a37115e4391212ba6fa2ba2",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "5 € off",
+        "variant": "discount"
+      }
+    }
+  ],
   "interestingDisappeared": [],
-  "newInteresting": [],
+  "newInteresting": [
+    {
+      "venue": {
+        "id": "699462b7e86be0dbaddc3c7b",
+        "slug": "du-kebabai",
+        "name": "Du Kebabai",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/du-kebabai",
+        "imageUrl": "https://imageproxy.wolt.com/assets/69a162e396d75d61e246da73"
+      },
+      "stableKey": "du-kebabai|6a37115e4391212ba6fa2ba2",
+      "key": "venue.promotions:6a37115e4391212ba6fa2ba2",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a37115e4391212ba6fa2ba2",
+      "text": "5 € off",
+      "amount": 5,
+      "amountType": "money",
+      "amountLabel": "5 EUR",
+      "category": "money",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 7005,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a37115e4391212ba6fa2ba2",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "5 € off",
+        "variant": "discount"
+      }
+    }
+  ],
   "endedNotified": [],
   "notifiedSummary": {
-    "newInteresting": 0,
+    "newInteresting": 1,
     "endedNotified": 0
   }
 }
