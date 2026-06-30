@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-06-30T14:30:23.208Z",
-  "previousGeneratedAt": "2026-06-30T09:30:23.996Z",
+  "generatedAt": "2026-06-30T18:40:37.304Z",
+  "previousGeneratedAt": "2026-06-30T14:30:23.208Z",
   "counts": {
     "restaurantsUniqueVenues": 819,
     "promotionsUniqueVenues": 819,
@@ -11,34 +11,36 @@
   "appeared": [
     {
       "venue": {
-        "id": "6a394d0581bfd34aceeb8d5c",
-        "slug": "lola-sole",
-        "name": "LOLA SOLÉ",
+        "id": "5a0c03b05ce41f000b3d7830",
+        "slug": "shark-tail-sushi",
+        "name": "Pokito",
         "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/lola-sole",
-        "imageUrl": "https://imageproxy.wolt.com/assets/6a394d8ac3bb1f158fe9370d"
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/shark-tail-sushi",
+        "imageUrl": "https://imageproxy.wolt.com/assets/691c32e1f6a3afc908653a60"
       },
-      "stableKey": "lola-sole|6a2bb9ab2579f27f0d5e87c1",
-      "key": "venue.promotions:6a2bb9ab2579f27f0d5e87c1",
+      "stableKey": "shark-tail-sushi|6a43e181f5875cf019a6d218",
+      "key": "venue.promotions:6a43e181f5875cf019a6d218",
       "sourcePath": "venue.promotions",
-      "campaignId": "6a2bb9ab2579f27f0d5e87c1",
-      "text": "0€ delivery for new users",
-      "amount": 0,
-      "amountType": "money",
-      "amountLabel": "0 EUR",
-      "category": "new-user-delivery",
-      "isDeliveryRelated": true,
+      "campaignId": "6a43e181f5875cf019a6d218",
+      "text": "15% off (up to 50 €)",
+      "amount": 15,
+      "amountType": "percent",
+      "amountLabel": "15%",
+      "category": "percent",
+      "isDeliveryRelated": false,
       "isUtilityBadge": false,
-      "score": -1,
+      "score": 1515,
       "variant": "discount",
       "raw": {
-        "campaign_id": "6a2bb9ab2579f27f0d5e87c1",
+        "campaign_id": "6a43e181f5875cf019a6d218",
         "icon": "coupon-fill",
         "is_offer_stackable": false,
-        "text": "0€ delivery for new users",
+        "text": "15% off (up to 50 €)",
         "variant": "discount"
       }
-    },
+    }
+  ],
+  "disappeared": [
     {
       "venue": {
         "id": "59c20d038903136dd383f13b",
@@ -70,7 +72,6 @@
       }
     }
   ],
-  "disappeared": [],
   "interestingAppeared": [],
   "interestingDisappeared": [],
   "newInteresting": [],
