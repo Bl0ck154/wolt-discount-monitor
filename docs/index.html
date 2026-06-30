@@ -24,11 +24,19 @@
         <h1>Wolt discount monitor</h1>
       </div>
       <div class="header-actions">
-        <label class="city-picker-label">
-          <span>City</span>
-          <select id="citySelect"></select>
-        </label>
-        <a class="source-link" id="sourceLink" href="data/latest.json">latest.json</a>
+        <div class="city-picker" id="cityPicker">
+          <label class="city-picker-label" for="citySearch">City</label>
+          <input
+            id="citySearch"
+            type="search"
+            autocomplete="off"
+            role="combobox"
+            aria-expanded="false"
+            aria-controls="cityOptions"
+            placeholder="Search city or country..."
+          />
+          <div class="city-options" id="cityOptions" role="listbox" hidden></div>
+        </div>
       </div>
     </header>
 

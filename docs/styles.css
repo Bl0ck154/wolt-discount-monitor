@@ -75,29 +75,90 @@ h1 {
   letter-spacing: 0;
 }
 
-.source-link {
-  color: var(--brand);
-  font-size: 13px;
-  font-weight: 700;
-  text-decoration: none;
-}
-
 .header-actions {
   display: inline-flex;
   gap: 12px;
   align-items: end;
 }
 
-.city-picker-label {
-  min-width: 210px;
+.city-picker {
+  position: relative;
+  width: min(420px, 42vw);
 }
 
-.city-picker-label span {
+.city-picker-label {
   display: block;
   margin-bottom: 4px;
   color: var(--muted);
   font-size: 11px;
   font-weight: 700;
+}
+
+.city-options {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 20;
+  width: min(520px, 92vw);
+  max-height: 420px;
+  overflow: auto;
+  padding: 8px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(20, 32, 38, 0.18);
+}
+
+.city-group + .city-group {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+
+.city-group-title {
+  padding: 4px 8px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.city-option {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px;
+  color: var(--text);
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.city-option:hover,
+.city-option.is-selected {
+  background: var(--surface-2);
+}
+
+.city-option span {
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.city-option small,
+.city-empty {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.city-empty {
+  padding: 18px 8px;
+  text-align: center;
 }
 
 main {
@@ -503,5 +564,9 @@ th {
 
   .topbar {
     display: grid;
+  }
+
+  .city-picker {
+    width: 100%;
   }
 }

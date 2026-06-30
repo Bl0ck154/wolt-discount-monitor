@@ -7,6 +7,7 @@ const state = {
   apiBaseUrl: apiBaseUrl(),
   snapshotSourceUrl: null,
   snapshotSourceLabel: null,
+  cityPickerOpen: false,
   loadRequestId: 0,
   ubiquitousOfferKeys: new Set(),
   ubiquitousOfferLabels: [],
@@ -18,8 +19,9 @@ const state = {
 const elements = {
   cityLabel: document.querySelector("#cityLabel"),
   cityMapLink: document.querySelector("#cityMapLink"),
-  citySelect: document.querySelector("#citySelect"),
-  sourceLink: document.querySelector("#sourceLink"),
+  cityPicker: document.querySelector("#cityPicker"),
+  citySearch: document.querySelector("#citySearch"),
+  cityOptions: document.querySelector("#cityOptions"),
   promoCount: document.querySelector("#promoCount"),
   restaurantCount: document.querySelector("#restaurantCount"),
   updatedAt: document.querySelector("#updatedAt"),
@@ -40,12 +42,8 @@ init().catch((error) => {
 
 async function init() {
   state.citiesIndex = await loadCitiesIndex();
-  hydrateCitySelect();
-  elements.citySelect.addEventListener("change", () => {
-    const cityId = elements.citySelect.value;
-    setCityInUrl(cityId);
-    loadSnapshotForCity(cityId).catch((error) => showError(error));
-  });
+  bindCityPicker();
+  renderCityOptions();
 
   const cityId = requestedCityId();
   await loadSnapshotForCity(cityId);
@@ -132,7 +130,8 @@ function applySnapshot(city, snapshot, sourceUrl, sourceLabel) {
   const ubiquitousOffers = ubiquitousOfferIndex(state.rows);
   state.ubiquitousOfferKeys = ubiquitousOffers.keys;
   state.ubiquitousOfferLabels = ubiquitousOffers.labels;
-  elements.citySelect.value = state.selectedCity.id;
+  syncCityPickerValue();
+  safeLocalStorageSet("WOLT_SELECTED_CITY", state.selectedCity.id);
   rememberCachedCity(state.selectedCity, state.snapshot);
   hydrateSummary();
   hydrateFilters();
@@ -147,7 +146,7 @@ function showLoading(city) {
   state.ubiquitousOfferKeys = new Set();
   state.ubiquitousOfferLabels = [];
   state.rows = [];
-  elements.citySelect.value = city.id;
+  elements.citySearch.value = cityLabelText(city);
   hydrateSummary();
   hydrateFilters();
   hydrateHiddenCitywideOffers();
@@ -217,9 +216,82 @@ function mergeCityIndexes(local, remote) {
   };
 }
 
-function hydrateCitySelect() {
-  elements.citySelect.innerHTML = groupedCityOptions(state.citiesIndex.cities ?? [])
-    .join("");
+function bindCityPicker() {
+  elements.citySearch.addEventListener("focus", () => {
+    openCityPicker();
+    elements.citySearch.select();
+  });
+  elements.citySearch.addEventListener("input", () => {
+    openCityPicker();
+    renderCityOptions(elements.citySearch.value);
+  });
+  elements.citySearch.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeCityPicker();
+      syncCityPickerValue();
+    }
+    if (event.key === "Enter") {
+      const first = elements.cityOptions.querySelector("[data-city-id]");
+      if (first) {
+        event.preventDefault();
+        chooseCity(first.dataset.cityId);
+      }
+    }
+  });
+  elements.cityOptions.addEventListener("click", (event) => {
+    const option = event.target.closest("[data-city-id]");
+    if (option) {
+      chooseCity(option.dataset.cityId);
+    }
+  });
+  document.addEventListener("click", (event) => {
+    if (!elements.cityPicker.contains(event.target)) {
+      closeCityPicker();
+      syncCityPickerValue();
+    }
+  });
+}
+
+function openCityPicker() {
+  state.cityPickerOpen = true;
+  elements.cityOptions.hidden = false;
+  elements.citySearch.setAttribute("aria-expanded", "true");
+}
+
+function closeCityPicker() {
+  state.cityPickerOpen = false;
+  elements.cityOptions.hidden = true;
+  elements.citySearch.setAttribute("aria-expanded", "false");
+}
+
+function chooseCity(cityId) {
+  const city = cityById(cityId);
+  if (!city) {
+    return;
+  }
+  closeCityPicker();
+  elements.citySearch.value = cityLabelText(city);
+  setCityInUrl(city.id);
+  safeLocalStorageSet("WOLT_SELECTED_CITY", city.id);
+  loadSnapshotForCity(city.id).catch((error) => showError(error));
+}
+
+function syncCityPickerValue() {
+  elements.citySearch.value = cityLabelText(state.selectedCity ?? defaultCity());
+  renderCityOptions();
+}
+
+function renderCityOptions(query = "") {
+  elements.cityOptions.innerHTML = groupedCityOptions(filteredCities(query)).join("") || `<div class="city-empty">No matching cities</div>`;
+}
+
+function filteredCities(query) {
+  const normalized = query.trim().toLowerCase();
+  const cities = state.citiesIndex.cities ?? [];
+  if (!normalized || normalized === cityLabelText(state.selectedCity ?? {}).toLowerCase()) {
+    return cities;
+  }
+  return cities.filter((city) => citySearchText(city).includes(normalized));
 }
 
 function groupedCityOptions(cities) {
@@ -238,11 +310,15 @@ function groupedCityOptions(cities) {
       const options = countryCities
         .sort((a, b) => a.name.localeCompare(b.name, "en"))
         .map((city) => {
-          const suffix = city.updatedAt ? "" : " · not cached";
-          return `<option value="${escapeHtml(city.id)}">${escapeHtml(`${city.name}${suffix}`)}</option>`;
+          const selected = city.id === state.selectedCity?.id ? " is-selected" : "";
+          const status = city.updatedAt ? "Cached" : "Not cached";
+          return `<button class="city-option${selected}" type="button" role="option" data-city-id="${escapeHtml(city.id)}" aria-selected="${city.id === state.selectedCity?.id}">
+            <span>${escapeHtml(city.name)}</span>
+            <small>${escapeHtml([city.country, status].filter(Boolean).join(" · "))}</small>
+          </button>`;
         })
         .join("");
-      return `<optgroup label="${escapeHtml(country)}">${options}</optgroup>`;
+      return `<div class="city-group"><div class="city-group-title">${escapeHtml(country)}</div>${options}</div>`;
     });
 }
 
@@ -253,10 +329,6 @@ function hydrateSummary() {
   elements.cityMapLink.href = cityMapUrl(city);
   elements.cityMapLink.title = `Open ${label} coordinates in Maps`;
   elements.cityMapLink.setAttribute("aria-label", `Open ${label} coordinates in Maps`);
-  elements.sourceLink.href = state.snapshotSourceUrl ?? dataPathForCity(cityById(city.id) ?? city);
-  elements.sourceLink.textContent = state.snapshotSourceLabel
-    ? `${city.key ?? city.id ?? "latest"}.json · ${state.snapshotSourceLabel}`
-    : `${city.key ?? city.id ?? "latest"}.json`;
   elements.promoCount.textContent = formatNumber(state.snapshot?.counts?.promotionsUniqueVenues);
   elements.restaurantCount.textContent = formatNumber(state.snapshot?.counts?.restaurantsUniqueVenues);
   elements.updatedAt.textContent = state.snapshot?.generatedAt ? new Date(state.snapshot.generatedAt).toLocaleString() : "not cached";
@@ -1056,7 +1128,8 @@ function mapLink(venue) {
 
 function requestedCityId() {
   const requested = new URLSearchParams(window.location.search).get("city");
-  return cityById(requested)?.id ?? defaultCity().id;
+  const stored = safeLocalStorageGet("WOLT_SELECTED_CITY");
+  return cityById(requested)?.id ?? cityById(stored)?.id ?? defaultCity().id;
 }
 
 function setCityInUrl(cityId) {
@@ -1076,6 +1149,17 @@ function cityById(cityId) {
 
 function defaultCity() {
   return cityById(state.citiesIndex?.defaultCityId) ?? state.citiesIndex?.cities?.[0] ?? { id: "ltu/vilnius", key: "ltu-vilnius", slug: "vilnius", name: "Vilnius", country: "Lithuania" };
+}
+
+function cityLabelText(city) {
+  return city?.label ?? [city?.name, city?.country].filter(Boolean).join(", ") ?? "";
+}
+
+function citySearchText(city) {
+  return [city.name, city.country, city.countryCode, city.countryCode2, city.countryCode3, city.id, city.key, city.slug]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
 }
 
 function dataPathForCity(city) {

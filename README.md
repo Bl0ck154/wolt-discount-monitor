@@ -248,6 +248,7 @@ External cron example, using the machine's local timezone:
 
 ```cron
 30 12,17 * * * cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
+40 21 * * * cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
 ```
 
 The dispatch helper accepts optional variables:
