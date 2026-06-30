@@ -1,5 +1,37 @@
 [
   {
+    "generatedAt": "2026-06-30T09:30:23.996Z",
+    "previousGeneratedAt": "2026-06-29T14:30:25.924Z",
+    "appeared": 1,
+    "disappeared": 582,
+    "interestingAppeared": 0,
+    "notifiedNew": 0,
+    "notifiedEnded": 1,
+    "fetchError": null,
+    "interesting": [],
+    "ended": [
+      {
+        "stableKey": "du-kebabai|6a37115e4391212ba6fa2ba2",
+        "firstNotifiedAt": "2026-06-28T09:30:35.065Z",
+        "lastSeenAt": "2026-06-29T14:30:25.924Z",
+        "venue": {
+          "id": "699462b7e86be0dbaddc3c7b",
+          "slug": "du-kebabai",
+          "name": "Du Kebabai",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/vilnius/restaurant/du-kebabai",
+          "imageUrl": "https://imageproxy.wolt.com/assets/69a162e396d75d61e246da73"
+        },
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a37115e4391212ba6fa2ba2",
+        "text": "5 € off",
+        "amount": 5,
+        "amountType": "money",
+        "amountLabel": "5 EUR"
+      }
+    ]
+  },
+  {
     "generatedAt": "2026-06-29T14:30:25.924Z",
     "previousGeneratedAt": "2026-06-29T09:30:26.118Z",
     "appeared": 8,

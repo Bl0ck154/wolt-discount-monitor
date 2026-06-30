@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-29T14:30:17.308Z",
+  "generatedAt": "2026-06-30T09:30:17.059Z",
   "source": {
     "citiesEndpoint": "https://restaurant-api.wolt.com/v1/cities",
     "countryListEndpoint": "https://wolt.com/v1/country_list?languageCode=en"
   },
-  "totalCities": 957,
+  "totalCities": 958,
   "totalCountries": 30,
   "countries": [
     {
@@ -133,7 +133,7 @@
       "code3": "ISR",
       "name": "Israel",
       "emoji": "🇮🇱",
-      "cityCount": 23
+      "cityCount": 24
     },
     {
       "code": "kaz",
@@ -13726,6 +13726,29 @@
       "url": "https://wolt.com/en/isr/rosh-pinna---zefat-area",
       "dataPath": "data/cities/isr-rosh-pinna---zefat-area/latest.json",
       "latestPath": "data/cities/isr-rosh-pinna---zefat-area/latest.json"
+    },
+    {
+      "id": "isr/tiberias-area",
+      "key": "isr-tiberias-area",
+      "woltCityId": "69f9de7cfbc3fa527f6336b4",
+      "slug": "tiberias-area",
+      "name": "Tiberias Area",
+      "country": "Israel",
+      "countryEmoji": "🇮🇱",
+      "countryCode": "isr",
+      "countryCode2": "IL",
+      "countryCode3": "ISR",
+      "lat": 32.792234986137316,
+      "lon": 35.529974469639455,
+      "locale": "en",
+      "timezone": "Asia/Jerusalem",
+      "hasFrontpage": true,
+      "hidden": false,
+      "notificationsEnabled": false,
+      "label": "Tiberias Area, Israel",
+      "url": "https://wolt.com/en/isr/tiberias-area",
+      "dataPath": "data/cities/isr-tiberias-area/latest.json",
+      "latestPath": "data/cities/isr-tiberias-area/latest.json"
     },
     {
       "id": "isr/tel-aviv",

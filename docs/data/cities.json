@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-29T14:30:26.064Z",
+  "generatedAt": "2026-06-30T09:30:24.320Z",
   "defaultCityId": "ltu/vilnius",
   "cacheTtlMs": 0,
-  "totalCities": 957,
+  "totalCities": 958,
   "totalCountries": 30,
   "countries": [
     {
@@ -131,7 +131,7 @@
       "code3": "ISR",
       "name": "Israel",
       "emoji": "🇮🇱",
-      "cityCount": 23
+      "cityCount": 24
     },
     {
       "code": "kaz",
@@ -13153,6 +13153,28 @@
       "counts": null
     },
     {
+      "id": "isr/tiberias-area",
+      "key": "isr-tiberias-area",
+      "woltCityId": "69f9de7cfbc3fa527f6336b4",
+      "slug": "tiberias-area",
+      "name": "Tiberias Area",
+      "country": "Israel",
+      "countryEmoji": "🇮🇱",
+      "countryCode": "isr",
+      "countryCode2": "IL",
+      "countryCode3": "ISR",
+      "lat": 32.792234986137316,
+      "lon": 35.529974469639455,
+      "locale": "en",
+      "timezone": "Asia/Jerusalem",
+      "label": "Tiberias Area, Israel",
+      "notificationsEnabled": false,
+      "dataPath": "data/cities/isr-tiberias-area/latest.json",
+      "latestPath": "data/cities/isr-tiberias-area/latest.json",
+      "updatedAt": null,
+      "counts": null
+    },
+    {
       "id": "isr/tel-aviv",
       "key": "isr-tel-aviv",
       "woltCityId": "5bc0905a63cca509a71168ee",
@@ -14561,18 +14583,11 @@
       "notificationsEnabled": true,
       "dataPath": "data/latest.json",
       "latestPath": "data/latest.json",
-      "updatedAt": "2026-06-29T14:30:25.924Z",
+      "updatedAt": "2026-06-30T09:30:23.996Z",
       "counts": {
         "restaurantsUniqueVenues": 818,
-        "promotionsUniqueVenues": 1352,
+        "promotionsUniqueVenues": 818,
         "productLines": {
-          "alcohol": 80,
-          "florist": 69,
-          "general_merchandise": 46,
-          "grocery": 224,
-          "health_and_beauty": 42,
-          "pet_supply": 57,
-          "pharmacy": 16,
           "restaurant": 818
         }
       }
