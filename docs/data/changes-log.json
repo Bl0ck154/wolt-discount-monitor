@@ -1,5 +1,168 @@
 [
   {
+    "generatedAt": "2026-07-01T09:30:27.013Z",
+    "previousGeneratedAt": "2026-06-30T18:40:37.304Z",
+    "appeared": 654,
+    "disappeared": 6,
+    "interestingAppeared": 5,
+    "notifiedNew": 5,
+    "notifiedEnded": 0,
+    "fetchError": null,
+    "interesting": [
+      {
+        "venue": {
+          "id": "63da6c787921e59fa16c9e84",
+          "slug": "busy-beet-vilnius",
+          "name": "Busy Beet",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/vilnius/restaurant/busy-beet-vilnius",
+          "imageUrl": "https://imageproxy.wolt.com/assets/67331c9a17e00e657c00ae9b"
+        },
+        "stableKey": "busy-beet-vilnius|6a3ce6e99cb16c3d9b78cb13",
+        "key": "venue.promotions_for_telemetry:6a3ce6e99cb16c3d9b78cb13",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a3ce6e99cb16c3d9b78cb13",
+        "text": "Basket Discount 10%",
+        "amount": 10,
+        "amountType": "percent",
+        "amountLabel": "10%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 6010,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a3ce6e99cb16c3d9b78cb13",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "Basket Discount 10%",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "695cfc275c37cafcbc21f875",
+          "slug": "noon-hero",
+          "name": "noon (Hero)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/vilnius/restaurant/noon-hero",
+          "imageUrl": "https://imageproxy.wolt.com/assets/695cfc4da6c45b6cc9507df1"
+        },
+        "stableKey": "noon-hero|6a3ce6e99cb16c3d9b78cb13",
+        "key": "venue.promotions:6a3ce6e99cb16c3d9b78cb13",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a3ce6e99cb16c3d9b78cb13",
+        "text": "Basket Discount 10%",
+        "amount": 10,
+        "amountType": "percent",
+        "amountLabel": "10%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 6010,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a3ce6e99cb16c3d9b78cb13",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "Basket Discount 10%",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "681b0451e1b6dbaf32bd7370",
+          "slug": "noon-mokslininku-g",
+          "name": "noon (Mokslininkų g.)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/vilnius/restaurant/noon-mokslininku-g",
+          "imageUrl": "https://imageproxy.wolt.com/assets/681b08876ab1412fd3455c5e"
+        },
+        "stableKey": "noon-mokslininku-g|6a3ce6e99cb16c3d9b78cb13",
+        "key": "venue.promotions_for_telemetry:6a3ce6e99cb16c3d9b78cb13",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a3ce6e99cb16c3d9b78cb13",
+        "text": "Basket Discount 10%",
+        "amount": 10,
+        "amountType": "percent",
+        "amountLabel": "10%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 6010,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a3ce6e99cb16c3d9b78cb13",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "Basket Discount 10%",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "66f1457741d7232f6e9b4de0",
+          "slug": "noon-sky-office",
+          "name": "noon (Sky office)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/vilnius/restaurant/noon-sky-office",
+          "imageUrl": "https://imageproxy.wolt.com/assets/67335ee5a7cc62434f9d9d41"
+        },
+        "stableKey": "noon-sky-office|6a3ce6e99cb16c3d9b78cb13",
+        "key": "venue.promotions_for_telemetry:6a3ce6e99cb16c3d9b78cb13",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a3ce6e99cb16c3d9b78cb13",
+        "text": "Basket Discount 10%",
+        "amount": 10,
+        "amountType": "percent",
+        "amountLabel": "10%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 6010,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a3ce6e99cb16c3d9b78cb13",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "Basket Discount 10%",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "672b73bdabff246331fe0aac",
+          "slug": "noon-vc-meraki",
+          "name": "noon (VC Meraki)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/vilnius/restaurant/noon-vc-meraki",
+          "imageUrl": "https://imageproxy.wolt.com/assets/67335f5ca7cc62434f9da090"
+        },
+        "stableKey": "noon-vc-meraki|6a3ce6e99cb16c3d9b78cb13",
+        "key": "venue.promotions_for_telemetry:6a3ce6e99cb16c3d9b78cb13",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a3ce6e99cb16c3d9b78cb13",
+        "text": "Basket Discount 10%",
+        "amount": 10,
+        "amountType": "percent",
+        "amountLabel": "10%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 6010,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a3ce6e99cb16c3d9b78cb13",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "Basket Discount 10%",
+          "variant": "discount"
+        }
+      }
+    ],
+    "ended": []
+  },
+  {
     "generatedAt": "2026-06-30T18:40:37.304Z",
     "previousGeneratedAt": "2026-06-30T14:30:23.208Z",
     "appeared": 1,

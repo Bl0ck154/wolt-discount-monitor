@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-30T18:40:29.507Z",
+  "generatedAt": "2026-07-01T09:30:17.469Z",
   "source": {
     "citiesEndpoint": "https://restaurant-api.wolt.com/v1/cities",
     "countryListEndpoint": "https://wolt.com/v1/country_list?languageCode=en"
   },
-  "totalCities": 958,
+  "totalCities": 959,
   "totalCountries": 30,
   "countries": [
     {
@@ -13,7 +13,7 @@
       "code3": "ALB",
       "name": "Albania",
       "emoji": "🇦🇱",
-      "cityCount": 7
+      "cityCount": 8
     },
     {
       "code": "aut",
@@ -249,6 +249,29 @@
     }
   ],
   "cities": [
+    {
+      "id": "alb/dhermi",
+      "key": "alb-dhermi",
+      "woltCityId": "6a1d69461f681efcbcb4ef56",
+      "slug": "dhermi",
+      "name": "Dhërmi",
+      "country": "Albania",
+      "countryEmoji": "🇦🇱",
+      "countryCode": "alb",
+      "countryCode2": "AL",
+      "countryCode3": "ALB",
+      "lat": 40.1570310617509,
+      "lon": 19.625194509163066,
+      "locale": "en",
+      "timezone": "Europe/Athens",
+      "hasFrontpage": true,
+      "hidden": false,
+      "notificationsEnabled": false,
+      "label": "Dhërmi, Albania",
+      "url": "https://wolt.com/en/alb/dhermi",
+      "dataPath": "data/cities/alb-dhermi/latest.json",
+      "latestPath": "data/cities/alb-dhermi/latest.json"
+    },
     {
       "id": "alb/durres",
       "key": "alb-durres",

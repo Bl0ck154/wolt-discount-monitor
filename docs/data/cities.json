@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-30T18:40:37.538Z",
+  "generatedAt": "2026-07-01T09:30:27.311Z",
   "defaultCityId": "ltu/vilnius",
   "cacheTtlMs": 0,
-  "totalCities": 958,
+  "totalCities": 959,
   "totalCountries": 30,
   "countries": [
     {
@@ -11,7 +11,7 @@
       "code3": "ALB",
       "name": "Albania",
       "emoji": "🇦🇱",
-      "cityCount": 7
+      "cityCount": 8
     },
     {
       "code": "aut",
@@ -247,6 +247,28 @@
     }
   ],
   "cities": [
+    {
+      "id": "alb/dhermi",
+      "key": "alb-dhermi",
+      "woltCityId": "6a1d69461f681efcbcb4ef56",
+      "slug": "dhermi",
+      "name": "Dhërmi",
+      "country": "Albania",
+      "countryEmoji": "🇦🇱",
+      "countryCode": "alb",
+      "countryCode2": "AL",
+      "countryCode3": "ALB",
+      "lat": 40.1570310617509,
+      "lon": 19.625194509163066,
+      "locale": "en",
+      "timezone": "Europe/Athens",
+      "label": "Dhërmi, Albania",
+      "notificationsEnabled": false,
+      "dataPath": "data/cities/alb-dhermi/latest.json",
+      "latestPath": "data/cities/alb-dhermi/latest.json",
+      "updatedAt": null,
+      "counts": null
+    },
     {
       "id": "alb/durres",
       "key": "alb-durres",
@@ -14583,11 +14605,18 @@
       "notificationsEnabled": true,
       "dataPath": "data/latest.json",
       "latestPath": "data/latest.json",
-      "updatedAt": "2026-06-30T18:40:37.304Z",
+      "updatedAt": "2026-07-01T09:30:27.013Z",
       "counts": {
         "restaurantsUniqueVenues": 819,
-        "promotionsUniqueVenues": 819,
+        "promotionsUniqueVenues": 1356,
         "productLines": {
+          "alcohol": 80,
+          "florist": 69,
+          "general_merchandise": 46,
+          "grocery": 224,
+          "health_and_beauty": 42,
+          "pet_supply": 57,
+          "pharmacy": 19,
           "restaurant": 819
         }
       }
