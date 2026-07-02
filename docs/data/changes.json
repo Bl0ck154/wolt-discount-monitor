@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-07-01T18:40:29.527Z",
-  "previousGeneratedAt": "2026-07-01T14:30:32.128Z",
+  "generatedAt": "2026-07-02T09:30:32.591Z",
+  "previousGeneratedAt": "2026-07-01T18:40:29.527Z",
   "counts": {
-    "restaurantsUniqueVenues": 820,
-    "promotionsUniqueVenues": 1357,
+    "restaurantsUniqueVenues": 821,
+    "promotionsUniqueVenues": 1359,
     "productLines": {
       "alcohol": 80,
       "florist": 69,
@@ -11,11 +11,193 @@
       "grocery": 224,
       "health_and_beauty": 42,
       "pet_supply": 57,
-      "pharmacy": 19,
-      "restaurant": 820
+      "pharmacy": 20,
+      "restaurant": 821
     }
   },
   "appeared": [
+    {
+      "venue": {
+        "id": "6a31077a4c1495db0f030790",
+        "slug": "benu-vaistine-uzupio-g",
+        "name": "BENU vaistinė (Užupio g.)",
+        "productLine": "pharmacy",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/benu-vaistine-uzupio-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/79de3c22-ad3e-4a10-a812-16a326b97254/de99376c-ff76-4624-bcb7-4956c82670fd"
+      },
+      "stableKey": "benu-vaistine-uzupio-g|6a2bb9ab2579f27f0d5e87c1",
+      "key": "venue.promotions:6a2bb9ab2579f27f0d5e87c1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bb9ab2579f27f0d5e87c1",
+      "text": "0€ delivery for new users",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "new-user-delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bb9ab2579f27f0d5e87c1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0€ delivery for new users",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6a31077a4c1495db0f030790",
+        "slug": "benu-vaistine-uzupio-g",
+        "name": "BENU vaistinė (Užupio g.)",
+        "productLine": "pharmacy",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/benu-vaistine-uzupio-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/79de3c22-ad3e-4a10-a812-16a326b97254/de99376c-ff76-4624-bcb7-4956c82670fd"
+      },
+      "stableKey": "benu-vaistine-uzupio-g|6a3d09f858488656b4f0ed2f",
+      "key": "venue.promotions_for_telemetry:6a3d09f858488656b4f0ed2f",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a3d09f858488656b4f0ed2f",
+      "text": "25% off selected items",
+      "amount": 25,
+      "amountType": "percent",
+      "amountLabel": "25%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 525,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a3d09f858488656b4f0ed2f",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "25% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6a31077a4c1495db0f030790",
+        "slug": "benu-vaistine-uzupio-g",
+        "name": "BENU vaistinė (Užupio g.)",
+        "productLine": "pharmacy",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/benu-vaistine-uzupio-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/79de3c22-ad3e-4a10-a812-16a326b97254/de99376c-ff76-4624-bcb7-4956c82670fd"
+      },
+      "stableKey": "benu-vaistine-uzupio-g|6a3d0f92dc4c6fe5ece8d3db",
+      "key": "venue.promotions_for_telemetry:6a3d0f92dc4c6fe5ece8d3db",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a3d0f92dc4c6fe5ece8d3db",
+      "text": "35% off selected items",
+      "amount": 35,
+      "amountType": "percent",
+      "amountLabel": "35%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 535,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a3d0f92dc4c6fe5ece8d3db",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "35% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6a31077a4c1495db0f030790",
+        "slug": "benu-vaistine-uzupio-g",
+        "name": "BENU vaistinė (Užupio g.)",
+        "productLine": "pharmacy",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/benu-vaistine-uzupio-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/79de3c22-ad3e-4a10-a812-16a326b97254/de99376c-ff76-4624-bcb7-4956c82670fd"
+      },
+      "stableKey": "benu-vaistine-uzupio-g|6a3e44d03cfa231216a24a44",
+      "key": "venue.promotions_for_telemetry:6a3e44d03cfa231216a24a44",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a3e44d03cfa231216a24a44",
+      "text": "40% off selected items",
+      "amount": 40,
+      "amountType": "percent",
+      "amountLabel": "40%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 540,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a3e44d03cfa231216a24a44",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "40% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6a31077a4c1495db0f030790",
+        "slug": "benu-vaistine-uzupio-g",
+        "name": "BENU vaistinė (Užupio g.)",
+        "productLine": "pharmacy",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/benu-vaistine-uzupio-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/79de3c22-ad3e-4a10-a812-16a326b97254/de99376c-ff76-4624-bcb7-4956c82670fd"
+      },
+      "stableKey": "benu-vaistine-uzupio-g|6a3e66796f71ef646f343f5e",
+      "key": "venue.promotions_for_telemetry:6a3e66796f71ef646f343f5e",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a3e66796f71ef646f343f5e",
+      "text": "50% off selected items",
+      "amount": 50,
+      "amountType": "percent",
+      "amountLabel": "50%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 550,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a3e66796f71ef646f343f5e",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "50% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "63b6cd4fa14c9e07131bd14d",
+        "slug": "devyniasdesimt-astunti",
+        "name": "Šuldu Buldu Pizza",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/devyniasdesimt-astunti",
+        "imageUrl": "https://imageproxy.wolt.com/assets/693982833bbac3ed7f841699"
+      },
+      "stableKey": "devyniasdesimt-astunti|6a2bb9ab2579f27f0d5e87c1",
+      "key": "venue.promotions:6a2bb9ab2579f27f0d5e87c1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bb9ab2579f27f0d5e87c1",
+      "text": "0€ delivery for new users",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "new-user-delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bb9ab2579f27f0d5e87c1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0€ delivery for new users",
+        "variant": "discount"
+      }
+    }
+  ],
+  "disappeared": [
     {
       "venue": {
         "id": "61fd25d89e6ce7e36e0328a5",
@@ -225,9 +407,38 @@
         "text": "-50% off selected item",
         "variant": "discount"
       }
+    },
+    {
+      "venue": {
+        "id": "59c20d038903136dd383f13b",
+        "slug": "piano-piano",
+        "name": "Piano Piano (Vilniaus g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/piano-piano",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fac149445354de03e9f"
+      },
+      "stableKey": "piano-piano|696f72829a22d46087295fde",
+      "key": "venue.promotions_for_telemetry:696f72829a22d46087295fde",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "696f72829a22d46087295fde",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "696f72829a22d46087295fde",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
     }
   ],
-  "disappeared": [],
   "interestingAppeared": [],
   "interestingDisappeared": [],
   "newInteresting": [],
