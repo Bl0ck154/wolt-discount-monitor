@@ -1,5 +1,48 @@
 [
   {
+    "generatedAt": "2026-07-02T14:30:26.310Z",
+    "previousGeneratedAt": "2026-07-02T09:30:32.591Z",
+    "appeared": 5,
+    "disappeared": 2,
+    "interestingAppeared": 1,
+    "notifiedNew": 1,
+    "notifiedEnded": 0,
+    "fetchError": null,
+    "interesting": [
+      {
+        "venue": {
+          "id": "6a2656c72f76c2ba37d837f3",
+          "slug": "zenbowl",
+          "name": "ZENBOWL",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/vilnius/restaurant/zenbowl",
+          "imageUrl": "https://imageproxy.wolt.com/assets/6a27b2bde96e3b62fd6f5944"
+        },
+        "stableKey": "zenbowl|6a465496ef3a256d54cfcbe9",
+        "key": "venue.promotions:6a465496ef3a256d54cfcbe9",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a465496ef3a256d54cfcbe9",
+        "text": "-20% off the basket",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 6020,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a465496ef3a256d54cfcbe9",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "-20% off the basket",
+          "variant": "discount"
+        }
+      }
+    ],
+    "ended": []
+  },
+  {
     "generatedAt": "2026-07-02T09:30:32.591Z",
     "previousGeneratedAt": "2026-07-01T18:40:29.527Z",
     "appeared": 6,
