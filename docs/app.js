@@ -5,8 +5,6 @@ const state = {
   citiesIndex: null,
   selectedCity: null,
   apiBaseUrl: apiBaseUrl(),
-  snapshotSourceUrl: null,
-  snapshotSourceLabel: null,
   cityPickerOpen: false,
   loadRequestId: 0,
   ubiquitousOfferKeys: new Set(),
@@ -76,7 +74,7 @@ async function loadSnapshotForCity(cityId) {
       if (!isCurrentLoad(requestId)) {
         return;
       }
-      applySnapshot(city, apiResult.snapshot, apiResult.url, "live API cache");
+      applySnapshot(city, apiResult.snapshot);
       return;
     } catch (error) {
       if (!isCurrentLoad(requestId)) {
@@ -85,8 +83,8 @@ async function loadSnapshotForCity(cityId) {
       if (!staticResult.ok) {
         throw error;
       }
-      console.warn("Live API failed; falling back to static cache", error);
-      applySnapshot(city, staticResult.snapshot, staticResult.url, "stale static cache");
+      console.warn("Live API failed; using bundled data", error);
+      applySnapshot(city, staticResult.snapshot);
       return;
     }
   }
@@ -95,7 +93,7 @@ async function loadSnapshotForCity(cityId) {
     throw new Error(apiDisabledMessage(city));
   }
 
-  applySnapshot(city, staticResult.snapshot, staticResult.url, "static cache");
+  applySnapshot(city, staticResult.snapshot);
 }
 
 function isCurrentLoad(requestId) {
@@ -121,18 +119,16 @@ async function loadApiSnapshot(city) {
   return { url, snapshot: await response.json() };
 }
 
-function applySnapshot(city, snapshot, sourceUrl, sourceLabel) {
+function applySnapshot(city, snapshot) {
   state.snapshot = snapshot;
   state.selectedCity = { ...(state.snapshot.city ?? {}), ...city };
-  state.snapshotSourceUrl = sourceUrl;
-  state.snapshotSourceLabel = sourceLabel;
   state.rows = state.snapshot.venues ?? [];
   const ubiquitousOffers = ubiquitousOfferIndex(state.rows);
   state.ubiquitousOfferKeys = ubiquitousOffers.keys;
   state.ubiquitousOfferLabels = ubiquitousOffers.labels;
   syncCityPickerValue();
   safeLocalStorageSet("WOLT_SELECTED_CITY", state.selectedCity.id);
-  rememberCachedCity(state.selectedCity, state.snapshot);
+  rememberCitySnapshot(state.selectedCity, state.snapshot);
   hydrateSummary();
   hydrateFilters();
   renderRows();
@@ -141,8 +137,6 @@ function applySnapshot(city, snapshot, sourceUrl, sourceLabel) {
 function showLoading(city) {
   state.selectedCity = city;
   state.snapshot = null;
-  state.snapshotSourceUrl = null;
-  state.snapshotSourceLabel = null;
   state.ubiquitousOfferKeys = new Set();
   state.ubiquitousOfferLabels = [];
   state.rows = [];
@@ -1256,7 +1250,7 @@ function apiDisabledMessage(city) {
   return `No cached discount data yet for ${label}. Enable a live API backend with window.WOLT_API_BASE_URL or ?api=https://your-api-domain to fetch this city on demand.`;
 }
 
-function rememberCachedCity(city, snapshot) {
+function rememberCitySnapshot(city, snapshot) {
   if (!state.citiesIndex?.cities || !city?.id || !snapshot) {
     return;
   }
