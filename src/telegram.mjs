@@ -1,3 +1,5 @@
+const DEFAULT_DASHBOARD_URL = "https://bl0ck154.github.io/wolt-discount-monitor/";
+
 export async function sendTelegramMessage(text) {
   const token = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;
@@ -31,36 +33,23 @@ export function formatTelegramMessage(notification) {
   const ended = notification.ended ?? [];
   const appearedGroups = groupOffers(appeared);
   const endedGroups = groupOffers(ended);
-  const lines = [
-    "<b>Wolt discount monitor · Vilnius</b>",
-    `New valuable offers: <b>${appearedGroups.length}</b>`,
-    `Ended tracked offers: <b>${endedGroups.length}</b>`,
-    notification.allAppeared !== undefined
-      ? `All appeared: ${notification.allAppeared}, disappeared: ${notification.allDisappeared}`
-      : null,
-    "",
-  ].filter((line) => line !== null);
+  const lines = [formatCityLine(notification.city)];
 
   if (appeared.length) {
-    lines.push("<b>New:</b>");
     for (const group of appearedGroups.slice(0, 30)) {
-      lines.push(formatOfferGroupLine("•", group));
+      lines.push(formatOfferGroupLine("🔥", group));
     }
     if (appearedGroups.length > 30) {
-      lines.push(`...and ${appearedGroups.length - 30} more new grouped offers.`);
+      lines.push(`...and ${appearedGroups.length - 30} more new offers.`);
     }
   }
 
   if (ended.length) {
-    if (appeared.length) {
-      lines.push("");
-    }
-    lines.push("<b>Ended:</b>");
     for (const group of endedGroups.slice(0, 30)) {
-      lines.push(formatOfferGroupLine("✖", group));
+      lines.push(formatOfferGroupLine("❌", group));
     }
     if (endedGroups.length > 30) {
-      lines.push(`...and ${endedGroups.length - 30} more ended grouped offers.`);
+      lines.push(`...and ${endedGroups.length - 30} more ended offers.`);
     }
   }
 
@@ -87,12 +76,34 @@ function groupOffers(offers) {
 
 function formatOfferGroupLine(prefix, group) {
   const offer = group.offer;
-  const venueName = escapeHtml(group.rootName);
+  const venueName = formatVenueLink(group.rootName, offer.venue.link);
   const offerText = escapeHtml(offer.text);
-  const amount = offer.amountLabel ? ` (${escapeHtml(offer.amountLabel)})` : "";
   const locationCount = group.offers.length > 1 ? ` · ${group.offers.length} locations` : "";
-  const link = offer.venue.link ? `\n${escapeHtml(offer.venue.link)}` : "";
-  return `${prefix} <b>${venueName}</b>${locationCount}: ${offerText}${amount}${link}`;
+  return `${prefix} ${venueName}${locationCount}: ${offerText}`;
+}
+
+function formatCityLine(city = {}) {
+  const cityName = escapeHtml(city.name ?? "Vilnius");
+  return `<a href="${escapeHtml(dashboardUrl(city))}"><b>${cityName}</b></a>`;
+}
+
+function formatVenueLink(name, link) {
+  const escapedName = escapeHtml(name);
+  if (!link) {
+    return `<b>${escapedName}</b>`;
+  }
+  return `<a href="${escapeHtml(link)}"><b>${escapedName}</b></a>`;
+}
+
+function dashboardUrl(city = {}) {
+  const baseUrl = String(process.env.WOLT_DASHBOARD_URL ?? DEFAULT_DASHBOARD_URL).trim() || DEFAULT_DASHBOARD_URL;
+  if (!city.id || city.id === "ltu/vilnius" || city.id === "vilnius") {
+    return baseUrl;
+  }
+
+  const url = new URL(baseUrl);
+  url.searchParams.set("city", city.id);
+  return url.toString();
 }
 
 function chainRootName(name = "") {

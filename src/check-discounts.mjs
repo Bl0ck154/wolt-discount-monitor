@@ -129,6 +129,7 @@ async function checkCity(city) {
 
   if (shouldNotify) {
     telegram = await sendTelegramMessage(formatTelegramMessage({
+      city,
       appeared: newInteresting,
       ended: endedNotified,
       allAppeared: changes.appeared.length,
