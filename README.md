@@ -244,11 +244,15 @@ gh workflow run "Update Wolt discount monitor" --repo Bl0ck154/wolt-discount-mon
 gh run list --repo Bl0ck154/wolt-discount-monitor --workflow "Update Wolt discount monitor" --limit 5
 ```
 
-External cron example, using the machine's local timezone:
+External cron example, using the machine's local timezone. Current production
+schedule uses `Europe/Vilnius`:
 
 ```cron
-30 12,17 * * * cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
-40 21 * * * cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
+CRON_TZ=Europe/Vilnius
+17 12 * * 6,0 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
+45 11 * * 1 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
+18 11 * * 2-4 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
+51 11 * * 5 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
 ```
 
 The dispatch helper accepts optional variables:
