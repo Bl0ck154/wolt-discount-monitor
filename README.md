@@ -253,6 +253,8 @@ CRON_TZ=Europe/Vilnius
 45 11 * * 1 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
 18 11 * * 2-4 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
 51 11 * * 5 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
+30 17 * * * cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
+40 21 * * * cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
 ```
 
 The dispatch helper accepts optional variables:
