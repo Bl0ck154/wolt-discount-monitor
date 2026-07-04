@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-07-03T18:40:32.357Z",
-  "previousGeneratedAt": "2026-07-03T14:30:31.359Z",
+  "generatedAt": "2026-07-04T09:17:27.643Z",
+  "previousGeneratedAt": "2026-07-03T18:40:32.357Z",
   "counts": {
-    "restaurantsUniqueVenues": 821,
-    "promotionsUniqueVenues": 1359,
+    "restaurantsUniqueVenues": 822,
+    "promotionsUniqueVenues": 1360,
     "productLines": {
       "alcohol": 80,
       "florist": 69,
@@ -12,10 +12,42 @@
       "health_and_beauty": 42,
       "pet_supply": 57,
       "pharmacy": 20,
-      "restaurant": 821
+      "restaurant": 822
     }
   },
   "appeared": [
+    {
+      "venue": {
+        "id": "6a43b42ecdc61bda040d6806",
+        "slug": "chinese-please",
+        "name": "Chinese Please",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/chinese-please",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6a43b45b6d5be1c5ab0b7be8"
+      },
+      "stableKey": "chinese-please|6a2bb9ab2579f27f0d5e87c1",
+      "key": "venue.promotions:6a2bb9ab2579f27f0d5e87c1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bb9ab2579f27f0d5e87c1",
+      "text": "0€ delivery for new users",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "new-user-delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bb9ab2579f27f0d5e87c1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0€ delivery for new users",
+        "variant": "discount"
+      }
+    }
+  ],
+  "disappeared": [
     {
       "venue": {
         "id": "61fd25d89e6ce7e36e0328a5",
@@ -225,9 +257,98 @@
         "text": "-50% off selected item",
         "variant": "discount"
       }
+    },
+    {
+      "venue": {
+        "id": "678e4936181346461fff055c",
+        "slug": "savam-kieme",
+        "name": "Savam kieme",
+        "productLine": "grocery",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/savam-kieme",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67dc24ef829e4a2306e07b55"
+      },
+      "stableKey": "savam-kieme|6a3d6bfdd90f815a30b90a86",
+      "key": "venue.promotions_for_telemetry:6a3d6bfdd90f815a30b90a86",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a3d6bfdd90f815a30b90a86",
+      "text": "10% off selected items",
+      "amount": 10,
+      "amountType": "percent",
+      "amountLabel": "10%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 510,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a3d6bfdd90f815a30b90a86",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "10% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "678e4936181346461fff055c",
+        "slug": "savam-kieme",
+        "name": "Savam kieme",
+        "productLine": "grocery",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/savam-kieme",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67dc24ef829e4a2306e07b55"
+      },
+      "stableKey": "savam-kieme|6a4394f9bd2bda139aa4caa0",
+      "key": "venue.promotions_for_telemetry:6a4394f9bd2bda139aa4caa0",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a4394f9bd2bda139aa4caa0",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a4394f9bd2bda139aa4caa0",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "69f06c7223c21ec8f8ebe687",
+        "slug": "traskis-justiniskiu-g",
+        "name": "Traškis (Justiniškių g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/traskis-justiniskiu-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/69f06cacf57703aa9381613d"
+      },
+      "stableKey": "traskis-justiniskiu-g|6a464b2d4f892399ac8ce0a5",
+      "key": "venue.promotions_for_telemetry:6a464b2d4f892399ac8ce0a5",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a464b2d4f892399ac8ce0a5",
+      "text": "30% off selected items",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 530,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a464b2d4f892399ac8ce0a5",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "30% off selected items",
+        "variant": "discount"
+      }
     }
   ],
-  "disappeared": [],
   "interestingAppeared": [],
   "interestingDisappeared": [],
   "newInteresting": [],
