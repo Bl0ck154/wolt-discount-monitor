@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-04T18:40:27.361Z",
-  "previousGeneratedAt": "2026-07-04T14:30:26.289Z",
+  "generatedAt": "2026-07-05T09:17:30.662Z",
+  "previousGeneratedAt": "2026-07-04T18:40:27.361Z",
   "counts": {
     "restaurantsUniqueVenues": 822,
     "promotionsUniqueVenues": 1360,
@@ -18,17 +18,17 @@
   "appeared": [
     {
       "venue": {
-        "id": "59d48d0810de42000d6ad1ed",
-        "slug": "maurizios-italian-food",
-        "name": "Maurizio's Italian Food",
+        "id": "62a8a1ba139a5061a9db66b3",
+        "slug": "asia-tasty-jogailos-g",
+        "name": "Asia tasty (Jogailos g.)",
         "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/maurizios-italian-food",
-        "imageUrl": "https://imageproxy.wolt.com/assets/67332fba827209684f08e351"
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/asia-tasty-jogailos-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/673208342d3e6140073802ca"
       },
-      "stableKey": "maurizios-italian-food|6a49383b770bbd3790de8776",
-      "key": "venue.promotions_for_telemetry:6a49383b770bbd3790de8776",
+      "stableKey": "asia-tasty-jogailos-g|69de53c6f670719ce2b0c0b6",
+      "key": "venue.promotions_for_telemetry:69de53c6f670719ce2b0c0b6",
       "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a49383b770bbd3790de8776",
+      "campaignId": "69de53c6f670719ce2b0c0b6",
       "text": "0 € delivery fee",
       "amount": 0,
       "amountType": "money",
@@ -39,10 +39,192 @@
       "score": -1,
       "variant": "discount",
       "raw": {
-        "campaign_id": "6a49383b770bbd3790de8776",
+        "campaign_id": "69de53c6f670719ce2b0c0b6",
         "icon": "coupon-fill",
         "is_offer_stackable": false,
         "text": "0 € delivery fee",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "699462b7e86be0dbaddc3c7b",
+        "slug": "du-kebabai",
+        "name": "Du Kebabai",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/du-kebabai",
+        "imageUrl": "https://imageproxy.wolt.com/assets/69a162e396d75d61e246da73"
+      },
+      "stableKey": "du-kebabai|6a37115e4391212ba6fa2ba2",
+      "key": "venue.promotions:6a37115e4391212ba6fa2ba2",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a37115e4391212ba6fa2ba2",
+      "text": "5 € off",
+      "amount": 5,
+      "amountType": "money",
+      "amountLabel": "5 EUR",
+      "category": "money",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 7005,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a37115e4391212ba6fa2ba2",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "5 € off",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5a0c03b05ce41f000b3d7830",
+        "slug": "shark-tail-sushi",
+        "name": "Pokito",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/shark-tail-sushi",
+        "imageUrl": "https://imageproxy.wolt.com/assets/691c32e1f6a3afc908653a60"
+      },
+      "stableKey": "shark-tail-sushi|6a43e181f5875cf019a6d218",
+      "key": "venue.promotions:6a43e181f5875cf019a6d218",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a43e181f5875cf019a6d218",
+      "text": "15% off (up to 50 €)",
+      "amount": 15,
+      "amountType": "percent",
+      "amountLabel": "15%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 1515,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a43e181f5875cf019a6d218",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "15% off (up to 50 €)",
+        "variant": "discount"
+      }
+    }
+  ],
+  "disappeared": [
+    {
+      "venue": {
+        "id": "5e84aa2942cdedcf8dc677d5",
+        "slug": "chief-pizza-dzuku-g",
+        "name": "Chief Pizza (Dzūkų g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/chief-pizza-dzuku-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fad29cd4b694e529aa4"
+      },
+      "stableKey": "chief-pizza-dzuku-g|6a48f4b39e7f0df32af3dbbd",
+      "key": "venue.promotions_for_telemetry:6a48f4b39e7f0df32af3dbbd",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a48f4b39e7f0df32af3dbbd",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a48f4b39e7f0df32af3dbbd",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5e8b21c27b8427c54e1794d6",
+        "slug": "chief-pizza-sauletekis",
+        "name": "Chief Pizza (Saulėtekis)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/chief-pizza-sauletekis",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6733302729cd4b694e52a1b3"
+      },
+      "stableKey": "chief-pizza-sauletekis|6a48f4e931be47f36459025c",
+      "key": "venue.promotions_for_telemetry:6a48f4e931be47f36459025c",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a48f4e931be47f36459025c",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a48f4e931be47f36459025c",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5e8b2277e050b99f26644ccd",
+        "slug": "chief-pizza-ukmergs-g",
+        "name": "Chief Pizza (Ukmergės g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/chief-pizza-ukmergs-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fbe18b8c2487381cca2"
+      },
+      "stableKey": "chief-pizza-ukmergs-g|6a48f518d6c42638841ab903",
+      "key": "venue.promotions_for_telemetry:6a48f518d6c42638841ab903",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a48f518d6c42638841ab903",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a48f518d6c42638841ab903",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5fa53c3cd2697f83c1b19e9b",
+        "slug": "chief-pizza-zemaites-g",
+        "name": "Chief Pizza (Žemaitės g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/chief-pizza-zemaites-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67320836479a971266a692c7"
+      },
+      "stableKey": "chief-pizza-zemaites-g|6a48f54631be47f364590265",
+      "key": "venue.promotions_for_telemetry:6a48f54631be47f364590265",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a48f54631be47f364590265",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a48f54631be47f364590265",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
         "variant": "discount"
       }
     },
@@ -257,44 +439,74 @@
       }
     }
   ],
-  "disappeared": [
+  "interestingAppeared": [
     {
       "venue": {
-        "id": "69f06c7223c21ec8f8ebe687",
-        "slug": "traskis-justiniskiu-g",
-        "name": "Traškis (Justiniškių g.)",
+        "id": "699462b7e86be0dbaddc3c7b",
+        "slug": "du-kebabai",
+        "name": "Du Kebabai",
         "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/traskis-justiniskiu-g",
-        "imageUrl": "https://imageproxy.wolt.com/assets/69f06cacf57703aa9381613d"
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/du-kebabai",
+        "imageUrl": "https://imageproxy.wolt.com/assets/69a162e396d75d61e246da73"
       },
-      "stableKey": "traskis-justiniskiu-g|6a4690034f892399ac8ce7c3",
-      "key": "venue.promotions_for_telemetry:6a4690034f892399ac8ce7c3",
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a4690034f892399ac8ce7c3",
-      "text": "30% off (up to 50 €)",
-      "amount": 30,
-      "amountType": "percent",
-      "amountLabel": "30%",
-      "category": "percent",
+      "stableKey": "du-kebabai|6a37115e4391212ba6fa2ba2",
+      "key": "venue.promotions:6a37115e4391212ba6fa2ba2",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a37115e4391212ba6fa2ba2",
+      "text": "5 € off",
+      "amount": 5,
+      "amountType": "money",
+      "amountLabel": "5 EUR",
+      "category": "money",
       "isDeliveryRelated": false,
       "isUtilityBadge": false,
-      "score": 1530,
+      "score": 7005,
       "variant": "discount",
       "raw": {
-        "campaign_id": "6a4690034f892399ac8ce7c3",
+        "campaign_id": "6a37115e4391212ba6fa2ba2",
         "icon": "coupon-fill",
         "is_offer_stackable": false,
-        "text": "30% off (up to 50 €)",
+        "text": "5 € off",
         "variant": "discount"
       }
     }
   ],
-  "interestingAppeared": [],
   "interestingDisappeared": [],
-  "newInteresting": [],
+  "newInteresting": [
+    {
+      "venue": {
+        "id": "699462b7e86be0dbaddc3c7b",
+        "slug": "du-kebabai",
+        "name": "Du Kebabai",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/du-kebabai",
+        "imageUrl": "https://imageproxy.wolt.com/assets/69a162e396d75d61e246da73"
+      },
+      "stableKey": "du-kebabai|6a37115e4391212ba6fa2ba2",
+      "key": "venue.promotions:6a37115e4391212ba6fa2ba2",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a37115e4391212ba6fa2ba2",
+      "text": "5 € off",
+      "amount": 5,
+      "amountType": "money",
+      "amountLabel": "5 EUR",
+      "category": "money",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 7005,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a37115e4391212ba6fa2ba2",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "5 € off",
+        "variant": "discount"
+      }
+    }
+  ],
   "endedNotified": [],
   "notifiedSummary": {
-    "newInteresting": 0,
+    "newInteresting": 1,
     "endedNotified": 0
   }
 }
