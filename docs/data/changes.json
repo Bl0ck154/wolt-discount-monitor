@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-06T08:45:25.369Z",
-  "previousGeneratedAt": "2026-07-05T18:40:27.982Z",
+  "generatedAt": "2026-07-06T14:30:34.289Z",
+  "previousGeneratedAt": "2026-07-06T08:45:25.369Z",
   "counts": {
     "restaurantsUniqueVenues": 822,
     "promotionsUniqueVenues": 1360,
@@ -18,17 +18,17 @@
   "appeared": [
     {
       "venue": {
-        "id": "5e84aa2942cdedcf8dc677d5",
-        "slug": "chief-pizza-dzuku-g",
-        "name": "Chief Pizza (Dzūkų g.)",
+        "id": "59c20d038903136dd383f13b",
+        "slug": "piano-piano",
+        "name": "Piano Piano (Vilniaus g.)",
         "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/chief-pizza-dzuku-g",
-        "imageUrl": "https://imageproxy.wolt.com/assets/67332fad29cd4b694e529aa4"
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/piano-piano",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fac149445354de03e9f"
       },
-      "stableKey": "chief-pizza-dzuku-g|6a4b692afab2fbec84ce449d",
-      "key": "venue.promotions_for_telemetry:6a4b692afab2fbec84ce449d",
+      "stableKey": "piano-piano|696f72829a22d46087295fde",
+      "key": "venue.promotions_for_telemetry:696f72829a22d46087295fde",
       "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a4b692afab2fbec84ce449d",
+      "campaignId": "696f72829a22d46087295fde",
       "text": "20% off selected items",
       "amount": 20,
       "amountType": "percent",
@@ -39,97 +39,7 @@
       "score": 520,
       "variant": "discount",
       "raw": {
-        "campaign_id": "6a4b692afab2fbec84ce449d",
-        "icon": "coupon-fill",
-        "is_offer_stackable": true,
-        "text": "20% off selected items",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "5e8b21c27b8427c54e1794d6",
-        "slug": "chief-pizza-sauletekis",
-        "name": "Chief Pizza (Saulėtekis)",
-        "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/chief-pizza-sauletekis",
-        "imageUrl": "https://imageproxy.wolt.com/assets/6733302729cd4b694e52a1b3"
-      },
-      "stableKey": "chief-pizza-sauletekis|6a4b6954770bbd3790deacce",
-      "key": "venue.promotions_for_telemetry:6a4b6954770bbd3790deacce",
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a4b6954770bbd3790deacce",
-      "text": "20% off selected items",
-      "amount": 20,
-      "amountType": "percent",
-      "amountLabel": "20%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 520,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a4b6954770bbd3790deacce",
-        "icon": "coupon-fill",
-        "is_offer_stackable": true,
-        "text": "20% off selected items",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "5fa53c3cd2697f83c1b19e9b",
-        "slug": "chief-pizza-zemaites-g",
-        "name": "Chief Pizza (Žemaitės g.)",
-        "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/chief-pizza-zemaites-g",
-        "imageUrl": "https://imageproxy.wolt.com/assets/67320836479a971266a692c7"
-      },
-      "stableKey": "chief-pizza-zemaites-g|6a4b69c506e5ef42ee1707eb",
-      "key": "venue.promotions_for_telemetry:6a4b69c506e5ef42ee1707eb",
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a4b69c506e5ef42ee1707eb",
-      "text": "20% off selected items",
-      "amount": 20,
-      "amountType": "percent",
-      "amountLabel": "20%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 520,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a4b69c506e5ef42ee1707eb",
-        "icon": "coupon-fill",
-        "is_offer_stackable": true,
-        "text": "20% off selected items",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "69f06c7223c21ec8f8ebe687",
-        "slug": "traskis-justiniskiu-g",
-        "name": "Traškis (Justiniškių g.)",
-        "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/traskis-justiniskiu-g",
-        "imageUrl": "https://imageproxy.wolt.com/assets/69f06cacf57703aa9381613d"
-      },
-      "stableKey": "traskis-justiniskiu-g|6a4b65aad6c42638841ae39a",
-      "key": "venue.promotions_for_telemetry:6a4b65aad6c42638841ae39a",
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a4b65aad6c42638841ae39a",
-      "text": "20% off selected items",
-      "amount": 20,
-      "amountType": "percent",
-      "amountLabel": "20%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 520,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a4b65aad6c42638841ae39a",
+        "campaign_id": "696f72829a22d46087295fde",
         "icon": "coupon-fill",
         "is_offer_stackable": true,
         "text": "20% off selected items",
@@ -140,251 +50,92 @@
   "disappeared": [
     {
       "venue": {
-        "id": "61fd25d89e6ce7e36e0328a5",
-        "slug": "monami-akropolis",
-        "name": "MonAmi kepyklėlė (Akropolis)",
-        "productLine": "grocery",
-        "link": "https://wolt.com/en/ltu/vilnius/venue/monami-akropolis",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/03fff7c8-e4a7-41ab-b9e6-5f4f476a4fe1/a23c8028-be08-4b6a-aba6-0264dcb0270c"
-      },
-      "stableKey": "monami-akropolis|6a01e1c3104381a1472df9ad",
-      "key": "venue.promotions_for_telemetry:6a01e1c3104381a1472df9ad",
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a01e1c3104381a1472df9ad",
-      "text": "-50% off selected item",
-      "amount": 50,
-      "amountType": "percent",
-      "amountLabel": "50%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 550,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a01e1c3104381a1472df9ad",
-        "icon": "coupon-fill",
-        "is_offer_stackable": true,
-        "text": "-50% off selected item",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "61fd213da3125d2dbd03d0e4",
-        "slug": "monami-domus-pro",
-        "name": "MonAmi kepyklėlė (Domus Pro)",
-        "productLine": "grocery",
-        "link": "https://wolt.com/en/ltu/vilnius/venue/monami-domus-pro",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/03fff7c8-e4a7-41ab-b9e6-5f4f476a4fe1/a23c8028-be08-4b6a-aba6-0264dcb0270c"
-      },
-      "stableKey": "monami-domus-pro|6a01e1c3104381a1472df9ad",
-      "key": "venue.promotions_for_telemetry:6a01e1c3104381a1472df9ad",
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a01e1c3104381a1472df9ad",
-      "text": "-50% off selected item",
-      "amount": 50,
-      "amountType": "percent",
-      "amountLabel": "50%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 550,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a01e1c3104381a1472df9ad",
-        "icon": "coupon-fill",
-        "is_offer_stackable": true,
-        "text": "-50% off selected item",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "61fd198bbb86e6ea5f3d28d1",
-        "slug": "monami-gedimino-pr",
-        "name": "MonAmi kepyklėlė (Gedimino pr.)",
-        "productLine": "grocery",
-        "link": "https://wolt.com/en/ltu/vilnius/venue/monami-gedimino-pr",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/03fff7c8-e4a7-41ab-b9e6-5f4f476a4fe1/a23c8028-be08-4b6a-aba6-0264dcb0270c"
-      },
-      "stableKey": "monami-gedimino-pr|6a01e1c3104381a1472df9ad",
-      "key": "venue.promotions_for_telemetry:6a01e1c3104381a1472df9ad",
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a01e1c3104381a1472df9ad",
-      "text": "-50% off selected item",
-      "amount": 50,
-      "amountType": "percent",
-      "amountLabel": "50%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 550,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a01e1c3104381a1472df9ad",
-        "icon": "coupon-fill",
-        "is_offer_stackable": true,
-        "text": "-50% off selected item",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "61fd28621bc6bc9a91b1ba2b",
-        "slug": "monami-jeruzale",
-        "name": "MonAmi kepyklėlė (Jeruzalė)",
-        "productLine": "grocery",
-        "link": "https://wolt.com/en/ltu/vilnius/venue/monami-jeruzale",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/03fff7c8-e4a7-41ab-b9e6-5f4f476a4fe1/a23c8028-be08-4b6a-aba6-0264dcb0270c"
-      },
-      "stableKey": "monami-jeruzale|6a01e1c3104381a1472df9ad",
-      "key": "venue.promotions_for_telemetry:6a01e1c3104381a1472df9ad",
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a01e1c3104381a1472df9ad",
-      "text": "-50% off selected item",
-      "amount": 50,
-      "amountType": "percent",
-      "amountLabel": "50%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 550,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a01e1c3104381a1472df9ad",
-        "icon": "coupon-fill",
-        "is_offer_stackable": true,
-        "text": "-50% off selected item",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "61fd238e559d91b47a35275c",
-        "slug": "monami-kedru",
-        "name": "MonAmi kepyklėlė (Kedrų g.)",
-        "productLine": "grocery",
-        "link": "https://wolt.com/en/ltu/vilnius/venue/monami-kedru",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/03fff7c8-e4a7-41ab-b9e6-5f4f476a4fe1/a23c8028-be08-4b6a-aba6-0264dcb0270c"
-      },
-      "stableKey": "monami-kedru|6a01e1c3104381a1472df9ad",
-      "key": "venue.promotions_for_telemetry:6a01e1c3104381a1472df9ad",
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a01e1c3104381a1472df9ad",
-      "text": "-50% off selected item",
-      "amount": 50,
-      "amountType": "percent",
-      "amountLabel": "50%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 550,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a01e1c3104381a1472df9ad",
-        "icon": "coupon-fill",
-        "is_offer_stackable": true,
-        "text": "-50% off selected item",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "61a0aea0dc3aea76a5972f5b",
-        "slug": "monami-kepyklele-panorama",
-        "name": "MonAmi kepyklėlė (PC Panorama)",
-        "productLine": "grocery",
-        "link": "https://wolt.com/en/ltu/vilnius/venue/monami-kepyklele-panorama",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/03fff7c8-e4a7-41ab-b9e6-5f4f476a4fe1/a23c8028-be08-4b6a-aba6-0264dcb0270c"
-      },
-      "stableKey": "monami-kepyklele-panorama|6a01e1c3104381a1472df9ad",
-      "key": "venue.promotions_for_telemetry:6a01e1c3104381a1472df9ad",
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a01e1c3104381a1472df9ad",
-      "text": "-50% off selected item",
-      "amount": 50,
-      "amountType": "percent",
-      "amountLabel": "50%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 550,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a01e1c3104381a1472df9ad",
-        "icon": "coupon-fill",
-        "is_offer_stackable": true,
-        "text": "-50% off selected item",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "61a628cf6a71cc6cf89768f7",
-        "slug": "monami-kepyklele-siaures-miestelis",
-        "name": "MonAmi kepyklėlė (Šiaurės miestelis)",
-        "productLine": "grocery",
-        "link": "https://wolt.com/en/ltu/vilnius/venue/monami-kepyklele-siaures-miestelis",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/03fff7c8-e4a7-41ab-b9e6-5f4f476a4fe1/a23c8028-be08-4b6a-aba6-0264dcb0270c"
-      },
-      "stableKey": "monami-kepyklele-siaures-miestelis|6a01e1c3104381a1472df9ad",
-      "key": "venue.promotions_for_telemetry:6a01e1c3104381a1472df9ad",
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a01e1c3104381a1472df9ad",
-      "text": "-50% off selected item",
-      "amount": 50,
-      "amountType": "percent",
-      "amountLabel": "50%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 550,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a01e1c3104381a1472df9ad",
-        "icon": "coupon-fill",
-        "is_offer_stackable": true,
-        "text": "-50% off selected item",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "69f06c7223c21ec8f8ebe687",
-        "slug": "traskis-justiniskiu-g",
-        "name": "Traškis (Justiniškių g.)",
+        "id": "699462b7e86be0dbaddc3c7b",
+        "slug": "du-kebabai",
+        "name": "Du Kebabai",
         "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/traskis-justiniskiu-g",
-        "imageUrl": "https://imageproxy.wolt.com/assets/69f06cacf57703aa9381613d"
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/du-kebabai",
+        "imageUrl": "https://imageproxy.wolt.com/assets/69a162e396d75d61e246da73"
       },
-      "stableKey": "traskis-justiniskiu-g|6a440d8fab7475743164305a",
-      "key": "venue.promotions_for_telemetry:6a440d8fab7475743164305a",
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a440d8fab7475743164305a",
-      "text": "20% off selected items",
-      "amount": 20,
-      "amountType": "percent",
-      "amountLabel": "20%",
-      "category": "percent",
+      "stableKey": "du-kebabai|6a37115e4391212ba6fa2ba2",
+      "key": "venue.promotions:6a37115e4391212ba6fa2ba2",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a37115e4391212ba6fa2ba2",
+      "text": "5 € off",
+      "amount": 5,
+      "amountType": "money",
+      "amountLabel": "5 EUR",
+      "category": "money",
       "isDeliveryRelated": false,
       "isUtilityBadge": false,
-      "score": 520,
+      "score": 7005,
       "variant": "discount",
       "raw": {
-        "campaign_id": "6a440d8fab7475743164305a",
+        "campaign_id": "6a37115e4391212ba6fa2ba2",
         "icon": "coupon-fill",
-        "is_offer_stackable": true,
-        "text": "20% off selected items",
+        "is_offer_stackable": false,
+        "text": "5 € off",
         "variant": "discount"
       }
     }
   ],
   "interestingAppeared": [],
-  "interestingDisappeared": [],
+  "interestingDisappeared": [
+    {
+      "venue": {
+        "id": "699462b7e86be0dbaddc3c7b",
+        "slug": "du-kebabai",
+        "name": "Du Kebabai",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/du-kebabai",
+        "imageUrl": "https://imageproxy.wolt.com/assets/69a162e396d75d61e246da73"
+      },
+      "stableKey": "du-kebabai|6a37115e4391212ba6fa2ba2",
+      "key": "venue.promotions:6a37115e4391212ba6fa2ba2",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a37115e4391212ba6fa2ba2",
+      "text": "5 € off",
+      "amount": 5,
+      "amountType": "money",
+      "amountLabel": "5 EUR",
+      "category": "money",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 7005,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a37115e4391212ba6fa2ba2",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "5 € off",
+        "variant": "discount"
+      }
+    }
+  ],
   "newInteresting": [],
-  "endedNotified": [],
+  "endedNotified": [
+    {
+      "stableKey": "du-kebabai|6a37115e4391212ba6fa2ba2",
+      "firstNotifiedAt": "2026-07-05T09:17:30.662Z",
+      "lastSeenAt": "2026-07-06T08:45:25.369Z",
+      "venue": {
+        "id": "699462b7e86be0dbaddc3c7b",
+        "slug": "du-kebabai",
+        "name": "Du Kebabai",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/du-kebabai",
+        "imageUrl": "https://imageproxy.wolt.com/assets/69a162e396d75d61e246da73"
+      },
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a37115e4391212ba6fa2ba2",
+      "text": "5 € off",
+      "amount": 5,
+      "amountType": "money",
+      "amountLabel": "5 EUR"
+    }
+  ],
   "notifiedSummary": {
     "newInteresting": 0,
-    "endedNotified": 0
+    "endedNotified": 1
   }
 }
