@@ -249,12 +249,26 @@ schedule uses `Europe/Vilnius`:
 
 ```cron
 CRON_TZ=Europe/Vilnius
-17 12 * * 6,0 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
-45 11 * * 1 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
-18 11 * * 2-4 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
-51 11 * * 5 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
-30 17 * * * cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
-40 21 * * * cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
+15 10 * * 1 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
+6 12 * * 1 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
+44 14 * * 1 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
+23 17 * * 1 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
+10 19 * * 1 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
+19 10 * * 2-4 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
+49 11 * * 2-4 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
+22 14 * * 2-4 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
+29 17 * * 2-4 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
+11 19 * * 2-4 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
+18 10 * * 5 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
+54 11 * * 5 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
+33 14 * * 5 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
+44 17 * * 5 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
+33 19 * * 5 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
+33 10 * * 6,0 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
+2 12 * * 6,0 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
+11 14 * * 6,0 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
+22 17 * * 6,0 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
+11 20 * * 6,0 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
 ```
 
 The dispatch helper accepts optional variables:
