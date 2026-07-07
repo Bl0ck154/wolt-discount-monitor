@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-07T07:19:16.226Z",
+  "generatedAt": "2026-07-07T08:49:15.569Z",
   "source": {
     "citiesEndpoint": "https://restaurant-api.wolt.com/v1/cities",
     "countryListEndpoint": "https://wolt.com/v1/country_list?languageCode=en"
