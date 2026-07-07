@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-06T18:40:28.824Z",
-  "previousGeneratedAt": "2026-07-06T14:30:34.289Z",
+  "generatedAt": "2026-07-07T07:19:23.984Z",
+  "previousGeneratedAt": "2026-07-06T18:40:28.824Z",
   "counts": {
     "restaurantsUniqueVenues": 822,
     "promotionsUniqueVenues": 1360,
@@ -15,7 +15,98 @@
       "restaurant": 822
     }
   },
-  "appeared": [
+  "appeared": [],
+  "disappeared": [
+    {
+      "venue": {
+        "id": "5e84aa2942cdedcf8dc677d5",
+        "slug": "chief-pizza-dzuku-g",
+        "name": "Chief Pizza (Dzūkų g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/chief-pizza-dzuku-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fad29cd4b694e529aa4"
+      },
+      "stableKey": "chief-pizza-dzuku-g|6a4b692afab2fbec84ce449d",
+      "key": "venue.promotions_for_telemetry:6a4b692afab2fbec84ce449d",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a4b692afab2fbec84ce449d",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a4b692afab2fbec84ce449d",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5e8b21c27b8427c54e1794d6",
+        "slug": "chief-pizza-sauletekis",
+        "name": "Chief Pizza (Saulėtekis)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/chief-pizza-sauletekis",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6733302729cd4b694e52a1b3"
+      },
+      "stableKey": "chief-pizza-sauletekis|6a4b6954770bbd3790deacce",
+      "key": "venue.promotions_for_telemetry:6a4b6954770bbd3790deacce",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a4b6954770bbd3790deacce",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a4b6954770bbd3790deacce",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5fa53c3cd2697f83c1b19e9b",
+        "slug": "chief-pizza-zemaites-g",
+        "name": "Chief Pizza (Žemaitės g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/chief-pizza-zemaites-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67320836479a971266a692c7"
+      },
+      "stableKey": "chief-pizza-zemaites-g|6a4b69c506e5ef42ee1707eb",
+      "key": "venue.promotions_for_telemetry:6a4b69c506e5ef42ee1707eb",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a4b69c506e5ef42ee1707eb",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a4b69c506e5ef42ee1707eb",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
     {
       "venue": {
         "id": "61fd25d89e6ce7e36e0328a5",
@@ -225,36 +316,34 @@
         "text": "-50% off selected item",
         "variant": "discount"
       }
-    }
-  ],
-  "disappeared": [
+    },
     {
       "venue": {
-        "id": "59c20d038903136dd383f13b",
-        "slug": "piano-piano",
-        "name": "Piano Piano (Vilniaus g.)",
+        "id": "6660066255c89f64d4e587c3",
+        "slug": "zio-rigo",
+        "name": "Zio Rigo",
         "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/piano-piano",
-        "imageUrl": "https://imageproxy.wolt.com/assets/67332fac149445354de03e9f"
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/zio-rigo",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67335de7b248216911b3501b"
       },
-      "stableKey": "piano-piano|696f72829a22d46087295fde",
-      "key": "venue.promotions_for_telemetry:696f72829a22d46087295fde",
+      "stableKey": "zio-rigo|69bc49b12890d4631aaea912",
+      "key": "venue.promotions_for_telemetry:69bc49b12890d4631aaea912",
       "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "696f72829a22d46087295fde",
-      "text": "20% off selected items",
-      "amount": 20,
-      "amountType": "percent",
-      "amountLabel": "20%",
-      "category": "percent",
-      "isDeliveryRelated": false,
+      "campaignId": "69bc49b12890d4631aaea912",
+      "text": "0 € delivery fee",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
       "isUtilityBadge": false,
-      "score": 520,
+      "score": -1,
       "variant": "discount",
       "raw": {
-        "campaign_id": "696f72829a22d46087295fde",
+        "campaign_id": "69bc49b12890d4631aaea912",
         "icon": "coupon-fill",
-        "is_offer_stackable": true,
-        "text": "20% off selected items",
+        "is_offer_stackable": false,
+        "text": "0 € delivery fee",
         "variant": "discount"
       }
     }
