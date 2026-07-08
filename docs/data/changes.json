@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-07T16:11:37.607Z",
-  "previousGeneratedAt": "2026-07-07T14:29:26.190Z",
+  "generatedAt": "2026-07-08T07:19:23.292Z",
+  "previousGeneratedAt": "2026-07-07T16:11:37.607Z",
   "counts": {
     "restaurantsUniqueVenues": 818,
     "promotionsUniqueVenues": 1357,
@@ -16,6 +16,188 @@
     }
   },
   "appeared": [
+    {
+      "venue": {
+        "id": "6a4762387311544da405628a",
+        "slug": "18-burbulu",
+        "name": "18 Burbulų",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/18-burbulu",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6a4770ebdbbb66c8e4080ef6"
+      },
+      "stableKey": "18-burbulu|6a2bb9ab2579f27f0d5e87c1",
+      "key": "venue.promotions:6a2bb9ab2579f27f0d5e87c1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bb9ab2579f27f0d5e87c1",
+      "text": "0€ delivery for new users",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "new-user-delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bb9ab2579f27f0d5e87c1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0€ delivery for new users",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "645b502001853f86e2839801",
+        "slug": "smashed-by-archies-burger",
+        "name": "Smashed by Archie's (Kernavės g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/smashed-by-archies-burger",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6a047b1c5fc8cc4e14519138"
+      },
+      "stableKey": "smashed-by-archies-burger|6a4d3b9343783d7dc2811ca6",
+      "key": "venue.promotions_for_telemetry:6a4d3b9343783d7dc2811ca6",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a4d3b9343783d7dc2811ca6",
+      "text": "0 € delivery fee",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a4d3b9343783d7dc2811ca6",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0 € delivery fee",
+        "variant": "discount"
+      }
+    }
+  ],
+  "disappeared": [
+    {
+      "venue": {
+        "id": "6194c6f1b013c85656bb4fbf",
+        "slug": "andriaus-pica",
+        "name": "Andriaus pica",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/andriaus-pica",
+        "imageUrl": "https://imageproxy.wolt.com/assets/673208101aa2ca295a5e2ca4"
+      },
+      "stableKey": "andriaus-pica|6a2bb9ab2579f27f0d5e87c1",
+      "key": "venue.promotions:6a2bb9ab2579f27f0d5e87c1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bb9ab2579f27f0d5e87c1",
+      "text": "0€ delivery for new users",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "new-user-delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bb9ab2579f27f0d5e87c1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0€ delivery for new users",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5e84aa2942cdedcf8dc677d5",
+        "slug": "chief-pizza-dzuku-g",
+        "name": "Chief Pizza (Dzūkų g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/chief-pizza-dzuku-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fad29cd4b694e529aa4"
+      },
+      "stableKey": "chief-pizza-dzuku-g|6a4b692afab2fbec84ce449d",
+      "key": "venue.promotions_for_telemetry:6a4b692afab2fbec84ce449d",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a4b692afab2fbec84ce449d",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a4b692afab2fbec84ce449d",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5e8b21c27b8427c54e1794d6",
+        "slug": "chief-pizza-sauletekis",
+        "name": "Chief Pizza (Saulėtekis)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/chief-pizza-sauletekis",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6733302729cd4b694e52a1b3"
+      },
+      "stableKey": "chief-pizza-sauletekis|6a4b6954770bbd3790deacce",
+      "key": "venue.promotions_for_telemetry:6a4b6954770bbd3790deacce",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a4b6954770bbd3790deacce",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a4b6954770bbd3790deacce",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5fa53c3cd2697f83c1b19e9b",
+        "slug": "chief-pizza-zemaites-g",
+        "name": "Chief Pizza (Žemaitės g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/chief-pizza-zemaites-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67320836479a971266a692c7"
+      },
+      "stableKey": "chief-pizza-zemaites-g|6a4b69c506e5ef42ee1707eb",
+      "key": "venue.promotions_for_telemetry:6a4b69c506e5ef42ee1707eb",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a4b69c506e5ef42ee1707eb",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a4b69c506e5ef42ee1707eb",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
     {
       "venue": {
         "id": "61fd25d89e6ce7e36e0328a5",
@@ -225,9 +407,68 @@
         "text": "-50% off selected item",
         "variant": "discount"
       }
+    },
+    {
+      "venue": {
+        "id": "59c20d038903136dd383f13b",
+        "slug": "piano-piano",
+        "name": "Piano Piano (Vilniaus g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/piano-piano",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fac149445354de03e9f"
+      },
+      "stableKey": "piano-piano|696f72829a22d46087295fde",
+      "key": "venue.promotions_for_telemetry:696f72829a22d46087295fde",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "696f72829a22d46087295fde",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "696f72829a22d46087295fde",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "645b502001853f86e2839801",
+        "slug": "smashed-by-archies-burger",
+        "name": "Smashed by Archie's (Kernavės g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/smashed-by-archies-burger",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6a047b1c5fc8cc4e14519138"
+      },
+      "stableKey": "smashed-by-archies-burger|6a15aea1cff07efc7f1ec703",
+      "key": "venue.promotions_for_telemetry:6a15aea1cff07efc7f1ec703",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a15aea1cff07efc7f1ec703",
+      "text": "0 € delivery fee (spend 20 €)",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a15aea1cff07efc7f1ec703",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0 € delivery fee (spend 20 €)",
+        "variant": "discount"
+      }
     }
   ],
-  "disappeared": [],
   "interestingAppeared": [],
   "interestingDisappeared": [],
   "newInteresting": [],
