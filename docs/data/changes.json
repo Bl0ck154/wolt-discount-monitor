@@ -1,31 +1,151 @@
 {
-  "generatedAt": "2026-07-10T08:54:20.915Z",
-  "previousGeneratedAt": "2026-07-10T07:18:23.664Z",
+  "generatedAt": "2026-07-10T11:33:23.547Z",
+  "previousGeneratedAt": "2026-07-10T08:54:20.915Z",
   "counts": {
-    "restaurantsUniqueVenues": 822,
-    "promotionsUniqueVenues": 1359,
+    "restaurantsUniqueVenues": 819,
+    "promotionsUniqueVenues": 1353,
     "productLines": {
       "alcohol": 80,
       "florist": 69,
-      "general_merchandise": 46,
-      "grocery": 223,
+      "general_merchandise": 45,
+      "grocery": 221,
       "health_and_beauty": 42,
       "pet_supply": 57,
       "pharmacy": 20,
-      "restaurant": 822
+      "restaurant": 819
     }
   },
   "appeared": [
     {
       "venue": {
-        "id": "693012216d533513003f4f1c",
-        "slug": "good-vibes-konstitucijos-pr",
-        "name": "Good Vibes",
+        "id": "5bfaa4a2405a54000a38f9e9",
+        "slug": "charlie-pizza-vcup",
+        "name": "Charlie Pizza (CUP)",
         "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/good-vibes-konstitucijos-pr",
-        "imageUrl": "https://imageproxy.wolt.com/assets/694a685fba77b0b8b3a192bc"
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/charlie-pizza-vcup",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/9840968b-066d-4ed2-9638-651bf0f3bc3a/af511066-af94-44fb-9cfa-33f3be1ab3b2"
       },
-      "stableKey": "good-vibes-konstitucijos-pr|6a2bb9ab2579f27f0d5e87c1",
+      "stableKey": "charlie-pizza-vcup|6a30267417bd907e355de575",
+      "key": "venue.promotions:6a30267417bd907e355de575",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a30267417bd907e355de575",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a30267417bd907e355de575",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5bfaa8fcb33f9f000c75e65e",
+        "slug": "charie-pizza-domus-pro",
+        "name": "Charlie Pizza (Domus PRO)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/charie-pizza-domus-pro",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/9840968b-066d-4ed2-9638-651bf0f3bc3a/af511066-af94-44fb-9cfa-33f3be1ab3b2"
+      },
+      "stableKey": "charie-pizza-domus-pro|6a30267417bd907e355de575",
+      "key": "venue.promotions:6a30267417bd907e355de575",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a30267417bd907e355de575",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a30267417bd907e355de575",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5bfaa2521e727f000a53e505",
+        "slug": "charlie-pizza-ozas",
+        "name": "Charlie Pizza (Ozas)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/charlie-pizza-ozas",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/9840968b-066d-4ed2-9638-651bf0f3bc3a/af511066-af94-44fb-9cfa-33f3be1ab3b2"
+      },
+      "stableKey": "charlie-pizza-ozas|6a30267417bd907e355de575",
+      "key": "venue.promotions:6a30267417bd907e355de575",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a30267417bd907e355de575",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a30267417bd907e355de575",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "647f2da36b8b65501ad28b2c",
+        "slug": "charlie-pizza-vilnius-outlet",
+        "name": "Charlie Pizza (Vilnius Outlet)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/charlie-pizza-vilnius-outlet",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/9840968b-066d-4ed2-9638-651bf0f3bc3a/af511066-af94-44fb-9cfa-33f3be1ab3b2"
+      },
+      "stableKey": "charlie-pizza-vilnius-outlet|6a30267417bd907e355de575",
+      "key": "venue.promotions:6a30267417bd907e355de575",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a30267417bd907e355de575",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a30267417bd907e355de575",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6a4e0abd352255615def0cce",
+        "slug": "cheeser-vytauto-g",
+        "name": "Cheeser",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/cheeser-vytauto-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6a4f844369da161c0fd83c25"
+      },
+      "stableKey": "cheeser-vytauto-g|6a2bb9ab2579f27f0d5e87c1",
       "key": "venue.promotions:6a2bb9ab2579f27f0d5e87c1",
       "sourcePath": "venue.promotions",
       "campaignId": "6a2bb9ab2579f27f0d5e87c1",
@@ -48,42 +168,3256 @@
     },
     {
       "venue": {
-        "id": "69ccea6d238c52627fc9e8c8",
-        "slug": "slice-sushi-silo-g",
-        "name": "Slice Sushi",
+        "id": "67e50dd1e36b0ba807b1a31a",
+        "slug": "guacamole-mexican-grill-baltas-tiltas",
+        "name": "Guacamole Mexican Grill (Baltas tiltas)",
         "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/slice-sushi-silo-g",
-        "imageUrl": "https://imageproxy.wolt.com/assets/69d63a9083e17ddbede86fa6"
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/guacamole-mexican-grill-baltas-tiltas",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/3f4dc608-4cc0-44a3-a1ef-c5f98359b7a5/6fff9a58-59b2-4402-9b8d-2b0d69a98ab0"
       },
-      "stableKey": "slice-sushi-silo-g|6a4eb00e0ae5c614d6947277",
-      "key": "venue.promotions_for_telemetry:6a4eb00e0ae5c614d6947277",
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a4eb00e0ae5c614d6947277",
-      "text": "20% off selected items",
-      "amount": 20,
+      "stableKey": "guacamole-mexican-grill-baltas-tiltas|69846debccd9b8188bf34e03",
+      "key": "venue.promotions:69846debccd9b8188bf34e03",
+      "sourcePath": "venue.promotions",
+      "campaignId": "69846debccd9b8188bf34e03",
+      "text": "-30% basket discount",
+      "amount": 30,
       "amountType": "percent",
-      "amountLabel": "20%",
+      "amountLabel": "30%",
       "category": "percent",
       "isDeliveryRelated": false,
       "isUtilityBadge": false,
-      "score": 520,
+      "score": 6030,
       "variant": "discount",
       "raw": {
-        "campaign_id": "6a4eb00e0ae5c614d6947277",
+        "campaign_id": "69846debccd9b8188bf34e03",
         "icon": "coupon-fill",
         "is_offer_stackable": true,
-        "text": "20% off selected items",
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5b3b7c646233ca000b98da82",
+        "slug": "guacamole",
+        "name": "Guacamole Mexican Grill (Panorama)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/guacamole",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/3f4dc608-4cc0-44a3-a1ef-c5f98359b7a5/6fff9a58-59b2-4402-9b8d-2b0d69a98ab0"
+      },
+      "stableKey": "guacamole|69846debccd9b8188bf34e03",
+      "key": "venue.promotions:69846debccd9b8188bf34e03",
+      "sourcePath": "venue.promotions",
+      "campaignId": "69846debccd9b8188bf34e03",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69846debccd9b8188bf34e03",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "69f88caf74587e8ecc5ce6ac",
+        "slug": "guacamole-rooftop",
+        "name": "Guacamole Rooftop",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/guacamole-rooftop",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/3f4dc608-4cc0-44a3-a1ef-c5f98359b7a5/6fff9a58-59b2-4402-9b8d-2b0d69a98ab0"
+      },
+      "stableKey": "guacamole-rooftop|69846debccd9b8188bf34e03",
+      "key": "venue.promotions:69846debccd9b8188bf34e03",
+      "sourcePath": "venue.promotions",
+      "campaignId": "69846debccd9b8188bf34e03",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69846debccd9b8188bf34e03",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6777c0189e8a8d355bdab2ab",
+        "slug": "katpedele-cup",
+        "name": "Katpėdėlė (CUP)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/katpedele-cup",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/56f6e3d0-2dd8-435d-af65-98a86dfce21e/34fdcbc5-4214-4d98-acb8-d96fa89ba7e5"
+      },
+      "stableKey": "katpedele-cup|6a302350510d86aa5334de3e",
+      "key": "venue.promotions:6a302350510d86aa5334de3e",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a302350510d86aa5334de3e",
+      "text": "30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a302350510d86aa5334de3e",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6777bfba6e13206b45de8244",
+        "slug": "katpedele-domus-pro",
+        "name": "Katpėdėlė (Domus PRO)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/katpedele-domus-pro",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/56f6e3d0-2dd8-435d-af65-98a86dfce21e/34fdcbc5-4214-4d98-acb8-d96fa89ba7e5"
+      },
+      "stableKey": "katpedele-domus-pro|6a302350510d86aa5334de3e",
+      "key": "venue.promotions:6a302350510d86aa5334de3e",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a302350510d86aa5334de3e",
+      "text": "30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a302350510d86aa5334de3e",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6777c38343d54365e91af593",
+        "slug": "katpedele-gedimino-pr",
+        "name": "Katpėdėlė (Gedimino pr.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/katpedele-gedimino-pr",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/56f6e3d0-2dd8-435d-af65-98a86dfce21e/34fdcbc5-4214-4d98-acb8-d96fa89ba7e5"
+      },
+      "stableKey": "katpedele-gedimino-pr|6a302350510d86aa5334de3e",
+      "key": "venue.promotions:6a302350510d86aa5334de3e",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a302350510d86aa5334de3e",
+      "text": "30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a302350510d86aa5334de3e",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6777bd909e8a8d355bdab2aa",
+        "slug": "katpedele-vilnius-outlet",
+        "name": "Katpėdėlė (Vilnius Outlet)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/katpedele-vilnius-outlet",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/56f6e3d0-2dd8-435d-af65-98a86dfce21e/34fdcbc5-4214-4d98-acb8-d96fa89ba7e5"
+      },
+      "stableKey": "katpedele-vilnius-outlet|6a302350510d86aa5334de3e",
+      "key": "venue.promotions:6a302350510d86aa5334de3e",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a302350510d86aa5334de3e",
+      "text": "30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a302350510d86aa5334de3e",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5e4124c177b788f4ad634783",
+        "slug": "katpedele-vokieciu-g",
+        "name": "Katpėdėlė (Vokiečių g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/katpedele-vokieciu-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/56f6e3d0-2dd8-435d-af65-98a86dfce21e/34fdcbc5-4214-4d98-acb8-d96fa89ba7e5"
+      },
+      "stableKey": "katpedele-vokieciu-g|6a302350510d86aa5334de3e",
+      "key": "venue.promotions:6a302350510d86aa5334de3e",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a302350510d86aa5334de3e",
+      "text": "30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a302350510d86aa5334de3e",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6777b34e3df2af5bf27517bd",
+        "slug": "la-crepe-luksio-g",
+        "name": "La Crepe (Lukšio g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/la-crepe-luksio-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/ec4becd7-588d-4ba1-bb1c-5cc147df4694/61e542ef-61e9-48ff-8281-85fca8b06c8b"
+      },
+      "stableKey": "la-crepe-luksio-g|6a313e7fef4aad3e8b0b5b49",
+      "key": "venue.promotions:6a313e7fef4aad3e8b0b5b49",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a313e7fef4aad3e8b0b5b49",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a313e7fef4aad3e8b0b5b49",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "63eb9678a78dd0c33ae46bc7",
+        "slug": "los-iguanas-panorama",
+        "name": "Los Iguanas (Panorama)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/los-iguanas-panorama",
+        "imageUrl": "https://imageproxy.wolt.com/assets/673208342d3e6140073802b8"
+      },
+      "stableKey": "los-iguanas-panorama|69846debccd9b8188bf34e03",
+      "key": "venue.promotions:69846debccd9b8188bf34e03",
+      "sourcePath": "venue.promotions",
+      "campaignId": "69846debccd9b8188bf34e03",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69846debccd9b8188bf34e03",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5b3b796a3ff77e000df06155",
+        "slug": "manami-vcup",
+        "name": "Manami (CUP)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/manami-vcup",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fb2308c8149ae8353e3"
+      },
+      "stableKey": "manami-vcup|6a3020f0b14ec5df620d49a3",
+      "key": "venue.promotions:6a3020f0b14ec5df620d49a3",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a3020f0b14ec5df620d49a3",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a3020f0b14ec5df620d49a3",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5b3b80fe2d96f4000ce617b6",
+        "slug": "manami-pc-ozas",
+        "name": "Manami (Ozas)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/manami-pc-ozas",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fc0ff1e1d7f67656ad0"
+      },
+      "stableKey": "manami-pc-ozas|6a3020f0b14ec5df620d49a3",
+      "key": "venue.promotions:6a3020f0b14ec5df620d49a3",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a3020f0b14ec5df620d49a3",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a3020f0b14ec5df620d49a3",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5b3b837c6233ca000cea2a94",
+        "slug": "manami-vilniaus-g",
+        "name": "Manami (Vilniaus g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/manami-vilniaus-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fbdff1e1d7f67656a70"
+      },
+      "stableKey": "manami-vilniaus-g|6a3020f0b14ec5df620d49a3",
+      "key": "venue.promotions:6a3020f0b14ec5df620d49a3",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a3020f0b14ec5df620d49a3",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a3020f0b14ec5df620d49a3",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6166e1bd79101758fae23ecf",
+        "slug": "manami-vilnius-outlet",
+        "name": "Manami (Vilnius Outlet)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/manami-vilnius-outlet",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67320739f45db57ef6003625"
+      },
+      "stableKey": "manami-vilnius-outlet|6a3020f0b14ec5df620d49a3",
+      "key": "venue.promotions:6a3020f0b14ec5df620d49a3",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a3020f0b14ec5df620d49a3",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a3020f0b14ec5df620d49a3",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5f63230cc4eefa1014d3a9e4",
+        "slug": "mociutes-pietus-vilnius",
+        "name": "Močiutės pietūs (Lukšio g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/mociutes-pietus-vilnius",
+        "imageUrl": "https://imageproxy.wolt.com/assets/673214be1f2eff71374fc2f7"
+      },
+      "stableKey": "mociutes-pietus-vilnius|6a313e7fef4aad3e8b0b5b49",
+      "key": "venue.promotions:6a313e7fef4aad3e8b0b5b49",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a313e7fef4aad3e8b0b5b49",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a313e7fef4aad3e8b0b5b49",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "669f95f51dba7b31f506709e",
+        "slug": "mollusca-pc-panorama",
+        "name": "Mollusca (PC Panorama)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/mollusca-pc-panorama",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67335e34f89eb96f4520d352"
+      },
+      "stableKey": "mollusca-pc-panorama|699c3f9ba2fe99ef40661ef7",
+      "key": "venue.promotions:699c3f9ba2fe99ef40661ef7",
+      "sourcePath": "venue.promotions",
+      "campaignId": "699c3f9ba2fe99ef40661ef7",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "699c3f9ba2fe99ef40661ef7",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5cffd1982ceae5da99b07a79",
+        "slug": "pilies-katpedele-1",
+        "name": "Pilies Katpėdėlė",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/pilies-katpedele-1",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/56f6e3d0-2dd8-435d-af65-98a86dfce21e/34fdcbc5-4214-4d98-acb8-d96fa89ba7e5"
+      },
+      "stableKey": "pilies-katpedele-1|6a302350510d86aa5334de3e",
+      "key": "venue.promotions:6a302350510d86aa5334de3e",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a302350510d86aa5334de3e",
+      "text": "30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a302350510d86aa5334de3e",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6746d78fb332ff260d47a650",
+        "slug": "ramenas-cup",
+        "name": "Ramenas (CUP)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ramenas-cup",
+        "imageUrl": "https://imageproxy.wolt.com/assets/68ac721ab9fd37e9e940aaff"
+      },
+      "stableKey": "ramenas-cup|699c3f9ba2fe99ef40661ef7",
+      "key": "venue.promotions:699c3f9ba2fe99ef40661ef7",
+      "sourcePath": "venue.promotions",
+      "campaignId": "699c3f9ba2fe99ef40661ef7",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "699c3f9ba2fe99ef40661ef7",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6746d691b332ff260d47a64d",
+        "slug": "ramenas-ozas",
+        "name": "Ramenas (Ozas)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ramenas-ozas",
+        "imageUrl": "https://imageproxy.wolt.com/assets/68ac7210b9fd37e9e940aafa"
+      },
+      "stableKey": "ramenas-ozas|699c3f9ba2fe99ef40661ef7",
+      "key": "venue.promotions:699c3f9ba2fe99ef40661ef7",
+      "sourcePath": "venue.promotions",
+      "campaignId": "699c3f9ba2fe99ef40661ef7",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "699c3f9ba2fe99ef40661ef7",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6746d57ee0cb35322110d512",
+        "slug": "ramenas-vilniaus-g",
+        "name": "Ramenas (Vilniaus g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ramenas-vilniaus-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/68ac721b3867433071e5fe5d"
+      },
+      "stableKey": "ramenas-vilniaus-g|699c3f9ba2fe99ef40661ef7",
+      "key": "venue.promotions:699c3f9ba2fe99ef40661ef7",
+      "sourcePath": "venue.promotions",
+      "campaignId": "699c3f9ba2fe99ef40661ef7",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "699c3f9ba2fe99ef40661ef7",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6746d451c99aa87ca1aadcf2",
+        "slug": "ramenas-vilnius-outlet",
+        "name": "Ramenas (Vilnius Outlet)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ramenas-vilnius-outlet",
+        "imageUrl": "https://imageproxy.wolt.com/assets/68ac721ab9fd37e9e940ab00"
+      },
+      "stableKey": "ramenas-vilnius-outlet|699c3f9ba2fe99ef40661ef7",
+      "key": "venue.promotions:699c3f9ba2fe99ef40661ef7",
+      "sourcePath": "venue.promotions",
+      "campaignId": "699c3f9ba2fe99ef40661ef7",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "699c3f9ba2fe99ef40661ef7",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6061c5d0ed9d710d712b4fb4",
+        "slug": "skonis-panorama",
+        "name": "Skonis (Panorama)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/skonis-panorama",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/790e1e11-f92a-4d46-8c40-df2dd094a850/c276c93b-68d0-4a06-afef-cbd2623037b3"
+      },
+      "stableKey": "skonis-panorama|699c3f9ba2fe99ef40661ef7",
+      "key": "venue.promotions:699c3f9ba2fe99ef40661ef7",
+      "sourcePath": "venue.promotions",
+      "campaignId": "699c3f9ba2fe99ef40661ef7",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "699c3f9ba2fe99ef40661ef7",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "67e68d5d748005c4b2534fbe",
+        "slug": "spirgis-baltas-tiltas",
+        "name": "Spirgis (Baltas tiltas)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/spirgis-baltas-tiltas",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/6ff89da9-1d44-4009-9ec6-3c4e354b55db/91002ed7-2357-46ae-8aa6-4dba62f7250a"
+      },
+      "stableKey": "spirgis-baltas-tiltas|6a30271bb14ec5df620d49b1",
+      "key": "venue.promotions:6a30271bb14ec5df620d49b1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a30271bb14ec5df620d49b1",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a30271bb14ec5df620d49b1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6777c4899e8a8d355bdab2ac",
+        "slug": "spirgis-gedimino-pr",
+        "name": "Spirgis (Gedimino pr.) ",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/spirgis-gedimino-pr",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/6ff89da9-1d44-4009-9ec6-3c4e354b55db/91002ed7-2357-46ae-8aa6-4dba62f7250a"
+      },
+      "stableKey": "spirgis-gedimino-pr|6a30271bb14ec5df620d49b1",
+      "key": "venue.promotions:6a30271bb14ec5df620d49b1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a30271bb14ec5df620d49b1",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a30271bb14ec5df620d49b1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6777b6916412482c2c35efdc",
+        "slug": "spirgis-luksio-g",
+        "name": "Spirgis (Lukšio g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/spirgis-luksio-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/6ff89da9-1d44-4009-9ec6-3c4e354b55db/91002ed7-2357-46ae-8aa6-4dba62f7250a"
+      },
+      "stableKey": "spirgis-luksio-g|6a30271bb14ec5df620d49b1",
+      "key": "venue.promotions:6a30271bb14ec5df620d49b1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a30271bb14ec5df620d49b1",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a30271bb14ec5df620d49b1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "67447983a8f0de2ef87cb693",
+        "slug": "spirgis-pc-ozas",
+        "name": "Spirgis (PC Ozas)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/spirgis-pc-ozas",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/6ff89da9-1d44-4009-9ec6-3c4e354b55db/91002ed7-2357-46ae-8aa6-4dba62f7250a"
+      },
+      "stableKey": "spirgis-pc-ozas|6a30271bb14ec5df620d49b1",
+      "key": "venue.promotions:6a30271bb14ec5df620d49b1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a30271bb14ec5df620d49b1",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a30271bb14ec5df620d49b1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6777c33f6e13206b45de8248",
+        "slug": "spirgis-pilies-g",
+        "name": "Spirgis (Pilies g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/spirgis-pilies-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/6ff89da9-1d44-4009-9ec6-3c4e354b55db/91002ed7-2357-46ae-8aa6-4dba62f7250a"
+      },
+      "stableKey": "spirgis-pilies-g|6a30271bb14ec5df620d49b1",
+      "key": "venue.promotions:6a30271bb14ec5df620d49b1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a30271bb14ec5df620d49b1",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a30271bb14ec5df620d49b1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6777bd5074f98e5cb9aafbac",
+        "slug": "spirgis-vokieciu-g",
+        "name": "Spirgis (Vokiečių g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/spirgis-vokieciu-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/6ff89da9-1d44-4009-9ec6-3c4e354b55db/91002ed7-2357-46ae-8aa6-4dba62f7250a"
+      },
+      "stableKey": "spirgis-vokieciu-g|6a30271bb14ec5df620d49b1",
+      "key": "venue.promotions:6a30271bb14ec5df620d49b1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a30271bb14ec5df620d49b1",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a30271bb14ec5df620d49b1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "629a0c4436324c46305b2c99",
+        "slug": "wok-out-baltasis-tiltas",
+        "name": "WOKout (Baltasis tiltas)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wok-out-baltasis-tiltas",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67331ceeed22780d4625137e"
+      },
+      "stableKey": "wok-out-baltasis-tiltas|69846debccd9b8188bf34e03",
+      "key": "venue.promotions:69846debccd9b8188bf34e03",
+      "sourcePath": "venue.promotions",
+      "campaignId": "69846debccd9b8188bf34e03",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69846debccd9b8188bf34e03",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "608beafb6e93b9d1839a75c8",
+        "slug": "wok-out-paupys",
+        "name": "WOKout (Paupys)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wok-out-paupys",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67320836479a971266a692bc"
+      },
+      "stableKey": "wok-out-paupys|69846debccd9b8188bf34e03",
+      "key": "venue.promotions:69846debccd9b8188bf34e03",
+      "sourcePath": "venue.promotions",
+      "campaignId": "69846debccd9b8188bf34e03",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69846debccd9b8188bf34e03",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
         "variant": "discount"
       }
     }
   ],
-  "disappeared": [],
-  "interestingAppeared": [],
-  "interestingDisappeared": [],
-  "newInteresting": [],
+  "disappeared": [
+    {
+      "venue": {
+        "id": "66951ed6fbcace5bd8954b8a",
+        "slug": "bluefish-algirdo-g",
+        "name": "Bluefish",
+        "productLine": "grocery",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/bluefish-algirdo-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67336e04ae31034bd3b29a4b"
+      },
+      "stableKey": "bluefish-algirdo-g|6a2bb9ab2579f27f0d5e87c1",
+      "key": "venue.promotions:6a2bb9ab2579f27f0d5e87c1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bb9ab2579f27f0d5e87c1",
+      "text": "0€ delivery for new users",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "new-user-delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bb9ab2579f27f0d5e87c1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0€ delivery for new users",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "64edeea5b2e3312166705c6d",
+        "slug": "city-burger-kalvariju-g",
+        "name": "City Burger (Kalvarijų g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/city-burger-kalvariju-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6732075ce24e8e5c114da3d8"
+      },
+      "stableKey": "city-burger-kalvariju-g|69a9618c990f143a7a37abd7",
+      "key": "venue.promotions:69a9618c990f143a7a37abd7",
+      "sourcePath": "venue.promotions",
+      "campaignId": "69a9618c990f143a7a37abd7",
+      "text": "5 € off",
+      "amount": 5,
+      "amountType": "money",
+      "amountLabel": "5 EUR",
+      "category": "money",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 7005,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69a9618c990f143a7a37abd7",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "5 € off",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "64edeea5b2e3312166705c6d",
+        "slug": "city-burger-kalvariju-g",
+        "name": "City Burger (Kalvarijų g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/city-burger-kalvariju-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6732075ce24e8e5c114da3d8"
+      },
+      "stableKey": "city-burger-kalvariju-g|6a2bb9ab2579f27f0d5e87c1",
+      "key": "venue.promotions_for_telemetry:6a2bb9ab2579f27f0d5e87c1",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a2bb9ab2579f27f0d5e87c1",
+      "text": "0€ delivery for new users",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "new-user-delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bb9ab2579f27f0d5e87c1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0€ delivery for new users",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "64edeea5b2e3312166705c6d",
+        "slug": "city-burger-kalvariju-g",
+        "name": "City Burger (Kalvarijų g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/city-burger-kalvariju-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6732075ce24e8e5c114da3d8"
+      },
+      "stableKey": "city-burger-kalvariju-g|69a96166990f143a7a37abd1",
+      "key": "venue.promotions_for_telemetry:69a96166990f143a7a37abd1",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "69a96166990f143a7a37abd1",
+      "text": "0 € delivery fee",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69a96166990f143a7a37abd1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0 € delivery fee",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "61827555933f4fc583d158e3",
+        "slug": "formosa-bubble-tea-pilaite",
+        "name": "Formosa Bubble Tea (Pilaitė)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/formosa-bubble-tea-pilaite",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67320829308c8149ae82e0fa"
+      },
+      "stableKey": "formosa-bubble-tea-pilaite|6a2bb9ab2579f27f0d5e87c1",
+      "key": "venue.promotions:6a2bb9ab2579f27f0d5e87c1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bb9ab2579f27f0d5e87c1",
+      "text": "0€ delivery for new users",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "new-user-delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bb9ab2579f27f0d5e87c1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0€ delivery for new users",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6901c766c9d52850009a9601",
+        "slug": "holigans-india",
+        "name": "Holigans (vegan)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/holigans-india",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6901c902b6c62ee7dd10e8d6"
+      },
+      "stableKey": "holigans-india|6a2bb9ab2579f27f0d5e87c1",
+      "key": "venue.promotions:6a2bb9ab2579f27f0d5e87c1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bb9ab2579f27f0d5e87c1",
+      "text": "0€ delivery for new users",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "new-user-delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bb9ab2579f27f0d5e87c1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0€ delivery for new users",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6698c981f3928d29c687874b",
+        "slug": "lucaffe-reserve",
+        "name": "Lucaffe Reserve",
+        "productLine": "grocery",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/lucaffe-reserve",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67335e2e53f626068f55e3f3"
+      },
+      "stableKey": "lucaffe-reserve|6a2bb9ab2579f27f0d5e87c1",
+      "key": "venue.promotions:6a2bb9ab2579f27f0d5e87c1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bb9ab2579f27f0d5e87c1",
+      "text": "0€ delivery for new users",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "new-user-delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bb9ab2579f27f0d5e87c1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0€ delivery for new users",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "66601e38a6b5410783089b47",
+        "slug": "rabbit-hole-vokieciu-g",
+        "name": "Rabbit Hole",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/rabbit-hole-vokieciu-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67335ddc46fd66130c63ea1a"
+      },
+      "stableKey": "rabbit-hole-vokieciu-g|6a2bb9ab2579f27f0d5e87c1",
+      "key": "venue.promotions:6a2bb9ab2579f27f0d5e87c1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bb9ab2579f27f0d5e87c1",
+      "text": "0€ delivery for new users",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "new-user-delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bb9ab2579f27f0d5e87c1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0€ delivery for new users",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "672a0694d6c5c5091ac54e7a",
+        "slug": "santa-liucija",
+        "name": "Santa Liucija",
+        "productLine": "general_merchandise",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/santa-liucija",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6799f89d72cfd659ee80152e"
+      },
+      "stableKey": "santa-liucija|6a2bb9ab2579f27f0d5e87c1",
+      "key": "venue.promotions:6a2bb9ab2579f27f0d5e87c1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bb9ab2579f27f0d5e87c1",
+      "text": "0€ delivery for new users",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "new-user-delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bb9ab2579f27f0d5e87c1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0€ delivery for new users",
+        "variant": "discount"
+      }
+    }
+  ],
+  "interestingAppeared": [
+    {
+      "venue": {
+        "id": "5bfaa4a2405a54000a38f9e9",
+        "slug": "charlie-pizza-vcup",
+        "name": "Charlie Pizza (CUP)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/charlie-pizza-vcup",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/9840968b-066d-4ed2-9638-651bf0f3bc3a/af511066-af94-44fb-9cfa-33f3be1ab3b2"
+      },
+      "stableKey": "charlie-pizza-vcup|6a30267417bd907e355de575",
+      "key": "venue.promotions:6a30267417bd907e355de575",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a30267417bd907e355de575",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a30267417bd907e355de575",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5bfaa8fcb33f9f000c75e65e",
+        "slug": "charie-pizza-domus-pro",
+        "name": "Charlie Pizza (Domus PRO)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/charie-pizza-domus-pro",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/9840968b-066d-4ed2-9638-651bf0f3bc3a/af511066-af94-44fb-9cfa-33f3be1ab3b2"
+      },
+      "stableKey": "charie-pizza-domus-pro|6a30267417bd907e355de575",
+      "key": "venue.promotions:6a30267417bd907e355de575",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a30267417bd907e355de575",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a30267417bd907e355de575",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5bfaa2521e727f000a53e505",
+        "slug": "charlie-pizza-ozas",
+        "name": "Charlie Pizza (Ozas)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/charlie-pizza-ozas",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/9840968b-066d-4ed2-9638-651bf0f3bc3a/af511066-af94-44fb-9cfa-33f3be1ab3b2"
+      },
+      "stableKey": "charlie-pizza-ozas|6a30267417bd907e355de575",
+      "key": "venue.promotions:6a30267417bd907e355de575",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a30267417bd907e355de575",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a30267417bd907e355de575",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "647f2da36b8b65501ad28b2c",
+        "slug": "charlie-pizza-vilnius-outlet",
+        "name": "Charlie Pizza (Vilnius Outlet)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/charlie-pizza-vilnius-outlet",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/9840968b-066d-4ed2-9638-651bf0f3bc3a/af511066-af94-44fb-9cfa-33f3be1ab3b2"
+      },
+      "stableKey": "charlie-pizza-vilnius-outlet|6a30267417bd907e355de575",
+      "key": "venue.promotions:6a30267417bd907e355de575",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a30267417bd907e355de575",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a30267417bd907e355de575",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "67e50dd1e36b0ba807b1a31a",
+        "slug": "guacamole-mexican-grill-baltas-tiltas",
+        "name": "Guacamole Mexican Grill (Baltas tiltas)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/guacamole-mexican-grill-baltas-tiltas",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/3f4dc608-4cc0-44a3-a1ef-c5f98359b7a5/6fff9a58-59b2-4402-9b8d-2b0d69a98ab0"
+      },
+      "stableKey": "guacamole-mexican-grill-baltas-tiltas|69846debccd9b8188bf34e03",
+      "key": "venue.promotions:69846debccd9b8188bf34e03",
+      "sourcePath": "venue.promotions",
+      "campaignId": "69846debccd9b8188bf34e03",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69846debccd9b8188bf34e03",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5b3b7c646233ca000b98da82",
+        "slug": "guacamole",
+        "name": "Guacamole Mexican Grill (Panorama)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/guacamole",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/3f4dc608-4cc0-44a3-a1ef-c5f98359b7a5/6fff9a58-59b2-4402-9b8d-2b0d69a98ab0"
+      },
+      "stableKey": "guacamole|69846debccd9b8188bf34e03",
+      "key": "venue.promotions:69846debccd9b8188bf34e03",
+      "sourcePath": "venue.promotions",
+      "campaignId": "69846debccd9b8188bf34e03",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69846debccd9b8188bf34e03",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "69f88caf74587e8ecc5ce6ac",
+        "slug": "guacamole-rooftop",
+        "name": "Guacamole Rooftop",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/guacamole-rooftop",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/3f4dc608-4cc0-44a3-a1ef-c5f98359b7a5/6fff9a58-59b2-4402-9b8d-2b0d69a98ab0"
+      },
+      "stableKey": "guacamole-rooftop|69846debccd9b8188bf34e03",
+      "key": "venue.promotions:69846debccd9b8188bf34e03",
+      "sourcePath": "venue.promotions",
+      "campaignId": "69846debccd9b8188bf34e03",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69846debccd9b8188bf34e03",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6777c0189e8a8d355bdab2ab",
+        "slug": "katpedele-cup",
+        "name": "Katpėdėlė (CUP)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/katpedele-cup",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/56f6e3d0-2dd8-435d-af65-98a86dfce21e/34fdcbc5-4214-4d98-acb8-d96fa89ba7e5"
+      },
+      "stableKey": "katpedele-cup|6a302350510d86aa5334de3e",
+      "key": "venue.promotions:6a302350510d86aa5334de3e",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a302350510d86aa5334de3e",
+      "text": "30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a302350510d86aa5334de3e",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6777bfba6e13206b45de8244",
+        "slug": "katpedele-domus-pro",
+        "name": "Katpėdėlė (Domus PRO)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/katpedele-domus-pro",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/56f6e3d0-2dd8-435d-af65-98a86dfce21e/34fdcbc5-4214-4d98-acb8-d96fa89ba7e5"
+      },
+      "stableKey": "katpedele-domus-pro|6a302350510d86aa5334de3e",
+      "key": "venue.promotions:6a302350510d86aa5334de3e",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a302350510d86aa5334de3e",
+      "text": "30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a302350510d86aa5334de3e",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6777c38343d54365e91af593",
+        "slug": "katpedele-gedimino-pr",
+        "name": "Katpėdėlė (Gedimino pr.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/katpedele-gedimino-pr",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/56f6e3d0-2dd8-435d-af65-98a86dfce21e/34fdcbc5-4214-4d98-acb8-d96fa89ba7e5"
+      },
+      "stableKey": "katpedele-gedimino-pr|6a302350510d86aa5334de3e",
+      "key": "venue.promotions:6a302350510d86aa5334de3e",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a302350510d86aa5334de3e",
+      "text": "30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a302350510d86aa5334de3e",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6777bd909e8a8d355bdab2aa",
+        "slug": "katpedele-vilnius-outlet",
+        "name": "Katpėdėlė (Vilnius Outlet)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/katpedele-vilnius-outlet",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/56f6e3d0-2dd8-435d-af65-98a86dfce21e/34fdcbc5-4214-4d98-acb8-d96fa89ba7e5"
+      },
+      "stableKey": "katpedele-vilnius-outlet|6a302350510d86aa5334de3e",
+      "key": "venue.promotions:6a302350510d86aa5334de3e",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a302350510d86aa5334de3e",
+      "text": "30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a302350510d86aa5334de3e",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5e4124c177b788f4ad634783",
+        "slug": "katpedele-vokieciu-g",
+        "name": "Katpėdėlė (Vokiečių g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/katpedele-vokieciu-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/56f6e3d0-2dd8-435d-af65-98a86dfce21e/34fdcbc5-4214-4d98-acb8-d96fa89ba7e5"
+      },
+      "stableKey": "katpedele-vokieciu-g|6a302350510d86aa5334de3e",
+      "key": "venue.promotions:6a302350510d86aa5334de3e",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a302350510d86aa5334de3e",
+      "text": "30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a302350510d86aa5334de3e",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6777b34e3df2af5bf27517bd",
+        "slug": "la-crepe-luksio-g",
+        "name": "La Crepe (Lukšio g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/la-crepe-luksio-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/ec4becd7-588d-4ba1-bb1c-5cc147df4694/61e542ef-61e9-48ff-8281-85fca8b06c8b"
+      },
+      "stableKey": "la-crepe-luksio-g|6a313e7fef4aad3e8b0b5b49",
+      "key": "venue.promotions:6a313e7fef4aad3e8b0b5b49",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a313e7fef4aad3e8b0b5b49",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a313e7fef4aad3e8b0b5b49",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "63eb9678a78dd0c33ae46bc7",
+        "slug": "los-iguanas-panorama",
+        "name": "Los Iguanas (Panorama)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/los-iguanas-panorama",
+        "imageUrl": "https://imageproxy.wolt.com/assets/673208342d3e6140073802b8"
+      },
+      "stableKey": "los-iguanas-panorama|69846debccd9b8188bf34e03",
+      "key": "venue.promotions:69846debccd9b8188bf34e03",
+      "sourcePath": "venue.promotions",
+      "campaignId": "69846debccd9b8188bf34e03",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69846debccd9b8188bf34e03",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5b3b796a3ff77e000df06155",
+        "slug": "manami-vcup",
+        "name": "Manami (CUP)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/manami-vcup",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fb2308c8149ae8353e3"
+      },
+      "stableKey": "manami-vcup|6a3020f0b14ec5df620d49a3",
+      "key": "venue.promotions:6a3020f0b14ec5df620d49a3",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a3020f0b14ec5df620d49a3",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a3020f0b14ec5df620d49a3",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5b3b80fe2d96f4000ce617b6",
+        "slug": "manami-pc-ozas",
+        "name": "Manami (Ozas)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/manami-pc-ozas",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fc0ff1e1d7f67656ad0"
+      },
+      "stableKey": "manami-pc-ozas|6a3020f0b14ec5df620d49a3",
+      "key": "venue.promotions:6a3020f0b14ec5df620d49a3",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a3020f0b14ec5df620d49a3",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a3020f0b14ec5df620d49a3",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5b3b837c6233ca000cea2a94",
+        "slug": "manami-vilniaus-g",
+        "name": "Manami (Vilniaus g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/manami-vilniaus-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fbdff1e1d7f67656a70"
+      },
+      "stableKey": "manami-vilniaus-g|6a3020f0b14ec5df620d49a3",
+      "key": "venue.promotions:6a3020f0b14ec5df620d49a3",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a3020f0b14ec5df620d49a3",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a3020f0b14ec5df620d49a3",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6166e1bd79101758fae23ecf",
+        "slug": "manami-vilnius-outlet",
+        "name": "Manami (Vilnius Outlet)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/manami-vilnius-outlet",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67320739f45db57ef6003625"
+      },
+      "stableKey": "manami-vilnius-outlet|6a3020f0b14ec5df620d49a3",
+      "key": "venue.promotions:6a3020f0b14ec5df620d49a3",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a3020f0b14ec5df620d49a3",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a3020f0b14ec5df620d49a3",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5f63230cc4eefa1014d3a9e4",
+        "slug": "mociutes-pietus-vilnius",
+        "name": "Močiutės pietūs (Lukšio g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/mociutes-pietus-vilnius",
+        "imageUrl": "https://imageproxy.wolt.com/assets/673214be1f2eff71374fc2f7"
+      },
+      "stableKey": "mociutes-pietus-vilnius|6a313e7fef4aad3e8b0b5b49",
+      "key": "venue.promotions:6a313e7fef4aad3e8b0b5b49",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a313e7fef4aad3e8b0b5b49",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a313e7fef4aad3e8b0b5b49",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "669f95f51dba7b31f506709e",
+        "slug": "mollusca-pc-panorama",
+        "name": "Mollusca (PC Panorama)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/mollusca-pc-panorama",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67335e34f89eb96f4520d352"
+      },
+      "stableKey": "mollusca-pc-panorama|699c3f9ba2fe99ef40661ef7",
+      "key": "venue.promotions:699c3f9ba2fe99ef40661ef7",
+      "sourcePath": "venue.promotions",
+      "campaignId": "699c3f9ba2fe99ef40661ef7",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "699c3f9ba2fe99ef40661ef7",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5cffd1982ceae5da99b07a79",
+        "slug": "pilies-katpedele-1",
+        "name": "Pilies Katpėdėlė",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/pilies-katpedele-1",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/56f6e3d0-2dd8-435d-af65-98a86dfce21e/34fdcbc5-4214-4d98-acb8-d96fa89ba7e5"
+      },
+      "stableKey": "pilies-katpedele-1|6a302350510d86aa5334de3e",
+      "key": "venue.promotions:6a302350510d86aa5334de3e",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a302350510d86aa5334de3e",
+      "text": "30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a302350510d86aa5334de3e",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6746d78fb332ff260d47a650",
+        "slug": "ramenas-cup",
+        "name": "Ramenas (CUP)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ramenas-cup",
+        "imageUrl": "https://imageproxy.wolt.com/assets/68ac721ab9fd37e9e940aaff"
+      },
+      "stableKey": "ramenas-cup|699c3f9ba2fe99ef40661ef7",
+      "key": "venue.promotions:699c3f9ba2fe99ef40661ef7",
+      "sourcePath": "venue.promotions",
+      "campaignId": "699c3f9ba2fe99ef40661ef7",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "699c3f9ba2fe99ef40661ef7",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6746d691b332ff260d47a64d",
+        "slug": "ramenas-ozas",
+        "name": "Ramenas (Ozas)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ramenas-ozas",
+        "imageUrl": "https://imageproxy.wolt.com/assets/68ac7210b9fd37e9e940aafa"
+      },
+      "stableKey": "ramenas-ozas|699c3f9ba2fe99ef40661ef7",
+      "key": "venue.promotions:699c3f9ba2fe99ef40661ef7",
+      "sourcePath": "venue.promotions",
+      "campaignId": "699c3f9ba2fe99ef40661ef7",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "699c3f9ba2fe99ef40661ef7",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6746d57ee0cb35322110d512",
+        "slug": "ramenas-vilniaus-g",
+        "name": "Ramenas (Vilniaus g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ramenas-vilniaus-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/68ac721b3867433071e5fe5d"
+      },
+      "stableKey": "ramenas-vilniaus-g|699c3f9ba2fe99ef40661ef7",
+      "key": "venue.promotions:699c3f9ba2fe99ef40661ef7",
+      "sourcePath": "venue.promotions",
+      "campaignId": "699c3f9ba2fe99ef40661ef7",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "699c3f9ba2fe99ef40661ef7",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6746d451c99aa87ca1aadcf2",
+        "slug": "ramenas-vilnius-outlet",
+        "name": "Ramenas (Vilnius Outlet)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ramenas-vilnius-outlet",
+        "imageUrl": "https://imageproxy.wolt.com/assets/68ac721ab9fd37e9e940ab00"
+      },
+      "stableKey": "ramenas-vilnius-outlet|699c3f9ba2fe99ef40661ef7",
+      "key": "venue.promotions:699c3f9ba2fe99ef40661ef7",
+      "sourcePath": "venue.promotions",
+      "campaignId": "699c3f9ba2fe99ef40661ef7",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "699c3f9ba2fe99ef40661ef7",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6061c5d0ed9d710d712b4fb4",
+        "slug": "skonis-panorama",
+        "name": "Skonis (Panorama)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/skonis-panorama",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/790e1e11-f92a-4d46-8c40-df2dd094a850/c276c93b-68d0-4a06-afef-cbd2623037b3"
+      },
+      "stableKey": "skonis-panorama|699c3f9ba2fe99ef40661ef7",
+      "key": "venue.promotions:699c3f9ba2fe99ef40661ef7",
+      "sourcePath": "venue.promotions",
+      "campaignId": "699c3f9ba2fe99ef40661ef7",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "699c3f9ba2fe99ef40661ef7",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "67e68d5d748005c4b2534fbe",
+        "slug": "spirgis-baltas-tiltas",
+        "name": "Spirgis (Baltas tiltas)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/spirgis-baltas-tiltas",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/6ff89da9-1d44-4009-9ec6-3c4e354b55db/91002ed7-2357-46ae-8aa6-4dba62f7250a"
+      },
+      "stableKey": "spirgis-baltas-tiltas|6a30271bb14ec5df620d49b1",
+      "key": "venue.promotions:6a30271bb14ec5df620d49b1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a30271bb14ec5df620d49b1",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a30271bb14ec5df620d49b1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6777c4899e8a8d355bdab2ac",
+        "slug": "spirgis-gedimino-pr",
+        "name": "Spirgis (Gedimino pr.) ",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/spirgis-gedimino-pr",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/6ff89da9-1d44-4009-9ec6-3c4e354b55db/91002ed7-2357-46ae-8aa6-4dba62f7250a"
+      },
+      "stableKey": "spirgis-gedimino-pr|6a30271bb14ec5df620d49b1",
+      "key": "venue.promotions:6a30271bb14ec5df620d49b1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a30271bb14ec5df620d49b1",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a30271bb14ec5df620d49b1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6777b6916412482c2c35efdc",
+        "slug": "spirgis-luksio-g",
+        "name": "Spirgis (Lukšio g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/spirgis-luksio-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/6ff89da9-1d44-4009-9ec6-3c4e354b55db/91002ed7-2357-46ae-8aa6-4dba62f7250a"
+      },
+      "stableKey": "spirgis-luksio-g|6a30271bb14ec5df620d49b1",
+      "key": "venue.promotions:6a30271bb14ec5df620d49b1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a30271bb14ec5df620d49b1",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a30271bb14ec5df620d49b1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "67447983a8f0de2ef87cb693",
+        "slug": "spirgis-pc-ozas",
+        "name": "Spirgis (PC Ozas)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/spirgis-pc-ozas",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/6ff89da9-1d44-4009-9ec6-3c4e354b55db/91002ed7-2357-46ae-8aa6-4dba62f7250a"
+      },
+      "stableKey": "spirgis-pc-ozas|6a30271bb14ec5df620d49b1",
+      "key": "venue.promotions:6a30271bb14ec5df620d49b1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a30271bb14ec5df620d49b1",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a30271bb14ec5df620d49b1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6777c33f6e13206b45de8248",
+        "slug": "spirgis-pilies-g",
+        "name": "Spirgis (Pilies g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/spirgis-pilies-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/6ff89da9-1d44-4009-9ec6-3c4e354b55db/91002ed7-2357-46ae-8aa6-4dba62f7250a"
+      },
+      "stableKey": "spirgis-pilies-g|6a30271bb14ec5df620d49b1",
+      "key": "venue.promotions:6a30271bb14ec5df620d49b1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a30271bb14ec5df620d49b1",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a30271bb14ec5df620d49b1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6777bd5074f98e5cb9aafbac",
+        "slug": "spirgis-vokieciu-g",
+        "name": "Spirgis (Vokiečių g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/spirgis-vokieciu-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/6ff89da9-1d44-4009-9ec6-3c4e354b55db/91002ed7-2357-46ae-8aa6-4dba62f7250a"
+      },
+      "stableKey": "spirgis-vokieciu-g|6a30271bb14ec5df620d49b1",
+      "key": "venue.promotions:6a30271bb14ec5df620d49b1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a30271bb14ec5df620d49b1",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a30271bb14ec5df620d49b1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "629a0c4436324c46305b2c99",
+        "slug": "wok-out-baltasis-tiltas",
+        "name": "WOKout (Baltasis tiltas)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wok-out-baltasis-tiltas",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67331ceeed22780d4625137e"
+      },
+      "stableKey": "wok-out-baltasis-tiltas|69846debccd9b8188bf34e03",
+      "key": "venue.promotions:69846debccd9b8188bf34e03",
+      "sourcePath": "venue.promotions",
+      "campaignId": "69846debccd9b8188bf34e03",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69846debccd9b8188bf34e03",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "608beafb6e93b9d1839a75c8",
+        "slug": "wok-out-paupys",
+        "name": "WOKout (Paupys)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wok-out-paupys",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67320836479a971266a692bc"
+      },
+      "stableKey": "wok-out-paupys|69846debccd9b8188bf34e03",
+      "key": "venue.promotions:69846debccd9b8188bf34e03",
+      "sourcePath": "venue.promotions",
+      "campaignId": "69846debccd9b8188bf34e03",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69846debccd9b8188bf34e03",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    }
+  ],
+  "interestingDisappeared": [
+    {
+      "venue": {
+        "id": "64edeea5b2e3312166705c6d",
+        "slug": "city-burger-kalvariju-g",
+        "name": "City Burger (Kalvarijų g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/city-burger-kalvariju-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6732075ce24e8e5c114da3d8"
+      },
+      "stableKey": "city-burger-kalvariju-g|69a9618c990f143a7a37abd7",
+      "key": "venue.promotions:69a9618c990f143a7a37abd7",
+      "sourcePath": "venue.promotions",
+      "campaignId": "69a9618c990f143a7a37abd7",
+      "text": "5 € off",
+      "amount": 5,
+      "amountType": "money",
+      "amountLabel": "5 EUR",
+      "category": "money",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 7005,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69a9618c990f143a7a37abd7",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "5 € off",
+        "variant": "discount"
+      }
+    }
+  ],
+  "newInteresting": [
+    {
+      "venue": {
+        "id": "5bfaa4a2405a54000a38f9e9",
+        "slug": "charlie-pizza-vcup",
+        "name": "Charlie Pizza (CUP)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/charlie-pizza-vcup",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/9840968b-066d-4ed2-9638-651bf0f3bc3a/af511066-af94-44fb-9cfa-33f3be1ab3b2"
+      },
+      "stableKey": "charlie-pizza-vcup|6a30267417bd907e355de575",
+      "key": "venue.promotions:6a30267417bd907e355de575",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a30267417bd907e355de575",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a30267417bd907e355de575",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5bfaa8fcb33f9f000c75e65e",
+        "slug": "charie-pizza-domus-pro",
+        "name": "Charlie Pizza (Domus PRO)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/charie-pizza-domus-pro",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/9840968b-066d-4ed2-9638-651bf0f3bc3a/af511066-af94-44fb-9cfa-33f3be1ab3b2"
+      },
+      "stableKey": "charie-pizza-domus-pro|6a30267417bd907e355de575",
+      "key": "venue.promotions:6a30267417bd907e355de575",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a30267417bd907e355de575",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a30267417bd907e355de575",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5bfaa2521e727f000a53e505",
+        "slug": "charlie-pizza-ozas",
+        "name": "Charlie Pizza (Ozas)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/charlie-pizza-ozas",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/9840968b-066d-4ed2-9638-651bf0f3bc3a/af511066-af94-44fb-9cfa-33f3be1ab3b2"
+      },
+      "stableKey": "charlie-pizza-ozas|6a30267417bd907e355de575",
+      "key": "venue.promotions:6a30267417bd907e355de575",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a30267417bd907e355de575",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a30267417bd907e355de575",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "647f2da36b8b65501ad28b2c",
+        "slug": "charlie-pizza-vilnius-outlet",
+        "name": "Charlie Pizza (Vilnius Outlet)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/charlie-pizza-vilnius-outlet",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/9840968b-066d-4ed2-9638-651bf0f3bc3a/af511066-af94-44fb-9cfa-33f3be1ab3b2"
+      },
+      "stableKey": "charlie-pizza-vilnius-outlet|6a30267417bd907e355de575",
+      "key": "venue.promotions:6a30267417bd907e355de575",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a30267417bd907e355de575",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a30267417bd907e355de575",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "67e50dd1e36b0ba807b1a31a",
+        "slug": "guacamole-mexican-grill-baltas-tiltas",
+        "name": "Guacamole Mexican Grill (Baltas tiltas)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/guacamole-mexican-grill-baltas-tiltas",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/3f4dc608-4cc0-44a3-a1ef-c5f98359b7a5/6fff9a58-59b2-4402-9b8d-2b0d69a98ab0"
+      },
+      "stableKey": "guacamole-mexican-grill-baltas-tiltas|69846debccd9b8188bf34e03",
+      "key": "venue.promotions:69846debccd9b8188bf34e03",
+      "sourcePath": "venue.promotions",
+      "campaignId": "69846debccd9b8188bf34e03",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69846debccd9b8188bf34e03",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5b3b7c646233ca000b98da82",
+        "slug": "guacamole",
+        "name": "Guacamole Mexican Grill (Panorama)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/guacamole",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/3f4dc608-4cc0-44a3-a1ef-c5f98359b7a5/6fff9a58-59b2-4402-9b8d-2b0d69a98ab0"
+      },
+      "stableKey": "guacamole|69846debccd9b8188bf34e03",
+      "key": "venue.promotions:69846debccd9b8188bf34e03",
+      "sourcePath": "venue.promotions",
+      "campaignId": "69846debccd9b8188bf34e03",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69846debccd9b8188bf34e03",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "69f88caf74587e8ecc5ce6ac",
+        "slug": "guacamole-rooftop",
+        "name": "Guacamole Rooftop",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/guacamole-rooftop",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/3f4dc608-4cc0-44a3-a1ef-c5f98359b7a5/6fff9a58-59b2-4402-9b8d-2b0d69a98ab0"
+      },
+      "stableKey": "guacamole-rooftop|69846debccd9b8188bf34e03",
+      "key": "venue.promotions:69846debccd9b8188bf34e03",
+      "sourcePath": "venue.promotions",
+      "campaignId": "69846debccd9b8188bf34e03",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69846debccd9b8188bf34e03",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6777c0189e8a8d355bdab2ab",
+        "slug": "katpedele-cup",
+        "name": "Katpėdėlė (CUP)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/katpedele-cup",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/56f6e3d0-2dd8-435d-af65-98a86dfce21e/34fdcbc5-4214-4d98-acb8-d96fa89ba7e5"
+      },
+      "stableKey": "katpedele-cup|6a302350510d86aa5334de3e",
+      "key": "venue.promotions:6a302350510d86aa5334de3e",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a302350510d86aa5334de3e",
+      "text": "30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a302350510d86aa5334de3e",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6777bfba6e13206b45de8244",
+        "slug": "katpedele-domus-pro",
+        "name": "Katpėdėlė (Domus PRO)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/katpedele-domus-pro",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/56f6e3d0-2dd8-435d-af65-98a86dfce21e/34fdcbc5-4214-4d98-acb8-d96fa89ba7e5"
+      },
+      "stableKey": "katpedele-domus-pro|6a302350510d86aa5334de3e",
+      "key": "venue.promotions:6a302350510d86aa5334de3e",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a302350510d86aa5334de3e",
+      "text": "30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a302350510d86aa5334de3e",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6777c38343d54365e91af593",
+        "slug": "katpedele-gedimino-pr",
+        "name": "Katpėdėlė (Gedimino pr.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/katpedele-gedimino-pr",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/56f6e3d0-2dd8-435d-af65-98a86dfce21e/34fdcbc5-4214-4d98-acb8-d96fa89ba7e5"
+      },
+      "stableKey": "katpedele-gedimino-pr|6a302350510d86aa5334de3e",
+      "key": "venue.promotions:6a302350510d86aa5334de3e",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a302350510d86aa5334de3e",
+      "text": "30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a302350510d86aa5334de3e",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6777bd909e8a8d355bdab2aa",
+        "slug": "katpedele-vilnius-outlet",
+        "name": "Katpėdėlė (Vilnius Outlet)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/katpedele-vilnius-outlet",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/56f6e3d0-2dd8-435d-af65-98a86dfce21e/34fdcbc5-4214-4d98-acb8-d96fa89ba7e5"
+      },
+      "stableKey": "katpedele-vilnius-outlet|6a302350510d86aa5334de3e",
+      "key": "venue.promotions:6a302350510d86aa5334de3e",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a302350510d86aa5334de3e",
+      "text": "30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a302350510d86aa5334de3e",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5e4124c177b788f4ad634783",
+        "slug": "katpedele-vokieciu-g",
+        "name": "Katpėdėlė (Vokiečių g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/katpedele-vokieciu-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/56f6e3d0-2dd8-435d-af65-98a86dfce21e/34fdcbc5-4214-4d98-acb8-d96fa89ba7e5"
+      },
+      "stableKey": "katpedele-vokieciu-g|6a302350510d86aa5334de3e",
+      "key": "venue.promotions:6a302350510d86aa5334de3e",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a302350510d86aa5334de3e",
+      "text": "30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a302350510d86aa5334de3e",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6777b34e3df2af5bf27517bd",
+        "slug": "la-crepe-luksio-g",
+        "name": "La Crepe (Lukšio g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/la-crepe-luksio-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/ec4becd7-588d-4ba1-bb1c-5cc147df4694/61e542ef-61e9-48ff-8281-85fca8b06c8b"
+      },
+      "stableKey": "la-crepe-luksio-g|6a313e7fef4aad3e8b0b5b49",
+      "key": "venue.promotions:6a313e7fef4aad3e8b0b5b49",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a313e7fef4aad3e8b0b5b49",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a313e7fef4aad3e8b0b5b49",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "63eb9678a78dd0c33ae46bc7",
+        "slug": "los-iguanas-panorama",
+        "name": "Los Iguanas (Panorama)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/los-iguanas-panorama",
+        "imageUrl": "https://imageproxy.wolt.com/assets/673208342d3e6140073802b8"
+      },
+      "stableKey": "los-iguanas-panorama|69846debccd9b8188bf34e03",
+      "key": "venue.promotions:69846debccd9b8188bf34e03",
+      "sourcePath": "venue.promotions",
+      "campaignId": "69846debccd9b8188bf34e03",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69846debccd9b8188bf34e03",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5b3b796a3ff77e000df06155",
+        "slug": "manami-vcup",
+        "name": "Manami (CUP)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/manami-vcup",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fb2308c8149ae8353e3"
+      },
+      "stableKey": "manami-vcup|6a3020f0b14ec5df620d49a3",
+      "key": "venue.promotions:6a3020f0b14ec5df620d49a3",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a3020f0b14ec5df620d49a3",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a3020f0b14ec5df620d49a3",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5b3b80fe2d96f4000ce617b6",
+        "slug": "manami-pc-ozas",
+        "name": "Manami (Ozas)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/manami-pc-ozas",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fc0ff1e1d7f67656ad0"
+      },
+      "stableKey": "manami-pc-ozas|6a3020f0b14ec5df620d49a3",
+      "key": "venue.promotions:6a3020f0b14ec5df620d49a3",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a3020f0b14ec5df620d49a3",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a3020f0b14ec5df620d49a3",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5b3b837c6233ca000cea2a94",
+        "slug": "manami-vilniaus-g",
+        "name": "Manami (Vilniaus g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/manami-vilniaus-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fbdff1e1d7f67656a70"
+      },
+      "stableKey": "manami-vilniaus-g|6a3020f0b14ec5df620d49a3",
+      "key": "venue.promotions:6a3020f0b14ec5df620d49a3",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a3020f0b14ec5df620d49a3",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a3020f0b14ec5df620d49a3",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6166e1bd79101758fae23ecf",
+        "slug": "manami-vilnius-outlet",
+        "name": "Manami (Vilnius Outlet)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/manami-vilnius-outlet",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67320739f45db57ef6003625"
+      },
+      "stableKey": "manami-vilnius-outlet|6a3020f0b14ec5df620d49a3",
+      "key": "venue.promotions:6a3020f0b14ec5df620d49a3",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a3020f0b14ec5df620d49a3",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a3020f0b14ec5df620d49a3",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5f63230cc4eefa1014d3a9e4",
+        "slug": "mociutes-pietus-vilnius",
+        "name": "Močiutės pietūs (Lukšio g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/mociutes-pietus-vilnius",
+        "imageUrl": "https://imageproxy.wolt.com/assets/673214be1f2eff71374fc2f7"
+      },
+      "stableKey": "mociutes-pietus-vilnius|6a313e7fef4aad3e8b0b5b49",
+      "key": "venue.promotions:6a313e7fef4aad3e8b0b5b49",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a313e7fef4aad3e8b0b5b49",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a313e7fef4aad3e8b0b5b49",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "669f95f51dba7b31f506709e",
+        "slug": "mollusca-pc-panorama",
+        "name": "Mollusca (PC Panorama)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/mollusca-pc-panorama",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67335e34f89eb96f4520d352"
+      },
+      "stableKey": "mollusca-pc-panorama|699c3f9ba2fe99ef40661ef7",
+      "key": "venue.promotions:699c3f9ba2fe99ef40661ef7",
+      "sourcePath": "venue.promotions",
+      "campaignId": "699c3f9ba2fe99ef40661ef7",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "699c3f9ba2fe99ef40661ef7",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5cffd1982ceae5da99b07a79",
+        "slug": "pilies-katpedele-1",
+        "name": "Pilies Katpėdėlė",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/pilies-katpedele-1",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/56f6e3d0-2dd8-435d-af65-98a86dfce21e/34fdcbc5-4214-4d98-acb8-d96fa89ba7e5"
+      },
+      "stableKey": "pilies-katpedele-1|6a302350510d86aa5334de3e",
+      "key": "venue.promotions:6a302350510d86aa5334de3e",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a302350510d86aa5334de3e",
+      "text": "30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a302350510d86aa5334de3e",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6746d78fb332ff260d47a650",
+        "slug": "ramenas-cup",
+        "name": "Ramenas (CUP)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ramenas-cup",
+        "imageUrl": "https://imageproxy.wolt.com/assets/68ac721ab9fd37e9e940aaff"
+      },
+      "stableKey": "ramenas-cup|699c3f9ba2fe99ef40661ef7",
+      "key": "venue.promotions:699c3f9ba2fe99ef40661ef7",
+      "sourcePath": "venue.promotions",
+      "campaignId": "699c3f9ba2fe99ef40661ef7",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "699c3f9ba2fe99ef40661ef7",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6746d691b332ff260d47a64d",
+        "slug": "ramenas-ozas",
+        "name": "Ramenas (Ozas)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ramenas-ozas",
+        "imageUrl": "https://imageproxy.wolt.com/assets/68ac7210b9fd37e9e940aafa"
+      },
+      "stableKey": "ramenas-ozas|699c3f9ba2fe99ef40661ef7",
+      "key": "venue.promotions:699c3f9ba2fe99ef40661ef7",
+      "sourcePath": "venue.promotions",
+      "campaignId": "699c3f9ba2fe99ef40661ef7",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "699c3f9ba2fe99ef40661ef7",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6746d57ee0cb35322110d512",
+        "slug": "ramenas-vilniaus-g",
+        "name": "Ramenas (Vilniaus g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ramenas-vilniaus-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/68ac721b3867433071e5fe5d"
+      },
+      "stableKey": "ramenas-vilniaus-g|699c3f9ba2fe99ef40661ef7",
+      "key": "venue.promotions:699c3f9ba2fe99ef40661ef7",
+      "sourcePath": "venue.promotions",
+      "campaignId": "699c3f9ba2fe99ef40661ef7",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "699c3f9ba2fe99ef40661ef7",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6746d451c99aa87ca1aadcf2",
+        "slug": "ramenas-vilnius-outlet",
+        "name": "Ramenas (Vilnius Outlet)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ramenas-vilnius-outlet",
+        "imageUrl": "https://imageproxy.wolt.com/assets/68ac721ab9fd37e9e940ab00"
+      },
+      "stableKey": "ramenas-vilnius-outlet|699c3f9ba2fe99ef40661ef7",
+      "key": "venue.promotions:699c3f9ba2fe99ef40661ef7",
+      "sourcePath": "venue.promotions",
+      "campaignId": "699c3f9ba2fe99ef40661ef7",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "699c3f9ba2fe99ef40661ef7",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6061c5d0ed9d710d712b4fb4",
+        "slug": "skonis-panorama",
+        "name": "Skonis (Panorama)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/skonis-panorama",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/790e1e11-f92a-4d46-8c40-df2dd094a850/c276c93b-68d0-4a06-afef-cbd2623037b3"
+      },
+      "stableKey": "skonis-panorama|699c3f9ba2fe99ef40661ef7",
+      "key": "venue.promotions:699c3f9ba2fe99ef40661ef7",
+      "sourcePath": "venue.promotions",
+      "campaignId": "699c3f9ba2fe99ef40661ef7",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "699c3f9ba2fe99ef40661ef7",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "67e68d5d748005c4b2534fbe",
+        "slug": "spirgis-baltas-tiltas",
+        "name": "Spirgis (Baltas tiltas)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/spirgis-baltas-tiltas",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/6ff89da9-1d44-4009-9ec6-3c4e354b55db/91002ed7-2357-46ae-8aa6-4dba62f7250a"
+      },
+      "stableKey": "spirgis-baltas-tiltas|6a30271bb14ec5df620d49b1",
+      "key": "venue.promotions:6a30271bb14ec5df620d49b1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a30271bb14ec5df620d49b1",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a30271bb14ec5df620d49b1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6777c4899e8a8d355bdab2ac",
+        "slug": "spirgis-gedimino-pr",
+        "name": "Spirgis (Gedimino pr.) ",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/spirgis-gedimino-pr",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/6ff89da9-1d44-4009-9ec6-3c4e354b55db/91002ed7-2357-46ae-8aa6-4dba62f7250a"
+      },
+      "stableKey": "spirgis-gedimino-pr|6a30271bb14ec5df620d49b1",
+      "key": "venue.promotions:6a30271bb14ec5df620d49b1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a30271bb14ec5df620d49b1",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a30271bb14ec5df620d49b1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6777b6916412482c2c35efdc",
+        "slug": "spirgis-luksio-g",
+        "name": "Spirgis (Lukšio g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/spirgis-luksio-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/6ff89da9-1d44-4009-9ec6-3c4e354b55db/91002ed7-2357-46ae-8aa6-4dba62f7250a"
+      },
+      "stableKey": "spirgis-luksio-g|6a30271bb14ec5df620d49b1",
+      "key": "venue.promotions:6a30271bb14ec5df620d49b1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a30271bb14ec5df620d49b1",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a30271bb14ec5df620d49b1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "67447983a8f0de2ef87cb693",
+        "slug": "spirgis-pc-ozas",
+        "name": "Spirgis (PC Ozas)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/spirgis-pc-ozas",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/6ff89da9-1d44-4009-9ec6-3c4e354b55db/91002ed7-2357-46ae-8aa6-4dba62f7250a"
+      },
+      "stableKey": "spirgis-pc-ozas|6a30271bb14ec5df620d49b1",
+      "key": "venue.promotions:6a30271bb14ec5df620d49b1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a30271bb14ec5df620d49b1",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a30271bb14ec5df620d49b1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6777c33f6e13206b45de8248",
+        "slug": "spirgis-pilies-g",
+        "name": "Spirgis (Pilies g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/spirgis-pilies-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/6ff89da9-1d44-4009-9ec6-3c4e354b55db/91002ed7-2357-46ae-8aa6-4dba62f7250a"
+      },
+      "stableKey": "spirgis-pilies-g|6a30271bb14ec5df620d49b1",
+      "key": "venue.promotions:6a30271bb14ec5df620d49b1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a30271bb14ec5df620d49b1",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a30271bb14ec5df620d49b1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6777bd5074f98e5cb9aafbac",
+        "slug": "spirgis-vokieciu-g",
+        "name": "Spirgis (Vokiečių g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/spirgis-vokieciu-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/6ff89da9-1d44-4009-9ec6-3c4e354b55db/91002ed7-2357-46ae-8aa6-4dba62f7250a"
+      },
+      "stableKey": "spirgis-vokieciu-g|6a30271bb14ec5df620d49b1",
+      "key": "venue.promotions:6a30271bb14ec5df620d49b1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a30271bb14ec5df620d49b1",
+      "text": "-30% off the basket",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a30271bb14ec5df620d49b1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% off the basket",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "629a0c4436324c46305b2c99",
+        "slug": "wok-out-baltasis-tiltas",
+        "name": "WOKout (Baltasis tiltas)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wok-out-baltasis-tiltas",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67331ceeed22780d4625137e"
+      },
+      "stableKey": "wok-out-baltasis-tiltas|69846debccd9b8188bf34e03",
+      "key": "venue.promotions:69846debccd9b8188bf34e03",
+      "sourcePath": "venue.promotions",
+      "campaignId": "69846debccd9b8188bf34e03",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69846debccd9b8188bf34e03",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "608beafb6e93b9d1839a75c8",
+        "slug": "wok-out-paupys",
+        "name": "WOKout (Paupys)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wok-out-paupys",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67320836479a971266a692bc"
+      },
+      "stableKey": "wok-out-paupys|69846debccd9b8188bf34e03",
+      "key": "venue.promotions:69846debccd9b8188bf34e03",
+      "sourcePath": "venue.promotions",
+      "campaignId": "69846debccd9b8188bf34e03",
+      "text": "-30% basket discount",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6030,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69846debccd9b8188bf34e03",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-30% basket discount",
+        "variant": "discount"
+      }
+    }
+  ],
   "endedNotified": [],
   "notifiedSummary": {
-    "newInteresting": 0,
+    "newInteresting": 34,
     "endedNotified": 0
   }
 }
