@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-09T16:11:25.916Z",
-  "previousGeneratedAt": "2026-07-09T14:29:28.209Z",
+  "generatedAt": "2026-07-10T07:18:23.664Z",
+  "previousGeneratedAt": "2026-07-09T16:11:25.916Z",
   "counts": {
     "restaurantsUniqueVenues": 821,
     "promotionsUniqueVenues": 1358,
@@ -16,6 +16,668 @@
     }
   },
   "appeared": [
+    {
+      "venue": {
+        "id": "5a6889f427fe2f000e9c7281",
+        "slug": "wraperia-suppa-kebs-antakalnis",
+        "name": "Wraperia Suppa Kebs (Antakalnis)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-antakalnis",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6735be5f86f45b72713e21f3"
+      },
+      "stableKey": "wraperia-suppa-kebs-antakalnis|6a508de467391d157841f9fc",
+      "key": "venue.promotions:6a508de467391d157841f9fc",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a508de467391d157841f9fc",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a508de467391d157841f9fc",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5a6889f427fe2f000e9c7281",
+        "slug": "wraperia-suppa-kebs-antakalnis",
+        "name": "Wraperia Suppa Kebs (Antakalnis)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-antakalnis",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6735be5f86f45b72713e21f3"
+      },
+      "stableKey": "wraperia-suppa-kebs-antakalnis|6a508f04b8df1d543d882f6d",
+      "key": "venue.promotions_for_telemetry:6a508f04b8df1d543d882f6d",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a508f04b8df1d543d882f6d",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a508f04b8df1d543d882f6d",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5a6889f427fe2f000e9c7281",
+        "slug": "wraperia-suppa-kebs-antakalnis",
+        "name": "Wraperia Suppa Kebs (Antakalnis)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-antakalnis",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6735be5f86f45b72713e21f3"
+      },
+      "stableKey": "wraperia-suppa-kebs-antakalnis|6a5091808768d5c2d9668249",
+      "key": "venue.promotions_for_telemetry:6a5091808768d5c2d9668249",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a5091808768d5c2d9668249",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5091808768d5c2d9668249",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5a6889f427fe2f000e9c7281",
+        "slug": "wraperia-suppa-kebs-antakalnis",
+        "name": "Wraperia Suppa Kebs (Antakalnis)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-antakalnis",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6735be5f86f45b72713e21f3"
+      },
+      "stableKey": "wraperia-suppa-kebs-antakalnis|6a509202b95dd987ac26e4b2",
+      "key": "venue.promotions_for_telemetry:6a509202b95dd987ac26e4b2",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a509202b95dd987ac26e4b2",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a509202b95dd987ac26e4b2",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5a6889f427fe2f000e9c7281",
+        "slug": "wraperia-suppa-kebs-antakalnis",
+        "name": "Wraperia Suppa Kebs (Antakalnis)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-antakalnis",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6735be5f86f45b72713e21f3"
+      },
+      "stableKey": "wraperia-suppa-kebs-antakalnis|6a509267428f8291656a40e1",
+      "key": "venue.promotions_for_telemetry:6a509267428f8291656a40e1",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a509267428f8291656a40e1",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a509267428f8291656a40e1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5a6889f427fe2f000e9c7281",
+        "slug": "wraperia-suppa-kebs-antakalnis",
+        "name": "Wraperia Suppa Kebs (Antakalnis)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-antakalnis",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6735be5f86f45b72713e21f3"
+      },
+      "stableKey": "wraperia-suppa-kebs-antakalnis|6a5092c88768d5c2d966824c",
+      "key": "venue.promotions_for_telemetry:6a5092c88768d5c2d966824c",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a5092c88768d5c2d966824c",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5092c88768d5c2d966824c",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5bab4b6edf09cf000b30daea",
+        "slug": "wraperia-suppa-kebs-panorama",
+        "name": "Wraperia Suppa Kebs (Panorama)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-panorama",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fc618f45c3236a65e91"
+      },
+      "stableKey": "wraperia-suppa-kebs-panorama|6a508de467391d157841f9fc",
+      "key": "venue.promotions:6a508de467391d157841f9fc",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a508de467391d157841f9fc",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a508de467391d157841f9fc",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5bab4b6edf09cf000b30daea",
+        "slug": "wraperia-suppa-kebs-panorama",
+        "name": "Wraperia Suppa Kebs (Panorama)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-panorama",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fc618f45c3236a65e91"
+      },
+      "stableKey": "wraperia-suppa-kebs-panorama|6a508f04b8df1d543d882f6d",
+      "key": "venue.promotions_for_telemetry:6a508f04b8df1d543d882f6d",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a508f04b8df1d543d882f6d",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a508f04b8df1d543d882f6d",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5bab4b6edf09cf000b30daea",
+        "slug": "wraperia-suppa-kebs-panorama",
+        "name": "Wraperia Suppa Kebs (Panorama)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-panorama",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fc618f45c3236a65e91"
+      },
+      "stableKey": "wraperia-suppa-kebs-panorama|6a5091808768d5c2d9668249",
+      "key": "venue.promotions_for_telemetry:6a5091808768d5c2d9668249",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a5091808768d5c2d9668249",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5091808768d5c2d9668249",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5bab4b6edf09cf000b30daea",
+        "slug": "wraperia-suppa-kebs-panorama",
+        "name": "Wraperia Suppa Kebs (Panorama)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-panorama",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fc618f45c3236a65e91"
+      },
+      "stableKey": "wraperia-suppa-kebs-panorama|6a509202b95dd987ac26e4b2",
+      "key": "venue.promotions_for_telemetry:6a509202b95dd987ac26e4b2",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a509202b95dd987ac26e4b2",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a509202b95dd987ac26e4b2",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5bab4b6edf09cf000b30daea",
+        "slug": "wraperia-suppa-kebs-panorama",
+        "name": "Wraperia Suppa Kebs (Panorama)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-panorama",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fc618f45c3236a65e91"
+      },
+      "stableKey": "wraperia-suppa-kebs-panorama|6a509267428f8291656a40e1",
+      "key": "venue.promotions_for_telemetry:6a509267428f8291656a40e1",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a509267428f8291656a40e1",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a509267428f8291656a40e1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5bab4b6edf09cf000b30daea",
+        "slug": "wraperia-suppa-kebs-panorama",
+        "name": "Wraperia Suppa Kebs (Panorama)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-panorama",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fc618f45c3236a65e91"
+      },
+      "stableKey": "wraperia-suppa-kebs-panorama|6a5092c88768d5c2d966824c",
+      "key": "venue.promotions_for_telemetry:6a5092c88768d5c2d966824c",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a5092c88768d5c2d966824c",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5092c88768d5c2d966824c",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5bab4bb0eaa5d6000ba164ee",
+        "slug": "wraperia-suppa-kebs-verkiu-g",
+        "name": "Wraperia Suppa Kebs (Verkių g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-verkiu-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fbb827209684f08e355"
+      },
+      "stableKey": "wraperia-suppa-kebs-verkiu-g|6a508de467391d157841f9fc",
+      "key": "venue.promotions:6a508de467391d157841f9fc",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a508de467391d157841f9fc",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a508de467391d157841f9fc",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5bab4bb0eaa5d6000ba164ee",
+        "slug": "wraperia-suppa-kebs-verkiu-g",
+        "name": "Wraperia Suppa Kebs (Verkių g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-verkiu-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fbb827209684f08e355"
+      },
+      "stableKey": "wraperia-suppa-kebs-verkiu-g|6a508f04b8df1d543d882f6d",
+      "key": "venue.promotions_for_telemetry:6a508f04b8df1d543d882f6d",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a508f04b8df1d543d882f6d",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a508f04b8df1d543d882f6d",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5bab4bb0eaa5d6000ba164ee",
+        "slug": "wraperia-suppa-kebs-verkiu-g",
+        "name": "Wraperia Suppa Kebs (Verkių g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-verkiu-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fbb827209684f08e355"
+      },
+      "stableKey": "wraperia-suppa-kebs-verkiu-g|6a5091808768d5c2d9668249",
+      "key": "venue.promotions_for_telemetry:6a5091808768d5c2d9668249",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a5091808768d5c2d9668249",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5091808768d5c2d9668249",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5bab4bb0eaa5d6000ba164ee",
+        "slug": "wraperia-suppa-kebs-verkiu-g",
+        "name": "Wraperia Suppa Kebs (Verkių g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-verkiu-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fbb827209684f08e355"
+      },
+      "stableKey": "wraperia-suppa-kebs-verkiu-g|6a509202b95dd987ac26e4b2",
+      "key": "venue.promotions_for_telemetry:6a509202b95dd987ac26e4b2",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a509202b95dd987ac26e4b2",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a509202b95dd987ac26e4b2",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5bab4bb0eaa5d6000ba164ee",
+        "slug": "wraperia-suppa-kebs-verkiu-g",
+        "name": "Wraperia Suppa Kebs (Verkių g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-verkiu-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fbb827209684f08e355"
+      },
+      "stableKey": "wraperia-suppa-kebs-verkiu-g|6a509267428f8291656a40e1",
+      "key": "venue.promotions_for_telemetry:6a509267428f8291656a40e1",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a509267428f8291656a40e1",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a509267428f8291656a40e1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5bab4bb0eaa5d6000ba164ee",
+        "slug": "wraperia-suppa-kebs-verkiu-g",
+        "name": "Wraperia Suppa Kebs (Verkių g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-verkiu-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fbb827209684f08e355"
+      },
+      "stableKey": "wraperia-suppa-kebs-verkiu-g|6a5092c88768d5c2d966824c",
+      "key": "venue.promotions_for_telemetry:6a5092c88768d5c2d966824c",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a5092c88768d5c2d966824c",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5092c88768d5c2d966824c",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6660066255c89f64d4e587c3",
+        "slug": "zio-rigo",
+        "name": "Zio Rigo",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/zio-rigo",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67335de7b248216911b3501b"
+      },
+      "stableKey": "zio-rigo|69bc49b12890d4631aaea912",
+      "key": "venue.promotions_for_telemetry:69bc49b12890d4631aaea912",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "69bc49b12890d4631aaea912",
+      "text": "0 € delivery fee",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69bc49b12890d4631aaea912",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0 € delivery fee",
+        "variant": "discount"
+      }
+    }
+  ],
+  "disappeared": [
+    {
+      "venue": {
+        "id": "5e84aa2942cdedcf8dc677d5",
+        "slug": "chief-pizza-dzuku-g",
+        "name": "Chief Pizza (Dzūkų g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/chief-pizza-dzuku-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fad29cd4b694e529aa4"
+      },
+      "stableKey": "chief-pizza-dzuku-g|6a4b692afab2fbec84ce449d",
+      "key": "venue.promotions_for_telemetry:6a4b692afab2fbec84ce449d",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a4b692afab2fbec84ce449d",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a4b692afab2fbec84ce449d",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5e8b21c27b8427c54e1794d6",
+        "slug": "chief-pizza-sauletekis",
+        "name": "Chief Pizza (Saulėtekis)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/chief-pizza-sauletekis",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6733302729cd4b694e52a1b3"
+      },
+      "stableKey": "chief-pizza-sauletekis|6a4b6954770bbd3790deacce",
+      "key": "venue.promotions_for_telemetry:6a4b6954770bbd3790deacce",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a4b6954770bbd3790deacce",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a4b6954770bbd3790deacce",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5fa53c3cd2697f83c1b19e9b",
+        "slug": "chief-pizza-zemaites-g",
+        "name": "Chief Pizza (Žemaitės g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/chief-pizza-zemaites-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67320836479a971266a692c7"
+      },
+      "stableKey": "chief-pizza-zemaites-g|6a4b69c506e5ef42ee1707eb",
+      "key": "venue.promotions_for_telemetry:6a4b69c506e5ef42ee1707eb",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a4b69c506e5ef42ee1707eb",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a4b69c506e5ef42ee1707eb",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
     {
       "venue": {
         "id": "61fd25d89e6ce7e36e0328a5",
@@ -228,66 +890,35 @@
     },
     {
       "venue": {
-        "id": "6a4cc8c5b1904a479b38beb0",
-        "slug": "trakis-justiniskes",
-        "name": "Traškis (Justiniškės)",
+        "id": "59c20d038903136dd383f13b",
+        "slug": "piano-piano",
+        "name": "Piano Piano (Vilniaus g.)",
         "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/trakis-justiniskes",
-        "imageUrl": "https://imageproxy.wolt.com/assets/6a4f7e7e13b9d669673f11fd"
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/piano-piano",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fac149445354de03e9f"
       },
-      "stableKey": "trakis-justiniskes|6a4fba43cc8486399555ddb7",
-      "key": "venue.promotions_for_telemetry:6a4fba43cc8486399555ddb7",
+      "stableKey": "piano-piano|696f72829a22d46087295fde",
+      "key": "venue.promotions_for_telemetry:696f72829a22d46087295fde",
       "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a4fba43cc8486399555ddb7",
-      "text": "0 € delivery fee (spend 25 €)",
-      "amount": 0,
-      "amountType": "money",
-      "amountLabel": "0 EUR",
-      "category": "delivery",
-      "isDeliveryRelated": true,
-      "isUtilityBadge": false,
-      "score": -1,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a4fba43cc8486399555ddb7",
-        "icon": "coupon-fill",
-        "is_offer_stackable": false,
-        "text": "0 € delivery fee (spend 25 €)",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "6a4cc8c5b1904a479b38beb0",
-        "slug": "trakis-justiniskes",
-        "name": "Traškis (Justiniškės)",
-        "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/trakis-justiniskes",
-        "imageUrl": "https://imageproxy.wolt.com/assets/6a4f7e7e13b9d669673f11fd"
-      },
-      "stableKey": "trakis-justiniskes|6a4fbac040316a7eca52d54b",
-      "key": "venue.promotions_for_telemetry:6a4fbac040316a7eca52d54b",
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a4fbac040316a7eca52d54b",
-      "text": "25% off selected items",
-      "amount": 25,
+      "campaignId": "696f72829a22d46087295fde",
+      "text": "20% off selected items",
+      "amount": 20,
       "amountType": "percent",
-      "amountLabel": "25%",
+      "amountLabel": "20%",
       "category": "percent",
       "isDeliveryRelated": false,
       "isUtilityBadge": false,
-      "score": 525,
+      "score": 520,
       "variant": "discount",
       "raw": {
-        "campaign_id": "6a4fbac040316a7eca52d54b",
+        "campaign_id": "696f72829a22d46087295fde",
         "icon": "coupon-fill",
         "is_offer_stackable": true,
-        "text": "25% off selected items",
+        "text": "20% off selected items",
         "variant": "discount"
       }
     }
   ],
-  "disappeared": [],
   "interestingAppeared": [],
   "interestingDisappeared": [],
   "newInteresting": [],
