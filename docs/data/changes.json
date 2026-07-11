@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-11T09:02:24.057Z",
-  "previousGeneratedAt": "2026-07-11T07:33:24.116Z",
+  "generatedAt": "2026-07-11T14:22:29.051Z",
+  "previousGeneratedAt": "2026-07-11T11:11:26.660Z",
   "counts": {
     "restaurantsUniqueVenues": 818,
     "promotionsUniqueVenues": 1352,
@@ -15,7 +15,8 @@
       "restaurant": 818
     }
   },
-  "appeared": [
+  "appeared": [],
+  "disappeared": [
     {
       "venue": {
         "id": "69ccea6d238c52627fc9e8c8",
@@ -47,7 +48,6 @@
       }
     }
   ],
-  "disappeared": [],
   "interestingAppeared": [],
   "interestingDisappeared": [],
   "newInteresting": [],

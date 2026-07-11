@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-07-11T11:11:26.660Z",
+  "updatedAt": "2026-07-11T14:22:29.051Z",
   "activeOffers": [
     {
       "stableKey": "busy-beet-vilnius|6a3ce6e99cb16c3d9b78cb13",
       "firstNotifiedAt": "2026-07-01T09:30:27.013Z",
-      "lastSeenAt": "2026-07-11T11:11:26.660Z",
+      "lastSeenAt": "2026-07-11T14:22:29.051Z",
       "venue": {
         "id": "63da6c787921e59fa16c9e84",
         "slug": "busy-beet-vilnius",
@@ -23,7 +23,7 @@
     {
       "stableKey": "noon-hero|6a3ce6e99cb16c3d9b78cb13",
       "firstNotifiedAt": "2026-07-01T09:30:27.013Z",
-      "lastSeenAt": "2026-07-11T11:11:26.660Z",
+      "lastSeenAt": "2026-07-11T14:22:29.051Z",
       "venue": {
         "id": "695cfc275c37cafcbc21f875",
         "slug": "noon-hero",
@@ -42,7 +42,7 @@
     {
       "stableKey": "noon-mokslininku-g|6a3ce6e99cb16c3d9b78cb13",
       "firstNotifiedAt": "2026-07-01T09:30:27.013Z",
-      "lastSeenAt": "2026-07-11T11:11:26.660Z",
+      "lastSeenAt": "2026-07-11T14:22:29.051Z",
       "venue": {
         "id": "681b0451e1b6dbaf32bd7370",
         "slug": "noon-mokslininku-g",
@@ -61,7 +61,7 @@
     {
       "stableKey": "noon-sky-office|6a3ce6e99cb16c3d9b78cb13",
       "firstNotifiedAt": "2026-07-01T09:30:27.013Z",
-      "lastSeenAt": "2026-07-11T11:11:26.660Z",
+      "lastSeenAt": "2026-07-11T14:22:29.051Z",
       "venue": {
         "id": "66f1457741d7232f6e9b4de0",
         "slug": "noon-sky-office",
@@ -80,7 +80,7 @@
     {
       "stableKey": "noon-vc-meraki|6a3ce6e99cb16c3d9b78cb13",
       "firstNotifiedAt": "2026-07-01T09:30:27.013Z",
-      "lastSeenAt": "2026-07-11T11:11:26.660Z",
+      "lastSeenAt": "2026-07-11T14:22:29.051Z",
       "venue": {
         "id": "672b73bdabff246331fe0aac",
         "slug": "noon-vc-meraki",
@@ -99,7 +99,7 @@
     {
       "stableKey": "zenbowl|6a465496ef3a256d54cfcbe9",
       "firstNotifiedAt": "2026-07-02T14:30:26.310Z",
-      "lastSeenAt": "2026-07-11T11:11:26.660Z",
+      "lastSeenAt": "2026-07-11T14:22:29.051Z",
       "venue": {
         "id": "6a2656c72f76c2ba37d837f3",
         "slug": "zenbowl",
