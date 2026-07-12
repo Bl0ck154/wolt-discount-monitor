@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-11T17:11:25.928Z",
-  "previousGeneratedAt": "2026-07-11T14:22:29.051Z",
+  "generatedAt": "2026-07-12T07:33:24.233Z",
+  "previousGeneratedAt": "2026-07-11T17:11:25.928Z",
   "counts": {
     "restaurantsUniqueVenues": 818,
     "promotionsUniqueVenues": 1352,
@@ -16,6 +16,68 @@
     }
   },
   "appeared": [
+    {
+      "venue": {
+        "id": "62a8a1ba139a5061a9db66b3",
+        "slug": "asia-tasty-jogailos-g",
+        "name": "Asia tasty (Jogailos g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/asia-tasty-jogailos-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/673208342d3e6140073802ca"
+      },
+      "stableKey": "asia-tasty-jogailos-g|69de53c6f670719ce2b0c0b6",
+      "key": "venue.promotions_for_telemetry:69de53c6f670719ce2b0c0b6",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "69de53c6f670719ce2b0c0b6",
+      "text": "0 € delivery fee",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69de53c6f670719ce2b0c0b6",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0 € delivery fee",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "699462b7e86be0dbaddc3c7b",
+        "slug": "du-kebabai",
+        "name": "Du Kebabai",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/du-kebabai",
+        "imageUrl": "https://imageproxy.wolt.com/assets/69a162e396d75d61e246da73"
+      },
+      "stableKey": "du-kebabai|6a37115e4391212ba6fa2ba2",
+      "key": "venue.promotions:6a37115e4391212ba6fa2ba2",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a37115e4391212ba6fa2ba2",
+      "text": "5 € off",
+      "amount": 5,
+      "amountType": "money",
+      "amountLabel": "5 EUR",
+      "category": "money",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 7005,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a37115e4391212ba6fa2ba2",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "5 € off",
+        "variant": "discount"
+      }
+    }
+  ],
+  "disappeared": [
     {
       "venue": {
         "id": "61fd25d89e6ce7e36e0328a5",
@@ -227,13 +289,74 @@
       }
     }
   ],
-  "disappeared": [],
-  "interestingAppeared": [],
+  "interestingAppeared": [
+    {
+      "venue": {
+        "id": "699462b7e86be0dbaddc3c7b",
+        "slug": "du-kebabai",
+        "name": "Du Kebabai",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/du-kebabai",
+        "imageUrl": "https://imageproxy.wolt.com/assets/69a162e396d75d61e246da73"
+      },
+      "stableKey": "du-kebabai|6a37115e4391212ba6fa2ba2",
+      "key": "venue.promotions:6a37115e4391212ba6fa2ba2",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a37115e4391212ba6fa2ba2",
+      "text": "5 € off",
+      "amount": 5,
+      "amountType": "money",
+      "amountLabel": "5 EUR",
+      "category": "money",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 7005,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a37115e4391212ba6fa2ba2",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "5 € off",
+        "variant": "discount"
+      }
+    }
+  ],
   "interestingDisappeared": [],
-  "newInteresting": [],
+  "newInteresting": [
+    {
+      "venue": {
+        "id": "699462b7e86be0dbaddc3c7b",
+        "slug": "du-kebabai",
+        "name": "Du Kebabai",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/du-kebabai",
+        "imageUrl": "https://imageproxy.wolt.com/assets/69a162e396d75d61e246da73"
+      },
+      "stableKey": "du-kebabai|6a37115e4391212ba6fa2ba2",
+      "key": "venue.promotions:6a37115e4391212ba6fa2ba2",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a37115e4391212ba6fa2ba2",
+      "text": "5 € off",
+      "amount": 5,
+      "amountType": "money",
+      "amountLabel": "5 EUR",
+      "category": "money",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 7005,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a37115e4391212ba6fa2ba2",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "5 € off",
+        "variant": "discount"
+      }
+    }
+  ],
   "endedNotified": [],
   "notifiedSummary": {
-    "newInteresting": 0,
+    "newInteresting": 1,
     "endedNotified": 0
   }
 }
