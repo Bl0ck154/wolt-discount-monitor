@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-12T09:02:25.728Z",
-  "previousGeneratedAt": "2026-07-12T07:33:24.233Z",
+  "generatedAt": "2026-07-12T11:11:25.957Z",
+  "previousGeneratedAt": "2026-07-12T09:02:25.728Z",
   "counts": {
     "restaurantsUniqueVenues": 818,
     "promotionsUniqueVenues": 1352,
@@ -18,17 +18,17 @@
   "appeared": [
     {
       "venue": {
-        "id": "5fa53c3cd2697f83c1b19e9b",
-        "slug": "chief-pizza-zemaites-g",
-        "name": "Chief Pizza (Žemaitės g.)",
+        "id": "59c20d038903136dd383f13b",
+        "slug": "piano-piano",
+        "name": "Piano Piano (Vilniaus g.)",
         "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/chief-pizza-zemaites-g",
-        "imageUrl": "https://imageproxy.wolt.com/assets/67320836479a971266a692c7"
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/piano-piano",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fac149445354de03e9f"
       },
-      "stableKey": "chief-pizza-zemaites-g|6a534e80438e26048c044c84",
-      "key": "venue.promotions_for_telemetry:6a534e80438e26048c044c84",
+      "stableKey": "piano-piano|696f72829a22d46087295fde",
+      "key": "venue.promotions_for_telemetry:696f72829a22d46087295fde",
       "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a534e80438e26048c044c84",
+      "campaignId": "696f72829a22d46087295fde",
       "text": "20% off selected items",
       "amount": 20,
       "amountType": "percent",
@@ -39,7 +39,7 @@
       "score": 520,
       "variant": "discount",
       "raw": {
-        "campaign_id": "6a534e80438e26048c044c84",
+        "campaign_id": "696f72829a22d46087295fde",
         "icon": "coupon-fill",
         "is_offer_stackable": true,
         "text": "20% off selected items",
@@ -47,7 +47,38 @@
       }
     }
   ],
-  "disappeared": [],
+  "disappeared": [
+    {
+      "venue": {
+        "id": "669f68cefde47b5ea1b840b2",
+        "slug": "rice-and-spice-svitrigailos-g",
+        "name": "Indian Curry Street",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/rice-and-spice-svitrigailos-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/68ca9eb46321faefb5f88664"
+      },
+      "stableKey": "rice-and-spice-svitrigailos-g|6a3e91ab961a020dc0d7ba31",
+      "key": "venue.promotions:6a3e91ab961a020dc0d7ba31",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a3e91ab961a020dc0d7ba31",
+      "text": "15% off (up to 50 €)",
+      "amount": 15,
+      "amountType": "percent",
+      "amountLabel": "15%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 1515,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a3e91ab961a020dc0d7ba31",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "15% off (up to 50 €)",
+        "variant": "discount"
+      }
+    }
+  ],
   "interestingAppeared": [],
   "interestingDisappeared": [],
   "newInteresting": [],
