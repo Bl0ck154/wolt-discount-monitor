@@ -1,5 +1,48 @@
 [
   {
+    "generatedAt": "2026-07-15T08:19:21.671Z",
+    "previousGeneratedAt": "2026-07-14T17:11:24.947Z",
+    "appeared": 3,
+    "disappeared": 10,
+    "interestingAppeared": 1,
+    "notifiedNew": 1,
+    "notifiedEnded": 0,
+    "fetchError": null,
+    "interesting": [
+      {
+        "venue": {
+          "id": "5d99bfae5996759e17cc15b3",
+          "slug": "ilunch-rinktines-g",
+          "name": "iLunch VC BS (Rinktinės g.)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-rinktines-g",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+        },
+        "stableKey": "ilunch-rinktines-g|6a3ce6e99cb16c3d9b78cb13",
+        "key": "venue.promotions:6a3ce6e99cb16c3d9b78cb13",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a3ce6e99cb16c3d9b78cb13",
+        "text": "Basket Discount 10%",
+        "amount": 10,
+        "amountType": "percent",
+        "amountLabel": "10%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 6010,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a3ce6e99cb16c3d9b78cb13",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "Basket Discount 10%",
+          "variant": "discount"
+        }
+      }
+    ],
+    "ended": []
+  },
+  {
     "generatedAt": "2026-07-14T17:11:24.947Z",
     "previousGeneratedAt": "2026-07-14T15:29:25.547Z",
     "appeared": 7,
