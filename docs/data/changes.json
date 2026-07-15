@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-15T08:19:21.671Z",
-  "previousGeneratedAt": "2026-07-14T17:11:24.947Z",
+  "generatedAt": "2026-07-15T09:49:21.893Z",
+  "previousGeneratedAt": "2026-07-15T08:19:21.671Z",
   "counts": {
     "restaurantsUniqueVenues": 822,
     "promotionsUniqueVenues": 1357,
@@ -18,91 +18,31 @@
   "appeared": [
     {
       "venue": {
-        "id": "6a50a39b3856cdca2cc97bb0",
-        "slug": "iki-pikas",
-        "name": "IKI (Pikas)",
-        "productLine": "grocery",
-        "link": "https://wolt.com/en/ltu/vilnius/venue/iki-pikas",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/2853e12c-a780-4a69-aa7c-ff4a25f4f3e1/8e96361f-37db-4398-b6d0-3bb6bab18f75"
-      },
-      "stableKey": "iki-pikas|6a2bb9ab2579f27f0d5e87c1",
-      "key": "venue.promotions:6a2bb9ab2579f27f0d5e87c1",
-      "sourcePath": "venue.promotions",
-      "campaignId": "6a2bb9ab2579f27f0d5e87c1",
-      "text": "0€ delivery for new users",
-      "amount": 0,
-      "amountType": "money",
-      "amountLabel": "0 EUR",
-      "category": "new-user-delivery",
-      "isDeliveryRelated": true,
-      "isUtilityBadge": false,
-      "score": -1,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a2bb9ab2579f27f0d5e87c1",
-        "icon": "coupon-fill",
-        "is_offer_stackable": false,
-        "text": "0€ delivery for new users",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "5d99bfae5996759e17cc15b3",
-        "slug": "ilunch-rinktines-g",
-        "name": "iLunch VC BS (Rinktinės g.)",
+        "id": "69dce49ddc813b3987d92f62",
+        "slug": "sushi-out-medeinos-g",
+        "name": "Sushi Out (Medeinos g.)",
         "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-rinktines-g",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/sushi-out-medeinos-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/69dce4d573316796ef909c3a"
       },
-      "stableKey": "ilunch-rinktines-g|6a3ce6e99cb16c3d9b78cb13",
-      "key": "venue.promotions:6a3ce6e99cb16c3d9b78cb13",
-      "sourcePath": "venue.promotions",
-      "campaignId": "6a3ce6e99cb16c3d9b78cb13",
-      "text": "Basket Discount 10%",
-      "amount": 10,
-      "amountType": "percent",
-      "amountLabel": "10%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 6010,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a3ce6e99cb16c3d9b78cb13",
-        "icon": "coupon-fill",
-        "is_offer_stackable": false,
-        "text": "Basket Discount 10%",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "69ccea6d238c52627fc9e8c8",
-        "slug": "slice-sushi-silo-g",
-        "name": "Slice Sushi",
-        "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/slice-sushi-silo-g",
-        "imageUrl": "https://imageproxy.wolt.com/assets/69d63a9083e17ddbede86fa6"
-      },
-      "stableKey": "slice-sushi-silo-g|6a4eb00e0ae5c614d6947277",
-      "key": "venue.promotions_for_telemetry:6a4eb00e0ae5c614d6947277",
+      "stableKey": "sushi-out-medeinos-g|6a5749532cc04b50a35f5200",
+      "key": "venue.promotions_for_telemetry:6a5749532cc04b50a35f5200",
       "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a4eb00e0ae5c614d6947277",
-      "text": "20% off selected items",
+      "campaignId": "6a5749532cc04b50a35f5200",
+      "text": "-20% Wok",
       "amount": 20,
       "amountType": "percent",
       "amountLabel": "20%",
       "category": "percent",
       "isDeliveryRelated": false,
       "isUtilityBadge": false,
-      "score": 520,
+      "score": 1520,
       "variant": "discount",
       "raw": {
-        "campaign_id": "6a4eb00e0ae5c614d6947277",
+        "campaign_id": "6a5749532cc04b50a35f5200",
         "icon": "coupon-fill",
         "is_offer_stackable": true,
-        "text": "20% off selected items",
+        "text": "-20% Wok",
         "variant": "discount"
       }
     }
@@ -110,257 +50,17 @@
   "disappeared": [
     {
       "venue": {
-        "id": "642aa344f8b8dd06df40ceff",
-        "slug": "agnifood",
-        "name": "AgniFood",
+        "id": "69dce49ddc813b3987d92f62",
+        "slug": "sushi-out-medeinos-g",
+        "name": "Sushi Out (Medeinos g.)",
         "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/agnifood",
-        "imageUrl": "https://imageproxy.wolt.com/assets/6732083626e644617b063d79"
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/sushi-out-medeinos-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/69dce4d573316796ef909c3a"
       },
-      "stableKey": "agnifood|6a415694f634140a2da98f07",
-      "key": "venue.promotions:6a415694f634140a2da98f07",
-      "sourcePath": "venue.promotions",
-      "campaignId": "6a415694f634140a2da98f07",
-      "text": "5 € off (spend 30 €)",
-      "amount": 5,
-      "amountType": "money",
-      "amountLabel": "5 EUR",
-      "category": "money",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 2505,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a415694f634140a2da98f07",
-        "icon": "coupon-fill",
-        "is_offer_stackable": false,
-        "text": "5 € off (spend 30 €)",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "61fd25d89e6ce7e36e0328a5",
-        "slug": "monami-akropolis",
-        "name": "MonAmi kepyklėlė (Akropolis)",
-        "productLine": "grocery",
-        "link": "https://wolt.com/en/ltu/vilnius/venue/monami-akropolis",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/03fff7c8-e4a7-41ab-b9e6-5f4f476a4fe1/a23c8028-be08-4b6a-aba6-0264dcb0270c"
-      },
-      "stableKey": "monami-akropolis|6a01e1c3104381a1472df9ad",
-      "key": "venue.promotions_for_telemetry:6a01e1c3104381a1472df9ad",
+      "stableKey": "sushi-out-medeinos-g|6a54e75283969f89f37579dc",
+      "key": "venue.promotions_for_telemetry:6a54e75283969f89f37579dc",
       "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a01e1c3104381a1472df9ad",
-      "text": "-50% off selected item",
-      "amount": 50,
-      "amountType": "percent",
-      "amountLabel": "50%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 550,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a01e1c3104381a1472df9ad",
-        "icon": "coupon-fill",
-        "is_offer_stackable": true,
-        "text": "-50% off selected item",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "61fd213da3125d2dbd03d0e4",
-        "slug": "monami-domus-pro",
-        "name": "MonAmi kepyklėlė (Domus Pro)",
-        "productLine": "grocery",
-        "link": "https://wolt.com/en/ltu/vilnius/venue/monami-domus-pro",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/03fff7c8-e4a7-41ab-b9e6-5f4f476a4fe1/a23c8028-be08-4b6a-aba6-0264dcb0270c"
-      },
-      "stableKey": "monami-domus-pro|6a01e1c3104381a1472df9ad",
-      "key": "venue.promotions_for_telemetry:6a01e1c3104381a1472df9ad",
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a01e1c3104381a1472df9ad",
-      "text": "-50% off selected item",
-      "amount": 50,
-      "amountType": "percent",
-      "amountLabel": "50%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 550,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a01e1c3104381a1472df9ad",
-        "icon": "coupon-fill",
-        "is_offer_stackable": true,
-        "text": "-50% off selected item",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "61fd198bbb86e6ea5f3d28d1",
-        "slug": "monami-gedimino-pr",
-        "name": "MonAmi kepyklėlė (Gedimino pr.)",
-        "productLine": "grocery",
-        "link": "https://wolt.com/en/ltu/vilnius/venue/monami-gedimino-pr",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/03fff7c8-e4a7-41ab-b9e6-5f4f476a4fe1/a23c8028-be08-4b6a-aba6-0264dcb0270c"
-      },
-      "stableKey": "monami-gedimino-pr|6a01e1c3104381a1472df9ad",
-      "key": "venue.promotions_for_telemetry:6a01e1c3104381a1472df9ad",
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a01e1c3104381a1472df9ad",
-      "text": "-50% off selected item",
-      "amount": 50,
-      "amountType": "percent",
-      "amountLabel": "50%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 550,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a01e1c3104381a1472df9ad",
-        "icon": "coupon-fill",
-        "is_offer_stackable": true,
-        "text": "-50% off selected item",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "61fd28621bc6bc9a91b1ba2b",
-        "slug": "monami-jeruzale",
-        "name": "MonAmi kepyklėlė (Jeruzalė)",
-        "productLine": "grocery",
-        "link": "https://wolt.com/en/ltu/vilnius/venue/monami-jeruzale",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/03fff7c8-e4a7-41ab-b9e6-5f4f476a4fe1/a23c8028-be08-4b6a-aba6-0264dcb0270c"
-      },
-      "stableKey": "monami-jeruzale|6a01e1c3104381a1472df9ad",
-      "key": "venue.promotions_for_telemetry:6a01e1c3104381a1472df9ad",
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a01e1c3104381a1472df9ad",
-      "text": "-50% off selected item",
-      "amount": 50,
-      "amountType": "percent",
-      "amountLabel": "50%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 550,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a01e1c3104381a1472df9ad",
-        "icon": "coupon-fill",
-        "is_offer_stackable": true,
-        "text": "-50% off selected item",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "61fd238e559d91b47a35275c",
-        "slug": "monami-kedru",
-        "name": "MonAmi kepyklėlė (Kedrų g.)",
-        "productLine": "grocery",
-        "link": "https://wolt.com/en/ltu/vilnius/venue/monami-kedru",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/03fff7c8-e4a7-41ab-b9e6-5f4f476a4fe1/a23c8028-be08-4b6a-aba6-0264dcb0270c"
-      },
-      "stableKey": "monami-kedru|6a01e1c3104381a1472df9ad",
-      "key": "venue.promotions_for_telemetry:6a01e1c3104381a1472df9ad",
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a01e1c3104381a1472df9ad",
-      "text": "-50% off selected item",
-      "amount": 50,
-      "amountType": "percent",
-      "amountLabel": "50%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 550,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a01e1c3104381a1472df9ad",
-        "icon": "coupon-fill",
-        "is_offer_stackable": true,
-        "text": "-50% off selected item",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "61a0aea0dc3aea76a5972f5b",
-        "slug": "monami-kepyklele-panorama",
-        "name": "MonAmi kepyklėlė (PC Panorama)",
-        "productLine": "grocery",
-        "link": "https://wolt.com/en/ltu/vilnius/venue/monami-kepyklele-panorama",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/03fff7c8-e4a7-41ab-b9e6-5f4f476a4fe1/a23c8028-be08-4b6a-aba6-0264dcb0270c"
-      },
-      "stableKey": "monami-kepyklele-panorama|6a01e1c3104381a1472df9ad",
-      "key": "venue.promotions_for_telemetry:6a01e1c3104381a1472df9ad",
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a01e1c3104381a1472df9ad",
-      "text": "-50% off selected item",
-      "amount": 50,
-      "amountType": "percent",
-      "amountLabel": "50%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 550,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a01e1c3104381a1472df9ad",
-        "icon": "coupon-fill",
-        "is_offer_stackable": true,
-        "text": "-50% off selected item",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "61a628cf6a71cc6cf89768f7",
-        "slug": "monami-kepyklele-siaures-miestelis",
-        "name": "MonAmi kepyklėlė (Šiaurės miestelis)",
-        "productLine": "grocery",
-        "link": "https://wolt.com/en/ltu/vilnius/venue/monami-kepyklele-siaures-miestelis",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/03fff7c8-e4a7-41ab-b9e6-5f4f476a4fe1/a23c8028-be08-4b6a-aba6-0264dcb0270c"
-      },
-      "stableKey": "monami-kepyklele-siaures-miestelis|6a01e1c3104381a1472df9ad",
-      "key": "venue.promotions_for_telemetry:6a01e1c3104381a1472df9ad",
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a01e1c3104381a1472df9ad",
-      "text": "-50% off selected item",
-      "amount": 50,
-      "amountType": "percent",
-      "amountLabel": "50%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 550,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a01e1c3104381a1472df9ad",
-        "icon": "coupon-fill",
-        "is_offer_stackable": true,
-        "text": "-50% off selected item",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "59c20d038903136dd383f13b",
-        "slug": "piano-piano",
-        "name": "Piano Piano (Vilniaus g.)",
-        "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/piano-piano",
-        "imageUrl": "https://imageproxy.wolt.com/assets/67332fac149445354de03e9f"
-      },
-      "stableKey": "piano-piano|696f72829a22d46087295fde",
-      "key": "venue.promotions_for_telemetry:696f72829a22d46087295fde",
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "696f72829a22d46087295fde",
+      "campaignId": "6a54e75283969f89f37579dc",
       "text": "20% off selected items",
       "amount": 20,
       "amountType": "percent",
@@ -371,112 +71,20 @@
       "score": 520,
       "variant": "discount",
       "raw": {
-        "campaign_id": "696f72829a22d46087295fde",
+        "campaign_id": "6a54e75283969f89f37579dc",
         "icon": "coupon-fill",
         "is_offer_stackable": true,
         "text": "20% off selected items",
         "variant": "discount"
       }
-    },
-    {
-      "venue": {
-        "id": "6a4cc8c5b1904a479b38beb0",
-        "slug": "trakis-justiniskes",
-        "name": "Traškis (Justiniškės)",
-        "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/trakis-justiniskes",
-        "imageUrl": "https://imageproxy.wolt.com/assets/6a4f7e7e13b9d669673f11fd"
-      },
-      "stableKey": "trakis-justiniskes|6a4fbac040316a7eca52d54b",
-      "key": "venue.promotions_for_telemetry:6a4fbac040316a7eca52d54b",
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a4fbac040316a7eca52d54b",
-      "text": "25% off selected items",
-      "amount": 25,
-      "amountType": "percent",
-      "amountLabel": "25%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 525,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a4fbac040316a7eca52d54b",
-        "icon": "coupon-fill",
-        "is_offer_stackable": true,
-        "text": "25% off selected items",
-        "variant": "discount"
-      }
     }
   ],
-  "interestingAppeared": [
-    {
-      "venue": {
-        "id": "5d99bfae5996759e17cc15b3",
-        "slug": "ilunch-rinktines-g",
-        "name": "iLunch VC BS (Rinktinės g.)",
-        "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-rinktines-g",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
-      },
-      "stableKey": "ilunch-rinktines-g|6a3ce6e99cb16c3d9b78cb13",
-      "key": "venue.promotions:6a3ce6e99cb16c3d9b78cb13",
-      "sourcePath": "venue.promotions",
-      "campaignId": "6a3ce6e99cb16c3d9b78cb13",
-      "text": "Basket Discount 10%",
-      "amount": 10,
-      "amountType": "percent",
-      "amountLabel": "10%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 6010,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a3ce6e99cb16c3d9b78cb13",
-        "icon": "coupon-fill",
-        "is_offer_stackable": false,
-        "text": "Basket Discount 10%",
-        "variant": "discount"
-      }
-    }
-  ],
+  "interestingAppeared": [],
   "interestingDisappeared": [],
-  "newInteresting": [
-    {
-      "venue": {
-        "id": "5d99bfae5996759e17cc15b3",
-        "slug": "ilunch-rinktines-g",
-        "name": "iLunch VC BS (Rinktinės g.)",
-        "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-rinktines-g",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
-      },
-      "stableKey": "ilunch-rinktines-g|6a3ce6e99cb16c3d9b78cb13",
-      "key": "venue.promotions:6a3ce6e99cb16c3d9b78cb13",
-      "sourcePath": "venue.promotions",
-      "campaignId": "6a3ce6e99cb16c3d9b78cb13",
-      "text": "Basket Discount 10%",
-      "amount": 10,
-      "amountType": "percent",
-      "amountLabel": "10%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 6010,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a3ce6e99cb16c3d9b78cb13",
-        "icon": "coupon-fill",
-        "is_offer_stackable": false,
-        "text": "Basket Discount 10%",
-        "variant": "discount"
-      }
-    }
-  ],
+  "newInteresting": [],
   "endedNotified": [],
   "notifiedSummary": {
-    "newInteresting": 1,
+    "newInteresting": 0,
     "endedNotified": 0
   }
 }
