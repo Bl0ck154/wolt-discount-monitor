@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-15T17:02:26.546Z",
-  "previousGeneratedAt": "2026-07-15T15:29:24.898Z",
+  "generatedAt": "2026-07-16T07:19:27.738Z",
+  "previousGeneratedAt": "2026-07-15T17:02:26.546Z",
   "counts": {
     "restaurantsUniqueVenues": 822,
     "promotionsUniqueVenues": 1357,
@@ -16,6 +16,878 @@
     }
   },
   "appeared": [
+    {
+      "venue": {
+        "id": "674ec25a720dc327a93c6737",
+        "slug": "baltu-kebabine",
+        "name": "Baltų Kebabinė",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/baltu-kebabine",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67615dc8ab4f9f4331ad8d1c"
+      },
+      "stableKey": "baltu-kebabine|6a57d9fa0452f509f1b47d5a",
+      "key": "venue.promotions_for_telemetry:6a57d9fa0452f509f1b47d5a",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a57d9fa0452f509f1b47d5a",
+      "text": "0 € delivery fee",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a57d9fa0452f509f1b47d5a",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0 € delivery fee",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "68b6df3c8fd2d2676a6004b8",
+        "slug": "kika-akropolis-vilnius",
+        "name": "KIKA (Akropolis Vilnius)",
+        "productLine": "pet_supply",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/kika-akropolis-vilnius",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/71d32490-8d56-4bde-9f52-155dd8de2b8d/7131e76f-442e-4688-b895-799a7485660b"
+      },
+      "stableKey": "kika-akropolis-vilnius|6a57461d30db8a23deec60f9",
+      "key": "venue.promotions_for_telemetry:6a57461d30db8a23deec60f9",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a57461d30db8a23deec60f9",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a57461d30db8a23deec60f9",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "68b6df3c8fd2d2676a6004bf",
+        "slug": "kika-domus-pro",
+        "name": "KIKA (Domus Pro)",
+        "productLine": "pet_supply",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/kika-domus-pro",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/71d32490-8d56-4bde-9f52-155dd8de2b8d/7131e76f-442e-4688-b895-799a7485660b"
+      },
+      "stableKey": "kika-domus-pro|6a57461d30db8a23deec60f9",
+      "key": "venue.promotions_for_telemetry:6a57461d30db8a23deec60f9",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a57461d30db8a23deec60f9",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a57461d30db8a23deec60f9",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "68b6df3c8fd2d2676a6004b7",
+        "slug": "kika-jeruzale",
+        "name": "KIKA (Jeruzalė)",
+        "productLine": "pet_supply",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/kika-jeruzale",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/71d32490-8d56-4bde-9f52-155dd8de2b8d/7131e76f-442e-4688-b895-799a7485660b"
+      },
+      "stableKey": "kika-jeruzale|6a57461d30db8a23deec60f9",
+      "key": "venue.promotions_for_telemetry:6a57461d30db8a23deec60f9",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a57461d30db8a23deec60f9",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a57461d30db8a23deec60f9",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "68b6df3c8fd2d2676a6004b5",
+        "slug": "kika-luksio",
+        "name": "KIKA (Lukšio)",
+        "productLine": "pet_supply",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/kika-luksio",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/71d32490-8d56-4bde-9f52-155dd8de2b8d/7131e76f-442e-4688-b895-799a7485660b"
+      },
+      "stableKey": "kika-luksio|6a57461d30db8a23deec60f9",
+      "key": "venue.promotions_for_telemetry:6a57461d30db8a23deec60f9",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a57461d30db8a23deec60f9",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a57461d30db8a23deec60f9",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "68b6df3c8fd2d2676a6004c2",
+        "slug": "kika-mamoniciu-g",
+        "name": "KIKA (Mamoničių g.)",
+        "productLine": "pet_supply",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/kika-mamoniciu-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/71d32490-8d56-4bde-9f52-155dd8de2b8d/7131e76f-442e-4688-b895-799a7485660b"
+      },
+      "stableKey": "kika-mamoniciu-g|6a57461d30db8a23deec60f9",
+      "key": "venue.promotions_for_telemetry:6a57461d30db8a23deec60f9",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a57461d30db8a23deec60f9",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a57461d30db8a23deec60f9",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "68b6df3c8fd2d2676a6004bd",
+        "slug": "kika-mindaugo",
+        "name": "KIKA (Mindaugo)",
+        "productLine": "pet_supply",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/kika-mindaugo",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/71d32490-8d56-4bde-9f52-155dd8de2b8d/7131e76f-442e-4688-b895-799a7485660b"
+      },
+      "stableKey": "kika-mindaugo|6a57461d30db8a23deec60f9",
+      "key": "venue.promotions_for_telemetry:6a57461d30db8a23deec60f9",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a57461d30db8a23deec60f9",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a57461d30db8a23deec60f9",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "68b6df3c8fd2d2676a6004b6",
+        "slug": "kika-ozas",
+        "name": "KIKA (Ozas)",
+        "productLine": "pet_supply",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/kika-ozas",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/71d32490-8d56-4bde-9f52-155dd8de2b8d/7131e76f-442e-4688-b895-799a7485660b"
+      },
+      "stableKey": "kika-ozas|6a57461d30db8a23deec60f9",
+      "key": "venue.promotions_for_telemetry:6a57461d30db8a23deec60f9",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a57461d30db8a23deec60f9",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a57461d30db8a23deec60f9",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "68b6df3c8fd2d2676a6004b9",
+        "slug": "kika-panorama",
+        "name": "KIKA (Panorama)",
+        "productLine": "pet_supply",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/kika-panorama",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/71d32490-8d56-4bde-9f52-155dd8de2b8d/7131e76f-442e-4688-b895-799a7485660b"
+      },
+      "stableKey": "kika-panorama|6a57461d30db8a23deec60f9",
+      "key": "venue.promotions_for_telemetry:6a57461d30db8a23deec60f9",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a57461d30db8a23deec60f9",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a57461d30db8a23deec60f9",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "68b6df3c8fd2d2676a6004c0",
+        "slug": "kika-pavilnioniu-g",
+        "name": "KIKA (Pavilnionių g.)",
+        "productLine": "pet_supply",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/kika-pavilnioniu-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/71d32490-8d56-4bde-9f52-155dd8de2b8d/7131e76f-442e-4688-b895-799a7485660b"
+      },
+      "stableKey": "kika-pavilnioniu-g|6a57461d30db8a23deec60f9",
+      "key": "venue.promotions_for_telemetry:6a57461d30db8a23deec60f9",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a57461d30db8a23deec60f9",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a57461d30db8a23deec60f9",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "68b6df3c8fd2d2676a6004c1",
+        "slug": "kika-pergales",
+        "name": "KIKA (Pergalės)",
+        "productLine": "pet_supply",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/kika-pergales",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/71d32490-8d56-4bde-9f52-155dd8de2b8d/7131e76f-442e-4688-b895-799a7485660b"
+      },
+      "stableKey": "kika-pergales|6a57461d30db8a23deec60f9",
+      "key": "venue.promotions_for_telemetry:6a57461d30db8a23deec60f9",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a57461d30db8a23deec60f9",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a57461d30db8a23deec60f9",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "68b6df3c8fd2d2676a6004bc",
+        "slug": "kika-pilaites",
+        "name": "KIKA (Pilaitės)",
+        "productLine": "pet_supply",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/kika-pilaites",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/71d32490-8d56-4bde-9f52-155dd8de2b8d/7131e76f-442e-4688-b895-799a7485660b"
+      },
+      "stableKey": "kika-pilaites|6a57461d30db8a23deec60f9",
+      "key": "venue.promotions_for_telemetry:6a57461d30db8a23deec60f9",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a57461d30db8a23deec60f9",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a57461d30db8a23deec60f9",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "68b6df3c8fd2d2676a6004c3",
+        "slug": "kika-vikingu",
+        "name": "KIKA (Vikingų)",
+        "productLine": "pet_supply",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/kika-vikingu",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/71d32490-8d56-4bde-9f52-155dd8de2b8d/7131e76f-442e-4688-b895-799a7485660b"
+      },
+      "stableKey": "kika-vikingu|6a57461d30db8a23deec60f9",
+      "key": "venue.promotions_for_telemetry:6a57461d30db8a23deec60f9",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a57461d30db8a23deec60f9",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a57461d30db8a23deec60f9",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "68b6df3c8fd2d2676a6004ba",
+        "slug": "kika-zirmunu",
+        "name": "KIKA (Žirmūnų)",
+        "productLine": "pet_supply",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/kika-zirmunu",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/71d32490-8d56-4bde-9f52-155dd8de2b8d/7131e76f-442e-4688-b895-799a7485660b"
+      },
+      "stableKey": "kika-zirmunu|6a57461d30db8a23deec60f9",
+      "key": "venue.promotions_for_telemetry:6a57461d30db8a23deec60f9",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a57461d30db8a23deec60f9",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a57461d30db8a23deec60f9",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6a4cc8c5b1904a479b38beb0",
+        "slug": "trakis-justiniskes",
+        "name": "Traškis (Justiniškės)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/trakis-justiniskes",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6a4f7e7e13b9d669673f11fd"
+      },
+      "stableKey": "trakis-justiniskes|6a57cd873880c39983d7043d",
+      "key": "venue.promotions_for_telemetry:6a57cd873880c39983d7043d",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a57cd873880c39983d7043d",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a57cd873880c39983d7043d",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    }
+  ],
+  "disappeared": [
+    {
+      "venue": {
+        "id": "5fa53c3cd2697f83c1b19e9b",
+        "slug": "chief-pizza-zemaites-g",
+        "name": "Chief Pizza (Žemaitės g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/chief-pizza-zemaites-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67320836479a971266a692c7"
+      },
+      "stableKey": "chief-pizza-zemaites-g|6a534e80438e26048c044c84",
+      "key": "venue.promotions_for_telemetry:6a534e80438e26048c044c84",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a534e80438e26048c044c84",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a534e80438e26048c044c84",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "68b6df3c8fd2d2676a6004b8",
+        "slug": "kika-akropolis-vilnius",
+        "name": "KIKA (Akropolis Vilnius)",
+        "productLine": "pet_supply",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/kika-akropolis-vilnius",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/71d32490-8d56-4bde-9f52-155dd8de2b8d/7131e76f-442e-4688-b895-799a7485660b"
+      },
+      "stableKey": "kika-akropolis-vilnius|6a3e7c02735fe639d0518e4e",
+      "key": "venue.promotions_for_telemetry:6a3e7c02735fe639d0518e4e",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a3e7c02735fe639d0518e4e",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a3e7c02735fe639d0518e4e",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "68b6df3c8fd2d2676a6004bf",
+        "slug": "kika-domus-pro",
+        "name": "KIKA (Domus Pro)",
+        "productLine": "pet_supply",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/kika-domus-pro",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/71d32490-8d56-4bde-9f52-155dd8de2b8d/7131e76f-442e-4688-b895-799a7485660b"
+      },
+      "stableKey": "kika-domus-pro|6a3e7c02735fe639d0518e4e",
+      "key": "venue.promotions_for_telemetry:6a3e7c02735fe639d0518e4e",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a3e7c02735fe639d0518e4e",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a3e7c02735fe639d0518e4e",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "68b6df3c8fd2d2676a6004b7",
+        "slug": "kika-jeruzale",
+        "name": "KIKA (Jeruzalė)",
+        "productLine": "pet_supply",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/kika-jeruzale",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/71d32490-8d56-4bde-9f52-155dd8de2b8d/7131e76f-442e-4688-b895-799a7485660b"
+      },
+      "stableKey": "kika-jeruzale|6a3e7c02735fe639d0518e4e",
+      "key": "venue.promotions_for_telemetry:6a3e7c02735fe639d0518e4e",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a3e7c02735fe639d0518e4e",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a3e7c02735fe639d0518e4e",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "68b6df3c8fd2d2676a6004b5",
+        "slug": "kika-luksio",
+        "name": "KIKA (Lukšio)",
+        "productLine": "pet_supply",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/kika-luksio",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/71d32490-8d56-4bde-9f52-155dd8de2b8d/7131e76f-442e-4688-b895-799a7485660b"
+      },
+      "stableKey": "kika-luksio|6a3e7c02735fe639d0518e4e",
+      "key": "venue.promotions_for_telemetry:6a3e7c02735fe639d0518e4e",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a3e7c02735fe639d0518e4e",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a3e7c02735fe639d0518e4e",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "68b6df3c8fd2d2676a6004c2",
+        "slug": "kika-mamoniciu-g",
+        "name": "KIKA (Mamoničių g.)",
+        "productLine": "pet_supply",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/kika-mamoniciu-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/71d32490-8d56-4bde-9f52-155dd8de2b8d/7131e76f-442e-4688-b895-799a7485660b"
+      },
+      "stableKey": "kika-mamoniciu-g|6a3e7c02735fe639d0518e4e",
+      "key": "venue.promotions_for_telemetry:6a3e7c02735fe639d0518e4e",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a3e7c02735fe639d0518e4e",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a3e7c02735fe639d0518e4e",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "68b6df3c8fd2d2676a6004bd",
+        "slug": "kika-mindaugo",
+        "name": "KIKA (Mindaugo)",
+        "productLine": "pet_supply",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/kika-mindaugo",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/71d32490-8d56-4bde-9f52-155dd8de2b8d/7131e76f-442e-4688-b895-799a7485660b"
+      },
+      "stableKey": "kika-mindaugo|6a3e7c02735fe639d0518e4e",
+      "key": "venue.promotions_for_telemetry:6a3e7c02735fe639d0518e4e",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a3e7c02735fe639d0518e4e",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a3e7c02735fe639d0518e4e",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "68b6df3c8fd2d2676a6004b6",
+        "slug": "kika-ozas",
+        "name": "KIKA (Ozas)",
+        "productLine": "pet_supply",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/kika-ozas",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/71d32490-8d56-4bde-9f52-155dd8de2b8d/7131e76f-442e-4688-b895-799a7485660b"
+      },
+      "stableKey": "kika-ozas|6a3e7c02735fe639d0518e4e",
+      "key": "venue.promotions_for_telemetry:6a3e7c02735fe639d0518e4e",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a3e7c02735fe639d0518e4e",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a3e7c02735fe639d0518e4e",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "68b6df3c8fd2d2676a6004b9",
+        "slug": "kika-panorama",
+        "name": "KIKA (Panorama)",
+        "productLine": "pet_supply",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/kika-panorama",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/71d32490-8d56-4bde-9f52-155dd8de2b8d/7131e76f-442e-4688-b895-799a7485660b"
+      },
+      "stableKey": "kika-panorama|6a3e7c02735fe639d0518e4e",
+      "key": "venue.promotions_for_telemetry:6a3e7c02735fe639d0518e4e",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a3e7c02735fe639d0518e4e",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a3e7c02735fe639d0518e4e",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "68b6df3c8fd2d2676a6004c0",
+        "slug": "kika-pavilnioniu-g",
+        "name": "KIKA (Pavilnionių g.)",
+        "productLine": "pet_supply",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/kika-pavilnioniu-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/71d32490-8d56-4bde-9f52-155dd8de2b8d/7131e76f-442e-4688-b895-799a7485660b"
+      },
+      "stableKey": "kika-pavilnioniu-g|6a3e7c02735fe639d0518e4e",
+      "key": "venue.promotions_for_telemetry:6a3e7c02735fe639d0518e4e",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a3e7c02735fe639d0518e4e",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a3e7c02735fe639d0518e4e",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "68b6df3c8fd2d2676a6004c1",
+        "slug": "kika-pergales",
+        "name": "KIKA (Pergalės)",
+        "productLine": "pet_supply",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/kika-pergales",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/71d32490-8d56-4bde-9f52-155dd8de2b8d/7131e76f-442e-4688-b895-799a7485660b"
+      },
+      "stableKey": "kika-pergales|6a3e7c02735fe639d0518e4e",
+      "key": "venue.promotions_for_telemetry:6a3e7c02735fe639d0518e4e",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a3e7c02735fe639d0518e4e",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a3e7c02735fe639d0518e4e",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "68b6df3c8fd2d2676a6004bc",
+        "slug": "kika-pilaites",
+        "name": "KIKA (Pilaitės)",
+        "productLine": "pet_supply",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/kika-pilaites",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/71d32490-8d56-4bde-9f52-155dd8de2b8d/7131e76f-442e-4688-b895-799a7485660b"
+      },
+      "stableKey": "kika-pilaites|6a3e7c02735fe639d0518e4e",
+      "key": "venue.promotions_for_telemetry:6a3e7c02735fe639d0518e4e",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a3e7c02735fe639d0518e4e",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a3e7c02735fe639d0518e4e",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "68b6df3c8fd2d2676a6004c3",
+        "slug": "kika-vikingu",
+        "name": "KIKA (Vikingų)",
+        "productLine": "pet_supply",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/kika-vikingu",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/71d32490-8d56-4bde-9f52-155dd8de2b8d/7131e76f-442e-4688-b895-799a7485660b"
+      },
+      "stableKey": "kika-vikingu|6a3e7c02735fe639d0518e4e",
+      "key": "venue.promotions_for_telemetry:6a3e7c02735fe639d0518e4e",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a3e7c02735fe639d0518e4e",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a3e7c02735fe639d0518e4e",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "68b6df3c8fd2d2676a6004ba",
+        "slug": "kika-zirmunu",
+        "name": "KIKA (Žirmūnų)",
+        "productLine": "pet_supply",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/kika-zirmunu",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/71d32490-8d56-4bde-9f52-155dd8de2b8d/7131e76f-442e-4688-b895-799a7485660b"
+      },
+      "stableKey": "kika-zirmunu|6a3e7c02735fe639d0518e4e",
+      "key": "venue.promotions_for_telemetry:6a3e7c02735fe639d0518e4e",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a3e7c02735fe639d0518e4e",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a3e7c02735fe639d0518e4e",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
     {
       "venue": {
         "id": "61fd25d89e6ce7e36e0328a5",
@@ -225,9 +1097,68 @@
         "text": "-50% off selected item",
         "variant": "discount"
       }
+    },
+    {
+      "venue": {
+        "id": "59c20d038903136dd383f13b",
+        "slug": "piano-piano",
+        "name": "Piano Piano (Vilniaus g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/piano-piano",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fac149445354de03e9f"
+      },
+      "stableKey": "piano-piano|696f72829a22d46087295fde",
+      "key": "venue.promotions_for_telemetry:696f72829a22d46087295fde",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "696f72829a22d46087295fde",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "696f72829a22d46087295fde",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6a4cc8c5b1904a479b38beb0",
+        "slug": "trakis-justiniskes",
+        "name": "Traškis (Justiniškės)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/trakis-justiniskes",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6a4f7e7e13b9d669673f11fd"
+      },
+      "stableKey": "trakis-justiniskes|6a4fba43cc8486399555ddb7",
+      "key": "venue.promotions_for_telemetry:6a4fba43cc8486399555ddb7",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a4fba43cc8486399555ddb7",
+      "text": "0 € delivery fee (spend 25 €)",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a4fba43cc8486399555ddb7",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0 € delivery fee (spend 25 €)",
+        "variant": "discount"
+      }
     }
   ],
-  "disappeared": [],
   "interestingAppeared": [],
   "interestingDisappeared": [],
   "newInteresting": [],
