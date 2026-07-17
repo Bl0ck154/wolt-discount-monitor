@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-16T16:11:26.121Z",
+  "generatedAt": "2026-07-17T07:18:27.049Z",
   "defaultCityId": "ltu/vilnius",
   "cacheTtlMs": 0,
   "totalCities": 959,
@@ -14605,7 +14605,7 @@
       "notificationsEnabled": true,
       "dataPath": "data/latest.json",
       "latestPath": "data/latest.json",
-      "updatedAt": "2026-07-16T16:11:25.969Z",
+      "updatedAt": "2026-07-17T07:18:26.848Z",
       "counts": {
         "restaurantsUniqueVenues": 823,
         "promotionsUniqueVenues": 1359,

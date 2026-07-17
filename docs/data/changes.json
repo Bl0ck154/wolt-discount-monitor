@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-16T16:11:25.969Z",
-  "previousGeneratedAt": "2026-07-16T14:29:26.113Z",
+  "generatedAt": "2026-07-17T07:18:26.848Z",
+  "previousGeneratedAt": "2026-07-16T16:11:25.969Z",
   "counts": {
     "restaurantsUniqueVenues": 823,
     "promotionsUniqueVenues": 1359,
@@ -16,6 +16,68 @@
     }
   },
   "appeared": [
+    {
+      "venue": {
+        "id": "6660066255c89f64d4e587c3",
+        "slug": "zio-rigo",
+        "name": "Zio Rigo",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/zio-rigo",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67335de7b248216911b3501b"
+      },
+      "stableKey": "zio-rigo|69bc49b12890d4631aaea912",
+      "key": "venue.promotions_for_telemetry:69bc49b12890d4631aaea912",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "69bc49b12890d4631aaea912",
+      "text": "0 € delivery fee",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69bc49b12890d4631aaea912",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0 € delivery fee",
+        "variant": "discount"
+      }
+    }
+  ],
+  "disappeared": [
+    {
+      "venue": {
+        "id": "5fa53c3cd2697f83c1b19e9b",
+        "slug": "chief-pizza-zemaites-g",
+        "name": "Chief Pizza (Žemaitės g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/chief-pizza-zemaites-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67320836479a971266a692c7"
+      },
+      "stableKey": "chief-pizza-zemaites-g|6a534e80438e26048c044c84",
+      "key": "venue.promotions_for_telemetry:6a534e80438e26048c044c84",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a534e80438e26048c044c84",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a534e80438e26048c044c84",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
     {
       "venue": {
         "id": "61fd25d89e6ce7e36e0328a5",
@@ -225,36 +287,34 @@
         "text": "-50% off selected item",
         "variant": "discount"
       }
-    }
-  ],
-  "disappeared": [
+    },
     {
       "venue": {
-        "id": "669f68cefde47b5ea1b840b2",
-        "slug": "rice-and-spice-svitrigailos-g",
-        "name": "Indian Curry Street",
+        "id": "59c20d038903136dd383f13b",
+        "slug": "piano-piano",
+        "name": "Piano Piano (Vilniaus g.)",
         "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/rice-and-spice-svitrigailos-g",
-        "imageUrl": "https://imageproxy.wolt.com/assets/68ca9eb46321faefb5f88664"
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/piano-piano",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fac149445354de03e9f"
       },
-      "stableKey": "rice-and-spice-svitrigailos-g|6a538530e030682c16c1d980",
-      "key": "venue.promotions:6a538530e030682c16c1d980",
-      "sourcePath": "venue.promotions",
-      "campaignId": "6a538530e030682c16c1d980",
-      "text": "15% off (up to 50 €)",
-      "amount": 15,
+      "stableKey": "piano-piano|696f72829a22d46087295fde",
+      "key": "venue.promotions_for_telemetry:696f72829a22d46087295fde",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "696f72829a22d46087295fde",
+      "text": "20% off selected items",
+      "amount": 20,
       "amountType": "percent",
-      "amountLabel": "15%",
+      "amountLabel": "20%",
       "category": "percent",
       "isDeliveryRelated": false,
       "isUtilityBadge": false,
-      "score": 1515,
+      "score": 520,
       "variant": "discount",
       "raw": {
-        "campaign_id": "6a538530e030682c16c1d980",
+        "campaign_id": "696f72829a22d46087295fde",
         "icon": "coupon-fill",
-        "is_offer_stackable": false,
-        "text": "15% off (up to 50 €)",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
         "variant": "discount"
       }
     }
