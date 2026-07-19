@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-17T16:33:27.450Z",
-  "previousGeneratedAt": "2026-07-17T14:44:24.237Z",
+  "generatedAt": "2026-07-19T10:30:52.165Z",
+  "previousGeneratedAt": "2026-07-17T16:33:27.450Z",
   "counts": {
     "restaurantsUniqueVenues": 823,
     "promotionsUniqueVenues": 1359,
@@ -16,6 +16,278 @@
     }
   },
   "appeared": [
+    {
+      "venue": {
+        "id": "62a8a1ba139a5061a9db66b3",
+        "slug": "asia-tasty-jogailos-g",
+        "name": "Asia tasty (Jogailos g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/asia-tasty-jogailos-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/673208342d3e6140073802ca"
+      },
+      "stableKey": "asia-tasty-jogailos-g|69de53c6f670719ce2b0c0b6",
+      "key": "venue.promotions_for_telemetry:69de53c6f670719ce2b0c0b6",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "69de53c6f670719ce2b0c0b6",
+      "text": "0 € delivery fee",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "69de53c6f670719ce2b0c0b6",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0 € delivery fee",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "699462b7e86be0dbaddc3c7b",
+        "slug": "du-kebabai",
+        "name": "Du Kebabai",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/du-kebabai",
+        "imageUrl": "https://imageproxy.wolt.com/assets/69a162e396d75d61e246da73"
+      },
+      "stableKey": "du-kebabai|6a37115e4391212ba6fa2ba2",
+      "key": "venue.promotions:6a37115e4391212ba6fa2ba2",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a37115e4391212ba6fa2ba2",
+      "text": "5 € off",
+      "amount": 5,
+      "amountType": "money",
+      "amountLabel": "5 EUR",
+      "category": "money",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 7005,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a37115e4391212ba6fa2ba2",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "5 € off",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "63d39f33fc498380f20986a5",
+        "slug": "estetine-kosmetika",
+        "name": "Estetinė Kosmetika",
+        "productLine": "health_and_beauty",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/estetine-kosmetika",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67320834cc36c632963392ae"
+      },
+      "stableKey": "estetine-kosmetika|6a5b37d0349989052ddfe045",
+      "key": "venue.promotions:6a5b37d0349989052ddfe045",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a5b37d0349989052ddfe045",
+      "text": "5 € off",
+      "amount": 5,
+      "amountType": "money",
+      "amountLabel": "5 EUR",
+      "category": "money",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 7005,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5b37d0349989052ddfe045",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "5 € off",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "669f68cefde47b5ea1b840b2",
+        "slug": "rice-and-spice-svitrigailos-g",
+        "name": "Indian Curry Street",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/rice-and-spice-svitrigailos-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/68ca9eb46321faefb5f88664"
+      },
+      "stableKey": "rice-and-spice-svitrigailos-g|6a5a63d2aef66aefbfd8fc0b",
+      "key": "venue.promotions:6a5a63d2aef66aefbfd8fc0b",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a5a63d2aef66aefbfd8fc0b",
+      "text": "15% off (up to 50 €)",
+      "amount": 15,
+      "amountType": "percent",
+      "amountLabel": "15%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 1515,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5a63d2aef66aefbfd8fc0b",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "15% off (up to 50 €)",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6a4cc8c5b1904a479b38beb0",
+        "slug": "trakis-justiniskes",
+        "name": "Traškis (Justiniškės)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/trakis-justiniskes",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6a4f7e7e13b9d669673f11fd"
+      },
+      "stableKey": "trakis-justiniskes|6a5a6c4daef66aefbfd8fd34",
+      "key": "venue.promotions_for_telemetry:6a5a6c4daef66aefbfd8fd34",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a5a6c4daef66aefbfd8fd34",
+      "text": "0 € delivery fee (spend 25 €)",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5a6c4daef66aefbfd8fd34",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0 € delivery fee (spend 25 €)",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6a4cc8c5b1904a479b38beb0",
+        "slug": "trakis-justiniskes",
+        "name": "Traškis (Justiniškės)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/trakis-justiniskes",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6a4f7e7e13b9d669673f11fd"
+      },
+      "stableKey": "trakis-justiniskes|6a5baeefd4ed0aa0ddcc6b37",
+      "key": "venue.promotions_for_telemetry:6a5baeefd4ed0aa0ddcc6b37",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a5baeefd4ed0aa0ddcc6b37",
+      "text": "15% off (up to 50 €)",
+      "amount": 15,
+      "amountType": "percent",
+      "amountLabel": "15%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 1515,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5baeefd4ed0aa0ddcc6b37",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "15% off (up to 50 €)",
+        "variant": "discount"
+      }
+    }
+  ],
+  "disappeared": [
+    {
+      "venue": {
+        "id": "5fa53c3cd2697f83c1b19e9b",
+        "slug": "chief-pizza-zemaites-g",
+        "name": "Chief Pizza (Žemaitės g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/chief-pizza-zemaites-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67320836479a971266a692c7"
+      },
+      "stableKey": "chief-pizza-zemaites-g|6a534e80438e26048c044c84",
+      "key": "venue.promotions_for_telemetry:6a534e80438e26048c044c84",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a534e80438e26048c044c84",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a534e80438e26048c044c84",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6874f373e67bf0ce25fd6525",
+        "slug": "gardenija-geliu-g",
+        "name": "Gardenija",
+        "productLine": "florist",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/gardenija-geliu-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/687a1b51066bffcce6cd1307"
+      },
+      "stableKey": "gardenija-geliu-g|6a4e463540316a7eca52a6fa",
+      "key": "venue.promotions_for_telemetry:6a4e463540316a7eca52a6fa",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a4e463540316a7eca52a6fa",
+      "text": "0 € delivery fee",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a4e463540316a7eca52a6fa",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0 € delivery fee",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "69b94922695aa0844a63b702",
+        "slug": "mamma-rosa-paupio-turgus",
+        "name": "Mamma Rosa",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/mamma-rosa-paupio-turgus",
+        "imageUrl": "https://imageproxy.wolt.com/assets/69ba7a5094e8ba0fb7975730"
+      },
+      "stableKey": "mamma-rosa-paupio-turgus|6a33b1ac316ba4ff12f19af0",
+      "key": "venue.promotions_for_telemetry:6a33b1ac316ba4ff12f19af0",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a33b1ac316ba4ff12f19af0",
+      "text": "-20% on selelected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 1520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a33b1ac316ba4ff12f19af0",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-20% on selelected items",
+        "variant": "discount"
+      }
+    },
     {
       "venue": {
         "id": "61fd25d89e6ce7e36e0328a5",
@@ -225,15 +497,166 @@
         "text": "-50% off selected item",
         "variant": "discount"
       }
+    },
+    {
+      "venue": {
+        "id": "6a4cc8c5b1904a479b38beb0",
+        "slug": "trakis-justiniskes",
+        "name": "Traškis (Justiniškės)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/trakis-justiniskes",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6a4f7e7e13b9d669673f11fd"
+      },
+      "stableKey": "trakis-justiniskes|6a57cd873880c39983d7043d",
+      "key": "venue.promotions_for_telemetry:6a57cd873880c39983d7043d",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a57cd873880c39983d7043d",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a57cd873880c39983d7043d",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
     }
   ],
-  "disappeared": [],
-  "interestingAppeared": [],
+  "interestingAppeared": [
+    {
+      "venue": {
+        "id": "699462b7e86be0dbaddc3c7b",
+        "slug": "du-kebabai",
+        "name": "Du Kebabai",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/du-kebabai",
+        "imageUrl": "https://imageproxy.wolt.com/assets/69a162e396d75d61e246da73"
+      },
+      "stableKey": "du-kebabai|6a37115e4391212ba6fa2ba2",
+      "key": "venue.promotions:6a37115e4391212ba6fa2ba2",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a37115e4391212ba6fa2ba2",
+      "text": "5 € off",
+      "amount": 5,
+      "amountType": "money",
+      "amountLabel": "5 EUR",
+      "category": "money",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 7005,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a37115e4391212ba6fa2ba2",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "5 € off",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "63d39f33fc498380f20986a5",
+        "slug": "estetine-kosmetika",
+        "name": "Estetinė Kosmetika",
+        "productLine": "health_and_beauty",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/estetine-kosmetika",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67320834cc36c632963392ae"
+      },
+      "stableKey": "estetine-kosmetika|6a5b37d0349989052ddfe045",
+      "key": "venue.promotions:6a5b37d0349989052ddfe045",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a5b37d0349989052ddfe045",
+      "text": "5 € off",
+      "amount": 5,
+      "amountType": "money",
+      "amountLabel": "5 EUR",
+      "category": "money",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 7005,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5b37d0349989052ddfe045",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "5 € off",
+        "variant": "discount"
+      }
+    }
+  ],
   "interestingDisappeared": [],
-  "newInteresting": [],
+  "newInteresting": [
+    {
+      "venue": {
+        "id": "699462b7e86be0dbaddc3c7b",
+        "slug": "du-kebabai",
+        "name": "Du Kebabai",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/du-kebabai",
+        "imageUrl": "https://imageproxy.wolt.com/assets/69a162e396d75d61e246da73"
+      },
+      "stableKey": "du-kebabai|6a37115e4391212ba6fa2ba2",
+      "key": "venue.promotions:6a37115e4391212ba6fa2ba2",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a37115e4391212ba6fa2ba2",
+      "text": "5 € off",
+      "amount": 5,
+      "amountType": "money",
+      "amountLabel": "5 EUR",
+      "category": "money",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 7005,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a37115e4391212ba6fa2ba2",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "5 € off",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "63d39f33fc498380f20986a5",
+        "slug": "estetine-kosmetika",
+        "name": "Estetinė Kosmetika",
+        "productLine": "health_and_beauty",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/estetine-kosmetika",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67320834cc36c632963392ae"
+      },
+      "stableKey": "estetine-kosmetika|6a5b37d0349989052ddfe045",
+      "key": "venue.promotions:6a5b37d0349989052ddfe045",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a5b37d0349989052ddfe045",
+      "text": "5 € off",
+      "amount": 5,
+      "amountType": "money",
+      "amountLabel": "5 EUR",
+      "category": "money",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 7005,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5b37d0349989052ddfe045",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "5 € off",
+        "variant": "discount"
+      }
+    }
+  ],
   "endedNotified": [],
   "notifiedSummary": {
-    "newInteresting": 0,
+    "newInteresting": 2,
     "endedNotified": 0
   }
 }

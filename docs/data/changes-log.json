@@ -1,5 +1,78 @@
 [
   {
+    "generatedAt": "2026-07-19T10:30:52.165Z",
+    "previousGeneratedAt": "2026-07-17T16:33:27.450Z",
+    "appeared": 6,
+    "disappeared": 11,
+    "interestingAppeared": 2,
+    "notifiedNew": 2,
+    "notifiedEnded": 0,
+    "fetchError": null,
+    "interesting": [
+      {
+        "venue": {
+          "id": "699462b7e86be0dbaddc3c7b",
+          "slug": "du-kebabai",
+          "name": "Du Kebabai",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/vilnius/restaurant/du-kebabai",
+          "imageUrl": "https://imageproxy.wolt.com/assets/69a162e396d75d61e246da73"
+        },
+        "stableKey": "du-kebabai|6a37115e4391212ba6fa2ba2",
+        "key": "venue.promotions:6a37115e4391212ba6fa2ba2",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a37115e4391212ba6fa2ba2",
+        "text": "5 € off",
+        "amount": 5,
+        "amountType": "money",
+        "amountLabel": "5 EUR",
+        "category": "money",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 7005,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a37115e4391212ba6fa2ba2",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "5 € off",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "63d39f33fc498380f20986a5",
+          "slug": "estetine-kosmetika",
+          "name": "Estetinė Kosmetika",
+          "productLine": "health_and_beauty",
+          "link": "https://wolt.com/en/ltu/vilnius/venue/estetine-kosmetika",
+          "imageUrl": "https://imageproxy.wolt.com/assets/67320834cc36c632963392ae"
+        },
+        "stableKey": "estetine-kosmetika|6a5b37d0349989052ddfe045",
+        "key": "venue.promotions:6a5b37d0349989052ddfe045",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a5b37d0349989052ddfe045",
+        "text": "5 € off",
+        "amount": 5,
+        "amountType": "money",
+        "amountLabel": "5 EUR",
+        "category": "money",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 7005,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a5b37d0349989052ddfe045",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "5 € off",
+          "variant": "discount"
+        }
+      }
+    ],
+    "ended": []
+  },
+  {
     "generatedAt": "2026-07-17T16:33:27.450Z",
     "previousGeneratedAt": "2026-07-17T14:44:24.237Z",
     "appeared": 7,
