@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-07-19T10:30:52.165Z",
+  "updatedAt": "2026-07-19T10:42:01.163Z",
   "activeOffers": [
     {
       "stableKey": "busy-beet-vilnius|6a3ce6e99cb16c3d9b78cb13",
       "firstNotifiedAt": "2026-07-01T09:30:27.013Z",
-      "lastSeenAt": "2026-07-19T10:30:52.165Z",
+      "lastSeenAt": "2026-07-19T10:42:01.163Z",
       "venue": {
         "id": "63da6c787921e59fa16c9e84",
         "slug": "busy-beet-vilnius",
@@ -23,7 +23,7 @@
     {
       "stableKey": "du-kebabai|6a37115e4391212ba6fa2ba2",
       "firstNotifiedAt": "2026-07-19T10:30:52.165Z",
-      "lastSeenAt": "2026-07-19T10:30:52.165Z",
+      "lastSeenAt": "2026-07-19T10:42:01.163Z",
       "venue": {
         "id": "699462b7e86be0dbaddc3c7b",
         "slug": "du-kebabai",
@@ -42,7 +42,7 @@
     {
       "stableKey": "estetine-kosmetika|6a5b37d0349989052ddfe045",
       "firstNotifiedAt": "2026-07-19T10:30:52.165Z",
-      "lastSeenAt": "2026-07-19T10:30:52.165Z",
+      "lastSeenAt": "2026-07-19T10:42:01.163Z",
       "venue": {
         "id": "63d39f33fc498380f20986a5",
         "slug": "estetine-kosmetika",
@@ -61,7 +61,7 @@
     {
       "stableKey": "ilunch-rinktines-g|6a3ce6e99cb16c3d9b78cb13",
       "firstNotifiedAt": "2026-07-15T08:19:21.671Z",
-      "lastSeenAt": "2026-07-19T10:30:52.165Z",
+      "lastSeenAt": "2026-07-19T10:42:01.163Z",
       "venue": {
         "id": "5d99bfae5996759e17cc15b3",
         "slug": "ilunch-rinktines-g",
@@ -80,7 +80,7 @@
     {
       "stableKey": "ilunch-gostauto-g|6a3ce6e99cb16c3d9b78cb13",
       "firstNotifiedAt": "2026-07-14T12:22:24.975Z",
-      "lastSeenAt": "2026-07-19T10:30:52.165Z",
+      "lastSeenAt": "2026-07-19T10:42:01.163Z",
       "venue": {
         "id": "5d4a7f07ec1c3972a68e89b6",
         "slug": "ilunch-gostauto-g",
@@ -99,7 +99,7 @@
     {
       "stableKey": "noon-hero|6a3ce6e99cb16c3d9b78cb13",
       "firstNotifiedAt": "2026-07-01T09:30:27.013Z",
-      "lastSeenAt": "2026-07-19T10:30:52.165Z",
+      "lastSeenAt": "2026-07-19T10:42:01.163Z",
       "venue": {
         "id": "695cfc275c37cafcbc21f875",
         "slug": "noon-hero",
@@ -118,7 +118,7 @@
     {
       "stableKey": "noon-mokslininku-g|6a3ce6e99cb16c3d9b78cb13",
       "firstNotifiedAt": "2026-07-01T09:30:27.013Z",
-      "lastSeenAt": "2026-07-19T10:30:52.165Z",
+      "lastSeenAt": "2026-07-19T10:42:01.163Z",
       "venue": {
         "id": "681b0451e1b6dbaf32bd7370",
         "slug": "noon-mokslininku-g",
@@ -137,7 +137,7 @@
     {
       "stableKey": "noon-sky-office|6a3ce6e99cb16c3d9b78cb13",
       "firstNotifiedAt": "2026-07-01T09:30:27.013Z",
-      "lastSeenAt": "2026-07-19T10:30:52.165Z",
+      "lastSeenAt": "2026-07-19T10:42:01.163Z",
       "venue": {
         "id": "66f1457741d7232f6e9b4de0",
         "slug": "noon-sky-office",
@@ -156,7 +156,7 @@
     {
       "stableKey": "noon-vc-meraki|6a3ce6e99cb16c3d9b78cb13",
       "firstNotifiedAt": "2026-07-01T09:30:27.013Z",
-      "lastSeenAt": "2026-07-19T10:30:52.165Z",
+      "lastSeenAt": "2026-07-19T10:42:01.163Z",
       "venue": {
         "id": "672b73bdabff246331fe0aac",
         "slug": "noon-vc-meraki",
@@ -175,7 +175,7 @@
     {
       "stableKey": "zenbowl|6a465496ef3a256d54cfcbe9",
       "firstNotifiedAt": "2026-07-02T14:30:26.310Z",
-      "lastSeenAt": "2026-07-19T10:30:52.165Z",
+      "lastSeenAt": "2026-07-19T10:42:01.163Z",
       "venue": {
         "id": "6a2656c72f76c2ba37d837f3",
         "slug": "zenbowl",
