@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-19T10:42:01.163Z",
+  "generatedAt": "2026-07-19T10:42:43.548Z",
   "city": {
     "id": "ltu/vilnius",
     "key": "ltu-vilnius",
@@ -85166,15 +85166,15 @@
         "volume": 14
       },
       "deliveryPrice": "€0.00",
-      "deliveryPriceInt": 0,
-      "estimateRange": "20-30",
+      "deliveryPriceInt": null,
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -85201,25 +85201,6 @@
             "text": "0€ delivery for new users",
             "variant": "discount"
           }
-        },
-        {
-          "key": "venue.badges_v2:0€ delivery for new users",
-          "sourcePath": "venue.badges_v2",
-          "campaignId": null,
-          "text": "0€ delivery for new users",
-          "amount": 0,
-          "amountType": "money",
-          "amountLabel": "0 EUR",
-          "category": "new-user-delivery",
-          "isDeliveryRelated": true,
-          "isUtilityBadge": false,
-          "score": -1,
-          "variant": "primary",
-          "raw": {
-            "icon": "coupon-fill",
-            "text": "0€ delivery for new users",
-            "variant": "primary"
-          }
         }
       ],
       "bestDiscount": null,
@@ -85239,13 +85220,7 @@
             "variant": "discount"
           }
         ],
-        "badges_v2": [
-          {
-            "icon": "coupon-fill",
-            "text": "0€ delivery for new users",
-            "variant": "primary"
-          }
-        ],
+        "badges_v2": [],
         "promotions_for_telemetry": []
       }
     },
