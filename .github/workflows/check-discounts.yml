@@ -12,6 +12,14 @@ on:
         required: false
         default: false
         type: boolean
+      runner:
+        description: "Execution runner: residential Windows by default, Netcup as fallback"
+        required: false
+        default: "windows"
+        type: choice
+        options:
+          - windows
+          - netcup
   repository_dispatch:
     types: [wolt-discount-monitor]
 
@@ -24,7 +32,11 @@ concurrency:
 
 jobs:
   check:
-    runs-on: [self-hosted, Windows, X64, wolt-residential]
+    runs-on:
+      - self-hosted
+      - X64
+      - wolt
+      - ${{ (github.event.inputs.runner || github.event.client_payload.runner || 'windows') == 'netcup' && 'Linux' || 'Windows' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -48,7 +60,8 @@ jobs:
           WOLT_ALL_CITIES: ${{ github.event.inputs.all_cities || github.event.client_payload.all_cities || 'false' }}
         run: node src/check-discounts.mjs
 
-      - name: Commit updated data
+      - name: Commit updated data (Windows)
+        if: runner.os == 'Windows'
         shell: powershell
         run: |
           git config user.name "github-actions[bot]"
@@ -61,3 +74,17 @@ jobs:
           } else {
             Write-Host "No data changes to commit."
           }
+
+      - name: Commit updated data (Linux fallback)
+        if: runner.os == 'Linux'
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- docs/data
+          if ! git diff --cached --quiet; then
+            git commit -m "Update Wolt discount monitor data"
+            git push
+          else
+            echo "No data changes to commit."
+          fi

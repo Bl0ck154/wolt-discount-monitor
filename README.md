@@ -224,18 +224,27 @@ Non-Vilnius cities are cached and displayed but skipped by Telegram.
 
 Workflow: `.github/workflows/check-discounts.yml`
 
-- Exact scheduled runs should be triggered by an external cron via
-  `repository_dispatch`. GitHub's built-in `schedule` event is intentionally not
-  used because it can be delayed.
+- Exact scheduled runs are triggered by external Netcup cron through
+  `scripts/dispatch-check.sh`; GitHub's built-in schedule is intentionally unused.
+- The residential Windows runner is primary. The Netcup Linux runner is selected
+  only when Windows is offline and a Netcup Wolt preflight returns HTTP 200.
 - Manual runs accept:
   - `cities`: comma-separated city ids, e.g. `deu/berlin,jpn/tokyo`
   - `all_cities`: large run over the full catalog
-- The job uses a self-hosted runner because Wolt currently returns `429 Too Many
+  - `runner`: `windows` (default) or `netcup`
+- The job uses self-hosted runners because Wolt currently returns `429 Too Many
   Requests` from GitHub-hosted runner IP ranges.
 
 ```yaml
-runs-on: [self-hosted, Linux, X64, wolt]
+runs-on:
+  - self-hosted
+  - X64
+  - wolt
+  - Windows # or Linux when runner=netcup
 ```
+
+See `OPERATIONS.md` for production topology, fallback behavior, recovery, and
+incident diagnostics.
 
 Useful commands:
 
@@ -244,41 +253,18 @@ gh workflow run "Update Wolt discount monitor" --repo Bl0ck154/wolt-discount-mon
 gh run list --repo Bl0ck154/wolt-discount-monitor --workflow "Update Wolt discount monitor" --limit 5
 ```
 
-External cron example, using the machine's local timezone. Current production
-schedule uses `Europe/Vilnius`:
+Production cron uses `Europe/Vilnius` and invokes the runner-aware dispatcher:
 
 ```cron
 CRON_TZ=Europe/Vilnius
-15 10 * * 1 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
-6 12 * * 1 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
-44 14 * * 1 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
-23 17 * * 1 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
-10 19 * * 1 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
-19 10 * * 2-4 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
-49 11 * * 2-4 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
-22 14 * * 2-4 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
-29 17 * * 2-4 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
-11 19 * * 2-4 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
-18 10 * * 5 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
-54 11 * * 5 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
-33 14 * * 5 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
-44 17 * * 5 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
-33 19 * * 5 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
-33 10 * * 6,0 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
-2 12 * * 6,0 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
-11 14 * * 6,0 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
-22 17 * * 6,0 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
-11 20 * * 6,0 cd /path/to/wolt-discount-monitor && GH_TOKEN=... ./scripts/trigger-wolt-monitor.sh
+15 10 * * 1 /opt/wolt-discount-monitor/scripts/dispatch-check.sh ltu/vilnius >> /var/log/wolt-monitor-cron.log 2>&1
+# The remaining production entries use the same command at the documented times.
 ```
 
-The dispatch helper accepts optional variables:
+The complete production schedule is maintained in `OPERATIONS.md`.
 
-```text
-WOLT_CITIES=ltu/vilnius
-WOLT_ALL_CITIES=false
-GITHUB_OWNER=Bl0ck154
-GITHUB_REPO=wolt-discount-monitor
-```
+The production dispatcher uses the authenticated `gh` CLI on Netcup and accepts
+an optional city argument, defaulting to `ltu/vilnius`.
 
 GitHub Pages is deployed by `.github/workflows/deploy-pages.yml` from the
 `docs/` folder after pushes and successful updater runs.
