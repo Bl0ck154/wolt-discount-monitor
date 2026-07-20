@@ -1,21 +1,953 @@
 {
-  "generatedAt": "2026-07-19T17:11:29.101Z",
-  "previousGeneratedAt": "2026-07-19T14:22:25.459Z",
+  "generatedAt": "2026-07-20T07:15:36.161Z",
+  "previousGeneratedAt": "2026-07-19T17:11:29.101Z",
   "counts": {
-    "restaurantsUniqueVenues": 823,
-    "promotionsUniqueVenues": 1359,
+    "restaurantsUniqueVenues": 822,
+    "promotionsUniqueVenues": 1355,
     "productLines": {
       "alcohol": 80,
       "florist": 69,
       "general_merchandise": 45,
-      "grocery": 223,
+      "grocery": 220,
       "health_and_beauty": 42,
       "pet_supply": 57,
       "pharmacy": 20,
-      "restaurant": 823
+      "restaurant": 822
     }
   },
   "appeared": [
+    {
+      "venue": {
+        "id": "65f859d1ec07f9df3736252b",
+        "slug": "ilunch-konstitucijos-pr-18b",
+        "name": "iLunch (Konstitucijos pr. 18B)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-konstitucijos-pr-18b",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+      },
+      "stableKey": "ilunch-konstitucijos-pr-18b|6a5a0ed5b1b2cabca0bb1189",
+      "key": "venue.promotions:6a5a0ed5b1b2cabca0bb1189",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+      "text": "Basket Discount 10%",
+      "amount": 10,
+      "amountType": "percent",
+      "amountLabel": "10%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6010,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket Discount 10%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "612f3ecab0894b7772df42a1",
+        "slug": "ilunch-lvivo-g",
+        "name": "iLunch (Lvivo g. 37)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-lvivo-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+      },
+      "stableKey": "ilunch-lvivo-g|6a5a0ed5b1b2cabca0bb1189",
+      "key": "venue.promotions:6a5a0ed5b1b2cabca0bb1189",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+      "text": "Basket Discount 10%",
+      "amount": 10,
+      "amountType": "percent",
+      "amountLabel": "10%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6010,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket Discount 10%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "64fae5cd1ec293219f242d7c",
+        "slug": "ilunch-mokslininku-g",
+        "name": "iLunch (Mokslininkų g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-mokslininku-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+      },
+      "stableKey": "ilunch-mokslininku-g|6a5a0ed5b1b2cabca0bb1189",
+      "key": "venue.promotions_for_telemetry:6a5a0ed5b1b2cabca0bb1189",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+      "text": "Basket Discount 10%",
+      "amount": 10,
+      "amountType": "percent",
+      "amountLabel": "10%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6010,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket Discount 10%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "670795c27f250e4b8987ed07",
+        "slug": "ilunch-ozo-g",
+        "name": "iLunch (Ozo g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-ozo-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+      },
+      "stableKey": "ilunch-ozo-g|6a5a0ed5b1b2cabca0bb1189",
+      "key": "venue.promotions_for_telemetry:6a5a0ed5b1b2cabca0bb1189",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+      "text": "Basket Discount 10%",
+      "amount": 10,
+      "amountType": "percent",
+      "amountLabel": "10%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6010,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket Discount 10%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "63b427674fac2a6fab02bc65",
+        "slug": "ilunch-u219-vilnius",
+        "name": "iLunch (U219)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-u219-vilnius",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+      },
+      "stableKey": "ilunch-u219-vilnius|6a5a0ed5b1b2cabca0bb1189",
+      "key": "venue.promotions_for_telemetry:6a5a0ed5b1b2cabca0bb1189",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+      "text": "Basket Discount 10%",
+      "amount": 10,
+      "amountType": "percent",
+      "amountLabel": "10%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6010,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket Discount 10%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "658405d70970861828b83306",
+        "slug": "ilunch",
+        "name": "iLunch (Verkių g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+      },
+      "stableKey": "ilunch|6a5a0ed5b1b2cabca0bb1189",
+      "key": "venue.promotions_for_telemetry:6a5a0ed5b1b2cabca0bb1189",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+      "text": "Basket Discount 10%",
+      "amount": 10,
+      "amountType": "percent",
+      "amountLabel": "10%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6010,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket Discount 10%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "649d788c3a308c6cae7d8b28",
+        "slug": "ilunch-vc-highway-savanoriu-pr",
+        "name": "iLunch VC Highway (Savanorių pr.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-vc-highway-savanoriu-pr",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+      },
+      "stableKey": "ilunch-vc-highway-savanoriu-pr|6a5a0ed5b1b2cabca0bb1189",
+      "key": "venue.promotions_for_telemetry:6a5a0ed5b1b2cabca0bb1189",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+      "text": "Basket Discount 10%",
+      "amount": 10,
+      "amountType": "percent",
+      "amountLabel": "10%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6010,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket Discount 10%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5ee9febed40ef4092c0ba828",
+        "slug": "ilunch-vc-k29-konstitucijos-pr",
+        "name": "iLunch VC K29 (Konstitucijos pr.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-vc-k29-konstitucijos-pr",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+      },
+      "stableKey": "ilunch-vc-k29-konstitucijos-pr|6a5a0ed5b1b2cabca0bb1189",
+      "key": "venue.promotions:6a5a0ed5b1b2cabca0bb1189",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+      "text": "Basket Discount 10%",
+      "amount": 10,
+      "amountType": "percent",
+      "amountLabel": "10%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6010,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket Discount 10%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5d9ed25ee872b707bd908374",
+        "slug": "ilunch-saltoniskiu-g",
+        "name": "iLunch VC LINK (Saltoniškių g. 9B)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-saltoniskiu-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+      },
+      "stableKey": "ilunch-saltoniskiu-g|6a5a0ed5b1b2cabca0bb1189",
+      "key": "venue.promotions:6a5a0ed5b1b2cabca0bb1189",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+      "text": "Basket Discount 10%",
+      "amount": 10,
+      "amountType": "percent",
+      "amountLabel": "10%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6010,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket Discount 10%",
+        "variant": "discount"
+      }
+    }
+  ],
+  "disappeared": [
+    {
+      "venue": {
+        "id": "66ed7e2670de741a7e01f453",
+        "slug": "antakalnio-kebabai",
+        "name": "Antakalnio kebabai",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/antakalnio-kebabai",
+        "imageUrl": "https://imageproxy.wolt.com/assets/679b3ea9a688f466affe2f97"
+      },
+      "stableKey": "antakalnio-kebabai|6a268a666b577434b4534207",
+      "key": "venue.promotions:6a268a666b577434b4534207",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a268a666b577434b4534207",
+      "text": "2 x Coca-Cola = 0€ delivery",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a268a666b577434b4534207",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "2 x Coca-Cola = 0€ delivery",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5e78e8c76cb20e124c53899d",
+        "slug": "archies-burger",
+        "name": "Archie's Burger (BIG)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/archies-burger",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fa1149445354de03d4c"
+      },
+      "stableKey": "archies-burger|6a268a666b577434b4534207",
+      "key": "venue.promotions:6a268a666b577434b4534207",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a268a666b577434b4534207",
+      "text": "2 x Coca-Cola = 0€ delivery",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a268a666b577434b4534207",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "2 x Coca-Cola = 0€ delivery",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "61a89a04a638ed808e95ef59",
+        "slug": "archies-burger-europa",
+        "name": "Archie's Burger (Europa)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/archies-burger-europa",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67320882e24e8e5c114db18e"
+      },
+      "stableKey": "archies-burger-europa|6a268a666b577434b4534207",
+      "key": "venue.promotions:6a268a666b577434b4534207",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a268a666b577434b4534207",
+      "text": "2 x Coca-Cola = 0€ delivery",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a268a666b577434b4534207",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "2 x Coca-Cola = 0€ delivery",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "64b53cd0d1d4120f7a77acf7",
+        "slug": "azerai-vokieciu-g",
+        "name": "Azerai (Vokiečių g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/azerai-vokieciu-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67335f5c827209684f08f918"
+      },
+      "stableKey": "azerai-vokieciu-g|6a268a666b577434b4534207",
+      "key": "venue.promotions:6a268a666b577434b4534207",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a268a666b577434b4534207",
+      "text": "2 x Coca-Cola = 0€ delivery",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a268a666b577434b4534207",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "2 x Coca-Cola = 0€ delivery",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "66a7998bef1bfb319f459ca3",
+        "slug": "bijola-priegliaus-g",
+        "name": "Bijola (Priegliaus g.)",
+        "productLine": "grocery",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/bijola-priegliaus-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/679a357272cfd659ee801861"
+      },
+      "stableKey": "bijola-priegliaus-g|6a2bb9ab2579f27f0d5e87c1",
+      "key": "venue.promotions:6a2bb9ab2579f27f0d5e87c1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bb9ab2579f27f0d5e87c1",
+      "text": "0€ delivery for new users",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "new-user-delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bb9ab2579f27f0d5e87c1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0€ delivery for new users",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "633568d9e49d78da045f41c9",
+        "slug": "dodo-pizza-antakalnio-g",
+        "name": "Dodo Pizza (Antakalnio g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/dodo-pizza-antakalnio-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/673208e963ae2357e7f7c954"
+      },
+      "stableKey": "dodo-pizza-antakalnio-g|6a268a666b577434b4534207",
+      "key": "venue.promotions:6a268a666b577434b4534207",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a268a666b577434b4534207",
+      "text": "2 x Coca-Cola = 0€ delivery",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a268a666b577434b4534207",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "2 x Coca-Cola = 0€ delivery",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "63c56b3b41dc5e8dde3651b8",
+        "slug": "dominos-pizza-justiniskiu-g",
+        "name": "Domino's Pizza (Justiniškių g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/dominos-pizza-justiniskiu-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/673208c49eaa2e574dd757b5"
+      },
+      "stableKey": "dominos-pizza-justiniskiu-g|6a268a666b577434b4534207",
+      "key": "venue.promotions:6a268a666b577434b4534207",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a268a666b577434b4534207",
+      "text": "2 x Coca-Cola = 0€ delivery",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a268a666b577434b4534207",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "2 x Coca-Cola = 0€ delivery",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "63c56a4bf57e8ececadd8b6b",
+        "slug": "dominos-pizza-linkmenu-g",
+        "name": "Domino's Pizza (Linkmenų g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/dominos-pizza-linkmenu-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/673214616da31462759194b3"
+      },
+      "stableKey": "dominos-pizza-linkmenu-g|6a268a666b577434b4534207",
+      "key": "venue.promotions:6a268a666b577434b4534207",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a268a666b577434b4534207",
+      "text": "2 x Coca-Cola = 0€ delivery",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a268a666b577434b4534207",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "2 x Coca-Cola = 0€ delivery",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "63c569e52516dde2cbe09229",
+        "slug": "dominos-pizza-mandarinas",
+        "name": "Domino's Pizza (Mandarinas)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/dominos-pizza-mandarinas",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67331c9b308c8149ae833fe0"
+      },
+      "stableKey": "dominos-pizza-mandarinas|6a268a666b577434b4534207",
+      "key": "venue.promotions:6a268a666b577434b4534207",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a268a666b577434b4534207",
+      "text": "2 x Coca-Cola = 0€ delivery",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a268a666b577434b4534207",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "2 x Coca-Cola = 0€ delivery",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "63bbf2cd9994cf600cf3cb03",
+        "slug": "dominos-pizza-pilaite",
+        "name": "Domino's Pizza (Pilaitė)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/dominos-pizza-pilaite",
+        "imageUrl": "https://imageproxy.wolt.com/assets/673208af1aa2ca295a5e354e"
+      },
+      "stableKey": "dominos-pizza-pilaite|6a268a666b577434b4534207",
+      "key": "venue.promotions:6a268a666b577434b4534207",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a268a666b577434b4534207",
+      "text": "2 x Coca-Cola = 0€ delivery",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a268a666b577434b4534207",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "2 x Coca-Cola = 0€ delivery",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "649156ed1659e051d0b8a0de",
+        "slug": "dominos-pizza-zemaite",
+        "name": "Domino's Pizza (Žemaitė)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/dominos-pizza-zemaite",
+        "imageUrl": "https://imageproxy.wolt.com/assets/673208e43df8a116fc6572fa"
+      },
+      "stableKey": "dominos-pizza-zemaite|6a268a666b577434b4534207",
+      "key": "venue.promotions:6a268a666b577434b4534207",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a268a666b577434b4534207",
+      "text": "2 x Coca-Cola = 0€ delivery",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a268a666b577434b4534207",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "2 x Coca-Cola = 0€ delivery",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "63c56abd40d074ec8b87b189",
+        "slug": "dominos-pizza-zirmunu-g",
+        "name": "Domino's Pizza (Žirmūnų g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/dominos-pizza-zirmunu-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6732147476049a21845775a0"
+      },
+      "stableKey": "dominos-pizza-zirmunu-g|6a268a666b577434b4534207",
+      "key": "venue.promotions:6a268a666b577434b4534207",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a268a666b577434b4534207",
+      "text": "2 x Coca-Cola = 0€ delivery",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a268a666b577434b4534207",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "2 x Coca-Cola = 0€ delivery",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "63d39f33fc498380f20986a5",
+        "slug": "estetine-kosmetika",
+        "name": "Estetinė Kosmetika",
+        "productLine": "health_and_beauty",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/estetine-kosmetika",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67320834cc36c632963392ae"
+      },
+      "stableKey": "estetine-kosmetika|6a5b37d0349989052ddfe045",
+      "key": "venue.promotions:6a5b37d0349989052ddfe045",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a5b37d0349989052ddfe045",
+      "text": "5 € off",
+      "amount": 5,
+      "amountType": "money",
+      "amountLabel": "5 EUR",
+      "category": "money",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 7005,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5b37d0349989052ddfe045",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "5 € off",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5a958030839d80000c5a104e",
+        "slug": "kebab-inn-siaures-miestelis",
+        "name": "Kebab inn (Šiaurės miestelis)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kebab-inn-siaures-miestelis",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6732083639260268ebd24f39"
+      },
+      "stableKey": "kebab-inn-siaures-miestelis|6a268a666b577434b4534207",
+      "key": "venue.promotions:6a268a666b577434b4534207",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a268a666b577434b4534207",
+      "text": "2 x Coca-Cola = 0€ delivery",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a268a666b577434b4534207",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "2 x Coca-Cola = 0€ delivery",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "685d2cd29df8286ecef2d48e",
+        "slug": "kfc-akropolis",
+        "name": "KFC (Akropolis)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-akropolis",
+        "imageUrl": "https://imageproxy.wolt.com/assets/685d2d0a614bb013e9319b62"
+      },
+      "stableKey": "kfc-akropolis|6a54aa8867391d157841fae5",
+      "key": "venue.promotions_for_telemetry:6a54aa8867391d157841fae5",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a54aa8867391d157841fae5",
+      "text": "-20% Buckets",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 1520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a54aa8867391d157841fae5",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-20% Buckets",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "693ff6852524d6ca70c0c79b",
+        "slug": "kfc-cup",
+        "name": "KFC (CUP)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-cup",
+        "imageUrl": "https://imageproxy.wolt.com/assets/693ff6a9412f4b47cf4c30fc"
+      },
+      "stableKey": "kfc-cup|6a54aa8867391d157841fae5",
+      "key": "venue.promotions_for_telemetry:6a54aa8867391d157841fae5",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a54aa8867391d157841fae5",
+      "text": "-20% Buckets",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 1520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a54aa8867391d157841fae5",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-20% Buckets",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5b1d572ec18b47000b6b22e0",
+        "slug": "kfc",
+        "name": "KFC (Gedimino pr.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fbc308c8149ae83548b"
+      },
+      "stableKey": "kfc|6a54aa8867391d157841fae5",
+      "key": "venue.promotions_for_telemetry:6a54aa8867391d157841fae5",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a54aa8867391d157841fae5",
+      "text": "-20% Buckets",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 1520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a54aa8867391d157841fae5",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-20% Buckets",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "655cc794b29932b3fcf99ff8",
+        "slug": "kfc-mandarinas",
+        "name": "KFC (Mandarinas)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-mandarinas",
+        "imageUrl": "https://imageproxy.wolt.com/assets/673208e6d775830ca1efcd77"
+      },
+      "stableKey": "kfc-mandarinas|6a54aa8867391d157841fae5",
+      "key": "venue.promotions_for_telemetry:6a54aa8867391d157841fae5",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a54aa8867391d157841fae5",
+      "text": "-20% Buckets",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 1520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a54aa8867391d157841fae5",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-20% Buckets",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5b4489fc009fa7000e843af2",
+        "slug": "kfc-ozas",
+        "name": "KFC (Ozas)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-ozas",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fd8ac5de37683d5e0c1"
+      },
+      "stableKey": "kfc-ozas|6a54aa8867391d157841fae5",
+      "key": "venue.promotions_for_telemetry:6a54aa8867391d157841fae5",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a54aa8867391d157841fae5",
+      "text": "-20% Buckets",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 1520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a54aa8867391d157841fae5",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-20% Buckets",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "616eb3a33c67e1eb00ab3d19",
+        "slug": "kfc-pilaite",
+        "name": "KFC (Pilaitė)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-pilaite",
+        "imageUrl": "https://imageproxy.wolt.com/assets/673214e5e34d3d02aa5a34ec"
+      },
+      "stableKey": "kfc-pilaite|6a54aa8867391d157841fae5",
+      "key": "venue.promotions_for_telemetry:6a54aa8867391d157841fae5",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a54aa8867391d157841fae5",
+      "text": "-20% Buckets",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 1520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a54aa8867391d157841fae5",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-20% Buckets",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "684c110176484b5f23e5413b",
+        "slug": "kfc-stotis",
+        "name": "KFC (Stotis)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/kfc-stotis",
+        "imageUrl": "https://imageproxy.wolt.com/assets/684c11478baf0fa6c3998f21"
+      },
+      "stableKey": "kfc-stotis|6a54aa8867391d157841fae5",
+      "key": "venue.promotions_for_telemetry:6a54aa8867391d157841fae5",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a54aa8867391d157841fae5",
+      "text": "-20% Buckets",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 1520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a54aa8867391d157841fae5",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "-20% Buckets",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6981b724bd4a6824c9ef5e15",
+        "slug": "la-fresca-vivulskio",
+        "name": "La Fresca",
+        "productLine": "grocery",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/la-fresca-vivulskio",
+        "imageUrl": "https://imageproxy.wolt.com/assets/69831eece4940faa6a4f20cc"
+      },
+      "stableKey": "la-fresca-vivulskio|6a2bb9ab2579f27f0d5e87c1",
+      "key": "venue.promotions:6a2bb9ab2579f27f0d5e87c1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bb9ab2579f27f0d5e87c1",
+      "text": "0€ delivery for new users",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "new-user-delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bb9ab2579f27f0d5e87c1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0€ delivery for new users",
+        "variant": "discount"
+      }
+    },
     {
       "venue": {
         "id": "61fd25d89e6ce7e36e0328a5",
@@ -225,15 +1157,877 @@
         "text": "-50% off selected item",
         "variant": "discount"
       }
+    },
+    {
+      "venue": {
+        "id": "698c7c8c506d3bf3f88bc040",
+        "slug": "mr-taco-gedimino-pr",
+        "name": "Mr. Taco",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/mr-taco-gedimino-pr",
+        "imageUrl": "https://imageproxy.wolt.com/assets/699d4faeea4a83292eeec395"
+      },
+      "stableKey": "mr-taco-gedimino-pr|6a2bb9ab2579f27f0d5e87c1",
+      "key": "venue.promotions:6a2bb9ab2579f27f0d5e87c1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bb9ab2579f27f0d5e87c1",
+      "text": "0€ delivery for new users",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "new-user-delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bb9ab2579f27f0d5e87c1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0€ delivery for new users",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "59bbe44e83076f1d930ac28a",
+        "slug": "no-forks-mexican-grill",
+        "name": "No Forks Mexican Grill (Vokiečių g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/no-forks-mexican-grill",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fc2c59f3326de5433e0"
+      },
+      "stableKey": "no-forks-mexican-grill|6a268a666b577434b4534207",
+      "key": "venue.promotions:6a268a666b577434b4534207",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a268a666b577434b4534207",
+      "text": "2 x Coca-Cola = 0€ delivery",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a268a666b577434b4534207",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "2 x Coca-Cola = 0€ delivery",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "674ec64b29589b48cb8b1e0a",
+        "slug": "osh-kalvariju-g",
+        "name": "OSH by Ugruzina (Kalvarijų g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/osh-kalvariju-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/68485943d31f00f9026c7e9b"
+      },
+      "stableKey": "osh-kalvariju-g|6a268a666b577434b4534207",
+      "key": "venue.promotions:6a268a666b577434b4534207",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a268a666b577434b4534207",
+      "text": "2 x Coca-Cola = 0€ delivery",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a268a666b577434b4534207",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "2 x Coca-Cola = 0€ delivery",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "59c20d038903136dd383f13b",
+        "slug": "piano-piano",
+        "name": "Piano Piano (Vilniaus g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/piano-piano",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fac149445354de03e9f"
+      },
+      "stableKey": "piano-piano|696f72829a22d46087295fde",
+      "key": "venue.promotions_for_telemetry:696f72829a22d46087295fde",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "696f72829a22d46087295fde",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "696f72829a22d46087295fde",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "655f1b691e80e7451d012e35",
+        "slug": "smash-by-mama-sake-paeis",
+        "name": "Smash by Mama sakė paeis",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/smash-by-mama-sake-paeis",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6732083526e644617b063d43"
+      },
+      "stableKey": "smash-by-mama-sake-paeis|6a268a666b577434b4534207",
+      "key": "venue.promotions:6a268a666b577434b4534207",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a268a666b577434b4534207",
+      "text": "2 x Coca-Cola = 0€ delivery",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a268a666b577434b4534207",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "2 x Coca-Cola = 0€ delivery",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "69c3e2dd68d892edef07a412",
+        "slug": "smashed-by-archies-big",
+        "name": "Smashed by Archie's (BIG)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/smashed-by-archies-big",
+        "imageUrl": "https://imageproxy.wolt.com/assets/69e86c713b8154f78bb7b0f3"
+      },
+      "stableKey": "smashed-by-archies-big|6a268a666b577434b4534207",
+      "key": "venue.promotions:6a268a666b577434b4534207",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a268a666b577434b4534207",
+      "text": "2 x Coca-Cola = 0€ delivery",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a268a666b577434b4534207",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "2 x Coca-Cola = 0€ delivery",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "6971f3e22e82df828790a76f",
+        "slug": "thrive-sporto-alus-meistru-g",
+        "name": "Thrive - nealkoholinis sporto alus (Meistrų g.)",
+        "productLine": "grocery",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/thrive-sporto-alus-meistru-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/69722a449b938fe622d87c62"
+      },
+      "stableKey": "thrive-sporto-alus-meistru-g|6a2bb9ab2579f27f0d5e87c1",
+      "key": "venue.promotions:6a2bb9ab2579f27f0d5e87c1",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a2bb9ab2579f27f0d5e87c1",
+      "text": "0€ delivery for new users",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "new-user-delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a2bb9ab2579f27f0d5e87c1",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0€ delivery for new users",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "61b31cd43605b75e80b54452",
+        "slug": "wow-foods-pizza",
+        "name": "WOW FOODS PIZZA (Pavilnionių g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wow-foods-pizza",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6732146124fb2f4b4b1e22b2"
+      },
+      "stableKey": "wow-foods-pizza|6a268a666b577434b4534207",
+      "key": "venue.promotions:6a268a666b577434b4534207",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a268a666b577434b4534207",
+      "text": "2 x Coca-Cola = 0€ delivery",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a268a666b577434b4534207",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "2 x Coca-Cola = 0€ delivery",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "63ca97a535782b76f7a4a997",
+        "slug": "wrap-house-svitrigailos-g",
+        "name": "Wrap House (Švitrigailos g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wrap-house-svitrigailos-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/e4290512-c7c7-4c9b-88fb-491a583bfab8/07839846-beb7-407d-a7da-e4e95a38ddd8"
+      },
+      "stableKey": "wrap-house-svitrigailos-g|6a268a666b577434b4534207",
+      "key": "venue.promotions:6a268a666b577434b4534207",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a268a666b577434b4534207",
+      "text": "2 x Coca-Cola = 0€ delivery",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a268a666b577434b4534207",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "2 x Coca-Cola = 0€ delivery",
+        "variant": "discount"
+      }
     }
   ],
-  "disappeared": [],
-  "interestingAppeared": [],
-  "interestingDisappeared": [],
-  "newInteresting": [],
-  "endedNotified": [],
+  "interestingAppeared": [
+    {
+      "venue": {
+        "id": "65f859d1ec07f9df3736252b",
+        "slug": "ilunch-konstitucijos-pr-18b",
+        "name": "iLunch (Konstitucijos pr. 18B)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-konstitucijos-pr-18b",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+      },
+      "stableKey": "ilunch-konstitucijos-pr-18b|6a5a0ed5b1b2cabca0bb1189",
+      "key": "venue.promotions:6a5a0ed5b1b2cabca0bb1189",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+      "text": "Basket Discount 10%",
+      "amount": 10,
+      "amountType": "percent",
+      "amountLabel": "10%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6010,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket Discount 10%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "612f3ecab0894b7772df42a1",
+        "slug": "ilunch-lvivo-g",
+        "name": "iLunch (Lvivo g. 37)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-lvivo-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+      },
+      "stableKey": "ilunch-lvivo-g|6a5a0ed5b1b2cabca0bb1189",
+      "key": "venue.promotions:6a5a0ed5b1b2cabca0bb1189",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+      "text": "Basket Discount 10%",
+      "amount": 10,
+      "amountType": "percent",
+      "amountLabel": "10%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6010,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket Discount 10%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "64fae5cd1ec293219f242d7c",
+        "slug": "ilunch-mokslininku-g",
+        "name": "iLunch (Mokslininkų g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-mokslininku-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+      },
+      "stableKey": "ilunch-mokslininku-g|6a5a0ed5b1b2cabca0bb1189",
+      "key": "venue.promotions_for_telemetry:6a5a0ed5b1b2cabca0bb1189",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+      "text": "Basket Discount 10%",
+      "amount": 10,
+      "amountType": "percent",
+      "amountLabel": "10%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6010,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket Discount 10%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "670795c27f250e4b8987ed07",
+        "slug": "ilunch-ozo-g",
+        "name": "iLunch (Ozo g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-ozo-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+      },
+      "stableKey": "ilunch-ozo-g|6a5a0ed5b1b2cabca0bb1189",
+      "key": "venue.promotions_for_telemetry:6a5a0ed5b1b2cabca0bb1189",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+      "text": "Basket Discount 10%",
+      "amount": 10,
+      "amountType": "percent",
+      "amountLabel": "10%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6010,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket Discount 10%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "63b427674fac2a6fab02bc65",
+        "slug": "ilunch-u219-vilnius",
+        "name": "iLunch (U219)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-u219-vilnius",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+      },
+      "stableKey": "ilunch-u219-vilnius|6a5a0ed5b1b2cabca0bb1189",
+      "key": "venue.promotions_for_telemetry:6a5a0ed5b1b2cabca0bb1189",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+      "text": "Basket Discount 10%",
+      "amount": 10,
+      "amountType": "percent",
+      "amountLabel": "10%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6010,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket Discount 10%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "658405d70970861828b83306",
+        "slug": "ilunch",
+        "name": "iLunch (Verkių g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+      },
+      "stableKey": "ilunch|6a5a0ed5b1b2cabca0bb1189",
+      "key": "venue.promotions_for_telemetry:6a5a0ed5b1b2cabca0bb1189",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+      "text": "Basket Discount 10%",
+      "amount": 10,
+      "amountType": "percent",
+      "amountLabel": "10%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6010,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket Discount 10%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "649d788c3a308c6cae7d8b28",
+        "slug": "ilunch-vc-highway-savanoriu-pr",
+        "name": "iLunch VC Highway (Savanorių pr.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-vc-highway-savanoriu-pr",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+      },
+      "stableKey": "ilunch-vc-highway-savanoriu-pr|6a5a0ed5b1b2cabca0bb1189",
+      "key": "venue.promotions_for_telemetry:6a5a0ed5b1b2cabca0bb1189",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+      "text": "Basket Discount 10%",
+      "amount": 10,
+      "amountType": "percent",
+      "amountLabel": "10%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6010,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket Discount 10%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5ee9febed40ef4092c0ba828",
+        "slug": "ilunch-vc-k29-konstitucijos-pr",
+        "name": "iLunch VC K29 (Konstitucijos pr.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-vc-k29-konstitucijos-pr",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+      },
+      "stableKey": "ilunch-vc-k29-konstitucijos-pr|6a5a0ed5b1b2cabca0bb1189",
+      "key": "venue.promotions:6a5a0ed5b1b2cabca0bb1189",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+      "text": "Basket Discount 10%",
+      "amount": 10,
+      "amountType": "percent",
+      "amountLabel": "10%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6010,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket Discount 10%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5d9ed25ee872b707bd908374",
+        "slug": "ilunch-saltoniskiu-g",
+        "name": "iLunch VC LINK (Saltoniškių g. 9B)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-saltoniskiu-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+      },
+      "stableKey": "ilunch-saltoniskiu-g|6a5a0ed5b1b2cabca0bb1189",
+      "key": "venue.promotions:6a5a0ed5b1b2cabca0bb1189",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+      "text": "Basket Discount 10%",
+      "amount": 10,
+      "amountType": "percent",
+      "amountLabel": "10%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6010,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket Discount 10%",
+        "variant": "discount"
+      }
+    }
+  ],
+  "interestingDisappeared": [
+    {
+      "venue": {
+        "id": "63d39f33fc498380f20986a5",
+        "slug": "estetine-kosmetika",
+        "name": "Estetinė Kosmetika",
+        "productLine": "health_and_beauty",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/estetine-kosmetika",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67320834cc36c632963392ae"
+      },
+      "stableKey": "estetine-kosmetika|6a5b37d0349989052ddfe045",
+      "key": "venue.promotions:6a5b37d0349989052ddfe045",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a5b37d0349989052ddfe045",
+      "text": "5 € off",
+      "amount": 5,
+      "amountType": "money",
+      "amountLabel": "5 EUR",
+      "category": "money",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 7005,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5b37d0349989052ddfe045",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "5 € off",
+        "variant": "discount"
+      }
+    }
+  ],
+  "newInteresting": [
+    {
+      "venue": {
+        "id": "65f859d1ec07f9df3736252b",
+        "slug": "ilunch-konstitucijos-pr-18b",
+        "name": "iLunch (Konstitucijos pr. 18B)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-konstitucijos-pr-18b",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+      },
+      "stableKey": "ilunch-konstitucijos-pr-18b|6a5a0ed5b1b2cabca0bb1189",
+      "key": "venue.promotions:6a5a0ed5b1b2cabca0bb1189",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+      "text": "Basket Discount 10%",
+      "amount": 10,
+      "amountType": "percent",
+      "amountLabel": "10%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6010,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket Discount 10%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "612f3ecab0894b7772df42a1",
+        "slug": "ilunch-lvivo-g",
+        "name": "iLunch (Lvivo g. 37)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-lvivo-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+      },
+      "stableKey": "ilunch-lvivo-g|6a5a0ed5b1b2cabca0bb1189",
+      "key": "venue.promotions:6a5a0ed5b1b2cabca0bb1189",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+      "text": "Basket Discount 10%",
+      "amount": 10,
+      "amountType": "percent",
+      "amountLabel": "10%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6010,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket Discount 10%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "64fae5cd1ec293219f242d7c",
+        "slug": "ilunch-mokslininku-g",
+        "name": "iLunch (Mokslininkų g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-mokslininku-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+      },
+      "stableKey": "ilunch-mokslininku-g|6a5a0ed5b1b2cabca0bb1189",
+      "key": "venue.promotions_for_telemetry:6a5a0ed5b1b2cabca0bb1189",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+      "text": "Basket Discount 10%",
+      "amount": 10,
+      "amountType": "percent",
+      "amountLabel": "10%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6010,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket Discount 10%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "670795c27f250e4b8987ed07",
+        "slug": "ilunch-ozo-g",
+        "name": "iLunch (Ozo g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-ozo-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+      },
+      "stableKey": "ilunch-ozo-g|6a5a0ed5b1b2cabca0bb1189",
+      "key": "venue.promotions_for_telemetry:6a5a0ed5b1b2cabca0bb1189",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+      "text": "Basket Discount 10%",
+      "amount": 10,
+      "amountType": "percent",
+      "amountLabel": "10%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6010,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket Discount 10%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "63b427674fac2a6fab02bc65",
+        "slug": "ilunch-u219-vilnius",
+        "name": "iLunch (U219)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-u219-vilnius",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+      },
+      "stableKey": "ilunch-u219-vilnius|6a5a0ed5b1b2cabca0bb1189",
+      "key": "venue.promotions_for_telemetry:6a5a0ed5b1b2cabca0bb1189",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+      "text": "Basket Discount 10%",
+      "amount": 10,
+      "amountType": "percent",
+      "amountLabel": "10%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6010,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket Discount 10%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "658405d70970861828b83306",
+        "slug": "ilunch",
+        "name": "iLunch (Verkių g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+      },
+      "stableKey": "ilunch|6a5a0ed5b1b2cabca0bb1189",
+      "key": "venue.promotions_for_telemetry:6a5a0ed5b1b2cabca0bb1189",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+      "text": "Basket Discount 10%",
+      "amount": 10,
+      "amountType": "percent",
+      "amountLabel": "10%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6010,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket Discount 10%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "649d788c3a308c6cae7d8b28",
+        "slug": "ilunch-vc-highway-savanoriu-pr",
+        "name": "iLunch VC Highway (Savanorių pr.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-vc-highway-savanoriu-pr",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+      },
+      "stableKey": "ilunch-vc-highway-savanoriu-pr|6a5a0ed5b1b2cabca0bb1189",
+      "key": "venue.promotions_for_telemetry:6a5a0ed5b1b2cabca0bb1189",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+      "text": "Basket Discount 10%",
+      "amount": 10,
+      "amountType": "percent",
+      "amountLabel": "10%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6010,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket Discount 10%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5ee9febed40ef4092c0ba828",
+        "slug": "ilunch-vc-k29-konstitucijos-pr",
+        "name": "iLunch VC K29 (Konstitucijos pr.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-vc-k29-konstitucijos-pr",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+      },
+      "stableKey": "ilunch-vc-k29-konstitucijos-pr|6a5a0ed5b1b2cabca0bb1189",
+      "key": "venue.promotions:6a5a0ed5b1b2cabca0bb1189",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+      "text": "Basket Discount 10%",
+      "amount": 10,
+      "amountType": "percent",
+      "amountLabel": "10%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6010,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket Discount 10%",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5d9ed25ee872b707bd908374",
+        "slug": "ilunch-saltoniskiu-g",
+        "name": "iLunch VC LINK (Saltoniškių g. 9B)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-saltoniskiu-g",
+        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+      },
+      "stableKey": "ilunch-saltoniskiu-g|6a5a0ed5b1b2cabca0bb1189",
+      "key": "venue.promotions:6a5a0ed5b1b2cabca0bb1189",
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+      "text": "Basket Discount 10%",
+      "amount": 10,
+      "amountType": "percent",
+      "amountLabel": "10%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 6010,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "Basket Discount 10%",
+        "variant": "discount"
+      }
+    }
+  ],
+  "endedNotified": [
+    {
+      "stableKey": "estetine-kosmetika|6a5b37d0349989052ddfe045",
+      "firstNotifiedAt": "2026-07-19T10:30:52.165Z",
+      "lastSeenAt": "2026-07-19T17:11:29.101Z",
+      "venue": {
+        "id": "63d39f33fc498380f20986a5",
+        "slug": "estetine-kosmetika",
+        "name": "Estetinė Kosmetika",
+        "productLine": "health_and_beauty",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/estetine-kosmetika",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67320834cc36c632963392ae"
+      },
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a5b37d0349989052ddfe045",
+      "text": "5 € off",
+      "amount": 5,
+      "amountType": "money",
+      "amountLabel": "5 EUR"
+    }
+  ],
   "notifiedSummary": {
-    "newInteresting": 0,
-    "endedNotified": 0
+    "newInteresting": 9,
+    "endedNotified": 1
   }
 }

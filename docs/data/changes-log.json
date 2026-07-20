@@ -1,5 +1,308 @@
 [
   {
+    "generatedAt": "2026-07-20T07:15:36.161Z",
+    "previousGeneratedAt": "2026-07-19T17:11:29.101Z",
+    "appeared": 9,
+    "disappeared": 38,
+    "interestingAppeared": 9,
+    "notifiedNew": 9,
+    "notifiedEnded": 1,
+    "fetchError": null,
+    "interesting": [
+      {
+        "venue": {
+          "id": "65f859d1ec07f9df3736252b",
+          "slug": "ilunch-konstitucijos-pr-18b",
+          "name": "iLunch (Konstitucijos pr. 18B)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-konstitucijos-pr-18b",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+        },
+        "stableKey": "ilunch-konstitucijos-pr-18b|6a5a0ed5b1b2cabca0bb1189",
+        "key": "venue.promotions:6a5a0ed5b1b2cabca0bb1189",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+        "text": "Basket Discount 10%",
+        "amount": 10,
+        "amountType": "percent",
+        "amountLabel": "10%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 6010,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "Basket Discount 10%",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "612f3ecab0894b7772df42a1",
+          "slug": "ilunch-lvivo-g",
+          "name": "iLunch (Lvivo g. 37)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-lvivo-g",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+        },
+        "stableKey": "ilunch-lvivo-g|6a5a0ed5b1b2cabca0bb1189",
+        "key": "venue.promotions:6a5a0ed5b1b2cabca0bb1189",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+        "text": "Basket Discount 10%",
+        "amount": 10,
+        "amountType": "percent",
+        "amountLabel": "10%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 6010,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "Basket Discount 10%",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "64fae5cd1ec293219f242d7c",
+          "slug": "ilunch-mokslininku-g",
+          "name": "iLunch (Mokslininkų g.)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-mokslininku-g",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+        },
+        "stableKey": "ilunch-mokslininku-g|6a5a0ed5b1b2cabca0bb1189",
+        "key": "venue.promotions_for_telemetry:6a5a0ed5b1b2cabca0bb1189",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+        "text": "Basket Discount 10%",
+        "amount": 10,
+        "amountType": "percent",
+        "amountLabel": "10%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 6010,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "Basket Discount 10%",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "670795c27f250e4b8987ed07",
+          "slug": "ilunch-ozo-g",
+          "name": "iLunch (Ozo g.)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-ozo-g",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+        },
+        "stableKey": "ilunch-ozo-g|6a5a0ed5b1b2cabca0bb1189",
+        "key": "venue.promotions_for_telemetry:6a5a0ed5b1b2cabca0bb1189",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+        "text": "Basket Discount 10%",
+        "amount": 10,
+        "amountType": "percent",
+        "amountLabel": "10%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 6010,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "Basket Discount 10%",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "63b427674fac2a6fab02bc65",
+          "slug": "ilunch-u219-vilnius",
+          "name": "iLunch (U219)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-u219-vilnius",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+        },
+        "stableKey": "ilunch-u219-vilnius|6a5a0ed5b1b2cabca0bb1189",
+        "key": "venue.promotions_for_telemetry:6a5a0ed5b1b2cabca0bb1189",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+        "text": "Basket Discount 10%",
+        "amount": 10,
+        "amountType": "percent",
+        "amountLabel": "10%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 6010,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "Basket Discount 10%",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "658405d70970861828b83306",
+          "slug": "ilunch",
+          "name": "iLunch (Verkių g.)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+        },
+        "stableKey": "ilunch|6a5a0ed5b1b2cabca0bb1189",
+        "key": "venue.promotions_for_telemetry:6a5a0ed5b1b2cabca0bb1189",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+        "text": "Basket Discount 10%",
+        "amount": 10,
+        "amountType": "percent",
+        "amountLabel": "10%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 6010,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "Basket Discount 10%",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "649d788c3a308c6cae7d8b28",
+          "slug": "ilunch-vc-highway-savanoriu-pr",
+          "name": "iLunch VC Highway (Savanorių pr.)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-vc-highway-savanoriu-pr",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+        },
+        "stableKey": "ilunch-vc-highway-savanoriu-pr|6a5a0ed5b1b2cabca0bb1189",
+        "key": "venue.promotions_for_telemetry:6a5a0ed5b1b2cabca0bb1189",
+        "sourcePath": "venue.promotions_for_telemetry",
+        "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+        "text": "Basket Discount 10%",
+        "amount": 10,
+        "amountType": "percent",
+        "amountLabel": "10%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 6010,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "Basket Discount 10%",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5ee9febed40ef4092c0ba828",
+          "slug": "ilunch-vc-k29-konstitucijos-pr",
+          "name": "iLunch VC K29 (Konstitucijos pr.)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-vc-k29-konstitucijos-pr",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+        },
+        "stableKey": "ilunch-vc-k29-konstitucijos-pr|6a5a0ed5b1b2cabca0bb1189",
+        "key": "venue.promotions:6a5a0ed5b1b2cabca0bb1189",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+        "text": "Basket Discount 10%",
+        "amount": 10,
+        "amountType": "percent",
+        "amountLabel": "10%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 6010,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "Basket Discount 10%",
+          "variant": "discount"
+        }
+      },
+      {
+        "venue": {
+          "id": "5d9ed25ee872b707bd908374",
+          "slug": "ilunch-saltoniskiu-g",
+          "name": "iLunch VC LINK (Saltoniškių g. 9B)",
+          "productLine": "restaurant",
+          "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-saltoniskiu-g",
+          "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
+        },
+        "stableKey": "ilunch-saltoniskiu-g|6a5a0ed5b1b2cabca0bb1189",
+        "key": "venue.promotions:6a5a0ed5b1b2cabca0bb1189",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a5a0ed5b1b2cabca0bb1189",
+        "text": "Basket Discount 10%",
+        "amount": 10,
+        "amountType": "percent",
+        "amountLabel": "10%",
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isUtilityBadge": false,
+        "score": 6010,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a5a0ed5b1b2cabca0bb1189",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "Basket Discount 10%",
+          "variant": "discount"
+        }
+      }
+    ],
+    "ended": [
+      {
+        "stableKey": "estetine-kosmetika|6a5b37d0349989052ddfe045",
+        "firstNotifiedAt": "2026-07-19T10:30:52.165Z",
+        "lastSeenAt": "2026-07-19T17:11:29.101Z",
+        "venue": {
+          "id": "63d39f33fc498380f20986a5",
+          "slug": "estetine-kosmetika",
+          "name": "Estetinė Kosmetika",
+          "productLine": "health_and_beauty",
+          "link": "https://wolt.com/en/ltu/vilnius/venue/estetine-kosmetika",
+          "imageUrl": "https://imageproxy.wolt.com/assets/67320834cc36c632963392ae"
+        },
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a5b37d0349989052ddfe045",
+        "text": "5 € off",
+        "amount": 5,
+        "amountType": "money",
+        "amountLabel": "5 EUR"
+      }
+    ]
+  },
+  {
     "generatedAt": "2026-07-19T17:11:29.101Z",
     "previousGeneratedAt": "2026-07-19T14:22:25.459Z",
     "appeared": 7,
