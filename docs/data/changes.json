@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-21T16:11:25.404Z",
-  "previousGeneratedAt": "2026-07-21T14:29:27.424Z",
+  "generatedAt": "2026-07-21T18:04:02.576Z",
+  "previousGeneratedAt": "2026-07-21T16:11:25.404Z",
   "counts": {
     "restaurantsUniqueVenues": 823,
     "promotionsUniqueVenues": 1358,
@@ -15,244 +15,65 @@
       "restaurant": 823
     }
   },
-  "appeared": [
+  "appeared": [],
+  "disappeared": [
     {
       "venue": {
-        "id": "673b801af0da863696577ee5",
-        "slug": "chicken-chips-architektu-g",
-        "name": "Chicken chips",
+        "id": "5e42a0288ea58e281907436c",
+        "slug": "naujieji-rytai",
+        "name": "Naujieji Rytai",
         "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/chicken-chips-architektu-g",
-        "imageUrl": "https://imageproxy.wolt.com/assets/679b3523a688f466affe2f2f"
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/naujieji-rytai",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fa65d1bf94a0f05f395"
       },
-      "stableKey": "chicken-chips-architektu-g|6a5f9000fb2c0baa2607906b",
-      "key": "venue.promotions:6a5f9000fb2c0baa2607906b",
-      "sourcePath": "venue.promotions",
-      "campaignId": "6a5f9000fb2c0baa2607906b",
-      "text": "20% off (up to 50 €)",
+      "stableKey": "naujieji-rytai|698b70dc08f7d49de727c401",
+      "key": "venue.promotions_for_telemetry:698b70dc08f7d49de727c401",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "698b70dc08f7d49de727c401",
+      "text": "0 € delivery fee (spend 25 €)",
+      "amount": 0,
+      "amountType": "money",
+      "amountLabel": "0 EUR",
+      "category": "delivery",
+      "isDeliveryRelated": true,
+      "isUtilityBadge": false,
+      "score": -1,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "698b70dc08f7d49de727c401",
+        "icon": "coupon-fill",
+        "is_offer_stackable": false,
+        "text": "0 € delivery fee (spend 25 €)",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "59c20d038903136dd383f13b",
+        "slug": "piano-piano",
+        "name": "Piano Piano (Vilniaus g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/piano-piano",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fac149445354de03e9f"
+      },
+      "stableKey": "piano-piano|696f72829a22d46087295fde",
+      "key": "venue.promotions_for_telemetry:696f72829a22d46087295fde",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "696f72829a22d46087295fde",
+      "text": "20% off selected items",
       "amount": 20,
       "amountType": "percent",
       "amountLabel": "20%",
       "category": "percent",
       "isDeliveryRelated": false,
       "isUtilityBadge": false,
-      "score": 1520,
+      "score": 520,
       "variant": "discount",
       "raw": {
-        "campaign_id": "6a5f9000fb2c0baa2607906b",
-        "icon": "coupon-fill",
-        "is_offer_stackable": false,
-        "text": "20% off (up to 50 €)",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "61fd25d89e6ce7e36e0328a5",
-        "slug": "monami-akropolis",
-        "name": "MonAmi kepyklėlė (Akropolis)",
-        "productLine": "grocery",
-        "link": "https://wolt.com/en/ltu/vilnius/venue/monami-akropolis",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/03fff7c8-e4a7-41ab-b9e6-5f4f476a4fe1/a23c8028-be08-4b6a-aba6-0264dcb0270c"
-      },
-      "stableKey": "monami-akropolis|6a01e1c3104381a1472df9ad",
-      "key": "venue.promotions_for_telemetry:6a01e1c3104381a1472df9ad",
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a01e1c3104381a1472df9ad",
-      "text": "-50% off selected item",
-      "amount": 50,
-      "amountType": "percent",
-      "amountLabel": "50%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 550,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a01e1c3104381a1472df9ad",
+        "campaign_id": "696f72829a22d46087295fde",
         "icon": "coupon-fill",
         "is_offer_stackable": true,
-        "text": "-50% off selected item",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "61fd213da3125d2dbd03d0e4",
-        "slug": "monami-domus-pro",
-        "name": "MonAmi kepyklėlė (Domus Pro)",
-        "productLine": "grocery",
-        "link": "https://wolt.com/en/ltu/vilnius/venue/monami-domus-pro",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/03fff7c8-e4a7-41ab-b9e6-5f4f476a4fe1/a23c8028-be08-4b6a-aba6-0264dcb0270c"
-      },
-      "stableKey": "monami-domus-pro|6a01e1c3104381a1472df9ad",
-      "key": "venue.promotions_for_telemetry:6a01e1c3104381a1472df9ad",
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a01e1c3104381a1472df9ad",
-      "text": "-50% off selected item",
-      "amount": 50,
-      "amountType": "percent",
-      "amountLabel": "50%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 550,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a01e1c3104381a1472df9ad",
-        "icon": "coupon-fill",
-        "is_offer_stackable": true,
-        "text": "-50% off selected item",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "61fd198bbb86e6ea5f3d28d1",
-        "slug": "monami-gedimino-pr",
-        "name": "MonAmi kepyklėlė (Gedimino pr.)",
-        "productLine": "grocery",
-        "link": "https://wolt.com/en/ltu/vilnius/venue/monami-gedimino-pr",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/03fff7c8-e4a7-41ab-b9e6-5f4f476a4fe1/a23c8028-be08-4b6a-aba6-0264dcb0270c"
-      },
-      "stableKey": "monami-gedimino-pr|6a01e1c3104381a1472df9ad",
-      "key": "venue.promotions_for_telemetry:6a01e1c3104381a1472df9ad",
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a01e1c3104381a1472df9ad",
-      "text": "-50% off selected item",
-      "amount": 50,
-      "amountType": "percent",
-      "amountLabel": "50%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 550,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a01e1c3104381a1472df9ad",
-        "icon": "coupon-fill",
-        "is_offer_stackable": true,
-        "text": "-50% off selected item",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "61fd28621bc6bc9a91b1ba2b",
-        "slug": "monami-jeruzale",
-        "name": "MonAmi kepyklėlė (Jeruzalė)",
-        "productLine": "grocery",
-        "link": "https://wolt.com/en/ltu/vilnius/venue/monami-jeruzale",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/03fff7c8-e4a7-41ab-b9e6-5f4f476a4fe1/a23c8028-be08-4b6a-aba6-0264dcb0270c"
-      },
-      "stableKey": "monami-jeruzale|6a01e1c3104381a1472df9ad",
-      "key": "venue.promotions_for_telemetry:6a01e1c3104381a1472df9ad",
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a01e1c3104381a1472df9ad",
-      "text": "-50% off selected item",
-      "amount": 50,
-      "amountType": "percent",
-      "amountLabel": "50%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 550,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a01e1c3104381a1472df9ad",
-        "icon": "coupon-fill",
-        "is_offer_stackable": true,
-        "text": "-50% off selected item",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "61fd238e559d91b47a35275c",
-        "slug": "monami-kedru",
-        "name": "MonAmi kepyklėlė (Kedrų g.)",
-        "productLine": "grocery",
-        "link": "https://wolt.com/en/ltu/vilnius/venue/monami-kedru",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/03fff7c8-e4a7-41ab-b9e6-5f4f476a4fe1/a23c8028-be08-4b6a-aba6-0264dcb0270c"
-      },
-      "stableKey": "monami-kedru|6a01e1c3104381a1472df9ad",
-      "key": "venue.promotions_for_telemetry:6a01e1c3104381a1472df9ad",
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a01e1c3104381a1472df9ad",
-      "text": "-50% off selected item",
-      "amount": 50,
-      "amountType": "percent",
-      "amountLabel": "50%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 550,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a01e1c3104381a1472df9ad",
-        "icon": "coupon-fill",
-        "is_offer_stackable": true,
-        "text": "-50% off selected item",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "61a0aea0dc3aea76a5972f5b",
-        "slug": "monami-kepyklele-panorama",
-        "name": "MonAmi kepyklėlė (PC Panorama)",
-        "productLine": "grocery",
-        "link": "https://wolt.com/en/ltu/vilnius/venue/monami-kepyklele-panorama",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/03fff7c8-e4a7-41ab-b9e6-5f4f476a4fe1/a23c8028-be08-4b6a-aba6-0264dcb0270c"
-      },
-      "stableKey": "monami-kepyklele-panorama|6a01e1c3104381a1472df9ad",
-      "key": "venue.promotions_for_telemetry:6a01e1c3104381a1472df9ad",
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a01e1c3104381a1472df9ad",
-      "text": "-50% off selected item",
-      "amount": 50,
-      "amountType": "percent",
-      "amountLabel": "50%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 550,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a01e1c3104381a1472df9ad",
-        "icon": "coupon-fill",
-        "is_offer_stackable": true,
-        "text": "-50% off selected item",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "61a628cf6a71cc6cf89768f7",
-        "slug": "monami-kepyklele-siaures-miestelis",
-        "name": "MonAmi kepyklėlė (Šiaurės miestelis)",
-        "productLine": "grocery",
-        "link": "https://wolt.com/en/ltu/vilnius/venue/monami-kepyklele-siaures-miestelis",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/03fff7c8-e4a7-41ab-b9e6-5f4f476a4fe1/a23c8028-be08-4b6a-aba6-0264dcb0270c"
-      },
-      "stableKey": "monami-kepyklele-siaures-miestelis|6a01e1c3104381a1472df9ad",
-      "key": "venue.promotions_for_telemetry:6a01e1c3104381a1472df9ad",
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a01e1c3104381a1472df9ad",
-      "text": "-50% off selected item",
-      "amount": 50,
-      "amountType": "percent",
-      "amountLabel": "50%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 550,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a01e1c3104381a1472df9ad",
-        "icon": "coupon-fill",
-        "is_offer_stackable": true,
-        "text": "-50% off selected item",
+        "text": "20% off selected items",
         "variant": "discount"
       }
     },
@@ -265,29 +86,748 @@
         "link": "https://wolt.com/en/ltu/vilnius/venue/savam-kieme",
         "imageUrl": "https://imageproxy.wolt.com/assets/67dc24ef829e4a2306e07b55"
       },
-      "stableKey": "savam-kieme|6a5f85b8aaa3bfa7f2f781ab",
-      "key": "venue.promotions_for_telemetry:6a5f85b8aaa3bfa7f2f781ab",
+      "stableKey": "savam-kieme|6a4395fea28971a755b01752",
+      "key": "venue.promotions_for_telemetry:6a4395fea28971a755b01752",
       "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a5f85b8aaa3bfa7f2f781ab",
-      "text": "15% off selected items",
-      "amount": 15,
+      "campaignId": "6a4395fea28971a755b01752",
+      "text": "10% off selected items",
+      "amount": 10,
       "amountType": "percent",
-      "amountLabel": "15%",
+      "amountLabel": "10%",
       "category": "percent",
       "isDeliveryRelated": false,
       "isUtilityBadge": false,
-      "score": 515,
+      "score": 510,
       "variant": "discount",
       "raw": {
-        "campaign_id": "6a5f85b8aaa3bfa7f2f781ab",
+        "campaign_id": "6a4395fea28971a755b01752",
         "icon": "coupon-fill",
         "is_offer_stackable": true,
-        "text": "15% off selected items",
+        "text": "10% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "678e4936181346461fff055c",
+        "slug": "savam-kieme",
+        "name": "Savam kieme",
+        "productLine": "grocery",
+        "link": "https://wolt.com/en/ltu/vilnius/venue/savam-kieme",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67dc24ef829e4a2306e07b55"
+      },
+      "stableKey": "savam-kieme|6a5a3d2d0dee474d36a608e6",
+      "key": "venue.promotions_for_telemetry:6a5a3d2d0dee474d36a608e6",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a5a3d2d0dee474d36a608e6",
+      "text": "10% off selected items",
+      "amount": 10,
+      "amountType": "percent",
+      "amountLabel": "10%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 510,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5a3d2d0dee474d36a608e6",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "10% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5a6889f427fe2f000e9c7281",
+        "slug": "wraperia-suppa-kebs-antakalnis",
+        "name": "Wraperia Suppa Kebs (Antakalnis)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-antakalnis",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6735be5f86f45b72713e21f3"
+      },
+      "stableKey": "wraperia-suppa-kebs-antakalnis|6a550ac08bf3e09271f4f8ea",
+      "key": "venue.promotions_for_telemetry:6a550ac08bf3e09271f4f8ea",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a550ac08bf3e09271f4f8ea",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a550ac08bf3e09271f4f8ea",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5a6889f427fe2f000e9c7281",
+        "slug": "wraperia-suppa-kebs-antakalnis",
+        "name": "Wraperia Suppa Kebs (Antakalnis)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-antakalnis",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6735be5f86f45b72713e21f3"
+      },
+      "stableKey": "wraperia-suppa-kebs-antakalnis|6a550b21701c2e4c8712367f",
+      "key": "venue.promotions_for_telemetry:6a550b21701c2e4c8712367f",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a550b21701c2e4c8712367f",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a550b21701c2e4c8712367f",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5a6889f427fe2f000e9c7281",
+        "slug": "wraperia-suppa-kebs-antakalnis",
+        "name": "Wraperia Suppa Kebs (Antakalnis)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-antakalnis",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6735be5f86f45b72713e21f3"
+      },
+      "stableKey": "wraperia-suppa-kebs-antakalnis|6a550babc2ef7b4ec2d17cf8",
+      "key": "venue.promotions_for_telemetry:6a550babc2ef7b4ec2d17cf8",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a550babc2ef7b4ec2d17cf8",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a550babc2ef7b4ec2d17cf8",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5a6889f427fe2f000e9c7281",
+        "slug": "wraperia-suppa-kebs-antakalnis",
+        "name": "Wraperia Suppa Kebs (Antakalnis)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-antakalnis",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6735be5f86f45b72713e21f3"
+      },
+      "stableKey": "wraperia-suppa-kebs-antakalnis|6a5092c88768d5c2d966824c",
+      "key": "venue.promotions_for_telemetry:6a5092c88768d5c2d966824c",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a5092c88768d5c2d966824c",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5092c88768d5c2d966824c",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5a6889f427fe2f000e9c7281",
+        "slug": "wraperia-suppa-kebs-antakalnis",
+        "name": "Wraperia Suppa Kebs (Antakalnis)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-antakalnis",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6735be5f86f45b72713e21f3"
+      },
+      "stableKey": "wraperia-suppa-kebs-antakalnis|6a550bfcc2ef7b4ec2d17cfb",
+      "key": "venue.promotions_for_telemetry:6a550bfcc2ef7b4ec2d17cfb",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a550bfcc2ef7b4ec2d17cfb",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a550bfcc2ef7b4ec2d17cfb",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5bab4b6edf09cf000b30daea",
+        "slug": "wraperia-suppa-kebs-panorama",
+        "name": "Wraperia Suppa Kebs (Panorama)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-panorama",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fc618f45c3236a65e91"
+      },
+      "stableKey": "wraperia-suppa-kebs-panorama|6a550ac08bf3e09271f4f8ea",
+      "key": "venue.promotions_for_telemetry:6a550ac08bf3e09271f4f8ea",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a550ac08bf3e09271f4f8ea",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a550ac08bf3e09271f4f8ea",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5bab4b6edf09cf000b30daea",
+        "slug": "wraperia-suppa-kebs-panorama",
+        "name": "Wraperia Suppa Kebs (Panorama)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-panorama",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fc618f45c3236a65e91"
+      },
+      "stableKey": "wraperia-suppa-kebs-panorama|6a550b21701c2e4c8712367f",
+      "key": "venue.promotions_for_telemetry:6a550b21701c2e4c8712367f",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a550b21701c2e4c8712367f",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a550b21701c2e4c8712367f",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5bab4b6edf09cf000b30daea",
+        "slug": "wraperia-suppa-kebs-panorama",
+        "name": "Wraperia Suppa Kebs (Panorama)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-panorama",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fc618f45c3236a65e91"
+      },
+      "stableKey": "wraperia-suppa-kebs-panorama|6a550babc2ef7b4ec2d17cf8",
+      "key": "venue.promotions_for_telemetry:6a550babc2ef7b4ec2d17cf8",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a550babc2ef7b4ec2d17cf8",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a550babc2ef7b4ec2d17cf8",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5bab4b6edf09cf000b30daea",
+        "slug": "wraperia-suppa-kebs-panorama",
+        "name": "Wraperia Suppa Kebs (Panorama)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-panorama",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fc618f45c3236a65e91"
+      },
+      "stableKey": "wraperia-suppa-kebs-panorama|6a5092c88768d5c2d966824c",
+      "key": "venue.promotions_for_telemetry:6a5092c88768d5c2d966824c",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a5092c88768d5c2d966824c",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5092c88768d5c2d966824c",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5bab4b6edf09cf000b30daea",
+        "slug": "wraperia-suppa-kebs-panorama",
+        "name": "Wraperia Suppa Kebs (Panorama)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-panorama",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fc618f45c3236a65e91"
+      },
+      "stableKey": "wraperia-suppa-kebs-panorama|6a550bfcc2ef7b4ec2d17cfb",
+      "key": "venue.promotions_for_telemetry:6a550bfcc2ef7b4ec2d17cfb",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a550bfcc2ef7b4ec2d17cfb",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a550bfcc2ef7b4ec2d17cfb",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "60797dcb94bdf15554607890",
+        "slug": "wraperia-suppa-kebs-paupys",
+        "name": "Wraperia Suppa Kebs (Paupys)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-paupys",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67320837e24e8e5c114dade5"
+      },
+      "stableKey": "wraperia-suppa-kebs-paupys|6a550ac08bf3e09271f4f8ea",
+      "key": "venue.promotions_for_telemetry:6a550ac08bf3e09271f4f8ea",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a550ac08bf3e09271f4f8ea",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a550ac08bf3e09271f4f8ea",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "60797dcb94bdf15554607890",
+        "slug": "wraperia-suppa-kebs-paupys",
+        "name": "Wraperia Suppa Kebs (Paupys)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-paupys",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67320837e24e8e5c114dade5"
+      },
+      "stableKey": "wraperia-suppa-kebs-paupys|6a550b21701c2e4c8712367f",
+      "key": "venue.promotions_for_telemetry:6a550b21701c2e4c8712367f",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a550b21701c2e4c8712367f",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a550b21701c2e4c8712367f",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "60797dcb94bdf15554607890",
+        "slug": "wraperia-suppa-kebs-paupys",
+        "name": "Wraperia Suppa Kebs (Paupys)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-paupys",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67320837e24e8e5c114dade5"
+      },
+      "stableKey": "wraperia-suppa-kebs-paupys|6a550babc2ef7b4ec2d17cf8",
+      "key": "venue.promotions_for_telemetry:6a550babc2ef7b4ec2d17cf8",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a550babc2ef7b4ec2d17cf8",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a550babc2ef7b4ec2d17cf8",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "60797dcb94bdf15554607890",
+        "slug": "wraperia-suppa-kebs-paupys",
+        "name": "Wraperia Suppa Kebs (Paupys)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-paupys",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67320837e24e8e5c114dade5"
+      },
+      "stableKey": "wraperia-suppa-kebs-paupys|6a550bfcc2ef7b4ec2d17cfb",
+      "key": "venue.promotions_for_telemetry:6a550bfcc2ef7b4ec2d17cfb",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a550bfcc2ef7b4ec2d17cfb",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a550bfcc2ef7b4ec2d17cfb",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "616e96127dec43a954ab68a2",
+        "slug": "wraperia-pilaite",
+        "name": "Wraperia Suppa Kebs (Pilaitė)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-pilaite",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67321490f45db57ef6005eb7"
+      },
+      "stableKey": "wraperia-pilaite|6a550ac08bf3e09271f4f8ea",
+      "key": "venue.promotions_for_telemetry:6a550ac08bf3e09271f4f8ea",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a550ac08bf3e09271f4f8ea",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a550ac08bf3e09271f4f8ea",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "616e96127dec43a954ab68a2",
+        "slug": "wraperia-pilaite",
+        "name": "Wraperia Suppa Kebs (Pilaitė)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-pilaite",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67321490f45db57ef6005eb7"
+      },
+      "stableKey": "wraperia-pilaite|6a550b21701c2e4c8712367f",
+      "key": "venue.promotions_for_telemetry:6a550b21701c2e4c8712367f",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a550b21701c2e4c8712367f",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a550b21701c2e4c8712367f",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "616e96127dec43a954ab68a2",
+        "slug": "wraperia-pilaite",
+        "name": "Wraperia Suppa Kebs (Pilaitė)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-pilaite",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67321490f45db57ef6005eb7"
+      },
+      "stableKey": "wraperia-pilaite|6a550babc2ef7b4ec2d17cf8",
+      "key": "venue.promotions_for_telemetry:6a550babc2ef7b4ec2d17cf8",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a550babc2ef7b4ec2d17cf8",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a550babc2ef7b4ec2d17cf8",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "616e96127dec43a954ab68a2",
+        "slug": "wraperia-pilaite",
+        "name": "Wraperia Suppa Kebs (Pilaitė)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-pilaite",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67321490f45db57ef6005eb7"
+      },
+      "stableKey": "wraperia-pilaite|6a550bfcc2ef7b4ec2d17cfb",
+      "key": "venue.promotions_for_telemetry:6a550bfcc2ef7b4ec2d17cfb",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a550bfcc2ef7b4ec2d17cfb",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a550bfcc2ef7b4ec2d17cfb",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5bab4bb0eaa5d6000ba164ee",
+        "slug": "wraperia-suppa-kebs-verkiu-g",
+        "name": "Wraperia Suppa Kebs (Verkių g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-verkiu-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fbb827209684f08e355"
+      },
+      "stableKey": "wraperia-suppa-kebs-verkiu-g|6a550ac08bf3e09271f4f8ea",
+      "key": "venue.promotions_for_telemetry:6a550ac08bf3e09271f4f8ea",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a550ac08bf3e09271f4f8ea",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a550ac08bf3e09271f4f8ea",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5bab4bb0eaa5d6000ba164ee",
+        "slug": "wraperia-suppa-kebs-verkiu-g",
+        "name": "Wraperia Suppa Kebs (Verkių g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-verkiu-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fbb827209684f08e355"
+      },
+      "stableKey": "wraperia-suppa-kebs-verkiu-g|6a550b21701c2e4c8712367f",
+      "key": "venue.promotions_for_telemetry:6a550b21701c2e4c8712367f",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a550b21701c2e4c8712367f",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a550b21701c2e4c8712367f",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5bab4bb0eaa5d6000ba164ee",
+        "slug": "wraperia-suppa-kebs-verkiu-g",
+        "name": "Wraperia Suppa Kebs (Verkių g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-verkiu-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fbb827209684f08e355"
+      },
+      "stableKey": "wraperia-suppa-kebs-verkiu-g|6a550babc2ef7b4ec2d17cf8",
+      "key": "venue.promotions_for_telemetry:6a550babc2ef7b4ec2d17cf8",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a550babc2ef7b4ec2d17cf8",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a550babc2ef7b4ec2d17cf8",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5bab4bb0eaa5d6000ba164ee",
+        "slug": "wraperia-suppa-kebs-verkiu-g",
+        "name": "Wraperia Suppa Kebs (Verkių g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-verkiu-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fbb827209684f08e355"
+      },
+      "stableKey": "wraperia-suppa-kebs-verkiu-g|6a5092c88768d5c2d966824c",
+      "key": "venue.promotions_for_telemetry:6a5092c88768d5c2d966824c",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a5092c88768d5c2d966824c",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5092c88768d5c2d966824c",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5bab4bb0eaa5d6000ba164ee",
+        "slug": "wraperia-suppa-kebs-verkiu-g",
+        "name": "Wraperia Suppa Kebs (Verkių g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/wraperia-suppa-kebs-verkiu-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fbb827209684f08e355"
+      },
+      "stableKey": "wraperia-suppa-kebs-verkiu-g|6a550bfcc2ef7b4ec2d17cfb",
+      "key": "venue.promotions_for_telemetry:6a550bfcc2ef7b4ec2d17cfb",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a550bfcc2ef7b4ec2d17cfb",
+      "text": "Meal Deal nuolaida 🔥",
+      "amount": null,
+      "amountType": null,
+      "amountLabel": null,
+      "category": "deal",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 500,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a550bfcc2ef7b4ec2d17cfb",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "Meal Deal nuolaida 🔥",
         "variant": "discount"
       }
     }
   ],
-  "disappeared": [],
   "interestingAppeared": [],
   "interestingDisappeared": [],
   "newInteresting": [],

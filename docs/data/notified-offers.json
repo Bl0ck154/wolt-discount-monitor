@@ -1,319 +1,16 @@
 {
-  "updatedAt": "2026-07-21T16:11:25.404Z",
+  "updatedAt": "2026-07-21T18:04:02.576Z",
   "activeOffers": [
-    {
-      "stableKey": "busy-beet-vilnius|6a3ce6e99cb16c3d9b78cb13",
-      "firstNotifiedAt": "2026-07-01T09:30:27.013Z",
-      "lastSeenAt": "2026-07-21T16:11:25.404Z",
-      "venue": {
-        "id": "63da6c787921e59fa16c9e84",
-        "slug": "busy-beet-vilnius",
-        "name": "Busy Beet",
-        "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/busy-beet-vilnius",
-        "imageUrl": "https://imageproxy.wolt.com/assets/67331c9a17e00e657c00ae9b"
-      },
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a3ce6e99cb16c3d9b78cb13",
-      "text": "Basket Discount 10%",
-      "amount": 10,
-      "amountType": "percent",
-      "amountLabel": "10%"
-    },
-    {
-      "stableKey": "ilunch-konstitucijos-pr-18b|6a5a0ed5b1b2cabca0bb1189",
-      "firstNotifiedAt": "2026-07-20T07:15:36.161Z",
-      "lastSeenAt": "2026-07-21T16:11:25.404Z",
-      "venue": {
-        "id": "65f859d1ec07f9df3736252b",
-        "slug": "ilunch-konstitucijos-pr-18b",
-        "name": "iLunch (Konstitucijos pr. 18B)",
-        "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-konstitucijos-pr-18b",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
-      },
-      "sourcePath": "venue.promotions",
-      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
-      "text": "Basket Discount 10%",
-      "amount": 10,
-      "amountType": "percent",
-      "amountLabel": "10%"
-    },
-    {
-      "stableKey": "ilunch-lvivo-g|6a5a0ed5b1b2cabca0bb1189",
-      "firstNotifiedAt": "2026-07-20T07:15:36.161Z",
-      "lastSeenAt": "2026-07-21T16:11:25.404Z",
-      "venue": {
-        "id": "612f3ecab0894b7772df42a1",
-        "slug": "ilunch-lvivo-g",
-        "name": "iLunch (Lvivo g. 37)",
-        "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-lvivo-g",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
-      },
-      "sourcePath": "venue.promotions",
-      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
-      "text": "Basket Discount 10%",
-      "amount": 10,
-      "amountType": "percent",
-      "amountLabel": "10%"
-    },
-    {
-      "stableKey": "ilunch-mokslininku-g|6a5a0ed5b1b2cabca0bb1189",
-      "firstNotifiedAt": "2026-07-20T07:15:36.161Z",
-      "lastSeenAt": "2026-07-21T16:11:25.404Z",
-      "venue": {
-        "id": "64fae5cd1ec293219f242d7c",
-        "slug": "ilunch-mokslininku-g",
-        "name": "iLunch (Mokslininkų g.)",
-        "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-mokslininku-g",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
-      },
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
-      "text": "Basket Discount 10%",
-      "amount": 10,
-      "amountType": "percent",
-      "amountLabel": "10%"
-    },
-    {
-      "stableKey": "ilunch-ozo-g|6a5a0ed5b1b2cabca0bb1189",
-      "firstNotifiedAt": "2026-07-20T07:15:36.161Z",
-      "lastSeenAt": "2026-07-21T16:11:25.404Z",
-      "venue": {
-        "id": "670795c27f250e4b8987ed07",
-        "slug": "ilunch-ozo-g",
-        "name": "iLunch (Ozo g.)",
-        "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-ozo-g",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
-      },
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
-      "text": "Basket Discount 10%",
-      "amount": 10,
-      "amountType": "percent",
-      "amountLabel": "10%"
-    },
-    {
-      "stableKey": "ilunch-u219-vilnius|6a5a0ed5b1b2cabca0bb1189",
-      "firstNotifiedAt": "2026-07-20T07:15:36.161Z",
-      "lastSeenAt": "2026-07-21T16:11:25.404Z",
-      "venue": {
-        "id": "63b427674fac2a6fab02bc65",
-        "slug": "ilunch-u219-vilnius",
-        "name": "iLunch (U219)",
-        "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-u219-vilnius",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
-      },
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
-      "text": "Basket Discount 10%",
-      "amount": 10,
-      "amountType": "percent",
-      "amountLabel": "10%"
-    },
-    {
-      "stableKey": "ilunch|6a5a0ed5b1b2cabca0bb1189",
-      "firstNotifiedAt": "2026-07-20T07:15:36.161Z",
-      "lastSeenAt": "2026-07-21T16:11:25.404Z",
-      "venue": {
-        "id": "658405d70970861828b83306",
-        "slug": "ilunch",
-        "name": "iLunch (Verkių g.)",
-        "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
-      },
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
-      "text": "Basket Discount 10%",
-      "amount": 10,
-      "amountType": "percent",
-      "amountLabel": "10%"
-    },
-    {
-      "stableKey": "ilunch-rinktines-g|6a3ce6e99cb16c3d9b78cb13",
-      "firstNotifiedAt": "2026-07-15T08:19:21.671Z",
-      "lastSeenAt": "2026-07-21T16:11:25.404Z",
-      "venue": {
-        "id": "5d99bfae5996759e17cc15b3",
-        "slug": "ilunch-rinktines-g",
-        "name": "iLunch VC BS (Rinktinės g.)",
-        "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-rinktines-g",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
-      },
-      "sourcePath": "venue.promotions",
-      "campaignId": "6a3ce6e99cb16c3d9b78cb13",
-      "text": "Basket Discount 10%",
-      "amount": 10,
-      "amountType": "percent",
-      "amountLabel": "10%"
-    },
-    {
-      "stableKey": "ilunch-gostauto-g|6a3ce6e99cb16c3d9b78cb13",
-      "firstNotifiedAt": "2026-07-14T12:22:24.975Z",
-      "lastSeenAt": "2026-07-21T16:11:25.404Z",
-      "venue": {
-        "id": "5d4a7f07ec1c3972a68e89b6",
-        "slug": "ilunch-gostauto-g",
-        "name": "iLunch VC Dvyniai (Goštauto g.)",
-        "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-gostauto-g",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
-      },
-      "sourcePath": "venue.promotions",
-      "campaignId": "6a3ce6e99cb16c3d9b78cb13",
-      "text": "Basket Discount 10%",
-      "amount": 10,
-      "amountType": "percent",
-      "amountLabel": "10%"
-    },
-    {
-      "stableKey": "ilunch-vc-highway-savanoriu-pr|6a5a0ed5b1b2cabca0bb1189",
-      "firstNotifiedAt": "2026-07-20T07:15:36.161Z",
-      "lastSeenAt": "2026-07-21T16:11:25.404Z",
-      "venue": {
-        "id": "649d788c3a308c6cae7d8b28",
-        "slug": "ilunch-vc-highway-savanoriu-pr",
-        "name": "iLunch VC Highway (Savanorių pr.)",
-        "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-vc-highway-savanoriu-pr",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
-      },
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
-      "text": "Basket Discount 10%",
-      "amount": 10,
-      "amountType": "percent",
-      "amountLabel": "10%"
-    },
-    {
-      "stableKey": "ilunch-vc-k29-konstitucijos-pr|6a5a0ed5b1b2cabca0bb1189",
-      "firstNotifiedAt": "2026-07-20T07:15:36.161Z",
-      "lastSeenAt": "2026-07-21T16:11:25.404Z",
-      "venue": {
-        "id": "5ee9febed40ef4092c0ba828",
-        "slug": "ilunch-vc-k29-konstitucijos-pr",
-        "name": "iLunch VC K29 (Konstitucijos pr.)",
-        "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-vc-k29-konstitucijos-pr",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
-      },
-      "sourcePath": "venue.promotions",
-      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
-      "text": "Basket Discount 10%",
-      "amount": 10,
-      "amountType": "percent",
-      "amountLabel": "10%"
-    },
-    {
-      "stableKey": "ilunch-saltoniskiu-g|6a5a0ed5b1b2cabca0bb1189",
-      "firstNotifiedAt": "2026-07-20T07:15:36.161Z",
-      "lastSeenAt": "2026-07-21T16:11:25.404Z",
-      "venue": {
-        "id": "5d9ed25ee872b707bd908374",
-        "slug": "ilunch-saltoniskiu-g",
-        "name": "iLunch VC LINK (Saltoniškių g. 9B)",
-        "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/ilunch-saltoniskiu-g",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/74b047b0-b69d-4d2c-bfd5-4723088c72ce/0322339f-a9ff-4de6-a16c-44f567016ba1"
-      },
-      "sourcePath": "venue.promotions",
-      "campaignId": "6a5a0ed5b1b2cabca0bb1189",
-      "text": "Basket Discount 10%",
-      "amount": 10,
-      "amountType": "percent",
-      "amountLabel": "10%"
-    },
-    {
-      "stableKey": "noon-hero|6a3ce6e99cb16c3d9b78cb13",
-      "firstNotifiedAt": "2026-07-01T09:30:27.013Z",
-      "lastSeenAt": "2026-07-21T16:11:25.404Z",
-      "venue": {
-        "id": "695cfc275c37cafcbc21f875",
-        "slug": "noon-hero",
-        "name": "noon (Hero)",
-        "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/noon-hero",
-        "imageUrl": "https://imageproxy.wolt.com/assets/695cfc4da6c45b6cc9507df1"
-      },
-      "sourcePath": "venue.promotions",
-      "campaignId": "6a3ce6e99cb16c3d9b78cb13",
-      "text": "Basket Discount 10%",
-      "amount": 10,
-      "amountType": "percent",
-      "amountLabel": "10%"
-    },
-    {
-      "stableKey": "noon-mokslininku-g|6a3ce6e99cb16c3d9b78cb13",
-      "firstNotifiedAt": "2026-07-01T09:30:27.013Z",
-      "lastSeenAt": "2026-07-21T16:11:25.404Z",
-      "venue": {
-        "id": "681b0451e1b6dbaf32bd7370",
-        "slug": "noon-mokslininku-g",
-        "name": "noon (Mokslininkų g.)",
-        "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/noon-mokslininku-g",
-        "imageUrl": "https://imageproxy.wolt.com/assets/681b08876ab1412fd3455c5e"
-      },
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a3ce6e99cb16c3d9b78cb13",
-      "text": "Basket Discount 10%",
-      "amount": 10,
-      "amountType": "percent",
-      "amountLabel": "10%"
-    },
-    {
-      "stableKey": "noon-sky-office|6a3ce6e99cb16c3d9b78cb13",
-      "firstNotifiedAt": "2026-07-01T09:30:27.013Z",
-      "lastSeenAt": "2026-07-21T16:11:25.404Z",
-      "venue": {
-        "id": "66f1457741d7232f6e9b4de0",
-        "slug": "noon-sky-office",
-        "name": "noon (Sky office)",
-        "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/noon-sky-office",
-        "imageUrl": "https://imageproxy.wolt.com/assets/67335ee5a7cc62434f9d9d41"
-      },
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a3ce6e99cb16c3d9b78cb13",
-      "text": "Basket Discount 10%",
-      "amount": 10,
-      "amountType": "percent",
-      "amountLabel": "10%"
-    },
-    {
-      "stableKey": "noon-vc-meraki|6a3ce6e99cb16c3d9b78cb13",
-      "firstNotifiedAt": "2026-07-01T09:30:27.013Z",
-      "lastSeenAt": "2026-07-21T16:11:25.404Z",
-      "venue": {
-        "id": "672b73bdabff246331fe0aac",
-        "slug": "noon-vc-meraki",
-        "name": "noon (VC Meraki)",
-        "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/noon-vc-meraki",
-        "imageUrl": "https://imageproxy.wolt.com/assets/67335f5ca7cc62434f9da090"
-      },
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a3ce6e99cb16c3d9b78cb13",
-      "text": "Basket Discount 10%",
-      "amount": 10,
-      "amountType": "percent",
-      "amountLabel": "10%"
-    },
     {
       "stableKey": "zenbowl|6a465496ef3a256d54cfcbe9",
       "firstNotifiedAt": "2026-07-02T14:30:26.310Z",
-      "lastSeenAt": "2026-07-21T16:11:25.404Z",
+      "lastSeenAt": "2026-07-21T18:04:02.576Z",
       "venue": {
         "id": "6a2656c72f76c2ba37d837f3",
         "slug": "zenbowl",
         "name": "ZENBOWL",
         "productLine": "restaurant",
+        "currency": "EUR",
         "link": "https://wolt.com/en/ltu/vilnius/restaurant/zenbowl",
         "imageUrl": "https://imageproxy.wolt.com/assets/6a27b2bde96e3b62fd6f5944"
       },
@@ -322,7 +19,30 @@
       "text": "-20% off the basket",
       "amount": 20,
       "amountType": "percent",
-      "amountLabel": "20%"
+      "amountLabel": "20%",
+      "currencyCode": "EUR",
+      "minimumSpend": null,
+      "maxSavings": null,
+      "effectiveDiscountPercent": 20,
+      "scope": "broad",
+      "valueVersion": 2,
+      "valueScore": 51,
+      "valueTier": "good",
+      "value": {
+        "version": 2,
+        "score": 51,
+        "tier": "good",
+        "scope": "broad",
+        "currencyCode": "EUR",
+        "minimumSpend": null,
+        "maxSavings": null,
+        "effectiveDiscountPercent": 20,
+        "normalizedCashReference": null,
+        "isDelivery": false,
+        "isPerk": false,
+        "isSelectedItems": false,
+        "isUpToPercent": false
+      }
     }
   ]
 }
