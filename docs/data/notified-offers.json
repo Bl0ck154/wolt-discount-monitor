@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-07-21T14:29:27.424Z",
+  "updatedAt": "2026-07-21T16:11:25.404Z",
   "activeOffers": [
     {
       "stableKey": "busy-beet-vilnius|6a3ce6e99cb16c3d9b78cb13",
       "firstNotifiedAt": "2026-07-01T09:30:27.013Z",
-      "lastSeenAt": "2026-07-21T14:29:27.424Z",
+      "lastSeenAt": "2026-07-21T16:11:25.404Z",
       "venue": {
         "id": "63da6c787921e59fa16c9e84",
         "slug": "busy-beet-vilnius",
@@ -23,7 +23,7 @@
     {
       "stableKey": "ilunch-konstitucijos-pr-18b|6a5a0ed5b1b2cabca0bb1189",
       "firstNotifiedAt": "2026-07-20T07:15:36.161Z",
-      "lastSeenAt": "2026-07-21T14:29:27.424Z",
+      "lastSeenAt": "2026-07-21T16:11:25.404Z",
       "venue": {
         "id": "65f859d1ec07f9df3736252b",
         "slug": "ilunch-konstitucijos-pr-18b",
@@ -42,7 +42,7 @@
     {
       "stableKey": "ilunch-lvivo-g|6a5a0ed5b1b2cabca0bb1189",
       "firstNotifiedAt": "2026-07-20T07:15:36.161Z",
-      "lastSeenAt": "2026-07-21T14:29:27.424Z",
+      "lastSeenAt": "2026-07-21T16:11:25.404Z",
       "venue": {
         "id": "612f3ecab0894b7772df42a1",
         "slug": "ilunch-lvivo-g",
@@ -61,7 +61,7 @@
     {
       "stableKey": "ilunch-mokslininku-g|6a5a0ed5b1b2cabca0bb1189",
       "firstNotifiedAt": "2026-07-20T07:15:36.161Z",
-      "lastSeenAt": "2026-07-21T14:29:27.424Z",
+      "lastSeenAt": "2026-07-21T16:11:25.404Z",
       "venue": {
         "id": "64fae5cd1ec293219f242d7c",
         "slug": "ilunch-mokslininku-g",
@@ -80,7 +80,7 @@
     {
       "stableKey": "ilunch-ozo-g|6a5a0ed5b1b2cabca0bb1189",
       "firstNotifiedAt": "2026-07-20T07:15:36.161Z",
-      "lastSeenAt": "2026-07-21T14:29:27.424Z",
+      "lastSeenAt": "2026-07-21T16:11:25.404Z",
       "venue": {
         "id": "670795c27f250e4b8987ed07",
         "slug": "ilunch-ozo-g",
@@ -99,7 +99,7 @@
     {
       "stableKey": "ilunch-u219-vilnius|6a5a0ed5b1b2cabca0bb1189",
       "firstNotifiedAt": "2026-07-20T07:15:36.161Z",
-      "lastSeenAt": "2026-07-21T14:29:27.424Z",
+      "lastSeenAt": "2026-07-21T16:11:25.404Z",
       "venue": {
         "id": "63b427674fac2a6fab02bc65",
         "slug": "ilunch-u219-vilnius",
@@ -118,7 +118,7 @@
     {
       "stableKey": "ilunch|6a5a0ed5b1b2cabca0bb1189",
       "firstNotifiedAt": "2026-07-20T07:15:36.161Z",
-      "lastSeenAt": "2026-07-21T14:29:27.424Z",
+      "lastSeenAt": "2026-07-21T16:11:25.404Z",
       "venue": {
         "id": "658405d70970861828b83306",
         "slug": "ilunch",
@@ -137,7 +137,7 @@
     {
       "stableKey": "ilunch-rinktines-g|6a3ce6e99cb16c3d9b78cb13",
       "firstNotifiedAt": "2026-07-15T08:19:21.671Z",
-      "lastSeenAt": "2026-07-21T14:29:27.424Z",
+      "lastSeenAt": "2026-07-21T16:11:25.404Z",
       "venue": {
         "id": "5d99bfae5996759e17cc15b3",
         "slug": "ilunch-rinktines-g",
@@ -156,7 +156,7 @@
     {
       "stableKey": "ilunch-gostauto-g|6a3ce6e99cb16c3d9b78cb13",
       "firstNotifiedAt": "2026-07-14T12:22:24.975Z",
-      "lastSeenAt": "2026-07-21T14:29:27.424Z",
+      "lastSeenAt": "2026-07-21T16:11:25.404Z",
       "venue": {
         "id": "5d4a7f07ec1c3972a68e89b6",
         "slug": "ilunch-gostauto-g",
@@ -175,7 +175,7 @@
     {
       "stableKey": "ilunch-vc-highway-savanoriu-pr|6a5a0ed5b1b2cabca0bb1189",
       "firstNotifiedAt": "2026-07-20T07:15:36.161Z",
-      "lastSeenAt": "2026-07-21T14:29:27.424Z",
+      "lastSeenAt": "2026-07-21T16:11:25.404Z",
       "venue": {
         "id": "649d788c3a308c6cae7d8b28",
         "slug": "ilunch-vc-highway-savanoriu-pr",
@@ -194,7 +194,7 @@
     {
       "stableKey": "ilunch-vc-k29-konstitucijos-pr|6a5a0ed5b1b2cabca0bb1189",
       "firstNotifiedAt": "2026-07-20T07:15:36.161Z",
-      "lastSeenAt": "2026-07-21T14:29:27.424Z",
+      "lastSeenAt": "2026-07-21T16:11:25.404Z",
       "venue": {
         "id": "5ee9febed40ef4092c0ba828",
         "slug": "ilunch-vc-k29-konstitucijos-pr",
@@ -213,7 +213,7 @@
     {
       "stableKey": "ilunch-saltoniskiu-g|6a5a0ed5b1b2cabca0bb1189",
       "firstNotifiedAt": "2026-07-20T07:15:36.161Z",
-      "lastSeenAt": "2026-07-21T14:29:27.424Z",
+      "lastSeenAt": "2026-07-21T16:11:25.404Z",
       "venue": {
         "id": "5d9ed25ee872b707bd908374",
         "slug": "ilunch-saltoniskiu-g",
@@ -232,7 +232,7 @@
     {
       "stableKey": "noon-hero|6a3ce6e99cb16c3d9b78cb13",
       "firstNotifiedAt": "2026-07-01T09:30:27.013Z",
-      "lastSeenAt": "2026-07-21T14:29:27.424Z",
+      "lastSeenAt": "2026-07-21T16:11:25.404Z",
       "venue": {
         "id": "695cfc275c37cafcbc21f875",
         "slug": "noon-hero",
@@ -251,7 +251,7 @@
     {
       "stableKey": "noon-mokslininku-g|6a3ce6e99cb16c3d9b78cb13",
       "firstNotifiedAt": "2026-07-01T09:30:27.013Z",
-      "lastSeenAt": "2026-07-21T14:29:27.424Z",
+      "lastSeenAt": "2026-07-21T16:11:25.404Z",
       "venue": {
         "id": "681b0451e1b6dbaf32bd7370",
         "slug": "noon-mokslininku-g",
@@ -270,7 +270,7 @@
     {
       "stableKey": "noon-sky-office|6a3ce6e99cb16c3d9b78cb13",
       "firstNotifiedAt": "2026-07-01T09:30:27.013Z",
-      "lastSeenAt": "2026-07-21T14:29:27.424Z",
+      "lastSeenAt": "2026-07-21T16:11:25.404Z",
       "venue": {
         "id": "66f1457741d7232f6e9b4de0",
         "slug": "noon-sky-office",
@@ -289,7 +289,7 @@
     {
       "stableKey": "noon-vc-meraki|6a3ce6e99cb16c3d9b78cb13",
       "firstNotifiedAt": "2026-07-01T09:30:27.013Z",
-      "lastSeenAt": "2026-07-21T14:29:27.424Z",
+      "lastSeenAt": "2026-07-21T16:11:25.404Z",
       "venue": {
         "id": "672b73bdabff246331fe0aac",
         "slug": "noon-vc-meraki",
@@ -308,7 +308,7 @@
     {
       "stableKey": "zenbowl|6a465496ef3a256d54cfcbe9",
       "firstNotifiedAt": "2026-07-02T14:30:26.310Z",
-      "lastSeenAt": "2026-07-21T14:29:27.424Z",
+      "lastSeenAt": "2026-07-21T16:11:25.404Z",
       "venue": {
         "id": "6a2656c72f76c2ba37d837f3",
         "slug": "zenbowl",
