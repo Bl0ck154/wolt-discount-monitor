@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-20T16:10:53.281Z",
-  "previousGeneratedAt": "2026-07-20T14:23:27.738Z",
+  "generatedAt": "2026-07-21T07:19:26.125Z",
+  "previousGeneratedAt": "2026-07-20T16:10:53.281Z",
   "counts": {
     "restaurantsUniqueVenues": 822,
     "promotionsUniqueVenues": 1357,
@@ -16,6 +16,128 @@
     }
   },
   "appeared": [
+    {
+      "venue": {
+        "id": "6978c80db11a633c52f63185",
+        "slug": "flying-tomato-trattoria",
+        "name": "Flying Tomato Trattoria",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/flying-tomato-trattoria",
+        "imageUrl": "https://imageproxy.wolt.com/assets/697b385eaded7a30ce7e65e2"
+      },
+      "stableKey": "flying-tomato-trattoria|6a5f09cbeeb1d025f0389372",
+      "key": "venue.promotions_for_telemetry:6a5f09cbeeb1d025f0389372",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a5f09cbeeb1d025f0389372",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5f09cbeeb1d025f0389372",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    }
+  ],
+  "disappeared": [
+    {
+      "venue": {
+        "id": "5e84aa2942cdedcf8dc677d5",
+        "slug": "chief-pizza-dzuku-g",
+        "name": "Chief Pizza (Dzūkų g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/chief-pizza-dzuku-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fad29cd4b694e529aa4"
+      },
+      "stableKey": "chief-pizza-dzuku-g|6a5e22e5aef66aefbfd92c5a",
+      "key": "venue.promotions_for_telemetry:6a5e22e5aef66aefbfd92c5a",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a5e22e5aef66aefbfd92c5a",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5e22e5aef66aefbfd92c5a",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5e8b21c27b8427c54e1794d6",
+        "slug": "chief-pizza-sauletekis",
+        "name": "Chief Pizza (Saulėtekis)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/chief-pizza-sauletekis",
+        "imageUrl": "https://imageproxy.wolt.com/assets/6733302729cd4b694e52a1b3"
+      },
+      "stableKey": "chief-pizza-sauletekis|6a5e23080452f509f1b4d6b5",
+      "key": "venue.promotions_for_telemetry:6a5e23080452f509f1b4d6b5",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a5e23080452f509f1b4d6b5",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5e23080452f509f1b4d6b5",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
+    {
+      "venue": {
+        "id": "5fa53c3cd2697f83c1b19e9b",
+        "slug": "chief-pizza-zemaites-g",
+        "name": "Chief Pizza (Žemaitės g.)",
+        "productLine": "restaurant",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/chief-pizza-zemaites-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67320836479a971266a692c7"
+      },
+      "stableKey": "chief-pizza-zemaites-g|6a5e23465f80177f4170d74e",
+      "key": "venue.promotions_for_telemetry:6a5e23465f80177f4170d74e",
+      "sourcePath": "venue.promotions_for_telemetry",
+      "campaignId": "6a5e23465f80177f4170d74e",
+      "text": "20% off selected items",
+      "amount": 20,
+      "amountType": "percent",
+      "amountLabel": "20%",
+      "category": "percent",
+      "isDeliveryRelated": false,
+      "isUtilityBadge": false,
+      "score": 520,
+      "variant": "discount",
+      "raw": {
+        "campaign_id": "6a5e23465f80177f4170d74e",
+        "icon": "coupon-fill",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
+        "variant": "discount"
+      }
+    },
     {
       "venue": {
         "id": "61fd25d89e6ce7e36e0328a5",
@@ -228,47 +350,47 @@
     },
     {
       "venue": {
-        "id": "69f1d79f1c5d81b4b36c5606",
-        "slug": "sava-bowls",
-        "name": "Sava Bowls",
+        "id": "59c20d038903136dd383f13b",
+        "slug": "piano-piano",
+        "name": "Piano Piano (Vilniaus g.)",
         "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/sava-bowls",
-        "imageUrl": "https://imageproxy.wolt.com/assets/69f1e3ac771ef982fba1191a"
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/piano-piano",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67332fac149445354de03e9f"
       },
-      "stableKey": "sava-bowls|6a5e401caef66aefbfd92f60",
-      "key": "venue.promotions_for_telemetry:6a5e401caef66aefbfd92f60",
+      "stableKey": "piano-piano|696f72829a22d46087295fde",
+      "key": "venue.promotions_for_telemetry:696f72829a22d46087295fde",
       "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a5e401caef66aefbfd92f60",
-      "text": "15% off (up to 50 €)",
-      "amount": 15,
+      "campaignId": "696f72829a22d46087295fde",
+      "text": "20% off selected items",
+      "amount": 20,
       "amountType": "percent",
-      "amountLabel": "15%",
+      "amountLabel": "20%",
       "category": "percent",
       "isDeliveryRelated": false,
       "isUtilityBadge": false,
-      "score": 1515,
+      "score": 520,
       "variant": "discount",
       "raw": {
-        "campaign_id": "6a5e401caef66aefbfd92f60",
+        "campaign_id": "696f72829a22d46087295fde",
         "icon": "coupon-fill",
-        "is_offer_stackable": false,
-        "text": "15% off (up to 50 €)",
+        "is_offer_stackable": true,
+        "text": "20% off selected items",
         "variant": "discount"
       }
     },
     {
       "venue": {
-        "id": "6931658b7964245305cd633f",
-        "slug": "smashas",
-        "name": "SMASHAS",
+        "id": "6660066255c89f64d4e587c3",
+        "slug": "zio-rigo",
+        "name": "Zio Rigo",
         "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/smashas",
-        "imageUrl": "https://imageproxy.wolt.com/assets/6931660e9b18ddf3407a696e"
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/zio-rigo",
+        "imageUrl": "https://imageproxy.wolt.com/assets/67335de7b248216911b3501b"
       },
-      "stableKey": "smashas|6a5e36807ff46455499564df",
-      "key": "venue.promotions_for_telemetry:6a5e36807ff46455499564df",
+      "stableKey": "zio-rigo|69bc49b12890d4631aaea912",
+      "key": "venue.promotions_for_telemetry:69bc49b12890d4631aaea912",
       "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a5e36807ff46455499564df",
+      "campaignId": "69bc49b12890d4631aaea912",
       "text": "0 € delivery fee",
       "amount": 0,
       "amountType": "money",
@@ -279,162 +401,10 @@
       "score": -1,
       "variant": "discount",
       "raw": {
-        "campaign_id": "6a5e36807ff46455499564df",
+        "campaign_id": "69bc49b12890d4631aaea912",
         "icon": "coupon-fill",
         "is_offer_stackable": false,
         "text": "0 € delivery fee",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "621650d1be52e7d77ed8ace3",
-        "slug": "wolt-market-naujamiestis",
-        "name": "Wolt Market Naujamiestis",
-        "productLine": "grocery",
-        "link": "https://wolt.com/en/ltu/vilnius/venue/wolt-market-naujamiestis",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/cb02464c-301a-4c5a-a31d-8019ca026add/37c3301e-d0a7-434d-a08b-62991b69b177"
-      },
-      "stableKey": "wolt-market-naujamiestis|6a5e32afd5f177c09f90d030",
-      "key": "venue.promotions:6a5e32afd5f177c09f90d030",
-      "sourcePath": "venue.promotions",
-      "campaignId": "6a5e32afd5f177c09f90d030",
-      "text": "70% off a wide selection",
-      "amount": 70,
-      "amountType": "percent",
-      "amountLabel": "70%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 1570,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a5e32afd5f177c09f90d030",
-        "icon": "coupon-fill",
-        "is_offer_stackable": true,
-        "text": "70% off a wide selection",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "65e86de1dc221741eabdf046",
-        "slug": "wolt-market-zirmunai",
-        "name": "Wolt Market Žirmūnai",
-        "productLine": "grocery",
-        "link": "https://wolt.com/en/ltu/vilnius/venue/wolt-market-zirmunai",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/cb02464c-301a-4c5a-a31d-8019ca026add/37c3301e-d0a7-434d-a08b-62991b69b177"
-      },
-      "stableKey": "wolt-market-zirmunai|6a5e32afd5f177c09f90d030",
-      "key": "venue.promotions:6a5e32afd5f177c09f90d030",
-      "sourcePath": "venue.promotions",
-      "campaignId": "6a5e32afd5f177c09f90d030",
-      "text": "70% off a wide selection",
-      "amount": 70,
-      "amountType": "percent",
-      "amountLabel": "70%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 1570,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a5e32afd5f177c09f90d030",
-        "icon": "coupon-fill",
-        "is_offer_stackable": true,
-        "text": "70% off a wide selection",
-        "variant": "discount"
-      }
-    }
-  ],
-  "disappeared": [
-    {
-      "venue": {
-        "id": "69f1d79f1c5d81b4b36c5606",
-        "slug": "sava-bowls",
-        "name": "Sava Bowls",
-        "productLine": "restaurant",
-        "link": "https://wolt.com/en/ltu/vilnius/restaurant/sava-bowls",
-        "imageUrl": "https://imageproxy.wolt.com/assets/69f1e3ac771ef982fba1191a"
-      },
-      "stableKey": "sava-bowls|6a39befcea34a17eca4bc7d2",
-      "key": "venue.promotions_for_telemetry:6a39befcea34a17eca4bc7d2",
-      "sourcePath": "venue.promotions_for_telemetry",
-      "campaignId": "6a39befcea34a17eca4bc7d2",
-      "text": "15% off (up to 50 €)",
-      "amount": 15,
-      "amountType": "percent",
-      "amountLabel": "15%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 1515,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a39befcea34a17eca4bc7d2",
-        "icon": "coupon-fill",
-        "is_offer_stackable": false,
-        "text": "15% off (up to 50 €)",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "621650d1be52e7d77ed8ace3",
-        "slug": "wolt-market-naujamiestis",
-        "name": "Wolt Market Naujamiestis",
-        "productLine": "grocery",
-        "link": "https://wolt.com/en/ltu/vilnius/venue/wolt-market-naujamiestis",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/cb02464c-301a-4c5a-a31d-8019ca026add/37c3301e-d0a7-434d-a08b-62991b69b177"
-      },
-      "stableKey": "wolt-market-naujamiestis|6a4256fbc20b8a1723a86cdd",
-      "key": "venue.promotions:6a4256fbc20b8a1723a86cdd",
-      "sourcePath": "venue.promotions",
-      "campaignId": "6a4256fbc20b8a1723a86cdd",
-      "text": "40% off a wide selection",
-      "amount": 40,
-      "amountType": "percent",
-      "amountLabel": "40%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 1540,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a4256fbc20b8a1723a86cdd",
-        "icon": "coupon-fill",
-        "is_offer_stackable": true,
-        "text": "40% off a wide selection",
-        "variant": "discount"
-      }
-    },
-    {
-      "venue": {
-        "id": "65e86de1dc221741eabdf046",
-        "slug": "wolt-market-zirmunai",
-        "name": "Wolt Market Žirmūnai",
-        "productLine": "grocery",
-        "link": "https://wolt.com/en/ltu/vilnius/venue/wolt-market-zirmunai",
-        "imageUrl": "https://imageproxy.wolt.com/mes-image/cb02464c-301a-4c5a-a31d-8019ca026add/37c3301e-d0a7-434d-a08b-62991b69b177"
-      },
-      "stableKey": "wolt-market-zirmunai|6a4256fbc20b8a1723a86cdd",
-      "key": "venue.promotions:6a4256fbc20b8a1723a86cdd",
-      "sourcePath": "venue.promotions",
-      "campaignId": "6a4256fbc20b8a1723a86cdd",
-      "text": "40% off a wide selection",
-      "amount": 40,
-      "amountType": "percent",
-      "amountLabel": "40%",
-      "category": "percent",
-      "isDeliveryRelated": false,
-      "isUtilityBadge": false,
-      "score": 1540,
-      "variant": "discount",
-      "raw": {
-        "campaign_id": "6a4256fbc20b8a1723a86cdd",
-        "icon": "coupon-fill",
-        "is_offer_stackable": true,
-        "text": "40% off a wide selection",
         "variant": "discount"
       }
     }
