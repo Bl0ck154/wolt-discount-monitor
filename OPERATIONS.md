@@ -1,6 +1,6 @@
 # Operations guide
 
-Last verified: 2026-07-19.
+Last verified: 2026-07-21.
 
 ## Production topology
 
@@ -118,6 +118,16 @@ when a previous snapshot exists and either:
 
 The relevant configuration is stored as GitHub Actions secrets/variables. Never
 copy bot tokens or chat IDs into this repository or VPS logs.
+
+Ranking lives in `src/offer-value.mjs` and is shared by normalization, diffs,
+Telegram, and dashboard data. Default alert thresholds are: score `45`, grocery
+`10%`, restaurant `15%`, other product lines `20%`, conditioned cash value ratio
+`20%`, and unconditional cash at `60%` of the local currency reference. Delivery,
+gifts, `2 for 1`, selected-item, and `up to N%` offers never alert. Do not restore
+the old EUR-only thresholds.
+
+Telegram counts grouped chain/campaign offers, not raw venue locations. It starts
+with added/ended counts and ranks each section by score.
 
 ## Git state
 

@@ -50,10 +50,12 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          MIN_DISCOUNT_EUR: ${{ vars.MIN_DISCOUNT_EUR }}
-          MIN_DISCOUNT_PERCENT: ${{ vars.MIN_DISCOUNT_PERCENT }}
-          MAX_MINIMUM_SPEND_EUR: ${{ vars.MAX_MINIMUM_SPEND_EUR }}
-          INCLUDE_ZERO_DELIVERY: ${{ vars.INCLUDE_ZERO_DELIVERY }}
+          MIN_VALUE_SCORE: ${{ vars.MIN_VALUE_SCORE }}
+          MIN_GROCERY_PERCENT: ${{ vars.MIN_GROCERY_PERCENT }}
+          MIN_RESTAURANT_PERCENT: ${{ vars.MIN_RESTAURANT_PERCENT }}
+          MIN_OTHER_PERCENT: ${{ vars.MIN_OTHER_PERCENT }}
+          MIN_CASH_VALUE_RATIO: ${{ vars.MIN_CASH_VALUE_RATIO }}
+          MIN_UNCONDITIONAL_CASH_REFERENCE: ${{ vars.MIN_UNCONDITIONAL_CASH_REFERENCE }}
           WOLT_CACHE_TTL_HOURS: ${{ vars.WOLT_CACHE_TTL_HOURS }}
           WOLT_REFRESH_CITY_CATALOG: "true"
           WOLT_CITIES: ${{ github.event.inputs.cities || github.event.client_payload.cities || 'ltu/vilnius' }}

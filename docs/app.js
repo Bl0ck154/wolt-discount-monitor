@@ -435,7 +435,7 @@ function renderVenueRow(venue, visibleOffers, index, groupSize = 1) {
       </td>
       <td><span class="pill">${escapeHtml(label(venue.productLine ?? "unknown"))}</span></td>
       <td><div class="offer-list">${offers}</div></td>
-      <td class="amount">${escapeHtml(best?.label ?? "-")}</td>
+      <td class="amount">${escapeHtml(formatBestValue(best))}</td>
       <td><span class="hours ${hours.className}">${escapeHtml(hours.icon)} ${escapeHtml(hours.text)}</span></td>
       <td>${mapUrl ? `<a class="map-link" href="${escapeHtml(mapUrl)}" target="_blank" rel="noreferrer" title="Open in Google Maps">🗺️</a>` : "-"}</td>
     </tr>
@@ -457,7 +457,7 @@ function renderGroupDetailRow(venue, visibleOffers, index) {
       <div class="venue-meta">${escapeHtml([venue.address, venue.slug].filter(Boolean).join(" · "))}</div>
     </td>
     <td><div class="offer-list">${offers}</div></td>
-    <td class="amount">${escapeHtml(best?.label ?? "-")}</td>
+    <td class="amount">${escapeHtml(formatBestValue(best))}</td>
     <td><span class="hours ${hours.className}">${escapeHtml(hours.icon)} ${escapeHtml(hours.text)}</span></td>
     <td>${mapUrl ? `<a class="map-link" href="${escapeHtml(mapUrl)}" target="_blank" rel="noreferrer" title="Open in Google Maps">🗺️</a>` : "-"}</td>
   </tr>`;
@@ -847,6 +847,14 @@ function sourceOffers(venue) {
       amount: offer.amount,
       amountType: offer.amountType,
       amountLabel: offer.amountLabel,
+      currencyCode: offer.currencyCode,
+      minimumSpend: offer.minimumSpend,
+      effectiveDiscountPercent: offer.effectiveDiscountPercent,
+      scope: offer.scope,
+      valueVersion: offer.valueVersion,
+      valueScore: offer.valueScore,
+      valueTier: offer.valueTier,
+      value: offer.value,
       isUtilityBadge: offer.isUtilityBadge,
       score: offer.score,
       sourcePath: offer.sourcePath,
@@ -892,6 +900,10 @@ function bestSortValue(venue) {
 }
 
 function bestDiscount(venue) {
+  if (venue.bestDiscount?.tier && Number.isFinite(Number(venue.bestDiscount.score))) {
+    return venue.bestDiscount;
+  }
+
   const discounts = sourceOffers(venue)
     .filter((offer) => !isDeliveryRelated(offer.text))
     .filter((offer) => !isUtilityOfferText(offer.text))
@@ -940,6 +952,11 @@ function extractDiscount(text = "") {
 }
 
 function offerScore(offer) {
+  const storedScore = Number(offer.valueScore ?? offer.value?.score ?? offer.score);
+  if ((offer.valueVersion === 2 || offer.value?.version === 2) && Number.isFinite(storedScore)) {
+    return storedScore;
+  }
+
   const text = normalizeOfferText(offer.text).toLowerCase();
   const discount = offer.discount ?? offerDiscount(offer);
   const amount = Number(discount?.amount);
@@ -1024,6 +1041,13 @@ function formatDiscountLabel(amount, type) {
   return String(amount);
 }
 
+function formatBestValue(best) {
+  if (!best) {
+    return "-";
+  }
+  const score = Number(best.score);
+  return best.tier && Number.isFinite(score) ? `${best.label} · ${score}/100` : best.label ?? "-";
+}
 function offerClass(offer) {
   const text = offer.text.toLowerCase();
   if (isNewUserZeroDelivery(text)) {
@@ -1035,7 +1059,7 @@ function offerClass(offer) {
   if (/%/.test(text)) {
     return "offer-percent";
   }
-  if (/€|eur|euro/.test(text)) {
+  if (offer.amountType === "money" || offer.currencyCode || /€|eur|euro/.test(text)) {
     return "offer-money";
   }
   if (/free|0\s*€|0eur|0 eur/i.test(text)) {

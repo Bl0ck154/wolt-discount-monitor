@@ -1,10 +1,13 @@
 import { CITY, cityLabel } from "./config.mjs";
+import { analyzeOffer, extractDiscount as extractValueDiscount, normalizeOfferText } from "./offer-value.mjs";
 
 export function normalizeSnapshot({ city = CITY, urls, restaurantRows, promoRows }) {
   const generatedAt = new Date().toISOString();
   const venues = promoRows
     .map((row) => normalizeVenueRow(row, urls.promotions, city))
-    .sort((a, b) => a.name.localeCompare(b.name, "en"));
+    .sort((a, b) =>
+      Number(b.bestDiscount?.score ?? 0) - Number(a.bestDiscount?.score ?? 0) ||
+      a.name.localeCompare(b.name, "en"));
 
   return {
     generatedAt,
@@ -35,6 +38,7 @@ function normalizeVenueRow(row, sourceEndpoint, city) {
     slug: venue.slug ?? null,
     name: venue.name ?? "",
     productLine: venue.product_line ?? null,
+    currency: venue.currency ?? city.currency ?? null,
     address: formatAddress(venue.address),
     coordinates,
     mapUrl: buildMapUrl(venue, coordinates, city),
@@ -90,27 +94,32 @@ function publicCity(city) {
 
 function extractOffers(venue) {
   const offers = [];
+  const context = {
+    currencyCode: venue.currency ?? null,
+    productLine: venue.product_line ?? null,
+  };
 
   for (const promotion of venue.promotions ?? []) {
-    offers.push(normalizeOffer("venue.promotions", promotion));
+    offers.push(normalizeOffer("venue.promotions", promotion, context));
   }
 
   for (const badge of venue.badges_v2 ?? []) {
     if (badge?.text) {
-      offers.push(normalizeOffer("venue.badges_v2", badge));
+      offers.push(normalizeOffer("venue.badges_v2", badge, context));
     }
   }
 
   for (const promotion of venue.promotions_for_telemetry ?? []) {
-    offers.push(normalizeOffer("venue.promotions_for_telemetry", promotion));
+    offers.push(normalizeOffer("venue.promotions_for_telemetry", promotion, context));
   }
 
   return dedupeOffers(offers);
 }
 
-function normalizeOffer(sourcePath, raw) {
+function normalizeOffer(sourcePath, raw, context) {
   const text = normalizeText(raw.text ?? raw.formatted_text ?? "");
-  const discount = extractDiscount(text);
+  const analysis = analyzeOffer({ text, ...context });
+  const discount = analysis.discount;
 
   return {
     key: `${sourcePath}:${raw.campaign_id ?? raw.discount_id ?? text}`,
@@ -120,10 +129,21 @@ function normalizeOffer(sourcePath, raw) {
     amount: discount?.amount ?? null,
     amountType: discount?.type ?? null,
     amountLabel: discount?.label ?? null,
-    category: classifyOffer(text),
-    isDeliveryRelated: isDeliveryRelated(text),
+    currencyCode: analysis.value.currencyCode,
+    minimumSpend: analysis.value.minimumSpend,
+    maxSavings: analysis.value.maxSavings,
+    effectiveDiscountPercent: analysis.value.effectiveDiscountPercent,
+    scope: analysis.value.scope,
+    valueVersion: analysis.value.version,
+    valueScore: analysis.value.score,
+    valueTier: analysis.value.tier,
+    value: analysis.value,
+    notificationEligible: analysis.notificationEligible,
+    category: classifyOffer(text, analysis.value),
+    isDeliveryRelated: analysis.value.isDelivery,
+    isLowValuePerk: analysis.value.isPerk,
     isUtilityBadge: isUtilityOfferText(text),
-    score: scoreOffer({ text, amount: discount?.amount ?? null, amountType: discount?.type ?? null }),
+    score: analysis.value.score,
     variant: raw.variant ?? raw.type ?? null,
     raw,
   };
@@ -134,49 +154,35 @@ function dedupeOffers(offers) {
   const result = [];
 
   for (const offer of offers) {
-    const key = `${offer.campaignId ?? ""}:${offer.text}:${offer.sourcePath}`;
+    const key = normalizeText(offer.text).toLowerCase();
     if (!seen.has(key)) {
       seen.add(key);
       result.push(offer);
     }
   }
 
-  return result.filter((offer) => !offer.isUtilityBadge);
+  return result
+    .filter((offer) => !offer.isUtilityBadge)
+    .sort((a, b) => b.score - a.score || a.text.localeCompare(b.text, "en"));
 }
 
 export function normalizeText(text) {
-  return String(text).replace(/\u202f|\u00a0/g, " ").trim();
+  return normalizeOfferText(text);
 }
 
-export function extractAmount(text = "") {
-  return extractDiscount(text)?.amount ?? null;
+export function extractAmount(text = "", options = {}) {
+  return extractValueDiscount(text, options)?.amount ?? null;
 }
 
-export function extractDiscount(text = "") {
-  const normalized = normalizeText(text);
-  const percent = normalized.match(/(-?\d+(?:[.,]\d+)?)\s*%/);
-
-  if (percent) {
-    const amount = Math.abs(Number(percent[1].replace(",", ".")));
-    return { amount, type: "percent", label: `${amount}%` };
-  }
-
-  const money = normalized.match(/(?:€\s*(\d+(?:[.,]\d+)?)|(\d+(?:[.,]\d+)?)\s*(?:€|eur|euro))/i);
-
-  if (money) {
-    const amount = Number((money[1] ?? money[2]).replace(",", "."));
-    return { amount, type: "money", label: `${amount} EUR` };
-  }
-
-  return null;
+export function extractDiscount(text = "", options = {}) {
+  return extractValueDiscount(text, options);
 }
 
 function bestDiscount(offers) {
   const discounts = offers
-    .filter((offer) => !offer.isDeliveryRelated)
     .filter((offer) => !offer.isUtilityBadge)
-    .filter((offer) => Number.isFinite(offer.amount))
-    .sort((a, b) => scoreOffer(b) - scoreOffer(a));
+    .filter((offer) => Number.isFinite(offer.amount) && offer.score > 0)
+    .sort((a, b) => b.score - a.score);
 
   if (!discounts.length) {
     return null;
@@ -188,22 +194,30 @@ function bestDiscount(offers) {
     type: best.amountType,
     label: best.amountLabel,
     sourceText: best.text,
-    score: scoreOffer(best),
+    score: best.score,
+    tier: best.valueTier,
+    scope: best.scope,
+    effectiveDiscountPercent: best.effectiveDiscountPercent,
+    currencyCode: best.currencyCode,
+    minimumSpend: best.minimumSpend,
   };
 }
 
-function classifyOffer(text) {
+function classifyOffer(text, value) {
   const normalized = normalizeText(text).toLowerCase();
   if (isNewUserZeroDelivery(normalized)) {
     return "new-user-delivery";
   }
-  if (isDeliveryRelated(normalized)) {
+  if (value.isDelivery) {
     return "delivery";
+  }
+  if (value.isPerk) {
+    return "perk";
   }
   if (/%/.test(normalized)) {
     return "percent";
   }
-  if (/€|eur|euro/.test(normalized)) {
+  if (value.currencyCode) {
     return "money";
   }
   if (/free|deal|discount|off|save|nuolaid/i.test(normalized)) {
@@ -338,81 +352,6 @@ function humanStatusLabel(value = "") {
   }
 
   return normalized;
-}
-
-function scoreOffer(offer) {
-  const text = normalizeText(offer.text).toLowerCase();
-  const amount = Number(offer.amount);
-  if (!Number.isFinite(amount) || isDeliveryRelated(text) || isUtilityOfferText(text)) {
-    return -1;
-  }
-
-  const selectedItems = isSpecificItemOffer(text);
-  const minSpend = minimumSpendAmount(text);
-  const hasMinimumSpend = minSpend !== null;
-  const smallMinimumSpend = minSpend !== null && minSpend <= 15;
-  const wholeMenu = isWholeMenuOffer(text);
-
-  if (selectedItems) {
-    return 500 + amount;
-  }
-
-  if (offer.amountType === "money") {
-    if (!hasMinimumSpend) {
-      return 7000 + amount;
-    }
-    if (smallMinimumSpend) {
-      return 6500 + amount;
-    }
-    return 2500 + amount;
-  }
-
-  if (offer.amountType === "percent") {
-    if (wholeMenu && !hasMinimumSpend) {
-      return 6000 + amount;
-    }
-    if (wholeMenu && smallMinimumSpend) {
-      return 5500 + amount;
-    }
-    if (wholeMenu) {
-      return 2000 + amount;
-    }
-    return 1500 + amount;
-  }
-
-  return -1;
-}
-
-function isWholeMenuOffer(text) {
-  return /\b(?:all|entire|whole|everything)\b.*\b(?:menu|basket|order|items?)\b/i.test(text) ||
-    /\b(?:menu|basket|whole order|entire order|order discount|all items?|everything)\b/i.test(text);
-}
-
-function isSpecificItemOffer(text) {
-  return /selected\s+(?:item|items|product|products)|specific\s+(?:item|items|product|products)/i.test(text) ||
-    /\b(?:burger|burgers|tortilla|tortillas|meal|meals|combo|combos|set|sets|pizza|pizzas|sushi set)\b/i.test(text);
-}
-
-function minimumSpendAmount(text) {
-  const normalized = String(text).replace(/,/g, ".");
-  const patterns = [
-    /\bspend\s*(?:€\s*)?(\d+(?:\.\d+)?)\s*(?:€|eur|euro)?/i,
-    /\bminimum\s*(?:order|spend|basket)?\s*(?:€\s*)?(\d+(?:\.\d+)?)\s*(?:€|eur|euro)?/i,
-    /\bmin\.?\s*(?:order|spend|basket)?\s*(?:€\s*)?(\d+(?:\.\d+)?)\s*(?:€|eur|euro)?/i,
-    /\bfrom\s*(?:€\s*)?(\d+(?:\.\d+)?)\s*(?:€|eur|euro)/i,
-    /\borders?\s+over\s*(?:€\s*)?(\d+(?:\.\d+)?)\s*(?:€|eur|euro)?/i,
-    /\bover\s*(?:€\s*)?(\d+(?:\.\d+)?)\s*(?:€|eur|euro)/i,
-  ];
-
-  for (const pattern of patterns) {
-    const match = normalized.match(pattern);
-    if (match) {
-      const amount = Number(match[1]);
-      return Number.isFinite(amount) ? amount : null;
-    }
-  }
-
-  return null;
 }
 
 function buildWoltLink(venue, city) {

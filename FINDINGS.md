@@ -191,3 +191,47 @@ This endpoint is useful for one-venue validation and richer banner data. It is n
 ```
 
 `consumer-assortment` can identify item-level discounts, but it is not the main solution for venue/order-level offer badges.
+
+## Cross-country promotion ranking (2026-07-21)
+
+Live promotion payloads were sampled from 11 cities before implementing value
+ranking: Vilnius, Helsinki, Berlin, Warsaw, Prague, Budapest, Tbilisi, Baku,
+Copenhagen, Stockholm, and Tel Aviv. The sample covered EUR, PLN, CZK, HUF, GEL,
+AZN, DKK, SEK, and ILS.
+
+Observed recurring forms included:
+
+- broad percentages (`10% off`, `Get 30% off`, `-25% off the basket`);
+- capped percentages (`15% off (up to 10 EUR)`);
+- fixed cash without a minimum (`5 EUR off`, `15 PLN off`, `12 GEL off`);
+- fixed cash with a minimum (`50 DKK off (spend 120 DKK)`,
+  `750 HUF off (spend 5,000 HUF)`);
+- selected-item discounts;
+- gifts, free drinks/desserts, `2 for 1`, and free delivery.
+
+### Value model
+
+`src/offer-value.mjs` computes a `0..100` value score:
+
+1. A percentage starts with its face value.
+2. Fixed cash with a minimum spend becomes
+   `discount / minimum spend * 100`; no exchange rate is needed.
+3. Fixed cash without a minimum uses a local campaign reference. The references
+   are calibrated from recurring Wolt amounts, not used as foreign-exchange
+   rates: EUR 5, PLN 15, CZK 100, HUF 1500, GEL 12, AZN 6, DKK/SEK/NOK 50,
+   ILS 20, ISK 700, KZT 2000, RON 20, RSD 500, BGN 10, ALL 500, MKD 300.
+4. Broad scope adds value. Grocery receives a larger category bonus because even
+   a broad 10% discount is useful across a basket.
+5. A high minimum spend lowers percentage-off value. Caps and `up to N%` lower
+   certainty and score.
+6. Selected items are heavily demoted. Delivery, gifts, free products, and
+   `2 for 1` score zero for notification purposes.
+
+Default alert eligibility requires broad scope and score `>=45`. Percentage
+floors are `10%` for grocery, `15%` for restaurants, and `20%` for other product
+lines. Conditioned fixed cash must save at least `20%` of the minimum basket.
+Unconditional cash must be at least `60%` of its currency reference.
+
+The score is universal, but production Telegram delivery remains intentionally
+limited to Vilnius. Other cities are useful for research, dashboard browsing,
+and regression testing without creating notification spam.

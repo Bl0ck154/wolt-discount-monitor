@@ -1,0 +1,48 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+
+import { formatTelegramMessage } from "../src/telegram.mjs";
+
+function offer({ venue, campaignId, text, score, tier = "good" }) {
+  return {
+    venue: {
+      name: venue,
+      link: "https://wolt.example/venue",
+      productLine: "restaurant",
+    },
+    campaignId,
+    text,
+    valueScore: score,
+    valueTier: tier,
+  };
+}
+
+test("Telegram starts with grouped added/ended summary and ranks best first", () => {
+  const text = formatTelegramMessage({
+    city: { id: "ltu/vilnius", name: "Vilnius" },
+    appeared: [
+      offer({ venue: "Chain (North)", campaignId: "cash", text: "5 € off", score: 81, tier: "exceptional" }),
+      offer({ venue: "Chain (South)", campaignId: "cash", text: "5 € off", score: 81, tier: "exceptional" }),
+      offer({ venue: "Market", campaignId: "grocery", text: "10% off", score: 46 }),
+    ],
+    ended: [
+      offer({ venue: "Old Place", campaignId: "old", text: "20% off", score: 51 }),
+    ],
+  });
+
+  assert.ok(text.startsWith("➕ <b>2 нові</b> · ➖ <b>1 завершилась</b>"));
+  assert.ok(text.indexOf("Chain") < text.indexOf("Market"));
+  assert.match(text, /2 локацій/);
+  assert.match(text, /81\/100/);
+  assert.ok(text.indexOf("Нові вигідні пропозиції") < text.indexOf("Завершилися"));
+});
+
+test("Telegram escapes venue and offer HTML", () => {
+  const text = formatTelegramMessage({
+    city: { id: "ltu/vilnius", name: "Vilnius" },
+    appeared: [offer({ venue: "A&B <Shop>", campaignId: "x", text: "20% <off>", score: 50 })],
+    ended: [],
+  });
+  assert.match(text, /A&amp;B &lt;Shop&gt;/);
+  assert.match(text, /20% &lt;off&gt;/);
+});

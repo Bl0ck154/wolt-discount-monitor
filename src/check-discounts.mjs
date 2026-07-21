@@ -1,11 +1,12 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname } from "node:path";
 import { CACHE_TTL_MS, CITY, PATHS, cityDataPaths, cityKey, cityLabel, isDefaultCity } from "./config.mjs";
-import { diffSnapshots, interestingOfferIndex, offerIndex } from "./diff.mjs";
+import { diffSnapshots, interestingOfferIndex, isInterestingOffer, offerIndex } from "./diff.mjs";
 import { fetchCityData, isSnapshotFresh } from "./wolt-api.mjs";
 import { fetchWoltCityCatalog } from "./wolt-cities.mjs";
 import { normalizeSnapshot } from "./normalize.mjs";
 import { formatTelegramMessage, sendTelegramMessage } from "./telegram.mjs";
+import { offerScore, sortOffersByValue } from "./offer-value.mjs";
 
 async function main() {
   const catalog = await loadOrFetchCityCatalog();
@@ -94,8 +95,8 @@ async function checkCity(city) {
   const currentOffers = offerIndex(current);
   const currentInteresting = interestingOfferIndex(current);
   const notifiedByKey = new Map((notified.activeOffers ?? []).filter((offer) => offer.stableKey).map((offer) => [offer.stableKey, offer]));
-  const newInteresting = changes.interestingAppeared.filter((offer) => !notifiedByKey.has(offer.stableKey));
-  const endedNotified = [...notifiedByKey.values()].filter((offer) => !currentOffers.has(offer.stableKey));
+  const newInteresting = sortOffersByValue(changes.interestingAppeared.filter((offer) => !notifiedByKey.has(offer.stableKey)));
+  const endedNotified = sortOffersByValue([...notifiedByKey.values()].filter((offer) => !currentOffers.has(offer.stableKey) && isInterestingOffer(offer)));
   const hasChanges =
     process.env.FORCE_WRITE === "true" ||
     !previous ||
@@ -256,33 +257,51 @@ function buildNotifiedState({ previous, currentInteresting, appeared, ended, gen
   const endedKeys = new Set(ended.map((offer) => offer.stableKey));
   const byKey = new Map();
 
-  for (const offer of previous.activeOffers ?? []) {
-    if (!endedKeys.has(offer.stableKey) && currentInteresting.has(offer.stableKey)) {
-      byKey.set(offer.stableKey, {
-        ...offer,
-        lastSeenAt: currentInteresting.has(offer.stableKey) ? generatedAt : offer.lastSeenAt,
-      });
+  for (const previousOffer of previous.activeOffers ?? []) {
+    const currentOffer = currentInteresting.get(previousOffer.stableKey);
+    if (!endedKeys.has(previousOffer.stableKey) && currentOffer) {
+      byKey.set(previousOffer.stableKey, notifiedOfferRecord(currentOffer, {
+        firstNotifiedAt: previousOffer.firstNotifiedAt ?? generatedAt,
+        lastSeenAt: generatedAt,
+      }));
     }
   }
 
   for (const offer of appeared) {
-    byKey.set(offer.stableKey, {
-      stableKey: offer.stableKey,
+    byKey.set(offer.stableKey, notifiedOfferRecord(offer, {
       firstNotifiedAt: generatedAt,
       lastSeenAt: generatedAt,
-      venue: offer.venue,
-      sourcePath: offer.sourcePath,
-      campaignId: offer.campaignId,
-      text: offer.text,
-      amount: offer.amount,
-      amountType: offer.amountType,
-      amountLabel: offer.amountLabel,
-    });
+    }));
   }
 
   return {
     updatedAt: generatedAt,
-    activeOffers: [...byKey.values()].sort((a, b) => a.venue.name.localeCompare(b.venue.name)),
+    activeOffers: [...byKey.values()].sort((a, b) =>
+      offerScore(b) - offerScore(a) || a.venue.name.localeCompare(b.venue.name, "en")),
+  };
+}
+
+function notifiedOfferRecord(offer, { firstNotifiedAt, lastSeenAt }) {
+  return {
+    stableKey: offer.stableKey,
+    firstNotifiedAt,
+    lastSeenAt,
+    venue: offer.venue,
+    sourcePath: offer.sourcePath,
+    campaignId: offer.campaignId,
+    text: offer.text,
+    amount: offer.amount,
+    amountType: offer.amountType,
+    amountLabel: offer.amountLabel,
+    currencyCode: offer.currencyCode,
+    minimumSpend: offer.minimumSpend,
+    maxSavings: offer.maxSavings,
+    effectiveDiscountPercent: offer.effectiveDiscountPercent,
+    scope: offer.scope,
+    valueVersion: offer.valueVersion,
+    valueScore: offer.valueScore,
+    valueTier: offer.valueTier,
+    value: offer.value,
   };
 }
 

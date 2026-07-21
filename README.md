@@ -209,16 +209,35 @@ TELEGRAM_BOT_TOKEN
 TELEGRAM_CHAT_ID
 ```
 
-Optional notification variables:
+Offers are ranked by a currency-independent value score from `0` to `100`.
+The same scorer is used for every city and for dashboard ordering. Telegram uses
+it only for Vilnius.
+
+Default notification variables:
 
 ```text
-MIN_DISCOUNT_EUR=3
-MIN_DISCOUNT_PERCENT=20
-MAX_MINIMUM_SPEND_EUR=15
-INCLUDE_ZERO_DELIVERY=false
+MIN_VALUE_SCORE=45
+MIN_GROCERY_PERCENT=10
+MIN_RESTAURANT_PERCENT=15
+MIN_OTHER_PERCENT=20
+MIN_CASH_VALUE_RATIO=0.20
+MIN_UNCONDITIONAL_CASH_REFERENCE=0.60
 ```
 
-Non-Vilnius cities are cached and displayed but skipped by Telegram.
+Fixed discounts with a minimum spend are compared as
+`discount / minimum spend`, so the calculation works without converting PLN,
+CZK, HUF, GEL, AZN, DKK, SEK, ILS, or other currencies. Unconditional fixed
+discounts use a per-currency Wolt campaign reference. Broad grocery discounts
+receive extra value; selected-item campaigns, gifts, `2 for 1`, and free
+delivery do not trigger notifications.
+
+A Telegram message starts with grouped added/ended counts, then lists new and
+ended qualifying offers in descending value order. Multiple locations of the
+same chain/campaign count as one offer.
+
+Non-Vilnius cities are cached, ranked, and displayed but skipped by Telegram.
+See `FINDINGS.md` for the observed international promotion patterns and the
+full scoring model.
 
 ## GitHub Actions
 

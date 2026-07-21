@@ -73,9 +73,21 @@ export function cityDataPaths(city) {
   };
 }
 
+export function readNumericEnv(name, fallback) {
+  const raw = process.env[name];
+  if (typeof raw !== "string" || raw.trim() === "") {
+    return fallback;
+  }
+  const value = Number(raw);
+  return Number.isFinite(value) ? value : fallback;
+}
+
 export const NOTIFY_RULES = {
-  minDiscountEur: Number(process.env.MIN_DISCOUNT_EUR ?? 3),
-  minDiscountPercent: Number(process.env.MIN_DISCOUNT_PERCENT ?? 20),
-  maxMinimumSpendEur: Number(process.env.MAX_MINIMUM_SPEND_EUR ?? 15),
-  includeZeroDelivery: process.env.INCLUDE_ZERO_DELIVERY === "true",
+  minValueScore: readNumericEnv("MIN_VALUE_SCORE", 45),
+  minGroceryPercent: readNumericEnv("MIN_GROCERY_PERCENT", 10),
+  minRestaurantPercent: readNumericEnv("MIN_RESTAURANT_PERCENT", 15),
+  minOtherPercent: readNumericEnv("MIN_OTHER_PERCENT", 20),
+  minCashValueRatio: readNumericEnv("MIN_CASH_VALUE_RATIO", 0.2),
+  minUnconditionalCashReference: readNumericEnv("MIN_UNCONDITIONAL_CASH_REFERENCE", 0.6),
+  includeZeroDelivery: false,
 };

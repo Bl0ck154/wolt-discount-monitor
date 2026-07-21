@@ -1,0 +1,356 @@
+export const OFFER_VALUE_VERSION = 2;
+
+export const DEFAULT_VALUE_RULES = {
+  minValueScore: 45,
+  minGroceryPercent: 10,
+  minRestaurantPercent: 15,
+  minOtherPercent: 20,
+  minCashValueRatio: 0.2,
+  minUnconditionalCashReference: 0.6,
+};
+
+const CURRENCY_PROFILES = {
+  EUR: { reference: 5, aliases: ["€", "eur", "euro", "euros"] },
+  PLN: { reference: 15, aliases: ["pln", "zł", "zl"] },
+  CZK: { reference: 100, aliases: ["czk", "kč", "kc"] },
+  HUF: { reference: 1500, aliases: ["huf", "ft"] },
+  GEL: { reference: 12, aliases: ["gel", "₾"] },
+  AZN: { reference: 6, aliases: ["azn", "₼"] },
+  DKK: { reference: 50, aliases: ["dkk", "kr", "kr."] },
+  SEK: { reference: 50, aliases: ["sek", "kr", "kr."] },
+  NOK: { reference: 50, aliases: ["nok", "kr", "kr."] },
+  ILS: { reference: 20, aliases: ["ils", "₪"] },
+  ISK: { reference: 700, aliases: ["isk", "kr", "kr."] },
+  KZT: { reference: 2000, aliases: ["kzt", "₸"] },
+  RON: { reference: 20, aliases: ["ron", "lei"] },
+  RSD: { reference: 500, aliases: ["rsd", "din"] },
+  BGN: { reference: 10, aliases: ["bgn", "лв"] },
+  ALL: { reference: 500, aliases: ["all", "lek"] },
+  MKD: { reference: 300, aliases: ["mkd", "ден", "den"] },
+};
+
+const ALIAS_TO_CODES = buildAliasIndex();
+const MONEY_TOKEN_PATTERN = [...ALIAS_TO_CODES.keys()]
+  .sort((a, b) => b.length - a.length)
+  .map(escapeRegExp)
+  .join("|");
+const NUMBER_PATTERN = "(-?\\d{1,3}(?:[ .,:]\\d{3})+|-?\\d+(?:[.,]\\d+)?)";
+
+export function analyzeOffer(offer, rules = DEFAULT_VALUE_RULES) {
+  const text = normalizeOfferText(offer?.text);
+  const normalized = text.toLowerCase();
+  const preferredCurrency = normalizeCurrencyCode(offer?.currencyCode ?? offer?.currency);
+  const extracted = Number.isFinite(Number(offer?.amount)) && offer?.amountType
+    ? {
+        amount: Math.abs(Number(offer.amount)),
+        type: offer.amountType,
+        currencyCode: preferredCurrency,
+        label: offer.amountLabel ?? formatDiscountLabel(Math.abs(Number(offer.amount)), offer.amountType, preferredCurrency),
+      }
+    : extractDiscount(text, { currencyCode: preferredCurrency });
+  const currencyCode = extracted?.currencyCode ?? preferredCurrency;
+  const minimumSpend = extractMinimumSpend(text, currencyCode);
+  const maxSavings = extractMaximumSavings(text, currencyCode);
+  const isDelivery = isDeliveryRelated(text);
+  const isPerk = isLowValuePerk(text);
+  const isSelectedItems = isSpecificItemOffer(text);
+  const isUpToPercent = /(?:up\s+to|iki|do)\s*-?\d+(?:[.,]\d+)?\s*%/iu.test(normalized);
+  const scope = isDelivery ? "delivery" : isPerk ? "perk" : isSelectedItems ? "selected" : extracted ? "broad" : "other";
+  const referenceAmount = currencyReference(currencyCode);
+  const effectiveDiscountPercent = effectivePercent(extracted, minimumSpend, referenceAmount);
+  const score = valueScore({
+    extracted,
+    effectiveDiscountPercent: roundNullable(effectiveDiscountPercent, 1),
+    minimumSpend,
+    maxSavings,
+    referenceAmount,
+    scope,
+    isUpToPercent,
+    productLine: offer?.productLine,
+  });
+  const tier = valueTier(score);
+  const value = {
+    version: OFFER_VALUE_VERSION,
+    score,
+    tier,
+    scope,
+    currencyCode,
+    minimumSpend,
+    maxSavings,
+    effectiveDiscountPercent: roundNullable(effectiveDiscountPercent, 1),
+    normalizedCashReference: extracted?.type === "money" && referenceAmount
+      ? round(extracted.amount / referenceAmount, 3)
+      : null,
+    isDelivery,
+    isPerk,
+    isSelectedItems,
+    isUpToPercent,
+  };
+
+  return {
+    discount: extracted,
+    value,
+    notificationEligible: isNotificationWorthy({
+      ...offer,
+      amount: extracted?.amount ?? null,
+      amountType: extracted?.type ?? null,
+      amountLabel: extracted?.label ?? null,
+      currencyCode,
+      value,
+    }, rules),
+  };
+}
+
+export function extractDiscount(text = "", { currencyCode = null } = {}) {
+  const normalized = normalizeOfferText(text);
+  const percent = normalized.match(/(-?\d+(?:[.,]\d+)?)\s*%/u);
+  if (percent) {
+    const amount = Math.abs(Number(percent[1].replace(",", ".")));
+    return Number.isFinite(amount)
+      ? { amount, type: "percent", currencyCode: null, label: `${formatNumber(amount)}%` }
+      : null;
+  }
+
+  const money = extractMoney(normalized, currencyCode);
+  return money
+    ? {
+        amount: money.amount,
+        type: "money",
+        currencyCode: money.currencyCode,
+        label: formatDiscountLabel(money.amount, "money", money.currencyCode),
+      }
+    : null;
+}
+
+export function extractMinimumSpend(text = "", currencyCode = null) {
+  const match = normalizeOfferText(text).match(/(?:spend|minimum(?:\s+(?:order|spend|basket))?|min\.?\s*(?:order|spend|basket)?|orders?\s+over|basket\s+over|(?:off|discount)\s+over|from)\s+(.{0,40})/iu);
+  return match ? extractMoney(match[1], currencyCode)?.amount ?? null : null;
+}
+
+export function extractMaximumSavings(text = "", currencyCode = null) {
+  const match = normalizeOfferText(text).match(/(?:up\s+to|max(?:imum)?)\s+(.{0,30})/iu);
+  return match ? extractMoney(match[1], currencyCode)?.amount ?? null : null;
+}
+
+export function isNotificationWorthy(offer, rules = DEFAULT_VALUE_RULES) {
+  const analysis = offer?.value?.version === OFFER_VALUE_VERSION
+    ? { discount: normalizeExistingDiscount(offer), value: offer.value }
+    : analyzeOfferWithoutEligibility(offer);
+  const { discount, value } = analysis;
+  if (!discount || value.scope !== "broad" || value.score < rules.minValueScore || value.isUpToPercent) {
+    return false;
+  }
+
+  const productLine = String(offer?.productLine ?? offer?.venue?.productLine ?? "").toLowerCase();
+  if (discount.type === "percent") {
+    const threshold = productLine === "grocery"
+      ? rules.minGroceryPercent
+      : productLine === "restaurant"
+        ? rules.minRestaurantPercent
+        : rules.minOtherPercent;
+    return discount.amount >= threshold;
+  }
+
+  if (discount.type === "money") {
+    if (value.minimumSpend) {
+      return discount.amount / value.minimumSpend >= rules.minCashValueRatio;
+    }
+    return Number(value.normalizedCashReference) >= rules.minUnconditionalCashReference;
+  }
+
+  return false;
+}
+
+export function sortOffersByValue(offers = []) {
+  return [...offers].sort((a, b) =>
+    offerScore(b) - offerScore(a) ||
+    String(a.venue?.name ?? "").localeCompare(String(b.venue?.name ?? ""), "en") ||
+    String(a.text ?? "").localeCompare(String(b.text ?? ""), "en"));
+}
+
+export function offerScore(offer) {
+  const stored = Number(offer?.value?.score ?? offer?.valueScore ?? offer?.score);
+  return Number.isFinite(stored) ? stored : analyzeOfferWithoutEligibility(offer).value.score;
+}
+
+export function valueTier(score) {
+  if (score >= 75) return "exceptional";
+  if (score >= 60) return "great";
+  if (score >= 45) return "good";
+  if (score >= 30) return "fair";
+  return "low";
+}
+
+export function normalizeOfferText(text = "") {
+  return String(text).replace(/\u202f|\u00a0/g, " ").replace(/\s+/g, " ").trim();
+}
+
+function analyzeOfferWithoutEligibility(offer) {
+  const text = normalizeOfferText(offer?.text);
+  const preferredCurrency = normalizeCurrencyCode(offer?.currencyCode ?? offer?.currency ?? offer?.venue?.currency);
+  const discount = normalizeExistingDiscount(offer) ?? extractDiscount(text, { currencyCode: preferredCurrency });
+  const currencyCode = discount?.currencyCode ?? preferredCurrency;
+  const minimumSpend = extractMinimumSpend(text, currencyCode);
+  const maxSavings = extractMaximumSavings(text, currencyCode);
+  const isDelivery = isDeliveryRelated(text);
+  const isPerk = isLowValuePerk(text);
+  const isSelectedItems = isSpecificItemOffer(text);
+  const isUpToPercent = /(?:up\s+to|iki|do)\s*-?\d+(?:[.,]\d+)?\s*%/iu.test(text);
+  const scope = isDelivery ? "delivery" : isPerk ? "perk" : isSelectedItems ? "selected" : discount ? "broad" : "other";
+  const referenceAmount = currencyReference(currencyCode);
+  const effectiveDiscountPercent = effectivePercent(discount, minimumSpend, referenceAmount);
+  const score = valueScore({ discount, extracted: discount, effectiveDiscountPercent, minimumSpend, maxSavings, referenceAmount, scope, isUpToPercent, productLine: offer?.productLine ?? offer?.venue?.productLine });
+  return {
+    discount,
+    value: {
+      version: OFFER_VALUE_VERSION,
+      score,
+      tier: valueTier(score),
+      scope,
+      currencyCode,
+      minimumSpend,
+      maxSavings,
+      effectiveDiscountPercent: roundNullable(effectiveDiscountPercent, 1),
+      normalizedCashReference: discount?.type === "money" && referenceAmount ? round(discount.amount / referenceAmount, 3) : null,
+      isDelivery,
+      isPerk,
+      isSelectedItems,
+      isUpToPercent,
+    },
+  };
+}
+
+function valueScore({ extracted, effectiveDiscountPercent, minimumSpend, maxSavings, referenceAmount, scope, isUpToPercent, productLine }) {
+  if (!extracted || scope === "delivery" || scope === "perk" || !Number.isFinite(effectiveDiscountPercent)) {
+    return 0;
+  }
+
+  let score = effectiveDiscountPercent;
+  if (scope === "broad") score += 20;
+  if (scope === "selected") score -= 25;
+  if (scope === "broad" && !minimumSpend) score += 8;
+
+  const normalizedProductLine = String(productLine ?? "").toLowerCase();
+  if (scope === "broad" && normalizedProductLine === "grocery") score += 8;
+  else if (scope === "broad" && normalizedProductLine === "restaurant") score += 3;
+  else if (scope === "broad" && normalizedProductLine) score += 4;
+
+  if (extracted.type === "percent" && minimumSpend && referenceAmount) {
+    score -= Math.min(30, minimumSpend / referenceAmount * 3);
+  }
+  if (isUpToPercent) score -= 15;
+  if (maxSavings && referenceAmount && maxSavings < referenceAmount) {
+    score -= (1 - maxSavings / referenceAmount) * 12;
+  }
+
+  return round(Math.max(0, Math.min(100, score)), 1);
+}
+
+function effectivePercent(discount, minimumSpend, referenceAmount) {
+  if (!discount) return null;
+  if (discount.type === "percent") return Math.min(100, discount.amount);
+  if (discount.type === "money" && minimumSpend > 0) return Math.min(100, discount.amount / minimumSpend * 100);
+  if (discount.type === "money" && referenceAmount > 0) return Math.min(70, discount.amount / referenceAmount * 50);
+  if (discount.type === "money") return 35;
+  return null;
+}
+
+function extractMoney(text, preferredCurrencyCode) {
+  const prefix = new RegExp(`(${MONEY_TOKEN_PATTERN})\\s*${NUMBER_PATTERN}`, "iu").exec(text);
+  const suffix = new RegExp(`${NUMBER_PATTERN}\\s*(${MONEY_TOKEN_PATTERN})`, "iu").exec(text);
+  const match = prefix ?? suffix;
+  if (!match) return null;
+
+  const isPrefix = match === prefix;
+  const token = isPrefix ? match[1] : match[2];
+  const numeric = isPrefix ? match[2] : match[1];
+  const amount = Math.abs(parseNumeric(numeric));
+  if (!Number.isFinite(amount)) return null;
+
+  return {
+    amount,
+    currencyCode: resolveCurrencyCode(token, preferredCurrencyCode),
+  };
+}
+
+function parseNumeric(value) {
+  const normalized = String(value).replace(/\s/g, "");
+  if (/^\d{1,3}(?:[.,:]\d{3})+$/.test(normalized)) {
+    return Number(normalized.replace(/[.,:]/g, ""));
+  }
+  return Number(normalized.replace(",", "."));
+}
+function normalizeExistingDiscount(offer) {
+  const amount = Number(offer?.amount);
+  if (!Number.isFinite(amount) || !offer?.amountType) return null;
+  const currencyCode = normalizeCurrencyCode(offer?.currencyCode ?? offer?.currency ?? offer?.venue?.currency);
+  return {
+    amount: Math.abs(amount),
+    type: offer.amountType,
+    currencyCode: offer.amountType === "money" ? currencyCode : null,
+    label: offer.amountLabel ?? formatDiscountLabel(Math.abs(amount), offer.amountType, currencyCode),
+  };
+}
+
+function resolveCurrencyCode(token, preferredCurrencyCode) {
+  const preferred = normalizeCurrencyCode(preferredCurrencyCode);
+  const codes = ALIAS_TO_CODES.get(String(token).toLowerCase()) ?? [];
+  if (preferred && (!codes.length || codes.includes(preferred))) return preferred;
+  return codes.length === 1 ? codes[0] : preferred;
+}
+
+function normalizeCurrencyCode(value) {
+  const code = String(value ?? "").trim().toUpperCase();
+  return /^[A-Z]{3}$/.test(code) ? code : null;
+}
+
+function currencyReference(currencyCode) {
+  return CURRENCY_PROFILES[normalizeCurrencyCode(currencyCode)]?.reference ?? null;
+}
+
+function isDeliveryRelated(text) {
+  return /delivery|deliveries|delivery\s+fee/iu.test(text);
+}
+
+function isLowValuePerk(text) {
+  return /\bfree\b|\bgift\b|complimentary|\b2\s*for\s*1\b|\b2\s*\+\s*1\b|buy\s*\d+\s*[,;]?\s*(?:pay|get)|free\s+(?:drink|dessert|sauce|coke|cola)/iu.test(text);
+}
+
+function isSpecificItemOffer(text) {
+  return /selected\s+(?:item|items|product|products)|specific\s+(?:item|items|product|products)|\bitem\s+discount\b|your\s+favou?rites?|wybrane\s+pozycje|wybranych\s+pozycj|ausgew[aä]hlte|seçilmiş|secilmis/iu.test(text) ||
+    /\b(?:burger|burgers|tortilla|tortillas|meal|meals|combo|combos|set|sets|pizza|pizzas|sushi\s+set|wines?|coffee)\b/iu.test(text);
+}
+
+function formatDiscountLabel(amount, type, currencyCode) {
+  if (type === "percent") return `${formatNumber(amount)}%`;
+  if (type === "money") return `${formatNumber(amount)}${currencyCode ? ` ${currencyCode}` : ""}`;
+  return formatNumber(amount);
+}
+
+function formatNumber(value) {
+  return Number(value).toLocaleString("en-US", { maximumFractionDigits: 2, useGrouping: false });
+}
+
+function buildAliasIndex() {
+  const index = new Map();
+  for (const [code, profile] of Object.entries(CURRENCY_PROFILES)) {
+    for (const alias of [code, ...profile.aliases]) {
+      const key = alias.toLowerCase();
+      index.set(key, [...new Set([...(index.get(key) ?? []), code])]);
+    }
+  }
+  return index;
+}
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function roundNullable(value, precision) {
+  return Number.isFinite(value) ? round(value, precision) : null;
+}
+
+function round(value, precision) {
+  const factor = 10 ** precision;
+  return Math.round(value * factor) / factor;
+}

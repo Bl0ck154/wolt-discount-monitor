@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "test": "node --test",
     "check": "node src/check-discounts.mjs",
     "cities": "node src/build-city-catalog.mjs",
     "dashboard": "node src/build-dashboard-data.mjs",
