@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-22T07:19:28.997Z",
+  "generatedAt": "2026-07-22T08:49:25.226Z",
   "defaultCityId": "ltu/vilnius",
   "cacheTtlMs": 0,
   "totalCities": 959,
@@ -14605,16 +14605,16 @@
       "notificationsEnabled": true,
       "dataPath": "data/latest.json",
       "latestPath": "data/latest.json",
-      "updatedAt": "2026-07-22T07:19:27.635Z",
+      "updatedAt": "2026-07-22T08:49:24.790Z",
       "counts": {
         "restaurantsUniqueVenues": 823,
-        "promotionsUniqueVenues": 1358,
+        "promotionsUniqueVenues": 1357,
         "productLines": {
           "alcohol": 82,
           "florist": 68,
           "general_merchandise": 45,
           "grocery": 221,
-          "health_and_beauty": 42,
+          "health_and_beauty": 41,
           "pet_supply": 57,
           "pharmacy": 20,
           "restaurant": 823
