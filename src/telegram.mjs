@@ -1,4 +1,3 @@
-const DEFAULT_DASHBOARD_URL = "https://bl0ck154.github.io/wolt-discount-monitor/";
 const MAX_NEW_GROUPS = 15;
 const MAX_ENDED_GROUPS = 10;
 
@@ -35,7 +34,6 @@ export function formatTelegramMessage(notification) {
   const endedGroups = groupOffers(notification.ended ?? []);
   const lines = [
     `➕ <b>${newCountLabel(appearedGroups.length)}</b> · ➖ <b>${endedCountLabel(endedGroups.length)}</b>`,
-    `${formatCityLine(notification.city)} · рейтинг за реальною вигодою`,
   ];
 
   if (appearedGroups.length) {
@@ -90,10 +88,9 @@ function formatOfferGroup(group, ended) {
   const offerText = escapeHtml(offer.text);
   const locationCount = group.offers.length > 1 ? ` · ${group.offers.length} локацій` : "";
   const score = offerValueScore(offer);
-  const value = score > 0 ? ` · <b>${tierLabel(offer.valueTier ?? offer.value?.tier, score)} ${formatScore(score)}/100</b>` : "";
   const icon = ended ? "❌" : tierIcon(offer.valueTier ?? offer.value?.tier, score);
 
-  return `${icon} ${venueName}${locationCount}\n   ${offerText}${value}`;
+  return `${icon} ${venueName}${locationCount}\n   ${offerText}`;
 }
 
 function offerValueScore(offer) {
@@ -107,13 +104,6 @@ function tierIcon(tier, score) {
   return "✅";
 }
 
-function tierLabel(tier, score) {
-  if (tier === "exceptional" || score >= 75) return "топ";
-  if (tier === "great" || score >= 60) return "дуже вигідно";
-  if (tier === "good" || score >= 45) return "вигідно";
-  return "помірно";
-}
-
 function newCountLabel(count) {
   if (count === 1) return "1 нова";
   if (count >= 2 && count <= 4) return `${count} нові`;
@@ -125,32 +115,12 @@ function endedCountLabel(count) {
   return `${count} завершились`;
 }
 
-function formatScore(score) {
-  return Number(score).toLocaleString("uk-UA", { maximumFractionDigits: 1 });
-}
-
-function formatCityLine(city = {}) {
-  const cityName = escapeHtml(city.name ?? "Vilnius");
-  return `<a href="${escapeHtml(dashboardUrl(city))}"><b>${cityName}</b></a>`;
-}
-
 function formatVenueLink(name, link) {
   const escapedName = escapeHtml(name);
   if (!link) {
     return `<b>${escapedName}</b>`;
   }
   return `<a href="${escapeHtml(link)}"><b>${escapedName}</b></a>`;
-}
-
-function dashboardUrl(city = {}) {
-  const baseUrl = String(process.env.WOLT_DASHBOARD_URL ?? DEFAULT_DASHBOARD_URL).trim() || DEFAULT_DASHBOARD_URL;
-  if (!city.id || city.id === "ltu/vilnius" || city.id === "vilnius") {
-    return baseUrl;
-  }
-
-  const url = new URL(baseUrl);
-  url.searchParams.set("city", city.id);
-  return url.toString();
 }
 
 function chainRootName(name = "") {

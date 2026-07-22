@@ -33,7 +33,7 @@ test("Telegram starts with grouped added/ended summary and ranks best first", ()
   assert.ok(text.startsWith("➕ <b>2 нові</b> · ➖ <b>1 завершилась</b>"));
   assert.ok(text.indexOf("Chain") < text.indexOf("Market"));
   assert.match(text, /2 локацій/);
-  assert.match(text, /81\/100/);
+  assert.doesNotMatch(text, /(?:Vilnius|рейтинг за реальною вигодою|81\/100|дуже вигідно)/);
   assert.ok(text.indexOf("Нові вигідні пропозиції") < text.indexOf("Завершилися"));
 });
 
