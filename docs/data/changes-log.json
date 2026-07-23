@@ -1,5 +1,17 @@
 [
   {
+    "generatedAt": "2026-07-23T08:49:27.048Z",
+    "previousGeneratedAt": "2026-07-23T07:19:38.423Z",
+    "appeared": 4,
+    "disappeared": 0,
+    "interestingAppeared": 0,
+    "notifiedNew": 0,
+    "notifiedEnded": 0,
+    "fetchError": null,
+    "interesting": [],
+    "ended": []
+  },
+  {
     "generatedAt": "2026-07-23T07:19:38.423Z",
     "previousGeneratedAt": "2026-07-22T19:02:42.538Z",
     "appeared": 1,
