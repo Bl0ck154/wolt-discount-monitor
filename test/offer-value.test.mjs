@@ -50,6 +50,11 @@ test("selected items, gifts, 2-for-1 and delivery never notify", () => {
   const cases = [
     ["50% off selected items", "pharmacy"],
     ["2000 HUF item discount", "restaurant"],
+    ["20% for buns", "grocery"],
+    ["-20% Wok", "restaurant"],
+    ["70% off a wide selection", "grocery"],
+    ["20% off buns in your basket", "grocery"],
+    ["5 EUR off buns", "grocery"],
     ["Free dessert", "restaurant"],
     ["2 Free garlic sauces!", "restaurant"],
     ["Buy 2, Pay for 1", "restaurant"],
@@ -59,7 +64,24 @@ test("selected items, gifts, 2-for-1 and delivery never notify", () => {
   for (const [text, productLine] of cases) {
     const result = analyze(text, productLine, "EUR");
     assert.equal(result.notificationEligible, false, text);
-    assert.ok(result.value.score < 45, text);
+    assert.notEqual(result.value.scope, "broad", text);
+  }
+});
+
+test("only clearly broad percent wording is notification eligible", () => {
+  const cases = [
+    ["20% off", "restaurant"],
+    ["Get 20% off", "restaurant"],
+    ["-25% basket discount", "restaurant"],
+    ["-25% off the basket", "restaurant"],
+    ["15% off (up to 50 EUR)", "restaurant"],
+    ["10% off", "grocery"],
+  ];
+
+  for (const [text, productLine] of cases) {
+    const result = analyze(text, productLine, "EUR");
+    assert.equal(result.value.scope, "broad", text);
+    assert.equal(result.notificationEligible, true, text);
   }
 });
 
@@ -116,6 +138,23 @@ test("money parser supports observed symbol and code placement", () => {
   assert.equal(extractDiscount("12₾ off", { currencyCode: "GEL" }).currencyCode, "GEL");
 });
 
+test("menu prices are not mistaken for cash discounts", () => {
+  const priceOnly = [
+    "Fan Zone Feast for 23.95 EUR",
+    "Halftime Heroes combo 13.95 EUR",
+    "Lunch menu 10 EUR",
+  ];
+
+  for (const text of priceOnly) {
+    assert.equal(extractDiscount(text, { currencyCode: "EUR" }), null, text);
+    assert.equal(analyze(text, "restaurant", "EUR").notificationEligible, false, text);
+  }
+
+  const reversed = extractDiscount("Spend 20 EUR, get 5 EUR off", { currencyCode: "EUR" });
+  assert.equal(reversed.amount, 5);
+  assert.equal(reversed.type, "money");
+});
+
 test("offers sort by value score descending", () => {
   const low = { venue: { name: "Low" }, text: "10% off", ...analyze("10% off", "restaurant", "EUR").value };
   low.value = { version: 2, score: 10 };
@@ -123,14 +162,34 @@ test("offers sort by value score descending", () => {
   assert.deepEqual(sortOffersByValue([low, high]).map((offer) => offer.venue.name), ["High", "Low"]);
 });
 
-test("stored version-two analysis is accepted by eligibility", () => {
-  const analyzed = analyze("20% off", "restaurant", "EUR");
+test("legacy version-two analysis is re-evaluated with current scope rules", () => {
   const offer = {
-    text: "20% off",
+    text: "20% for buns",
     amount: 20,
     amountType: "percent",
-    productLine: "restaurant",
-    value: analyzed.value,
+    productLine: "grocery",
+    value: {
+      version: 2,
+      score: 56,
+      tier: "good",
+      scope: "broad",
+      effectiveDiscountPercent: 20,
+      isUpToPercent: false,
+    },
   };
-  assert.equal(isNotificationWorthy(offer), true);
+  assert.equal(isNotificationWorthy(offer), false);
+
+  assert.equal(isNotificationWorthy({
+    ...offer,
+    text: "20% off",
+    productLine: "restaurant",
+  }), true);
+
+  assert.equal(isNotificationWorthy({
+    ...offer,
+    text: "Lunch menu 10 EUR",
+    amount: 10,
+    amountType: "money",
+    productLine: "restaurant",
+  }), false);
 });

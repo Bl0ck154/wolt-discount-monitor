@@ -953,7 +953,7 @@ function extractDiscount(text = "") {
 
 function offerScore(offer) {
   const storedScore = Number(offer.valueScore ?? offer.value?.score ?? offer.score);
-  if ((offer.valueVersion === 2 || offer.value?.version === 2) && Number.isFinite(storedScore)) {
+  if ((Number(offer.valueVersion) >= 2 || Number(offer.value?.version) >= 2) && Number.isFinite(storedScore)) {
     return storedScore;
   }
 

@@ -66,7 +66,7 @@ test("normalization stores universal value metadata, deduplicates and ranks venu
   assert.deepEqual(snapshot.venues.map((venue) => venue.name), ["Market", "Restaurant"]);
   const marketOffer = snapshot.venues[0].offers[0];
   assert.equal(snapshot.venues[0].offers.length, 1);
-  assert.equal(marketOffer.valueVersion, 2);
+  assert.equal(marketOffer.valueVersion, 3);
   assert.equal(marketOffer.valueTier, "good");
   assert.equal(marketOffer.notificationEligible, true);
   assert.equal(snapshot.venues[1].offers[0].notificationEligible, false);

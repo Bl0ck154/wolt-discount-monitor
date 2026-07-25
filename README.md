@@ -231,6 +231,14 @@ discounts use a per-currency Wolt campaign reference. Broad grocery discounts
 receive extra value; selected-item campaigns, gifts, `2 for 1`, and free
 delivery do not trigger notifications.
 
+Percentage wording is classified conservatively: a promotion is broad only when
+it clearly applies to the basket/order/menu or is a plain form such as `20% off`.
+Product/category wording such as `20% for buns`, `-20% Wok`, or `wide selection`
+is treated as selected-item scope and never triggers Telegram.
+
+Currency amounts count as cash discounts only when the wording explicitly uses
+`off`, `discount`, `save`, or `get`; an ordinary menu price is not a discount.
+
 A Telegram message starts with grouped added/ended counts, then lists new and
 ended qualifying offers in descending value order. Multiple locations of the
 same chain/campaign count as one offer.

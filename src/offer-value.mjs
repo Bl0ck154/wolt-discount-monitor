@@ -1,4 +1,4 @@
-export const OFFER_VALUE_VERSION = 2;
+export const OFFER_VALUE_VERSION = 3;
 
 export const DEFAULT_VALUE_RULES = {
   minValueScore: 45,
@@ -53,7 +53,7 @@ export function analyzeOffer(offer, rules = DEFAULT_VALUE_RULES) {
   const maxSavings = extractMaximumSavings(text, currencyCode);
   const isDelivery = isDeliveryRelated(text);
   const isPerk = isLowValuePerk(text);
-  const isSelectedItems = isSpecificItemOffer(text);
+  const isSelectedItems = isSpecificItemOffer(text, extracted);
   const isUpToPercent = /(?:up\s+to|iki|do)\s*-?\d+(?:[.,]\d+)?\s*%/iu.test(normalized);
   const scope = isDelivery ? "delivery" : isPerk ? "perk" : isSelectedItems ? "selected" : extracted ? "broad" : "other";
   const referenceAmount = currencyReference(currencyCode);
@@ -111,7 +111,7 @@ export function extractDiscount(text = "", { currencyCode = null } = {}) {
       : null;
   }
 
-  const money = extractMoney(normalized, currencyCode);
+  const money = extractMoneyDiscount(normalized, currencyCode);
   return money
     ? {
         amount: money.amount,
@@ -188,13 +188,15 @@ export function normalizeOfferText(text = "") {
 function analyzeOfferWithoutEligibility(offer) {
   const text = normalizeOfferText(offer?.text);
   const preferredCurrency = normalizeCurrencyCode(offer?.currencyCode ?? offer?.currency ?? offer?.venue?.currency);
-  const discount = normalizeExistingDiscount(offer) ?? extractDiscount(text, { currencyCode: preferredCurrency });
+  const discount = text
+    ? extractDiscount(text, { currencyCode: preferredCurrency })
+    : normalizeExistingDiscount(offer);
   const currencyCode = discount?.currencyCode ?? preferredCurrency;
   const minimumSpend = extractMinimumSpend(text, currencyCode);
   const maxSavings = extractMaximumSavings(text, currencyCode);
   const isDelivery = isDeliveryRelated(text);
   const isPerk = isLowValuePerk(text);
-  const isSelectedItems = isSpecificItemOffer(text);
+  const isSelectedItems = isSpecificItemOffer(text, discount);
   const isUpToPercent = /(?:up\s+to|iki|do)\s*-?\d+(?:[.,]\d+)?\s*%/iu.test(text);
   const scope = isDelivery ? "delivery" : isPerk ? "perk" : isSelectedItems ? "selected" : discount ? "broad" : "other";
   const referenceAmount = currencyReference(currencyCode);
@@ -273,6 +275,21 @@ function extractMoney(text, preferredCurrencyCode) {
   };
 }
 
+function extractMoneyDiscount(text, preferredCurrencyCode) {
+  const currencyFirst = `(?:${MONEY_TOKEN_PATTERN})\\s*${NUMBER_PATTERN}`;
+  const currencyLast = `${NUMBER_PATTERN}\\s*(?:${MONEY_TOKEN_PATTERN})`;
+  const moneyAmount = `(?:${currencyFirst}|${currencyLast})`;
+  const afterAmount = new RegExp(
+    `${moneyAmount}\\s*(?:off|discount|(?:selected\\s+)?items?\\s+discount)\\b`,
+    "iu",
+  ).exec(text);
+  const beforeAmount = new RegExp(
+    `\\b(?:save|get|discount(?:ed)?\\s+by)\\s+(?:up\\s+to\\s+)?${moneyAmount}`,
+    "iu",
+  ).exec(text);
+  const match = afterAmount ?? beforeAmount;
+  return match ? extractMoney(match[0], preferredCurrencyCode) : null;
+}
 function parseNumeric(value) {
   const normalized = String(value).replace(/\s/g, "");
   if (/^\d{1,3}(?:[.,:]\d{3})+$/.test(normalized)) {
@@ -316,11 +333,38 @@ function isLowValuePerk(text) {
   return /\bfree\b|\bgift\b|complimentary|\b2\s*for\s*1\b|\b2\s*\+\s*1\b|buy\s*\d+\s*[,;]?\s*(?:pay|get)|free\s+(?:drink|dessert|sauce|coke|cola)/iu.test(text);
 }
 
-function isSpecificItemOffer(text) {
-  return /selected\s+(?:item|items|product|products)|specific\s+(?:item|items|product|products)|\bitem\s+discount\b|your\s+favou?rites?|wybrane\s+pozycje|wybranych\s+pozycj|ausgew[aä]hlte|seçilmiş|secilmis/iu.test(text) ||
-    /\b(?:burger|burgers|tortilla|tortillas|meal|meals|combo|combos|set|sets|pizza|pizzas|sushi\s+set|wines?|coffee)\b/iu.test(text);
+function isSpecificItemOffer(text, discount) {
+  const normalized = normalizeOfferText(text);
+  const explicitlyLimited =
+    /selected\s+(?:item|items|product|products)|specific\s+(?:item|items|product|products)|\bitem\s+discount\b|\b(?:wide|large)\s+selection\b|your\s+favou?rites?|wybrane\s+pozycje|wybranych\s+pozycj|ausgew[a\u00e4]hlte|se\u00e7ilmi\u015f|secilmis/iu.test(normalized);
+
+  if (explicitlyLimited) {
+    return true;
+  }
+
+  if (discount?.type === "percent") {
+    return !isClearlyBroadPercentOffer(normalized);
+  }
+
+  if (discount?.type === "money") {
+    return (
+      /\b(?:bun|buns|burger|burgers|tortilla|tortillas|meal|meals|combo|combos|set|sets|pizza|pizzas|sushi\s+set|wines?|coffee|wok|pastry|pastries|dessert|desserts|drink|drinks|beverage|beverages|cake|cakes|snack|snacks|sandwich|sandwiches|roll|rolls|bowl|bowls|ramen|noodle|noodles|kebab|kebabs|chocolate|chocolates|bread|salad|salads|soup|soups)\b/iu.test(normalized) ||
+      /\b(?:for|on)\s+(?!the\s+(?:basket|order)|all\s+(?:items|products)|your\s+order)\p{L}/iu.test(normalized)
+    );
+  }
+
+  return false;
 }
 
+function isClearlyBroadPercentOffer(text) {
+  if (
+    /\b(?:basket\s+discount|(?:whole|entire)\s+basket|off\s+(?:the|your)\s+basket|(?:whole|entire|full)\s+(?:menu|order)|(?:the|rest\s+of\s+the)\s+menu|all\s+(?:items|products)|everything|order\s+discount|menu\s+discount)\b/iu.test(text)
+  ) {
+    return true;
+  }
+
+  return /^(?:get\s+)?-?\d+(?:[.,]\d+)?\s*%\s*(?:off|discount)?(?:\s*\((?:up\s+to|max(?:imum)?|spend|minimum|min\.?|orders?\s+over|basket\s+over|from)[^)]*\))*\s*[.!]?$/iu.test(text);
+}
 function formatDiscountLabel(amount, type, currencyCode) {
   if (type === "percent") return `${formatNumber(amount)}%`;
   if (type === "money") return `${formatNumber(amount)}${currencyCode ? ` ${currencyCode}` : ""}`;

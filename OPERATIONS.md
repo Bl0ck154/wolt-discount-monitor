@@ -1,6 +1,6 @@
 # Operations guide
 
-Last verified: 2026-07-21.
+Last verified: 2026-07-25.
 
 ## Production topology
 
@@ -125,6 +125,12 @@ Telegram, and dashboard data. Default alert thresholds are: score `45`, grocery
 `20%`, and unconditional cash at `60%` of the local currency reference. Delivery,
 gifts, `2 for 1`, selected-item, and `up to N%` offers never alert. Do not restore
 the old EUR-only thresholds.
+
+Percent promotions default to selected-item scope unless the wording clearly
+identifies a basket/order/menu discount or is a plain `N% off` form. This
+conservative rule prevents product phrases such as `20% for buns` from alerting.
+Currency values without an explicit discount cue (`off`, `discount`, `save`, or
+`get`) are prices, not cash discounts.
 
 Telegram counts grouped chain/campaign offers, not raw venue locations. It starts
 with added/ended counts and ranks each section by score.
