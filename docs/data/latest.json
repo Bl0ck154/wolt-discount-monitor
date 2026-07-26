@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-26T09:02:23.743Z",
+  "generatedAt": "2026-07-26T11:11:23.749Z",
   "city": {
     "id": "ltu/vilnius",
     "key": "ltu-vilnius",
@@ -238,7 +238,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "45-55",
+      "estimateRange": "40-50",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -1618,7 +1618,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "50-60",
+      "estimateRange": "45-55",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -2078,7 +2078,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "50-60",
+      "estimateRange": "40-50",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -4162,7 +4162,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "45-55",
+      "estimateRange": "50-60",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -5542,7 +5542,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": "45-55",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -5772,7 +5772,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "50-60",
+      "estimateRange": "45-55",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -6922,7 +6922,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "45-55",
+      "estimateRange": "40-50",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -7612,7 +7612,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -8532,7 +8532,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -8762,7 +8762,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "45-55",
+      "estimateRange": "40-50",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -9222,14 +9222,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "35-45",
       "opening": {
-        "isOpen": false,
-        "label": "Temporarily offline Temporarily offline",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Temporarily offline Temporarily offline",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -13074,7 +13074,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": "45-55",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -13760,7 +13760,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -14220,7 +14220,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "45-55",
+      "estimateRange": "40-50",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -16516,7 +16516,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "40-50",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -17666,14 +17666,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -18420,7 +18420,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": "45-55",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -18822,7 +18822,7 @@
       "rating": null,
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "45-55",
+      "estimateRange": "40-50",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -20276,7 +20276,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": "45-55",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -20452,14 +20452,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "30-40",
       "opening": {
-        "isOpen": false,
-        "label": "Opens 12:05 PM",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Opens 12:05 PM",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -21731,14 +21731,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "35-45",
       "opening": {
-        "isOpen": false,
-        "label": "Opens 2:00 PM",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Opens 2:00 PM",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -22435,14 +22435,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "30-40",
       "opening": {
-        "isOpen": false,
-        "label": "Opens 1:00 PM",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Opens 1:00 PM",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -23185,7 +23185,7 @@
       "rating": null,
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": "25-35",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -29578,7 +29578,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": "45-55",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -29861,15 +29861,15 @@
         "volume": 267
       },
       "deliveryPrice": "€0.00",
-      "deliveryPriceInt": null,
-      "estimateRange": null,
+      "deliveryPriceInt": 0,
+      "estimateRange": "25-35",
       "opening": {
-        "isOpen": false,
-        "label": "Temporarily offline Temporarily offline",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Temporarily offline Temporarily offline",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -30139,7 +30139,13 @@
             "variant": "discount"
           }
         ],
-        "badges_v2": [],
+        "badges_v2": [
+          {
+            "icon": "coupon-fill",
+            "text": "50% off selected items",
+            "variant": "primary"
+          }
+        ],
         "promotions_for_telemetry": [
           {
             "campaign_id": "6a3e44d03cfa231216a24a44",
@@ -30194,7 +30200,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -33878,14 +33884,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -35229,15 +35235,15 @@
         "volume": 110
       },
       "deliveryPrice": "€0.00",
-      "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "deliveryPriceInt": null,
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -35507,13 +35513,7 @@
             "variant": "discount"
           }
         ],
-        "badges_v2": [
-          {
-            "icon": "coupon-fill",
-            "text": "50% off selected items",
-            "variant": "primary"
-          }
-        ],
+        "badges_v2": [],
         "promotions_for_telemetry": [
           {
             "campaign_id": "6a3e44d03cfa231216a24a44",
@@ -36600,7 +36600,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -38544,7 +38544,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": "25-35",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -38654,7 +38654,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -38767,11 +38767,11 @@
       "estimateRange": null,
       "opening": {
         "isOpen": false,
-        "label": "Opens 1:00 PM",
+        "label": "Temporarily offline Temporarily offline",
         "hours": null
       },
       "isOpen": false,
-      "openingStatus": "Opens 1:00 PM",
+      "openingStatus": "Temporarily offline Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -38874,14 +38874,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "20-30",
       "opening": {
-        "isOpen": false,
-        "label": "Opens 1:00 PM",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Opens 1:00 PM",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -39314,7 +39314,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -39699,7 +39699,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "20-30",
+      "estimateRange": "25-35",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -39857,7 +39857,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -40331,14 +40331,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -40390,57 +40390,13 @@
             "text": "0€ delivery for new users",
             "variant": "discount"
           }
-        },
-        {
-          "key": "venue.badges_v2:Susigrąžink 5% pirkinių sumos su W+",
-          "sourcePath": "venue.badges_v2",
-          "campaignId": null,
-          "text": "Susigrąžink 5% pirkinių sumos su W+",
-          "amount": 5,
-          "amountType": "percent",
-          "amountLabel": "5%",
-          "currencyCode": "EUR",
-          "minimumSpend": null,
-          "maxSavings": null,
-          "effectiveDiscountPercent": 5,
-          "scope": "selected",
-          "valueVersion": 3,
-          "valueScore": 0,
-          "valueTier": "low",
-          "value": {
-            "version": 3,
-            "score": 0,
-            "tier": "low",
-            "scope": "selected",
-            "currencyCode": "EUR",
-            "minimumSpend": null,
-            "maxSavings": null,
-            "effectiveDiscountPercent": 5,
-            "normalizedCashReference": null,
-            "isDelivery": false,
-            "isPerk": false,
-            "isSelectedItems": true,
-            "isUpToPercent": false
-          },
-          "notificationEligible": false,
-          "category": "percent",
-          "isDeliveryRelated": false,
-          "isLowValuePerk": false,
-          "isUtilityBadge": false,
-          "score": 0,
-          "variant": "secondary",
-          "raw": {
-            "text": "Susigrąžink 5% pirkinių sumos su W+",
-            "variant": "secondary"
-          }
         }
       ],
       "bestDiscount": null,
       "bestAmount": null,
       "bestLabel": null,
       "offerTexts": [
-        "0€ delivery for new users",
-        "Susigrąžink 5% pirkinių sumos su W+"
+        "0€ delivery for new users"
       ],
       "sourceEndpoint": "https://consumer-api.wolt.com/v1/pages/venue-list/promotions-near-you?lon=25.2682558&lat=54.6901231",
       "raw": {
@@ -40458,10 +40414,6 @@
             "icon": "coupon-fill",
             "text": "0€ delivery for new users",
             "variant": "primary"
-          },
-          {
-            "text": "Susigrąžink 5% pirkinių sumos su W+",
-            "variant": "secondary"
           }
         ],
         "promotions_for_telemetry": []
@@ -40805,7 +40757,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": "25-35",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -41293,7 +41245,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": "20-30",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -42050,11 +42002,11 @@
       "estimateRange": null,
       "opening": {
         "isOpen": false,
-        "label": "Temporarily offline Temporarily offline",
+        "label": "Opens Friday",
         "hours": null
       },
       "isOpen": false,
-      "openingStatus": "Temporarily offline Temporarily offline",
+      "openingStatus": "Opens Friday",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -42707,14 +42659,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "30-40",
       "opening": {
-        "isOpen": false,
-        "label": "Temporarily offline Temporarily offline",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Temporarily offline Temporarily offline",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -43143,14 +43095,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "40-50",
       "opening": {
-        "isOpen": false,
-        "label": "Temporarily offline",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Temporarily offline",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -43363,7 +43315,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -43912,15 +43864,15 @@
         "volume": 40
       },
       "deliveryPrice": "€0.00",
-      "deliveryPriceInt": null,
-      "estimateRange": null,
+      "deliveryPriceInt": 0,
+      "estimateRange": "25-35",
       "opening": {
-        "isOpen": false,
-        "label": "Temporarily offline Temporarily offline",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Temporarily offline Temporarily offline",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -43991,7 +43943,13 @@
             "variant": "discount"
           }
         ],
-        "badges_v2": [],
+        "badges_v2": [
+          {
+            "icon": "coupon-fill",
+            "text": "0€ delivery for new users",
+            "variant": "primary"
+          }
+        ],
         "promotions_for_telemetry": []
       }
     },
@@ -44233,7 +44191,7 @@
       "rating": null,
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "45-55",
+      "estimateRange": "50-60",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -44453,7 +44411,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "55-65",
+      "estimateRange": "50-60",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -44563,7 +44521,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -44782,7 +44740,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -44891,15 +44849,15 @@
         "volume": 11
       },
       "deliveryPrice": "€0.00",
-      "deliveryPriceInt": null,
-      "estimateRange": null,
+      "deliveryPriceInt": 0,
+      "estimateRange": "35-45",
       "opening": {
-        "isOpen": false,
-        "label": "Temporarily offline Temporarily offline",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Temporarily offline Temporarily offline",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -44970,7 +44928,13 @@
             "variant": "discount"
           }
         ],
-        "badges_v2": [],
+        "badges_v2": [
+          {
+            "icon": "coupon-fill",
+            "text": "0€ delivery for new users",
+            "variant": "primary"
+          }
+        ],
         "promotions_for_telemetry": []
       }
     },
@@ -45106,14 +45070,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "20-30",
       "opening": {
-        "isOpen": false,
-        "label": "Temporarily offline Temporarily offline",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Temporarily offline Temporarily offline",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -45216,7 +45180,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "15-25",
+      "estimateRange": "25-35",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -45381,14 +45345,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "25-35",
       "opening": {
-        "isOpen": false,
-        "label": "Temporarily offline Temporarily offline",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Temporarily offline Temporarily offline",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -45491,7 +45455,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "20-30",
+      "estimateRange": "25-35",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -45931,14 +45895,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "45-55",
       "opening": {
-        "isOpen": false,
-        "label": "Temporarily offline Temporarily offline",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Temporarily offline Temporarily offline",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -45990,13 +45954,57 @@
             "text": "0€ delivery for new users",
             "variant": "discount"
           }
+        },
+        {
+          "key": "venue.badges_v2:Only on Wolt",
+          "sourcePath": "venue.badges_v2",
+          "campaignId": null,
+          "text": "Only on Wolt",
+          "amount": null,
+          "amountType": null,
+          "amountLabel": null,
+          "currencyCode": "EUR",
+          "minimumSpend": null,
+          "maxSavings": null,
+          "effectiveDiscountPercent": null,
+          "scope": "other",
+          "valueVersion": 3,
+          "valueScore": 0,
+          "valueTier": "low",
+          "value": {
+            "version": 3,
+            "score": 0,
+            "tier": "low",
+            "scope": "other",
+            "currencyCode": "EUR",
+            "minimumSpend": null,
+            "maxSavings": null,
+            "effectiveDiscountPercent": null,
+            "normalizedCashReference": null,
+            "isDelivery": false,
+            "isPerk": false,
+            "isSelectedItems": false,
+            "isUpToPercent": false
+          },
+          "notificationEligible": false,
+          "category": "money",
+          "isDeliveryRelated": false,
+          "isLowValuePerk": false,
+          "isUtilityBadge": false,
+          "score": 0,
+          "variant": "secondary",
+          "raw": {
+            "text": "Only on Wolt",
+            "variant": "secondary"
+          }
         }
       ],
       "bestDiscount": null,
       "bestAmount": null,
       "bestLabel": null,
       "offerTexts": [
-        "0€ delivery for new users"
+        "0€ delivery for new users",
+        "Only on Wolt"
       ],
       "sourceEndpoint": "https://consumer-api.wolt.com/v1/pages/venue-list/promotions-near-you?lon=25.2682558&lat=54.6901231",
       "raw": {
@@ -46014,6 +46022,10 @@
             "icon": "coupon-fill",
             "text": "0€ delivery for new users",
             "variant": "primary"
+          },
+          {
+            "text": "Only on Wolt",
+            "variant": "secondary"
           }
         ],
         "promotions_for_telemetry": []
@@ -46590,7 +46602,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "40-50",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -47360,7 +47372,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -47958,14 +47970,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -48017,57 +48029,13 @@
             "text": "0€ delivery for new users",
             "variant": "discount"
           }
-        },
-        {
-          "key": "venue.badges_v2:Only on Wolt",
-          "sourcePath": "venue.badges_v2",
-          "campaignId": null,
-          "text": "Only on Wolt",
-          "amount": null,
-          "amountType": null,
-          "amountLabel": null,
-          "currencyCode": "EUR",
-          "minimumSpend": null,
-          "maxSavings": null,
-          "effectiveDiscountPercent": null,
-          "scope": "other",
-          "valueVersion": 3,
-          "valueScore": 0,
-          "valueTier": "low",
-          "value": {
-            "version": 3,
-            "score": 0,
-            "tier": "low",
-            "scope": "other",
-            "currencyCode": "EUR",
-            "minimumSpend": null,
-            "maxSavings": null,
-            "effectiveDiscountPercent": null,
-            "normalizedCashReference": null,
-            "isDelivery": false,
-            "isPerk": false,
-            "isSelectedItems": false,
-            "isUpToPercent": false
-          },
-          "notificationEligible": false,
-          "category": "money",
-          "isDeliveryRelated": false,
-          "isLowValuePerk": false,
-          "isUtilityBadge": false,
-          "score": 0,
-          "variant": "secondary",
-          "raw": {
-            "text": "Only on Wolt",
-            "variant": "secondary"
-          }
         }
       ],
       "bestDiscount": null,
       "bestAmount": null,
       "bestLabel": null,
       "offerTexts": [
-        "0€ delivery for new users",
-        "Only on Wolt"
+        "0€ delivery for new users"
       ],
       "sourceEndpoint": "https://consumer-api.wolt.com/v1/pages/venue-list/promotions-near-you?lon=25.2682558&lat=54.6901231",
       "raw": {
@@ -48085,10 +48053,6 @@
             "icon": "coupon-fill",
             "text": "0€ delivery for new users",
             "variant": "primary"
-          },
-          {
-            "text": "Only on Wolt",
-            "variant": "secondary"
           }
         ],
         "promotions_for_telemetry": []
@@ -48116,7 +48080,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -49648,14 +49612,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "20-30",
       "opening": {
-        "isOpen": false,
-        "label": "Temporarily offline Temporarily offline",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Temporarily offline Temporarily offline",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -49758,14 +49722,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "20-30",
       "opening": {
-        "isOpen": false,
-        "label": "Temporarily offline Temporarily offline",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Temporarily offline Temporarily offline",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -50854,14 +50818,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "30-40",
       "opening": {
-        "isOpen": false,
-        "label": "Opens tomorrow 10:30 AM Temporarily offline",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Opens tomorrow 10:30 AM Temporarily offline",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -51180,7 +51144,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "20-30",
+      "estimateRange": "25-35",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -52750,7 +52714,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "20-30",
+      "estimateRange": "15-25",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -52970,14 +52934,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -54764,14 +54728,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "20-30",
       "opening": {
-        "isOpen": false,
-        "label": "Opens 1:15 PM",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Opens 1:15 PM",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -54823,13 +54787,57 @@
             "text": "0€ delivery for new users",
             "variant": "discount"
           }
+        },
+        {
+          "key": "venue.badges_v2:Only on Wolt",
+          "sourcePath": "venue.badges_v2",
+          "campaignId": null,
+          "text": "Only on Wolt",
+          "amount": null,
+          "amountType": null,
+          "amountLabel": null,
+          "currencyCode": "EUR",
+          "minimumSpend": null,
+          "maxSavings": null,
+          "effectiveDiscountPercent": null,
+          "scope": "other",
+          "valueVersion": 3,
+          "valueScore": 0,
+          "valueTier": "low",
+          "value": {
+            "version": 3,
+            "score": 0,
+            "tier": "low",
+            "scope": "other",
+            "currencyCode": "EUR",
+            "minimumSpend": null,
+            "maxSavings": null,
+            "effectiveDiscountPercent": null,
+            "normalizedCashReference": null,
+            "isDelivery": false,
+            "isPerk": false,
+            "isSelectedItems": false,
+            "isUpToPercent": false
+          },
+          "notificationEligible": false,
+          "category": "money",
+          "isDeliveryRelated": false,
+          "isLowValuePerk": false,
+          "isUtilityBadge": false,
+          "score": 0,
+          "variant": "secondary",
+          "raw": {
+            "text": "Only on Wolt",
+            "variant": "secondary"
+          }
         }
       ],
       "bestDiscount": null,
       "bestAmount": null,
       "bestLabel": null,
       "offerTexts": [
-        "0€ delivery for new users"
+        "0€ delivery for new users",
+        "Only on Wolt"
       ],
       "sourceEndpoint": "https://consumer-api.wolt.com/v1/pages/venue-list/promotions-near-you?lon=25.2682558&lat=54.6901231",
       "raw": {
@@ -54847,6 +54855,10 @@
             "icon": "coupon-fill",
             "text": "0€ delivery for new users",
             "variant": "primary"
+          },
+          {
+            "text": "Only on Wolt",
+            "variant": "secondary"
           }
         ],
         "promotions_for_telemetry": []
@@ -54874,14 +54886,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "30-40",
       "opening": {
-        "isOpen": false,
-        "label": "Opens 1:15 PM",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Opens 1:15 PM",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -54933,13 +54945,57 @@
             "text": "0€ delivery for new users",
             "variant": "discount"
           }
+        },
+        {
+          "key": "venue.badges_v2:Only on Wolt",
+          "sourcePath": "venue.badges_v2",
+          "campaignId": null,
+          "text": "Only on Wolt",
+          "amount": null,
+          "amountType": null,
+          "amountLabel": null,
+          "currencyCode": "EUR",
+          "minimumSpend": null,
+          "maxSavings": null,
+          "effectiveDiscountPercent": null,
+          "scope": "other",
+          "valueVersion": 3,
+          "valueScore": 0,
+          "valueTier": "low",
+          "value": {
+            "version": 3,
+            "score": 0,
+            "tier": "low",
+            "scope": "other",
+            "currencyCode": "EUR",
+            "minimumSpend": null,
+            "maxSavings": null,
+            "effectiveDiscountPercent": null,
+            "normalizedCashReference": null,
+            "isDelivery": false,
+            "isPerk": false,
+            "isSelectedItems": false,
+            "isUpToPercent": false
+          },
+          "notificationEligible": false,
+          "category": "money",
+          "isDeliveryRelated": false,
+          "isLowValuePerk": false,
+          "isUtilityBadge": false,
+          "score": 0,
+          "variant": "secondary",
+          "raw": {
+            "text": "Only on Wolt",
+            "variant": "secondary"
+          }
         }
       ],
       "bestDiscount": null,
       "bestAmount": null,
       "bestLabel": null,
       "offerTexts": [
-        "0€ delivery for new users"
+        "0€ delivery for new users",
+        "Only on Wolt"
       ],
       "sourceEndpoint": "https://consumer-api.wolt.com/v1/pages/venue-list/promotions-near-you?lon=25.2682558&lat=54.6901231",
       "raw": {
@@ -54957,6 +55013,10 @@
             "icon": "coupon-fill",
             "text": "0€ delivery for new users",
             "variant": "primary"
+          },
+          {
+            "text": "Only on Wolt",
+            "variant": "secondary"
           }
         ],
         "promotions_for_telemetry": []
@@ -56454,14 +56514,14 @@
       "rating": null,
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "15-25",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Opens 2:21 PM Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Opens 2:21 PM Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -56563,15 +56623,15 @@
         "volume": 58
       },
       "deliveryPrice": "€0.00",
-      "deliveryPriceInt": null,
-      "estimateRange": null,
+      "deliveryPriceInt": 0,
+      "estimateRange": "25-35",
       "opening": {
-        "isOpen": false,
-        "label": "Opens 2:00 PM",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Opens 2:00 PM",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -56623,13 +56683,57 @@
             "text": "0€ delivery for new users",
             "variant": "discount"
           }
+        },
+        {
+          "key": "venue.badges_v2:Only on Wolt",
+          "sourcePath": "venue.badges_v2",
+          "campaignId": null,
+          "text": "Only on Wolt",
+          "amount": null,
+          "amountType": null,
+          "amountLabel": null,
+          "currencyCode": "EUR",
+          "minimumSpend": null,
+          "maxSavings": null,
+          "effectiveDiscountPercent": null,
+          "scope": "other",
+          "valueVersion": 3,
+          "valueScore": 0,
+          "valueTier": "low",
+          "value": {
+            "version": 3,
+            "score": 0,
+            "tier": "low",
+            "scope": "other",
+            "currencyCode": "EUR",
+            "minimumSpend": null,
+            "maxSavings": null,
+            "effectiveDiscountPercent": null,
+            "normalizedCashReference": null,
+            "isDelivery": false,
+            "isPerk": false,
+            "isSelectedItems": false,
+            "isUpToPercent": false
+          },
+          "notificationEligible": false,
+          "category": "money",
+          "isDeliveryRelated": false,
+          "isLowValuePerk": false,
+          "isUtilityBadge": false,
+          "score": 0,
+          "variant": "secondary",
+          "raw": {
+            "text": "Only on Wolt ",
+            "variant": "secondary"
+          }
         }
       ],
       "bestDiscount": null,
       "bestAmount": null,
       "bestLabel": null,
       "offerTexts": [
-        "0€ delivery for new users"
+        "0€ delivery for new users",
+        "Only on Wolt"
       ],
       "sourceEndpoint": "https://consumer-api.wolt.com/v1/pages/venue-list/promotions-near-you?lon=25.2682558&lat=54.6901231",
       "raw": {
@@ -56642,7 +56746,17 @@
             "variant": "discount"
           }
         ],
-        "badges_v2": [],
+        "badges_v2": [
+          {
+            "icon": "coupon-fill",
+            "text": "0€ delivery for new users",
+            "variant": "primary"
+          },
+          {
+            "text": "Only on Wolt ",
+            "variant": "secondary"
+          }
+        ],
         "promotions_for_telemetry": []
       }
     },
@@ -58086,14 +58200,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Opens 2:39 PM Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Opens 2:39 PM Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -58522,7 +58636,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "20-30",
+      "estimateRange": "25-35",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -59326,7 +59440,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "20-30",
+      "estimateRange": "25-35",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -61212,7 +61326,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "20-30",
+      "estimateRange": "25-35",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -61652,7 +61766,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": "45-55",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -61871,15 +61985,15 @@
         "volume": 10
       },
       "deliveryPrice": "€0.00",
-      "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "deliveryPriceInt": null,
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -61950,13 +62064,7 @@
             "variant": "discount"
           }
         ],
-        "badges_v2": [
-          {
-            "icon": "coupon-fill",
-            "text": "0€ delivery for new users",
-            "variant": "primary"
-          }
-        ],
+        "badges_v2": [],
         "promotions_for_telemetry": []
       }
     },
@@ -62638,14 +62746,14 @@
       "rating": null,
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "45-55",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -62748,7 +62856,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -63404,7 +63512,7 @@
       "rating": null,
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -63954,7 +64062,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "55-65",
+      "estimateRange": "60-70",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -64284,7 +64392,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -64504,7 +64612,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -64613,15 +64721,15 @@
         "volume": 10
       },
       "deliveryPrice": "€0.00",
-      "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "deliveryPriceInt": null,
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -64692,13 +64800,7 @@
             "variant": "discount"
           }
         ],
-        "badges_v2": [
-          {
-            "icon": "coupon-fill",
-            "text": "0€ delivery for new users",
-            "variant": "primary"
-          }
-        ],
+        "badges_v2": [],
         "promotions_for_telemetry": []
       }
     },
@@ -64944,7 +65046,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "50-60",
+      "estimateRange": "55-65",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -65871,7 +65973,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": "45-55",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -66839,7 +66941,7 @@
       "rating": null,
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "10-20",
+      "estimateRange": "15-25",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -67327,14 +67429,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "30-40",
       "opening": {
-        "isOpen": false,
-        "label": "Temporarily offline Temporarily offline",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Temporarily offline Temporarily offline",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -67386,13 +67488,57 @@
             "text": "0€ delivery for new users",
             "variant": "discount"
           }
+        },
+        {
+          "key": "venue.badges_v2:Nuolaida iki 20%",
+          "sourcePath": "venue.badges_v2",
+          "campaignId": null,
+          "text": "Nuolaida iki 20%",
+          "amount": 20,
+          "amountType": "percent",
+          "amountLabel": "20%",
+          "currencyCode": "EUR",
+          "minimumSpend": null,
+          "maxSavings": null,
+          "effectiveDiscountPercent": 20,
+          "scope": "selected",
+          "valueVersion": 3,
+          "valueScore": 0,
+          "valueTier": "low",
+          "value": {
+            "version": 3,
+            "score": 0,
+            "tier": "low",
+            "scope": "selected",
+            "currencyCode": "EUR",
+            "minimumSpend": null,
+            "maxSavings": null,
+            "effectiveDiscountPercent": 20,
+            "normalizedCashReference": null,
+            "isDelivery": false,
+            "isPerk": false,
+            "isSelectedItems": true,
+            "isUpToPercent": true
+          },
+          "notificationEligible": false,
+          "category": "percent",
+          "isDeliveryRelated": false,
+          "isLowValuePerk": false,
+          "isUtilityBadge": false,
+          "score": 0,
+          "variant": "secondary",
+          "raw": {
+            "text": "Nuolaida iki 20%",
+            "variant": "secondary"
+          }
         }
       ],
       "bestDiscount": null,
       "bestAmount": null,
       "bestLabel": null,
       "offerTexts": [
-        "0€ delivery for new users"
+        "0€ delivery for new users",
+        "Nuolaida iki 20%"
       ],
       "sourceEndpoint": "https://consumer-api.wolt.com/v1/pages/venue-list/promotions-near-you?lon=25.2682558&lat=54.6901231",
       "raw": {
@@ -67410,6 +67556,10 @@
             "icon": "coupon-fill",
             "text": "0€ delivery for new users",
             "variant": "primary"
+          },
+          {
+            "text": "Nuolaida iki 20%",
+            "variant": "secondary"
           }
         ],
         "promotions_for_telemetry": []
@@ -68385,7 +68535,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "50-60",
+      "estimateRange": "55-65",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -69285,7 +69435,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -69945,7 +70095,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "20-30",
+      "estimateRange": "25-35",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -70275,7 +70425,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": "20-30",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -70821,7 +70971,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": "25-35",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -71737,7 +71887,7 @@
       "rating": null,
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -72448,14 +72598,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "35-45",
       "opening": {
-        "isOpen": false,
-        "label": "Opens 12:20 PM",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Opens 12:20 PM",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -73331,11 +73481,11 @@
       "estimateRange": null,
       "opening": {
         "isOpen": false,
-        "label": "Opens 1:00 PM",
+        "label": "Temporarily offline Temporarily offline",
         "hours": null
       },
       "isOpen": false,
-      "openingStatus": "Opens 1:00 PM",
+      "openingStatus": "Temporarily offline Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -73438,7 +73588,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "40-50",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -73819,7 +73969,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -75622,7 +75772,7 @@
       "rating": null,
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": "20-30",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -76206,14 +76356,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "40-50",
       "opening": {
-        "isOpen": false,
-        "label": "Temporarily offline Temporarily offline",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Temporarily offline Temporarily offline",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -76422,7 +76572,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": "25-35",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -76697,14 +76847,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Opens tomorrow 8:00 AM Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Opens tomorrow 8:00 AM Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -76913,7 +77063,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -77617,7 +77767,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -78603,7 +78753,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "45-55",
+      "estimateRange": "40-50",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -78713,14 +78863,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Opens tomorrow 11:00 AM Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Opens tomorrow 11:00 AM Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -78933,7 +79083,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -79091,7 +79241,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": "20-30",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -80369,7 +80519,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "40-50",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -80843,7 +80993,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -83315,7 +83465,7 @@
       "rating": null,
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -85148,14 +85298,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -85698,7 +85848,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -86908,7 +87058,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": "25-35",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -87997,7 +88147,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -88822,14 +88972,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "35-45",
       "opening": {
-        "isOpen": false,
-        "label": "Opens 2:00 PM",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Opens 2:00 PM",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -89584,7 +89734,7 @@
       "rating": null,
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "50-60",
+      "estimateRange": "55-65",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -90456,7 +90606,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -92476,14 +92626,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "45-55",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Opens 2:12 PM Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Opens 2:12 PM Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -92806,14 +92956,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "30-40",
       "opening": {
-        "isOpen": false,
-        "label": "Opens 1:00 PM",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Opens 1:00 PM",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -93301,7 +93451,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "45-55",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -93741,7 +93891,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "40-50",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -94071,7 +94221,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "20-30",
+      "estimateRange": "25-35",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -94335,14 +94485,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "35-45",
       "opening": {
-        "isOpen": false,
-        "label": "Opens 1:00 PM Temporarily offline",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Opens 1:00 PM Temporarily offline",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -95135,7 +95285,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "15-25",
+      "estimateRange": "20-30",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -95293,7 +95443,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "20-30",
+      "estimateRange": "25-35",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -95767,14 +95917,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "25-35",
       "opening": {
-        "isOpen": false,
-        "label": "Opens 2:00 PM",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Opens 2:00 PM",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -95826,13 +95976,57 @@
             "text": "0€ delivery for new users",
             "variant": "discount"
           }
+        },
+        {
+          "key": "venue.badges_v2:1+1",
+          "sourcePath": "venue.badges_v2",
+          "campaignId": null,
+          "text": "1+1",
+          "amount": null,
+          "amountType": null,
+          "amountLabel": null,
+          "currencyCode": "EUR",
+          "minimumSpend": null,
+          "maxSavings": null,
+          "effectiveDiscountPercent": null,
+          "scope": "other",
+          "valueVersion": 3,
+          "valueScore": 0,
+          "valueTier": "low",
+          "value": {
+            "version": 3,
+            "score": 0,
+            "tier": "low",
+            "scope": "other",
+            "currencyCode": "EUR",
+            "minimumSpend": null,
+            "maxSavings": null,
+            "effectiveDiscountPercent": null,
+            "normalizedCashReference": null,
+            "isDelivery": false,
+            "isPerk": false,
+            "isSelectedItems": false,
+            "isUpToPercent": false
+          },
+          "notificationEligible": false,
+          "category": "money",
+          "isDeliveryRelated": false,
+          "isLowValuePerk": false,
+          "isUtilityBadge": false,
+          "score": 0,
+          "variant": "secondary",
+          "raw": {
+            "text": "1+1",
+            "variant": "secondary"
+          }
         }
       ],
       "bestDiscount": null,
       "bestAmount": null,
       "bestLabel": null,
       "offerTexts": [
-        "0€ delivery for new users"
+        "0€ delivery for new users",
+        "1+1"
       ],
       "sourceEndpoint": "https://consumer-api.wolt.com/v1/pages/venue-list/promotions-near-you?lon=25.2682558&lat=54.6901231",
       "raw": {
@@ -95850,6 +96044,10 @@
             "icon": "coupon-fill",
             "text": "0€ delivery for new users",
             "variant": "primary"
+          },
+          {
+            "text": "1+1",
+            "variant": "secondary"
           }
         ],
         "promotions_for_telemetry": []
@@ -96427,7 +96625,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -96750,15 +96948,15 @@
         "volume": 11
       },
       "deliveryPrice": "€0.00",
-      "deliveryPriceInt": null,
-      "estimateRange": null,
+      "deliveryPriceInt": 0,
+      "estimateRange": "25-35",
       "opening": {
-        "isOpen": false,
-        "label": "Temporarily offline Temporarily offline",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Temporarily offline Temporarily offline",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -96829,7 +97027,13 @@
             "variant": "discount"
           }
         ],
-        "badges_v2": [],
+        "badges_v2": [
+          {
+            "icon": "coupon-fill",
+            "text": "0€ delivery for new users",
+            "variant": "primary"
+          }
+        ],
         "promotions_for_telemetry": []
       }
     },
@@ -97185,14 +97389,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "30-40",
       "opening": {
-        "isOpen": false,
-        "label": "Temporarily offline Temporarily offline",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Temporarily offline Temporarily offline",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -97405,7 +97609,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -97734,15 +97938,15 @@
         "volume": 151
       },
       "deliveryPrice": "€0.00",
-      "deliveryPriceInt": 0,
-      "estimateRange": "45-55",
+      "deliveryPriceInt": null,
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Opens 7/20",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Opens 7/20",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -97813,13 +98017,7 @@
             "variant": "discount"
           }
         ],
-        "badges_v2": [
-          {
-            "icon": "coupon-fill",
-            "text": "0€ delivery for new users",
-            "variant": "primary"
-          }
-        ],
+        "badges_v2": [],
         "promotions_for_telemetry": []
       }
     },
@@ -97845,7 +98043,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "55-65",
+      "estimateRange": "50-60",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -98547,7 +98745,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": "45-55",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -101381,7 +101579,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "20-30",
+      "estimateRange": "25-35",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -101487,7 +101685,7 @@
       "rating": null,
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "45-55",
+      "estimateRange": "40-50",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -102257,7 +102455,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -102477,7 +102675,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "40-50",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -104127,7 +104325,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "15-25",
+      "estimateRange": "10-20",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -104343,14 +104541,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "45-55",
       "opening": {
-        "isOpen": false,
-        "label": "Opens 12:11 PM Temporarily offline",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Opens 12:11 PM Temporarily offline",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -104838,7 +105036,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": "20-30",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -105384,7 +105582,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "60-70",
+      "estimateRange": "55-65",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -105494,7 +105692,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -106044,14 +106242,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "35-45",
       "opening": {
-        "isOpen": false,
-        "label": "Opens 12:47 PM Temporarily offline",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Opens 12:47 PM Temporarily offline",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -106696,7 +106894,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "50-60",
+      "estimateRange": "45-55",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -107246,7 +107444,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": "45-55",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -108755,7 +108953,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -109071,7 +109269,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -109500,14 +109698,14 @@
       "rating": null,
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "50-60",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -109661,14 +109859,14 @@
       "rating": null,
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -109826,14 +110024,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -109987,14 +110185,14 @@
       "rating": null,
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "60-70",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -110152,14 +110350,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "20-30",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -110482,14 +110680,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -110643,14 +110841,14 @@
       "rating": null,
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "45-55",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -110804,14 +111002,14 @@
       "rating": null,
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "55-65",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -110965,14 +111163,14 @@
       "rating": null,
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "50-60",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -111126,14 +111324,14 @@
       "rating": null,
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "45-55",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -111287,14 +111485,14 @@
       "rating": null,
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -112870,7 +113068,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "20-30",
+      "estimateRange": "25-35",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -113196,7 +113394,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -114076,7 +114274,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -114728,14 +114926,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "30-40",
       "opening": {
-        "isOpen": false,
-        "label": "Opens 1:30 PM",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Opens 1:30 PM",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -114948,7 +115146,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "20-30",
+      "estimateRange": "15-25",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -116091,15 +116289,15 @@
         "volume": 10
       },
       "deliveryPrice": "€0.00",
-      "deliveryPriceInt": 0,
-      "estimateRange": "20-30",
+      "deliveryPriceInt": null,
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -116170,13 +116368,7 @@
             "variant": "discount"
           }
         ],
-        "badges_v2": [
-          {
-            "icon": "coupon-fill",
-            "text": "0€ delivery for new users",
-            "variant": "primary"
-          }
-        ],
+        "badges_v2": [],
         "promotions_for_telemetry": []
       }
     },
@@ -116311,11 +116503,11 @@
       "estimateRange": null,
       "opening": {
         "isOpen": false,
-        "label": "Opens tomorrow 8:00 AM Temporarily offline",
+        "label": "Temporarily offline Temporarily offline",
         "hours": null
       },
       "isOpen": false,
-      "openingStatus": "Opens tomorrow 8:00 AM Temporarily offline",
+      "openingStatus": "Temporarily offline Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -116907,7 +117099,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -117559,7 +117751,7 @@
       "rating": null,
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": "25-35",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -117885,7 +118077,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -118541,7 +118733,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -119744,7 +119936,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "15-25",
+      "estimateRange": "20-30",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -120184,14 +120376,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "30-40",
       "opening": {
-        "isOpen": false,
-        "label": "Opens 12:30 PM",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Opens 12:30 PM",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -120514,7 +120706,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -120624,7 +120816,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -120844,14 +121036,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "35-45",
       "opening": {
-        "isOpen": false,
-        "label": "Opens 12:26 PM Temporarily offline",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Opens 12:26 PM Temporarily offline",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -121606,7 +121798,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -121716,7 +121908,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -122262,7 +122454,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -123356,7 +123548,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -124012,7 +124204,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "45-55",
+      "estimateRange": "40-50",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -124386,7 +124578,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "40-50",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -125046,7 +125238,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "20-30",
+      "estimateRange": "25-35",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -125266,14 +125458,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "30-40",
       "opening": {
-        "isOpen": false,
-        "label": "Opens 12:30 PM",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Opens 12:30 PM",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -125702,7 +125894,7 @@
       "rating": null,
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "20-30",
+      "estimateRange": "25-35",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -126176,14 +126368,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Opens tomorrow 6:30 AM Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Opens tomorrow 6:30 AM Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -126235,57 +126427,13 @@
             "text": "0€ delivery for new users",
             "variant": "discount"
           }
-        },
-        {
-          "key": "venue.badges_v2:Nuolaida ledams 🍦",
-          "sourcePath": "venue.badges_v2",
-          "campaignId": null,
-          "text": "Nuolaida ledams 🍦",
-          "amount": null,
-          "amountType": null,
-          "amountLabel": null,
-          "currencyCode": "EUR",
-          "minimumSpend": null,
-          "maxSavings": null,
-          "effectiveDiscountPercent": null,
-          "scope": "other",
-          "valueVersion": 3,
-          "valueScore": 0,
-          "valueTier": "low",
-          "value": {
-            "version": 3,
-            "score": 0,
-            "tier": "low",
-            "scope": "other",
-            "currencyCode": "EUR",
-            "minimumSpend": null,
-            "maxSavings": null,
-            "effectiveDiscountPercent": null,
-            "normalizedCashReference": null,
-            "isDelivery": false,
-            "isPerk": false,
-            "isSelectedItems": false,
-            "isUpToPercent": false
-          },
-          "notificationEligible": false,
-          "category": "money",
-          "isDeliveryRelated": false,
-          "isLowValuePerk": false,
-          "isUtilityBadge": false,
-          "score": 0,
-          "variant": "secondary",
-          "raw": {
-            "text": "Nuolaida ledams 🍦",
-            "variant": "secondary"
-          }
         }
       ],
       "bestDiscount": null,
       "bestAmount": null,
       "bestLabel": null,
       "offerTexts": [
-        "0€ delivery for new users",
-        "Nuolaida ledams 🍦"
+        "0€ delivery for new users"
       ],
       "sourceEndpoint": "https://consumer-api.wolt.com/v1/pages/venue-list/promotions-near-you?lon=25.2682558&lat=54.6901231",
       "raw": {
@@ -126303,10 +126451,6 @@
             "icon": "coupon-fill",
             "text": "0€ delivery for new users",
             "variant": "primary"
-          },
-          {
-            "text": "Nuolaida ledams 🍦",
-            "variant": "secondary"
           }
         ],
         "promotions_for_telemetry": []
@@ -126708,14 +126852,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "55-65",
       "opening": {
-        "isOpen": false,
-        "label": "Temporarily offline Temporarily offline",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Temporarily offline Temporarily offline",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -126818,7 +126962,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "40-50",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -128607,11 +128751,11 @@
       "estimateRange": null,
       "opening": {
         "isOpen": false,
-        "label": "Opens 2:00 PM",
+        "label": "Temporarily offline Temporarily offline",
         "hours": null
       },
       "isOpen": false,
-      "openingStatus": "Opens 2:00 PM",
+      "openingStatus": "Temporarily offline Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -129898,7 +130042,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": "25-35",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -130008,7 +130152,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -130660,7 +130804,7 @@
       "rating": null,
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -131196,7 +131340,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -131416,14 +131560,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "35-45",
       "opening": {
-        "isOpen": false,
-        "label": "Temporarily offline Temporarily offline",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Temporarily offline Temporarily offline",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -131746,7 +131890,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "55-65",
+      "estimateRange": "45-55",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -132076,7 +132220,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": "20-30",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -132296,7 +132440,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -132842,7 +132986,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -133282,7 +133426,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -133392,7 +133536,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "20-30",
+      "estimateRange": "25-35",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -133671,13 +133815,60 @@
             "text": "0€ delivery for new users",
             "variant": "discount"
           }
+        },
+        {
+          "key": "venue.promotions_for_telemetry:696f72829a22d46087295fde",
+          "sourcePath": "venue.promotions_for_telemetry",
+          "campaignId": "696f72829a22d46087295fde",
+          "text": "20% off selected items",
+          "amount": 20,
+          "amountType": "percent",
+          "amountLabel": "20%",
+          "currencyCode": "EUR",
+          "minimumSpend": null,
+          "maxSavings": null,
+          "effectiveDiscountPercent": 20,
+          "scope": "selected",
+          "valueVersion": 3,
+          "valueScore": 0,
+          "valueTier": "low",
+          "value": {
+            "version": 3,
+            "score": 0,
+            "tier": "low",
+            "scope": "selected",
+            "currencyCode": "EUR",
+            "minimumSpend": null,
+            "maxSavings": null,
+            "effectiveDiscountPercent": 20,
+            "normalizedCashReference": null,
+            "isDelivery": false,
+            "isPerk": false,
+            "isSelectedItems": true,
+            "isUpToPercent": false
+          },
+          "notificationEligible": false,
+          "category": "percent",
+          "isDeliveryRelated": false,
+          "isLowValuePerk": false,
+          "isUtilityBadge": false,
+          "score": 0,
+          "variant": "discount",
+          "raw": {
+            "campaign_id": "696f72829a22d46087295fde",
+            "icon": "coupon-fill",
+            "is_offer_stackable": true,
+            "text": "20% off selected items",
+            "variant": "discount"
+          }
         }
       ],
       "bestDiscount": null,
       "bestAmount": null,
       "bestLabel": null,
       "offerTexts": [
-        "0€ delivery for new users"
+        "0€ delivery for new users",
+        "20% off selected items"
       ],
       "sourceEndpoint": "https://consumer-api.wolt.com/v1/pages/venue-list/promotions-near-you?lon=25.2682558&lat=54.6901231",
       "raw": {
@@ -133697,7 +133888,15 @@
             "variant": "primary"
           }
         ],
-        "promotions_for_telemetry": []
+        "promotions_for_telemetry": [
+          {
+            "campaign_id": "696f72829a22d46087295fde",
+            "icon": "coupon-fill",
+            "is_offer_stackable": true,
+            "text": "20% off selected items",
+            "variant": "discount"
+          }
+        ]
       }
     },
     {
@@ -133832,7 +134031,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -134869,14 +135068,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "25-35",
       "opening": {
-        "isOpen": false,
-        "label": "Temporarily offline Temporarily offline",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Temporarily offline Temporarily offline",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -135137,7 +135336,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "40-50",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -135927,7 +136126,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -136085,7 +136284,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -136243,7 +136442,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "40-50",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -136401,7 +136600,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -137507,7 +137706,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -137981,14 +138180,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -139026,7 +139225,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -140012,14 +140211,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "40-50",
       "opening": {
-        "isOpen": false,
-        "label": "Opens 1:00 PM",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Opens 1:00 PM",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -140342,7 +140541,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "40-50",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -140452,7 +140651,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": "25-35",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -140892,14 +141091,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "35-45",
       "opening": {
-        "isOpen": false,
-        "label": "Opens 2:00 PM",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Opens 2:00 PM",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -141383,7 +141582,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -141541,7 +141740,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -142303,7 +142502,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -144093,7 +144292,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "20-30",
+      "estimateRange": "25-35",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -144251,7 +144450,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "50-60",
+      "estimateRange": "45-55",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -145199,7 +145398,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "45-55",
+      "estimateRange": "40-50",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -145515,7 +145714,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": "45-55",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -145941,7 +146140,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "40-50",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -146377,7 +146576,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -147245,7 +147444,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -148011,14 +148210,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "25-35",
       "opening": {
-        "isOpen": false,
-        "label": "Opens 1:00 PM",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Opens 1:00 PM",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -148597,14 +148796,14 @@
       "rating": null,
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -148919,7 +149118,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "40-50",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -149139,7 +149338,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -150193,7 +150392,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "20-30",
+      "estimateRange": "25-35",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -150523,7 +150722,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -150633,14 +150832,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "35-45",
       "opening": {
-        "isOpen": false,
-        "label": "Temporarily offline Temporarily offline",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Temporarily offline Temporarily offline",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -151289,7 +151488,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -152873,7 +153072,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "15-25",
+      "estimateRange": "20-30",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -153038,7 +153237,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "50-60",
+      "estimateRange": "45-55",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -153367,14 +153566,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "35-45",
       "opening": {
-        "isOpen": false,
-        "label": "Temporarily offline Temporarily offline",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Temporarily offline Temporarily offline",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -153587,7 +153786,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "20-30",
+      "estimateRange": "25-35",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -154247,7 +154446,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": "20-30",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -154906,15 +155105,15 @@
         "volume": 26
       },
       "deliveryPrice": "€0.00",
-      "deliveryPriceInt": null,
-      "estimateRange": null,
+      "deliveryPriceInt": 0,
+      "estimateRange": "20-30",
       "opening": {
-        "isOpen": false,
-        "label": "Temporarily offline Temporarily offline",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Temporarily offline Temporarily offline",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -154966,13 +155165,57 @@
             "text": "0€ delivery for new users",
             "variant": "discount"
           }
+        },
+        {
+          "key": "venue.badges_v2:Only on Wolt",
+          "sourcePath": "venue.badges_v2",
+          "campaignId": null,
+          "text": "Only on Wolt",
+          "amount": null,
+          "amountType": null,
+          "amountLabel": null,
+          "currencyCode": "EUR",
+          "minimumSpend": null,
+          "maxSavings": null,
+          "effectiveDiscountPercent": null,
+          "scope": "other",
+          "valueVersion": 3,
+          "valueScore": 0,
+          "valueTier": "low",
+          "value": {
+            "version": 3,
+            "score": 0,
+            "tier": "low",
+            "scope": "other",
+            "currencyCode": "EUR",
+            "minimumSpend": null,
+            "maxSavings": null,
+            "effectiveDiscountPercent": null,
+            "normalizedCashReference": null,
+            "isDelivery": false,
+            "isPerk": false,
+            "isSelectedItems": false,
+            "isUpToPercent": false
+          },
+          "notificationEligible": false,
+          "category": "money",
+          "isDeliveryRelated": false,
+          "isLowValuePerk": false,
+          "isUtilityBadge": false,
+          "score": 0,
+          "variant": "secondary",
+          "raw": {
+            "text": "Only on Wolt",
+            "variant": "secondary"
+          }
         }
       ],
       "bestDiscount": null,
       "bestAmount": null,
       "bestLabel": null,
       "offerTexts": [
-        "0€ delivery for new users"
+        "0€ delivery for new users",
+        "Only on Wolt"
       ],
       "sourceEndpoint": "https://consumer-api.wolt.com/v1/pages/venue-list/promotions-near-you?lon=25.2682558&lat=54.6901231",
       "raw": {
@@ -154985,7 +155228,17 @@
             "variant": "discount"
           }
         ],
-        "badges_v2": [],
+        "badges_v2": [
+          {
+            "icon": "coupon-fill",
+            "text": "0€ delivery for new users",
+            "variant": "primary"
+          },
+          {
+            "text": "Only on Wolt",
+            "variant": "secondary"
+          }
+        ],
         "promotions_for_telemetry": []
       }
     },
@@ -155176,7 +155429,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -156162,7 +156415,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "40-50",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -156932,7 +157185,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -157042,7 +157295,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -157152,7 +157405,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "45-55",
+      "estimateRange": "50-60",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -157262,7 +157515,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "55-65",
+      "estimateRange": "60-70",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -157372,7 +157625,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "20-30",
+      "estimateRange": "25-35",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -157812,7 +158065,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -158362,7 +158615,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "40-50",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -158796,14 +159049,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "40-50",
       "opening": {
-        "isOpen": false,
-        "label": "Opens 12:15 PM",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Opens 12:15 PM",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -159291,7 +159544,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "15-25",
+      "estimateRange": "20-30",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -160713,14 +160966,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "25-35",
       "opening": {
-        "isOpen": false,
-        "label": "Opens 2:00 PM",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Opens 2:00 PM",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -161043,14 +161296,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "35-45",
       "opening": {
-        "isOpen": false,
-        "label": "Temporarily offline Temporarily offline",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Temporarily offline Temporarily offline",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -162553,14 +162806,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "35-45",
       "opening": {
-        "isOpen": false,
-        "label": "Temporarily offline Temporarily offline",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Temporarily offline Temporarily offline",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -163097,7 +163350,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -163859,14 +164112,14 @@
       "rating": null,
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Opens tomorrow 12:00 PM Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Opens tomorrow 12:00 PM Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -163918,57 +164171,13 @@
             "text": "0€ delivery for new users",
             "variant": "discount"
           }
-        },
-        {
-          "key": "venue.badges_v2:New",
-          "sourcePath": "venue.badges_v2",
-          "campaignId": null,
-          "text": "New",
-          "amount": null,
-          "amountType": null,
-          "amountLabel": null,
-          "currencyCode": "EUR",
-          "minimumSpend": null,
-          "maxSavings": null,
-          "effectiveDiscountPercent": null,
-          "scope": "other",
-          "valueVersion": 3,
-          "valueScore": 0,
-          "valueTier": "low",
-          "value": {
-            "version": 3,
-            "score": 0,
-            "tier": "low",
-            "scope": "other",
-            "currencyCode": "EUR",
-            "minimumSpend": null,
-            "maxSavings": null,
-            "effectiveDiscountPercent": null,
-            "normalizedCashReference": null,
-            "isDelivery": false,
-            "isPerk": false,
-            "isSelectedItems": false,
-            "isUpToPercent": false
-          },
-          "notificationEligible": false,
-          "category": "money",
-          "isDeliveryRelated": false,
-          "isLowValuePerk": false,
-          "isUtilityBadge": false,
-          "score": 0,
-          "variant": "primary",
-          "raw": {
-            "text": "New",
-            "variant": "primary"
-          }
         }
       ],
       "bestDiscount": null,
       "bestAmount": null,
       "bestLabel": null,
       "offerTexts": [
-        "0€ delivery for new users",
-        "New"
+        "0€ delivery for new users"
       ],
       "sourceEndpoint": "https://consumer-api.wolt.com/v1/pages/venue-list/promotions-near-you?lon=25.2682558&lat=54.6901231",
       "raw": {
@@ -163985,10 +164194,6 @@
           {
             "icon": "coupon-fill",
             "text": "0€ delivery for new users",
-            "variant": "primary"
-          },
-          {
-            "text": "New",
             "variant": "primary"
           }
         ],
@@ -164127,14 +164332,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -164347,7 +164552,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "20-30",
+      "estimateRange": "25-35",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -165267,7 +165472,7 @@
       "rating": null,
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "50-60",
+      "estimateRange": "55-65",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -165487,14 +165692,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Opens 2:18 PM Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Opens 2:18 PM Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -166033,7 +166238,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -166626,15 +166831,15 @@
         "volume": 10
       },
       "deliveryPrice": "€0.00",
-      "deliveryPriceInt": 0,
-      "estimateRange": "45-55",
+      "deliveryPriceInt": null,
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -166686,57 +166891,13 @@
             "text": "0€ delivery for new users",
             "variant": "discount"
           }
-        },
-        {
-          "key": "venue.badges_v2:Vet. vaistai – jau prekyboje! 🐶",
-          "sourcePath": "venue.badges_v2",
-          "campaignId": null,
-          "text": "Vet. vaistai – jau prekyboje! 🐶",
-          "amount": null,
-          "amountType": null,
-          "amountLabel": null,
-          "currencyCode": "EUR",
-          "minimumSpend": null,
-          "maxSavings": null,
-          "effectiveDiscountPercent": null,
-          "scope": "other",
-          "valueVersion": 3,
-          "valueScore": 0,
-          "valueTier": "low",
-          "value": {
-            "version": 3,
-            "score": 0,
-            "tier": "low",
-            "scope": "other",
-            "currencyCode": "EUR",
-            "minimumSpend": null,
-            "maxSavings": null,
-            "effectiveDiscountPercent": null,
-            "normalizedCashReference": null,
-            "isDelivery": false,
-            "isPerk": false,
-            "isSelectedItems": false,
-            "isUpToPercent": false
-          },
-          "notificationEligible": false,
-          "category": "money",
-          "isDeliveryRelated": false,
-          "isLowValuePerk": false,
-          "isUtilityBadge": false,
-          "score": 0,
-          "variant": "secondary",
-          "raw": {
-            "text": "Vet. vaistai – jau prekyboje! 🐶",
-            "variant": "secondary"
-          }
         }
       ],
       "bestDiscount": null,
       "bestAmount": null,
       "bestLabel": null,
       "offerTexts": [
-        "0€ delivery for new users",
-        "Vet. vaistai – jau prekyboje! 🐶"
+        "0€ delivery for new users"
       ],
       "sourceEndpoint": "https://consumer-api.wolt.com/v1/pages/venue-list/promotions-near-you?lon=25.2682558&lat=54.6901231",
       "raw": {
@@ -166749,17 +166910,7 @@
             "variant": "discount"
           }
         ],
-        "badges_v2": [
-          {
-            "icon": "coupon-fill",
-            "text": "0€ delivery for new users",
-            "variant": "primary"
-          },
-          {
-            "text": "Vet. vaistai – jau prekyboje! 🐶",
-            "variant": "secondary"
-          }
-        ],
+        "badges_v2": [],
         "promotions_for_telemetry": []
       }
     },
@@ -167049,7 +167200,7 @@
       "rating": null,
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "55-65",
+      "estimateRange": "50-60",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -167485,7 +167636,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "15-25",
+      "estimateRange": "20-30",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -167753,14 +167904,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "30-40",
       "opening": {
-        "isOpen": false,
-        "label": "Opens 12:30 PM",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Opens 12:30 PM",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -167969,14 +168120,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -168189,14 +168340,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -168299,14 +168450,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "45-55",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -168409,14 +168560,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -168518,15 +168669,15 @@
         "volume": 37
       },
       "deliveryPrice": "€0.00",
-      "deliveryPriceInt": null,
+      "deliveryPriceInt": 0,
       "estimateRange": null,
       "opening": {
         "isOpen": false,
-        "label": "Temporarily offline Temporarily offline",
+        "label": "Temporarily offline",
         "hours": null
       },
       "isOpen": false,
-      "openingStatus": "Temporarily offline Temporarily offline",
+      "openingStatus": "Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -168597,7 +168748,13 @@
             "variant": "discount"
           }
         ],
-        "badges_v2": [],
+        "badges_v2": [
+          {
+            "icon": "coupon-fill",
+            "text": "0€ delivery for new users",
+            "variant": "primary"
+          }
+        ],
         "promotions_for_telemetry": []
       }
     },
@@ -168623,14 +168780,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -168733,14 +168890,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -169609,14 +169766,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "25-35",
       "opening": {
-        "isOpen": false,
-        "label": "Temporarily offline Temporarily offline",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Temporarily offline Temporarily offline",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -170045,7 +170202,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": "20-30",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -170155,7 +170312,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -170484,15 +170641,15 @@
         "volume": 34
       },
       "deliveryPrice": "€0.00",
-      "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "deliveryPriceInt": null,
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -170563,13 +170720,7 @@
             "variant": "discount"
           }
         ],
-        "badges_v2": [
-          {
-            "icon": "coupon-fill",
-            "text": "0€ delivery for new users",
-            "variant": "primary"
-          }
-        ],
+        "badges_v2": [],
         "promotions_for_telemetry": []
       }
     },
@@ -170705,7 +170856,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "45-55",
+      "estimateRange": "40-50",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -171695,7 +171846,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "35-45",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -171805,7 +171956,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "40-50",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -172465,7 +172616,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -173290,7 +173441,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": "30-40",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -174166,7 +174317,7 @@
       "rating": null,
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "30-40",
+      "estimateRange": "35-45",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -174488,14 +174639,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "40-50",
       "opening": {
-        "isOpen": false,
-        "label": "Opens 1:30 PM",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Opens 1:30 PM",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -175258,7 +175409,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "45-55",
+      "estimateRange": "40-50",
       "opening": {
         "isOpen": true,
         "label": "Open now",
@@ -176793,11 +176944,11 @@
       "estimateRange": null,
       "opening": {
         "isOpen": false,
-        "label": "Opens 1:30 PM",
+        "label": "Temporarily offline Temporarily offline",
         "hours": null
       },
       "isOpen": false,
-      "openingStatus": "Opens 1:30 PM",
+      "openingStatus": "Temporarily offline Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -176900,14 +177051,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "20-30",
       "opening": {
-        "isOpen": false,
-        "label": "Temporarily offline Temporarily offline",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Temporarily offline Temporarily offline",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -177120,14 +177271,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": null,
+      "estimateRange": "30-40",
       "opening": {
-        "isOpen": false,
-        "label": "Opens 1:00 PM",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Opens 1:00 PM",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -177395,14 +177546,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "20-30",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -177504,15 +177655,15 @@
         "volume": 27
       },
       "deliveryPrice": "€0.00",
-      "deliveryPriceInt": null,
-      "estimateRange": null,
+      "deliveryPriceInt": 0,
+      "estimateRange": "30-40",
       "opening": {
-        "isOpen": false,
-        "label": "Temporarily offline Temporarily offline",
+        "isOpen": true,
+        "label": "Open now",
         "hours": null
       },
-      "isOpen": false,
-      "openingStatus": "Temporarily offline Temporarily offline",
+      "isOpen": true,
+      "openingStatus": "Open now",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -177583,7 +177734,13 @@
             "variant": "discount"
           }
         ],
-        "badges_v2": [],
+        "badges_v2": [
+          {
+            "icon": "coupon-fill",
+            "text": "0€ delivery for new users",
+            "variant": "primary"
+          }
+        ],
         "promotions_for_telemetry": []
       }
     },
@@ -177719,14 +177876,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -178049,14 +178206,14 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "25-35",
+      "estimateRange": null,
       "opening": {
-        "isOpen": true,
-        "label": "Open now",
+        "isOpen": false,
+        "label": "Temporarily offline",
         "hours": null
       },
-      "isOpen": true,
-      "openingStatus": "Open now",
+      "isOpen": false,
+      "openingStatus": "Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -178268,15 +178425,15 @@
         "volume": 62
       },
       "deliveryPrice": "€0.00",
-      "deliveryPriceInt": null,
+      "deliveryPriceInt": 0,
       "estimateRange": null,
       "opening": {
         "isOpen": false,
-        "label": "Temporarily offline Temporarily offline",
+        "label": "Temporarily offline",
         "hours": null
       },
       "isOpen": false,
-      "openingStatus": "Temporarily offline Temporarily offline",
+      "openingStatus": "Temporarily offline",
       "openingHours": null,
       "section": {
         "name": "promotions-near-you",
@@ -178347,7 +178504,13 @@
             "variant": "discount"
           }
         ],
-        "badges_v2": [],
+        "badges_v2": [
+          {
+            "icon": "coupon-fill",
+            "text": "0€ delivery for new users",
+            "variant": "primary"
+          }
+        ],
         "promotions_for_telemetry": []
       }
     },
@@ -178699,7 +178862,7 @@
       },
       "deliveryPrice": "€0.00",
       "deliveryPriceInt": 0,
-      "estimateRange": "20-30",
+      "estimateRange": "25-35",
       "opening": {
         "isOpen": true,
         "label": "Open now",
