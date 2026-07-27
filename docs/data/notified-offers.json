@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-07-27T07:15:43.378Z",
+  "updatedAt": "2026-07-27T09:06:28.576Z",
   "activeOffers": [
     {
       "stableKey": "du-kebabai|6a37115e4391212ba6fa2ba2",
       "firstNotifiedAt": "2026-07-26T07:33:23.982Z",
-      "lastSeenAt": "2026-07-27T07:15:43.378Z",
+      "lastSeenAt": "2026-07-27T09:06:28.576Z",
       "venue": {
         "id": "699462b7e86be0dbaddc3c7b",
         "slug": "du-kebabai",
@@ -47,7 +47,7 @@
     {
       "stableKey": "zenbowl|6a465496ef3a256d54cfcbe9",
       "firstNotifiedAt": "2026-07-02T14:30:26.310Z",
-      "lastSeenAt": "2026-07-27T07:15:43.378Z",
+      "lastSeenAt": "2026-07-27T09:06:28.576Z",
       "venue": {
         "id": "6a2656c72f76c2ba37d837f3",
         "slug": "zenbowl",
