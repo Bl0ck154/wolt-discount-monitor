@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-07-28T11:22:27.380Z",
+  "generatedAt": "2026-07-28T14:29:32.458Z",
   "defaultCityId": "ltu/vilnius",
   "cacheTtlMs": 0,
-  "totalCities": 959,
+  "totalCities": 958,
   "totalCountries": 30,
   "countries": [
     {
@@ -187,7 +187,7 @@
       "code3": "NOR",
       "name": "Norway",
       "emoji": "🇳🇴",
-      "cityCount": 58
+      "cityCount": 57
     },
     {
       "code": "pol",
@@ -14605,7 +14605,7 @@
       "notificationsEnabled": true,
       "dataPath": "data/latest.json",
       "latestPath": "data/latest.json",
-      "updatedAt": "2026-07-28T11:22:26.794Z",
+      "updatedAt": "2026-07-28T14:29:31.723Z",
       "counts": {
         "restaurantsUniqueVenues": 823,
         "promotionsUniqueVenues": 1356,
@@ -15080,28 +15080,6 @@
       "notificationsEnabled": false,
       "dataPath": "data/cities/nor-follo/latest.json",
       "latestPath": "data/cities/nor-follo/latest.json",
-      "updatedAt": null,
-      "counts": null
-    },
-    {
-      "id": "nor/fotballfesten",
-      "key": "nor-fotballfesten",
-      "woltCityId": "6a1d84cde75ff295c8abbdd2",
-      "slug": "fotballfesten",
-      "name": "Fotballfesten",
-      "country": "Norway",
-      "countryEmoji": "🇳🇴",
-      "countryCode": "nor",
-      "countryCode2": "NO",
-      "countryCode3": "NOR",
-      "lat": 59.90684497240616,
-      "lon": 10.738862901638413,
-      "locale": "en",
-      "timezone": "Europe/Oslo",
-      "label": "Fotballfesten, Norway",
-      "notificationsEnabled": false,
-      "dataPath": "data/cities/nor-fotballfesten/latest.json",
-      "latestPath": "data/cities/nor-fotballfesten/latest.json",
       "updatedAt": null,
       "counts": null
     },
