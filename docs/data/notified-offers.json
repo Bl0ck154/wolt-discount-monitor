@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-07-30T14:29:27.664Z",
+  "updatedAt": "2026-07-30T16:11:25.105Z",
   "activeOffers": [
     {
       "stableKey": "estetine-kosmetika|6a6b1c528793b80049b599c5",
       "firstNotifiedAt": "2026-07-30T11:22:29.861Z",
-      "lastSeenAt": "2026-07-30T14:29:27.664Z",
+      "lastSeenAt": "2026-07-30T16:11:25.105Z",
       "venue": {
         "id": "63d39f33fc498380f20986a5",
         "slug": "estetine-kosmetika",
@@ -45,9 +45,52 @@
       }
     },
     {
+      "stableKey": "chicken-chips-architektu-g|6a6b67d327ece5b0e681565e",
+      "firstNotifiedAt": "2026-07-30T16:11:25.105Z",
+      "lastSeenAt": "2026-07-30T16:11:25.105Z",
+      "venue": {
+        "id": "673b801af0da863696577ee5",
+        "slug": "chicken-chips-architektu-g",
+        "name": "Chicken chips",
+        "productLine": "restaurant",
+        "currency": "EUR",
+        "link": "https://wolt.com/en/ltu/vilnius/restaurant/chicken-chips-architektu-g",
+        "imageUrl": "https://imageproxy.wolt.com/assets/679b3523a688f466affe2f2f"
+      },
+      "sourcePath": "venue.promotions",
+      "campaignId": "6a6b67d327ece5b0e681565e",
+      "text": "30% off (up to 75 €)",
+      "amount": 30,
+      "amountType": "percent",
+      "amountLabel": "30%",
+      "currencyCode": "EUR",
+      "minimumSpend": null,
+      "maxSavings": 75,
+      "effectiveDiscountPercent": 30,
+      "scope": "broad",
+      "valueVersion": 3,
+      "valueScore": 61,
+      "valueTier": "great",
+      "value": {
+        "version": 3,
+        "score": 61,
+        "tier": "great",
+        "scope": "broad",
+        "currencyCode": "EUR",
+        "minimumSpend": null,
+        "maxSavings": 75,
+        "effectiveDiscountPercent": 30,
+        "normalizedCashReference": null,
+        "isDelivery": false,
+        "isPerk": false,
+        "isSelectedItems": false,
+        "isUpToPercent": false
+      }
+    },
+    {
       "stableKey": "zenbowl|6a465496ef3a256d54cfcbe9",
       "firstNotifiedAt": "2026-07-02T14:30:26.310Z",
-      "lastSeenAt": "2026-07-30T14:29:27.664Z",
+      "lastSeenAt": "2026-07-30T16:11:25.105Z",
       "venue": {
         "id": "6a2656c72f76c2ba37d837f3",
         "slug": "zenbowl",
