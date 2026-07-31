@@ -1,5 +1,74 @@
 [
   {
+    "generatedAt": "2026-07-31T07:18:26.139Z",
+    "previousGeneratedAt": "2026-07-30T16:11:25.105Z",
+    "appeared": 6,
+    "disappeared": 24,
+    "interestingAppeared": 1,
+    "notifiedNew": 1,
+    "notifiedEnded": 0,
+    "fetchError": null,
+    "interesting": [
+      {
+        "venue": {
+          "id": "5cefcbf0c12b5f4a2ff6379f",
+          "slug": "wingo-route-66",
+          "name": "Wingo (Route 66)",
+          "productLine": "restaurant",
+          "currency": "EUR",
+          "link": "https://wolt.com/en/ltu/vilnius/restaurant/wingo-route-66",
+          "imageUrl": "https://imageproxy.wolt.com/assets/67332fd453f626068f55d8f0"
+        },
+        "stableKey": "wingo-route-66|6a213c057f9f8d12ae87f880",
+        "key": "venue.promotions:6a213c057f9f8d12ae87f880",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a213c057f9f8d12ae87f880",
+        "text": "20% off (up to 50 €)",
+        "amount": 20,
+        "amountType": "percent",
+        "amountLabel": "20%",
+        "currencyCode": "EUR",
+        "minimumSpend": null,
+        "maxSavings": 50,
+        "effectiveDiscountPercent": 20,
+        "scope": "broad",
+        "valueVersion": 3,
+        "valueScore": 51,
+        "valueTier": "good",
+        "value": {
+          "version": 3,
+          "score": 51,
+          "tier": "good",
+          "scope": "broad",
+          "currencyCode": "EUR",
+          "minimumSpend": null,
+          "maxSavings": 50,
+          "effectiveDiscountPercent": 20,
+          "normalizedCashReference": null,
+          "isDelivery": false,
+          "isPerk": false,
+          "isSelectedItems": false,
+          "isUpToPercent": false
+        },
+        "notificationEligible": true,
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isLowValuePerk": false,
+        "isUtilityBadge": false,
+        "score": 51,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a213c057f9f8d12ae87f880",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "20% off (up to 50 €)",
+          "variant": "discount"
+        }
+      }
+    ],
+    "ended": []
+  },
+  {
     "generatedAt": "2026-07-30T16:11:25.105Z",
     "previousGeneratedAt": "2026-07-30T14:29:27.664Z",
     "appeared": 11,
