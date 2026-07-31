@@ -1,5 +1,74 @@
 [
   {
+    "generatedAt": "2026-07-31T16:33:24.990Z",
+    "previousGeneratedAt": "2026-07-31T14:44:24.791Z",
+    "appeared": 11,
+    "disappeared": 1,
+    "interestingAppeared": 1,
+    "notifiedNew": 1,
+    "notifiedEnded": 0,
+    "fetchError": null,
+    "interesting": [
+      {
+        "venue": {
+          "id": "669f68cefde47b5ea1b840b2",
+          "slug": "rice-and-spice-svitrigailos-g",
+          "name": "Indian Curry Street",
+          "productLine": "restaurant",
+          "currency": "EUR",
+          "link": "https://wolt.com/en/ltu/vilnius/restaurant/rice-and-spice-svitrigailos-g",
+          "imageUrl": "https://imageproxy.wolt.com/assets/68ca9eb46321faefb5f88664"
+        },
+        "stableKey": "rice-and-spice-svitrigailos-g|6a6cc81740b9160eb1405e95",
+        "key": "venue.promotions:6a6cc81740b9160eb1405e95",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a6cc81740b9160eb1405e95",
+        "text": "15% off (up to 50 €)",
+        "amount": 15,
+        "amountType": "percent",
+        "amountLabel": "15%",
+        "currencyCode": "EUR",
+        "minimumSpend": null,
+        "maxSavings": 50,
+        "effectiveDiscountPercent": 15,
+        "scope": "broad",
+        "valueVersion": 3,
+        "valueScore": 46,
+        "valueTier": "good",
+        "value": {
+          "version": 3,
+          "score": 46,
+          "tier": "good",
+          "scope": "broad",
+          "currencyCode": "EUR",
+          "minimumSpend": null,
+          "maxSavings": 50,
+          "effectiveDiscountPercent": 15,
+          "normalizedCashReference": null,
+          "isDelivery": false,
+          "isPerk": false,
+          "isSelectedItems": false,
+          "isUpToPercent": false
+        },
+        "notificationEligible": true,
+        "category": "percent",
+        "isDeliveryRelated": false,
+        "isLowValuePerk": false,
+        "isUtilityBadge": false,
+        "score": 46,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a6cc81740b9160eb1405e95",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "15% off (up to 50 €)",
+          "variant": "discount"
+        }
+      }
+    ],
+    "ended": []
+  },
+  {
     "generatedAt": "2026-07-31T14:44:24.791Z",
     "previousGeneratedAt": "2026-07-31T11:33:40.275Z",
     "appeared": 1,
