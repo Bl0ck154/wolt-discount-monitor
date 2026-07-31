@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-07-31T07:18:26.139Z",
+  "updatedAt": "2026-07-31T08:54:24.748Z",
   "activeOffers": [
     {
       "stableKey": "estetine-kosmetika|6a6b1c528793b80049b599c5",
       "firstNotifiedAt": "2026-07-30T11:22:29.861Z",
-      "lastSeenAt": "2026-07-31T07:18:26.139Z",
+      "lastSeenAt": "2026-07-31T08:54:24.748Z",
       "venue": {
         "id": "63d39f33fc498380f20986a5",
         "slug": "estetine-kosmetika",
@@ -47,7 +47,7 @@
     {
       "stableKey": "chicken-chips-architektu-g|6a6b67d327ece5b0e681565e",
       "firstNotifiedAt": "2026-07-30T16:11:25.105Z",
-      "lastSeenAt": "2026-07-31T07:18:26.139Z",
+      "lastSeenAt": "2026-07-31T08:54:24.748Z",
       "venue": {
         "id": "673b801af0da863696577ee5",
         "slug": "chicken-chips-architektu-g",
@@ -90,7 +90,7 @@
     {
       "stableKey": "wingo-route-66|6a213c057f9f8d12ae87f880",
       "firstNotifiedAt": "2026-07-31T07:18:26.139Z",
-      "lastSeenAt": "2026-07-31T07:18:26.139Z",
+      "lastSeenAt": "2026-07-31T08:54:24.748Z",
       "venue": {
         "id": "5cefcbf0c12b5f4a2ff6379f",
         "slug": "wingo-route-66",
@@ -133,7 +133,7 @@
     {
       "stableKey": "zenbowl|6a465496ef3a256d54cfcbe9",
       "firstNotifiedAt": "2026-07-02T14:30:26.310Z",
-      "lastSeenAt": "2026-07-31T07:18:26.139Z",
+      "lastSeenAt": "2026-07-31T08:54:24.748Z",
       "venue": {
         "id": "6a2656c72f76c2ba37d837f3",
         "slug": "zenbowl",
