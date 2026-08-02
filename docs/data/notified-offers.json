@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-08-02T09:02:23.806Z",
+  "updatedAt": "2026-08-02T11:11:23.711Z",
   "activeOffers": [
     {
       "stableKey": "estetine-kosmetika|6a6b1c528793b80049b599c5",
       "firstNotifiedAt": "2026-07-30T11:22:29.861Z",
-      "lastSeenAt": "2026-08-02T09:02:23.806Z",
+      "lastSeenAt": "2026-08-02T11:11:23.711Z",
       "venue": {
         "id": "63d39f33fc498380f20986a5",
         "slug": "estetine-kosmetika",
@@ -47,7 +47,7 @@
     {
       "stableKey": "du-kebabai|6a37115e4391212ba6fa2ba2",
       "firstNotifiedAt": "2026-08-02T07:33:27.228Z",
-      "lastSeenAt": "2026-08-02T09:02:23.806Z",
+      "lastSeenAt": "2026-08-02T11:11:23.711Z",
       "venue": {
         "id": "699462b7e86be0dbaddc3c7b",
         "slug": "du-kebabai",
@@ -90,7 +90,7 @@
     {
       "stableKey": "chicken-chips-architektu-g|6a6b67d327ece5b0e681565e",
       "firstNotifiedAt": "2026-07-30T16:11:25.105Z",
-      "lastSeenAt": "2026-08-02T09:02:23.806Z",
+      "lastSeenAt": "2026-08-02T11:11:23.711Z",
       "venue": {
         "id": "673b801af0da863696577ee5",
         "slug": "chicken-chips-architektu-g",
@@ -133,7 +133,7 @@
     {
       "stableKey": "wingo-route-66|6a213c057f9f8d12ae87f880",
       "firstNotifiedAt": "2026-07-31T07:18:26.139Z",
-      "lastSeenAt": "2026-08-02T09:02:23.806Z",
+      "lastSeenAt": "2026-08-02T11:11:23.711Z",
       "venue": {
         "id": "5cefcbf0c12b5f4a2ff6379f",
         "slug": "wingo-route-66",
@@ -176,7 +176,7 @@
     {
       "stableKey": "rice-and-spice-svitrigailos-g|6a6cc81740b9160eb1405e95",
       "firstNotifiedAt": "2026-07-31T16:33:24.990Z",
-      "lastSeenAt": "2026-08-02T09:02:23.806Z",
+      "lastSeenAt": "2026-08-02T11:11:23.711Z",
       "venue": {
         "id": "669f68cefde47b5ea1b840b2",
         "slug": "rice-and-spice-svitrigailos-g",
