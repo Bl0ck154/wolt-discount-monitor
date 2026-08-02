@@ -1,5 +1,74 @@
 [
   {
+    "generatedAt": "2026-08-02T07:33:27.228Z",
+    "previousGeneratedAt": "2026-08-01T17:11:34.303Z",
+    "appeared": 1,
+    "disappeared": 13,
+    "interestingAppeared": 1,
+    "notifiedNew": 1,
+    "notifiedEnded": 0,
+    "fetchError": null,
+    "interesting": [
+      {
+        "venue": {
+          "id": "699462b7e86be0dbaddc3c7b",
+          "slug": "du-kebabai",
+          "name": "Du Kebabai",
+          "productLine": "restaurant",
+          "currency": "EUR",
+          "link": "https://wolt.com/en/ltu/vilnius/restaurant/du-kebabai",
+          "imageUrl": "https://imageproxy.wolt.com/assets/69a162e396d75d61e246da73"
+        },
+        "stableKey": "du-kebabai|6a37115e4391212ba6fa2ba2",
+        "key": "venue.promotions:6a37115e4391212ba6fa2ba2",
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a37115e4391212ba6fa2ba2",
+        "text": "5 € off",
+        "amount": 5,
+        "amountType": "money",
+        "amountLabel": "5 EUR",
+        "currencyCode": "EUR",
+        "minimumSpend": null,
+        "maxSavings": null,
+        "effectiveDiscountPercent": 50,
+        "scope": "broad",
+        "valueVersion": 3,
+        "valueScore": 81,
+        "valueTier": "exceptional",
+        "value": {
+          "version": 3,
+          "score": 81,
+          "tier": "exceptional",
+          "scope": "broad",
+          "currencyCode": "EUR",
+          "minimumSpend": null,
+          "maxSavings": null,
+          "effectiveDiscountPercent": 50,
+          "normalizedCashReference": 1,
+          "isDelivery": false,
+          "isPerk": false,
+          "isSelectedItems": false,
+          "isUpToPercent": false
+        },
+        "notificationEligible": true,
+        "category": "money",
+        "isDeliveryRelated": false,
+        "isLowValuePerk": false,
+        "isUtilityBadge": false,
+        "score": 81,
+        "variant": "discount",
+        "raw": {
+          "campaign_id": "6a37115e4391212ba6fa2ba2",
+          "icon": "coupon-fill",
+          "is_offer_stackable": false,
+          "text": "5 € off",
+          "variant": "discount"
+        }
+      }
+    ],
+    "ended": []
+  },
+  {
     "generatedAt": "2026-08-01T17:11:34.303Z",
     "previousGeneratedAt": "2026-08-01T14:22:26.762Z",
     "appeared": 10,
