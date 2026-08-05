@@ -1,5 +1,61 @@
 [
   {
+    "generatedAt": "2026-08-05T07:19:27.876Z",
+    "previousGeneratedAt": "2026-08-04T16:11:30.442Z",
+    "appeared": 2,
+    "disappeared": 17,
+    "interestingAppeared": 0,
+    "notifiedNew": 0,
+    "notifiedEnded": 1,
+    "fetchError": null,
+    "interesting": [],
+    "ended": [
+      {
+        "stableKey": "estetine-kosmetika|6a6b1c528793b80049b599c5",
+        "firstNotifiedAt": "2026-07-30T11:22:29.861Z",
+        "lastSeenAt": "2026-08-04T16:11:30.442Z",
+        "venue": {
+          "id": "63d39f33fc498380f20986a5",
+          "slug": "estetine-kosmetika",
+          "name": "Estetinė Kosmetika",
+          "productLine": "health_and_beauty",
+          "currency": "EUR",
+          "link": "https://wolt.com/en/ltu/vilnius/venue/estetine-kosmetika",
+          "imageUrl": "https://imageproxy.wolt.com/assets/67320834cc36c632963392ae"
+        },
+        "sourcePath": "venue.promotions",
+        "campaignId": "6a6b1c528793b80049b599c5",
+        "text": "5 € off",
+        "amount": 5,
+        "amountType": "money",
+        "amountLabel": "5 EUR",
+        "currencyCode": "EUR",
+        "minimumSpend": null,
+        "maxSavings": null,
+        "effectiveDiscountPercent": 50,
+        "scope": "broad",
+        "valueVersion": 3,
+        "valueScore": 82,
+        "valueTier": "exceptional",
+        "value": {
+          "version": 3,
+          "score": 82,
+          "tier": "exceptional",
+          "scope": "broad",
+          "currencyCode": "EUR",
+          "minimumSpend": null,
+          "maxSavings": null,
+          "effectiveDiscountPercent": 50,
+          "normalizedCashReference": 1,
+          "isDelivery": false,
+          "isPerk": false,
+          "isSelectedItems": false,
+          "isUpToPercent": false
+        }
+      }
+    ]
+  },
+  {
     "generatedAt": "2026-08-04T16:11:30.442Z",
     "previousGeneratedAt": "2026-08-04T14:29:26.170Z",
     "appeared": 10,
