@@ -1,7 +1,8 @@
-export const OFFER_VALUE_VERSION = 3;
+export const OFFER_VALUE_VERSION = 4;
 
 export const DEFAULT_VALUE_RULES = {
   minValueScore: 45,
+  minMultibuyScore: 52,
   minGroceryPercent: 10,
   minRestaurantPercent: 15,
   minOtherPercent: 20,
@@ -29,6 +30,15 @@ const CURRENCY_PROFILES = {
   MKD: { reference: 300, aliases: ["mkd", "ден", "den"] },
 };
 
+const QUANTITY_WORDS = new Map([
+  ["one", 1],
+  ["two", 2],
+  ["three", 3],
+  ["four", 4],
+  ["five", 5],
+]);
+const QUANTITY_TOKEN = "(?:\\d+|one|two|three|four|five)";
+
 const ALIAS_TO_CODES = buildAliasIndex();
 const MONEY_TOKEN_PATTERN = [...ALIAS_TO_CODES.keys()]
   .sort((a, b) => b.length - a.length)
@@ -37,66 +47,18 @@ const MONEY_TOKEN_PATTERN = [...ALIAS_TO_CODES.keys()]
 const NUMBER_PATTERN = "(-?\\d{1,3}(?:[ .,:]\\d{3})+|-?\\d+(?:[.,]\\d+)?)";
 
 export function analyzeOffer(offer, rules = DEFAULT_VALUE_RULES) {
-  const text = normalizeOfferText(offer?.text);
-  const normalized = text.toLowerCase();
-  const preferredCurrency = normalizeCurrencyCode(offer?.currencyCode ?? offer?.currency);
-  const extracted = Number.isFinite(Number(offer?.amount)) && offer?.amountType
-    ? {
-        amount: Math.abs(Number(offer.amount)),
-        type: offer.amountType,
-        currencyCode: preferredCurrency,
-        label: offer.amountLabel ?? formatDiscountLabel(Math.abs(Number(offer.amount)), offer.amountType, preferredCurrency),
-      }
-    : extractDiscount(text, { currencyCode: preferredCurrency });
-  const currencyCode = extracted?.currencyCode ?? preferredCurrency;
-  const minimumSpend = extractMinimumSpend(text, currencyCode);
-  const maxSavings = extractMaximumSavings(text, currencyCode);
-  const isDelivery = isDeliveryRelated(text);
-  const isPerk = isLowValuePerk(text);
-  const isSelectedItems = isSpecificItemOffer(text, extracted);
-  const isUpToPercent = /(?:up\s+to|iki|do)\s*-?\d+(?:[.,]\d+)?\s*%/iu.test(normalized);
-  const scope = isDelivery ? "delivery" : isPerk ? "perk" : isSelectedItems ? "selected" : extracted ? "broad" : "other";
-  const referenceAmount = currencyReference(currencyCode);
-  const effectiveDiscountPercent = effectivePercent(extracted, minimumSpend, referenceAmount);
-  const score = valueScore({
-    extracted,
-    effectiveDiscountPercent: roundNullable(effectiveDiscountPercent, 1),
-    minimumSpend,
-    maxSavings,
-    referenceAmount,
-    scope,
-    isUpToPercent,
-    productLine: offer?.productLine,
-  });
-  const tier = valueTier(score);
-  const value = {
-    version: OFFER_VALUE_VERSION,
-    score,
-    tier,
-    scope,
-    currencyCode,
-    minimumSpend,
-    maxSavings,
-    effectiveDiscountPercent: roundNullable(effectiveDiscountPercent, 1),
-    normalizedCashReference: extracted?.type === "money" && referenceAmount
-      ? round(extracted.amount / referenceAmount, 3)
-      : null,
-    isDelivery,
-    isPerk,
-    isSelectedItems,
-    isUpToPercent,
-  };
+  const analysis = analyzeOfferWithoutEligibility(offer);
+  const extracted = analysis.discount;
 
   return {
-    discount: extracted,
-    value,
+    ...analysis,
     notificationEligible: isNotificationWorthy({
       ...offer,
       amount: extracted?.amount ?? null,
       amountType: extracted?.type ?? null,
       amountLabel: extracted?.label ?? null,
-      currencyCode,
-      value,
+      currencyCode: analysis.value.currencyCode,
+      value: analysis.value,
     }, rules),
   };
 }
@@ -122,6 +84,58 @@ export function extractDiscount(text = "", { currencyCode = null } = {}) {
     : null;
 }
 
+export function extractMultibuy(text = "") {
+  const normalized = normalizeOfferText(text).toLowerCase();
+  if (!normalized) return null;
+
+  const buyPay = normalized.match(new RegExp(
+    `(?:buy|pirk|kup|koupit|купи)\\s+(${QUANTITY_TOKEN}).{0,32}?` +
+      `(?:pay(?:\\s+for)?|mok[ėe]k(?:\\s+už)?|zap(?:ł|l)a[ćť](?:\\s+za)?|заплати(?:\\s+за)?)\\s+(${QUANTITY_TOKEN})\\b`,
+    "iu",
+  ));
+  if (buyPay) {
+    return buildMultibuy(parseQuantity(buyPay[1]), parseQuantity(buyPay[2]), "buy-pay");
+  }
+
+  const buyGetFree = normalized.match(new RegExp(
+    `(?:buy|pirk|kup|koupit|купи)\\s+(${QUANTITY_TOKEN}).{0,24}?` +
+      `(?:get|gauk|z[íi]skej|otrzymaj|отримай|получи)\\s+(${QUANTITY_TOKEN})\\s+` +
+      `(?:free|nemokam\\w*|gratis|zdarma|bezp[łl]atn\\w*|безкоштовн\\w*|бесплатн\\w*)\\b`,
+    "iu",
+  ));
+  if (buyGetFree) {
+    const paid = parseQuantity(buyGetFree[1]);
+    const free = parseQuantity(buyGetFree[2]);
+    return buildMultibuy(paid + free, paid, "buy-get-free");
+  }
+
+  const plusFree = normalized.match(new RegExp(
+    `\\b(${QUANTITY_TOKEN})\\s*\\+\\s*(${QUANTITY_TOKEN})` +
+      `(?:\\s*(?:free|nemokam\\w*|gratis|zdarma|dovan\\w*|безкоштовн\\w*|бесплатн\\w*))?\\b`,
+    "iu",
+  ));
+  if (plusFree) {
+    const paid = parseQuantity(plusFree[1]);
+    const free = parseQuantity(plusFree[2]);
+    return buildMultibuy(paid + free, paid, "plus-free");
+  }
+
+  const compact = normalized.match(/\b(\d+)\s*[x×]\s*(\d+)\b/u);
+  if (compact) {
+    return buildMultibuy(Number(compact[1]), Number(compact[2]), "compact");
+  }
+
+  const forPriceOf = normalized.match(new RegExp(
+    `\\b(${QUANTITY_TOKEN})\\s*(?:for|už|uz|za|за|pour|al\\s+precio\\s+de)\\s*(${QUANTITY_TOKEN})\\b`,
+    "iu",
+  ));
+  if (forPriceOf) {
+    return buildMultibuy(parseQuantity(forPriceOf[1]), parseQuantity(forPriceOf[2]), "for-price-of");
+  }
+
+  return null;
+}
+
 export function extractMinimumSpend(text = "", currencyCode = null) {
   const match = normalizeOfferText(text).match(/(?:spend|minimum(?:\s+(?:order|spend|basket))?|min\.?\s*(?:order|spend|basket)?|orders?\s+over|basket\s+over|(?:off|discount)\s+over|from)\s+(.{0,40})/iu);
   return match ? extractMoney(match[1], currencyCode)?.amount ?? null : null;
@@ -137,7 +151,25 @@ export function isNotificationWorthy(offer, rules = DEFAULT_VALUE_RULES) {
     ? { discount: normalizeExistingDiscount(offer), value: offer.value }
     : analyzeOfferWithoutEligibility(offer);
   const { discount, value } = analysis;
-  if (!discount || value.scope !== "broad" || value.score < rules.minValueScore || value.isUpToPercent) {
+
+  if (value.isUpToPercent) {
+    return false;
+  }
+
+  if (value.scope === "multibuy") {
+    const confidence = value.multibuy?.isClearlyBroad || value.multibuy?.isSubstantialItem;
+    const minMultibuyScore = Number.isFinite(Number(rules.minMultibuyScore))
+      ? Number(rules.minMultibuyScore)
+      : DEFAULT_VALUE_RULES.minMultibuyScore;
+    return Boolean(
+      discount &&
+      confidence &&
+      !value.multibuy?.isLowCostItem &&
+      value.score >= minMultibuyScore
+    );
+  }
+
+  if (!discount || value.scope !== "broad" || value.score < rules.minValueScore) {
     return false;
   }
 
@@ -187,21 +219,50 @@ export function normalizeOfferText(text = "") {
 
 function analyzeOfferWithoutEligibility(offer) {
   const text = normalizeOfferText(offer?.text);
+  const normalized = text.toLowerCase();
   const preferredCurrency = normalizeCurrencyCode(offer?.currencyCode ?? offer?.currency ?? offer?.venue?.currency);
-  const discount = text
+  const multibuy = extractMultibuy(text);
+  const explicitDiscount = text
     ? extractDiscount(text, { currencyCode: preferredCurrency })
     : normalizeExistingDiscount(offer);
+  const discount = explicitDiscount ?? multibuy?.discount ?? null;
   const currencyCode = discount?.currencyCode ?? preferredCurrency;
   const minimumSpend = extractMinimumSpend(text, currencyCode);
   const maxSavings = extractMaximumSavings(text, currencyCode);
   const isDelivery = isDeliveryRelated(text);
-  const isPerk = isLowValuePerk(text);
-  const isSelectedItems = isSpecificItemOffer(text, discount);
-  const isUpToPercent = /(?:up\s+to|iki|do)\s*-?\d+(?:[.,]\d+)?\s*%/iu.test(text);
-  const scope = isDelivery ? "delivery" : isPerk ? "perk" : isSelectedItems ? "selected" : discount ? "broad" : "other";
+  const isMultibuy = Boolean(multibuy);
+  const isGenericPerk = !isMultibuy && isPerkOffer(text);
+  const isPerk = isMultibuy || isGenericPerk;
+  const itemSignals = offerItemSignals(text);
+  const isSelectedItems = !isMultibuy && isSpecificItemOffer(text, discount);
+  const isUpToPercent = /(?:up\s+to|iki|do)\s*-?\d+(?:[.,]\d+)?\s*%/iu.test(normalized);
+  const scope = isDelivery
+    ? "delivery"
+    : isMultibuy
+      ? "multibuy"
+      : isGenericPerk
+        ? "perk"
+        : isSelectedItems
+          ? "selected"
+          : discount
+            ? "broad"
+            : "other";
   const referenceAmount = currencyReference(currencyCode);
-  const effectiveDiscountPercent = effectivePercent(discount, minimumSpend, referenceAmount);
-  const score = valueScore({ discount, extracted: discount, effectiveDiscountPercent, minimumSpend, maxSavings, referenceAmount, scope, isUpToPercent, productLine: offer?.productLine ?? offer?.venue?.productLine });
+  const effectiveDiscountPercent = multibuy?.effectiveDiscountPercent ?? effectivePercent(discount, minimumSpend, referenceAmount);
+  const score = valueScore({
+    extracted: discount,
+    effectiveDiscountPercent,
+    minimumSpend,
+    maxSavings,
+    referenceAmount,
+    scope,
+    isUpToPercent,
+    productLine: offer?.productLine ?? offer?.venue?.productLine,
+    text,
+    multibuy,
+    itemSignals,
+  });
+
   return {
     discount,
     value: {
@@ -213,17 +274,41 @@ function analyzeOfferWithoutEligibility(offer) {
       minimumSpend,
       maxSavings,
       effectiveDiscountPercent: roundNullable(effectiveDiscountPercent, 1),
-      normalizedCashReference: discount?.type === "money" && referenceAmount ? round(discount.amount / referenceAmount, 3) : null,
+      normalizedCashReference: discount?.type === "money" && referenceAmount
+        ? round(discount.amount / referenceAmount, 3)
+        : null,
       isDelivery,
       isPerk,
+      isMultibuy,
+      multibuy: multibuy
+        ? {
+            kind: multibuy.kind,
+            totalQuantity: multibuy.totalQuantity,
+            paidQuantity: multibuy.paidQuantity,
+            freeQuantity: multibuy.freeQuantity,
+            effectiveDiscountPercent: multibuy.effectiveDiscountPercent,
+            isClearlyBroad: itemSignals.isClearlyBroad,
+            isSubstantialItem: itemSignals.isSubstantialItem,
+            isLowCostItem: itemSignals.isLowCostItem,
+          }
+        : null,
       isSelectedItems,
       isUpToPercent,
     },
   };
 }
 
-function valueScore({ extracted, effectiveDiscountPercent, minimumSpend, maxSavings, referenceAmount, scope, isUpToPercent, productLine }) {
-  if (!extracted || scope === "delivery" || scope === "perk" || !Number.isFinite(effectiveDiscountPercent)) {
+function valueScore({ extracted, effectiveDiscountPercent, minimumSpend, maxSavings, referenceAmount, scope, isUpToPercent, productLine, text, multibuy, itemSignals }) {
+  if (scope === "delivery") {
+    return deliveryScore(text);
+  }
+  if (scope === "perk") {
+    return perkScore(text, itemSignals);
+  }
+  if (scope === "multibuy") {
+    return multibuyScore(multibuy, itemSignals, productLine);
+  }
+  if (!extracted || !Number.isFinite(effectiveDiscountPercent)) {
     return 0;
   }
 
@@ -245,7 +330,51 @@ function valueScore({ extracted, effectiveDiscountPercent, minimumSpend, maxSavi
     score -= (1 - maxSavings / referenceAmount) * 12;
   }
 
-  return round(Math.max(0, Math.min(100, score)), 1);
+  return clampScore(score);
+}
+
+function multibuyScore(multibuy, itemSignals, productLine) {
+  if (!multibuy || !Number.isFinite(multibuy.effectiveDiscountPercent)) {
+    return 0;
+  }
+
+  let score = multibuy.effectiveDiscountPercent + 8;
+  if (itemSignals.isClearlyBroad) score += 14;
+  if (itemSignals.isSubstantialItem) score += 10;
+  if (itemSignals.isLowCostItem) score -= 18;
+  if (!itemSignals.isClearlyBroad && !itemSignals.isSubstantialItem && !itemSignals.isLowCostItem) {
+    score -= 4;
+  }
+
+  const normalizedProductLine = String(productLine ?? "").toLowerCase();
+  if (normalizedProductLine === "restaurant") score += 3;
+  else if (normalizedProductLine && normalizedProductLine !== "grocery") score += 1;
+
+  return clampScore(score);
+}
+
+function perkScore(text, itemSignals) {
+  let score = 18;
+  if (itemSignals.isSubstantialItem) score += 10;
+  if (/dessert|desserts|pastry|pastries|cake|cakes|desert|ciasto|tort|десерт/iu.test(text)) score += 5;
+  if (itemSignals.isLowCostItem) score -= 6;
+  return clampScore(Math.max(8, score));
+}
+
+function deliveryScore(text) {
+  let score = 10;
+  if (/\b\d+\s*(?:days?|deliveries|orders?)\b/iu.test(text)) score += 5;
+  if (/free|0\s*(?:€|eur|euro)|nemokam|gratis|zdarma|безкоштов|бесплат/iu.test(text)) score += 2;
+  return clampScore(score);
+}
+
+function offerItemSignals(text) {
+  const normalized = normalizeOfferText(text).toLowerCase();
+  return {
+    isClearlyBroad: /\b(?:all|any|every|everything|entire|whole|full)\b|(?:all|entire|whole|full)\s+menu|menu[-\s]?wide|\bvis(?:as|i|iems|os)?\b|\bvis[ąa]\s+meniu\b|\bwszystk\w*\b|\bca[łl]e\s+menu\b|\bv[šs]echny\b|\bcel[ée]\s+menu\b|\b(?:всі|усі|все|весь|вся)\b/iu.test(normalized),
+    isSubstantialItem: /\b(?:pizza|pizzas|pica|picos|burger|burgers|meal|meals|main|mains|entree|entrees|combo|combos|set|sets|sushi|ramen|noodle|noodles|kebab|kebabs|sandwich|sandwiches|wrap|wraps|burrito|burritos|bowl|bowls|poke|pasta|curry|wok|chicken|steak|fish|salmon|lunch|dinner|menu|patiekal\w*|piet\w*|vakarien\w*|zestaw\w*|dani\w*|obiad\w*|j[ií]dl\w*|піца|пицца|бургер\w*|страва|страви|блюдо|блюда)\b/iu.test(normalized),
+    isLowCostItem: /\b(?:sauce|sauces|dip|dips|dressing|cola|coke|soda|soft\s+drink|water|tea|juice|drink|drinks|beverage|beverages|pada[žz]\w*|arbata|vanduo|g[ėe]rim\w*|sos|herbata|woda|nap[oó]j\w*|om[aá][čc]k\w*|[čc]aj|voda|n[aá]poj\w*|соус\w*|чай|вода|кола|напій|напиток)\b/iu.test(normalized),
+  };
 }
 
 function effectivePercent(discount, minimumSpend, referenceAmount) {
@@ -255,6 +384,34 @@ function effectivePercent(discount, minimumSpend, referenceAmount) {
   if (discount.type === "money" && referenceAmount > 0) return Math.min(70, discount.amount / referenceAmount * 50);
   if (discount.type === "money") return 35;
   return null;
+}
+
+function buildMultibuy(totalQuantity, paidQuantity, kind) {
+  if (!Number.isInteger(totalQuantity) || !Number.isInteger(paidQuantity)) return null;
+  if (totalQuantity < 2 || paidQuantity < 1 || paidQuantity >= totalQuantity || totalQuantity > 20) return null;
+
+  const freeQuantity = totalQuantity - paidQuantity;
+  const effectiveDiscountPercent = round(freeQuantity / totalQuantity * 100, 1);
+  return {
+    kind,
+    totalQuantity,
+    paidQuantity,
+    freeQuantity,
+    effectiveDiscountPercent,
+    discount: {
+      amount: effectiveDiscountPercent,
+      type: "percent",
+      currencyCode: null,
+      label: `${formatNumber(effectiveDiscountPercent)}%`,
+    },
+  };
+}
+
+function parseQuantity(value) {
+  const normalized = String(value ?? "").toLowerCase();
+  if (QUANTITY_WORDS.has(normalized)) return QUANTITY_WORDS.get(normalized);
+  const numeric = Number(normalized);
+  return Number.isInteger(numeric) ? numeric : null;
 }
 
 function extractMoney(text, preferredCurrencyCode) {
@@ -290,6 +447,7 @@ function extractMoneyDiscount(text, preferredCurrencyCode) {
   const match = afterAmount ?? beforeAmount;
   return match ? extractMoney(match[0], preferredCurrencyCode) : null;
 }
+
 function parseNumeric(value) {
   const normalized = String(value).replace(/\s/g, "");
   if (/^\d{1,3}(?:[.,:]\d{3})+$/.test(normalized)) {
@@ -297,6 +455,7 @@ function parseNumeric(value) {
   }
   return Number(normalized.replace(",", "."));
 }
+
 function normalizeExistingDiscount(offer) {
   const amount = Number(offer?.amount);
   if (!Number.isFinite(amount) || !offer?.amountType) return null;
@@ -329,8 +488,8 @@ function isDeliveryRelated(text) {
   return /delivery|deliveries|delivery\s+fee/iu.test(text);
 }
 
-function isLowValuePerk(text) {
-  return /\bfree\b|\bgift\b|complimentary|\b2\s*for\s*1\b|\b2\s*\+\s*1\b|buy\s*\d+\s*[,;]?\s*(?:pay|get)|free\s+(?:drink|dessert|sauce|coke|cola)/iu.test(text);
+function isPerkOffer(text) {
+  return /\bfree\b|\bgift\b|complimentary|bonus|nemokam\w*|gratis|dovan\w*|zdarma|bezp[łl]atn\w*|безкоштовн\w*|бесплатн\w*|подар(?:ок|унок)/iu.test(text);
 }
 
 function isSpecificItemOffer(text, discount) {
@@ -365,6 +524,7 @@ function isClearlyBroadPercentOffer(text) {
 
   return /^(?:get\s+)?-?\d+(?:[.,]\d+)?\s*%\s*(?:off|discount)?(?:\s*\((?:up\s+to|max(?:imum)?|spend|minimum|min\.?|orders?\s+over|basket\s+over|from)[^)]*\))*\s*[.!]?$/iu.test(text);
 }
+
 function formatDiscountLabel(amount, type, currencyCode) {
   if (type === "percent") return `${formatNumber(amount)}%`;
   if (type === "money") return `${formatNumber(amount)}${currencyCode ? ` ${currencyCode}` : ""}`;
@@ -392,6 +552,10 @@ function escapeRegExp(value) {
 
 function roundNullable(value, precision) {
   return Number.isFinite(value) ? round(value, precision) : null;
+}
+
+function clampScore(value) {
+  return round(Math.max(0, Math.min(100, value)), 1);
 }
 
 function round(value, precision) {
