@@ -142,6 +142,7 @@ function normalizeOffer(sourcePath, raw, context) {
     category: classifyOffer(text, analysis.value),
     isDeliveryRelated: analysis.value.isDelivery,
     isLowValuePerk: analysis.value.isPerk,
+    isMultibuy: analysis.value.isMultibuy,
     isUtilityBadge: isUtilityOfferText(text),
     score: analysis.value.score,
     variant: raw.variant ?? raw.type ?? null,
@@ -181,7 +182,7 @@ export function extractDiscount(text = "", options = {}) {
 function bestDiscount(offers) {
   const discounts = offers
     .filter((offer) => !offer.isUtilityBadge)
-    .filter((offer) => Number.isFinite(offer.amount) && offer.score > 0)
+    .filter((offer) => offer.score > 0)
     .sort((a, b) => b.score - a.score);
 
   if (!discounts.length) {
@@ -192,7 +193,7 @@ function bestDiscount(offers) {
   return {
     amount: best.amount,
     type: best.amountType,
-    label: best.amountLabel,
+    label: best.amountLabel ?? best.text,
     sourceText: best.text,
     score: best.score,
     tier: best.valueTier,
@@ -210,6 +211,9 @@ function classifyOffer(text, value) {
   }
   if (value.isDelivery) {
     return "delivery";
+  }
+  if (value.isMultibuy) {
+    return "multibuy";
   }
   if (value.isPerk) {
     return "perk";
