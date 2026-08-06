@@ -1,0 +1,43 @@
+name: Compact repository data
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "src/public-snapshot.mjs"
+      - "src/compact-data.mjs"
+      - ".github/workflows/compact-data.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: compact-repository-data
+  cancel-in-progress: false
+
+jobs:
+  compact:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Compact JSON data
+        run: node src/compact-data.mjs --root=docs/data
+
+      - name: Commit compacted data
+        shell: bash
+        run: |
+          if git diff --quiet -- docs/data; then
+            echo "Repository data is already compact."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data
+          git commit -m "Compact Wolt dashboard data"
+          git push origin HEAD:main
