@@ -1,8 +1,17 @@
 export const DEFAULT_CITY_ID = "ltu/vilnius";
 export const LEGACY_DEFAULT_CITY_ID = "vilnius";
 
-export const CACHE_TTL_HOURS = Number(process.env.WOLT_CACHE_TTL_HOURS ?? 2);
-export const CACHE_TTL_MS = Math.max(0, CACHE_TTL_HOURS) * 60 * 60 * 1000;
+export function readNumericEnv(name, fallback) {
+  const raw = process.env[name];
+  if (typeof raw !== "string" || raw.trim() === "") {
+    return fallback;
+  }
+  const value = Number(raw);
+  return Number.isFinite(value) ? value : fallback;
+}
+
+export const CACHE_TTL_HOURS = Math.max(0, readNumericEnv("WOLT_CACHE_TTL_HOURS", 2));
+export const CACHE_TTL_MS = CACHE_TTL_HOURS * 60 * 60 * 1000;
 
 export const DEFAULT_CITY = {
   id: DEFAULT_CITY_ID,
@@ -71,15 +80,6 @@ export function cityDataPaths(city) {
     log: isDefaultCity(city) ? PATHS.log : `${PATHS.cityDataDir}/${key}/changes-log.json`,
     notified: isDefaultCity(city) ? PATHS.notified : `${PATHS.cityDataDir}/${key}/notified-offers.json`,
   };
-}
-
-export function readNumericEnv(name, fallback) {
-  const raw = process.env[name];
-  if (typeof raw !== "string" || raw.trim() === "") {
-    return fallback;
-  }
-  const value = Number(raw);
-  return Number.isFinite(value) ? value : fallback;
 }
 
 export const NOTIFY_RULES = {
