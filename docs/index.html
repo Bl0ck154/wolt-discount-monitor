@@ -3,8 +3,34 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Browse current Wolt promotions by city, venue type, opening status, and estimated offer value."
+    />
     <title>Wolt discount monitor</title>
     <link rel="stylesheet" href="styles.css" />
+    <style>
+      .site-footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px 10px;
+        padding: 0 14px 24px;
+        color: var(--muted);
+        font-size: 12px;
+        text-align: center;
+      }
+
+      .site-footer a {
+        color: var(--brand);
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .site-footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
   </head>
   <body>
     <header class="topbar">
@@ -118,6 +144,14 @@
         </table>
       </section>
     </main>
+
+    <footer class="site-footer">
+      <a href="https://github.com/Bl0ck154/wolt-discount-monitor" target="_blank" rel="noreferrer">Source code</a>
+      <span>·</span>
+      <a href="https://zabolotskyi.com/" target="_blank" rel="noreferrer">Illia Zabolotskyi</a>
+      <span>·</span>
+      <span>Unofficial project, not affiliated with Wolt.</span>
+    </footer>
 
     <script src="app.js" type="module"></script>
   </body>
