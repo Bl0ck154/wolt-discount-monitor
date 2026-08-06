@@ -66,7 +66,7 @@ test("normalization stores universal value metadata, deduplicates and ranks venu
   assert.deepEqual(snapshot.venues.map((venue) => venue.name), ["Market", "Restaurant"]);
   const marketOffer = snapshot.venues[0].offers[0];
   assert.equal(snapshot.venues[0].offers.length, 1);
-  assert.equal(marketOffer.valueVersion, 3);
+  assert.equal(marketOffer.valueVersion, 4);
   assert.equal(marketOffer.valueTier, "good");
   assert.equal(marketOffer.notificationEligible, true);
   assert.equal(snapshot.venues[1].offers[0].notificationEligible, false);
@@ -74,6 +74,29 @@ test("normalization stores universal value metadata, deduplicates and ranks venu
   const changes = diffSnapshots({ generatedAt: null, venues: [] }, snapshot);
   assert.equal(changes.interestingAppeared.length, 1);
   assert.equal(changes.interestingAppeared[0].venue.name, "Market");
+});
+
+test("multibuy and free perks receive balanced venue priority", () => {
+  const snapshot = normalizeSnapshot({
+    city,
+    urls: { promotions: "https://api.example/promotions", restaurants: "https://api.example/restaurants" },
+    restaurantRows: [],
+    promoRows: [
+      row({ id: "dessert", name: "Dessert", productLine: "restaurant", currency: "EUR", promotions: [{ campaign_id: "dessert", text: "Free dessert" }] }),
+      row({ id: "cola", name: "Cola", productLine: "restaurant", currency: "EUR", promotions: [{ campaign_id: "cola", text: "2 for 1 cola" }] }),
+      row({ id: "unknown", name: "Unknown", productLine: "restaurant", currency: "EUR", promotions: [{ campaign_id: "unknown", text: "Buy 2, Pay for 1" }] }),
+      row({ id: "pizza", name: "Pizza", productLine: "restaurant", currency: "EUR", promotions: [{ campaign_id: "pizza", text: "Buy 2 pizzas, Pay for 1" }] }),
+    ],
+  });
+
+  assert.deepEqual(snapshot.venues.map((venue) => venue.name), ["Pizza", "Unknown", "Cola", "Dessert"]);
+  assert.equal(snapshot.venues[0].offers[0].category, "multibuy");
+  assert.equal(snapshot.venues[0].bestDiscount.label, "50%");
+  assert.equal(snapshot.venues[3].bestDiscount.label, "Free dessert");
+  assert.ok(snapshot.venues[3].bestDiscount.score > 0);
+
+  const changes = diffSnapshots({ generatedAt: null, venues: [] }, snapshot);
+  assert.deepEqual(changes.interestingAppeared.map((offer) => offer.venue.name), ["Pizza"]);
 });
 
 test("diff ranks strong cash before weaker conditional cash", () => {
