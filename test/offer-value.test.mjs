@@ -4,6 +4,7 @@ import assert from "node:assert/strict";
 import {
   analyzeOffer,
   extractDiscount,
+  extractMultibuy,
   isNotificationWorthy,
   sortOffersByValue,
 } from "../src/offer-value.mjs";
@@ -46,7 +47,7 @@ test("high minimum spend lowers broad percentage value", () => {
   assert.equal(conditioned.notificationEligible, false);
 });
 
-test("selected items, gifts, 2-for-1 and delivery never notify", () => {
+test("selected items and delivery stay excluded from notifications", () => {
   const cases = [
     ["50% off selected items", "pharmacy"],
     ["2000 HUF item discount", "restaurant"],
@@ -55,9 +56,6 @@ test("selected items, gifts, 2-for-1 and delivery never notify", () => {
     ["70% off a wide selection", "grocery"],
     ["20% off buns in your basket", "grocery"],
     ["5 EUR off buns", "grocery"],
-    ["Free dessert", "restaurant"],
-    ["2 Free garlic sauces!", "restaurant"],
-    ["Buy 2, Pay for 1", "restaurant"],
     ["0 € delivery fee", "restaurant"],
     ["14 days of €0 delivery fees", "restaurant"],
   ];
@@ -66,6 +64,95 @@ test("selected items, gifts, 2-for-1 and delivery never notify", () => {
     assert.equal(result.notificationEligible, false, text);
     assert.notEqual(result.value.scope, "broad", text);
   }
+});
+
+test("free perks receive useful non-zero site priority without noisy notifications", () => {
+  const dessert = analyze("Free dessert", "restaurant", "EUR");
+  const sauce = analyze("2 Free garlic sauces!", "restaurant", "EUR");
+  const meal = analyze("Free meal", "restaurant", "EUR");
+
+  assert.equal(dessert.value.scope, "perk");
+  assert.equal(sauce.value.scope, "perk");
+  assert.ok(dessert.value.score > 0);
+  assert.ok(sauce.value.score > 0);
+  assert.ok(meal.value.score > dessert.value.score);
+  assert.ok(dessert.value.score > sauce.value.score);
+  assert.equal(dessert.notificationEligible, false);
+  assert.equal(sauce.notificationEligible, false);
+  assert.equal(meal.notificationEligible, false);
+});
+
+test("2-for-1 gets a 50 percent equivalent and balanced priority", () => {
+  const unknown = analyze("Buy 2, Pay for 1", "restaurant", "EUR");
+  const pizza = analyze("Buy 2 pizzas, Pay for 1", "restaurant", "EUR");
+  const cola = analyze("2 for 1 cola", "restaurant", "EUR");
+  const allPizzas = analyze("2 for 1 on all pizzas", "restaurant", "EUR");
+
+  for (const result of [unknown, pizza, cola, allPizzas]) {
+    assert.equal(result.value.scope, "multibuy");
+    assert.equal(result.value.isMultibuy, true);
+    assert.equal(result.value.effectiveDiscountPercent, 50);
+    assert.equal(result.discount.amount, 50);
+    assert.ok(result.value.score > 0);
+  }
+
+  assert.equal(unknown.notificationEligible, false);
+  assert.equal(pizza.notificationEligible, true);
+  assert.equal(cola.notificationEligible, false);
+  assert.equal(allPizzas.notificationEligible, true);
+  assert.ok(allPizzas.value.score > pizza.value.score);
+  assert.ok(pizza.value.score > unknown.value.score);
+  assert.ok(unknown.value.score > cola.value.score);
+});
+
+test("2+1 and buy-one-get-one-free are converted mathematically", () => {
+  const twoPlusOne = analyze("2 + 1 free pizza", "restaurant", "EUR");
+  const bogo = analyze("Buy one get one free burger", "restaurant", "EUR");
+
+  assert.equal(twoPlusOne.value.effectiveDiscountPercent, 33.3);
+  assert.equal(twoPlusOne.value.multibuy.totalQuantity, 3);
+  assert.equal(twoPlusOne.value.multibuy.paidQuantity, 2);
+  assert.equal(twoPlusOne.notificationEligible, true);
+
+  assert.equal(bogo.value.effectiveDiscountPercent, 50);
+  assert.equal(bogo.value.multibuy.totalQuantity, 2);
+  assert.equal(bogo.value.multibuy.paidQuantity, 1);
+  assert.equal(bogo.notificationEligible, true);
+});
+
+test("multibuy parsing supports common international forms", () => {
+  const cases = [
+    ["2 už 1 pica", 50],
+    ["2 za 1 pizza", 50],
+    ["2x1 burger", 50],
+    ["3 for 2 sushi", 33.3],
+    ["Pirk 2, mokėk už 1 picas", 50],
+    ["Kup 2, zapłać za 1 burgery", 50],
+    ["Купи 2, заплати за 1 піци", 50],
+  ];
+
+  for (const [text, expected] of cases) {
+    const result = extractMultibuy(text);
+    assert.ok(result, text);
+    assert.equal(result.effectiveDiscountPercent, expected, text);
+  }
+});
+
+test("multibuy priority is currency-independent", () => {
+  const eur = analyze("2 for 1 pizza", "restaurant", "EUR");
+  const huf = analyze("2 for 1 pizza", "restaurant", "HUF");
+  const pln = analyze("2 for 1 pizza", "restaurant", "PLN");
+
+  assert.equal(eur.value.score, huf.value.score);
+  assert.equal(eur.value.score, pln.value.score);
+  assert.equal(eur.notificationEligible, true);
+  assert.equal(huf.notificationEligible, true);
+  assert.equal(pln.notificationEligible, true);
+});
+
+test("price wording is not mistaken for multibuy", () => {
+  assert.equal(extractMultibuy("2 pizzas for 10 EUR"), null);
+  assert.equal(extractMultibuy("Lunch for 2 people"), null);
 });
 
 test("only clearly broad percent wording is notification eligible", () => {
@@ -162,14 +249,14 @@ test("offers sort by value score descending", () => {
   assert.deepEqual(sortOffersByValue([low, high]).map((offer) => offer.venue.name), ["High", "Low"]);
 });
 
-test("legacy version-two analysis is re-evaluated with current scope rules", () => {
+test("legacy analysis is re-evaluated with current scope rules", () => {
   const offer = {
     text: "20% for buns",
     amount: 20,
     amountType: "percent",
     productLine: "grocery",
     value: {
-      version: 2,
+      version: 3,
       score: 56,
       tier: "good",
       scope: "broad",
