@@ -6,7 +6,11 @@ export async function sendTelegramMessage(text) {
   const chatId = process.env.TELEGRAM_CHAT_ID;
 
   if (!token || !chatId) {
-    return { skipped: true, reason: "TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID is not set" };
+    const reason = "TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID is not set";
+    if (process.env.TELEGRAM_ALLOW_SKIP === "true") {
+      return { skipped: true, reason };
+    }
+    throw new Error(`${reason}; refusing to lose a pending notification. Set TELEGRAM_ALLOW_SKIP=true only for local/non-production runs.`);
   }
 
   const response = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
