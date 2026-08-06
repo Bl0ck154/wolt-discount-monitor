@@ -1,4 +1,8 @@
 const DEFAULT_API_BASE_URL = "";
+const INITIAL_RENDER_LIMIT = 100;
+const RENDER_STEP = 100;
+const MAX_CITY_OPTIONS = 50;
+const SEARCH_DEBOUNCE_MS = 200;
 
 const state = {
   snapshot: null,
@@ -10,6 +14,8 @@ const state = {
   ubiquitousOfferKeys: new Set(),
   ubiquitousOfferLabels: [],
   rows: [],
+  renderLimit: INITIAL_RENDER_LIMIT,
+  searchTimer: null,
   sortKey: "best",
   sortDir: "desc",
 };
@@ -53,39 +59,42 @@ async function loadSnapshotForCity(cityId) {
   const city = cityById(cityId) ?? defaultCity();
   showLoading(city);
 
+  const preferApi = state.apiBaseUrl && isCityIndexStale(city);
+  if (preferApi) {
+    try {
+      const apiResult = await loadApiSnapshot(city);
+      if (!isCurrentLoad(requestId)) return;
+      applySnapshot(city, apiResult.snapshot);
+      return;
+    } catch (error) {
+      if (!isCurrentLoad(requestId)) return;
+      console.warn("Live API failed; trying bundled data", error);
+    }
+  }
+
   let staticResult;
   try {
     staticResult = await loadStaticSnapshot(city);
   } catch (error) {
-    if (!isCurrentLoad(requestId)) {
-      return;
-    }
-    throw error;
-  }
-  if (!isCurrentLoad(requestId)) {
+    if (!isCurrentLoad(requestId)) return;
+    if (!state.apiBaseUrl || preferApi) throw error;
+    const apiResult = await loadApiSnapshot(city);
+    if (!isCurrentLoad(requestId)) return;
+    applySnapshot(city, apiResult.snapshot);
     return;
   }
+  if (!isCurrentLoad(requestId)) return;
 
-  const shouldUseApi = state.apiBaseUrl && (!staticResult.ok || isSnapshotStale(staticResult.snapshot));
-
-  if (shouldUseApi) {
+  if (state.apiBaseUrl && !preferApi && (!staticResult.ok || isSnapshotStale(staticResult.snapshot))) {
     try {
       const apiResult = await loadApiSnapshot(city);
-      if (!isCurrentLoad(requestId)) {
-        return;
-      }
+      if (!isCurrentLoad(requestId)) return;
       applySnapshot(city, apiResult.snapshot);
       return;
     } catch (error) {
-      if (!isCurrentLoad(requestId)) {
-        return;
-      }
-      if (!staticResult.ok) {
-        throw error;
-      }
+      if (!isCurrentLoad(requestId)) return;
+      if (!staticResult.ok) throw error;
       console.warn("Live API failed; using bundled data", error);
-      applySnapshot(city, staticResult.snapshot);
-      return;
     }
   }
 
@@ -102,7 +111,7 @@ function isCurrentLoad(requestId) {
 
 async function loadStaticSnapshot(city) {
   const url = dataPathForCity(city);
-  const response = await fetch(url, { cache: "no-store" });
+  const response = await fetch(url);
   if (!response.ok) {
     return { ok: false, status: response.status, url };
   }
@@ -111,7 +120,7 @@ async function loadStaticSnapshot(city) {
 
 async function loadApiSnapshot(city) {
   const url = apiUrlForCity(city);
-  const response = await fetch(url, { cache: "no-store" });
+  const response = await fetch(url, { cache: "no-cache" });
   if (!response.ok) {
     const message = await response.text().catch(() => "");
     throw new Error(`Live API failed for ${city.label ?? city.name}: ${response.status} ${response.statusText}${message ? ` · ${message.slice(0, 200)}` : ""}`);
@@ -123,6 +132,7 @@ function applySnapshot(city, snapshot) {
   state.snapshot = snapshot;
   state.selectedCity = { ...(state.snapshot.city ?? {}), ...city };
   state.rows = state.snapshot.venues ?? [];
+  state.renderLimit = INITIAL_RENDER_LIMIT;
   const ubiquitousOffers = ubiquitousOfferIndex(state.rows);
   state.ubiquitousOfferKeys = ubiquitousOffers.keys;
   state.ubiquitousOfferLabels = ubiquitousOffers.labels;
@@ -162,7 +172,7 @@ async function loadCitiesIndex() {
 }
 
 async function loadLocalCitiesIndex() {
-  const response = await fetch("data/cities.json", { cache: "no-store" });
+  const response = await fetch("data/cities.json");
   if (response.ok) {
     return response.json();
   }
@@ -191,7 +201,7 @@ async function loadLocalCitiesIndex() {
 }
 
 async function loadApiCitiesIndex() {
-  const response = await fetch(`${state.apiBaseUrl}/api/cities`, { cache: "no-store" });
+  const response = await fetch(`${state.apiBaseUrl}/api/cities`, { cache: "no-cache" });
   if (!response.ok) {
     throw new Error(`${response.status} ${response.statusText}`);
   }
@@ -213,6 +223,7 @@ function mergeCityIndexes(local, remote) {
 function bindCityPicker() {
   elements.citySearch.addEventListener("focus", () => {
     openCityPicker();
+    renderCityOptions(elements.citySearch.value);
     elements.citySearch.select();
   });
   elements.citySearch.addEventListener("input", () => {
@@ -272,20 +283,30 @@ function chooseCity(cityId) {
 
 function syncCityPickerValue() {
   elements.citySearch.value = cityLabelText(state.selectedCity ?? defaultCity());
-  renderCityOptions();
+  renderCityOptions(elements.citySearch.value);
 }
 
 function renderCityOptions(query = "") {
-  elements.cityOptions.innerHTML = groupedCityOptions(filteredCities(query)).join("") || `<div class="city-empty">No matching cities</div>`;
+  const selected = state.selectedCity ?? defaultCity();
+  const normalized = query.trim().toLowerCase();
+  const selectedLabel = cityLabelText(selected).toLowerCase();
+  const isCurrentSelection = !normalized || normalized === selectedLabel;
+  const matches = isCurrentSelection ? [selected] : filteredCities(query);
+  const visible = matches.slice(0, MAX_CITY_OPTIONS);
+  const groups = groupedCityOptions(visible).join("");
+  const hint = isCurrentSelection
+    ? `<div class="city-empty">Type at least 2 characters to search ${formatNumber(state.citiesIndex?.cities?.length ?? 0)} cities</div>`
+    : matches.length > visible.length
+      ? `<div class="city-empty">Showing first ${MAX_CITY_OPTIONS} of ${formatNumber(matches.length)} matches. Keep typing to narrow the list.</div>`
+      : "";
+  elements.cityOptions.innerHTML = groups || `<div class="city-empty">No matching cities</div>`;
+  if (hint) elements.cityOptions.insertAdjacentHTML("beforeend", hint);
 }
 
 function filteredCities(query) {
   const normalized = query.trim().toLowerCase();
-  const cities = state.citiesIndex.cities ?? [];
-  if (!normalized || normalized === cityLabelText(state.selectedCity ?? {}).toLowerCase()) {
-    return cities;
-  }
-  return cities.filter((city) => citySearchText(city).includes(normalized));
+  if (normalized.length < 2) return [];
+  return (state.citiesIndex.cities ?? []).filter((city) => citySearchText(city).includes(normalized));
 }
 
 function groupedCityOptions(cities) {
@@ -335,25 +356,37 @@ function hydrateFilters() {
 }
 
 function bindControls() {
-  if (bindControls.bound) {
-    return;
-  }
+  if (bindControls.bound) return;
   bindControls.bound = true;
 
-  elements.searchInput.addEventListener("input", renderRows);
-  elements.productFilter.addEventListener("change", renderRows);
-  elements.hideNewUserDelivery.addEventListener("change", renderRows);
-  elements.hideDeliveryDiscounts.addEventListener("change", renderRows);
+  elements.searchInput.addEventListener("input", () => {
+    clearTimeout(state.searchTimer);
+    state.searchTimer = setTimeout(resetAndRenderRows, SEARCH_DEBOUNCE_MS);
+  });
+  elements.productFilter.addEventListener("change", resetAndRenderRows);
+  elements.hideNewUserDelivery.addEventListener("change", resetAndRenderRows);
+  elements.hideDeliveryDiscounts.addEventListener("change", resetAndRenderRows);
   elements.sortSelect.addEventListener("change", () => {
     setSortFromSelect(elements.sortSelect.value);
-    renderRows();
+    resetAndRenderRows();
   });
   elements.sortHeaders.forEach((header) => {
     header.addEventListener("click", () => {
       setSortFromHeader(header.dataset.sortKey);
-      renderRows();
+      resetAndRenderRows();
     });
   });
+  elements.venueRows.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-load-more]");
+    if (!button) return;
+    state.renderLimit += RENDER_STEP;
+    renderRows();
+  });
+}
+
+function resetAndRenderRows() {
+  state.renderLimit = INITIAL_RENDER_LIMIT;
+  renderRows();
 }
 
 function showError(error) {
@@ -369,7 +402,8 @@ function renderRows() {
     .filter(({ venue }) => !productLine || venue.productLine === productLine)
     .filter(({ venue }) => matchesQuery(venue, query))
     .sort(sorter());
-  const groups = groupRows(rows).slice(0, 1000);
+  const allGroups = groupRows(rows);
+  const groups = allGroups.slice(0, state.renderLimit);
   const rowsWithVisibleOffers = rows.filter(({ visibleOffers }) => visibleOffers.length > 0).length;
 
   elements.shownCount.textContent = `${formatNumber(rows.length)} shown venues · ${formatNumber(rowsWithVisibleOffers)} with visible offers · ${formatNumber(state.rows.length)} total venues`;
@@ -381,7 +415,11 @@ function renderRows() {
     return;
   }
 
-  elements.venueRows.innerHTML = groups.map((group, index) => renderVenueGroup(group, index + 1)).join("");
+  const remaining = allGroups.length - groups.length;
+  const loadMore = remaining > 0
+    ? `<tr><td colspan="7" class="empty"><button type="button" class="load-more" data-load-more>Show ${formatNumber(Math.min(RENDER_STEP, remaining))} more (${formatNumber(remaining)} remaining)</button></td></tr>`
+    : "";
+  elements.venueRows.innerHTML = groups.map((group, index) => renderVenueGroup(group, index + 1)).join("") + loadMore;
 }
 
 function renderVenueGroup(group, index) {
@@ -621,7 +659,7 @@ function chainRootName(venue, chainIndex) {
 }
 
 function brandImageKey(venue) {
-  return String(venue?.brandImageUrl ?? "").trim();
+  return String(venue?.brandImageUrl ?? venue?.imageUrl ?? "").trim();
 }
 
 function chainPrefixes(tokens) {
@@ -1267,6 +1305,13 @@ function isSnapshotStale(snapshot) {
   }
   const generatedAt = Date.parse(snapshot.generatedAt);
   return Number.isFinite(generatedAt) && Date.now() - generatedAt > ttlMs;
+}
+
+function isCityIndexStale(city) {
+  const ttlMs = Number(state.citiesIndex?.cacheTtlMs ?? 0);
+  if (ttlMs <= 0 || !city?.updatedAt) return true;
+  const updatedAt = Date.parse(city.updatedAt);
+  return !Number.isFinite(updatedAt) || Date.now() - updatedAt > ttlMs;
 }
 
 function apiDisabledMessage(city) {

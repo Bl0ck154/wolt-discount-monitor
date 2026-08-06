@@ -1,10 +1,12 @@
+import { createHash } from "node:crypto";
 import { createServer } from "node:http";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
-import { CACHE_TTL_MS, PATHS, cityKey } from "./config.mjs";
+import { CACHE_TTL_MS, CITY, PATHS, cityKey } from "./config.mjs";
 import { normalizeSnapshot } from "./normalize.mjs";
 import { fetchCityData, isSnapshotFresh } from "./wolt-api.mjs";
 import { fetchWoltCityCatalog } from "./wolt-cities.mjs";
+import { compactCitiesIndex, compactSnapshot, jsonText } from "./public-snapshot.mjs";
 
 const HOST = process.env.WOLT_API_HOST ?? "127.0.0.1";
 const PORT = Number(process.env.PORT ?? process.env.WOLT_API_PORT ?? 3000);
@@ -33,10 +35,7 @@ server.listen(PORT, HOST, () => {
 });
 
 async function handleRequest(request, response) {
-  if (handleCorsPreflight(request, response)) {
-    return;
-  }
-
+  if (handleCorsPreflight(request, response)) return;
   enforceRateLimit(request);
 
   const url = new URL(request.url, `http://${request.headers.host ?? "localhost"}`);
@@ -53,7 +52,9 @@ async function handleRequest(request, response) {
 
   if (request.method === "GET" && pathname === "/api/cities") {
     const catalog = await loadCatalog();
-    sendJson(request, response, 200, await citiesResponse(catalog));
+    sendJson(request, response, 200, await citiesResponse(catalog), {
+      cacheControl: "public, max-age=300, stale-while-revalidate=900",
+    });
     return;
   }
 
@@ -63,7 +64,9 @@ async function handleRequest(request, response) {
     const city = await findCity(`${country}/${slug}`);
     const { snapshot, cacheHit } = await latestSnapshot(city);
     response.setHeader("X-Wolt-Cache", cacheHit ? "HIT" : "MISS");
-    sendJson(request, response, 200, snapshot);
+    sendJson(request, response, 200, snapshot, {
+      cacheControl: "public, max-age=60, stale-while-revalidate=300",
+    });
     return;
   }
 
@@ -75,14 +78,19 @@ async function latestSnapshot(city) {
   const cachePath = snapshotPath(city);
   const cached = await readJsonIfExists(cachePath);
 
-  if (process.env.FORCE_WRITE !== "true" && isSnapshotFresh(cached)) {
-    return { snapshot: cached, cacheHit: true };
+  if (cached) {
+    const compacted = compactSnapshot(cached);
+    if (JSON.stringify(compacted).length < JSON.stringify(cached).length) {
+      await writeJson(cachePath, compacted);
+    }
+    if (process.env.FORCE_WRITE !== "true" && isSnapshotFresh(compacted)) {
+      return { snapshot: compacted, cacheHit: true };
+    }
   }
 
   if (!inFlight.has(key)) {
     inFlight.set(key, refreshSnapshot(city, cachePath).finally(() => inFlight.delete(key)));
   }
-
   return { snapshot: await inFlight.get(key), cacheHit: false };
 }
 
@@ -99,7 +107,7 @@ function enqueueRefresh(task) {
 }
 
 async function normalizeSnapshotFromWolt(city) {
-  return normalizeSnapshot(await fetchCityData(city));
+  return compactSnapshot(normalizeSnapshot(await fetchCityData(city)));
 }
 
 async function citiesResponse(catalog) {
@@ -108,18 +116,12 @@ async function citiesResponse(catalog) {
     return {
       id: city.id,
       key: cityKey(city),
-      woltCityId: city.woltCityId,
       slug: city.slug,
       name: city.name,
       country: city.country,
-      countryEmoji: city.countryEmoji,
-      countryCode: city.countryCode,
       countryCode2: city.countryCode2,
-      countryCode3: city.countryCode3,
       lat: city.lat,
       lon: city.lon,
-      locale: city.locale ?? "en",
-      timezone: city.timezone,
       label: city.label,
       apiPath: `/api/cities/${city.id}/latest`,
       updatedAt: cached?.generatedAt ?? null,
@@ -128,38 +130,31 @@ async function citiesResponse(catalog) {
     };
   }));
 
-  return {
+  return compactCitiesIndex({
     generatedAt: new Date().toISOString(),
+    defaultCityId: CITY.id,
     cacheTtlMs: CACHE_TTL_MS,
     totalCities: catalog.totalCities ?? cities.length,
-    totalCountries: catalog.totalCountries,
-    countries: catalog.countries,
     cities,
-  };
+  });
 }
 
 async function findCity(id) {
   const catalog = await loadCatalog();
   const city = (catalog.cities ?? []).find((candidate) => candidate.id === id || candidate.key === id);
-  if (!city) {
-    throw httpError(404, `Unknown city "${id}"`);
-  }
+  if (!city) throw httpError(404, `Unknown city "${id}"`);
   return city;
 }
 
 async function loadCatalog() {
-  if (!catalogPromise) {
-    catalogPromise = loadCatalogOnce();
-  }
+  if (!catalogPromise) catalogPromise = loadCatalogOnce();
   return catalogPromise;
 }
 
 async function loadCatalogOnce() {
   if (process.env.WOLT_REFRESH_CITY_CATALOG !== "true") {
     const existing = await readJsonIfExists(PATHS.cityCatalog);
-    if (existing?.cities?.length) {
-      return existing;
-    }
+    if (existing?.cities?.length) return existing;
   }
   return fetchWoltCityCatalog();
 }
@@ -169,9 +164,7 @@ function snapshotPath(city) {
 }
 
 function enforceRateLimit(request) {
-  if (RATE_LIMIT_REQUESTS <= 0 || RATE_LIMIT_WINDOW_MS <= 0) {
-    return;
-  }
+  if (RATE_LIMIT_REQUESTS <= 0 || RATE_LIMIT_WINDOW_MS <= 0) return;
 
   const ip = clientIp(request);
   const now = Date.now();
@@ -193,9 +186,7 @@ function enforceRateLimit(request) {
 
 function cleanupRateBuckets(now) {
   for (const [ip, bucket] of rateBuckets.entries()) {
-    if (now >= bucket.resetAt) {
-      rateBuckets.delete(ip);
-    }
+    if (now >= bucket.resetAt) rateBuckets.delete(ip);
   }
 }
 
@@ -206,10 +197,7 @@ function clientIp(request) {
 }
 
 function handleCorsPreflight(request, response) {
-  if (request.method !== "OPTIONS") {
-    return false;
-  }
-
+  if (request.method !== "OPTIONS") return false;
   setCorsHeaders(request, response);
   response.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
   response.setHeader("Access-Control-Allow-Headers", "Content-Type");
@@ -218,24 +206,29 @@ function handleCorsPreflight(request, response) {
   return true;
 }
 
-function sendJson(request, response, statusCode, value) {
+function sendJson(request, response, statusCode, value, { cacheControl = "no-store" } = {}) {
   setCorsHeaders(request, response);
+  const body = jsonText(value);
+  const etag = `W/"${createHash("sha1").update(body).digest("base64url").slice(0, 20)}"`;
   response.setHeader("Content-Type", "application/json; charset=utf-8");
-  response.setHeader("Cache-Control", "no-store");
+  response.setHeader("Cache-Control", cacheControl);
+  response.setHeader("ETag", etag);
   response.setHeader("X-Content-Type-Options", "nosniff");
-  if (value?.retryAfter) {
-    response.setHeader("Retry-After", String(value.retryAfter));
+  if (value?.retryAfter) response.setHeader("Retry-After", String(value.retryAfter));
+
+  if (statusCode === 200 && request.headers["if-none-match"] === etag) {
+    response.writeHead(304);
+    response.end();
+    return;
   }
+
   response.writeHead(statusCode);
-  response.end(`${JSON.stringify(value, null, 2)}\n`);
+  response.end(body);
 }
 
 function setCorsHeaders(request, response) {
   const origin = request.headers.origin;
-  if (!origin) {
-    return;
-  }
-
+  if (!origin) return;
   if (isAllowedOrigin(origin)) {
     response.setHeader("Access-Control-Allow-Origin", origin);
     response.setHeader("Vary", "Origin");
@@ -243,39 +236,32 @@ function setCorsHeaders(request, response) {
 }
 
 function isAllowedOrigin(origin) {
-  if (ALLOWED_ORIGINS.has("*")) {
-    return true;
-  }
-  if (ALLOWED_ORIGINS.has(origin)) {
-    return true;
-  }
+  if (ALLOWED_ORIGINS.has("*")) return true;
+  if (ALLOWED_ORIGINS.has(origin)) return true;
   return /^https?:\/\/localhost(?::\d+)?$/.test(origin) || /^https?:\/\/127\.0\.0\.1(?::\d+)?$/.test(origin);
 }
 
 function parseAllowedOrigins(value) {
-  const origins = new Set(
+  return new Set(
     String(value ?? "https://bl0ck154.github.io")
       .split(",")
       .map((origin) => origin.trim())
       .filter(Boolean),
   );
-  return origins;
 }
 
 async function readJsonIfExists(path) {
   try {
     return JSON.parse((await readFile(path, "utf8")).replace(/^\uFEFF/, ""));
   } catch (error) {
-    if (error.code === "ENOENT") {
-      return null;
-    }
+    if (error.code === "ENOENT") return null;
     throw error;
   }
 }
 
 async function writeJson(path, value) {
   await mkdir(dirname(path), { recursive: true });
-  await writeFile(path, `${JSON.stringify(value, null, 2)}\n`, "utf8");
+  await writeFile(path, jsonText(value), "utf8");
 }
 
 function httpError(statusCode, message) {

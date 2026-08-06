@@ -7,6 +7,15 @@ import { fetchWoltCityCatalog } from "./wolt-cities.mjs";
 import { normalizeSnapshot } from "./normalize.mjs";
 import { formatTelegramMessage, sendTelegramMessage } from "./telegram.mjs";
 import { offerScore, sortOffersByValue } from "./offer-value.mjs";
+import {
+  compactChangeLog,
+  compactChangesDocument,
+  compactCitiesIndex,
+  compactNotifiedState,
+  compactOfferRecord,
+  compactSnapshot,
+  jsonText,
+} from "./public-snapshot.mjs";
 
 async function main() {
   const catalog = await loadOrFetchCityCatalog();
@@ -30,8 +39,9 @@ async function main() {
 
 async function checkCity(city) {
   const paths = cityDataPaths(city);
-  const previous = (await readJsonIfExists(paths.latest)) ?? (isDefaultCity(city) ? await readJsonIfExists(PATHS.latest) : null);
-  const notified = (await readJsonIfExists(paths.notified)) ?? { activeOffers: [] };
+  const previousRaw = (await readJsonIfExists(paths.latest)) ?? (isDefaultCity(city) ? await readJsonIfExists(PATHS.latest) : null);
+  const previous = previousRaw ? compactSnapshot(previousRaw) : null;
+  const notified = compactNotifiedState((await readJsonIfExists(paths.notified)) ?? { activeOffers: [] });
 
   if (process.env.FORCE_WRITE !== "true" && isSnapshotFresh(previous)) {
     return cityResult(city, previous, {
@@ -47,17 +57,12 @@ async function checkCity(city) {
 
   let current;
   try {
-    current = normalizeSnapshot(await fetchCityData(city));
+    current = compactSnapshot(normalizeSnapshot(await fetchCityData(city)));
   } catch (error) {
-    if (!previous) {
-      throw error;
-    }
+    if (!previous) throw error;
 
     const generatedAt = new Date().toISOString();
-    const fetchError = {
-      message: error.message,
-      at: generatedAt,
-    };
+    const fetchError = { message: error.message, at: generatedAt };
     const changes = {
       generatedAt,
       previousGeneratedAt: previous.generatedAt,
@@ -69,15 +74,12 @@ async function checkCity(city) {
       fetchError,
     };
 
-    await writeJson(paths.changes, {
+    await writeJson(paths.changes, compactChangesDocument({
       ...changes,
       newInteresting: [],
       endedNotified: [],
-      notifiedSummary: {
-        newInteresting: 0,
-        endedNotified: 0,
-      },
-    });
+      notifiedSummary: { newInteresting: 0, endedNotified: 0 },
+    }));
     await appendChangeLog(paths.log, changes, { newInteresting: [], endedNotified: [], fetchError });
 
     return cityResult(city, previous, {
@@ -91,6 +93,7 @@ async function checkCity(city) {
       telegram: { skipped: true, reason: `Wolt API fetch failed; kept previous snapshot: ${error.message}` },
     });
   }
+
   const changes = diffSnapshots(previous, current);
   const currentOffers = offerIndex(current);
   const currentInteresting = interestingOfferIndex(current);
@@ -108,7 +111,7 @@ async function checkCity(city) {
   await writeJson(paths.latest, current);
 
   if (hasChanges) {
-    await writeJson(paths.changes, {
+    await writeJson(paths.changes, compactChangesDocument({
       ...changes,
       newInteresting,
       endedNotified,
@@ -116,7 +119,7 @@ async function checkCity(city) {
         newInteresting: newInteresting.length,
         endedNotified: endedNotified.length,
       },
-    });
+    }));
     await appendChangeLog(paths.log, changes, { newInteresting, endedNotified });
   }
 
@@ -168,10 +171,7 @@ async function checkCity(city) {
 }
 
 function cityIdsToCheck(cities) {
-  if (process.env.WOLT_ALL_CITIES === "true") {
-    return cities.map((city) => city.id);
-  }
-
+  if (process.env.WOLT_ALL_CITIES === "true") return cities.map((city) => city.id);
   return (process.env.WOLT_CITIES || process.env.WOLT_CITY || CITY.id)
     .split(",")
     .map((value) => value.trim())
@@ -181,11 +181,8 @@ function cityIdsToCheck(cities) {
 async function loadOrFetchCityCatalog() {
   if (process.env.WOLT_REFRESH_CITY_CATALOG !== "true") {
     const existing = await readJsonIfExists(PATHS.cityCatalog);
-    if (existing?.cities?.length) {
-      return existing;
-    }
+    if (existing?.cities?.length) return existing;
   }
-
   return fetchWoltCityCatalog();
 }
 
@@ -199,7 +196,7 @@ async function writeCatalog(catalog) {
 
 async function writeCitiesIndex(catalog, results) {
   const byId = new Map(results.map((result) => [result.id, result]));
-  const existing = (await readJsonIfExists(PATHS.cities)) ?? { cities: [] };
+  const existing = compactCitiesIndex((await readJsonIfExists(PATHS.cities)) ?? { cities: [] });
   const existingById = new Map((existing.cities ?? []).map((city) => [city.id, city]));
 
   const cities = (catalog.cities ?? []).map((city) => {
@@ -209,36 +206,26 @@ async function writeCitiesIndex(catalog, results) {
     return {
       id: city.id,
       key: cityKey(city),
-      woltCityId: city.woltCityId,
       slug: city.slug,
       name: city.name,
       country: city.country,
-      countryEmoji: city.countryEmoji,
-      countryCode: city.countryCode,
       countryCode2: city.countryCode2,
-      countryCode3: city.countryCode3,
       lat: city.lat,
       lon: city.lon,
-      locale: city.locale ?? "en",
-      timezone: city.timezone,
       label: cityLabel(city),
-      notificationsEnabled: city.notificationsEnabled === true,
-      dataPath: latestPath,
       latestPath,
       updatedAt: result?.generatedAt ?? previous?.updatedAt ?? null,
       counts: result?.counts ?? previous?.counts ?? null,
     };
   });
 
-  await writeJson(PATHS.cities, {
+  await writeJson(PATHS.cities, compactCitiesIndex({
     generatedAt: new Date().toISOString(),
     defaultCityId: CITY.id,
     cacheTtlMs: CACHE_TTL_MS,
     totalCities: catalog.totalCities ?? cities.length,
-    totalCountries: catalog.totalCountries,
-    countries: catalog.countries,
     cities,
-  });
+  }));
 }
 
 function cityResult(city, snapshot, extra) {
@@ -274,51 +261,29 @@ function buildNotifiedState({ previous, currentInteresting, appeared, ended, gen
     }));
   }
 
-  return {
+  return compactNotifiedState({
     updatedAt: generatedAt,
     activeOffers: [...byKey.values()].sort((a, b) =>
       offerScore(b) - offerScore(a) || a.venue.name.localeCompare(b.venue.name, "en")),
-  };
+  });
 }
 
 function notifiedOfferRecord(offer, { firstNotifiedAt, lastSeenAt }) {
-  return {
-    stableKey: offer.stableKey,
-    firstNotifiedAt,
-    lastSeenAt,
-    venue: offer.venue,
-    sourcePath: offer.sourcePath,
-    campaignId: offer.campaignId,
-    text: offer.text,
-    amount: offer.amount,
-    amountType: offer.amountType,
-    amountLabel: offer.amountLabel,
-    currencyCode: offer.currencyCode,
-    minimumSpend: offer.minimumSpend,
-    maxSavings: offer.maxSavings,
-    effectiveDiscountPercent: offer.effectiveDiscountPercent,
-    scope: offer.scope,
-    valueVersion: offer.valueVersion,
-    valueScore: offer.valueScore,
-    valueTier: offer.valueTier,
-    value: offer.value,
-  };
+  return compactOfferRecord({ ...offer, firstNotifiedAt, lastSeenAt });
 }
 
 async function readJsonIfExists(path) {
   try {
     return JSON.parse((await readFile(path, "utf8")).replace(/^\uFEFF/, ""));
   } catch (error) {
-    if (error.code === "ENOENT") {
-      return null;
-    }
+    if (error.code === "ENOENT") return null;
     throw error;
   }
 }
 
 async function writeJson(path, value) {
   await mkdir(dirname(path), { recursive: true });
-  await writeFile(path, `${JSON.stringify(value, null, 2)}\n`, "utf8");
+  await writeFile(path, jsonText(value), "utf8");
 }
 
 async function appendChangeLog(path, changes, notification = {}) {
@@ -334,11 +299,10 @@ async function appendChangeLog(path, changes, notification = {}) {
     notifiedNew: newInteresting.length,
     notifiedEnded: endedNotified.length,
     fetchError: notification.fetchError ?? changes.fetchError ?? null,
-    interesting: newInteresting.slice(0, 50),
-    ended: endedNotified.slice(0, 50),
+    interesting: newInteresting,
+    ended: endedNotified,
   };
-
-  await writeJson(path, [entry, ...existing].slice(0, 200));
+  await writeJson(path, compactChangeLog([entry, ...existing], 100));
 }
 
 main().catch((error) => {
