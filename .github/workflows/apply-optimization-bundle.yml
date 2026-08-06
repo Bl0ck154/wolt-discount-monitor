@@ -21,6 +21,12 @@ jobs:
         with:
           ref: perf/compact-json-lazy-ui-20260806
 
+      - name: Verify staged parts
+        shell: bash
+        run: |
+          wc -c tools/optimization-bundle.part*
+          sha256sum tools/optimization-bundle.part*
+
       - name: Apply staged files
         shell: bash
         run: |
