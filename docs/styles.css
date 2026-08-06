@@ -567,3 +567,20 @@ th {
     width: 100%;
   }
 }
+
+.load-more {
+  min-height: 40px;
+  padding: 8px 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--brand);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.load-more:hover,
+.load-more:focus-visible {
+  background: var(--surface-2);
+}
