@@ -13,13 +13,9 @@ on:
         default: false
         type: boolean
       runner:
-        description: "Execution runner: Windows by default, Linux as fallback"
+        description: "Execution runner: windows or a Linux fallback key"
         required: false
         default: "windows"
-        type: choice
-        options:
-          - windows
-          - linux
   repository_dispatch:
     types: [wolt-discount-monitor]
 
@@ -32,11 +28,12 @@ concurrency:
 
 jobs:
   check:
+    timeout-minutes: 30
     runs-on:
       - self-hosted
       - X64
       - wolt
-      - ${{ (github.event.inputs.runner || github.event.client_payload.runner || 'windows') == 'linux' && 'Linux' || 'Windows' }}
+      - ${{ (github.event.inputs.runner || github.event.client_payload.runner || 'windows') != 'windows' && 'Linux' || 'Windows' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -46,10 +43,14 @@ jobs:
         with:
           node-version: "22"
 
+      - name: Run tests
+        run: npm test
+
       - name: Update discount data
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_ALLOW_SKIP: ${{ vars.TELEGRAM_ALLOW_SKIP }}
           MIN_VALUE_SCORE: ${{ vars.MIN_VALUE_SCORE }}
           MIN_GROCERY_PERCENT: ${{ vars.MIN_GROCERY_PERCENT }}
           MIN_RESTAURANT_PERCENT: ${{ vars.MIN_RESTAURANT_PERCENT }}
@@ -57,6 +58,10 @@ jobs:
           MIN_CASH_VALUE_RATIO: ${{ vars.MIN_CASH_VALUE_RATIO }}
           MIN_UNCONDITIONAL_CASH_REFERENCE: ${{ vars.MIN_UNCONDITIONAL_CASH_REFERENCE }}
           WOLT_CACHE_TTL_HOURS: ${{ vars.WOLT_CACHE_TTL_HOURS }}
+          WOLT_API_TIMEOUT_MS: ${{ vars.WOLT_API_TIMEOUT_MS }}
+          WOLT_API_MAX_ATTEMPTS: ${{ vars.WOLT_API_MAX_ATTEMPTS }}
+          WOLT_API_RETRY_BASE_MS: ${{ vars.WOLT_API_RETRY_BASE_MS }}
+          WOLT_API_RETRY_JITTER_MS: ${{ vars.WOLT_API_RETRY_JITTER_MS }}
           WOLT_REFRESH_CITY_CATALOG: "true"
           WOLT_CITIES: ${{ github.event.inputs.cities || github.event.client_payload.cities || 'ltu/vilnius' }}
           WOLT_ALL_CITIES: ${{ github.event.inputs.all_cities || github.event.client_payload.all_cities || 'false' }}
