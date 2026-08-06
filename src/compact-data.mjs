@@ -8,6 +8,7 @@ import {
   compactSnapshot,
   jsonText,
 } from "./public-snapshot.mjs";
+import { rescoreSnapshot } from "./rescore-snapshot.mjs";
 
 const root = process.argv.find((arg) => arg.startsWith("--root="))?.slice("--root=".length) ?? "docs/data";
 const checkOnly = process.argv.includes("--check");
@@ -49,7 +50,7 @@ if (checkOnly && changed > 0) {
 
 function compactValue(path, value) {
   const normalized = path.replaceAll("\\", "/");
-  if (normalized.endsWith("/latest.json")) return compactSnapshot(value);
+  if (normalized.endsWith("/latest.json")) return compactSnapshot(rescoreSnapshot(value));
   if (normalized.endsWith("/changes-log.json")) return compactChangeLog(value);
   if (normalized.endsWith("/changes.json")) return compactChangesDocument(value);
   if (normalized.endsWith("/notified-offers.json")) return compactNotifiedState(value);
