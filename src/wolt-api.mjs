@@ -8,31 +8,55 @@ export function endpoints({ lat = CITY.lat, lon = CITY.lon } = {}) {
 }
 
 export async function fetchJson(url, options = {}) {
-  const maxAttempts = Number(options.maxAttempts ?? process.env.WOLT_API_MAX_ATTEMPTS ?? 7);
-  const retryBaseMs = Number(options.retryBaseMs ?? process.env.WOLT_API_RETRY_BASE_MS ?? 30000);
+  const maxAttempts = positiveInteger(options.maxAttempts ?? process.env.WOLT_API_MAX_ATTEMPTS, 7);
+  const retryBaseMs = nonNegativeNumber(options.retryBaseMs ?? process.env.WOLT_API_RETRY_BASE_MS, 30_000);
+  const retryJitterMs = nonNegativeNumber(options.retryJitterMs ?? process.env.WOLT_API_RETRY_JITTER_MS, 5_000);
+  const timeoutMs = nonNegativeNumber(options.timeoutMs ?? process.env.WOLT_API_TIMEOUT_MS, 30_000);
+  let lastError;
 
   for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
-    const response = await fetch(url, { headers: WOLT_HEADERS });
-    const text = await response.text();
+    try {
+      const response = await fetch(url, {
+        headers: WOLT_HEADERS,
+        signal: timeoutMs > 0 ? AbortSignal.timeout(timeoutMs) : undefined,
+      });
+      const text = await response.text();
 
-    if (response.ok) {
-      return JSON.parse(text);
-    }
+      if (response.ok) {
+        try {
+          return JSON.parse(text);
+        } catch (error) {
+          const invalidJson = new Error(`Invalid JSON from Wolt API: ${error.message}; body: ${text.slice(0, 200)}`);
+          invalidJson.retryable = true;
+          throw invalidJson;
+        }
+      }
 
-    if (response.status === 429 && attempt < maxAttempts) {
-      const retryAfter = Number(response.headers.get("retry-after"));
-      const jitterMs = Math.round(Math.random() * 5000);
-      const delayMs = Math.max(
-        Number.isFinite(retryAfter) ? retryAfter * 1000 : 0,
-        retryBaseMs * attempt + jitterMs,
+      const httpError = new Error(`${response.status} ${response.statusText}: ${text.slice(0, 500)}`);
+      httpError.statusCode = response.status;
+      httpError.retryAfter = response.headers.get("retry-after");
+      httpError.retryable = response.status === 429 || response.status >= 500;
+      throw httpError;
+    } catch (error) {
+      lastError = error;
+      if (attempt >= maxAttempts || !isRetryableFetchError(error)) {
+        throw error;
+      }
+
+      const delayMs = retryDelayMs({
+        attempt,
+        retryBaseMs,
+        retryJitterMs,
+        retryAfter: error.retryAfter,
+      });
+      console.warn(
+        `Wolt API request failed; retrying attempt ${attempt + 1}/${maxAttempts} in ${Math.round(delayMs / 1000)}s: ${error.message}`,
       );
-      console.warn(`Wolt API returned 429; retrying attempt ${attempt + 1}/${maxAttempts} in ${Math.round(delayMs / 1000)}s: ${url}`);
       await sleep(delayMs);
-      continue;
     }
-
-    throw new Error(`${response.status} ${response.statusText}: ${text.slice(0, 500)}`);
   }
+
+  throw lastError;
 }
 
 export function collectVenueItems(payload) {
@@ -128,6 +152,32 @@ export function isSnapshotFresh(snapshot, { now = Date.now(), ttlMs = CACHE_TTL_
 
   const generatedAt = Date.parse(snapshot.generatedAt);
   return Number.isFinite(generatedAt) && now - generatedAt < ttlMs;
+}
+
+function isRetryableFetchError(error) {
+  return error?.retryable === true ||
+    error?.name === "TimeoutError" ||
+    error?.name === "AbortError" ||
+    error instanceof TypeError;
+}
+
+function retryDelayMs({ attempt, retryBaseMs, retryJitterMs, retryAfter }) {
+  const retryAfterSeconds = Number(retryAfter);
+  const retryAfterMs = Number.isFinite(retryAfterSeconds) && retryAfterSeconds >= 0
+    ? retryAfterSeconds * 1000
+    : 0;
+  const jitterMs = retryJitterMs > 0 ? Math.round(Math.random() * retryJitterMs) : 0;
+  return Math.max(retryAfterMs, retryBaseMs * attempt + jitterMs);
+}
+
+function positiveInteger(value, fallback) {
+  const parsed = Number(value);
+  return Number.isInteger(parsed) && parsed > 0 ? parsed : fallback;
+}
+
+function nonNegativeNumber(value, fallback) {
+  const parsed = Number(value);
+  return Number.isFinite(parsed) && parsed >= 0 ? parsed : fallback;
 }
 
 function sleep(ms) {
