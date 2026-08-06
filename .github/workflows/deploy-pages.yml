@@ -6,6 +6,8 @@ on:
     branches: [main]
     paths:
       - "docs/**"
+      - "src/public-snapshot.mjs"
+      - "src/compact-data.mjs"
       - ".github/workflows/deploy-pages.yml"
 
 permissions:
@@ -73,13 +75,41 @@ jobs:
             echo "::warning::Live API check failed: HTTP ${http_status:-request-error}, CORS origin ${cors_origin:-missing}. The static dashboard will still be deployed."
           fi
 
+      - name: Compact machine data for deployment
+        run: node src/compact-data.mjs --root=docs/data
+
+      - name: Prepare lean Pages payload
+        shell: bash
+        run: |
+          rm -rf .pages-site
+          mkdir -p .pages-site/data
+          cp docs/index.html docs/app.js docs/styles.css docs/config.js .pages-site/
+          [[ -f docs/.nojekyll ]] && cp docs/.nojekyll .pages-site/ || true
+          cp docs/data/cities.json docs/data/latest.json .pages-site/data/
+
+          if [[ -d docs/data/cities ]]; then
+            while IFS= read -r -d '' source; do
+              destination=".pages-site/${source#docs/}"
+              mkdir -p "$(dirname "${destination}")"
+              cp "${source}" "${destination}"
+            done < <(find docs/data/cities -type f -name latest.json -print0)
+          fi
+
+          echo "Pages payload:"
+          find .pages-site -type f -printf '%p %s bytes\n' | sort
+          payload_bytes="$(du -sb .pages-site | cut -f1)"
+          if (( payload_bytes > 100000000 )); then
+            echo "::error::Pages payload is unexpectedly large: ${payload_bytes} bytes"
+            exit 1
+          fi
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: docs
+          path: .pages-site
 
       - name: Deploy attempt 1
         id: deploy1
