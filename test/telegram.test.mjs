@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 
-import { formatTelegramMessage } from "../src/telegram.mjs";
+import { formatTelegramMessage, sendTelegramMessage } from "../src/telegram.mjs";
 
 function offer({ venue, campaignId, text, score, tier = "good" }) {
   return {
@@ -46,3 +46,29 @@ test("Telegram escapes venue and offer HTML", () => {
   assert.match(text, /A&amp;B &lt;Shop&gt;/);
   assert.match(text, /20% &lt;off&gt;/);
 });
+
+test("Telegram refuses to silently drop a pending production notification", async () => {
+  const previousToken = process.env.TELEGRAM_BOT_TOKEN;
+  const previousChatId = process.env.TELEGRAM_CHAT_ID;
+  const previousAllowSkip = process.env.TELEGRAM_ALLOW_SKIP;
+
+  try {
+    delete process.env.TELEGRAM_BOT_TOKEN;
+    delete process.env.TELEGRAM_CHAT_ID;
+    delete process.env.TELEGRAM_ALLOW_SKIP;
+    await assert.rejects(sendTelegramMessage("test"), /refusing to lose a pending notification/);
+
+    process.env.TELEGRAM_ALLOW_SKIP = "true";
+    const result = await sendTelegramMessage("test");
+    assert.equal(result.skipped, true);
+  } finally {
+    restoreEnv("TELEGRAM_BOT_TOKEN", previousToken);
+    restoreEnv("TELEGRAM_CHAT_ID", previousChatId);
+    restoreEnv("TELEGRAM_ALLOW_SKIP", previousAllowSkip);
+  }
+});
+
+function restoreEnv(name, value) {
+  if (value === undefined) delete process.env[name];
+  else process.env[name] = value;
+}
