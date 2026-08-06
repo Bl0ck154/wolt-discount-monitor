@@ -13,13 +13,13 @@ on:
         default: false
         type: boolean
       runner:
-        description: "Execution runner: residential Windows by default, Netcup as fallback"
+        description: "Execution runner: Windows by default, Linux as fallback"
         required: false
         default: "windows"
         type: choice
         options:
           - windows
-          - netcup
+          - linux
   repository_dispatch:
     types: [wolt-discount-monitor]
 
@@ -36,7 +36,7 @@ jobs:
       - self-hosted
       - X64
       - wolt
-      - ${{ (github.event.inputs.runner || github.event.client_payload.runner || 'windows') == 'netcup' && 'Linux' || 'Windows' }}
+      - ${{ (github.event.inputs.runner || github.event.client_payload.runner || 'windows') == 'linux' && 'Linux' || 'Windows' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4

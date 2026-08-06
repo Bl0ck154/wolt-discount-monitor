@@ -1,4 +1,4 @@
-const DEFAULT_API_BASE_URL = "https://wolt-api.zivkr.pp.ua";
+const DEFAULT_API_BASE_URL = "";
 
 const state = {
   snapshot: null,
