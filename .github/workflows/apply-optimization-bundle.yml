@@ -1,0 +1,48 @@
+name: Apply optimization bundle
+
+on:
+  push:
+    branches:
+      - perf/compact-json-lazy-ui-20260806
+    paths:
+      - "tools/optimization-bundle.part*"
+      - ".github/workflows/apply-optimization-bundle.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout optimization branch
+        uses: actions/checkout@v4
+        with:
+          ref: perf/compact-json-lazy-ui-20260806
+
+      - name: Apply staged files
+        shell: bash
+        run: |
+          cat tools/optimization-bundle.part* | base64 --decode > /tmp/optimization-bundle.tgz
+          echo "023c30661b8c4c780d685ee0fd4d87d6607de844aea119ec746c6399e7df04dc  /tmp/optimization-bundle.tgz" | sha256sum --check
+          tar -xzf /tmp/optimization-bundle.tgz -C .
+          rm -f tools/optimization-bundle.part*
+
+      - name: Validate JavaScript and tests
+        run: |
+          node --check docs/app.js
+          node --check src/public-snapshot.mjs
+          node --check src/compact-data.mjs
+          node --check src/check-discounts.mjs
+          node --check src/server.mjs
+          npm test
+
+      - name: Commit optimized implementation
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Compact dashboard data and lazy-render UI"
+          git push origin HEAD:perf/compact-json-lazy-ui-20260806
