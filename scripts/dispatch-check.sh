@@ -3,11 +3,21 @@ set -euo pipefail
 
 repo="Bl0ck154/wolt-discount-monitor"
 cities="${1:-ltu/vilnius}"
+
+repo_variable() {
+  local name="$1"
+  gh variable get "${name}" --repo "${repo}" 2>/dev/null || true
+}
+
+primary_runner_label="${WOLT_PRIMARY_RUNNER_LABEL:-$(repo_variable WOLT_PRIMARY_RUNNER_LABEL)}"
+primary_runner_label="${primary_runner_label:-wolt-residential}"
+fallback_runner_input="${WOLT_FALLBACK_RUNNER_INPUT:-$(repo_variable WOLT_FALLBACK_RUNNER_INPUT)}"
+fallback_runner_input="${fallback_runner_input:-linux}"
 target="windows"
 
 runner_status="$(
   gh api "repos/${repo}/actions/runners" \
-    --jq '.runners[] | select(any(.labels[]; .name == "wolt-residential")) | .status' \
+    --jq ".runners[] | select(any(.labels[]; .name == \"${primary_runner_label}\")) | .status" \
     2>/dev/null | head -n 1 || true
 )"
 
@@ -30,7 +40,7 @@ if [[ "${runner_status}" != "online" ]]; then
     exit 1
   fi
 
-  target="linux"
+  target="${fallback_runner_input}"
 fi
 
 printf '%s dispatching cities=%s runner=%s (primary status=%s)\n' \
