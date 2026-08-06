@@ -39,6 +39,8 @@ export function compactOffer(offer = {}) {
     effectiveDiscountPercent: offer.effectiveDiscountPercent,
     isDelivery: offer.isDeliveryRelated,
     isPerk: offer.isLowValuePerk,
+    isMultibuy: offer.isMultibuy,
+    multibuy: offer.multibuy,
   });
 
   return cleanObject({
@@ -225,8 +227,24 @@ function compactOfferValue(value = {}) {
     normalizedCashReference: finiteOrUndefined(value.normalizedCashReference),
     isDelivery: typeof value.isDelivery === "boolean" ? value.isDelivery : undefined,
     isPerk: typeof value.isPerk === "boolean" ? value.isPerk : undefined,
+    isMultibuy: typeof value.isMultibuy === "boolean" ? value.isMultibuy : undefined,
+    multibuy: compactMultibuy(value.multibuy),
     isSelectedItems: typeof value.isSelectedItems === "boolean" ? value.isSelectedItems : undefined,
     isUpToPercent: typeof value.isUpToPercent === "boolean" ? value.isUpToPercent : undefined,
+  });
+}
+
+function compactMultibuy(multibuy = {}) {
+  if (!multibuy || typeof multibuy !== "object") return undefined;
+  return cleanObject({
+    kind: multibuy.kind,
+    totalQuantity: finiteOrUndefined(multibuy.totalQuantity),
+    paidQuantity: finiteOrUndefined(multibuy.paidQuantity),
+    freeQuantity: finiteOrUndefined(multibuy.freeQuantity),
+    effectiveDiscountPercent: finiteOrUndefined(multibuy.effectiveDiscountPercent),
+    isClearlyBroad: typeof multibuy.isClearlyBroad === "boolean" ? multibuy.isClearlyBroad : undefined,
+    isSubstantialItem: typeof multibuy.isSubstantialItem === "boolean" ? multibuy.isSubstantialItem : undefined,
+    isLowCostItem: typeof multibuy.isLowCostItem === "boolean" ? multibuy.isLowCostItem : undefined,
   });
 }
 
