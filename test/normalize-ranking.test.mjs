@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 
 import { normalizeSnapshot } from "../src/normalize.mjs";
 import { diffSnapshots } from "../src/diff.mjs";
+import { compactSnapshot } from "../src/public-snapshot.mjs";
 
 const city = {
   id: "test/city",
@@ -71,13 +72,13 @@ test("normalization stores universal value metadata, deduplicates and ranks venu
   assert.equal(marketOffer.notificationEligible, true);
   assert.equal(snapshot.venues[1].offers[0].notificationEligible, false);
 
-  const changes = diffSnapshots({ generatedAt: null, venues: [] }, snapshot);
+  const changes = diffSnapshots({ generatedAt: null, venues: [] }, compactSnapshot(snapshot));
   assert.equal(changes.interestingAppeared.length, 1);
   assert.equal(changes.interestingAppeared[0].venue.name, "Market");
 });
 
-test("multibuy and free perks receive balanced venue priority", () => {
-  const snapshot = normalizeSnapshot({
+test("multibuy and free perks survive production compaction and keep balanced priority", () => {
+  const normalized = normalizeSnapshot({
     city,
     urls: { promotions: "https://api.example/promotions", restaurants: "https://api.example/restaurants" },
     restaurantRows: [],
@@ -88,9 +89,13 @@ test("multibuy and free perks receive balanced venue priority", () => {
       row({ id: "pizza", name: "Pizza", productLine: "restaurant", currency: "EUR", promotions: [{ campaign_id: "pizza", text: "Buy 2 pizzas, Pay for 1" }] }),
     ],
   });
+  const snapshot = compactSnapshot(normalized);
 
   assert.deepEqual(snapshot.venues.map((venue) => venue.name), ["Pizza", "Unknown", "Cola", "Dessert"]);
-  assert.equal(snapshot.venues[0].offers[0].category, "multibuy");
+  const pizza = snapshot.venues[0].offers[0];
+  assert.equal(pizza.value.scope, "multibuy");
+  assert.equal(pizza.value.isMultibuy, true);
+  assert.equal(pizza.value.multibuy.isSubstantialItem, true);
   assert.equal(snapshot.venues[0].bestDiscount.label, "50%");
   assert.equal(snapshot.venues[3].bestDiscount.label, "Free dessert");
   assert.ok(snapshot.venues[3].bestDiscount.score > 0);
@@ -100,7 +105,7 @@ test("multibuy and free perks receive balanced venue priority", () => {
 });
 
 test("diff ranks strong cash before weaker conditional cash", () => {
-  const snapshot = normalizeSnapshot({
+  const snapshot = compactSnapshot(normalizeSnapshot({
     city,
     urls: { promotions: "https://api.example/promotions", restaurants: "https://api.example/restaurants" },
     restaurantRows: [],
@@ -120,7 +125,7 @@ test("diff ranks strong cash before weaker conditional cash", () => {
         promotions: [{ campaign_id: "strong", text: "5 EUR off" }],
       }),
     ],
-  });
+  }));
 
   const changes = diffSnapshots({ generatedAt: null, venues: [] }, snapshot);
   assert.deepEqual(changes.interestingAppeared.map((offer) => offer.venue.name), ["Strong"]);
