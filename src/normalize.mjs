@@ -1,11 +1,17 @@
-export function normalizeSnapshot({ urls, restaurantRows, promoRows }) {
+import { CITY, cityLabel } from "./config.mjs";
+import { analyzeOffer, extractDiscount as extractValueDiscount, normalizeOfferText } from "./offer-value.mjs";
+
+export function normalizeSnapshot({ city = CITY, urls, restaurantRows, promoRows }) {
   const generatedAt = new Date().toISOString();
   const venues = promoRows
-    .map((row) => normalizeVenueRow(row, urls.promotions))
-    .sort((a, b) => a.name.localeCompare(b.name, "en"));
+    .map((row) => normalizeVenueRow(row, urls.promotions, city))
+    .sort((a, b) =>
+      Number(b.bestDiscount?.score ?? 0) - Number(a.bestDiscount?.score ?? 0) ||
+      a.name.localeCompare(b.name, "en"));
 
   return {
     generatedAt,
+    city: publicCity(city),
     source: {
       promotionsEndpoint: urls.promotions,
       restaurantsEndpoint: urls.restaurants,
@@ -20,31 +26,41 @@ export function normalizeSnapshot({ urls, restaurantRows, promoRows }) {
   };
 }
 
-function normalizeVenueRow(row, sourceEndpoint) {
+function normalizeVenueRow(row, sourceEndpoint, city) {
   const venue = row.venue;
   const offers = extractOffers(venue);
+  const best = bestDiscount(offers);
+  const coordinates = extractCoordinates(venue) ?? extractCoordinates(row.item);
+  const opening = extractOpening(venue, row.item);
 
   return {
     id: venue.id ?? null,
     slug: venue.slug ?? null,
     name: venue.name ?? "",
     productLine: venue.product_line ?? null,
-    address: venue.address ?? null,
-    link: row.item?.link?.target ?? buildWoltLink(venue),
+    currency: venue.currency ?? city.currency ?? null,
+    address: formatAddress(venue.address),
+    coordinates,
+    mapUrl: buildMapUrl(venue, coordinates, city),
+    link: row.item?.link?.target ?? buildWoltLink(venue, city),
     imageUrl: venue.image?.url ?? venue.brand_image?.url ?? row.item?.image?.url ?? null,
     brandImageUrl: venue.brand_image?.url ?? null,
     rating: venue.rating ?? null,
     deliveryPrice: venue.delivery_price ?? null,
     deliveryPriceInt: venue.delivery_price_int ?? null,
     estimateRange: venue.estimate_range ?? venue.estimate_box?.title ?? null,
+    opening,
+    isOpen: opening.isOpen,
+    openingStatus: opening.label,
+    openingHours: opening.hours,
     section: {
       name: row.sectionName,
       template: row.sectionTemplate,
     },
     offers,
-    bestDiscount: bestDiscount(offers),
-    bestAmount: bestDiscount(offers)?.amount ?? null,
-    bestLabel: bestDiscount(offers)?.label ?? null,
+    bestDiscount: best,
+    bestAmount: best?.amount ?? null,
+    bestLabel: best?.label ?? null,
     offerTexts: [...new Set(offers.map((offer) => offer.text).filter(Boolean))],
     sourceEndpoint,
     raw: {
@@ -55,29 +71,55 @@ function normalizeVenueRow(row, sourceEndpoint) {
   };
 }
 
+function publicCity(city) {
+  return {
+    id: city.id,
+    key: city.key,
+    woltCityId: city.woltCityId,
+    slug: city.slug,
+    name: city.name,
+    country: city.country,
+    countryEmoji: city.countryEmoji,
+    countryCode: city.countryCode,
+    countryCode2: city.countryCode2,
+    countryCode3: city.countryCode3,
+    lat: city.lat,
+    lon: city.lon,
+    locale: city.locale ?? "en",
+    timezone: city.timezone,
+    label: cityLabel(city),
+    notificationsEnabled: city.notificationsEnabled === true,
+  };
+}
+
 function extractOffers(venue) {
   const offers = [];
+  const context = {
+    currencyCode: venue.currency ?? null,
+    productLine: venue.product_line ?? null,
+  };
 
   for (const promotion of venue.promotions ?? []) {
-    offers.push(normalizeOffer("venue.promotions", promotion));
+    offers.push(normalizeOffer("venue.promotions", promotion, context));
   }
 
   for (const badge of venue.badges_v2 ?? []) {
     if (badge?.text) {
-      offers.push(normalizeOffer("venue.badges_v2", badge));
+      offers.push(normalizeOffer("venue.badges_v2", badge, context));
     }
   }
 
   for (const promotion of venue.promotions_for_telemetry ?? []) {
-    offers.push(normalizeOffer("venue.promotions_for_telemetry", promotion));
+    offers.push(normalizeOffer("venue.promotions_for_telemetry", promotion, context));
   }
 
   return dedupeOffers(offers);
 }
 
-function normalizeOffer(sourcePath, raw) {
+function normalizeOffer(sourcePath, raw, context) {
   const text = normalizeText(raw.text ?? raw.formatted_text ?? "");
-  const discount = extractDiscount(text);
+  const analysis = analyzeOffer({ text, ...context });
+  const discount = analysis.discount;
 
   return {
     key: `${sourcePath}:${raw.campaign_id ?? raw.discount_id ?? text}`,
@@ -87,6 +129,22 @@ function normalizeOffer(sourcePath, raw) {
     amount: discount?.amount ?? null,
     amountType: discount?.type ?? null,
     amountLabel: discount?.label ?? null,
+    currencyCode: analysis.value.currencyCode,
+    minimumSpend: analysis.value.minimumSpend,
+    maxSavings: analysis.value.maxSavings,
+    effectiveDiscountPercent: analysis.value.effectiveDiscountPercent,
+    scope: analysis.value.scope,
+    valueVersion: analysis.value.version,
+    valueScore: analysis.value.score,
+    valueTier: analysis.value.tier,
+    value: analysis.value,
+    notificationEligible: analysis.notificationEligible,
+    category: classifyOffer(text, analysis.value),
+    isDeliveryRelated: analysis.value.isDelivery,
+    isLowValuePerk: analysis.value.isPerk,
+    isMultibuy: analysis.value.isMultibuy,
+    isUtilityBadge: isUtilityOfferText(text),
+    score: analysis.value.score,
     variant: raw.variant ?? raw.type ?? null,
     raw,
   };
@@ -97,47 +155,35 @@ function dedupeOffers(offers) {
   const result = [];
 
   for (const offer of offers) {
-    const key = `${offer.campaignId ?? ""}:${offer.text}:${offer.sourcePath}`;
+    const key = normalizeText(offer.text).toLowerCase();
     if (!seen.has(key)) {
       seen.add(key);
       result.push(offer);
     }
   }
 
-  return result;
+  return result
+    .filter((offer) => !offer.isUtilityBadge)
+    .sort((a, b) => b.score - a.score || a.text.localeCompare(b.text, "en"));
 }
 
 export function normalizeText(text) {
-  return String(text).replace(/\u202f|\u00a0/g, " ").trim();
+  return normalizeOfferText(text);
 }
 
-export function extractAmount(text = "") {
-  return extractDiscount(text)?.amount ?? null;
+export function extractAmount(text = "", options = {}) {
+  return extractValueDiscount(text, options)?.amount ?? null;
 }
 
-export function extractDiscount(text = "") {
-  const normalized = normalizeText(text);
-  const percent = normalized.match(/(-?\d+(?:[.,]\d+)?)\s*%/);
-
-  if (percent) {
-    const amount = Math.abs(Number(percent[1].replace(",", ".")));
-    return { amount, type: "percent", label: `${amount}%` };
-  }
-
-  const money = normalized.match(/(?:€\s*(\d+(?:[.,]\d+)?)|(\d+(?:[.,]\d+)?)\s*(?:€|eur|euro))/i);
-
-  if (money) {
-    const amount = Number((money[1] ?? money[2]).replace(",", "."));
-    return { amount, type: "money", label: `${amount} EUR` };
-  }
-
-  return null;
+export function extractDiscount(text = "", options = {}) {
+  return extractValueDiscount(text, options);
 }
 
 function bestDiscount(offers) {
   const discounts = offers
-    .filter((offer) => Number.isFinite(offer.amount))
-    .sort((a, b) => discountScore(b) - discountScore(a));
+    .filter((offer) => !offer.isUtilityBadge)
+    .filter((offer) => offer.score > 0)
+    .sort((a, b) => b.score - a.score);
 
   if (!discounts.length) {
     return null;
@@ -147,30 +193,178 @@ function bestDiscount(offers) {
   return {
     amount: best.amount,
     type: best.amountType,
-    label: best.amountLabel,
+    label: best.amountLabel ?? best.text,
     sourceText: best.text,
+    score: best.score,
+    tier: best.valueTier,
+    scope: best.scope,
+    effectiveDiscountPercent: best.effectiveDiscountPercent,
+    currencyCode: best.currencyCode,
+    minimumSpend: best.minimumSpend,
   };
 }
 
-function discountScore(offer) {
-  if (offer.amountType === "percent") {
-    return offer.amount;
+function classifyOffer(text, value) {
+  const normalized = normalizeText(text).toLowerCase();
+  if (isNewUserZeroDelivery(normalized)) {
+    return "new-user-delivery";
   }
-
-  if (offer.amountType === "money") {
-    return offer.amount;
+  if (value.isDelivery) {
+    return "delivery";
   }
-
-  return -1;
+  if (value.isMultibuy) {
+    return "multibuy";
+  }
+  if (value.isPerk) {
+    return "perk";
+  }
+  if (/%/.test(normalized)) {
+    return "percent";
+  }
+  if (value.currencyCode) {
+    return "money";
+  }
+  if (/free|deal|discount|off|save|nuolaid/i.test(normalized)) {
+    return "deal";
+  }
+  return "other";
 }
 
-function buildWoltLink(venue) {
+function isNewUserZeroDelivery(text) {
+  return /(?:0\s*€|€\s*0|0\s*(?:eur|euro))/.test(text) && /delivery/.test(text) && /new users?/.test(text);
+}
+
+function isDeliveryRelated(text) {
+  return /delivery/i.test(normalizeText(text));
+}
+
+function isUtilityOfferText(text) {
+  return /^\d+\s+more$/i.test(normalizeText(text));
+}
+
+function formatAddress(address) {
+  if (!address) {
+    return null;
+  }
+  if (typeof address === "string") {
+    return address;
+  }
+  return [address.street_address, address.formatted_address, address.address, address.city]
+    .filter(Boolean)
+    .join(", ") || null;
+}
+
+function extractCoordinates(source) {
+  const candidates = [
+    source?.location,
+    source?.coordinates,
+    source?.address?.location,
+    source?.venue?.location,
+  ];
+
+  for (const candidate of candidates) {
+    const coordinates = normalizeCoordinates(candidate);
+    if (coordinates) {
+      return coordinates;
+    }
+  }
+
+  return normalizeCoordinates(source);
+}
+
+function normalizeCoordinates(value) {
+  if (!value) {
+    return null;
+  }
+
+  if (Array.isArray(value) && value.length >= 2) {
+    return finiteCoordinates(value[1], value[0]);
+  }
+
+  if (Array.isArray(value.coordinates) && value.coordinates.length >= 2) {
+    return finiteCoordinates(value.coordinates[1], value.coordinates[0]);
+  }
+
+  return finiteCoordinates(
+    value.lat ?? value.latitude,
+    value.lon ?? value.lng ?? value.longitude,
+  );
+}
+
+function finiteCoordinates(lat, lon) {
+  const numericLat = Number(lat);
+  const numericLon = Number(lon);
+  if (Number.isFinite(numericLat) && Number.isFinite(numericLon)) {
+    return { lat: numericLat, lon: numericLon };
+  }
+  return null;
+}
+
+function buildMapUrl(venue, coordinates, city) {
+  if (coordinates) {
+    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${coordinates.lat},${coordinates.lon}`)}`;
+  }
+
+  const query = [venue.name, formatAddress(venue.address), cityLabel(city)].filter(Boolean).join(" ");
+  return query ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}` : null;
+}
+
+function extractOpening(venue, item) {
+  const rawStatus = [
+    venue.online_status,
+    venue.opening_status,
+    venue.status,
+    venue.status_label,
+    item?.overlay_v2?.primary_text,
+    item?.overlay_v2?.secondary_text,
+    item?.overlay,
+  ]
+    .filter(Boolean)
+    .join(" ");
+  const lowerStatus = rawStatus.toLowerCase();
+
+  let isOpen = null;
+  if (venue.is_open === true || venue.online === true || venue.is_online === true) {
+    isOpen = true;
+  }
+  if (venue.is_open === false || venue.online === false || venue.is_online === false) {
+    isOpen = false;
+  }
+  if (/open|available|accepting/i.test(lowerStatus)) {
+    isOpen = true;
+  }
+  if (/closed|offline|unavailable|not accepting/i.test(lowerStatus)) {
+    isOpen = false;
+  }
+
+  const hours = venue.opening_hours?.text ?? venue.opening_times?.text ?? venue.opening_time ?? null;
+  const rawLabel = humanStatusLabel(rawStatus);
+  const label = isOpen === true ? "Open now" : rawLabel || (isOpen === false ? "Closed" : hours ?? "No status");
+
+  return { isOpen, label, hours };
+}
+
+function humanStatusLabel(value = "") {
+  const normalized = String(value)
+    .replace(/\s+/g, " ")
+    .replace(/\bSchedule order\b/gi, "")
+    .replace(/\bClosed\b/gi, "")
+    .trim();
+
+  if (!normalized || normalized.toLowerCase() === "min") {
+    return null;
+  }
+
+  return normalized;
+}
+
+function buildWoltLink(venue, city) {
   if (!venue.slug) {
     return null;
   }
 
   const kind = venue.product_line === "restaurant" ? "restaurant" : "venue";
-  return `https://wolt.com/en/ltu/vilnius/${kind}/${venue.slug}`;
+  return `https://wolt.com/${city.locale ?? "en"}/${city.countryCode}/${city.slug ?? city.id}/${kind}/${venue.slug}`;
 }
 
 function countBy(items, keyFn) {

@@ -1,21 +1,37 @@
-name: Check Wolt discounts
+name: Update Wolt discount monitor
 
 on:
   workflow_dispatch:
-  schedule:
-    # GitHub cron is UTC. These are 12:30 and 17:30 for Kyiv/Vilnius summer time.
-    - cron: "30 9,14 * * *"
+    inputs:
+      cities:
+        description: "Comma-separated Wolt city ids, for example ltu/vilnius,deu/berlin"
+        required: false
+        default: "ltu/vilnius"
+      all_cities:
+        description: "Check every city from the Wolt catalog (large run)"
+        required: false
+        default: false
+        type: boolean
+      runner:
+        description: "Execution runner: windows or a Linux fallback key"
+        required: false
+        default: "windows"
 
 permissions:
   contents: write
 
 concurrency:
-  group: wolt-discount-check
+  group: wolt-discount-monitor-update
   cancel-in-progress: false
 
 jobs:
   check:
-    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    runs-on:
+      - self-hosted
+      - X64
+      - wolt
+      - ${{ inputs.runner != 'windows' && 'Linux' || 'Windows' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -25,16 +41,55 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Check discounts
+      - name: Run tests
+        run: npm test
+
+      - name: Update discount data
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          MIN_DISCOUNT_EUR: ${{ vars.MIN_DISCOUNT_EUR || '2' }}
-          INCLUDE_ZERO_DELIVERY: ${{ vars.INCLUDE_ZERO_DELIVERY || 'false' }}
+          TELEGRAM_ALLOW_SKIP: ${{ vars.TELEGRAM_ALLOW_SKIP }}
+          MIN_VALUE_SCORE: ${{ vars.MIN_VALUE_SCORE }}
+          MIN_GROCERY_PERCENT: ${{ vars.MIN_GROCERY_PERCENT }}
+          MIN_RESTAURANT_PERCENT: ${{ vars.MIN_RESTAURANT_PERCENT }}
+          MIN_OTHER_PERCENT: ${{ vars.MIN_OTHER_PERCENT }}
+          MIN_CASH_VALUE_RATIO: ${{ vars.MIN_CASH_VALUE_RATIO }}
+          MIN_UNCONDITIONAL_CASH_REFERENCE: ${{ vars.MIN_UNCONDITIONAL_CASH_REFERENCE }}
+          WOLT_CACHE_TTL_HOURS: ${{ vars.WOLT_CACHE_TTL_HOURS }}
+          WOLT_API_TIMEOUT_MS: ${{ vars.WOLT_API_TIMEOUT_MS }}
+          WOLT_API_MAX_ATTEMPTS: ${{ vars.WOLT_API_MAX_ATTEMPTS }}
+          WOLT_API_RETRY_BASE_MS: ${{ vars.WOLT_API_RETRY_BASE_MS }}
+          WOLT_API_RETRY_JITTER_MS: ${{ vars.WOLT_API_RETRY_JITTER_MS }}
+          WOLT_REFRESH_CITY_CATALOG: "true"
+          WOLT_CITIES: ${{ inputs.cities || 'ltu/vilnius' }}
+          WOLT_ALL_CITIES: ${{ inputs.all_cities }}
         run: node src/check-discounts.mjs
 
-      - name: Commit updated data
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "Update Wolt discount data"
-          file_pattern: "docs/data/*.json"
+      - name: Commit updated data (Windows)
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- docs/data
+          git diff --cached --quiet
+          if ($LASTEXITCODE -ne 0) {
+            git commit -m "Update Wolt discount monitor data"
+            git push
+          } else {
+            Write-Host "No data changes to commit."
+          }
+
+      - name: Commit updated data (Linux fallback)
+        if: runner.os == 'Linux'
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- docs/data
+          if ! git diff --cached --quiet; then
+            git commit -m "Update Wolt discount monitor data"
+            git push
+          else
+            echo "No data changes to commit."
+          fi

@@ -1,11 +1,30 @@
 {
-  "name": "wolt-vilnius-discounts",
+  "name": "wolt-discount-monitor",
   "version": "0.1.0",
+  "description": "Static-first dashboard and monitoring pipeline for discovering, ranking and tracking Wolt promotions across cities.",
   "private": true,
   "type": "module",
+  "homepage": "https://bl0ck154.github.io/wolt-discount-monitor/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Bl0ck154/wolt-discount-monitor.git"
+  },
+  "keywords": [
+    "wolt",
+    "discounts",
+    "promotions",
+    "monitoring",
+    "dashboard",
+    "telegram",
+    "github-pages"
+  ],
   "scripts": {
+    "test": "node --test",
     "check": "node src/check-discounts.mjs",
+    "cities": "node src/build-city-catalog.mjs",
     "dashboard": "node src/build-dashboard-data.mjs",
+    "compact": "node src/compact-data.mjs",
+    "server": "node src/server.mjs",
     "start": "node src/check-discounts.mjs",
     "target": "node src/wolt-promotions-poc.mjs --slug lukiskiu-kalejimas-20 --dynamic"
   },

@@ -1,5 +1,7 @@
-import { fetchVilniusData } from "./wolt-api.mjs";
+import { CITY } from "./config.mjs";
 import { normalizeSnapshot } from "./normalize.mjs";
+import { fetchCityData } from "./wolt-api.mjs";
+import { compactSnapshot, jsonText } from "./public-snapshot.mjs";
 
-const snapshot = normalizeSnapshot(await fetchVilniusData());
-console.log(JSON.stringify(snapshot, null, 2));
+const snapshot = compactSnapshot(normalizeSnapshot(await fetchCityData(CITY)));
+process.stdout.write(jsonText(snapshot));

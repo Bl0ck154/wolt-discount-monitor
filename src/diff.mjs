@@ -1,4 +1,5 @@
 import { NOTIFY_RULES } from "./config.mjs";
+import { isNotificationWorthy, sortOffersByValue } from "./offer-value.mjs";
 
 export function diffSnapshots(previous, current) {
   const previousOffers = offerIndex(previous);
@@ -24,33 +25,20 @@ export function diffSnapshots(previous, current) {
     counts: current.counts,
     appeared,
     disappeared,
-    interestingAppeared: appeared.filter(isInterestingOffer),
+    interestingAppeared: sortOffersByValue(appeared.filter(isInterestingOffer)),
+    interestingDisappeared: sortOffersByValue(disappeared.filter(isInterestingOffer)),
   };
 }
 
 export function isInterestingOffer(offer) {
-  const text = offer.text.toLowerCase();
-
-  if (!NOTIFY_RULES.includeZeroDelivery && /delivery/.test(text) && offer.amount === 0) {
-    return false;
-  }
-
-  if (offer.amountType === "percent" && Number.isFinite(offer.amount)) {
-    return true;
-  }
-
-  if (
-    offer.amountType === "money" &&
-    Number.isFinite(offer.amount) &&
-    offer.amount >= NOTIFY_RULES.minDiscountEur
-  ) {
-    return true;
-  }
-
-  return /%|off|discount|deal|save|nuolaid/i.test(offer.text) && !/delivery/.test(text);
+  return !offer.isUtilityBadge && isNotificationWorthy(offer, NOTIFY_RULES);
 }
 
-function offerIndex(snapshot) {
+export function interestingOfferIndex(snapshot) {
+  return new Map([...offerIndex(snapshot)].filter(([, offer]) => isInterestingOffer(offer)));
+}
+
+export function offerIndex(snapshot) {
   const map = new Map();
 
   for (const venue of snapshot?.venues ?? []) {
@@ -62,7 +50,6 @@ function offerIndex(snapshot) {
       const stableKey = [
         venue.slug ?? venue.id,
         offer.campaignId ?? offer.text,
-        offer.sourcePath,
       ].join("|");
 
       map.set(stableKey, {
@@ -71,9 +58,11 @@ function offerIndex(snapshot) {
           slug: venue.slug,
           name: venue.name,
           productLine: venue.productLine,
+          currency: venue.currency,
           link: venue.link,
           imageUrl: venue.imageUrl,
         },
+        stableKey,
         ...offer,
       });
     }

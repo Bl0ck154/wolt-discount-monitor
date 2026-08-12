@@ -1,0 +1,46 @@
+name: Bug report
+description: Report a reproducible problem
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: input
+    id: city
+    attributes:
+      label: City
+      placeholder: ltu/vilnius
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the current behavior and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Dashboard
+        - City discovery
+        - Data parsing
+        - Promotion scoring
+        - Change detection
+        - Notifications
+        - Live API
+        - GitHub Actions
+        - Other
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched existing issues for the same problem.
+          required: true

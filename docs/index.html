@@ -3,77 +3,132 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Wolt Vilnius Discounts</title>
+    <meta name="description" content="Find and compare current Wolt promotions by city, venue, opening status, and estimated deal value." />
+    <meta name="theme-color" content="#f4f7f8" />
+    <meta property="og:title" content="Wolt Discount Monitor" />
+    <meta property="og:description" content="Browse current Wolt promotions and compare worthwhile deals by city." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bl0ck154.github.io/wolt-discount-monitor/" />
+    <title>Wolt Discount Monitor</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="topbar">
-      <div>
-        <p class="eyebrow">Vilnius, Lithuania</p>
-        <h1>Wolt discount monitor</h1>
+      <div class="topbar-inner">
+        <a class="brand" href="./" aria-label="Wolt Discount Monitor home">
+          <span class="brand-mark" aria-hidden="true">%</span>
+          <span>Wolt Discount Monitor</span>
+        </a>
+
+        <div class="city-area">
+          <div class="city-picker" id="cityPicker">
+            <span class="search-icon" aria-hidden="true"></span>
+            <input
+              id="citySearch"
+              type="search"
+              autocomplete="off"
+              role="combobox"
+              aria-expanded="false"
+              aria-controls="cityOptions"
+              placeholder="Search city or country..."
+            />
+            <div class="city-options" id="cityOptions" role="listbox" hidden></div>
+          </div>
+          <a
+            class="location-map-link"
+            id="cityMapLink"
+            href="#"
+            target="_blank"
+            rel="noreferrer"
+            title="Open city coordinates in Maps"
+            aria-label="Open city coordinates in Maps"
+          >↗</a>
+        </div>
+
+        <div class="summary-strip" aria-label="Current city summary">
+          <span class="current-city" id="cityLabel">Loading city...</span>
+          <span><strong id="promoCount">-</strong> promo</span>
+          <span><strong id="restaurantCount">-</strong> restaurants</span>
+          <span class="updated"><strong id="updatedAt">-</strong></span>
+        </div>
       </div>
-      <a class="source-link" href="data/latest.json">latest.json</a>
     </header>
 
     <main>
-      <section class="stats" aria-label="Summary">
-        <div>
-          <span class="metric" id="promoCount">-</span>
-          <span class="label">promo venues</span>
+      <section class="toolbar" aria-label="Deal filters">
+        <div class="toolbar-main">
+          <label class="search-field">
+            <span class="visually-hidden">Search deals</span>
+            <div class="input-shell">
+              <span class="search-icon" aria-hidden="true"></span>
+              <input id="searchInput" type="search" placeholder="Search restaurant, offer or address..." />
+            </div>
+          </label>
+
+          <label class="select-field">
+            <span>Type</span>
+            <select id="productFilter"></select>
+          </label>
+
+          <label class="select-field">
+            <span>Sort</span>
+            <select id="sortSelect">
+              <option value="best-desc">Best discount</option>
+              <option value="best-asc">Worst discount</option>
+              <option value="name-asc">Name A-Z</option>
+              <option value="name-desc">Name Z-A</option>
+              <option value="type-asc">Type</option>
+              <option value="type-desc">Type desc</option>
+              <option value="hours-asc">Open first</option>
+              <option value="hours-desc">Closed first</option>
+            </select>
+          </label>
         </div>
-        <div>
-          <span class="metric" id="restaurantCount">-</span>
-          <span class="label">restaurants total</span>
-        </div>
-        <div>
-          <span class="metric" id="updatedAt">-</span>
-          <span class="label">last update</span>
+
+        <div class="toolbar-secondary">
+          <div class="toggles" aria-label="Offer visibility">
+            <label class="toggle">
+              <input id="hideNewUserDelivery" type="checkbox" checked />
+              <span>Hide repeated citywide offers</span>
+            </label>
+            <label class="toggle">
+              <input id="hideDeliveryDiscounts" type="checkbox" checked />
+              <span>Hide delivery discounts</span>
+            </label>
+            <span class="hidden-offers" id="hiddenCitywideOffers"></span>
+          </div>
+          <span class="shown-count" id="shownCount">-</span>
         </div>
       </section>
 
-      <section class="controls" aria-label="Table controls">
-        <label class="search">
-          <span>Search</span>
-          <input id="searchInput" type="search" placeholder="Venue, offer, slug..." />
-        </label>
-
-        <label>
-          <span>Type</span>
-          <select id="productFilter"></select>
-        </label>
-
-        <label>
-          <span>Sort</span>
-          <select id="sortSelect">
-            <option value="amount-desc">Best discount</option>
-            <option value="name-asc">Name A-Z</option>
-            <option value="type-asc">Type</option>
-            <option value="delivery-asc">Delivery price</option>
-          </select>
-        </label>
-      </section>
-
-      <section class="table-wrap" aria-label="Venues">
+      <section class="results" aria-label="Venues">
         <table>
           <thead>
             <tr>
-              <th>Venue</th>
-              <th>Type</th>
-              <th>Offer</th>
-              <th>Best</th>
-              <th>Delivery</th>
-              <th>ETA</th>
+              <th class="num-col"><button class="sort-header" data-sort-key="rank">#</button></th>
+              <th><button class="sort-header" data-sort-key="name">Venue</button></th>
+              <th><button class="sort-header" data-sort-key="type">Type</button></th>
+              <th>Offers</th>
+              <th><button class="sort-header" data-sort-key="best">Best</button></th>
+              <th><button class="sort-header" data-sort-key="hours">Status</button></th>
+              <th>Map</th>
             </tr>
           </thead>
           <tbody id="venueRows">
             <tr>
-              <td colspan="6" class="empty">Loading...</td>
+              <td colspan="7" class="empty">Loading deals...</td>
             </tr>
           </tbody>
         </table>
       </section>
     </main>
 
+    <footer class="site-footer">
+      <span>Unofficial open-source project, not affiliated with Wolt.</span>
+      <a href="https://github.com/Bl0ck154/wolt-discount-monitor" target="_blank" rel="noreferrer">GitHub ↗</a>
+    </footer>
+
+    <script src="config.js"></script>
     <script src="app.js" type="module"></script>
   </body>
 </html>

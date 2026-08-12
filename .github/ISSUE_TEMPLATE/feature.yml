@@ -1,0 +1,41 @@
+name: Feature request
+description: Suggest an improvement to monitoring, scoring, data coverage, or the dashboard
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like to improve?
+      description: Describe the feature and the problem it would solve.
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Suggested behavior
+      description: Explain how you think it should work.
+    validations:
+      required: true
+  - type: input
+    id: city
+    attributes:
+      label: Related city or country
+      description: Optional, if the idea is location-specific.
+      placeholder: ltu/vilnius
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Dashboard
+        - City coverage
+        - Promotion scoring
+        - Change tracking
+        - Notifications
+        - Live API
+        - Automation
+        - Documentation
+        - Other
+    validations:
+      required: true
