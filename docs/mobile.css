@@ -1,0 +1,455 @@
+@media (max-width: 760px) {
+  .topbar {
+    position: sticky;
+    top: 0;
+  }
+
+  .topbar-inner {
+    width: calc(100% - 16px);
+    min-height: 0;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 7px 10px;
+    padding: 8px 0;
+  }
+
+  .brand {
+    grid-column: 1;
+    min-width: 0;
+    font-size: 13px;
+  }
+
+  .brand-mark {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+
+  .summary-strip {
+    grid-column: 2;
+    grid-row: 1;
+    justify-content: flex-end;
+    gap: 4px;
+    overflow: hidden;
+    font-size: 9px;
+  }
+
+  .summary-strip > span {
+    flex: 0 0 auto;
+    padding: 4px 6px;
+  }
+
+  .current-city,
+  .updated {
+    display: none;
+  }
+
+  .city-area {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    grid-template-columns: minmax(0, 1fr) 40px;
+    gap: 6px;
+  }
+
+  .city-picker input {
+    height: 40px;
+    font-size: 13px;
+  }
+
+  .location-map-link {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #d6e8ec;
+    border-radius: 10px;
+  }
+
+  .city-options {
+    max-height: min(55vh, 360px);
+  }
+
+  main {
+    width: calc(100% - 12px);
+    margin-top: 7px;
+  }
+
+  .toolbar {
+    position: static;
+    margin-bottom: 8px;
+    padding: 8px;
+    border-radius: 11px;
+    box-shadow: none;
+  }
+
+  .toolbar-main {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 7px;
+  }
+
+  .search-field {
+    grid-column: 1 / -1;
+  }
+
+  .toolbar-secondary {
+    margin-top: 7px;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .toggles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+
+  .toggle {
+    width: 100%;
+    min-height: 34px;
+    padding: 5px 8px;
+    border-radius: 9px;
+    line-height: 1.2;
+  }
+
+  .toggle span {
+    min-width: 0;
+  }
+
+  .hidden-offers {
+    display: none;
+  }
+
+  .shown-count {
+    margin-left: 0;
+    overflow-wrap: anywhere;
+    text-align: left;
+    line-height: 1.35;
+  }
+
+  table,
+  thead,
+  tbody {
+    display: block;
+    width: 100%;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tbody > tr:not(.group-details-row) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "venue best"
+      "offers offers"
+      "type status"
+      "map map";
+    gap: 9px 10px;
+    margin-bottom: 8px;
+    padding: 12px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    box-shadow: 0 2px 8px rgba(24, 49, 59, .035);
+  }
+
+  tbody > tr:not(.group-details-row) > td {
+    min-width: 0;
+    padding: 0;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  tbody > tr:not(.group-details-row) > td:nth-child(1) {
+    display: none;
+  }
+
+  tbody > tr:not(.group-details-row) > td:nth-child(2) {
+    grid-area: venue;
+  }
+
+  tbody > tr:not(.group-details-row) > td:nth-child(3) {
+    grid-area: type;
+    align-self: center;
+  }
+
+  tbody > tr:not(.group-details-row) > td:nth-child(4) {
+    grid-area: offers;
+    min-width: 0;
+  }
+
+  tbody > tr:not(.group-details-row) > td:nth-child(5) {
+    grid-area: best;
+    align-self: start;
+    justify-self: end;
+    text-align: right;
+  }
+
+  tbody > tr:not(.group-details-row) > td:nth-child(6) {
+    grid-area: status;
+    align-self: center;
+    justify-self: end;
+    text-align: right;
+  }
+
+  tbody > tr:not(.group-details-row) > td:nth-child(7) {
+    grid-area: map;
+    display: flex;
+    min-height: 32px;
+    justify-content: flex-end;
+    align-items: center;
+    color: var(--muted);
+  }
+
+  tbody > tr:not(.group-details-row) > td.empty {
+    display: block;
+    grid-column: 1 / -1;
+    padding: 24px 12px !important;
+  }
+
+  .venue-cell {
+    min-width: 0;
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: 10px;
+    align-items: start;
+  }
+
+  .venue-image {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+  }
+
+  .venue-title {
+    display: -webkit-box;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 1.25;
+    text-overflow: clip;
+    white-space: normal;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .venue-title::after {
+    content: " ↗";
+    color: var(--brand-dark);
+    font-size: .9em;
+  }
+
+  .venue-meta {
+    display: -webkit-box;
+    max-width: 100%;
+    margin-top: 4px;
+    overflow: hidden;
+    font-size: 10px;
+    line-height: 1.35;
+    text-overflow: clip;
+    white-space: normal;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .pill {
+    min-height: 24px;
+    padding: 0 8px;
+  }
+
+  .offer-list {
+    min-width: 0;
+    gap: 6px;
+  }
+
+  .offer {
+    max-width: 100%;
+    min-height: 27px;
+    padding: 4px 8px;
+    overflow-wrap: anywhere;
+    white-space: normal;
+  }
+
+  .amount {
+    min-width: 0;
+    padding: 5px 8px;
+    color: #c64f00;
+    background: #fff3e8;
+    border: 1px solid #f2d6bf;
+    border-radius: 9px;
+    font-size: 15px !important;
+    line-height: 1.05;
+  }
+
+  .hours {
+    min-height: 24px;
+  }
+
+  .map-link {
+    width: auto;
+    min-width: 64px;
+    height: 32px;
+    padding: 0 10px;
+    display: inline-grid;
+    font-size: 0;
+    border-radius: 8px;
+  }
+
+  .map-link::before {
+    content: "Map ↗";
+    color: var(--brand-dark);
+    font-size: 11px;
+    font-weight: 800;
+  }
+
+  .group-details-row {
+    display: block;
+    margin: -5px 0 8px;
+  }
+
+  .group-details-row > td {
+    display: block;
+    padding: 0;
+  }
+
+  .group-details {
+    padding: 7px;
+    border-top: 1px solid var(--line);
+    border-radius: 10px;
+  }
+
+  .group-details summary {
+    width: 100%;
+    padding: 2px 2px 5px;
+    line-height: 1.35;
+  }
+
+  .nested-table,
+  .nested-table tbody {
+    display: block;
+    width: 100%;
+  }
+
+  .nested-table tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "venue best"
+      "offers offers"
+      "status map";
+    gap: 7px 8px;
+    margin-top: 7px;
+    padding: 9px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+  }
+
+  .nested-table td {
+    min-width: 0;
+    padding: 0;
+    background: transparent;
+    border: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  .nested-table td:nth-child(1) {
+    display: none;
+  }
+
+  .nested-table td:nth-child(2) {
+    grid-area: venue;
+  }
+
+  .nested-table td:nth-child(3) {
+    grid-area: offers;
+  }
+
+  .nested-table td:nth-child(4) {
+    grid-area: best;
+    justify-self: end;
+  }
+
+  .nested-table td:nth-child(5) {
+    grid-area: status;
+    align-self: center;
+  }
+
+  .nested-table td:nth-child(6) {
+    grid-area: map;
+    justify-self: end;
+  }
+
+  .site-footer {
+    width: calc(100% - 16px);
+    padding-bottom: 18px;
+    flex-direction: column;
+    gap: 5px;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 430px) {
+  .topbar-inner {
+    width: calc(100% - 12px);
+  }
+
+  .brand {
+    gap: 7px;
+    font-size: 12px;
+  }
+
+  .brand-mark {
+    width: 28px;
+    height: 28px;
+    font-size: 15px;
+  }
+
+  .summary-strip {
+    gap: 3px;
+    font-size: 8.5px;
+  }
+
+  .summary-strip > span {
+    padding: 4px 5px;
+  }
+
+  main {
+    width: calc(100% - 8px);
+  }
+
+  .toolbar {
+    padding: 7px;
+  }
+
+  .toolbar-main {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 6px;
+  }
+
+  .toggles {
+    grid-template-columns: 1fr;
+  }
+
+  tbody > tr:not(.group-details-row) {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .venue-cell {
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 9px;
+  }
+
+  .venue-image {
+    width: 44px;
+    height: 44px;
+  }
+
+  .venue-title {
+    font-size: 13px;
+  }
+
+  .amount {
+    font-size: 14px !important;
+  }
+}
