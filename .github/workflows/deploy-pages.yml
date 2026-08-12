@@ -83,7 +83,7 @@ jobs:
         run: |
           rm -rf .pages-site
           mkdir -p .pages-site/data
-          cp docs/index.html docs/app.js docs/styles.css docs/config.js .pages-site/
+          cp docs/index.html docs/app.js docs/styles.css docs/mobile.css docs/config.js .pages-site/
           [[ -f docs/.nojekyll ]] && cp docs/.nojekyll .pages-site/ || true
           cp docs/data/cities.json docs/data/latest.json .pages-site/data/
 
