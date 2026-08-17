@@ -107,4 +107,6 @@ Keep the following outside Git:
 - private paths and service names;
 - access tokens, chat ids, keys, and credentials.
 
+Self-hosted runner metadata is printed by GitHub before workflow steps run. Use generic machine names, runner names, and service-account names on hosts attached to a public repository so system logs do not reveal personal device or account names.
+
 Public project identifiers, GitHub Pages URLs, generic runner labels, and documented environment-variable names are not secrets.
