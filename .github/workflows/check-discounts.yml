@@ -13,9 +13,14 @@ on:
         default: false
         type: boolean
       runner:
-        description: "Execution runner: windows or a Linux fallback key"
+        description: "Execution runner"
         required: false
-        default: "windows"
+        default: "github"
+        type: choice
+        options:
+          - github
+          - windows
+          - linux
 
 permissions:
   contents: write
@@ -25,13 +30,97 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  check:
+  cloud:
+    if: inputs.runner == 'github'
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        shell: bash
+        env:
+          REPOSITORY: ${{ github.repository }}
+          REF_NAME: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          git clone --depth 1 --branch "$REF_NAME" "https://github.com/${REPOSITORY}.git" "$GITHUB_WORKSPACE"
+
+      - name: Verify Node runtime
+        shell: bash
+        run: |
+          node --version
+          node -e "const major = Number(process.versions.node.split('.')[0]); if (major < 20) { console.error('Node.js 20+ is required'); process.exit(1); }"
+
+      - name: Wolt connectivity preflight
+        shell: bash
+        run: |
+          set -euo pipefail
+          status="$(
+            curl --max-time 30 --silent --show-error --output /dev/null \
+              --write-out '%{http_code}' \
+              'https://consumer-api.wolt.com/v1/pages/venue-list/promotions-near-you?lon=25.2682558&lat=54.6901231' \
+              -H 'Accept: application/json, text/plain, */*' \
+              -H 'Accept-Language: en-US,en;q=0.9' \
+              -H 'Platform: Web' \
+              -H 'Referer: https://wolt.com/' \
+              -H 'User-Agent: Mozilla/5.0' \
+              || true
+          )"
+          if [[ "$status" != "200" ]]; then
+            echo "::error::Wolt preflight from GitHub-hosted runner returned HTTP ${status:-request-error}. Re-run with runner=windows or runner=linux."
+            exit 1
+          fi
+          echo "Wolt preflight succeeded from GitHub-hosted runner (HTTP 200)."
+
+      - name: Run tests
+        run: node --test
+
+      - name: Update discount data
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_ALLOW_SKIP: ${{ vars.TELEGRAM_ALLOW_SKIP }}
+          MIN_VALUE_SCORE: ${{ vars.MIN_VALUE_SCORE }}
+          MIN_GROCERY_PERCENT: ${{ vars.MIN_GROCERY_PERCENT }}
+          MIN_RESTAURANT_PERCENT: ${{ vars.MIN_RESTAURANT_PERCENT }}
+          MIN_OTHER_PERCENT: ${{ vars.MIN_OTHER_PERCENT }}
+          MIN_CASH_VALUE_RATIO: ${{ vars.MIN_CASH_VALUE_RATIO }}
+          MIN_UNCONDITIONAL_CASH_REFERENCE: ${{ vars.MIN_UNCONDITIONAL_CASH_REFERENCE }}
+          WOLT_CACHE_TTL_HOURS: ${{ vars.WOLT_CACHE_TTL_HOURS }}
+          WOLT_API_TIMEOUT_MS: ${{ vars.WOLT_API_TIMEOUT_MS }}
+          WOLT_API_MAX_ATTEMPTS: ${{ vars.WOLT_API_MAX_ATTEMPTS }}
+          WOLT_API_RETRY_BASE_MS: ${{ vars.WOLT_API_RETRY_BASE_MS }}
+          WOLT_API_RETRY_JITTER_MS: ${{ vars.WOLT_API_RETRY_JITTER_MS }}
+          WOLT_REFRESH_CITY_CATALOG: "true"
+          WOLT_CITIES: ${{ inputs.cities || 'ltu/vilnius' }}
+          WOLT_ALL_CITIES: ${{ inputs.all_cities }}
+        run: node src/check-discounts.mjs
+
+      - name: Commit updated data
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          REF_NAME: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- docs/data
+          if ! git diff --cached --quiet; then
+            git commit -m "Update Wolt discount monitor data"
+            git push "https://x-access-token:${GH_TOKEN}@github.com/${REPOSITORY}.git" "HEAD:${REF_NAME}"
+          else
+            echo "No data changes to commit."
+          fi
+
+  self-hosted:
+    if: inputs.runner != 'github'
     timeout-minutes: 30
     runs-on:
       - self-hosted
       - X64
       - wolt
-      - ${{ inputs.runner != 'windows' && 'Linux' || 'Windows' }}
+      - ${{ inputs.runner == 'windows' && 'Windows' || 'Linux' }}
     steps:
       - name: Checkout without GitHub Action (Windows)
         if: runner.os == 'Windows'
@@ -42,12 +131,11 @@ jobs:
         run: |
           $ErrorActionPreference = "Stop"
           Set-Location $env:GITHUB_WORKSPACE
-
           Get-ChildItem -Force | Remove-Item -Recurse -Force
           git clone --depth 1 --branch $env:REF_NAME "https://github.com/$($env:REPOSITORY).git" .
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
-      - name: Checkout without GitHub Action (Linux fallback)
+      - name: Checkout without GitHub Action (Linux)
         if: runner.os == 'Linux'
         shell: bash
         env:
@@ -103,7 +191,6 @@ jobs:
           if ($LASTEXITCODE -ne 0) {
             git commit -m "Update Wolt discount monitor data"
             if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-
             $pushUrl = "https://x-access-token:$($env:GH_TOKEN)@github.com/$($env:REPOSITORY).git"
             git push $pushUrl "HEAD:$($env:REF_NAME)"
             if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
@@ -111,7 +198,7 @@ jobs:
             Write-Host "No data changes to commit."
           }
 
-      - name: Commit updated data (Linux fallback)
+      - name: Commit updated data (Linux)
         if: runner.os == 'Linux'
         shell: bash
         env:
