@@ -33,16 +33,39 @@ jobs:
       - wolt
       - ${{ inputs.runner != 'windows' && 'Linux' || 'Windows' }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Checkout without GitHub Action (Windows)
+        if: runner.os == 'Windows'
+        shell: powershell
+        env:
+          REPOSITORY: ${{ github.repository }}
+          REF_NAME: ${{ github.ref_name }}
+        run: |
+          $ErrorActionPreference = "Stop"
+          Set-Location $env:GITHUB_WORKSPACE
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "22"
+          Get-ChildItem -Force | Remove-Item -Recurse -Force
+          git clone --depth 1 --branch $env:REF_NAME "https://github.com/$($env:REPOSITORY).git" .
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Checkout without GitHub Action (Linux fallback)
+        if: runner.os == 'Linux'
+        shell: bash
+        env:
+          REPOSITORY: ${{ github.repository }}
+          REF_NAME: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          find "$GITHUB_WORKSPACE" -mindepth 1 -maxdepth 1 -exec rm -rf -- {} +
+          git clone --depth 1 --branch "$REF_NAME" "https://github.com/${REPOSITORY}.git" "$GITHUB_WORKSPACE"
+
+      - name: Verify Node runtime
+        shell: ${{ runner.os == 'Windows' && 'powershell' || 'bash' }}
+        run: |
+          node --version
+          node -e "const major = Number(process.versions.node.split('.')[0]); if (major < 20) { console.error('Node.js 20+ is required'); process.exit(1); }"
 
       - name: Run tests
-        run: npm test
+        run: node --test
 
       - name: Update discount data
         env:
@@ -68,6 +91,10 @@ jobs:
       - name: Commit updated data (Windows)
         if: runner.os == 'Windows'
         shell: powershell
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          REF_NAME: ${{ github.ref_name }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -75,7 +102,11 @@ jobs:
           git diff --cached --quiet
           if ($LASTEXITCODE -ne 0) {
             git commit -m "Update Wolt discount monitor data"
-            git push
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+            $pushUrl = "https://x-access-token:$($env:GH_TOKEN)@github.com/$($env:REPOSITORY).git"
+            git push $pushUrl "HEAD:$($env:REF_NAME)"
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           } else {
             Write-Host "No data changes to commit."
           }
@@ -83,13 +114,18 @@ jobs:
       - name: Commit updated data (Linux fallback)
         if: runner.os == 'Linux'
         shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          REF_NAME: ${{ github.ref_name }}
         run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -- docs/data
           if ! git diff --cached --quiet; then
             git commit -m "Update Wolt discount monitor data"
-            git push
+            git push "https://x-access-token:${GH_TOKEN}@github.com/${REPOSITORY}.git" "HEAD:${REF_NAME}"
           else
             echo "No data changes to commit."
           fi
