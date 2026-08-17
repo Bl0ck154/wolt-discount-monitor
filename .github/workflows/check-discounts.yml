@@ -42,12 +42,10 @@ jobs:
           REF_NAME: ${{ github.ref_name }}
         run: |
           set -euo pipefail
-          git clone --depth 1 --branch "$REF_NAME" "https://github.com/${REPOSITORY}.git" "$GITHUB_WORKSPACE"
+          git clone --quiet --depth 1 --branch "$REF_NAME" "https://github.com/${REPOSITORY}.git" "$GITHUB_WORKSPACE"
 
       - name: Verify Node runtime
-        run: |
-          node --version
-          node -e "const major = Number(process.versions.node.split('.')[0]); if (major < 20) { console.error('Node.js 20+ is required'); process.exit(1); }"
+        run: node -e "const major = Number(process.versions.node.split('.')[0]); if (major < 20) process.exit(1)"
 
       - name: Wolt connectivity preflight
         shell: bash
@@ -68,7 +66,6 @@ jobs:
             echo "::error::Wolt preflight from GitHub-hosted runner returned HTTP ${status:-request-error}. Re-run with runner=windows or runner=linux."
             exit 1
           fi
-          echo "Wolt preflight succeeded from GitHub-hosted runner (HTTP 200)."
 
       - name: Run tests
         run: node --test
@@ -108,8 +105,6 @@ jobs:
           if ! git diff --cached --quiet; then
             git commit -m "Update Wolt discount monitor data"
             git push "https://x-access-token:${GH_TOKEN}@github.com/${REPOSITORY}.git" "HEAD:${REF_NAME}"
-          else
-            echo "No data changes to commit."
           fi
 
   self-hosted:
@@ -121,7 +116,7 @@ jobs:
       - wolt
       - ${{ inputs.runner == 'windows' && 'Windows' || 'Linux' }}
     steps:
-      - name: Checkout without GitHub Action (Windows)
+      - name: Checkout repository (Windows)
         if: runner.os == 'Windows'
         shell: powershell
         env:
@@ -131,10 +126,10 @@ jobs:
           $ErrorActionPreference = "Stop"
           Set-Location $env:GITHUB_WORKSPACE
           Get-ChildItem -Force | Remove-Item -Recurse -Force
-          git clone --depth 1 --branch $env:REF_NAME "https://github.com/$($env:REPOSITORY).git" .
+          git clone --quiet --depth 1 --branch $env:REF_NAME "https://github.com/$($env:REPOSITORY).git" .
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
-      - name: Checkout without GitHub Action (Linux)
+      - name: Checkout repository (Linux)
         if: runner.os == 'Linux'
         shell: bash
         env:
@@ -143,12 +138,10 @@ jobs:
         run: |
           set -euo pipefail
           find "$GITHUB_WORKSPACE" -mindepth 1 -maxdepth 1 -exec rm -rf -- {} +
-          git clone --depth 1 --branch "$REF_NAME" "https://github.com/${REPOSITORY}.git" "$GITHUB_WORKSPACE"
+          git clone --quiet --depth 1 --branch "$REF_NAME" "https://github.com/${REPOSITORY}.git" "$GITHUB_WORKSPACE"
 
       - name: Verify Node runtime
-        run: |
-          node --version
-          node -e "const major = Number(process.versions.node.split('.')[0]); if (major < 20) { console.error('Node.js 20+ is required'); process.exit(1); }"
+        run: node -e "const major = Number(process.versions.node.split('.')[0]); if (major < 20) process.exit(1)"
 
       - name: Run tests
         run: node --test
@@ -192,8 +185,6 @@ jobs:
             $pushUrl = "https://x-access-token:$($env:GH_TOKEN)@github.com/$($env:REPOSITORY).git"
             git push $pushUrl "HEAD:$($env:REF_NAME)"
             if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          } else {
-            Write-Host "No data changes to commit."
           }
 
       - name: Commit updated data (Linux)
@@ -211,6 +202,4 @@ jobs:
           if ! git diff --cached --quiet; then
             git commit -m "Update Wolt discount monitor data"
             git push "https://x-access-token:${GH_TOKEN}@github.com/${REPOSITORY}.git" "HEAD:${REF_NAME}"
-          else
-            echo "No data changes to commit."
           fi
