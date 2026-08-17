@@ -13,14 +13,14 @@ on:
         default: false
         type: boolean
       runner:
-        description: "Execution runner"
+        description: "Execution runner (Windows primary; GitHub cloud is diagnostic)"
         required: false
-        default: "github"
+        default: "windows"
         type: choice
         options:
-          - github
           - windows
           - linux
+          - github
 
 permissions:
   contents: write
