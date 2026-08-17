@@ -45,7 +45,6 @@ jobs:
           git clone --depth 1 --branch "$REF_NAME" "https://github.com/${REPOSITORY}.git" "$GITHUB_WORKSPACE"
 
       - name: Verify Node runtime
-        shell: bash
         run: |
           node --version
           node -e "const major = Number(process.versions.node.split('.')[0]); if (major < 20) { console.error('Node.js 20+ is required'); process.exit(1); }"
@@ -147,7 +146,6 @@ jobs:
           git clone --depth 1 --branch "$REF_NAME" "https://github.com/${REPOSITORY}.git" "$GITHUB_WORKSPACE"
 
       - name: Verify Node runtime
-        shell: ${{ runner.os == 'Windows' && 'powershell' || 'bash' }}
         run: |
           node --version
           node -e "const major = Number(process.versions.node.split('.')[0]); if (major < 20) { console.error('Node.js 20+ is required'); process.exit(1); }"
