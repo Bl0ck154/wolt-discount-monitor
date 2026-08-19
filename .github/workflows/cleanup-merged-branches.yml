@@ -1,0 +1,36 @@
+name: Cleanup merged branches
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/cleanup-merged-branches.yml
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete merged branches
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          branches=(
+            "fix/reliability-readme-20260806"
+            "fix/reliability-config-no-pii-20260806"
+            "perf/compact-json-lazy-ui-20260806"
+            "fix/multibuy-perk-priority-20260806"
+            "fix/preserve-multibuy-notification-metadata-20260806"
+            "fix/rescore-bundled-offers-v4-20260806"
+          )
+
+          for branch in "${branches[@]}"; do
+            echo "Deleting $branch"
+            gh api --method DELETE "repos/$GH_REPO/git/refs/heads/$branch"
+          done
