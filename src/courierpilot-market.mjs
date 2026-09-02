@@ -197,7 +197,7 @@ export function computeMarketProfile(rows, now = Date.now()) {
       medianEurPerKm: null, medianNativeMoneyPerKm: null,
       percentileEdges: null,
       bandEdges: null,
-      confidence: "none",
+      confidence: "NOT_READY",
       trend: null,
     };
   }
@@ -343,10 +343,10 @@ function dynamicBlend(sampleCount, uniqueInstallations) {
 }
 
 function confidenceFor(sampleCount, uniqueInstallations) {
-  if (sampleCount < MIN_PROFILE_SAMPLES) return "low";
-  if (sampleCount >= 200 && uniqueInstallations >= 10) return "high";
-  if (sampleCount >= 60 && uniqueInstallations >= 3) return "medium";
-  return "low";
+  if (sampleCount < MIN_PROFILE_SAMPLES) return "NOT_READY";
+  if (sampleCount >= 100 && uniqueInstallations >= 8) return "HIGH";
+  if (sampleCount >= 30 && uniqueInstallations >= 3) return "MEDIUM";
+  return "LOW";
 }
 
 function ensureAscending(values) {
