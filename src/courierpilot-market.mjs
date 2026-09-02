@@ -50,9 +50,9 @@ export async function ingestCourierPilotMarket(request, options = {}) {
   const insert = db.prepare(`
     INSERT OR IGNORE INTO market_offers
     (received_at, offer_id, install_id, captured_at, city_key, city_name, country_code,
-     platform, price_cents, currency_code, fraction_digits, route_distance_m, native_money_per_km, route_source, delivery_count,
+     platform, price_cents, currency_code, fraction_digits, route_distance_m, eur_per_km, native_money_per_km, route_source, delivery_count,
      local_hour, local_weekday, app_version, version_code)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `);
 
   db.exec("BEGIN IMMEDIATE");
@@ -60,7 +60,7 @@ export async function ingestCourierPilotMarket(request, options = {}) {
     for (const row of rows) {
       insert.run(
         row.receivedAt, row.offerId, row.installId, row.capturedAt, row.cityKey, row.cityName,
-        row.countryCode, row.platform, row.priceCents, row.currencyCode, row.fractionDigits, row.routeDistanceM, row.nativeMoneyPerKm,
+        row.countryCode, row.platform, row.priceCents, row.currencyCode, row.fractionDigits, row.routeDistanceM, row.nativeMoneyPerKm, row.nativeMoneyPerKm,
         row.routeSource, row.deliveryCount, row.localHour, row.localWeekday,
         row.appVersion, row.versionCode,
       );
@@ -172,9 +172,9 @@ export function computeMarketProfile(rows, now = Date.now()) {
     .map((row) => ({
       installId: String(row.install_id ?? row.installId ?? ""),
       capturedAt: Number(row.captured_at ?? row.capturedAt ?? 0),
-      value: Number(row.eur_per_km ?? row.eurPerKm ?? 0),
+      value: Number(row.native_money_per_km ?? row.nativeMoneyPerKm ?? row.eur_per_km ?? row.eurPerKm ?? 0),
     }))
-    .filter((row) => row.installId && row.capturedAt > 0 && row.value >= 0.15 && row.value <= 10);
+    .filter((row) => row.installId && row.capturedAt > 0 && Number.isFinite(row.value) && row.value > 0);
 
   const uniqueInstallations = new Set(valid.map((row) => row.installId)).size;
   if (valid.length === 0) {
@@ -228,9 +228,10 @@ function normalizeOffer(offer, metadata) {
 
   if (!ID_RE.test(offerId) || !cityKey || !cityName || !COUNTRY_RE.test(countryCode) || !platform || !currencyCode || fractionDigits < 0 || fractionDigits > 3) return null;
   if (capturedAt <= 0 || Math.abs(metadata.now - capturedAt) > 14 * 86_400_000) return null;
-  if (priceCents < 50 || priceCents > 100_000) return null;
+  if (priceCents <= 0) return null;
   if (routeDistanceM < 200 || routeDistanceM > 100_000) return null;
   if (localHour < 0 || localHour > 23 || localWeekday < 1 || localWeekday > 7) return null;
+  if (!/^FULL(?:$|[_.:-])/i.test(routeSource) || /PICKUP_ONLY/i.test(routeSource)) return null;
 
   const nativeMoneyPerKm = priceCents / Math.pow(10, fractionDigits) * 1000 / routeDistanceM;
 
@@ -258,7 +259,8 @@ function normalizeOffer(offer, metadata) {
 
 function loadRows(db, cityKey, platform, cutoff, currency = null) {
   const sql = `
-    SELECT city_key, city_name, country_code, install_id, captured_at, native_money_per_km AS eur_per_km, local_hour
+    SELECT city_key, city_name, country_code, install_id, captured_at,
+      COALESCE(native_money_per_km, eur_per_km) AS eur_per_km, local_hour
     FROM market_offers
     WHERE city_key = ? AND captured_at >= ?${platform ? " AND platform = ?" : ""}${currency ? " AND currency_code = ?" : ""}
     ORDER BY captured_at DESC
@@ -377,7 +379,8 @@ function marketDb() {
       currency_code TEXT NOT NULL DEFAULT 'EUR',
       fraction_digits INTEGER NOT NULL DEFAULT 2,
       route_distance_m INTEGER NOT NULL,
-      native_money_per_km REAL NOT NULL,
+      eur_per_km REAL,
+      native_money_per_km REAL,
       route_source TEXT NOT NULL,
       delivery_count INTEGER NOT NULL,
       local_hour INTEGER NOT NULL,
