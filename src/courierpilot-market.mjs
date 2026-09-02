@@ -231,7 +231,7 @@ function normalizeOffer(offer, metadata) {
   if (priceCents <= 0) return null;
   if (routeDistanceM < 200 || routeDistanceM > 100_000) return null;
   if (localHour < 0 || localHour > 23 || localWeekday < 1 || localWeekday > 7) return null;
-  if (!/^FULL(?:$|[_.:-])/i.test(routeSource) || /PICKUP_ONLY/i.test(routeSource)) return null;
+  if (metadata.schema === 2 && (!/^FULL(?:$|[_.:-])/i.test(routeSource) || /PICKUP_ONLY/i.test(routeSource))) return null;
 
   const nativeMoneyPerKm = priceCents / Math.pow(10, fractionDigits) * 1000 / routeDistanceM;
 
