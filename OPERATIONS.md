@@ -5,8 +5,8 @@ This document describes the production configuration without storing personal ho
 ## Runtime topology
 
 1. An external scheduler runs `scripts/dispatch-check.sh` at the desired times.
-2. The dispatcher checks whether the primary Windows self-hosted runner with the generic project label is online.
-3. If the primary runner is unavailable, the dispatcher performs a Wolt HTTP preflight and selects a Linux fallback runner only when Wolt is reachable.
+2. The dispatcher checks whether the primary Linux VPS self-hosted runner is online and whether Wolt is reachable directly from the VPS.
+3. If the Linux runner or direct Wolt preflight is unavailable, the dispatcher selects the Windows self-hosted runner as the residential fallback when it is online.
 4. `.github/workflows/check-discounts.yml` runs tests, refreshes Wolt data, sends Telegram notifications when needed, and commits changed files under `docs/data/`.
 5. `.github/workflows/deploy-pages.yml` generates `docs/config.js` from a repository variable and deploys `docs/` to GitHub Pages.
 
@@ -28,13 +28,14 @@ Configure under **Settings → Secrets and variables → Actions → Variables**
 | Variable | Recommended value | Purpose |
 |---|---:|---|
 | `WOLT_API_BASE_URL` | Public HTTPS API origin | Injected into the deployed dashboard at Pages build time |
-| `WOLT_CACHE_TTL_HOURS` | `2` | Snapshot cache lifetime |
+| `WOLT_API_CACHE_TTL_HOURS` | `1` | Live API per-city refresh floor |
+| `WOLT_CACHE_TTL_HOURS` | `1` | Scheduled updater snapshot cache lifetime |
 | `WOLT_API_TIMEOUT_MS` | `30000` | Timeout for one Wolt request attempt |
 | `WOLT_API_MAX_ATTEMPTS` | `7` | Maximum request attempts |
 | `WOLT_API_RETRY_BASE_MS` | `30000` | Base retry delay |
 | `WOLT_API_RETRY_JITTER_MS` | `5000` | Maximum random retry jitter |
-| `WOLT_PRIMARY_RUNNER_LABEL` | `wolt` | Generic project label used to identify the primary Windows runner |
-| `WOLT_FALLBACK_RUNNER_INPUT` | `linux` | Workflow runner value used by the fallback dispatcher |
+| `WOLT_PRIMARY_RUNNER_LABEL` | `wolt` | Generic project label used to identify self-hosted project runners |
+| `WOLT_FALLBACK_RUNNER_INPUT` | `windows` | Workflow runner value used by the fallback dispatcher |
 | `TELEGRAM_ALLOW_SKIP` | leave empty in production | Set to `true` only for intentional non-alert runs |
 | `MIN_VALUE_SCORE` | `45` | Minimum general notification score |
 | `MIN_GROCERY_PERCENT` | `10` | Grocery percentage threshold |
@@ -43,7 +44,7 @@ Configure under **Settings → Secrets and variables → Actions → Variables**
 | `MIN_CASH_VALUE_RATIO` | `0.20` | Conditioned cash discount threshold |
 | `MIN_UNCONDITIONAL_CASH_REFERENCE` | `0.60` | Unconditional cash reference threshold |
 
-A blank or missing numeric variable falls back to the application default. In particular, a blank `WOLT_CACHE_TTL_HOURS` remains two hours instead of becoming zero.
+A blank or missing numeric variable falls back to the application default. In particular, a blank `WOLT_CACHE_TTL_HOURS` remains one hour instead of becoming zero.
 
 ### Public configuration warning
 
@@ -60,14 +61,20 @@ WOLT_API_CACHE_DIR=<private cache path>
 WOLT_API_ALLOWED_ORIGINS=https://bl0ck154.github.io
 WOLT_API_RATE_LIMIT_REQUESTS=60
 WOLT_API_RATE_LIMIT_WINDOW_MS=60000
-WOLT_CACHE_TTL_HOURS=2
+WOLT_API_CACHE_TTL_HOURS=1
+WOLT_CACHE_TTL_HOURS=1
 WOLT_API_TIMEOUT_MS=30000
 WOLT_API_MAX_ATTEMPTS=7
 WOLT_API_RETRY_BASE_MS=30000
 WOLT_API_RETRY_JITTER_MS=5000
+WOLT_API_REFRESH_CONCURRENCY=4
+WOLT_API_REFRESH_QUEUE_LIMIT=1000
+WOLT_API_BETWEEN_ENDPOINTS_MS=1000
 ```
 
 Bind Node to loopback and publish HTTPS through a reverse proxy. Do not expose the Node port directly.
+
+Optional proxy fallback is configured only on the API/runner host with `WOLT_PROXY_URL=http://user:password@proxy-host:port` (HTTPS proxy URLs are also supported). Keep it in a root-only environment file or secret store, not in Git. Direct VPS requests remain primary; the proxy is tried only after direct `403`, `429`, timeout, or network failure.
 
 ## External scheduler
 
@@ -83,19 +90,19 @@ Run manually:
 ./scripts/dispatch-check.sh ltu/vilnius
 ```
 
-The workflow accepts `windows` as the primary value. Any other non-empty runner value is treated as Linux, which keeps older external dispatcher values backward-compatible while allowing the public configuration to remain generic.
+The workflow defaults to `linux`. The dispatcher automatically switches to `windows` only when the Linux runner or direct Wolt preflight is unavailable. Manual runs can still explicitly select either runner.
 
 ## Verification
 
 Check the system in this order:
 
 1. `npm test` passes locally or in `.github/workflows/test.yml`.
-2. The primary and fallback self-hosted runners are online and have labels `self-hosted`, `X64`, `wolt`, plus the correct OS label.
+2. The Linux primary and Windows fallback self-hosted runners are online and have labels `self-hosted`, `X64`, `wolt`, plus the correct OS label.
 3. A manual `Update Wolt discount monitor` run completes.
 4. `docs/data/cities.json` reports a non-zero `cacheTtlMs` after the next updater run.
 5. The Pages workflow completes and the dashboard loads bundled data.
 6. When `WOLT_API_BASE_URL` is configured, the deployed `config.js` contains that public origin and uncached cities can use the live API.
-7. The API `/health` endpoint returns `200` and CORS allows the GitHub Pages origin.
+7. The API `/health` endpoint returns `200`, reports refresh-pool status, and CORS allows the GitHub Pages origin.
 
 ## Privacy boundary
 

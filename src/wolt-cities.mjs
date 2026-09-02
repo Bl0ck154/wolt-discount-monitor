@@ -1,4 +1,5 @@
-import { WOLT_HEADERS, cityKey, cityLabel, isDefaultCity } from "./config.mjs";
+import { cityKey, cityLabel, isDefaultCity } from "./config.mjs";
+import { fetchJson } from "./wolt-api.mjs";
 
 const CITIES_URL = "https://restaurant-api.wolt.com/v1/cities";
 const COUNTRY_LIST_URL = "https://wolt.com/v1/country_list?languageCode=en";
@@ -40,8 +41,8 @@ const FALLBACK_COUNTRY_NAMES = {
 
 export async function fetchWoltCityCatalog() {
   const [citiesPayload, countryPayload] = await Promise.all([
-    fetchJson(CITIES_URL, { "App-Language": "en" }),
-    fetchJson(COUNTRY_LIST_URL, { "Accept-Language": "en-US,en;q=0.9" }).catch(() => []),
+    fetchJson(CITIES_URL, { headers: { "App-Language": "en" } }),
+    fetchJson(COUNTRY_LIST_URL, { headers: { "Accept-Language": "en-US,en;q=0.9" } }).catch(() => []),
   ]);
 
   const countryNames = countryNameIndex(countryPayload);
@@ -142,19 +143,4 @@ function fallbackCountryName(countryCode2) {
   } catch {
     return countryCode2;
   }
-}
-
-async function fetchJson(url, headers = {}) {
-  const response = await fetch(url, {
-    headers: {
-      ...WOLT_HEADERS,
-      Accept: "application/json, text/plain, */*",
-      ...headers,
-    },
-  });
-  const text = await response.text();
-  if (!response.ok) {
-    throw new Error(`${response.status} ${response.statusText}: ${text.slice(0, 500)}`);
-  }
-  return JSON.parse(text);
 }

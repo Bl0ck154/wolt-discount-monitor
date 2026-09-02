@@ -169,9 +169,13 @@ docs/data/cities/<country-city-slug>/changes.json
 docs/data/cities/<country-city-slug>/changes-log.json
 ```
 
-Each city has its own cache. If a snapshot is newer than `WOLT_CACHE_TTL_HOURS`, the updater reuses it instead of calling Wolt again. The default is two hours.
+Each city has its own cache. If a snapshot is newer than `WOLT_CACHE_TTL_HOURS`, the updater reuses it instead of calling Wolt again. The default is one hour. The live API deduplicates concurrent refreshes for the same city and serves a stale snapshot immediately while revalidating it in the background.
+
+Different cities refresh through a bounded worker pool rather than one global serial queue. The default live-API concurrency is four cities, with a bounded waiting queue. Wolt's two city endpoints are spaced by a short configurable delay instead of the older fixed five-second pause.
 
 Requests use timeouts and retry transient network failures, HTTP `429`, temporary invalid responses, and server-side `5xx` errors. Permanent client errors such as `404` are not retried.
+
+Direct VPS access is the primary transport. If `WOLT_PROXY_URL` is configured, direct `403`/`429` or network failures can automatically retry through that proxy. The proxy URL is a server secret and must never be committed.
 
 ## Optional live API
 

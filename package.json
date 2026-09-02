@@ -28,6 +28,9 @@
     "start": "node src/check-discounts.mjs",
     "target": "node src/wolt-promotions-poc.mjs --slug lukiskiu-kalejimas-20 --dynamic"
   },
+  "dependencies": {
+    "undici": "^6.28.0"
+  },
   "engines": {
     "node": ">=20"
   }

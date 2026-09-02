@@ -1,4 +1,8 @@
+import { ProxyAgent, fetch as undiciFetch } from "undici";
 import { CACHE_TTL_MS, CITY, WOLT_HEADERS } from "./config.mjs";
+
+let proxyAgent = null;
+let proxyAgentUrl = null;
 
 export function endpoints({ lat = CITY.lat, lon = CITY.lon } = {}) {
   return {
@@ -12,31 +16,36 @@ export async function fetchJson(url, options = {}) {
   const retryBaseMs = nonNegativeNumber(options.retryBaseMs ?? process.env.WOLT_API_RETRY_BASE_MS, 30_000);
   const retryJitterMs = nonNegativeNumber(options.retryJitterMs ?? process.env.WOLT_API_RETRY_JITTER_MS, 5_000);
   const timeoutMs = nonNegativeNumber(options.timeoutMs ?? process.env.WOLT_API_TIMEOUT_MS, 30_000);
+  const fetchImpl = options.fetchImpl ?? undiciFetch;
+  const proxyDispatcher = options.proxyDispatcher === undefined ? configuredProxyDispatcher() : options.proxyDispatcher;
   let lastError;
 
   for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
     try {
-      const response = await fetch(url, {
-        headers: WOLT_HEADERS,
-        signal: timeoutMs > 0 ? AbortSignal.timeout(timeoutMs) : undefined,
-      });
-      const text = await response.text();
+      try {
+        return await fetchJsonOnce(url, {
+          fetchImpl,
+          timeoutMs,
+          headers: options.headers,
+        });
+      } catch (directError) {
+        if (!proxyDispatcher || !shouldTryProxyFallback(directError)) {
+          throw directError;
+        }
 
-      if (response.ok) {
+        console.warn(`Direct Wolt request failed; trying configured proxy fallback: ${directError.message}`);
         try {
-          return JSON.parse(text);
-        } catch (error) {
-          const invalidJson = new Error(`Invalid JSON from Wolt API: ${error.message}; body: ${text.slice(0, 200)}`);
-          invalidJson.retryable = true;
-          throw invalidJson;
+          return await fetchJsonOnce(url, {
+            fetchImpl,
+            timeoutMs,
+            headers: options.headers,
+            dispatcher: proxyDispatcher,
+          });
+        } catch (proxyError) {
+          proxyError.directError = directError;
+          throw proxyError;
         }
       }
-
-      const httpError = new Error(`${response.status} ${response.statusText}: ${text.slice(0, 500)}`);
-      httpError.statusCode = response.status;
-      httpError.retryAfter = response.headers.get("retry-after");
-      httpError.retryable = response.status === 429 || response.status >= 500;
-      throw httpError;
     } catch (error) {
       lastError = error;
       if (attempt >= maxAttempts || !isRetryableFetchError(error)) {
@@ -57,6 +66,66 @@ export async function fetchJson(url, options = {}) {
   }
 
   throw lastError;
+}
+
+async function fetchJsonOnce(url, { fetchImpl, timeoutMs, headers, dispatcher } = {}) {
+  const requestOptions = {
+    headers: {
+      ...WOLT_HEADERS,
+      ...headers,
+    },
+    signal: timeoutMs > 0 ? AbortSignal.timeout(timeoutMs) : undefined,
+  };
+  if (dispatcher) requestOptions.dispatcher = dispatcher;
+
+  const response = await fetchImpl(url, requestOptions);
+  const text = await response.text();
+
+  if (response.ok) {
+    try {
+      return JSON.parse(text);
+    } catch (error) {
+      const invalidJson = new Error(`Invalid JSON from Wolt API: ${error.message}; body: ${text.slice(0, 200)}`);
+      invalidJson.retryable = true;
+      throw invalidJson;
+    }
+  }
+
+  const httpError = new Error(`${response.status} ${response.statusText}: ${text.slice(0, 500)}`);
+  httpError.statusCode = response.status;
+  httpError.retryAfter = response.headers.get("retry-after");
+  httpError.retryable = response.status === 429 || response.status >= 500;
+  throw httpError;
+}
+
+function configuredProxyDispatcher() {
+  const url = String(process.env.WOLT_PROXY_URL ?? "").trim();
+  if (!url) return null;
+  if (!proxyAgent || proxyAgentUrl !== url) {
+    proxyAgent = createProxyAgent(url);
+    proxyAgentUrl = url;
+  }
+  return proxyAgent;
+}
+
+function createProxyAgent(proxyUrl) {
+  const parsed = new URL(proxyUrl);
+  if (!parsed.username && !parsed.password) return new ProxyAgent(parsed.toString());
+
+  const username = decodeURIComponent(parsed.username);
+  const password = decodeURIComponent(parsed.password);
+  parsed.username = "";
+  parsed.password = "";
+  const token = `Basic ${Buffer.from(`${username}:${password}`).toString("base64")}`;
+  return new ProxyAgent({ uri: parsed.toString(), token });
+}
+
+export function hasConfiguredWoltProxy() {
+  return Boolean(String(process.env.WOLT_PROXY_URL ?? "").trim());
+}
+
+function shouldTryProxyFallback(error) {
+  return error?.statusCode === 403 || error?.statusCode === 429 || isNetworkFetchError(error);
 }
 
 export function collectVenueItems(payload) {
@@ -104,7 +173,8 @@ export async function fetchCityData(city = CITY) {
     console.warn(`Could not fetch promotions endpoint; falling back to restaurant venues: ${error.message}`);
   }
 
-  await sleep(5000);
+  const betweenEndpointsMs = nonNegativeNumber(process.env.WOLT_API_BETWEEN_ENDPOINTS_MS, 1_000);
+  if (betweenEndpointsMs > 0) await sleep(betweenEndpointsMs);
 
   try {
     restaurantsPayload = await fetchJson(urls.restaurants, {
@@ -155,8 +225,11 @@ export function isSnapshotFresh(snapshot, { now = Date.now(), ttlMs = CACHE_TTL_
 }
 
 function isRetryableFetchError(error) {
-  return error?.retryable === true ||
-    error?.name === "TimeoutError" ||
+  return error?.retryable === true || isNetworkFetchError(error);
+}
+
+function isNetworkFetchError(error) {
+  return error?.name === "TimeoutError" ||
     error?.name === "AbortError" ||
     error instanceof TypeError;
 }

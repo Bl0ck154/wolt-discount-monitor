@@ -13,9 +13,9 @@ on:
         default: false
         type: boolean
       runner:
-        description: "Execution runner (Windows primary; GitHub cloud is diagnostic)"
+        description: "Execution runner (Linux VPS primary; Windows is fallback)"
         required: false
-        default: "windows"
+        default: "linux"
         type: choice
         options:
           - windows

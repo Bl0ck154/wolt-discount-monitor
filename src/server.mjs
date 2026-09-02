@@ -2,24 +2,33 @@ import { createHash } from "node:crypto";
 import { createServer } from "node:http";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
-import { CACHE_TTL_MS, CITY, PATHS, cityKey } from "./config.mjs";
+import { CITY, PATHS, cityKey } from "./config.mjs";
 import { normalizeSnapshot } from "./normalize.mjs";
-import { fetchCityData, isSnapshotFresh } from "./wolt-api.mjs";
+import { fetchCityData, hasConfiguredWoltProxy, isSnapshotFresh } from "./wolt-api.mjs";
 import { fetchWoltCityCatalog } from "./wolt-cities.mjs";
 import { compactCitiesIndex, compactSnapshot, jsonText } from "./public-snapshot.mjs";
 import { ingestCourierPilotTelemetry } from "./courierpilot-telemetry.mjs";
+import { TaskPool } from "./refresh-pool.mjs";
 
 const HOST = process.env.WOLT_API_HOST ?? "127.0.0.1";
 const PORT = Number(process.env.PORT ?? process.env.WOLT_API_PORT ?? 3000);
 const CACHE_DIR = process.env.WOLT_API_CACHE_DIR ?? ".cache/wolt-api";
 const RATE_LIMIT_WINDOW_MS = Number(process.env.WOLT_API_RATE_LIMIT_WINDOW_MS ?? 60_000);
 const RATE_LIMIT_REQUESTS = Number(process.env.WOLT_API_RATE_LIMIT_REQUESTS ?? 60);
+const API_CACHE_TTL_HOURS = nonNegativeNumber(process.env.WOLT_API_CACHE_TTL_HOURS, 1);
+const API_CACHE_TTL_MS = API_CACHE_TTL_HOURS * 60 * 60 * 1000;
+const REFRESH_CONCURRENCY = positiveInteger(process.env.WOLT_API_REFRESH_CONCURRENCY, 4);
+const REFRESH_QUEUE_LIMIT = nonNegativeInteger(process.env.WOLT_API_REFRESH_QUEUE_LIMIT, 1000);
 const ALLOWED_ORIGINS = parseAllowedOrigins(process.env.WOLT_API_ALLOWED_ORIGINS);
 
 const inFlight = new Map();
 const rateBuckets = new Map();
 let catalogPromise = null;
-let refreshQueue = Promise.resolve();
+const refreshPool = new TaskPool({
+  concurrency: REFRESH_CONCURRENCY,
+  maxQueue: REFRESH_QUEUE_LIMIT,
+  name: "Wolt refresh",
+});
 
 const server = createServer((request, response) => {
   handleRequest(request, response).catch((error) => {
@@ -46,7 +55,9 @@ async function handleRequest(request, response) {
     sendJson(request, response, 200, {
       ok: true,
       generatedAt: new Date().toISOString(),
-      cacheTtlMs: CACHE_TTL_MS,
+      cacheTtlMs: API_CACHE_TTL_MS,
+      refresh: refreshPool.stats,
+      proxyFallbackConfigured: hasConfiguredWoltProxy(),
     });
     return;
   }
@@ -68,8 +79,9 @@ async function handleRequest(request, response) {
   if (request.method === "GET" && latestMatch) {
     const [, country, slug] = latestMatch;
     const city = await findCity(`${country}/${slug}`);
-    const { snapshot, cacheHit } = await latestSnapshot(city);
-    response.setHeader("X-Wolt-Cache", cacheHit ? "HIT" : "MISS");
+    const { snapshot, cacheStatus, revalidation } = await latestSnapshot(city);
+    response.setHeader("X-Wolt-Cache", cacheStatus);
+    if (revalidation) response.setHeader("X-Wolt-Revalidate", revalidation);
     sendJson(request, response, 200, snapshot, {
       cacheControl: "public, max-age=60, stale-while-revalidate=300",
     });
@@ -80,7 +92,6 @@ async function handleRequest(request, response) {
 }
 
 async function latestSnapshot(city) {
-  const key = cityKey(city);
   const cachePath = snapshotPath(city);
   const cached = await readJsonIfExists(cachePath);
 
@@ -89,27 +100,42 @@ async function latestSnapshot(city) {
     if (JSON.stringify(compacted).length < JSON.stringify(cached).length) {
       await writeJson(cachePath, compacted);
     }
-    if (process.env.FORCE_WRITE !== "true" && isSnapshotFresh(compacted)) {
-      return { snapshot: compacted, cacheHit: true };
+    if (process.env.FORCE_WRITE !== "true" && isSnapshotFresh(compacted, { ttlMs: API_CACHE_TTL_MS })) {
+      return { snapshot: compacted, cacheStatus: "HIT" };
     }
+
+    const { promise, started } = ensureRefresh(city, cachePath);
+    if (started) {
+      promise.catch((error) => {
+        console.error(`[wolt-refresh] background refresh failed for ${city.id}: ${error.message}`);
+      });
+    }
+    return {
+      snapshot: compacted,
+      cacheStatus: "STALE",
+      revalidation: started ? "STARTED" : "IN-FLIGHT",
+    };
   }
 
-  if (!inFlight.has(key)) {
-    inFlight.set(key, refreshSnapshot(city, cachePath).finally(() => inFlight.delete(key)));
-  }
-  return { snapshot: await inFlight.get(key), cacheHit: false };
+  const { promise } = ensureRefresh(city, cachePath);
+  return { snapshot: await promise, cacheStatus: "MISS" };
+}
+
+function ensureRefresh(city, cachePath) {
+  const key = cityKey(city);
+  if (inFlight.has(key)) return { promise: inFlight.get(key), started: false };
+
+  const promise = refreshPool
+    .run(() => refreshSnapshot(city, cachePath))
+    .finally(() => inFlight.delete(key));
+  inFlight.set(key, promise);
+  return { promise, started: true };
 }
 
 async function refreshSnapshot(city, cachePath) {
-  const snapshot = await enqueueRefresh(() => normalizeSnapshotFromWolt(city));
+  const snapshot = await normalizeSnapshotFromWolt(city);
   await writeJson(cachePath, snapshot);
   return snapshot;
-}
-
-function enqueueRefresh(task) {
-  const queued = refreshQueue.catch(() => {}).then(task);
-  refreshQueue = queued.catch(() => {});
-  return queued;
 }
 
 async function normalizeSnapshotFromWolt(city) {
@@ -131,7 +157,7 @@ async function citiesResponse(catalog) {
       label: city.label,
       apiPath: `/api/cities/${city.id}/latest`,
       updatedAt: cached?.generatedAt ?? null,
-      stale: cached ? !isSnapshotFresh(cached) : true,
+      stale: cached ? !isSnapshotFresh(cached, { ttlMs: API_CACHE_TTL_MS }) : true,
       counts: cached?.counts ?? null,
     };
   }));
@@ -139,7 +165,7 @@ async function citiesResponse(catalog) {
   return compactCitiesIndex({
     generatedAt: new Date().toISOString(),
     defaultCityId: CITY.id,
-    cacheTtlMs: CACHE_TTL_MS,
+    cacheTtlMs: API_CACHE_TTL_MS,
     totalCities: catalog.totalCities ?? cities.length,
     cities,
   });
@@ -279,4 +305,19 @@ function httpError(statusCode, message) {
 
 function statusFromError(error) {
   return Number.isInteger(error.statusCode) ? error.statusCode : 500;
+}
+
+function positiveInteger(value, fallback) {
+  const parsed = Number(value);
+  return Number.isInteger(parsed) && parsed > 0 ? parsed : fallback;
+}
+
+function nonNegativeInteger(value, fallback) {
+  const parsed = Number(value);
+  return Number.isInteger(parsed) && parsed >= 0 ? parsed : fallback;
+}
+
+function nonNegativeNumber(value, fallback) {
+  const parsed = Number(value);
+  return Number.isFinite(parsed) && parsed >= 0 ? parsed : fallback;
 }

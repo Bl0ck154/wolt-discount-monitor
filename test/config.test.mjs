@@ -24,14 +24,14 @@ test("numeric workflow variables use defaults when unset, blank, or invalid", ()
   }
 });
 
-test("blank WOLT_CACHE_TTL_HOURS keeps the two-hour default", async () => {
+test("blank WOLT_CACHE_TTL_HOURS keeps the one-hour default", async () => {
   const previous = process.env.WOLT_CACHE_TTL_HOURS;
 
   try {
     process.env.WOLT_CACHE_TTL_HOURS = "";
     const config = await import(`../src/config.mjs?blank-ttl=${Date.now()}`);
-    assert.equal(config.CACHE_TTL_HOURS, 2);
-    assert.equal(config.CACHE_TTL_MS, 2 * 60 * 60 * 1000);
+    assert.equal(config.CACHE_TTL_HOURS, 1);
+    assert.equal(config.CACHE_TTL_MS, 60 * 60 * 1000);
   } finally {
     if (previous === undefined) delete process.env.WOLT_CACHE_TTL_HOURS;
     else process.env.WOLT_CACHE_TTL_HOURS = previous;

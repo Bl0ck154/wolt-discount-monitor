@@ -4,10 +4,8 @@ import assert from "node:assert/strict";
 import { fetchJson } from "../src/wolt-api.mjs";
 
 test("fetchJson retries transient HTTP failures", async () => {
-  const originalFetch = globalThis.fetch;
   let calls = 0;
-
-  globalThis.fetch = async () => {
+  const fetchImpl = async () => {
     calls += 1;
     if (calls === 1) {
       return new Response("temporary", { status: 503, statusText: "Service Unavailable" });
@@ -15,25 +13,21 @@ test("fetchJson retries transient HTTP failures", async () => {
     return new Response('{"ok":true}', { status: 200, headers: { "content-type": "application/json" } });
   };
 
-  try {
-    const result = await fetchJson("https://example.test", {
-      maxAttempts: 2,
-      retryBaseMs: 0,
-      retryJitterMs: 0,
-      timeoutMs: 1000,
-    });
-    assert.deepEqual(result, { ok: true });
-    assert.equal(calls, 2);
-  } finally {
-    globalThis.fetch = originalFetch;
-  }
+  const result = await fetchJson("https://example.test", {
+    maxAttempts: 2,
+    retryBaseMs: 0,
+    retryJitterMs: 0,
+    timeoutMs: 1000,
+    fetchImpl,
+    proxyDispatcher: null,
+  });
+  assert.deepEqual(result, { ok: true });
+  assert.equal(calls, 2);
 });
 
 test("fetchJson retries network errors", async () => {
-  const originalFetch = globalThis.fetch;
   let calls = 0;
-
-  globalThis.fetch = async () => {
+  const fetchImpl = async () => {
     calls += 1;
     if (calls === 1) {
       throw new TypeError("network down");
@@ -41,41 +35,59 @@ test("fetchJson retries network errors", async () => {
     return new Response('{"ok":true}', { status: 200 });
   };
 
-  try {
-    const result = await fetchJson("https://example.test", {
-      maxAttempts: 2,
-      retryBaseMs: 0,
-      retryJitterMs: 0,
-      timeoutMs: 1000,
-    });
-    assert.deepEqual(result, { ok: true });
-    assert.equal(calls, 2);
-  } finally {
-    globalThis.fetch = originalFetch;
-  }
+  const result = await fetchJson("https://example.test", {
+    maxAttempts: 2,
+    retryBaseMs: 0,
+    retryJitterMs: 0,
+    timeoutMs: 1000,
+    fetchImpl,
+    proxyDispatcher: null,
+  });
+  assert.deepEqual(result, { ok: true });
+  assert.equal(calls, 2);
 });
 
 test("fetchJson does not retry permanent HTTP failures", async () => {
-  const originalFetch = globalThis.fetch;
   let calls = 0;
-
-  globalThis.fetch = async () => {
+  const fetchImpl = async () => {
     calls += 1;
     return new Response("missing", { status: 404, statusText: "Not Found" });
   };
 
-  try {
-    await assert.rejects(
-      fetchJson("https://example.test", {
-        maxAttempts: 3,
-        retryBaseMs: 0,
-        retryJitterMs: 0,
-        timeoutMs: 1000,
-      }),
-      /404 Not Found/,
-    );
-    assert.equal(calls, 1);
-  } finally {
-    globalThis.fetch = originalFetch;
-  }
+  await assert.rejects(
+    fetchJson("https://example.test", {
+      maxAttempts: 3,
+      retryBaseMs: 0,
+      retryJitterMs: 0,
+      timeoutMs: 1000,
+      fetchImpl,
+      proxyDispatcher: null,
+    }),
+    /404 Not Found/,
+  );
+  assert.equal(calls, 1);
+});
+
+test("fetchJson falls back to proxy dispatcher after a direct 403", async () => {
+  const proxyDispatcher = { name: "proxy" };
+  const calls = [];
+  const fetchImpl = async (_url, options) => {
+    calls.push(options.dispatcher ?? null);
+    if (!options.dispatcher) {
+      return new Response("blocked", { status: 403, statusText: "Forbidden" });
+    }
+    return new Response('{"ok":true}', { status: 200 });
+  };
+
+  const result = await fetchJson("https://example.test", {
+    maxAttempts: 1,
+    retryBaseMs: 0,
+    retryJitterMs: 0,
+    timeoutMs: 1000,
+    fetchImpl,
+    proxyDispatcher,
+  });
+
+  assert.deepEqual(result, { ok: true });
+  assert.deepEqual(calls, [null, proxyDispatcher]);
 });

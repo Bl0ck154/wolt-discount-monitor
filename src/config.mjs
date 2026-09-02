@@ -10,7 +10,7 @@ export function readNumericEnv(name, fallback) {
   return Number.isFinite(value) ? value : fallback;
 }
 
-export const CACHE_TTL_HOURS = Math.max(0, readNumericEnv("WOLT_CACHE_TTL_HOURS", 2));
+export const CACHE_TTL_HOURS = Math.max(0, readNumericEnv("WOLT_CACHE_TTL_HOURS", 1));
 export const CACHE_TTL_MS = CACHE_TTL_HOURS * 60 * 60 * 1000;
 
 export const DEFAULT_CITY = {
