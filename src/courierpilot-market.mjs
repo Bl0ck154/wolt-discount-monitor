@@ -72,6 +72,7 @@ export async function ingestCourierPilotMarket(request, options = {}) {
   }
 
   maybeCleanup(now);
+  closeMarketDb();
   return { ok: true, accepted };
 }
 
@@ -88,7 +89,7 @@ export function courierPilotMarketProfile(searchParams, now = Date.now(), option
 
   let rows = loadRows(db, cityKey, requestedPlatform, cutoff, currencyCode);
   let source = requestedPlatform ? "city_platform" : "city";
-  if (requestedPlatform && rows.length < MIN_PROFILE_SAMPLES && options.schema !== 2) { rows = loadRows(db, cityKey, null, cutoff); source = "city_all_platforms"; }
+  if (requestedPlatform && rows.length < (options.schema === 2 ? MIN_PROFILE_SAMPLES : 20) && options.schema !== 2) { rows = loadRows(db, cityKey, null, cutoff); source = "city_all_platforms"; }
 
   if (requestedHour != null && rows.length >= MIN_DAYPART_SAMPLES) {
     const part = daypartForHour(requestedHour);
@@ -101,7 +102,7 @@ export function courierPilotMarketProfile(searchParams, now = Date.now(), option
 
   const profile = computeMarketProfile(rows, now);
   const meta = rows[0] ?? loadLatestCityMeta(db, cityKey);
-  return {
+  const result = {
     schema: options.schema === 2 ? 2 : 1,
     city: {
       key: cityKey,
@@ -114,6 +115,8 @@ export function courierPilotMarketProfile(searchParams, now = Date.now(), option
     generatedAt: now,
     ...profile,
   };
+  closeMarketDb();
+  return result;
 }
 
 export function courierPilotMarketHistory(searchParams, now = Date.now()) {
@@ -125,7 +128,9 @@ export function courierPilotMarketHistory(searchParams, now = Date.now()) {
   const rows = loadRows(marketDb(), city, platform, now - 730 * 86_400_000, currency);
   const buckets = new Map();
   for (const row of rows) { const d = new Date(row.captured_at); const key = period === "month" ? d.toISOString().slice(0,7) : period === "week" ? `${d.getUTCFullYear()}-W${String(Math.ceil((d.getUTCDate()+6)/7)).padStart(2,"0")}` : d.toISOString().slice(0,10); const list = buckets.get(key) ?? []; list.push(row); buckets.set(key,list); }
-  return { schema: 2, city, currencyCode: currency, platform: platform ?? null, period, buckets: [...buckets].sort().map(([bucket, data]) => { const p=computeMarketProfile(data, now); return { bucket, sampleCount:p.sampleCount, medianNativeMoneyPerKm:p.medianNativeMoneyPerKm, p25:p.p25, p75:p.p75 }; }) };
+  const result = { schema: 2, city, currencyCode: currency, platform: platform ?? null, period, buckets: [...buckets].sort().map(([bucket, data]) => { const p=computeMarketProfile(data, now); return { bucket, sampleCount:p.sampleCount, medianNativeMoneyPerKm:p.medianNativeMoneyPerKm, p25:p.p25, p75:p.p75 }; }) };
+  closeMarketDb();
+  return result;
 }
 
 export function courierPilotMarketCities(now = Date.now()) {
@@ -144,7 +149,7 @@ export function courierPilotMarketCities(now = Date.now()) {
     grouped.set(row.city_key, list);
   }
 
-  return {
+  const result = {
     schema: 1,
     generatedAt: now,
     cities: [...grouped.entries()]
@@ -165,6 +170,13 @@ export function courierPilotMarketCities(now = Date.now()) {
       .filter(Boolean)
       .sort((a, b) => b.sampleCount - a.sampleCount),
   };
+  closeMarketDb();
+  return result;
+}
+
+function closeMarketDb() {
+  try { dbState?.db?.close?.(); } catch {}
+  dbState = null;
 }
 
 export function computeMarketProfile(rows, now = Date.now()) {
