@@ -7,11 +7,10 @@ const DEFAULT_DB_PATH = join(CACHE_DIR, "courierpilot", "market.sqlite3");
 const MAX_BODY_BYTES = 96 * 1024;
 const MAX_OFFERS = 80;
 const RETENTION_DAYS = 90;
-const PROFILE_DAYS = 21;
-const MIN_PROFILE_SAMPLES = 20;
+const PROFILE_DAYS = 30;
+const MIN_PROFILE_SAMPLES = 10;
 const MIN_DAYPART_SAMPLES = 40;
-const HALF_LIFE_DAYS = 3;
-const DEFAULT_EDGES = [0.70, 0.85, 1.00, 1.25];
+const HALF_LIFE_DAYS = 10;
 const ID_RE = /^[a-z0-9:_-]{3,96}$/i;
 const INSTALL_RE = /^[a-f0-9-]{8,64}$/i;
 const CITY_RE = /^[a-z0-9][a-z0-9-]{1,63}$/;
@@ -21,9 +20,9 @@ const VALID_PLATFORMS = new Map([["wolt", "Wolt"], ["bolt", "Bolt"]]);
 let dbState = null;
 let lastCleanupAt = 0;
 
-export async function ingestCourierPilotMarket(request) {
+export async function ingestCourierPilotMarket(request, options = {}) {
   const payload = await readJsonBody(request, MAX_BODY_BYTES);
-  if (payload?.schema !== 1) throw httpError(400, "Unsupported market schema");
+  if (payload?.schema !== 1 && payload?.schema !== 2) throw httpError(400, "Unsupported market schema");
 
   const installId = safeText(payload.install_id, 64);
   if (!INSTALL_RE.test(installId)) throw httpError(400, "Invalid market identity");
@@ -40,7 +39,7 @@ export async function ingestCourierPilotMarket(request) {
   const accepted = [];
 
   for (const offer of offers) {
-    const row = normalizeOffer(offer, { installId, appVersion, versionCode, now });
+    const row = normalizeOffer(offer, { installId, appVersion, versionCode, now, schema: payload.schema });
     if (!row) continue;
     rows.push(row);
     accepted.push(row.offerId);
@@ -51,9 +50,9 @@ export async function ingestCourierPilotMarket(request) {
   const insert = db.prepare(`
     INSERT OR IGNORE INTO market_offers
     (received_at, offer_id, install_id, captured_at, city_key, city_name, country_code,
-     platform, price_cents, route_distance_m, eur_per_km, route_source, delivery_count,
+     platform, price_cents, currency_code, fraction_digits, route_distance_m, native_money_per_km, route_source, delivery_count,
      local_hour, local_weekday, app_version, version_code)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `);
 
   db.exec("BEGIN IMMEDIATE");
@@ -61,7 +60,7 @@ export async function ingestCourierPilotMarket(request) {
     for (const row of rows) {
       insert.run(
         row.receivedAt, row.offerId, row.installId, row.capturedAt, row.cityKey, row.cityName,
-        row.countryCode, row.platform, row.priceCents, row.routeDistanceM, row.eurPerKm,
+        row.countryCode, row.platform, row.priceCents, row.currencyCode, row.fractionDigits, row.routeDistanceM, row.nativeMoneyPerKm,
         row.routeSource, row.deliveryCount, row.localHour, row.localWeekday,
         row.appVersion, row.versionCode,
       );
@@ -76,21 +75,20 @@ export async function ingestCourierPilotMarket(request) {
   return { ok: true, accepted };
 }
 
-export function courierPilotMarketProfile(searchParams, now = Date.now()) {
+export function courierPilotMarketProfile(searchParams, now = Date.now(), options = {}) {
   const cityKey = normalizeCityKey(searchParams.get("city"));
   if (!cityKey) throw httpError(400, "Invalid city");
 
   const requestedPlatform = normalizePlatform(searchParams.get("platform"));
+  const currencyCode = normalizeCurrency(searchParams.get("currency") || searchParams.get("currencyCode"));
+  if (options.schema === 2 && !currencyCode) throw httpError(400, "Invalid currency");
   const requestedHour = optionalHour(searchParams.get("hour"));
   const cutoff = now - PROFILE_DAYS * 86_400_000;
   const db = marketDb();
 
-  let rows = loadRows(db, cityKey, requestedPlatform, cutoff);
+  let rows = loadRows(db, cityKey, requestedPlatform, cutoff, currencyCode);
   let source = requestedPlatform ? "city_platform" : "city";
-  if (requestedPlatform && rows.length < MIN_PROFILE_SAMPLES) {
-    rows = loadRows(db, cityKey, null, cutoff);
-    source = "city_all_platforms";
-  }
+  if (requestedPlatform && rows.length < MIN_PROFILE_SAMPLES && options.schema !== 2) { rows = loadRows(db, cityKey, null, cutoff); source = "city_all_platforms"; }
 
   if (requestedHour != null && rows.length >= MIN_DAYPART_SAMPLES) {
     const part = daypartForHour(requestedHour);
@@ -104,17 +102,30 @@ export function courierPilotMarketProfile(searchParams, now = Date.now()) {
   const profile = computeMarketProfile(rows, now);
   const meta = rows[0] ?? loadLatestCityMeta(db, cityKey);
   return {
-    schema: 1,
+    schema: options.schema === 2 ? 2 : 1,
     city: {
       key: cityKey,
       name: meta?.city_name ?? cityKey,
       countryCode: meta?.country_code ?? "",
     },
     requestedPlatform: requestedPlatform ?? null,
+    currencyCode: currencyCode ?? null,
     source,
     generatedAt: now,
     ...profile,
   };
+}
+
+export function courierPilotMarketHistory(searchParams, now = Date.now()) {
+  const city = normalizeCityKey(searchParams.get("city"));
+  const currency = normalizeCurrency(searchParams.get("currency") || searchParams.get("currencyCode"));
+  const platform = normalizePlatform(searchParams.get("platform"));
+  const period = ["day", "week", "month"].includes(searchParams.get("period")) ? searchParams.get("period") : "day";
+  if (!city || !currency) throw httpError(400, "Invalid city or currency");
+  const rows = loadRows(marketDb(), city, platform, now - 730 * 86_400_000, currency);
+  const buckets = new Map();
+  for (const row of rows) { const d = new Date(row.captured_at); const key = period === "month" ? d.toISOString().slice(0,7) : period === "week" ? `${d.getUTCFullYear()}-W${String(Math.ceil((d.getUTCDate()+6)/7)).padStart(2,"0")}` : d.toISOString().slice(0,10); const list = buckets.get(key) ?? []; list.push(row); buckets.set(key,list); }
+  return { schema: 2, city, currencyCode: currency, platform: platform ?? null, period, buckets: [...buckets].sort().map(([bucket, data]) => { const p=computeMarketProfile(data, now); return { bucket, sampleCount:p.sampleCount, medianNativeMoneyPerKm:p.medianNativeMoneyPerKm, p25:p.p25, p75:p.p75 }; }) };
 }
 
 export function courierPilotMarketCities(now = Date.now()) {
@@ -171,9 +182,9 @@ export function computeMarketProfile(rows, now = Date.now()) {
       ready: false,
       sampleCount: 0,
       uniqueInstallations: 0,
-      medianEurPerKm: null,
+      medianEurPerKm: null, medianNativeMoneyPerKm: null,
       percentileEdges: null,
-      bandEdges: DEFAULT_EDGES,
+      bandEdges: null,
       confidence: "none",
       trend: null,
     };
@@ -184,17 +195,15 @@ export function computeMarketProfile(rows, now = Date.now()) {
   const median = weightedQuantile(weighted, 0.5);
   const ready = valid.length >= MIN_PROFILE_SAMPLES;
   const blend = ready ? dynamicBlend(valid.length, uniqueInstallations) : 0;
-  const bandEdges = ensureAscending(
-    DEFAULT_EDGES.map((fallback, index) => round3(fallback * (1 - blend) + percentileEdges[index] * blend)),
-  );
-
   return {
     ready,
     sampleCount: valid.length,
     uniqueInstallations,
     medianEurPerKm: round3(median),
+    medianNativeMoneyPerKm: round3(median),
     percentileEdges: percentileEdges.map(round3),
-    bandEdges,
+    p25: round3(weightedQuantile(weighted, .25)), p75: round3(weightedQuantile(weighted, .75)),
+    bandEdges: percentileEdges.map(round3),
     confidence: confidenceFor(valid.length, uniqueInstallations),
     trend: computeTrend(valid, now),
   };
@@ -208,21 +217,22 @@ function normalizeOffer(offer, metadata) {
   const cityName = safeText(offer.city_name, 80);
   const countryCode = safeText(offer.country_code, 2).toUpperCase();
   const platform = normalizePlatform(offer.platform);
-  const priceCents = safeInteger(offer.price_cents);
+  const currencyCode = normalizeCurrency(offer.currency_code ?? offer.currencyCode ?? (metadata.schema === 1 ? "EUR" : ""));
+  const fractionDigits = safeInteger(offer.currency_fraction_digits ?? offer.currencyFractionDigits ?? (currencyCode === "EUR" ? 2 : -1));
+  const priceCents = safeInteger(offer.price_minor ?? offer.priceMinor ?? offer.price_cents);
   const routeDistanceM = safeInteger(offer.route_distance_m);
   const localHour = safeInteger(offer.local_hour);
   const localWeekday = safeInteger(offer.local_weekday);
   const deliveryCount = boundedInteger(offer.delivery_count, 1, 20, 1);
   const routeSource = safeText(offer.route_source, 24) || "valhalla";
 
-  if (!ID_RE.test(offerId) || !cityKey || !cityName || !COUNTRY_RE.test(countryCode) || !platform) return null;
+  if (!ID_RE.test(offerId) || !cityKey || !cityName || !COUNTRY_RE.test(countryCode) || !platform || !currencyCode || fractionDigits < 0 || fractionDigits > 3) return null;
   if (capturedAt <= 0 || Math.abs(metadata.now - capturedAt) > 14 * 86_400_000) return null;
   if (priceCents < 50 || priceCents > 100_000) return null;
   if (routeDistanceM < 200 || routeDistanceM > 100_000) return null;
   if (localHour < 0 || localHour > 23 || localWeekday < 1 || localWeekday > 7) return null;
 
-  const eurPerKm = priceCents * 10 / routeDistanceM;
-  if (eurPerKm < 0.15 || eurPerKm > 10) return null;
+  const nativeMoneyPerKm = priceCents / Math.pow(10, fractionDigits) * 1000 / routeDistanceM;
 
   return {
     receivedAt: metadata.now,
@@ -234,8 +244,9 @@ function normalizeOffer(offer, metadata) {
     countryCode,
     platform,
     priceCents,
+    currencyCode, fractionDigits,
     routeDistanceM,
-    eurPerKm,
+    nativeMoneyPerKm,
     routeSource,
     deliveryCount,
     localHour,
@@ -245,15 +256,15 @@ function normalizeOffer(offer, metadata) {
   };
 }
 
-function loadRows(db, cityKey, platform, cutoff) {
+function loadRows(db, cityKey, platform, cutoff, currency = null) {
   const sql = `
-    SELECT city_key, city_name, country_code, install_id, captured_at, eur_per_km, local_hour
+    SELECT city_key, city_name, country_code, install_id, captured_at, native_money_per_km AS eur_per_km, local_hour
     FROM market_offers
-    WHERE city_key = ? AND captured_at >= ?${platform ? " AND platform = ?" : ""}
+    WHERE city_key = ? AND captured_at >= ?${platform ? " AND platform = ?" : ""}${currency ? " AND currency_code = ?" : ""}
     ORDER BY captured_at DESC
     LIMIT 30000
   `;
-  return platform ? db.prepare(sql).all(cityKey, cutoff, platform) : db.prepare(sql).all(cityKey, cutoff);
+  const args=[cityKey,cutoff]; if(platform) args.push(platform); if(currency) args.push(currency); return db.prepare(sql).all(...args);
 }
 
 function loadLatestCityMeta(db, cityKey) {
@@ -363,8 +374,10 @@ function marketDb() {
       country_code TEXT NOT NULL,
       platform TEXT NOT NULL,
       price_cents INTEGER NOT NULL,
+      currency_code TEXT NOT NULL DEFAULT 'EUR',
+      fraction_digits INTEGER NOT NULL DEFAULT 2,
       route_distance_m INTEGER NOT NULL,
-      eur_per_km REAL NOT NULL,
+      native_money_per_km REAL NOT NULL,
       route_source TEXT NOT NULL,
       delivery_count INTEGER NOT NULL,
       local_hour INTEGER NOT NULL,
@@ -377,6 +390,8 @@ function marketDb() {
     CREATE INDEX IF NOT EXISTS idx_market_city_platform_time ON market_offers(city_key, platform, captured_at DESC);
     CREATE INDEX IF NOT EXISTS idx_market_received ON market_offers(received_at);
   `);
+  for (const sql of ["ALTER TABLE market_offers ADD COLUMN currency_code TEXT NOT NULL DEFAULT 'EUR'", "ALTER TABLE market_offers ADD COLUMN fraction_digits INTEGER NOT NULL DEFAULT 2", "ALTER TABLE market_offers ADD COLUMN native_money_per_km REAL"]) { try { db.exec(sql); } catch {} }
+  try { db.exec("UPDATE market_offers SET native_money_per_km = eur_per_km WHERE native_money_per_km IS NULL"); } catch {}
   dbState = { path, db };
   return db;
 }
@@ -391,6 +406,11 @@ function maybeCleanup(now) {
 function normalizeCityKey(value) {
   const key = safeText(value, 64).toLowerCase();
   return CITY_RE.test(key) ? key : null;
+}
+
+function normalizeCurrency(value) {
+  const code = safeText(value, 3).toUpperCase();
+  return /^[A-Z]{3}$/.test(code) && ["EUR","PLN","SEK","GBP","USD","JPY","HUF","KWD"].includes(code) ? code : null;
 }
 
 function normalizePlatform(value) {
