@@ -10,6 +10,7 @@ import { compactCitiesIndex, compactSnapshot, jsonText } from "./public-snapshot
 import { ingestCourierPilotTelemetry } from "./courierpilot-telemetry.mjs";
 import {
   courierPilotMarketCities,
+  courierPilotMarketHistory,
   courierPilotMarketProfile,
   ingestCourierPilotMarket,
 } from "./courierpilot-market.mjs";
