@@ -8,6 +8,11 @@ import { fetchCityData, hasConfiguredWoltProxy, isSnapshotFresh } from "./wolt-a
 import { fetchWoltCityCatalog } from "./wolt-cities.mjs";
 import { compactCitiesIndex, compactSnapshot, jsonText } from "./public-snapshot.mjs";
 import { ingestCourierPilotTelemetry } from "./courierpilot-telemetry.mjs";
+import {
+  courierPilotMarketCities,
+  courierPilotMarketProfile,
+  ingestCourierPilotMarket,
+} from "./courierpilot-market.mjs";
 import { TaskPool } from "./refresh-pool.mjs";
 
 const HOST = process.env.WOLT_API_HOST ?? "127.0.0.1";
@@ -64,6 +69,25 @@ async function handleRequest(request, response) {
 
   if (request.method === "POST" && pathname === "/courierpilot/v1/events") {
     sendJson(request, response, 200, await ingestCourierPilotTelemetry(request));
+    return;
+  }
+
+  if (request.method === "POST" && pathname === "/courierpilot/v1/market/offers") {
+    sendJson(request, response, 200, await ingestCourierPilotMarket(request));
+    return;
+  }
+
+  if (request.method === "GET" && pathname === "/courierpilot/v1/market/profile") {
+    sendJson(request, response, 200, courierPilotMarketProfile(url.searchParams), {
+      cacheControl: "public, max-age=120, stale-while-revalidate=300",
+    });
+    return;
+  }
+
+  if (request.method === "GET" && pathname === "/courierpilot/v1/market/cities") {
+    sendJson(request, response, 200, courierPilotMarketCities(), {
+      cacheControl: "public, max-age=300, stale-while-revalidate=900",
+    });
     return;
   }
 
