@@ -10,6 +10,7 @@ import { compactCitiesIndex, compactSnapshot, jsonText } from "./public-snapshot
 import { ingestCourierPilotTelemetry } from "./courierpilot-telemetry.mjs";
 import {
   courierPilotMarketCities,
+  courierPilotMarketHistory,
   courierPilotMarketProfile,
   ingestCourierPilotMarket,
 } from "./courierpilot-market.mjs";
@@ -73,7 +74,12 @@ async function handleRequest(request, response) {
   }
 
   if (request.method === "POST" && pathname === "/courierpilot/v1/market/offers") {
-    sendJson(request, response, 200, await ingestCourierPilotMarket(request));
+    sendJson(request, response, 200, await ingestCourierPilotMarket(request, { schema: 1 }));
+    return;
+  }
+
+  if (request.method === "POST" && pathname === "/courierpilot/v2/market/observations") {
+    sendJson(request, response, 200, await ingestCourierPilotMarket(request, { schema: 2 }));
     return;
   }
 
@@ -81,6 +87,16 @@ async function handleRequest(request, response) {
     sendJson(request, response, 200, courierPilotMarketProfile(url.searchParams), {
       cacheControl: "public, max-age=120, stale-while-revalidate=300",
     });
+    return;
+  }
+
+  if (request.method === "GET" && pathname === "/courierpilot/v2/market/profile") {
+    sendJson(request, response, 200, courierPilotMarketProfile(url.searchParams, Date.now(), { schema: 2 }), { cacheControl: "public, max-age=120" });
+    return;
+  }
+
+  if (request.method === "GET" && pathname === "/courierpilot/v2/market/history") {
+    sendJson(request, response, 200, courierPilotMarketHistory(url.searchParams), { cacheControl: "public, max-age=300" });
     return;
   }
 

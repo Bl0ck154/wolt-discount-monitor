@@ -39,8 +39,8 @@ test("market profile adapts to recent city payouts and reports trend", () => {
   assert.equal(profile.ready, true);
   assert.equal(profile.sampleCount, 70);
   assert.equal(profile.uniqueInstallations, 5);
-  assert.ok(profile.medianEurPerKm > 1.0);
-  assert.ok(profile.bandEdges[2] > 1.0, "dynamic OK threshold should move with the city market");
+  assert.ok(profile.medianNativeMoneyPerKm > 1.0);
+  assert.ok(profile.percentileEdges[2] > 1.0, "dynamic P65 should move with the city market");
   assert.equal(profile.trend?.direction, "up");
   assert.ok((profile.trend?.percent ?? 0) > 10);
 });
