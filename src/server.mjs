@@ -7,6 +7,7 @@ import { normalizeSnapshot } from "./normalize.mjs";
 import { fetchCityData, isSnapshotFresh } from "./wolt-api.mjs";
 import { fetchWoltCityCatalog } from "./wolt-cities.mjs";
 import { compactCitiesIndex, compactSnapshot, jsonText } from "./public-snapshot.mjs";
+import { ingestCourierPilotTelemetry } from "./courierpilot-telemetry.mjs";
 
 const HOST = process.env.WOLT_API_HOST ?? "127.0.0.1";
 const PORT = Number(process.env.PORT ?? process.env.WOLT_API_PORT ?? 3000);
@@ -47,6 +48,11 @@ async function handleRequest(request, response) {
       generatedAt: new Date().toISOString(),
       cacheTtlMs: CACHE_TTL_MS,
     });
+    return;
+  }
+
+  if (request.method === "POST" && pathname === "/courierpilot/v1/events") {
+    sendJson(request, response, 200, await ingestCourierPilotTelemetry(request));
     return;
   }
 
