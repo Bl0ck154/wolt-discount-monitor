@@ -74,7 +74,7 @@ async function handleRequest(request, response) {
   }
 
   if (request.method === "POST" && pathname === "/courierpilot/v1/market/offers") {
-    sendJson(request, response, 200, await ingestCourierPilotMarket(request));
+    sendJson(request, response, 200, await ingestCourierPilotMarket(request, { schema: 1 }));
     return;
   }
 
