@@ -223,7 +223,7 @@ export function computeMarketProfile(rows, now = Date.now()) {
 
 function normalizeOffer(offer, metadata) {
   if (!offer || typeof offer !== "object") return null;
-  const offerId = safeText(offer.id, 96);
+  const offerId = safeText(offer.id ?? offer.offer_id, 96);
   const capturedAt = safeInteger(offer.captured_at);
   const cityKey = normalizeCityKey(offer.city_key);
   const cityName = safeText(offer.city_name, 80);
@@ -232,7 +232,7 @@ function normalizeOffer(offer, metadata) {
   const currencyCode = normalizeCurrency(offer.currency_code ?? offer.currencyCode ?? (metadata.schema === 1 ? "EUR" : ""));
   const fractionDigits = safeInteger(offer.currency_fraction_digits ?? offer.currencyFractionDigits ?? (currencyCode === "EUR" ? 2 : -1));
   const priceCents = safeInteger(offer.price_minor ?? offer.priceMinor ?? offer.price_cents);
-  const routeDistanceM = safeInteger(offer.route_distance_m);
+  const routeDistanceM = safeInteger(offer.full_route_distance_m ?? offer.fullRouteDistanceM ?? offer.route_distance_m);
   const localHour = safeInteger(offer.local_hour);
   const localWeekday = safeInteger(offer.local_weekday);
   const deliveryCount = boundedInteger(offer.delivery_count, 1, 20, 1);
