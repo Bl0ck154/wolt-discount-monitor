@@ -428,19 +428,18 @@ function renderVenueGroup(group, index) {
     return main;
   }
 
-  const detailRows = group.rows
+  const additionalRows = group.rows.filter(({ venue }) => venue.id !== group.primary.venue.id);
+  const detailRows = additionalRows
     .map(({ venue, visibleOffers }, locationIndex) => renderGroupDetailRow(venue, visibleOffers, locationIndex + 1))
     .join("");
 
+  const locationLabel = additionalRows.length === 1 ? "1 more location" : `${additionalRows.length} more locations`;
   return `${main}
     <tr class="group-details-row">
-      <td></td>
-      <td colspan="6">
+      <td colspan="7">
         <details class="group-details">
-          <summary>▸ ${escapeHtml(group.rootName)} locations (${group.rows.length})</summary>
-          <table class="nested-table">
-            <tbody>${detailRows}</tbody>
-          </table>
+          <summary><span>${escapeHtml(group.rootName)}</span><strong>${escapeHtml(locationLabel)}</strong></summary>
+          <div class="group-location-list">${detailRows}</div>
         </details>
       </td>
     </tr>`;
@@ -486,19 +485,19 @@ function renderGroupDetailRow(venue, visibleOffers, index) {
   const mapUrl = mapLink(venue);
   const offers = visibleOffers.length
     ? visibleOffers.map((offer) => `<span class="offer ${offerClass(offer)}">${escapeHtml(offer.text)}</span>`).join("")
-    : "";
+    : `<span class="group-location-empty">No visible offer</span>`;
 
-  return `<tr>
-    <td class="nested-num">${index}</td>
-    <td>
+  return `<div class="group-location-card">
+    <div class="group-location-index">${index}</div>
+    <div class="group-location-main">
       <a class="venue-title" href="${escapeHtml(venue.link ?? "#")}" target="_blank" rel="noreferrer">${escapeHtml(venue.name)}</a>
       <div class="venue-meta">${escapeHtml([venue.address, venue.slug].filter(Boolean).join(" · "))}</div>
-    </td>
-    <td><div class="offer-list">${offers}</div></td>
-    <td class="amount">${escapeHtml(formatBestValue(best))}</td>
-    <td><span class="hours ${hours.className}">${escapeHtml(hours.icon)} ${escapeHtml(hours.text)}</span></td>
-    <td>${mapUrl ? `<a class="map-link" href="${escapeHtml(mapUrl)}" target="_blank" rel="noreferrer" title="Open in Google Maps">🗺️</a>` : "-"}</td>
-  </tr>`;
+    </div>
+    <div class="group-location-offers"><div class="offer-list">${offers}</div></div>
+    <div class="group-location-value"><span>Best</span><strong>${escapeHtml(formatBestValue(best))}</strong></div>
+    <div class="group-location-status"><span class="hours ${hours.className}">${escapeHtml(hours.icon)} ${escapeHtml(hours.text)}</span></div>
+    <div class="group-location-map">${mapUrl ? `<a class="map-link" href="${escapeHtml(mapUrl)}" target="_blank" rel="noreferrer" title="Open in Google Maps">Map ↗</a>` : `<span class="group-location-empty">—</span>`}</div>
+  </div>`;
 }
 
 function groupRows(rows) {
