@@ -240,6 +240,7 @@ async function tryProxyScrapeFallback(url, { headers, timeoutMs, options }) {
     },
     timeoutMs,
     proxyFetchImpl: options.proxyFetchImpl,
+    proxyAgentFactory: options.proxyScrapeProxyAgentFactory,
     proxyList: options.proxyScrapeList,
     sourceFetchImpl: options.proxyScrapeListFetchImpl ?? globalThis.fetch,
     listTimeoutMs: options.proxyScrapeListTimeoutMs,

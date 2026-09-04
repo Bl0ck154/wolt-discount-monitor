@@ -22,6 +22,7 @@ export async function fetchViaHealthyProxy(url, {
   headers = {},
   timeoutMs = 30_000,
   proxyFetchImpl,
+  proxyAgentFactory,
   proxyList,
   sourceFetchImpl = globalThis.fetch,
   listTimeoutMs,
@@ -77,8 +78,13 @@ export async function fetchViaHealthyProxy(url, {
     10 * 60_000,
   );
 
-  const { ProxyAgent, fetch: undiciFetch } = await getUndici();
-  const proxiedFetch = proxyFetchImpl ?? undiciFetch;
+  let proxiedFetch = proxyFetchImpl;
+  let createDispatcher = proxyAgentFactory;
+  if (!proxiedFetch || !createDispatcher) {
+    const { ProxyAgent, fetch: undiciFetch } = await getUndici();
+    proxiedFetch ??= undiciFetch;
+    createDispatcher ??= (proxy) => createProxyAgent(proxy, ProxyAgent);
+  }
   const attempted = new Set();
   let lastError;
 
@@ -87,7 +93,7 @@ export async function fetchViaHealthyProxy(url, {
     if (!proxy) break;
     attempted.add(proxy);
     const started = Date.now();
-    const dispatcher = createProxyAgent(proxy, ProxyAgent);
+    const dispatcher = createDispatcher(proxy);
     try {
       const response = await proxiedFetch(url, {
         headers,
