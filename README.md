@@ -175,7 +175,7 @@ Different cities refresh through a bounded worker pool rather than one global se
 
 Requests use timeouts and retry transient network failures, HTTP `429`, temporary invalid responses, and server-side `5xx` errors. Permanent client errors such as `404` are not retried.
 
-Direct VPS access is the primary transport. If `WOLT_PROXY_URL` is configured, direct `403`/`429` or network failures can automatically retry through that proxy. The proxy URL is a server secret and must never be committed.
+Direct VPS access is the primary transport. On direct `403`/`429`, timeout, or network failure the monitor can fall back in this order: an optional static `WOLT_PROXY_URL`, a rotating free ProxyScrape pool when `WOLT_PROXYSCRAPE_ENABLED=1`, then ScraperAPI when `SCRAPERAPI_API_KEY` is set. ProxyScrape candidates are refreshed and failed IPs are cooled down automatically. ScraperAPI is used only after cheaper fallbacks fail, so paid/free credits are conserved. Proxy credentials and API keys are server secrets and must never be committed.
 
 ## Optional live API
 
