@@ -74,7 +74,7 @@ WOLT_API_BETWEEN_ENDPOINTS_MS=1000
 
 Bind Node to loopback and publish HTTPS through a reverse proxy. Do not expose the Node port directly.
 
-Optional proxy fallback is configured only on the API/runner host with `WOLT_PROXY_URL=http://user:password@proxy-host:port` (HTTPS proxy URLs are also supported). Keep it in a root-only environment file or secret store, not in Git. Direct VPS requests remain primary; the proxy is tried only after direct `403`, `429`, timeout, or network failure.
+Optional transport fallbacks are configured only on the API/runner host. Direct VPS requests remain primary. After direct `403`, `429`, timeout, or network failure the order is: `WOLT_PROXY_URL` (if set), ProxyScrape (if `WOLT_PROXYSCRAPE_ENABLED=1`), then ScraperAPI (if `SCRAPERAPI_API_KEY` is set). ProxyScrape uses HTTPS-capable anonymous/elite HTTP proxies from its free API, refreshes the pool every 15 minutes by default, tries up to 8 candidates, and cools failed IPs for 10 minutes. Useful tuning variables are `WOLT_PROXYSCRAPE_MAX_TRIES`, `WOLT_PROXYSCRAPE_PROXY_TIMEOUT_MS`, `WOLT_PROXYSCRAPE_REFRESH_MS`, `WOLT_PROXYSCRAPE_LIMIT`, and `WOLT_PROXYSCRAPE_COUNTRY`. ScraperAPI forwards the original Wolt headers with `keep_headers=true`; optional `SCRAPERAPI_COUNTRY_CODE` selects a country. Keep `WOLT_PROXY_URL` credentials and `SCRAPERAPI_API_KEY` in a root-only environment file or secret store, never in Git.
 
 ## External scheduler
 
