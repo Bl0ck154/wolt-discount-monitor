@@ -60,11 +60,11 @@
   thead { display: none; }
   tbody > tr:not(.group-details-row) {
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr) auto;
     grid-template-areas:
-      "venue venue best"
-      "offers offers offers"
-      "type status map";
+      "venue map"
+      "offers offers"
+      "status best";
     gap: 8px 10px;
     margin-bottom: 8px;
     padding: 11px;
@@ -81,11 +81,10 @@
   }
   tbody > tr:not(.group-details-row) > td:nth-child(1) { display: none; }
   tbody > tr:not(.group-details-row) > td:nth-child(2) { grid-area: venue; }
-  tbody > tr:not(.group-details-row) > td:nth-child(3) { grid-area: type; align-self: center; }
-  tbody > tr:not(.group-details-row) > td:nth-child(4) { grid-area: offers; }
-  tbody > tr:not(.group-details-row) > td:nth-child(5) { grid-area: best; align-self: start; justify-self: end; }
-  tbody > tr:not(.group-details-row) > td:nth-child(6) { grid-area: status; align-self: center; justify-self: end; }
-  tbody > tr:not(.group-details-row) > td:nth-child(7) { grid-area: map; display: flex; justify-content: flex-end; }
+  tbody > tr:not(.group-details-row) > td:nth-child(3) { grid-area: offers; }
+  tbody > tr:not(.group-details-row) > td:nth-child(4) { grid-area: best; align-self: end; justify-self: end; }
+  tbody > tr:not(.group-details-row) > td:nth-child(5) { grid-area: status; align-self: end; justify-self: start; text-align: left; }
+  tbody > tr:not(.group-details-row) > td:nth-child(6) { grid-area: map; display: flex; justify-content: flex-end; align-self: start; }
   tbody > tr:not(.group-details-row) > td.empty { display: block; grid-column: 1 / -1; padding: 26px 10px !important; }
 
   .venue-cell { min-width: 0; grid-template-columns: 46px minmax(0, 1fr); gap: 9px; align-items: start; }
@@ -101,6 +100,8 @@
     -webkit-line-clamp: 2;
   }
   .venue-title::after { content: " ↗"; color: var(--accent-dark); font-size: .85em; }
+  .venue-heading { align-items: center; gap: 5px; }
+  .venue-type-inline { font-size: 8px; color: #98a3a8; }
   .venue-meta {
     display: -webkit-box;
     max-width: 100%;
@@ -125,6 +126,11 @@
     font-size: 14px !important;
     line-height: 1.05;
   }
+  .amount-percent {
+    color: #922351;
+    background: #fff1f7;
+    border-color: #efcade;
+  }
   .map-link { width: 26px; height: 26px; padding: 0; font-size: 14px; }
 
   .group-details-row { display: block; margin: -5px 0 8px; }
@@ -136,17 +142,17 @@
     padding: 10px;
     grid-template-columns: minmax(0, 1fr) auto;
     grid-template-areas:
-      "main value"
+      "main map"
       "offers offers"
-      "status map";
+      "status value";
     gap: 8px 10px;
   }
   .group-location-index { display: none; }
   .group-location-main { grid-area: main; }
   .group-location-offers { grid-area: offers; }
-  .group-location-value { grid-area: value; justify-self: end; align-self: start; }
-  .group-location-status { grid-area: status; align-self: center; }
-  .group-location-map { grid-area: map; justify-self: end; align-self: center; }
+  .group-location-value { grid-area: value; justify-self: end; align-self: end; }
+  .group-location-status { grid-area: status; align-self: end; justify-self: start; text-align: left; }
+  .group-location-map { grid-area: map; justify-self: end; align-self: start; }
   .group-location-main .venue-title { font-size: 12.5px; }
   .group-location-value strong { font-size: 13px; }
 
