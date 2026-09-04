@@ -1316,7 +1316,7 @@ function isCityIndexStale(city) {
 
 function apiDisabledMessage(city) {
   const label = city.label ?? city.name;
-  return `No cached discount data yet for ${label}. Enable a live API backend with window.WOLT_API_BASE_URL or ?api=https://your-api-domain to fetch this city on demand.`;
+  return `No recent discount snapshot is cached for ${label} yet. Try another city or check back after this city has been refreshed.`;
 }
 
 function rememberCitySnapshot(city, snapshot) {

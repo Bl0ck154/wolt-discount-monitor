@@ -1,141 +1,61 @@
 @media (max-width: 760px) {
-  .topbar {
-    position: sticky;
-    top: 0;
-  }
+  body { font-size: 15px; }
+  .shell { width: calc(100% - 18px); }
 
-  .topbar-inner {
-    width: calc(100% - 16px);
-    min-height: 0;
-    grid-template-columns: auto minmax(0, 1fr);
-    gap: 7px 10px;
-    padding: 8px 0;
-  }
+  .topbar { position: sticky; }
+  .topbar-inner { min-height: 64px; }
+  .brand-mark { width: 34px; height: 34px; border-radius: 10px; font-size: 18px; }
+  .brand-copy strong { font-size: 13px; }
+  .brand-copy small { display: none; }
+  .topnav { gap: 0; }
+  .topnav a { display: none; }
+  .topnav a:last-child { display: inline-flex; padding: 8px 10px; font-size: 12px; }
 
-  .brand {
-    grid-column: 1;
-    min-width: 0;
-    font-size: 13px;
-  }
-
-  .brand-mark {
-    width: 30px;
-    height: 30px;
-    border-radius: 8px;
-    font-size: 16px;
-  }
-
-  .summary-strip {
-    grid-column: 2;
-    grid-row: 1;
-    justify-content: flex-end;
-    gap: 4px;
-    overflow: hidden;
-    font-size: 9px;
-  }
-
-  .summary-strip > span {
-    flex: 0 0 auto;
-    padding: 4px 6px;
-  }
-
-  .current-city,
-  .updated {
-    display: none;
-  }
-
-  .city-area {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    grid-template-columns: minmax(0, 1fr) 40px;
-    gap: 6px;
-  }
-
-  .city-picker input {
-    height: 40px;
-    font-size: 13px;
-  }
-
-  .location-map-link {
-    width: 40px;
-    height: 40px;
-    border: 1px solid #d6e8ec;
-    border-radius: 10px;
-  }
-
-  .city-options {
-    max-height: min(55vh, 360px);
-  }
-
-  main {
+  .hero {
     width: calc(100% - 12px);
-    margin-top: 7px;
+    margin-top: 6px;
+    padding: 30px 18px 18px;
+    gap: 26px;
+    border-radius: 22px;
   }
+  .hero h1 { margin: 14px 0 14px; font-size: clamp(38px, 12vw, 54px); line-height: .98; }
+  .hero-lead { font-size: 16px; line-height: 1.55; }
+  .hero-points { margin-top: 19px; gap: 6px; }
+  .hero-points span { padding: 7px 9px; font-size: 11px; }
 
-  .toolbar {
-    position: static;
-    margin-bottom: 8px;
-    padding: 8px;
-    border-radius: 11px;
-    box-shadow: none;
+  .city-console { padding: 16px; border-radius: 18px; }
+  .console-heading { margin-bottom: 12px; }
+  .console-heading strong { font-size: 17px; }
+  .location-map-link { min-width: 66px; height: 36px; padding: 0 10px; }
+  .city-picker input { height: 50px; font-size: 14px; }
+  .summary-card { padding: 11px 12px; }
+  .summary-card strong { font-size: 18px; }
+  .summary-card-wide strong { font-size: 11px; }
+
+  .explorer {
+    width: calc(100% - 12px);
+    margin-top: 12px;
+    padding: 16px 10px 12px;
+    border-radius: 20px;
   }
+  .section-heading { margin-bottom: 14px; padding-inline: 4px; display: block; }
+  .section-heading h2 { font-size: 29px; }
+  .section-heading p { font-size: 13px; }
+  .shown-count { max-width: none; margin-top: 9px; text-align: left; }
 
-  .toolbar-main {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 7px;
-  }
+  .toolbar { position: static; margin-bottom: 8px; padding: 9px; border-radius: 14px; }
+  .toolbar-main { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 7px; }
+  .search-field { grid-column: 1 / -1; }
+  .search-field > span, .select-field > span { margin-bottom: 4px; font-size: 9px; }
+  input, select { height: 43px; font-size: 13px; }
+  .toolbar-secondary { align-items: stretch; flex-direction: column; gap: 7px; }
+  .toggles { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .toggle { width: 100%; min-height: 38px; padding: 5px 8px; border-radius: 10px; font-size: 10px; line-height: 1.2; }
+  .hidden-offers { display: none; }
 
-  .search-field {
-    grid-column: 1 / -1;
-  }
-
-  .toolbar-secondary {
-    margin-top: 7px;
-    align-items: stretch;
-    flex-direction: column;
-    gap: 7px;
-  }
-
-  .toggles {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6px;
-  }
-
-  .toggle {
-    width: 100%;
-    min-height: 34px;
-    padding: 5px 8px;
-    border-radius: 9px;
-    line-height: 1.2;
-  }
-
-  .toggle span {
-    min-width: 0;
-  }
-
-  .hidden-offers {
-    display: none;
-  }
-
-  .shown-count {
-    margin-left: 0;
-    overflow-wrap: anywhere;
-    text-align: left;
-    line-height: 1.35;
-  }
-
-  table,
-  thead,
-  tbody {
-    display: block;
-    width: 100%;
-  }
-
-  thead {
-    display: none;
-  }
-
+  .table-shell { overflow: visible; }
+  table, thead, tbody { display: block; width: 100%; min-width: 0; }
+  thead { display: none; }
   tbody > tr:not(.group-details-row) {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
@@ -144,191 +64,76 @@
       "offers offers"
       "type status"
       "map map";
-    gap: 9px 10px;
-    margin-bottom: 8px;
-    padding: 12px;
+    gap: 10px;
+    margin-bottom: 9px;
+    padding: 13px;
     background: #fff;
     border: 1px solid var(--line);
-    border-radius: 13px;
-    box-shadow: 0 2px 8px rgba(24, 49, 59, .035);
+    border-radius: 15px;
+    box-shadow: 0 4px 14px rgba(7, 31, 39, .04);
   }
-
   tbody > tr:not(.group-details-row) > td {
     min-width: 0;
     padding: 0;
     background: transparent !important;
     border: 0 !important;
     border-radius: 0 !important;
+    font-size: 13px;
   }
+  tbody > tr:not(.group-details-row) > td:nth-child(1) { display: none; }
+  tbody > tr:not(.group-details-row) > td:nth-child(2) { grid-area: venue; }
+  tbody > tr:not(.group-details-row) > td:nth-child(3) { grid-area: type; align-self: center; }
+  tbody > tr:not(.group-details-row) > td:nth-child(4) { grid-area: offers; }
+  tbody > tr:not(.group-details-row) > td:nth-child(5) { grid-area: best; align-self: start; justify-self: end; }
+  tbody > tr:not(.group-details-row) > td:nth-child(6) { grid-area: status; align-self: center; justify-self: end; }
+  tbody > tr:not(.group-details-row) > td:nth-child(7) { grid-area: map; display: flex; justify-content: flex-end; }
+  tbody > tr:not(.group-details-row) > td.empty { display: block; grid-column: 1 / -1; padding: 28px 12px !important; }
 
-  tbody > tr:not(.group-details-row) > td:nth-child(1) {
-    display: none;
-  }
-
-  tbody > tr:not(.group-details-row) > td:nth-child(2) {
-    grid-area: venue;
-  }
-
-  tbody > tr:not(.group-details-row) > td:nth-child(3) {
-    grid-area: type;
-    align-self: center;
-  }
-
-  tbody > tr:not(.group-details-row) > td:nth-child(4) {
-    grid-area: offers;
-    min-width: 0;
-  }
-
-  tbody > tr:not(.group-details-row) > td:nth-child(5) {
-    grid-area: best;
-    align-self: start;
-    justify-self: end;
-    text-align: right;
-  }
-
-  tbody > tr:not(.group-details-row) > td:nth-child(6) {
-    grid-area: status;
-    align-self: center;
-    justify-self: end;
-    text-align: right;
-  }
-
-  tbody > tr:not(.group-details-row) > td:nth-child(7) {
-    grid-area: map;
-    display: flex;
-    min-height: 32px;
-    justify-content: flex-end;
-    align-items: center;
-    color: var(--muted);
-  }
-
-  tbody > tr:not(.group-details-row) > td.empty {
-    display: block;
-    grid-column: 1 / -1;
-    padding: 24px 12px !important;
-  }
-
-  .venue-cell {
-    min-width: 0;
-    grid-template-columns: 48px minmax(0, 1fr);
-    gap: 10px;
-    align-items: start;
-  }
-
-  .venue-image {
-    width: 48px;
-    height: 48px;
-    border-radius: 10px;
-  }
-
+  .venue-cell { min-width: 0; grid-template-columns: 54px minmax(0, 1fr); gap: 11px; align-items: start; }
+  .venue-image { width: 54px; height: 54px; border-radius: 12px; }
   .venue-title {
     display: -webkit-box;
     overflow: hidden;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.25;
     text-overflow: clip;
     white-space: normal;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
   }
-
-  .venue-title::after {
-    content: " ↗";
-    color: var(--brand-dark);
-    font-size: .9em;
-  }
-
+  .venue-title::after { content: " ↗"; color: var(--brand-dark); font-size: .9em; }
   .venue-meta {
     display: -webkit-box;
     max-width: 100%;
     margin-top: 4px;
     overflow: hidden;
-    font-size: 10px;
+    font-size: 11px;
     line-height: 1.35;
     text-overflow: clip;
     white-space: normal;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
   }
-
-  .pill {
-    min-height: 24px;
-    padding: 0 8px;
-  }
-
-  .offer-list {
-    min-width: 0;
-    gap: 6px;
-  }
-
-  .offer {
-    max-width: 100%;
-    min-height: 27px;
-    padding: 4px 8px;
-    overflow-wrap: anywhere;
-    white-space: normal;
-  }
-
+  .offer-list { min-width: 0; gap: 6px; }
+  .offer { max-width: 100%; min-height: 29px; padding: 4px 8px; overflow-wrap: anywhere; white-space: normal; }
   .amount {
     min-width: 0;
-    padding: 5px 8px;
-    color: #c64f00;
-    background: #fff3e8;
-    border: 1px solid #f2d6bf;
-    border-radius: 9px;
-    font-size: 15px !important;
-    line-height: 1.05;
-  }
-
-  .hours {
-    min-height: 24px;
-  }
-
-  .map-link {
-    width: auto;
-    min-width: 64px;
-    height: 32px;
-    padding: 0 10px;
-    display: inline-grid;
-    font-size: 0;
-    border-radius: 8px;
-  }
-
-  .map-link::before {
-    content: "Map ↗";
-    color: var(--brand-dark);
-    font-size: 11px;
-    font-weight: 800;
-  }
-
-  .group-details-row {
-    display: block;
-    margin: -5px 0 8px;
-  }
-
-  .group-details-row > td {
-    display: block;
-    padding: 0;
-  }
-
-  .group-details {
-    padding: 7px;
-    border-top: 1px solid var(--line);
+    padding: 7px 9px;
+    color: #9b4800;
+    background: var(--warning-soft);
+    border: 1px solid #f1d6b7;
     border-radius: 10px;
+    font-size: 16px !important;
+    line-height: 1;
   }
+  .map-link { width: auto; min-width: 74px; height: 34px; padding: 0 10px; display: inline-grid; font-size: 0; }
+  .map-link::before { content: "Map ↗"; color: var(--brand-dark); font-size: 11px; font-weight: 850; }
 
-  .group-details summary {
-    width: 100%;
-    padding: 2px 2px 5px;
-    line-height: 1.35;
-  }
-
-  .nested-table,
-  .nested-table tbody {
-    display: block;
-    width: 100%;
-  }
-
+  .group-details-row { display: block; margin: -6px 0 9px; }
+  .group-details-row > td { display: block; padding: 0; }
+  .group-details { padding: 8px; border-top: 1px solid var(--line); border-radius: 12px; }
+  .group-details summary { width: 100%; padding: 3px 2px 6px; line-height: 1.35; }
+  .nested-table, .nested-table tbody { display: block; width: 100%; min-width: 0; }
   .nested-table tr {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
@@ -336,120 +141,48 @@
       "venue best"
       "offers offers"
       "status map";
-    gap: 7px 8px;
+    gap: 8px;
     margin-top: 7px;
-    padding: 9px;
+    padding: 10px;
     background: #fff;
     border: 1px solid var(--line);
-    border-radius: 9px;
+    border-radius: 10px;
   }
+  .nested-table td { min-width: 0; padding: 0; background: transparent; border: 0 !important; border-radius: 0 !important; }
+  .nested-table td:nth-child(1) { display: none; }
+  .nested-table td:nth-child(2) { grid-area: venue; }
+  .nested-table td:nth-child(3) { grid-area: offers; }
+  .nested-table td:nth-child(4) { grid-area: best; justify-self: end; }
+  .nested-table td:nth-child(5) { grid-area: status; }
+  .nested-table td:nth-child(6) { grid-area: map; justify-self: end; }
 
-  .nested-table td {
-    min-width: 0;
-    padding: 0;
-    background: transparent;
-    border: 0 !important;
-    border-radius: 0 !important;
-  }
+  .content-section { width: calc(100% - 12px); margin-top: 12px; padding: 22px 15px; border-radius: 20px; }
+  .city-link-grid { grid-template-columns: 1fr; }
+  .feature-grid { grid-template-columns: 1fr; }
+  .feature-card { min-height: 0; padding: 20px; }
+  .feature-card h3 { margin-top: 14px; }
+  .faq-list details { padding: 0 14px; }
 
-  .nested-table td:nth-child(1) {
-    display: none;
-  }
+  .footer-inner { min-height: 130px; padding-block: 24px; align-items: flex-start; flex-direction: column; justify-content: center; gap: 14px; }
+  .footer-links { gap: 14px; }
 
-  .nested-table td:nth-child(2) {
-    grid-area: venue;
-  }
-
-  .nested-table td:nth-child(3) {
-    grid-area: offers;
-  }
-
-  .nested-table td:nth-child(4) {
-    grid-area: best;
-    justify-self: end;
-  }
-
-  .nested-table td:nth-child(5) {
-    grid-area: status;
-    align-self: center;
-  }
-
-  .nested-table td:nth-child(6) {
-    grid-area: map;
-    justify-self: end;
-  }
-
-  .site-footer {
-    width: calc(100% - 16px);
-    padding-bottom: 18px;
-    flex-direction: column;
-    gap: 5px;
-    line-height: 1.4;
-  }
+  .landing-hero { width: calc(100% - 12px); margin-top: 6px; padding: 30px 20px; border-radius: 22px; }
+  .landing-hero h1 { font-size: 40px; }
+  .landing-hero p { font-size: 15px; }
+  .landing-stats { width: calc(100% - 12px); grid-template-columns: 1fr; }
+  .landing-section { width: calc(100% - 12px); padding: 20px 16px; border-radius: 18px; }
+  .deal-grid { grid-template-columns: 1fr; }
+  .city-directory { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 430px) {
-  .topbar-inner {
-    width: calc(100% - 12px);
-  }
-
-  .brand {
-    gap: 7px;
-    font-size: 12px;
-  }
-
-  .brand-mark {
-    width: 28px;
-    height: 28px;
-    font-size: 15px;
-  }
-
-  .summary-strip {
-    gap: 3px;
-    font-size: 8.5px;
-  }
-
-  .summary-strip > span {
-    padding: 4px 5px;
-  }
-
-  main {
-    width: calc(100% - 8px);
-  }
-
-  .toolbar {
-    padding: 7px;
-  }
-
-  .toolbar-main {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 6px;
-  }
-
-  .toggles {
-    grid-template-columns: 1fr;
-  }
-
-  tbody > tr:not(.group-details-row) {
-    padding: 10px;
-    gap: 8px;
-  }
-
-  .venue-cell {
-    grid-template-columns: 44px minmax(0, 1fr);
-    gap: 9px;
-  }
-
-  .venue-image {
-    width: 44px;
-    height: 44px;
-  }
-
-  .venue-title {
-    font-size: 13px;
-  }
-
-  .amount {
-    font-size: 14px !important;
-  }
+  .hero h1 { font-size: 38px; }
+  .hero-points { display: grid; }
+  .summary-grid { grid-template-columns: 1fr 1fr; }
+  .toolbar-main { grid-template-columns: 1fr; }
+  .search-field { grid-column: auto; }
+  .toggles { grid-template-columns: 1fr; }
+  .venue-cell { grid-template-columns: 48px minmax(0, 1fr); }
+  .venue-image { width: 48px; height: 48px; }
+  .landing-actions { display: grid; }
 }

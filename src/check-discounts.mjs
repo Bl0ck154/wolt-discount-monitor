@@ -7,6 +7,7 @@ import { fetchWoltCityCatalog } from "./wolt-cities.mjs";
 import { normalizeSnapshot } from "./normalize.mjs";
 import { formatTelegramMessage, sendTelegramMessage } from "./telegram.mjs";
 import { offerScore, sortOffersByValue } from "./offer-value.mjs";
+import { buildSeoSite } from "./build-seo-site.mjs";
 import {
   compactChangeLog,
   compactChangesDocument,
@@ -33,8 +34,9 @@ async function main() {
 
   await writeCatalog(catalog);
   await writeCitiesIndex(catalog, results);
+  const seo = await buildSeoSite();
 
-  console.log(JSON.stringify({ checkedAt: new Date().toISOString(), cacheTtlMs: CACHE_TTL_MS, cities: results }, null, 2));
+  console.log(JSON.stringify({ checkedAt: new Date().toISOString(), cacheTtlMs: CACHE_TTL_MS, cities: results, seo }, null, 2));
 }
 
 async function checkCity(city) {

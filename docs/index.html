@@ -3,132 +3,311 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Find and compare current Wolt promotions by city, venue, opening status, and estimated deal value." />
-    <meta name="theme-color" content="#f4f7f8" />
-    <meta property="og:title" content="Wolt Discount Monitor" />
-    <meta property="og:description" content="Browse current Wolt promotions and compare worthwhile deals by city." />
+    <title>Wolt Discounts & Deals by City | Wolt Discount Monitor</title>
+    <meta name="description" content="Compare current Wolt discounts, restaurant deals and grocery promotions by city. Rank offers by estimated value and find worthwhile Wolt deals faster." />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <meta name="theme-color" content="#07161b" />
+    <meta name="application-name" content="Wolt Discount Monitor" />
+    <link rel="canonical" href="https://bl0ck154.github.io/wolt-discount-monitor/" />
+    <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+    <link rel="sitemap" type="application/xml" href="sitemap.xml" />
+
+    <meta property="og:site_name" content="Wolt Discount Monitor" />
+    <meta property="og:title" content="Wolt Discounts & Deals by City" />
+    <meta property="og:description" content="Compare current Wolt promotions, rank deals by estimated value and find worthwhile discounts faster." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://bl0ck154.github.io/wolt-discount-monitor/" />
-    <title>Wolt Discount Monitor</title>
+    <meta property="og:image" content="https://bl0ck154.github.io/wolt-discount-monitor/assets/og-card.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Wolt Discount Monitor — live Wolt deals ranked by value" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Wolt Discounts & Deals by City" />
+    <meta name="twitter:description" content="Compare current Wolt promotions and find the best-value deals faster." />
+    <meta name="twitter:image" content="https://bl0ck154.github.io/wolt-discount-monitor/assets/og-card.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://bl0ck154.github.io/wolt-discount-monitor/#website",
+            "url": "https://bl0ck154.github.io/wolt-discount-monitor/",
+            "name": "Wolt Discount Monitor",
+            "description": "A public dashboard for comparing current Wolt promotions by city and estimated deal value.",
+            "inLanguage": "en"
+          },
+          {
+            "@type": "WebApplication",
+            "@id": "https://bl0ck154.github.io/wolt-discount-monitor/#app",
+            "name": "Wolt Discount Monitor",
+            "url": "https://bl0ck154.github.io/wolt-discount-monitor/",
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "Any",
+            "isAccessibleForFree": true,
+            "description": "Search, filter and rank Wolt discounts across restaurants, grocery stores and other venues.",
+            "codeRepository": "https://github.com/Bl0ck154/wolt-discount-monitor",
+            "isPartOf": { "@id": "https://bl0ck154.github.io/wolt-discount-monitor/#website" }
+          },
+          {
+            "@type": "Dataset",
+            "@id": "https://bl0ck154.github.io/wolt-discount-monitor/#dataset",
+            "name": "Wolt Discount Monitor public promotion snapshots",
+            "description": "Machine-readable city index and compact public promotion snapshots used by the Wolt Discount Monitor dashboard.",
+            "url": "https://bl0ck154.github.io/wolt-discount-monitor/",
+            "license": "https://github.com/Bl0ck154/wolt-discount-monitor/blob/main/LICENSE",
+            "distribution": [
+              {
+                "@type": "DataDownload",
+                "encodingFormat": "application/json",
+                "contentUrl": "https://bl0ck154.github.io/wolt-discount-monitor/data/cities.json"
+              },
+              {
+                "@type": "DataDownload",
+                "encodingFormat": "application/json",
+                "contentUrl": "https://bl0ck154.github.io/wolt-discount-monitor/data/latest.json"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="mobile.css" />
   </head>
   <body>
     <header class="topbar">
-      <div class="topbar-inner">
+      <div class="shell topbar-inner">
         <a class="brand" href="./" aria-label="Wolt Discount Monitor home">
           <span class="brand-mark" aria-hidden="true">%</span>
-          <span>Wolt Discount Monitor</span>
+          <span class="brand-copy">
+            <strong>Wolt Discount Monitor</strong>
+            <small>Independent deal tracker</small>
+          </span>
         </a>
 
-        <div class="city-area">
-          <div class="city-picker" id="cityPicker">
-            <span class="search-icon" aria-hidden="true"></span>
-            <input
-              id="citySearch"
-              type="search"
-              autocomplete="off"
-              role="combobox"
-              aria-expanded="false"
-              aria-controls="cityOptions"
-              placeholder="Search city or country..."
-            />
-            <div class="city-options" id="cityOptions" role="listbox" hidden></div>
-          </div>
-          <a
-            class="location-map-link"
-            id="cityMapLink"
-            href="#"
-            target="_blank"
-            rel="noreferrer"
-            title="Open city coordinates in Maps"
-            aria-label="Open city coordinates in Maps"
-          >↗</a>
-        </div>
-
-        <div class="summary-strip" aria-label="Current city summary">
-          <span class="current-city" id="cityLabel">Loading city...</span>
-          <span><strong id="promoCount">-</strong> promo</span>
-          <span><strong id="restaurantCount">-</strong> restaurants</span>
-          <span class="updated"><strong id="updatedAt">-</strong></span>
-        </div>
+        <nav class="topnav" aria-label="Primary navigation">
+          <a href="#deals">Deals</a>
+          <a href="#live-cities">Cities</a>
+          <a href="#how-it-works">How it works</a>
+          <a href="https://github.com/Bl0ck154/wolt-discount-monitor" target="_blank" rel="noreferrer">GitHub ↗</a>
+        </nav>
       </div>
     </header>
 
     <main>
-      <section class="toolbar" aria-label="Deal filters">
-        <div class="toolbar-main">
-          <label class="search-field">
-            <span class="visually-hidden">Search deals</span>
-            <div class="input-shell">
-              <span class="search-icon" aria-hidden="true"></span>
-              <input id="searchInput" type="search" placeholder="Search restaurant, offer or address..." />
-            </div>
-          </label>
-
-          <label class="select-field">
-            <span>Type</span>
-            <select id="productFilter"></select>
-          </label>
-
-          <label class="select-field">
-            <span>Sort</span>
-            <select id="sortSelect">
-              <option value="best-desc">Best discount</option>
-              <option value="best-asc">Worst discount</option>
-              <option value="name-asc">Name A-Z</option>
-              <option value="name-desc">Name Z-A</option>
-              <option value="type-asc">Type</option>
-              <option value="type-desc">Type desc</option>
-              <option value="hours-asc">Open first</option>
-              <option value="hours-desc">Closed first</option>
-            </select>
-          </label>
+      <section class="hero shell" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="live-dot" aria-hidden="true"></span> Independent Wolt promotion tracker</span>
+          <h1 id="page-title">Find the best Wolt deals <span>without digging through the app.</span></h1>
+          <p class="hero-lead">Compare current restaurant, grocery and store promotions in one place. We normalize noisy offer text, estimate deal value and put the strongest discounts first.</p>
+          <div class="hero-points" aria-label="Key features">
+            <span>Value-ranked deals</span>
+            <span>City-by-city search</span>
+            <span>Hourly cache for monitored cities</span>
+          </div>
         </div>
 
-        <div class="toolbar-secondary">
-          <div class="toggles" aria-label="Offer visibility">
-            <label class="toggle">
-              <input id="hideNewUserDelivery" type="checkbox" checked />
-              <span>Hide repeated citywide offers</span>
-            </label>
-            <label class="toggle">
-              <input id="hideDeliveryDiscounts" type="checkbox" checked />
-              <span>Hide delivery discounts</span>
-            </label>
-            <span class="hidden-offers" id="hiddenCitywideOffers"></span>
+        <div class="city-console" aria-label="Choose a Wolt city">
+          <div class="console-heading">
+            <div>
+              <span class="console-kicker">Explore a city</span>
+              <strong id="cityLabel">Loading city...</strong>
+            </div>
+            <a class="location-map-link" id="cityMapLink" href="#" target="_blank" rel="noreferrer" title="Open city coordinates in Maps" aria-label="Open city coordinates in Maps">Map ↗</a>
           </div>
-          <span class="shown-count" id="shownCount">-</span>
+
+          <div class="city-area">
+            <div class="city-picker" id="cityPicker">
+              <span class="search-icon" aria-hidden="true"></span>
+              <input id="citySearch" type="search" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="cityOptions" aria-label="Search Wolt city or country" placeholder="Search city or country..." />
+              <div class="city-options" id="cityOptions" role="listbox" hidden></div>
+            </div>
+          </div>
+
+          <div class="summary-grid" aria-label="Current city summary">
+            <div class="summary-card">
+              <span>Promoted venues</span>
+              <strong id="promoCount">—</strong>
+            </div>
+            <div class="summary-card">
+              <span>Restaurants</span>
+              <strong id="restaurantCount">—</strong>
+            </div>
+            <div class="summary-card summary-card-wide">
+              <span>Snapshot updated</span>
+              <strong id="updatedAt">—</strong>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section class="results" aria-label="Venues">
-        <table>
-          <thead>
-            <tr>
-              <th class="num-col"><button class="sort-header" data-sort-key="rank">#</button></th>
-              <th><button class="sort-header" data-sort-key="name">Venue</button></th>
-              <th><button class="sort-header" data-sort-key="type">Type</button></th>
-              <th>Offers</th>
-              <th><button class="sort-header" data-sort-key="best">Best</button></th>
-              <th><button class="sort-header" data-sort-key="hours">Status</button></th>
-              <th>Map</th>
-            </tr>
-          </thead>
-          <tbody id="venueRows">
-            <tr>
-              <td colspan="7" class="empty">Loading deals...</td>
-            </tr>
-          </tbody>
-        </table>
+      <section class="explorer shell" id="deals" aria-labelledby="deals-title">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Live explorer</span>
+            <h2 id="deals-title">Deals worth looking at</h2>
+            <p>Search venues and offers, filter by category, or sort by our estimated value score.</p>
+          </div>
+          <span class="shown-count" id="shownCount">Loading deals…</span>
+        </div>
+
+        <div class="toolbar" aria-label="Deal filters">
+          <div class="toolbar-main">
+            <label class="search-field">
+              <span>Search deals</span>
+              <div class="input-shell">
+                <span class="search-icon" aria-hidden="true"></span>
+                <input id="searchInput" type="search" placeholder="Restaurant, offer or address..." />
+              </div>
+            </label>
+
+            <label class="select-field">
+              <span>Type</span>
+              <select id="productFilter" aria-label="Filter by venue type"></select>
+            </label>
+
+            <label class="select-field">
+              <span>Sort</span>
+              <select id="sortSelect" aria-label="Sort deals">
+                <option value="best-desc">Best discount</option>
+                <option value="best-asc">Worst discount</option>
+                <option value="name-asc">Name A–Z</option>
+                <option value="name-desc">Name Z–A</option>
+                <option value="type-asc">Type</option>
+                <option value="type-desc">Type desc</option>
+                <option value="hours-asc">Open first</option>
+                <option value="hours-desc">Closed first</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="toolbar-secondary">
+            <div class="toggles" aria-label="Offer visibility">
+              <label class="toggle">
+                <input id="hideNewUserDelivery" type="checkbox" checked />
+                <span>Hide repeated citywide offers</span>
+              </label>
+              <label class="toggle">
+                <input id="hideDeliveryDiscounts" type="checkbox" checked />
+                <span>Hide delivery discounts</span>
+              </label>
+            </div>
+            <span class="hidden-offers" id="hiddenCitywideOffers"></span>
+          </div>
+        </div>
+
+        <section class="results" aria-label="Wolt venues and promotions">
+          <div class="table-shell">
+            <table>
+              <thead>
+                <tr>
+                  <th class="num-col"><button class="sort-header" data-sort-key="rank" aria-label="Sort by rank">#</button></th>
+                  <th><button class="sort-header" data-sort-key="name">Venue</button></th>
+                  <th><button class="sort-header" data-sort-key="type">Type</button></th>
+                  <th>Current offers</th>
+                  <th><button class="sort-header" data-sort-key="best">Best value</button></th>
+                  <th><button class="sort-header" data-sort-key="hours">Status</button></th>
+                  <th>Map</th>
+                </tr>
+              </thead>
+              <tbody id="venueRows">
+                <tr><td colspan="7" class="empty">Loading current deals…</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+
+      <section class="content-section shell" id="live-cities" aria-labelledby="cities-title">
+        <div class="section-heading section-heading-compact">
+          <div>
+            <span class="eyebrow">Search-friendly city pages</span>
+            <h2 id="cities-title">Live Wolt deal pages</h2>
+            <p>These pages have a recent stored snapshot, unique metadata and crawlable deal content. More cities appear automatically when fresh data becomes available.</p>
+          </div>
+        </div>
+        <!-- GENERATED_LIVE_CITIES_START -->
+        <div class="city-link-grid">
+          <a class="city-link-card" href="cities/ltu/vilnius/"><span>Vilnius, Lithuania</span><strong>1,355 promoted venues · View deals →</strong></a>
+        </div>
+        <!-- GENERATED_LIVE_CITIES_END -->
+        <div class="section-cta"><a href="cities/">Browse the complete city directory →</a></div>
+      </section>
+
+      <section class="content-section shell" id="how-it-works" aria-labelledby="how-title">
+        <div class="section-heading section-heading-compact">
+          <div>
+            <span class="eyebrow">Less noise, better comparisons</span>
+            <h2 id="how-title">How the monitor works</h2>
+            <p>Wolt promotions are not all equally useful. The monitor turns raw promotion data into a cleaner comparison layer.</p>
+          </div>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span class="feature-number">01</span>
+            <h3>Collect</h3>
+            <p>We read public Wolt venue and promotion data for monitored cities and keep a compact snapshot.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-number">02</span>
+            <h3>Normalize</h3>
+            <p>Percentage discounts, basket discounts, multibuy offers and delivery promos are classified into comparable fields.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-number">03</span>
+            <h3>Rank</h3>
+            <p>A value score favors broad, meaningful discounts and demotes weaker or highly conditional offers.</p>
+          </article>
+        </div>
+        <div class="section-cta"><a href="methodology/">Read the full ranking methodology →</a></div>
+      </section>
+
+      <section class="content-section shell faq-section" aria-labelledby="faq-title">
+        <div class="section-heading section-heading-compact">
+          <div>
+            <span class="eyebrow">FAQ</span>
+            <h2 id="faq-title">About the data</h2>
+          </div>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>Is this an official Wolt website?</summary>
+            <p>No. Wolt Discount Monitor is an independent, open-source project and is not affiliated with or endorsed by Wolt.</p>
+          </details>
+          <details>
+            <summary>How fresh are the deals?</summary>
+            <p>Monitored city snapshots use a one-hour cache. The exact snapshot time is shown above. If a city is not actively monitored, its data can be older or unavailable.</p>
+          </details>
+          <details>
+            <summary>What does “best value” mean?</summary>
+            <p>It is an estimate used for sorting, not a guarantee of savings. The score considers discount size, minimum-spend conditions, offer scope and promotion type.</p>
+          </details>
+          <details>
+            <summary>Why can a deal differ from what I see in Wolt?</summary>
+            <p>Promotions can change, expire, depend on account eligibility or differ by location. Always confirm the final price and conditions in Wolt before ordering.</p>
+          </details>
+        </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <span>Unofficial open-source project, not affiliated with Wolt.</span>
-      <a href="https://github.com/Bl0ck154/wolt-discount-monitor" target="_blank" rel="noreferrer">GitHub ↗</a>
+      <div class="shell footer-inner">
+        <div>
+          <strong>Wolt Discount Monitor</strong>
+          <span>Unofficial open-source project. Not affiliated with Wolt.</span>
+        </div>
+        <div class="footer-links">
+          <a href="sitemap.xml">Sitemap</a>
+          <a href="https://github.com/Bl0ck154/wolt-discount-monitor" target="_blank" rel="noreferrer">Source code ↗</a>
+        </div>
+      </div>
     </footer>
 
+    <noscript><div class="noscript">JavaScript is required for the interactive deal explorer. Search engines and users can still access the static city pages linked above.</div></noscript>
     <script src="config.js"></script>
     <script src="app.js" type="module"></script>
   </body>

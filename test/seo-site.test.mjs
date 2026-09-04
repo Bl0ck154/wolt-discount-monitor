@@ -1,0 +1,85 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
+import {
+  cityPageHtml,
+  isSnapshotIndexable,
+  sitemapXml,
+} from "../src/build-seo-site.mjs";
+
+const city = {
+  id: "ltu/vilnius",
+  slug: "vilnius",
+  name: "Vilnius",
+  country: "Lithuania",
+  label: "Vilnius, Lithuania",
+  url: "https://wolt.com/en/ltu/vilnius",
+};
+
+function snapshotAt(iso) {
+  return {
+    generatedAt: iso,
+    counts: { promotionsUniqueVenues: 12, restaurantsUniqueVenues: 8 },
+    venues: [{
+      name: "Test Venue",
+      link: "https://wolt.com/test",
+      address: "Test street",
+      offers: [{ text: "-30% basket discount", value: { isDelivery: false } }],
+      bestDiscount: { label: "30%", score: 61 },
+    }],
+  };
+}
+
+test("SEO freshness promotes only recent non-empty snapshots", () => {
+  const now = new Date("2026-09-04T12:00:00Z");
+  assert.equal(isSnapshotIndexable(snapshotAt("2026-09-04T11:00:00Z"), now, 48), true);
+  assert.equal(isSnapshotIndexable(snapshotAt("2026-09-01T11:00:00Z"), now, 48), false);
+  assert.equal(isSnapshotIndexable({ generatedAt: now.toISOString(), venues: [] }, now, 48), false);
+});
+
+test("fresh city page has unique crawlable SEO metadata and static deal content", () => {
+  const snapshot = snapshotAt("2026-09-04T11:00:00Z");
+  const html = cityPageHtml({ city, snapshot, indexable: true, countryRecords: [], siteBase: "https://example.test/" });
+  assert.match(html, /<title>Wolt Discounts in Vilnius/);
+  assert.match(html, /name="robots" content="index,follow/);
+  assert.match(html, /rel="canonical" href="https:\/\/example\.test\/cities\/ltu\/vilnius\/"/);
+  assert.match(html, /<h1>Wolt discounts in Vilnius<\/h1>/);
+  assert.match(html, /Test Venue/);
+  assert.match(html, /application\/ld\+json/);
+});
+
+test("stale city page stays usable but noindex", () => {
+  const snapshot = snapshotAt("2026-06-01T11:00:00Z");
+  const html = cityPageHtml({ city, snapshot, indexable: false, countryRecords: [], siteBase: "https://example.test/" });
+  assert.match(html, /name="robots" content="noindex,follow"/);
+  assert.match(html, /intentionally excluded from the sitemap and search index/);
+});
+
+test("sitemap contains only explicitly indexable city and country URLs", () => {
+  const snapshot = snapshotAt("2026-09-04T11:00:00Z");
+  const xml = sitemapXml({
+    siteBase: "https://example.test/",
+    liveRecords: [{ city, snapshot, indexable: true }],
+    countrySummaries: [{ code: "ltu", indexable: true, liveRecords: [{ city, snapshot }] }],
+  });
+  assert.match(xml, /https:\/\/example\.test\/countries\/ltu\//);
+  assert.match(xml, /https:\/\/example\.test\/cities\/ltu\/vilnius\//);
+  assert.doesNotMatch(xml, /berlin/);
+});
+
+test("homepage exposes the core SEO and accessibility structure without JavaScript", async () => {
+  const html = await readFile(new URL("../docs/index.html", import.meta.url), "utf8");
+  assert.match(html, /<h1 id="page-title">/);
+  assert.match(html, /rel="canonical"/);
+  assert.match(html, /property="og:image"/);
+  assert.match(html, /name="twitter:card"/);
+  assert.match(html, /application\/ld\+json/);
+  assert.match(html, /GENERATED_LIVE_CITIES_START/);
+  assert.match(html, /<h2 id="how-title">/);
+});
+
+test("production updater stages regenerated SEO artifacts", async () => {
+  const workflow = await readFile(new URL("../.github/workflows/check-discounts.yml", import.meta.url), "utf8");
+  const stageLine = "git add -- docs/data docs/cities docs/countries docs/methodology docs/sitemap.xml docs/robots.txt docs/llms.txt docs/index.html";
+  assert.equal(workflow.split(stageLine).length - 1, 3, "cloud, Windows and Linux commit paths must all stage SEO output");
+});

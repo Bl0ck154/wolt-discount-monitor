@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Wolt Discount Monitor">
+  <rect width="64" height="64" rx="18" fill="#07161b"/>
+  <rect x="10" y="10" width="44" height="44" rx="14" fill="#68dfea"/>
+  <text x="32" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="29" font-weight="900" fill="#05232c">%</text>
+</svg>

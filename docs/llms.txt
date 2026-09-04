@@ -1,0 +1,9 @@
+# Wolt Discount Monitor
+
+> Independent open-source dashboard for comparing Wolt promotions by city and estimated deal value.
+
+Canonical: https://bl0ck154.github.io/wolt-discount-monitor/
+Source: https://github.com/Bl0ck154/wolt-discount-monitor
+Sitemap: https://bl0ck154.github.io/wolt-discount-monitor/sitemap.xml
+
+The site exposes a static interactive dashboard plus generated city and country pages. Search-indexable city pages are published only while a stored snapshot is fresh. The project is not affiliated with Wolt. Always verify final prices and eligibility in Wolt.

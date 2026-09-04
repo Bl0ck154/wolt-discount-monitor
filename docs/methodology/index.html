@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <base href="https://bl0ck154.github.io/wolt-discount-monitor/" />
+  <title>How Wolt Deals Are Ranked | Methodology</title>
+  <meta name="description" content="How Wolt Discount Monitor classifies promotions, estimates deal value, handles minimum spend and multibuy offers, and decides what is worth surfacing." />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
+  <meta name="theme-color" content="#07161b" />
+  <link rel="canonical" href="https://bl0ck154.github.io/wolt-discount-monitor/methodology/" />
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+  <meta property="og:site_name" content="Wolt Discount Monitor" />
+  <meta property="og:title" content="How Wolt Deals Are Ranked | Methodology" />
+  <meta property="og:description" content="How Wolt Discount Monitor classifies promotions, estimates deal value, handles minimum spend and multibuy offers, and decides what is worth surfacing." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://bl0ck154.github.io/wolt-discount-monitor/methodology/" />
+  <meta property="og:image" content="https://bl0ck154.github.io/wolt-discount-monitor/assets/og-card.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How Wolt Deals Are Ranked | Methodology" />
+  <meta name="twitter:description" content="How Wolt Discount Monitor classifies promotions, estimates deal value, handles minimum spend and multibuy offers, and decides what is worth surfacing." />
+  <meta name="twitter:image" content="https://bl0ck154.github.io/wolt-discount-monitor/assets/og-card.png" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"How Wolt Discount Monitor ranks deals","url":"https://bl0ck154.github.io/wolt-discount-monitor/methodology/","description":"How Wolt Discount Monitor classifies promotions, estimates deal value, handles minimum spend and multibuy offers, and decides what is worth surfacing.","inLanguage":"en","about":"Wolt promotion ranking methodology"}</script>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="mobile.css" />
+</head>
+<body class="landing-page">
+  <header class="topbar"><div class="shell topbar-inner"><a class="brand" href="https://bl0ck154.github.io/wolt-discount-monitor/"><span class="brand-mark" aria-hidden="true">%</span><span class="brand-copy"><strong>Wolt Discount Monitor</strong><small>Independent deal tracker</small></span></a><nav class="topnav" aria-label="Primary navigation"><a href="https://bl0ck154.github.io/wolt-discount-monitor/#deals">Deals</a><a href="https://bl0ck154.github.io/wolt-discount-monitor/#live-cities">Cities</a><a href="https://bl0ck154.github.io/wolt-discount-monitor/#how-it-works">How it works</a><a href="https://github.com/Bl0ck154/wolt-discount-monitor" target="_blank" rel="noreferrer">GitHub ↗</a></nav></div></header>
+  
+      <main class="landing-main">
+        <section class="landing-hero shell"><nav class="landing-breadcrumbs" aria-label="Breadcrumb"><a href="https://bl0ck154.github.io/wolt-discount-monitor/">Home</a><span>›</span><span>Methodology</span></nav><span class="eyebrow">Transparent scoring</span><h1>How Wolt Discount Monitor ranks deals</h1><p>The value score is a practical comparison heuristic, not a promise of savings. It tries to make unlike Wolt promotion formats easier to compare while keeping conditions and uncertainty visible.</p><div class="landing-actions"><a class="primary-link" href="https://bl0ck154.github.io/wolt-discount-monitor/#deals">Open the deal explorer</a><a class="secondary-link" href="https://github.com/Bl0ck154/wolt-discount-monitor/blob/main/src/offer-value.mjs" target="_blank" rel="noreferrer">Read scoring source ↗</a></div></section>
+        <section class="landing-section shell"><h2>Value score tiers</h2><p>The current scoring model is version 4. Scores of 75+ are classified as exceptional, 60–74 as great, 45–59 as good, 30–44 as fair and lower scores as low-value. The score is used for sorting and filtering; the actual checkout price in Wolt remains authoritative.</p><div class="feature-grid"><article class="feature-card"><span class="feature-number">BROAD DEALS</span><h3>Discount size matters</h3><p>Broad percentage and cash discounts receive stronger scores when the benefit is meaningful and the conditions are not overly restrictive.</p></article><article class="feature-card"><span class="feature-number">CONDITIONS</span><h3>Minimum spend matters</h3><p>Cash discounts are normalized against minimum spend when that condition is present. High spend requirements reduce the relative value of an offer.</p></article><article class="feature-card"><span class="feature-number">SCOPE</span><h3>Noise is demoted</h3><p>Delivery-only, selected-item and “up to” promotions are treated differently from broad basket discounts so they do not dominate the ranking.</p></article></div></section>
+        <section class="landing-section shell"><h2>Notification thresholds</h2><p>The monitor uses stricter rules for notifications than for display. Broad restaurant percentage discounts generally need at least 15%, grocery deals 10%, and other categories 20%, while the overall value score must normally reach 45. Multibuy offers use their own confidence checks and a default score threshold of 52.</p><div class="stale-note">These are ranking defaults from the open-source code, not Wolt rules. They can evolve as the parser and scoring model improve.</div></section>
+        <section class="landing-section shell"><h2>Freshness and search indexing</h2><p>Interactive monitoring uses a one-hour cache for actively monitored cities. Static city pages are more conservative: by default a page must have a non-empty snapshot no older than 48 hours to become indexable and enter the sitemap. Stale or empty city pages remain usable but are emitted with noindex,follow.</p></section>
+        <section class="landing-section shell"><h2>Limitations</h2><p>Promotions can be account-specific, location-specific, temporary or conditional. Parsing promotion text is imperfect, and the value score cannot know your basket contents or personal preferences. Always verify the final price, eligibility and terms in Wolt before placing an order.</p></section>
+      </main>
+  <footer class="site-footer"><div class="shell footer-inner"><div><strong>Wolt Discount Monitor</strong><span>Unofficial open-source project. Not affiliated with Wolt.</span></div><div class="footer-links"><a href="https://bl0ck154.github.io/wolt-discount-monitor/sitemap.xml">Sitemap</a><a href="https://github.com/Bl0ck154/wolt-discount-monitor" target="_blank" rel="noreferrer">Source code ↗</a></div></div></footer>
+</body>
+</html>

@@ -10,7 +10,7 @@
   [![Test](https://github.com/Bl0ck154/wolt-discount-monitor/actions/workflows/test.yml/badge.svg)](https://github.com/Bl0ck154/wolt-discount-monitor/actions/workflows/test.yml)
   [![Pages](https://github.com/Bl0ck154/wolt-discount-monitor/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/Bl0ck154/wolt-discount-monitor/actions/workflows/deploy-pages.yml)
   [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-  ![Cities](https://img.shields.io/badge/discovered_cities-958-00c2e8)
+  ![Cities](https://img.shields.io/badge/discovered_cities-964-00c2e8)
   ![Countries](https://img.shields.io/badge/countries-30-73e2c3)
   ![Status](https://img.shields.io/badge/status-active-success)
 </div>
@@ -28,7 +28,7 @@ Wolt can have a lot of promotions at the same time, but finding the useful ones 
 
 ### What you can do
 
-- 🌍 Search a discovered catalog of **958 Wolt cities across 30 countries**.
+- 🌍 Search a discovered catalog of **964 Wolt cities across 30 countries**.
 - 🔥 See current venue promotions in one place.
 - 📊 Sort deals by an estimated **0–100 value score**.
 - 🔎 Search by venue, promotion, address, or category.
