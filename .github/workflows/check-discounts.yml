@@ -21,6 +21,11 @@ on:
           - windows
           - linux
           - github
+      scraperapi_smoke_test:
+        description: "Force one tiny Wolt request through ScraperAPI to validate the configured secret"
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -49,6 +54,8 @@ jobs:
 
       - name: Wolt connectivity preflight
         shell: bash
+        env:
+          SCRAPERAPI_API_KEY: ${{ secrets.SCRAPERAPI_API_KEY }}
         run: |
           set -euo pipefail
           status="$(
@@ -63,9 +70,39 @@ jobs:
               || true
           )"
           if [[ "$status" != "200" ]]; then
-            echo "::error::Wolt preflight from GitHub-hosted runner returned HTTP ${status:-request-error}. Re-run with runner=windows or runner=linux."
+            if [[ -n "${SCRAPERAPI_API_KEY:-}" ]]; then
+              echo "::warning::Direct Wolt preflight returned HTTP ${status:-request-error}; continuing because ScraperAPI fallback is configured."
+            else
+              echo "::error::Wolt preflight from GitHub-hosted runner returned HTTP ${status:-request-error}. Configure SCRAPERAPI_API_KEY or re-run with runner=windows or runner=linux."
+              exit 1
+            fi
+          fi
+
+      - name: ScraperAPI smoke test
+        if: inputs.scraperapi_smoke_test
+        env:
+          SCRAPERAPI_API_KEY: ${{ secrets.SCRAPERAPI_API_KEY }}
+          WOLT_PROXYSCRAPE_ENABLED: "0"
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "${SCRAPERAPI_API_KEY:-}" ]]; then
+            echo "::error::SCRAPERAPI_API_KEY repository secret is missing or empty."
             exit 1
           fi
+          node --input-type=module <<'NODE'
+          import { fetchJson } from "./src/wolt-api.mjs";
+          const target = "https://consumer-api.wolt.com/v1/pages/restaurants?lat=0&lon=0";
+          const result = await fetchJson(target, {
+            maxAttempts: 1,
+            forceProxy: true,
+            proxyDispatcher: null,
+            proxyScrapeEnabled: false,
+            timeoutMs: 30000,
+          });
+          if (!Array.isArray(result?.sections)) throw new Error("ScraperAPI returned an unexpected Wolt payload");
+          console.log(`ScraperAPI smoke test OK: Wolt sections=${result.sections.length}`);
+          NODE
 
       - name: Run tests
         run: node --test
@@ -74,6 +111,7 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          SCRAPERAPI_API_KEY: ${{ secrets.SCRAPERAPI_API_KEY }}
           TELEGRAM_ALLOW_SKIP: ${{ vars.TELEGRAM_ALLOW_SKIP }}
           MIN_VALUE_SCORE: ${{ vars.MIN_VALUE_SCORE }}
           MIN_GROCERY_PERCENT: ${{ vars.MIN_GROCERY_PERCENT }}
@@ -150,6 +188,7 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          SCRAPERAPI_API_KEY: ${{ secrets.SCRAPERAPI_API_KEY }}
           TELEGRAM_ALLOW_SKIP: ${{ vars.TELEGRAM_ALLOW_SKIP }}
           MIN_VALUE_SCORE: ${{ vars.MIN_VALUE_SCORE }}
           MIN_GROCERY_PERCENT: ${{ vars.MIN_GROCERY_PERCENT }}
