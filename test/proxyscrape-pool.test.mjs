@@ -59,6 +59,7 @@ test("proxy-first mode uses ProxyScrape before direct Wolt transport", async () 
     proxyScrapeEnabled: true,
     proxyScrapeList: ["127.0.0.1:8080"],
     proxyFetchImpl: proxyFetch,
+    proxyScrapeProxyAgentFactory: () => ({ destroy() {} }),
     proxyDispatcher: null,
     scraperApiKey: "",
   });

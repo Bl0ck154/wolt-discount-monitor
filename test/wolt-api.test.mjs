@@ -161,6 +161,7 @@ test("fetchJson can use an injected ProxyScrape pool", async () => {
     proxyScrapeEnabled: true,
     proxyScrapeList: ["127.0.0.1:8080"],
     proxyFetchImpl: proxyFetch,
+    proxyScrapeProxyAgentFactory: () => ({ destroy() {} }),
     scraperApiKey: "",
   });
 
@@ -192,6 +193,7 @@ test("fetchJson force-proxy mode bypasses the direct transport", async () => {
     proxyScrapeEnabled: true,
     proxyScrapeList: ["127.0.0.1:8080"],
     proxyFetchImpl: proxyFetch,
+    proxyScrapeProxyAgentFactory: () => ({ destroy() {} }),
     scraperApiKey: "",
   });
 
