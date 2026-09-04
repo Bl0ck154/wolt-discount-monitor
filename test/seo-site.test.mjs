@@ -148,3 +148,12 @@ test("primary and grouped locations share the same venue presentation fragments"
   assert.match(app, /group-location-value">\$\{parts\.value\}/);
   assert.doesNotMatch(app, /<span>Best<\/span>/);
 });
+
+
+test("desktop deal toolbar scrolls with the page instead of sticking", async () => {
+  const css = await readFile(new URL("../docs/styles.css", import.meta.url), "utf8");
+  const toolbarBlock = css.match(/\.toolbar\s*\{[\s\S]*?\}/)?.[0] ?? "";
+  assert.match(toolbarBlock, /position:\s*relative/);
+  assert.doesNotMatch(toolbarBlock, /position:\s*sticky/);
+  assert.doesNotMatch(toolbarBlock, /top:\s*76px/);
+});
