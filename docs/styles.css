@@ -61,7 +61,7 @@ img { max-width: 100%; }
 
 /* Header */
 .topbar {
-  position: sticky;
+  position: relative;
   top: 0;
   z-index: 70;
   background: rgba(255, 255, 255, .97);
@@ -212,21 +212,20 @@ img { max-width: 100%; }
   white-space: nowrap;
 }
 .location-map-link {
-  min-width: 64px;
-  height: 34px;
-  padding: 0 10px;
+  width: 28px;
+  height: 28px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   color: var(--accent-dark);
-  background: #fff;
-  border: 1px solid var(--line-strong);
-  border-radius: 8px;
-  font-size: 12px;
-  font-weight: 600;
+  background: transparent;
+  border: 0;
+  border-radius: 5px;
+  font-size: 16px;
   text-decoration: none;
+  opacity: .72;
 }
-.location-map-link:hover { background: var(--accent-soft); border-color: #aedce5; }
+.location-map-link:hover { background: var(--accent-soft); opacity: 1; }
 
 .city-area { min-width: 0; }
 .city-picker { position: relative; min-width: 0; }
@@ -334,14 +333,16 @@ img { max-width: 100%; }
   line-height: 1.2;
   font-weight: 650;
 }
-.summary-card-wide { grid-column: 1 / -1; }
-.summary-card-wide strong {
-  overflow: hidden;
-  color: #4f6169;
-  font-size: 11px;
-  font-weight: 500;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+.summary-meta {
+  margin-top: 8px;
+  color: #8a969b;
+  font-size: 10px;
+  line-height: 1.35;
+  text-align: right;
+}
+.summary-meta span {
+  color: #738188;
+  font-variant-numeric: tabular-nums;
 }
 
 /* Deal explorer */
@@ -600,22 +601,22 @@ tbody > tr:not(.group-details-row):hover > td { background: #fbfcfc; }
 .hours-closed { color: var(--danger); }
 .hours-unknown { color: var(--muted); }
 .map-link {
-  min-width: 50px;
-  height: 32px;
-  padding: 0 9px;
+  width: 28px;
+  height: 28px;
+  padding: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   color: var(--accent-dark);
-  background: #fff;
-  border: 1px solid var(--line-strong);
-  border-radius: 7px;
-  font-size: 10px;
-  font-weight: 600;
+  background: transparent;
+  border: 0;
+  border-radius: 5px;
+  font-size: 15px;
   text-decoration: none;
   white-space: nowrap;
+  opacity: .72;
 }
-.map-link:hover { background: var(--accent-soft); border-color: #afdce5; }
+.map-link:hover { background: var(--accent-soft); opacity: 1; }
 .empty {
   padding: 34px !important;
   color: var(--muted);

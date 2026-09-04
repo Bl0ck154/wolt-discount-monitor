@@ -474,7 +474,7 @@ function renderVenueRow(venue, visibleOffers, index, groupSize = 1) {
       <td><div class="offer-list">${offers}</div></td>
       <td class="amount">${escapeHtml(formatBestValue(best))}</td>
       <td><span class="hours ${hours.className}">${escapeHtml(hours.icon)} ${escapeHtml(hours.text)}</span></td>
-      <td>${mapUrl ? `<a class="map-link" href="${escapeHtml(mapUrl)}" target="_blank" rel="noreferrer" title="Open in Google Maps">🗺️</a>` : "-"}</td>
+      <td>${mapUrl ? `<a class="map-link" href="${escapeHtml(mapUrl)}" target="_blank" rel="noreferrer" title="Open in Google Maps" aria-label="Open in Google Maps"><span aria-hidden="true">🗺️</span></a>` : "-"}</td>
     </tr>
   `;
 }
@@ -496,7 +496,7 @@ function renderGroupDetailRow(venue, visibleOffers, index) {
     <div class="group-location-offers"><div class="offer-list">${offers}</div></div>
     <div class="group-location-value"><span>Best</span><strong>${escapeHtml(formatBestValue(best))}</strong></div>
     <div class="group-location-status"><span class="hours ${hours.className}">${escapeHtml(hours.icon)} ${escapeHtml(hours.text)}</span></div>
-    <div class="group-location-map">${mapUrl ? `<a class="map-link" href="${escapeHtml(mapUrl)}" target="_blank" rel="noreferrer" title="Open in Google Maps">Map ↗</a>` : `<span class="group-location-empty">—</span>`}</div>
+    <div class="group-location-map">${mapUrl ? `<a class="map-link" href="${escapeHtml(mapUrl)}" target="_blank" rel="noreferrer" title="Open in Google Maps" aria-label="Open in Google Maps"><span aria-hidden="true">🗺️</span></a>` : `<span class="group-location-empty">—</span>`}</div>
   </div>`;
 }
 
@@ -1082,8 +1082,7 @@ function formatBestValue(best) {
   if (!best) {
     return "-";
   }
-  const score = Number(best.score);
-  return best.tier && Number.isFinite(score) ? `${best.label} · ${score}/100` : best.label ?? "-";
+  return best.label ?? "-";
 }
 function offerClass(offer) {
   const text = offer.text.toLowerCase();

@@ -322,7 +322,7 @@ function pageShell({ title, description, canonical, robots, siteBase, jsonLd, bo
   <link rel="stylesheet" href="mobile.css" />
 </head>
 <body class="landing-page">
-  <header class="topbar"><div class="shell topbar-inner"><a class="brand" href="${escapeHtml(siteBase)}"><span class="brand-mark" aria-hidden="true">%</span><span class="brand-copy"><strong>Wolt Discount Monitor</strong><small>Independent deal tracker</small></span></a><nav class="topnav" aria-label="Primary navigation"><a href="${escapeHtml(siteBase)}#deals">Deals</a><a href="${escapeHtml(siteBase)}#live-cities">Cities</a><a href="${escapeHtml(siteBase)}#how-it-works">How it works</a><a href="https://github.com/Bl0ck154/wolt-discount-monitor" target="_blank" rel="noreferrer">GitHub ↗</a></nav></div></header>
+  <header class="topbar"><div class="shell topbar-inner"><a class="brand" href="${escapeHtml(siteBase)}"><span class="brand-mark" aria-hidden="true">%</span><span class="brand-copy"><strong>Wolt Discount Monitor</strong><small>Independent deal tracker</small></span></a><nav class="topnav" aria-label="Primary navigation"><a href="${escapeHtml(siteBase)}#deals">Deals</a><a href="${escapeHtml(siteBase)}#live-cities">Cities</a><a href="${escapeHtml(siteBase)}#how-it-works">How it works</a></nav></div></header>
   ${body}
   <footer class="site-footer"><div class="shell footer-inner"><div><strong>Wolt Discount Monitor</strong><span>Unofficial open-source project. Not affiliated with Wolt.</span></div><div class="footer-links"><a href="${escapeHtml(siteBase)}sitemap.xml">Sitemap</a><a href="https://github.com/Bl0ck154/wolt-discount-monitor" target="_blank" rel="noreferrer">Source code ↗</a></div></div></footer>
 </body>

@@ -108,3 +108,22 @@ test("dashboard typography uses the neutral system UI stack", async () => {
   assert.match(css, /font-family:\s*-apple-system, BlinkMacSystemFont, "Segoe UI"/);
   assert.match(css, /font-size:\s*clamp\(36px, 4vw, 52px\)/);
 });
+
+
+test("consumer UI keeps internal value scores out of deal rows", async () => {
+  const app = await readFile(new URL("../docs/app.js", import.meta.url), "utf8");
+  assert.doesNotMatch(app, /\$\{score\}\/100/);
+  assert.match(app, /return best\.label \?\? "-";/);
+});
+
+test("mobile UI keeps secondary controls quiet and non-sticky", async () => {
+  const html = await readFile(new URL("../docs/index.html", import.meta.url), "utf8");
+  const mobile = await readFile(new URL("../docs/mobile.css", import.meta.url), "utf8");
+  assert.doesNotMatch(html, />GitHub ↗<\/a>/);
+  assert.doesNotMatch(html, />Map ↗<\/a>/);
+  assert.doesNotMatch(html, /Snapshot updated/);
+  assert.match(html, /class="summary-meta">Updated/);
+  assert.match(mobile, /\.topbar \{ position: relative; \}/);
+  assert.match(mobile, /\.topnav \{ display: none; \}/);
+  assert.match(mobile, /"type status map"/);
+});

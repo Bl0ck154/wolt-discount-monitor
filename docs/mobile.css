@@ -2,15 +2,13 @@
   body { font-size: 14px; }
   .shell { width: calc(100% - 20px); }
 
-  .topbar { position: sticky; }
+  .topbar { position: relative; }
   .topbar-inner { min-height: 58px; }
   .brand { gap: 8px; }
   .brand-mark { width: 31px; height: 31px; border-radius: 7px; font-size: 16px; }
   .brand-copy strong { font-size: 13px; }
   .brand-copy small { display: none; }
-  .topnav { gap: 0; }
-  .topnav a { display: none; }
-  .topnav a:last-child { display: inline-flex; padding: 7px 8px; font-size: 11px; }
+  .topnav { display: none; }
 
   .hero {
     width: calc(100% - 20px);
@@ -31,11 +29,11 @@
   .city-console { padding: 15px; border-radius: 10px; box-shadow: none; }
   .console-heading { margin-bottom: 10px; }
   .console-heading strong { font-size: 16px; }
-  .location-map-link { min-width: 60px; height: 32px; font-size: 11px; }
+  .location-map-link { width: 27px; height: 27px; font-size: 15px; }
   .city-picker input { height: 45px; font-size: 13px; }
   .summary-card { padding: 10px; }
   .summary-card strong { font-size: 17px; }
-  .summary-card-wide strong { font-size: 10px; }
+  .summary-meta { margin-top: 6px; font-size: 9px; text-align: left; }
 
   .explorer {
     width: calc(100% - 20px);
@@ -62,12 +60,11 @@
   thead { display: none; }
   tbody > tr:not(.group-details-row) {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: auto minmax(0, 1fr) auto;
     grid-template-areas:
-      "venue best"
-      "offers offers"
-      "type status"
-      "map map";
+      "venue venue best"
+      "offers offers offers"
+      "type status map";
     gap: 8px 10px;
     margin-bottom: 8px;
     padding: 11px;
@@ -128,7 +125,7 @@
     font-size: 14px !important;
     line-height: 1.05;
   }
-  .map-link { min-width: 62px; height: 31px; padding: 0 8px; font-size: 10px; }
+  .map-link { width: 26px; height: 26px; padding: 0; font-size: 14px; }
 
   .group-details-row { display: block; margin: -5px 0 8px; }
   .group-details-row > td { display: block; padding: 0; border: 0; }
