@@ -11,6 +11,8 @@ test("production updater keeps the normal monitor path dependency-free", async (
 
   assert.equal(testCount, 2, "expected cloud and self-hosted test steps");
   assert.doesNotMatch(workflow, /run: npm ci/, "production monitor must not depend on npm registry availability");
+  const scraperSecretUses = (workflow.match(/SCRAPERAPI_API_KEY: \$\{\{ secrets\.SCRAPERAPI_API_KEY \}\}/g) ?? []).length;
+  assert.equal(scraperSecretUses, 4, "ScraperAPI secret must reach cloud preflight, smoke test, and both update runners");
 });
 
 test("direct Wolt fetch loads and runs without installed npm packages", async () => {
