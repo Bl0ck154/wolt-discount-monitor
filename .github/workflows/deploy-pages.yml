@@ -86,6 +86,8 @@ jobs:
           cp docs/index.html docs/app.js docs/styles.css docs/mobile.css docs/config.js .pages-site/
           [[ -f docs/.nojekyll ]] && cp docs/.nojekyll .pages-site/ || true
           cp docs/data/cities.json docs/data/latest.json .pages-site/data/
+          cp docs/sitemap.xml docs/robots.txt docs/llms.txt .pages-site/
+          cp -a docs/assets docs/cities docs/countries docs/methodology .pages-site/
 
           if [[ -d docs/data/cities ]]; then
             while IFS= read -r -d '' source; do

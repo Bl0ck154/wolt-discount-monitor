@@ -83,3 +83,9 @@ test("production updater stages regenerated SEO artifacts", async () => {
   const stageLine = "git add -- docs/data docs/cities docs/countries docs/methodology docs/sitemap.xml docs/robots.txt docs/llms.txt docs/index.html";
   assert.equal(workflow.split(stageLine).length - 1, 3, "cloud, Windows and Linux commit paths must all stage SEO output");
 });
+
+test("Pages deploy payload includes generated SEO routes and social assets", async () => {
+  const workflow = await readFile(new URL("../.github/workflows/deploy-pages.yml", import.meta.url), "utf8");
+  assert.match(workflow, /cp docs\/sitemap\.xml docs\/robots\.txt docs\/llms\.txt \.pages-site\//);
+  assert.match(workflow, /cp -a docs\/assets docs\/cities docs\/countries docs\/methodology \.pages-site\//);
+});
