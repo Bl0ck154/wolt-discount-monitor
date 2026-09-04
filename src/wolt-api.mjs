@@ -1,15 +1,19 @@
 import { CACHE_TTL_MS, CITY, WOLT_HEADERS } from "./config.mjs";
+import {
+  buildProxyScrapeListUrl,
+  fetchViaHealthyProxy,
+  getProxyScrapeStatus,
+  parseProxyScrapeList,
+  warmProxyScrapePool,
+} from "./proxyscrape-pool.mjs";
 
-const PROXYSCRAPE_API_URL = "https://api.proxyscrape.com/v4/free-proxy-list/get";
 const SCRAPERAPI_API_URL = "https://api.scraperapi.com/";
+
+export { buildProxyScrapeListUrl, parseProxyScrapeList };
 
 let proxyAgent = null;
 let proxyAgentUrl = null;
 let proxyFetchImpl = null;
-let proxyScrapePool = [];
-let proxyScrapePoolFetchedAt = 0;
-let proxyScrapeCursor = 0;
-const proxyScrapeCooldownUntil = new Map();
 
 export function endpoints({ lat = CITY.lat, lon = CITY.lon } = {}) {
   return {
@@ -25,11 +29,20 @@ export async function fetchJson(url, options = {}) {
   const timeoutMs = nonNegativeNumber(options.timeoutMs ?? process.env.WOLT_API_TIMEOUT_MS, 30_000);
   const fetchImpl = options.fetchImpl ?? globalThis.fetch;
   const forceProxy = parseBoolean(options.forceProxy ?? process.env.WOLT_FORCE_PROXY, false);
+  const proxyMode = normalizeProxyMode(options.proxyMode ?? process.env.WOLT_PROXY_MODE);
   let lastError;
 
   for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
     try {
-      if (forceProxy) {
+      if (!forceProxy && proxyMode === "proxy-first" && isProxyScrapeEnabled(options)) {
+        try {
+          return await tryProxyScrapeFallback(url, { headers: options.headers, timeoutMs, options });
+        } catch (proxyPrimaryError) {
+          console.warn(`Proxy-first Wolt request failed; trying direct transport: ${proxyPrimaryError.message}`);
+        }
+      }
+
+      if (forceProxy || proxyMode === "proxy-only") {
         const forcedProxyError = new Error("Direct Wolt request bypassed by force-proxy mode");
         forcedProxyError.statusCode = 403;
         return await tryConfiguredFallbacks(url, {
@@ -57,7 +70,7 @@ export async function fetchJson(url, options = {}) {
           fetchImpl,
           timeoutMs,
           headers: options.headers,
-          options,
+          options: proxyMode === "proxy-first" ? { ...options, skipProxyScrapeFallback: true } : options,
         });
       }
     } catch (error) {
@@ -107,10 +120,7 @@ async function tryConfiguredFallbacks(url, { directError, fetchImpl, timeoutMs, 
     }
   }
 
-  const proxyScrapeEnabled = options.proxyScrapeList !== undefined || parseBoolean(
-    options.proxyScrapeEnabled ?? process.env.WOLT_PROXYSCRAPE_ENABLED,
-    false,
-  );
+  const proxyScrapeEnabled = !options.skipProxyScrapeFallback && isProxyScrapeEnabled(options);
 
   if (proxyScrapeEnabled) {
     attemptedFallback = true;
@@ -223,149 +233,57 @@ async function configuredStaticProxyTransport() {
 }
 
 async function tryProxyScrapeFallback(url, { headers, timeoutMs, options }) {
-  const proxies = options.proxyScrapeList !== undefined
-    ? normalizeProxyList(options.proxyScrapeList)
-    : await loadProxyScrapePool({
-      fetchImpl: options.proxyScrapeListFetchImpl ?? globalThis.fetch,
-      timeoutMs: options.proxyScrapeListTimeoutMs,
-      limit: options.proxyScrapeLimit,
-      country: options.proxyScrapeCountry,
-      anonymity: options.proxyScrapeAnonymity,
-    });
-
-  if (!proxies.length) {
-    const error = new Error("ProxyScrape returned no usable HTTPS-capable HTTP proxies");
-    error.retryable = true;
-    throw error;
-  }
-
-  const maxTries = positiveInteger(
-    options.proxyScrapeMaxTries ?? process.env.WOLT_PROXYSCRAPE_MAX_TRIES,
-    8,
-  );
-  const perProxyTimeoutMs = nonNegativeNumber(
-    options.proxyScrapeProxyTimeoutMs ?? process.env.WOLT_PROXYSCRAPE_PROXY_TIMEOUT_MS,
-    10_000,
-  );
-  const cooldownMs = nonNegativeNumber(
-    options.proxyScrapeCooldownMs ?? process.env.WOLT_PROXYSCRAPE_COOLDOWN_MS,
-    10 * 60_000,
-  );
-  const effectiveTimeoutMs = timeoutMs > 0
-    ? Math.min(timeoutMs, perProxyTimeoutMs || timeoutMs)
-    : perProxyTimeoutMs;
-
-  const { ProxyAgent, fetch: undiciFetch } = await import("undici");
-  const proxiedFetch = options.proxyFetchImpl ?? undiciFetch;
-  let lastError;
-  let tries = 0;
-
-  while (tries < Math.min(maxTries, proxies.length)) {
-    const proxy = takeNextProxy(proxies);
-    if (!proxy) break;
-    tries += 1;
-
-    const proxyUrl = /^https?:\/\//i.test(proxy) ? proxy : `http://${proxy}`;
-    const dispatcher = createProxyAgent(proxyUrl, ProxyAgent);
-    try {
-      const result = await fetchJsonOnce(url, {
-        fetchImpl: proxiedFetch,
-        timeoutMs: effectiveTimeoutMs,
-        headers,
-        dispatcher,
-      });
-      proxyScrapeCooldownUntil.delete(proxy);
-      return result;
-    } catch (error) {
-      lastError = error;
-      proxyScrapeCooldownUntil.set(proxy, Date.now() + cooldownMs);
-      if (!shouldTryAnotherProxy(error)) throw error;
-    } finally {
-      try {
-        const destroyed = dispatcher.destroy?.();
-        destroyed?.catch?.(() => {});
-      } catch {
-        // Ignore cleanup failures from an already-dead free proxy connection.
-      }
-    }
-  }
-
-  if (lastError) throw lastError;
-  const error = new Error("ProxyScrape pool has no currently usable proxies");
-  error.retryable = true;
-  throw error;
-}
-
-async function loadProxyScrapePool({ fetchImpl, timeoutMs, limit, country, anonymity } = {}) {
-  const now = Date.now();
-  const refreshMs = nonNegativeNumber(process.env.WOLT_PROXYSCRAPE_REFRESH_MS, 15 * 60_000);
-  if (proxyScrapePool.length && now - proxyScrapePoolFetchedAt < refreshMs) {
-    return proxyScrapePool;
-  }
-
-  const requestUrl = buildProxyScrapeListUrl({ limit, country, anonymity });
-  const listTimeoutMs = nonNegativeNumber(
-    timeoutMs ?? process.env.WOLT_PROXYSCRAPE_LIST_TIMEOUT_MS,
-    15_000,
-  );
-  const response = await fetchImpl(requestUrl, {
-    signal: listTimeoutMs > 0 ? AbortSignal.timeout(listTimeoutMs) : undefined,
+  const response = await fetchViaHealthyProxy(url, {
+    headers: {
+      ...WOLT_HEADERS,
+      ...headers,
+    },
+    timeoutMs,
+    proxyFetchImpl: options.proxyFetchImpl,
+    proxyList: options.proxyScrapeList,
+    sourceFetchImpl: options.proxyScrapeListFetchImpl ?? globalThis.fetch,
+    listTimeoutMs: options.proxyScrapeListTimeoutMs,
+    listLimit: options.proxyScrapeLimit,
+    country: options.proxyScrapeCountry,
+    anonymity: options.proxyScrapeAnonymity,
+    maxTries: options.proxyScrapeMaxTries,
+    perProxyTimeoutMs: options.proxyScrapeProxyTimeoutMs,
+    cooldownMs: options.proxyScrapeCooldownMs,
+    healthTimeoutMs: options.proxyScrapeHealthTimeoutMs,
+    healthConcurrency: options.proxyScrapeHealthConcurrency,
+    targetHealthy: options.proxyScrapeTargetHealthy,
+    minHealthy: options.proxyScrapeMinHealthy,
+    healthTtlMs: options.proxyScrapeHealthTtlMs,
+    refreshMs: options.proxyScrapeRefreshMs,
+    probeUrl: options.proxyScrapeProbeUrl,
+    cacheFile: options.proxyScrapeHealthCacheFile,
+    healthProbeImpl: options.proxyScrapeHealthProbeImpl,
   });
-  if (!response.ok) {
-    const error = new Error(`ProxyScrape list request failed: ${response.status} ${response.statusText}`);
-    error.statusCode = response.status;
-    error.retryable = response.status === 429 || response.status >= 500;
-    throw error;
-  }
-
-  const text = await response.text();
-  const parsed = parseProxyScrapeList(text);
-  if (!parsed.length) {
-    const error = new Error("ProxyScrape list response contained no usable proxies");
-    error.retryable = true;
-    throw error;
-  }
-
-  shuffleInPlace(parsed);
-  proxyScrapePool = parsed;
-  proxyScrapePoolFetchedAt = now;
-  proxyScrapeCursor = 0;
-  pruneProxyCooldowns(now);
-  return proxyScrapePool;
+  return parseJsonResponse(response, "Wolt API via ProxyScrape");
 }
 
-export function buildProxyScrapeListUrl({ limit, country, anonymity } = {}) {
-  const url = new URL(PROXYSCRAPE_API_URL);
-  url.searchParams.set("request", "displayproxies");
-  url.searchParams.set("protocol", "http");
-  url.searchParams.set("ssl", "yes");
-  url.searchParams.set("timeout", String(positiveInteger(limitNumber(process.env.WOLT_PROXYSCRAPE_SOURCE_TIMEOUT_MS, 5_000), 5_000)));
-  url.searchParams.set("limit", String(Math.min(2_000, positiveInteger(limit ?? process.env.WOLT_PROXYSCRAPE_LIMIT, 200))));
-  url.searchParams.set("anonymity", String(anonymity ?? process.env.WOLT_PROXYSCRAPE_ANONYMITY ?? "elite,anonymous"));
-  const selectedCountry = String(country ?? process.env.WOLT_PROXYSCRAPE_COUNTRY ?? "").trim();
-  if (selectedCountry) url.searchParams.set("country", selectedCountry);
-  return url.toString();
+export async function warmWoltProxyPool(options = {}) {
+  if (!isProxyScrapeEnabled(options)) return [];
+  return warmProxyScrapePool({
+    ...options,
+    headers: { ...WOLT_HEADERS, ...(options.headers ?? {}) },
+  });
 }
 
-export function parseProxyScrapeList(value) {
-  return normalizeProxyList(String(value ?? "").split(/\r?\n/));
+export function getWoltProxyStatus() {
+  return {
+    mode: normalizeProxyMode(process.env.WOLT_PROXY_MODE),
+    configured: hasConfiguredWoltProxy(),
+    proxyScrape: getProxyScrapeStatus(),
+    scraperApiConfigured: Boolean(String(process.env.SCRAPERAPI_API_KEY ?? "").trim()),
+  };
 }
 
-function normalizeProxyList(value) {
-  const rows = Array.isArray(value) ? value : [value];
-  const seen = new Set();
-  const proxies = [];
-
-  for (const raw of rows) {
-    const proxy = String(raw ?? "").trim();
-    if (!proxy || seen.has(proxy)) continue;
-    const withoutScheme = proxy.replace(/^https?:\/\//i, "");
-    if (!/^(?:\d{1,3}\.){3}\d{1,3}:\d{1,5}$/.test(withoutScheme)) continue;
-    seen.add(proxy);
-    proxies.push(proxy);
-  }
-
-  return proxies;
+function isProxyScrapeEnabled(options = {}) {
+  return options.proxyScrapeList !== undefined || parseBoolean(
+    options.proxyScrapeEnabled ?? process.env.WOLT_PROXYSCRAPE_ENABLED,
+    false,
+  );
 }
 
 export function buildScraperApiUrl(targetUrl, apiKey, { countryCode } = {}) {
@@ -376,40 +294,6 @@ export function buildScraperApiUrl(targetUrl, apiKey, { countryCode } = {}) {
   const selectedCountry = String(countryCode ?? "").trim();
   if (selectedCountry) url.searchParams.set("country_code", selectedCountry);
   return url.toString();
-}
-
-function takeNextProxy(proxies) {
-  if (!proxies.length) return null;
-  const now = Date.now();
-
-  for (let checked = 0; checked < proxies.length; checked += 1) {
-    const index = proxyScrapeCursor % proxies.length;
-    proxyScrapeCursor = (proxyScrapeCursor + 1) % proxies.length;
-    const proxy = proxies[index];
-    if ((proxyScrapeCooldownUntil.get(proxy) ?? 0) <= now) return proxy;
-  }
-
-  return null;
-}
-
-function pruneProxyCooldowns(now = Date.now()) {
-  for (const [proxy, until] of proxyScrapeCooldownUntil) {
-    if (until <= now || !proxyScrapePool.includes(proxy)) {
-      proxyScrapeCooldownUntil.delete(proxy);
-    }
-  }
-}
-
-function shuffleInPlace(values) {
-  for (let index = values.length - 1; index > 0; index -= 1) {
-    const swapIndex = Math.floor(Math.random() * (index + 1));
-    [values[index], values[swapIndex]] = [values[swapIndex], values[index]];
-  }
-}
-
-function limitNumber(value, fallback) {
-  const parsed = Number(value);
-  return Number.isFinite(parsed) && parsed > 0 ? parsed : fallback;
 }
 
 function createProxyAgent(proxyUrl, ProxyAgent) {
@@ -557,6 +441,11 @@ function retryDelayMs({ attempt, retryBaseMs, retryJitterMs, retryAfter }) {
     : 0;
   const jitterMs = retryJitterMs > 0 ? Math.round(Math.random() * retryJitterMs) : 0;
   return Math.max(retryAfterMs, retryBaseMs * attempt + jitterMs);
+}
+
+function normalizeProxyMode(value) {
+  const mode = String(value ?? "direct-first").trim().toLowerCase();
+  return ["direct-first", "proxy-first", "proxy-only"].includes(mode) ? mode : "direct-first";
 }
 
 function parseBoolean(value, fallback) {
