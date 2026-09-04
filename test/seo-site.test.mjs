@@ -95,7 +95,7 @@ test("grouped locations use a bounded responsive layout instead of a nested tabl
   const app = await readFile(new URL("../docs/app.js", import.meta.url), "utf8");
   const css = await readFile(new URL("../docs/styles.css", import.meta.url), "utf8");
   assert.doesNotMatch(app, /nested-table/);
-  assert.match(app, /<td colspan="7">/);
+  assert.match(app, /<td colspan="6">/);
   assert.match(app, /group-location-list/);
   assert.match(app, /additionalRows = group\.rows\.filter/);
   assert.match(css, /\.group-location-card\s*\{/);
@@ -113,7 +113,7 @@ test("dashboard typography uses the neutral system UI stack", async () => {
 test("consumer UI keeps internal value scores out of deal rows", async () => {
   const app = await readFile(new URL("../docs/app.js", import.meta.url), "utf8");
   assert.doesNotMatch(app, /\$\{score\}\/100/);
-  assert.match(app, /return best\.label \?\? "-";/);
+  assert.match(app, /return \/\^\\d\+\(\?:\[\.,\]\\d\+\)\?%\$\/.+`-\$\{label\}`/s);
 });
 
 test("mobile UI keeps secondary controls quiet and non-sticky", async () => {
@@ -125,5 +125,16 @@ test("mobile UI keeps secondary controls quiet and non-sticky", async () => {
   assert.match(html, /class="summary-meta">Updated/);
   assert.match(mobile, /\.topbar \{ position: relative; \}/);
   assert.match(mobile, /\.topnav \{ display: none; \}/);
-  assert.match(mobile, /"type status map"/);
+  assert.match(mobile, /"venue map"/);
+  assert.match(mobile, /"status best"/);
+});
+
+
+test("deal rows hide implementation metadata and keep venue type beside the name", async () => {
+  const app = await readFile(new URL("../docs/app.js", import.meta.url), "utf8");
+  const html = await readFile(new URL("../docs/index.html", import.meta.url), "utf8");
+  assert.doesNotMatch(app, /venue\.address, venue\.slug/);
+  assert.doesNotMatch(app, /groupSize > 1/);
+  assert.match(app, /venue-type-inline/);
+  assert.doesNotMatch(html, /data-sort-key="type">Type/);
 });

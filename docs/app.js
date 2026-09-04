@@ -41,7 +41,7 @@ const elements = {
 };
 
 init().catch((error) => {
-  elements.venueRows.innerHTML = `<tr><td colspan="7" class="empty">${escapeHtml(error.message)}</td></tr>`;
+  elements.venueRows.innerHTML = `<tr><td colspan="6" class="empty">${escapeHtml(error.message)}</td></tr>`;
 });
 
 async function init() {
@@ -154,7 +154,7 @@ function showLoading(city) {
   hydrateSummary();
   hydrateFilters();
   hydrateHiddenCitywideOffers();
-  elements.venueRows.innerHTML = `<tr><td colspan="7" class="empty">Loading ${escapeHtml(city.label ?? city.name)}...</td></tr>`;
+  elements.venueRows.innerHTML = `<tr><td colspan="6" class="empty">Loading ${escapeHtml(city.label ?? city.name)}...</td></tr>`;
 }
 
 async function loadCitiesIndex() {
@@ -390,7 +390,7 @@ function resetAndRenderRows() {
 }
 
 function showError(error) {
-  elements.venueRows.innerHTML = `<tr><td colspan="7" class="empty">${escapeHtml(error.message)}</td></tr>`;
+  elements.venueRows.innerHTML = `<tr><td colspan="6" class="empty">${escapeHtml(error.message)}</td></tr>`;
 }
 
 function renderRows() {
@@ -411,19 +411,19 @@ function renderRows() {
   syncSortUi();
 
   if (!groups.length) {
-    elements.venueRows.innerHTML = `<tr><td colspan="7" class="empty">No matching venues</td></tr>`;
+    elements.venueRows.innerHTML = `<tr><td colspan="6" class="empty">No matching venues</td></tr>`;
     return;
   }
 
   const remaining = allGroups.length - groups.length;
   const loadMore = remaining > 0
-    ? `<tr><td colspan="7" class="empty"><button type="button" class="load-more" data-load-more>Show ${formatNumber(Math.min(RENDER_STEP, remaining))} more (${formatNumber(remaining)} remaining)</button></td></tr>`
+    ? `<tr><td colspan="6" class="empty"><button type="button" class="load-more" data-load-more>Show ${formatNumber(Math.min(RENDER_STEP, remaining))} more (${formatNumber(remaining)} remaining)</button></td></tr>`
     : "";
   elements.venueRows.innerHTML = groups.map((group, index) => renderVenueGroup(group, index + 1)).join("") + loadMore;
 }
 
 function renderVenueGroup(group, index) {
-  const main = renderVenueRow(group.primary.venue, group.primary.visibleOffers, index, group.rows.length);
+  const main = renderVenueRow(group.primary.venue, group.primary.visibleOffers, index);
   if (group.rows.length === 1) {
     return main;
   }
@@ -436,7 +436,7 @@ function renderVenueGroup(group, index) {
   const locationLabel = additionalRows.length === 1 ? "1 more location" : `${additionalRows.length} more locations`;
   return `${main}
     <tr class="group-details-row">
-      <td colspan="7">
+      <td colspan="6">
         <details class="group-details">
           <summary><span>${escapeHtml(group.rootName)}</span><strong>${escapeHtml(locationLabel)}</strong></summary>
           <div class="group-location-list">${detailRows}</div>
@@ -445,7 +445,7 @@ function renderVenueGroup(group, index) {
     </tr>`;
 }
 
-function renderVenueRow(venue, visibleOffers, index, groupSize = 1) {
+function renderVenueRow(venue, visibleOffers, index) {
   const image = venue.imageUrl
     ? `<img class="venue-image" src="${escapeHtml(venue.imageUrl)}" alt="" loading="lazy" />`
     : `<div class="venue-image" aria-hidden="true"></div>`;
@@ -453,6 +453,8 @@ function renderVenueRow(venue, visibleOffers, index, groupSize = 1) {
     ? visibleOffers.map((offer) => `<span class="offer ${offerClass(offer)}">${escapeHtml(offer.text)}</span>`).join("")
     : "";
   const best = bestDiscount(venue);
+  const bestLabel = formatBestValue(best);
+  const amountClass = bestLabel.includes("%") ? "amount amount-percent" : "amount";
   const mapUrl = mapLink(venue);
   const hours = openingLabel(venue);
 
@@ -463,16 +465,16 @@ function renderVenueRow(venue, visibleOffers, index, groupSize = 1) {
         <div class="venue-cell">
           ${image}
           <div>
-            <a class="venue-title" href="${escapeHtml(venue.link ?? "#")}" target="_blank" rel="noreferrer">
-              ${escapeHtml(venue.name)}
-            </a>
-            <div class="venue-meta">${escapeHtml([venue.address, venue.slug, groupSize > 1 ? `${groupSize} locations` : null].filter(Boolean).join(" · "))}</div>
+            <div class="venue-heading">
+              <a class="venue-title" href="${escapeHtml(venue.link ?? "#")}" target="_blank" rel="noreferrer">${escapeHtml(venue.name)}</a>
+              <span class="venue-type-inline">${escapeHtml(label(venue.productLine ?? "unknown"))}</span>
+            </div>
+            <div class="venue-meta">${escapeHtml(venue.address ?? "")}</div>
           </div>
         </div>
       </td>
-      <td><span class="pill">${escapeHtml(label(venue.productLine ?? "unknown"))}</span></td>
       <td><div class="offer-list">${offers}</div></td>
-      <td class="amount">${escapeHtml(formatBestValue(best))}</td>
+      <td class="${amountClass}">${escapeHtml(bestLabel)}</td>
       <td><span class="hours ${hours.className}">${escapeHtml(hours.icon)} ${escapeHtml(hours.text)}</span></td>
       <td>${mapUrl ? `<a class="map-link" href="${escapeHtml(mapUrl)}" target="_blank" rel="noreferrer" title="Open in Google Maps" aria-label="Open in Google Maps"><span aria-hidden="true">🗺️</span></a>` : "-"}</td>
     </tr>
@@ -481,6 +483,7 @@ function renderVenueRow(venue, visibleOffers, index, groupSize = 1) {
 
 function renderGroupDetailRow(venue, visibleOffers, index) {
   const best = bestDiscount(venue);
+  const bestLabel = formatBestValue(best);
   const hours = openingLabel(venue);
   const mapUrl = mapLink(venue);
   const offers = visibleOffers.length
@@ -490,11 +493,14 @@ function renderGroupDetailRow(venue, visibleOffers, index) {
   return `<div class="group-location-card">
     <div class="group-location-index">${index}</div>
     <div class="group-location-main">
-      <a class="venue-title" href="${escapeHtml(venue.link ?? "#")}" target="_blank" rel="noreferrer">${escapeHtml(venue.name)}</a>
-      <div class="venue-meta">${escapeHtml([venue.address, venue.slug].filter(Boolean).join(" · "))}</div>
+      <div class="venue-heading">
+        <a class="venue-title" href="${escapeHtml(venue.link ?? "#")}" target="_blank" rel="noreferrer">${escapeHtml(venue.name)}</a>
+        <span class="venue-type-inline">${escapeHtml(label(venue.productLine ?? "unknown"))}</span>
+      </div>
+      <div class="venue-meta">${escapeHtml(venue.address ?? "")}</div>
     </div>
     <div class="group-location-offers"><div class="offer-list">${offers}</div></div>
-    <div class="group-location-value"><span>Best</span><strong>${escapeHtml(formatBestValue(best))}</strong></div>
+    <div class="group-location-value"><span>Best</span><strong class="${bestLabel.includes("%") ? "amount-percent" : ""}">${escapeHtml(bestLabel)}</strong></div>
     <div class="group-location-status"><span class="hours ${hours.className}">${escapeHtml(hours.icon)} ${escapeHtml(hours.text)}</span></div>
     <div class="group-location-map">${mapUrl ? `<a class="map-link" href="${escapeHtml(mapUrl)}" target="_blank" rel="noreferrer" title="Open in Google Maps" aria-label="Open in Google Maps"><span aria-hidden="true">🗺️</span></a>` : `<span class="group-location-empty">—</span>`}</div>
   </div>`;
@@ -1082,7 +1088,8 @@ function formatBestValue(best) {
   if (!best) {
     return "-";
   }
-  return best.label ?? "-";
+  const label = String(best.label ?? "-").trim();
+  return /^\d+(?:[.,]\d+)?%$/.test(label) ? `-${label}` : label;
 }
 function offerClass(offer) {
   const text = offer.text.toLowerCase();

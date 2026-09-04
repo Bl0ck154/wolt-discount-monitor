@@ -538,6 +538,22 @@ tbody > tr:not(.group-details-row):hover > td { background: #fbfcfc; }
   white-space: nowrap;
 }
 .venue-title:hover { color: var(--accent-dark); }
+.venue-heading {
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+}
+.venue-heading .venue-title { min-width: 0; }
+.venue-type-inline {
+  flex: 0 0 auto;
+  color: #8b979c;
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 1;
+  text-transform: lowercase;
+  white-space: nowrap;
+}
 .venue-meta {
   max-width: 390px;
   margin-top: 3px;
@@ -589,6 +605,7 @@ tbody > tr:not(.group-details-row):hover > td { background: #fbfcfc; }
   letter-spacing: -.015em;
   white-space: nowrap;
 }
+.amount-percent { color: #922351; }
 .hours {
   display: inline-flex;
   align-items: center;
