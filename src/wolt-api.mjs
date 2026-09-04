@@ -1,8 +1,8 @@
-import { ProxyAgent, fetch as undiciFetch } from "undici";
 import { CACHE_TTL_MS, CITY, WOLT_HEADERS } from "./config.mjs";
 
 let proxyAgent = null;
 let proxyAgentUrl = null;
+let proxyFetchImpl = null;
 
 export function endpoints({ lat = CITY.lat, lon = CITY.lon } = {}) {
   return {
@@ -16,8 +16,7 @@ export async function fetchJson(url, options = {}) {
   const retryBaseMs = nonNegativeNumber(options.retryBaseMs ?? process.env.WOLT_API_RETRY_BASE_MS, 30_000);
   const retryJitterMs = nonNegativeNumber(options.retryJitterMs ?? process.env.WOLT_API_RETRY_JITTER_MS, 5_000);
   const timeoutMs = nonNegativeNumber(options.timeoutMs ?? process.env.WOLT_API_TIMEOUT_MS, 30_000);
-  const fetchImpl = options.fetchImpl ?? undiciFetch;
-  const proxyDispatcher = options.proxyDispatcher === undefined ? configuredProxyDispatcher() : options.proxyDispatcher;
+  const fetchImpl = options.fetchImpl ?? globalThis.fetch;
   let lastError;
 
   for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
@@ -29,17 +28,24 @@ export async function fetchJson(url, options = {}) {
           headers: options.headers,
         });
       } catch (directError) {
-        if (!proxyDispatcher || !shouldTryProxyFallback(directError)) {
+        if (!shouldTryProxyFallback(directError)) {
+          throw directError;
+        }
+
+        const proxyTransport = options.proxyDispatcher !== undefined
+          ? { dispatcher: options.proxyDispatcher, fetchImpl }
+          : await configuredProxyTransport();
+        if (!proxyTransport?.dispatcher) {
           throw directError;
         }
 
         console.warn(`Direct Wolt request failed; trying configured proxy fallback: ${directError.message}`);
         try {
           return await fetchJsonOnce(url, {
-            fetchImpl,
+            fetchImpl: proxyTransport.fetchImpl ?? fetchImpl,
             timeoutMs,
             headers: options.headers,
-            dispatcher: proxyDispatcher,
+            dispatcher: proxyTransport.dispatcher,
           });
         } catch (proxyError) {
           proxyError.directError = directError;
@@ -98,17 +104,21 @@ async function fetchJsonOnce(url, { fetchImpl, timeoutMs, headers, dispatcher } 
   throw httpError;
 }
 
-function configuredProxyDispatcher() {
+async function configuredProxyTransport() {
   const url = String(process.env.WOLT_PROXY_URL ?? "").trim();
   if (!url) return null;
+
   if (!proxyAgent || proxyAgentUrl !== url) {
-    proxyAgent = createProxyAgent(url);
+    const { ProxyAgent, fetch: undiciFetch } = await import("undici");
+    proxyAgent = createProxyAgent(url, ProxyAgent);
     proxyAgentUrl = url;
+    proxyFetchImpl = undiciFetch;
   }
-  return proxyAgent;
+
+  return { dispatcher: proxyAgent, fetchImpl: proxyFetchImpl };
 }
 
-function createProxyAgent(proxyUrl) {
+function createProxyAgent(proxyUrl, ProxyAgent) {
   const parsed = new URL(proxyUrl);
   if (!parsed.username && !parsed.password) return new ProxyAgent(parsed.toString());
 
