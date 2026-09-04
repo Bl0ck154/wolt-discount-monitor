@@ -168,3 +168,34 @@ test("fetchJson can use an injected ProxyScrape pool", async () => {
   assert.equal(directCalls, 1);
   assert.equal(proxiedCalls, 1);
 });
+
+
+test("fetchJson force-proxy mode bypasses the direct transport", async () => {
+  let directCalls = 0;
+  let proxiedCalls = 0;
+  const directFetch = async () => {
+    directCalls += 1;
+    return new Response('{"unexpected":true}', { status: 200 });
+  };
+  const proxyFetch = async (_url, options) => {
+    proxiedCalls += 1;
+    assert.ok(options.dispatcher);
+    return new Response('{"ok":true,"via":"forced-proxy"}', { status: 200 });
+  };
+
+  const result = await fetchJson("https://example.test", {
+    maxAttempts: 1,
+    timeoutMs: 1000,
+    fetchImpl: directFetch,
+    forceProxy: true,
+    proxyDispatcher: null,
+    proxyScrapeEnabled: true,
+    proxyScrapeList: ["127.0.0.1:8080"],
+    proxyFetchImpl: proxyFetch,
+    scraperApiKey: "",
+  });
+
+  assert.deepEqual(result, { ok: true, via: "forced-proxy" });
+  assert.equal(directCalls, 0);
+  assert.equal(proxiedCalls, 1);
+});

@@ -24,10 +24,23 @@ export async function fetchJson(url, options = {}) {
   const retryJitterMs = nonNegativeNumber(options.retryJitterMs ?? process.env.WOLT_API_RETRY_JITTER_MS, 5_000);
   const timeoutMs = nonNegativeNumber(options.timeoutMs ?? process.env.WOLT_API_TIMEOUT_MS, 30_000);
   const fetchImpl = options.fetchImpl ?? globalThis.fetch;
+  const forceProxy = parseBoolean(options.forceProxy ?? process.env.WOLT_FORCE_PROXY, false);
   let lastError;
 
   for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
     try {
+      if (forceProxy) {
+        const forcedProxyError = new Error("Direct Wolt request bypassed by force-proxy mode");
+        forcedProxyError.statusCode = 403;
+        return await tryConfiguredFallbacks(url, {
+          directError: forcedProxyError,
+          fetchImpl,
+          timeoutMs,
+          headers: options.headers,
+          options,
+        });
+      }
+
       try {
         return await fetchJsonOnce(url, {
           fetchImpl,
