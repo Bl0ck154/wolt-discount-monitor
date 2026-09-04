@@ -89,3 +89,22 @@ test("Pages deploy payload includes generated SEO routes and social assets", asy
   assert.match(workflow, /cp docs\/sitemap\.xml docs\/robots\.txt docs\/llms\.txt \.pages-site\//);
   assert.match(workflow, /cp -a docs\/assets docs\/cities docs\/countries docs\/methodology \.pages-site\//);
 });
+
+
+test("grouped locations use a bounded responsive layout instead of a nested table", async () => {
+  const app = await readFile(new URL("../docs/app.js", import.meta.url), "utf8");
+  const css = await readFile(new URL("../docs/styles.css", import.meta.url), "utf8");
+  assert.doesNotMatch(app, /nested-table/);
+  assert.match(app, /<td colspan="7">/);
+  assert.match(app, /group-location-list/);
+  assert.match(app, /additionalRows = group\.rows\.filter/);
+  assert.match(css, /\.group-location-card\s*\{/);
+  assert.match(css, /\.group-location-map\s*\{\s*justify-self: end;/);
+});
+
+test("dashboard typography uses the neutral system UI stack", async () => {
+  const css = await readFile(new URL("../docs/styles.css", import.meta.url), "utf8");
+  assert.doesNotMatch(css, /font-family:\s*Inter/);
+  assert.match(css, /font-family:\s*-apple-system, BlinkMacSystemFont, "Segoe UI"/);
+  assert.match(css, /font-size:\s*clamp\(36px, 4vw, 52px\)/);
+});
