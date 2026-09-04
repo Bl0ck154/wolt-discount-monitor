@@ -445,64 +445,64 @@ function renderVenueGroup(group, index) {
     </tr>`;
 }
 
-function renderVenueRow(venue, visibleOffers, index) {
+function renderVenueParts(venue, visibleOffers) {
   const image = venue.imageUrl
     ? `<img class="venue-image" src="${escapeHtml(venue.imageUrl)}" alt="" loading="lazy" />`
     : `<div class="venue-image" aria-hidden="true"></div>`;
   const offers = visibleOffers.length
     ? visibleOffers.map((offer) => `<span class="offer ${offerClass(offer)}">${escapeHtml(offer.text)}</span>`).join("")
-    : "";
+    : `<span class="venue-empty-offer">No visible offer</span>`;
   const best = bestDiscount(venue);
   const bestLabel = formatBestValue(best);
   const amountClass = bestLabel.includes("%") ? "amount amount-percent" : "amount";
   const mapUrl = mapLink(venue);
   const hours = openingLabel(venue);
 
+  return {
+    identity: `<div class="venue-cell">
+      ${image}
+      <div>
+        <div class="venue-heading">
+          <a class="venue-title" href="${escapeHtml(venue.link ?? "#")}" target="_blank" rel="noreferrer">${escapeHtml(venue.name)}</a>
+          <span class="venue-type-inline">${escapeHtml(label(venue.productLine ?? "unknown"))}</span>
+        </div>
+        <div class="venue-meta">${escapeHtml(venue.address ?? "")}</div>
+      </div>
+    </div>`,
+    offers: `<div class="offer-list">${offers}</div>`,
+    value: `<span class="${amountClass}">${escapeHtml(bestLabel)}</span>`,
+    status: `<span class="hours ${hours.className}">${escapeHtml(hours.icon)} ${escapeHtml(hours.text)}</span>`,
+    map: mapUrl
+      ? `<a class="map-link" href="${escapeHtml(mapUrl)}" target="_blank" rel="noreferrer" title="Open in Google Maps" aria-label="Open in Google Maps"><span aria-hidden="true">🗺️</span></a>`
+      : `<span class="venue-map-empty">—</span>`,
+  };
+}
+
+function renderVenueRow(venue, visibleOffers, index) {
+  const parts = renderVenueParts(venue, visibleOffers);
+
   return `
     <tr>
       <td class="num-col row-num">${index}</td>
-      <td>
-        <div class="venue-cell">
-          ${image}
-          <div>
-            <div class="venue-heading">
-              <a class="venue-title" href="${escapeHtml(venue.link ?? "#")}" target="_blank" rel="noreferrer">${escapeHtml(venue.name)}</a>
-              <span class="venue-type-inline">${escapeHtml(label(venue.productLine ?? "unknown"))}</span>
-            </div>
-            <div class="venue-meta">${escapeHtml(venue.address ?? "")}</div>
-          </div>
-        </div>
-      </td>
-      <td><div class="offer-list">${offers}</div></td>
-      <td class="${amountClass}">${escapeHtml(bestLabel)}</td>
-      <td><span class="hours ${hours.className}">${escapeHtml(hours.icon)} ${escapeHtml(hours.text)}</span></td>
-      <td>${mapUrl ? `<a class="map-link" href="${escapeHtml(mapUrl)}" target="_blank" rel="noreferrer" title="Open in Google Maps" aria-label="Open in Google Maps"><span aria-hidden="true">🗺️</span></a>` : "-"}</td>
+      <td>${parts.identity}</td>
+      <td>${parts.offers}</td>
+      <td>${parts.value}</td>
+      <td>${parts.status}</td>
+      <td>${parts.map}</td>
     </tr>
   `;
 }
 
 function renderGroupDetailRow(venue, visibleOffers, index) {
-  const best = bestDiscount(venue);
-  const bestLabel = formatBestValue(best);
-  const hours = openingLabel(venue);
-  const mapUrl = mapLink(venue);
-  const offers = visibleOffers.length
-    ? visibleOffers.map((offer) => `<span class="offer ${offerClass(offer)}">${escapeHtml(offer.text)}</span>`).join("")
-    : `<span class="group-location-empty">No visible offer</span>`;
+  const parts = renderVenueParts(venue, visibleOffers);
 
   return `<div class="group-location-card">
     <div class="group-location-index">${index}</div>
-    <div class="group-location-main">
-      <div class="venue-heading">
-        <a class="venue-title" href="${escapeHtml(venue.link ?? "#")}" target="_blank" rel="noreferrer">${escapeHtml(venue.name)}</a>
-        <span class="venue-type-inline">${escapeHtml(label(venue.productLine ?? "unknown"))}</span>
-      </div>
-      <div class="venue-meta">${escapeHtml(venue.address ?? "")}</div>
-    </div>
-    <div class="group-location-offers"><div class="offer-list">${offers}</div></div>
-    <div class="group-location-value"><span>Best</span><strong class="${bestLabel.includes("%") ? "amount-percent" : ""}">${escapeHtml(bestLabel)}</strong></div>
-    <div class="group-location-status"><span class="hours ${hours.className}">${escapeHtml(hours.icon)} ${escapeHtml(hours.text)}</span></div>
-    <div class="group-location-map">${mapUrl ? `<a class="map-link" href="${escapeHtml(mapUrl)}" target="_blank" rel="noreferrer" title="Open in Google Maps" aria-label="Open in Google Maps"><span aria-hidden="true">🗺️</span></a>` : `<span class="group-location-empty">—</span>`}</div>
+    <div class="group-location-main">${parts.identity}</div>
+    <div class="group-location-offers">${parts.offers}</div>
+    <div class="group-location-value">${parts.value}</div>
+    <div class="group-location-status">${parts.status}</div>
+    <div class="group-location-map">${parts.map}</div>
   </div>`;
 }
 

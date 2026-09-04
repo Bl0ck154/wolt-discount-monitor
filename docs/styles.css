@@ -701,20 +701,17 @@ tbody > tr:not(.group-details-row):hover > td { background: #fbfcfc; }
 .group-location-value,
 .group-location-status,
 .group-location-map { min-width: 0; }
-.group-location-main .venue-title { font-size: 13px; }
+.group-location-main .venue-cell { min-width: 0; }
 .group-location-main .venue-meta { max-width: 100%; }
 .group-location-offers .offer-list { min-width: 0; }
-.group-location-value { display: grid; gap: 1px; }
-.group-location-value span {
-  color: var(--muted-2);
-  font-size: 8px;
-  font-weight: 600;
-  letter-spacing: .04em;
-  text-transform: uppercase;
+.group-location-value {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
-.group-location-value strong { color: var(--warning); font-size: 14px; font-weight: 700; white-space: nowrap; }
 .group-location-map { justify-self: end; }
-.group-location-empty { color: var(--muted-2); font-size: 10px; }
+.venue-empty-offer,
+.venue-map-empty { color: var(--muted-2); font-size: 10px; }
 
 /* SEO / explanatory content */
 .content-section {
