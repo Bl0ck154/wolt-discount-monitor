@@ -18,6 +18,7 @@ test("direct Wolt fetch loads and runs without installed npm packages", async ()
   try {
     await cp(new URL("../src/wolt-api.mjs", import.meta.url), join(dir, "wolt-api.mjs"));
     await cp(new URL("../src/config.mjs", import.meta.url), join(dir, "config.mjs"));
+    await cp(new URL("../src/proxyscrape-pool.mjs", import.meta.url), join(dir, "proxyscrape-pool.mjs"));
     await writeFile(join(dir, "package.json"), '{"type":"module"}\n', "utf8");
 
     const script = `
@@ -32,7 +33,7 @@ test("direct Wolt fetch loads and runs without installed npm packages", async ()
     const child = spawnSync(process.execPath, ["--input-type=module", "-e", script], {
       cwd: dir,
       encoding: "utf8",
-      env: { ...process.env, WOLT_PROXY_URL: "" },
+      env: { ...process.env, WOLT_PROXY_URL: "", WOLT_PROXYSCRAPE_ENABLED: "0", WOLT_PROXY_MODE: "direct-first" },
     });
 
     assert.equal(child.status, 0, child.stderr || child.stdout);

@@ -4,7 +4,7 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { CITY, PATHS, cityKey } from "./config.mjs";
 import { normalizeSnapshot } from "./normalize.mjs";
-import { fetchCityData, hasConfiguredWoltProxy, isSnapshotFresh } from "./wolt-api.mjs";
+import { fetchCityData, getWoltProxyStatus, hasConfiguredWoltProxy, isSnapshotFresh, warmWoltProxyPool } from "./wolt-api.mjs";
 import { fetchWoltCityCatalog } from "./wolt-cities.mjs";
 import { compactCitiesIndex, compactSnapshot, jsonText } from "./public-snapshot.mjs";
 import { ingestCourierPilotTelemetry } from "./courierpilot-telemetry.mjs";
@@ -48,6 +48,11 @@ const server = createServer((request, response) => {
 
 server.listen(PORT, HOST, () => {
   console.log(`Wolt discount monitor API listening on http://${HOST}:${PORT}`);
+  warmWoltProxyPool().then((pool) => {
+    if (pool.length) console.log(`ProxyScrape health pool ready with ${pool.length} proxies`);
+  }).catch((error) => {
+    console.warn(`ProxyScrape warm-up failed; requests can retry/rebuild later: ${error.message}`);
+  });
 });
 
 async function handleRequest(request, response) {
@@ -64,6 +69,7 @@ async function handleRequest(request, response) {
       cacheTtlMs: API_CACHE_TTL_MS,
       refresh: refreshPool.stats,
       proxyFallbackConfigured: hasConfiguredWoltProxy(),
+      proxy: getWoltProxyStatus(),
     });
     return;
   }
