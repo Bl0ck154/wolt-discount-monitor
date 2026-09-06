@@ -1,5 +1,6 @@
 name: CourierPilot sanitized telemetry probe
 
+# Temporary read-only diagnostic workflow; remove after live route diagnosis.
 on:
   pull_request:
     branches:
