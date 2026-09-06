@@ -1,0 +1,108 @@
+name: CourierPilot sanitized telemetry probe
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/courierpilot-telemetry-probe.yml
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    timeout-minutes: 4
+    runs-on:
+      - self-hosted
+      - X64
+      - wolt
+      - Linux
+    steps:
+      - name: Print recent sanitized CourierPilot telemetry
+        shell: bash
+        run: |
+          set -euo pipefail
+          today="$(date -u +%F)"
+          merged="$(mktemp)"
+          trap 'rm -f "$merged"' EXIT
+          declare -a candidates=()
+
+          if [[ -n "${WOLT_API_CACHE_DIR:-}" ]]; then
+            candidates+=("${WOLT_API_CACHE_DIR}/courierpilot/${today}.ndjson")
+          fi
+
+          # If the API process runs as the same account, recover its cwd/cache path without printing
+          # any environment values or private filesystem paths to the public Actions log.
+          while IFS= read -r pid; do
+            [[ -n "$pid" ]] || continue
+            cwd="$(readlink -f "/proc/${pid}/cwd" 2>/dev/null || true)"
+            if [[ -n "$cwd" ]]; then
+              candidates+=("${cwd}/.cache/wolt-api/courierpilot/${today}.ndjson")
+            fi
+            cache="$(tr '\0' '\n' < "/proc/${pid}/environ" 2>/dev/null | sed -n 's/^WOLT_API_CACHE_DIR=//p' | head -n 1 || true)"
+            if [[ -n "$cache" ]]; then
+              candidates+=("${cache}/courierpilot/${today}.ndjson")
+            fi
+          done < <(pgrep -f 'src/server\.mjs|wolt-api' || true)
+
+          # Bounded fallback search. Never print discovered paths.
+          for root in "$HOME" /opt /srv /var/lib /var/cache; do
+            [[ -d "$root" ]] || continue
+            while IFS= read -r file; do
+              [[ -n "$file" ]] && candidates+=("$file")
+            done < <(find "$root" -maxdepth 9 -type f -path "*/courierpilot/${today}.ndjson" -readable 2>/dev/null | head -n 20)
+          done
+
+          found=0
+          declare -A seen=()
+          for file in "${candidates[@]}"; do
+            [[ -f "$file" && -r "$file" ]] || continue
+            canonical="$(readlink -f "$file" 2>/dev/null || printf '%s' "$file")"
+            [[ -n "${seen[$canonical]:-}" ]] && continue
+            seen[$canonical]=1
+            cat "$file" >> "$merged"
+            found=1
+          done
+
+          if [[ "$found" -ne 1 ]]; then
+            echo "No readable CourierPilot telemetry file found on this self-hosted Linux runner."
+            exit 2
+          fi
+
+          python3 - "$merged" <<'PY'
+          import json, sys, time
+          from datetime import datetime, timezone
+
+          path = sys.argv[1]
+          now = int(time.time() * 1000)
+          cutoff = now - 90 * 60 * 1000
+          relevant_prefixes = (
+              "watch", "open_", "price_", "ocr_", "route_", "wolt_", "overlay_",
+              "score_", "screenshot_", "capture_", "window_", "screen_"
+          )
+          rows = []
+          with open(path, "r", encoding="utf-8", errors="replace") as fh:
+              for line in fh:
+                  try:
+                      row = json.loads(line)
+                  except Exception:
+                      continue
+                  if row.get("platform") != "Wolt":
+                      continue
+                  if row.get("appVersion") != "0.15.41":
+                      continue
+                  event_at = int(row.get("eventAt") or 0)
+                  if event_at < cutoff:
+                      continue
+                  stage = str(row.get("stage") or "")
+                  if not stage.startswith(relevant_prefixes):
+                      continue
+                  rows.append((event_at, stage, str(row.get("message") or "")))
+
+          rows.sort(key=lambda item: item[0])
+          print(f"CourierPilot 0.15.41 Wolt diagnostic events in last 90 min: {len(rows)}")
+          for event_at, stage, message in rows[-140:]:
+              stamp = datetime.fromtimestamp(event_at / 1000, tz=timezone.utc).isoformat(timespec="milliseconds")
+              print(f"{stamp}  {stage:34s}  {message}")
+          PY
