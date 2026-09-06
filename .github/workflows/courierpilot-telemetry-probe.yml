@@ -17,7 +17,6 @@ jobs:
     runs-on:
       - self-hosted
       - X64
-      - wolt
       - Linux
     steps:
       - name: Print recent sanitized CourierPilot telemetry
