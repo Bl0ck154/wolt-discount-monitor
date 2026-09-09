@@ -1,0 +1,35 @@
+name: ScraperAPI account usage
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  usage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Read ScraperAPI account usage
+        shell: bash
+        env:
+          SCRAPERAPI_API_KEY: ${{ secrets.SCRAPERAPI_API_KEY }}
+        run: |
+          set -euo pipefail
+          if [[ -z "${SCRAPERAPI_API_KEY:-}" ]]; then
+            echo "::error::SCRAPERAPI_API_KEY repository secret is missing or empty."
+            exit 1
+          fi
+          response="$(curl --fail --silent --show-error --get \
+            --data-urlencode "api_key=${SCRAPERAPI_API_KEY}" \
+            https://api.scraperapi.com/account)"
+          printf "%s" "$response" | jq '{
+            subscription,
+            requestCount,
+            failedRequestCount,
+            requestLimit,
+            usedCredits,
+            concurrentRequests,
+            concurrencyLimit
+          }'
