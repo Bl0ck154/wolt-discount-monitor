@@ -7,7 +7,7 @@ import { normalizeSnapshot } from "./normalize.mjs";
 import { fetchCityData, getWoltProxyStatus, hasConfiguredWoltProxy, isSnapshotFresh, warmWoltProxyPool } from "./wolt-api.mjs";
 import { fetchWoltCityCatalog } from "./wolt-cities.mjs";
 import { compactCitiesIndex, compactSnapshot, jsonText } from "./public-snapshot.mjs";
-import { ingestCourierPilotTelemetry } from "./courierpilot-telemetry.mjs";
+import { ingestCourierPilotTelemetry, warmCourierPilotRouteSummary } from "./courierpilot-telemetry.mjs";
 import {
   courierPilotMarketCities,
   courierPilotMarketHistory,
@@ -15,6 +15,8 @@ import {
   ingestCourierPilotMarket,
 } from "./courierpilot-market.mjs";
 import { TaskPool } from "./refresh-pool.mjs";
+
+void warmCourierPilotRouteSummary();
 
 const HOST = process.env.WOLT_API_HOST ?? "127.0.0.1";
 const PORT = Number(process.env.PORT ?? process.env.WOLT_API_PORT ?? 3000);

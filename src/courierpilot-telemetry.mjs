@@ -10,6 +10,17 @@ const RETENTION_DAYS = 30;
 const ID_RE = /^[a-f0-9-]{8,64}$/i;
 let routeSummaryRefreshChain = Promise.resolve();
 
+/** Rebuild today's aggregate after a service restart even before the next phone batch arrives. */
+export function warmCourierPilotRouteSummary(now = Date.now()) {
+  const day = new Date(now).toISOString().slice(0, 10);
+  routeSummaryRefreshChain = routeSummaryRefreshChain
+    .then(() => refreshCourierPilotRouteSummary(TELEMETRY_DIR, day))
+    .catch((error) => {
+      if (error?.code !== "ENOENT") console.error("CourierPilot route summary startup refresh failed", error);
+    });
+  return routeSummaryRefreshChain;
+}
+
 export async function ingestCourierPilotTelemetry(request) {
   const payload = await readJsonBody(request, MAX_BODY_BYTES);
   if (payload?.schema !== 1) {
