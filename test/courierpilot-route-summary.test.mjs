@@ -52,3 +52,36 @@ test("does not count Wolt captures with no route activity as route-tracked offer
   assert.equal(summary.routeTrackedOffers, 1);
   assert.equal(summary.outcomes.visibleSuccess, 1);
 });
+
+
+test("reports flicker diagnostics by app version without relying on capture-cycle attribution", () => {
+  const summary = summarizeCourierPilotRouteEvents([
+    arm(1000, "0.15.79"),
+    event(1100, "route_ready", "visible=true", "0.15.79"),
+    event(2000, "screen_armed", "Offer detected directly on courier screen; notification was not required", "0.15.82"),
+    event(2100, "route_ready", "Route updated cached card; visible=false", "0.15.82"),
+    event(2200, "overlay_replacement_confirmed", "price=626->626", "0.15.82"),
+    event(2300, "overlay_hide", "different offer is now stably visible", "0.15.82"),
+    event(2400, "screen_armed", "Offer detected directly on courier screen; notification was not required", "0.15.82"),
+    event(2500, "duplicate_suppressed", "Same live offer already exists as record #986", "0.15.82"),
+    event(3000, "overlay_difference_observed", "price=626->626", "0.15.83"),
+    event(3100, "route_ready", "Route updated cached card; visible=true", "0.15.83"),
+  ]);
+
+  assert.equal(summary.diagnostics.overlayReplacementConfirmed, 1);
+  assert.equal(summary.diagnostics.overlayHideDifferentOffer, 1);
+  assert.equal(summary.diagnostics.screenArmed, 2);
+  assert.equal(summary.diagnostics.duplicateSuppressed, 1);
+  assert.deepEqual(summary.diagnosticsByVersion["0.15.82"], {
+    events: 6,
+    screenArmed: 2,
+    routeReadyVisible: 0,
+    routeReadyHidden: 1,
+    overlayDifferenceObserved: 0,
+    overlayReplacementConfirmed: 1,
+    overlayHideDifferentOffer: 1,
+    duplicateSuppressed: 1,
+  });
+  assert.equal(summary.diagnosticsByVersion["0.15.83"].overlayDifferenceObserved, 1);
+  assert.equal(summary.diagnosticsByVersion["0.15.83"].routeReadyVisible, 1);
+});

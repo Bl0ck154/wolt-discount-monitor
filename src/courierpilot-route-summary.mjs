@@ -79,10 +79,32 @@ export function summarizeCourierPilotRouteEvents(events, day = "") {
   }
 
   const stageCounts = {};
+  const diagnosticsByVersion = {};
   for (const event of ordered) {
     const stage = String(event.stage ?? "");
     if (!stage) continue;
     stageCounts[stage] = (stageCounts[stage] ?? 0) + 1;
+
+    const version = String(event.appVersion ?? "unknown") || "unknown";
+    const stats = diagnosticsByVersion[version] ?? {
+      events: 0,
+      screenArmed: 0,
+      routeReadyVisible: 0,
+      routeReadyHidden: 0,
+      overlayDifferenceObserved: 0,
+      overlayReplacementConfirmed: 0,
+      overlayHideDifferentOffer: 0,
+      duplicateSuppressed: 0,
+    };
+    stats.events += 1;
+    if (stage === "screen_armed") stats.screenArmed += 1;
+    if (stage === "route_ready" && /\bvisible=true\b/.test(String(event.message ?? ""))) stats.routeReadyVisible += 1;
+    if (stage === "route_ready" && /\bvisible=false\b/.test(String(event.message ?? ""))) stats.routeReadyHidden += 1;
+    if (stage === "overlay_difference_observed") stats.overlayDifferenceObserved += 1;
+    if (stage === "overlay_replacement_confirmed") stats.overlayReplacementConfirmed += 1;
+    if (stage === "overlay_hide" && /different offer/i.test(String(event.message ?? ""))) stats.overlayHideDifferentOffer += 1;
+    if (stage === "duplicate_suppressed") stats.duplicateSuppressed += 1;
+    diagnosticsByVersion[version] = stats;
   }
 
   const offers = tracked.length;
@@ -103,10 +125,17 @@ export function summarizeCourierPilotRouteEvents(events, day = "") {
       routeTextOcrRetry: stageCounts.route_text_ocr_retry ?? 0,
       routeFailed: stageCounts.route_failed ?? 0,
       overlayDifferenceDeferred: stageCounts.overlay_difference_deferred ?? 0,
+      overlayDifferenceObserved: stageCounts.overlay_difference_observed ?? 0,
       overlayReplacementConfirmed: stageCounts.overlay_replacement_confirmed ?? 0,
+      overlayHideDifferentOffer: ordered.filter((event) =>
+        event.stage === "overlay_hide" && /different offer/i.test(String(event.message ?? ""))
+      ).length,
+      screenArmed: stageCounts.screen_armed ?? 0,
+      duplicateSuppressed: stageCounts.duplicate_suppressed ?? 0,
       windowMissing: stageCounts.window_missing ?? 0,
     },
     byVersion,
+    diagnosticsByVersion,
   };
 }
 
