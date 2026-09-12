@@ -27,7 +27,8 @@
     "compact": "node src/compact-data.mjs",
     "server": "node src/server.mjs",
     "start": "node src/check-discounts.mjs",
-    "target": "node src/wolt-promotions-poc.mjs --slug lukiskiu-kalejimas-20 --dynamic"
+    "target": "node src/wolt-promotions-poc.mjs --slug lukiskiu-kalejimas-20 --dynamic",
+    "courierpilot:stats": "node scripts/courierpilot-route-stats.mjs"
   },
   "dependencies": {
     "undici": "^6.28.0"

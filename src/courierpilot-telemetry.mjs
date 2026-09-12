@@ -1,5 +1,6 @@
 import { appendFile, mkdir, readdir, unlink } from "node:fs/promises";
 import { join } from "node:path";
+import { refreshCourierPilotRouteSummary } from "./courierpilot-route-summary.mjs";
 
 const CACHE_DIR = process.env.WOLT_API_CACHE_DIR ?? ".cache/wolt-api";
 const TELEMETRY_DIR = join(CACHE_DIR, "courierpilot");
@@ -7,6 +8,7 @@ const MAX_BODY_BYTES = 128 * 1024;
 const MAX_EVENTS = 100;
 const RETENTION_DAYS = 30;
 const ID_RE = /^[a-f0-9-]{8,64}$/i;
+let routeSummaryRefreshChain = Promise.resolve();
 
 export async function ingestCourierPilotTelemetry(request) {
   const payload = await readJsonBody(request, MAX_BODY_BYTES);
@@ -63,6 +65,9 @@ export async function ingestCourierPilotTelemetry(request) {
   await mkdir(TELEMETRY_DIR, { recursive: true });
   const day = new Date(now).toISOString().slice(0, 10);
   await appendFile(join(TELEMETRY_DIR, `${day}.ndjson`), `${lines.join("\n")}\n`, "utf8");
+  routeSummaryRefreshChain = routeSummaryRefreshChain
+    .then(() => refreshCourierPilotRouteSummary(TELEMETRY_DIR, day))
+    .catch((error) => console.error("CourierPilot route summary refresh failed", error));
   void cleanupOldTelemetry(now).catch((error) => console.error("CourierPilot telemetry cleanup failed", error));
 
   return { ok: true, accepted };
@@ -109,7 +114,7 @@ async function cleanupOldTelemetry(now) {
   const cutoff = now - RETENTION_DAYS * 86_400_000;
   const names = await readdir(TELEMETRY_DIR);
   await Promise.all(names.map(async (name) => {
-    const match = name.match(/^(\d{4}-\d{2}-\d{2})\.ndjson$/);
+    const match = name.match(/^(\d{4}-\d{2}-\d{2})(?:\.ndjson|\.route-summary\.json)$/);
     if (!match) return;
     const timestamp = Date.parse(`${match[1]}T00:00:00Z`);
     if (Number.isFinite(timestamp) && timestamp < cutoff) {
