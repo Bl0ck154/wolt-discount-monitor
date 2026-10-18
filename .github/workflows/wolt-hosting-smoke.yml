@@ -12,49 +12,28 @@ permissions:
   contents: read
 
 jobs:
-  transport-smoke:
+  cloudflare-origin-smoke:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 2
     steps:
-      - name: Check Wolt egress routes with one request each
-        env:
-          SCRAPERAPI_API_KEY: ${{ secrets.SCRAPERAPI_API_KEY }}
+      - name: Inspect Cloudflare to Wolt upstream status
         shell: bash
         run: |
           node --input-type=module <<'JS'
-          const headers = {
-            Accept: 'application/json, text/plain, */*',
-            'Accept-Language': 'en-US,en;q=0.9',
-            Platform: 'Web',
-            Referer: 'https://wolt.com/',
-            'User-Agent': 'Mozilla/5.0',
-          };
-          const target = 'https://consumer-api.wolt.com/v1/pages/restaurants?lat=0&lon=0';
-          async function attempt(name, url, opts = {}) {
-            try {
-              const response = await fetch(url, { ...opts, signal: AbortSignal.timeout(12000) });
-              const text = await response.text();
-              let sections = null;
-              try { sections = JSON.parse(text)?.sections?.length ?? null; } catch {}
-              console.log(JSON.stringify({ route: name, httpStatus: response.status, sections, bytes: text.length }));
-              return response.ok && Number.isInteger(sections);
-            } catch (error) {
-              console.log(JSON.stringify({ route: name, error: error.name, message: String(error.message).slice(0, 100) }));
-              return false;
-            }
-          }
-          const directOk = await attempt('github-direct', target, { headers });
-          const cloudflareOk = await attempt('cloudflare-worker-probe', 'https://wolt-discount-probe.bl0ck-c1b.workers.dev/probe');
-          if (!directOk && !cloudflareOk) {
-            const key = process.env.SCRAPERAPI_API_KEY?.trim();
-            if (key) {
-              const url = new URL('https://api.scraperapi.com/');
-              url.searchParams.set('api_key', key);
-              url.searchParams.set('url', target);
-              url.searchParams.set('keep_headers', 'true');
-              await attempt('scraperapi-fallback-one-request', url, { headers });
-            } else {
-              console.log('scraperapi-fallback: secret unavailable; skipped');
-            }
+          const endpoint = 'https://wolt-discount-probe.bl0ck-c1b.workers.dev/probe';
+          try {
+            const response = await fetch(endpoint, { signal: AbortSignal.timeout(15000) });
+            const data = await response.json();
+            console.log(JSON.stringify({
+              workerStatus: response.status,
+              checkedAt: data.checkedAt,
+              woltChecks: data.checks?.map(({name,status,sections,bytes,error,contentType}) => ({
+                name,status,sections,bytes,error,contentType
+              })),
+            }));
+            if (!response.ok) process.exitCode = 1;
+          } catch (error) {
+            console.error(error.name + ': ' + error.message);
+            process.exitCode = 1;
           }
           JS
