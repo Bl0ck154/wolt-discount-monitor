@@ -1,0 +1,26 @@
+name: One-time Wolt monitor verification
+on:
+  push:
+    branches:
+      - ops/wolt-telegram-live-check-20261018
+    paths:
+      - .github/workflows/wolt-manual-verification.yml
+permissions:
+  contents: read
+jobs:
+  wolt-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run current Vilnius monitor
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          SCRAPERAPI_API_KEY: ${{ secrets.SCRAPERAPI_API_KEY }}
+          WOLT_CITIES: ltu/vilnius
+          WOLT_ALL_CITIES: 'false'
+          WOLT_REFRESH_CITY_CATALOG: 'false'
+          WOLT_CACHE_TTL_HOURS: '0'
+          WOLT_PROXYSCRAPE_ENABLED: '0'
+        run: node src/check-discounts.mjs
