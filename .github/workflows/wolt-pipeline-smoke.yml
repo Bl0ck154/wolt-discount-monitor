@@ -1,0 +1,34 @@
+name: Wolt full pipeline smoke (temporary)
+
+on:
+  push:
+    branches:
+      - test/wolt-hosting-fallback-20261018
+    paths:
+      - .github/workflows/wolt-pipeline-smoke.yml
+
+permissions:
+  contents: read
+
+jobs:
+  github-hosted-pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run existing tests
+        run: node --test
+      - name: Run Vilnius-only pipeline without alerts or commits
+        env:
+          SCRAPERAPI_API_KEY: ${{ secrets.SCRAPERAPI_API_KEY }}
+          TELEGRAM_ALLOW_SKIP: "true"
+          WOLT_CITIES: ltu/vilnius
+          WOLT_ALL_CITIES: "false"
+          WOLT_REFRESH_CITY_CATALOG: "false"
+          WOLT_PROXYSCRAPE_ENABLED: "0"
+          WOLT_API_MAX_ATTEMPTS: "1"
+          WOLT_API_RETRY_BASE_MS: "1000"
+          WOLT_API_RETRY_JITTER_MS: "0"
+          WOLT_API_TIMEOUT_MS: "30000"
+          WOLT_API_BETWEEN_ENDPOINTS_MS: "0"
+        run: node src/check-discounts.mjs
