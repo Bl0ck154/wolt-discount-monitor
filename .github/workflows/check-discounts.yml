@@ -27,6 +27,14 @@ on:
         default: false
         type: boolean
 
+  # UTC times; roughly retain the previous five daily Vilnius checks without VPS cron.
+  schedule:
+    - cron: "19 7 * * *"
+    - cron: "49 8 * * *"
+    - cron: "22 11 * * *"
+    - cron: "29 14 * * *"
+    - cron: "11 16 * * *"
+
 permissions:
   contents: write
 
@@ -36,7 +44,7 @@ concurrency:
 
 jobs:
   cloud:
-    if: inputs.runner == 'github'
+    if: github.event_name == 'schedule' || inputs.runner == 'github'
     timeout-minutes: 30
     runs-on: ubuntu-latest
     steps:
@@ -146,7 +154,7 @@ jobs:
           fi
 
   self-hosted:
-    if: inputs.runner != 'github'
+    if: github.event_name != 'schedule' && inputs.runner != 'github'
     timeout-minutes: 30
     runs-on:
       - self-hosted
