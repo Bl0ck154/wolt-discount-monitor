@@ -1,6 +1,7 @@
 name: Deploy GitHub Pages
 
 on:
+  workflow_call:
   workflow_dispatch:
   push:
     branches: [main]
@@ -31,49 +32,11 @@ jobs:
         with:
           ref: main
 
-      - name: Generate public runtime config
-        env:
-          WOLT_API_BASE_URL: ${{ vars.WOLT_API_BASE_URL }}
+      - name: Disable legacy VPS live API in published dashboard
         shell: bash
         run: |
-          node --input-type=module <<'NODE'
-          import { writeFileSync } from "node:fs";
-          const apiBaseUrl = String(process.env.WOLT_API_BASE_URL ?? "").trim().replace(/\/+$/, "");
-          writeFileSync("docs/config.js", `window.WOLT_API_BASE_URL = ${JSON.stringify(apiBaseUrl)};\n`, "utf8");
-          NODE
-
-      - name: Verify optional live API
-        env:
-          WOLT_API_BASE_URL: ${{ vars.WOLT_API_BASE_URL }}
-        shell: bash
-        run: |
-          api_base_url="${WOLT_API_BASE_URL%/}"
-          if [[ -z "${api_base_url}" ]]; then
-            echo "Live API variable is not configured; deploying static-only dashboard."
-            exit 0
-          fi
-
-          http_status="$(
-            curl --silent \
-              --max-time 20 \
-              --output /tmp/wolt-health.json \
-              --dump-header /tmp/wolt-health.headers \
-              --write-out '%{http_code}' \
-              --header 'Origin: https://bl0ck154.github.io' \
-              "${api_base_url}/health" \
-              || true
-          )"
-
-          cors_origin="$(
-            awk 'BEGIN { IGNORECASE=1 } /^access-control-allow-origin:/ { sub(/^[^:]*:[[:space:]]*/, ""); sub(/\r$/, ""); print; exit }' \
-              /tmp/wolt-health.headers 2>/dev/null || true
-          )"
-
-          if [[ "${http_status}" == "200" && "${cors_origin}" == "https://bl0ck154.github.io" ]]; then
-            echo "Live API health and CORS checks passed."
-          else
-            echo "::warning::Live API check failed: HTTP ${http_status:-request-error}, CORS origin ${cors_origin:-missing}. The static dashboard will still be deployed."
-          fi
+          # Only committed GitHub Pages snapshots are used in the VPS-free deployment.
+          printf 'window.WOLT_API_BASE_URL = "";\n' > docs/config.js
 
       - name: Compact machine data for deployment
         run: node src/compact-data.mjs --root=docs/data
@@ -136,3 +99,7 @@ jobs:
         id: deploy3
         if: ${{ steps.deploy1.outcome == 'failure' && steps.deploy2.outcome == 'failure' }}
         uses: actions/deploy-pages@v5
+
+      - name: Fail if all GitHub Pages deployments failed
+        if: ${{ steps.deploy1.outcome == 'failure' && steps.deploy2.outcome == 'failure' && steps.deploy3.outcome == 'failure' }}
+        run: exit 1
