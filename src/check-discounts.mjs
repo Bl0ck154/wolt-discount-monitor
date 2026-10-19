@@ -180,12 +180,27 @@ function cityIdsToCheck(cities) {
     .filter(Boolean);
 }
 
+// Catalog data changes slowly. Refresh it daily, not for every selected-city
+// scan, and retain the last known good catalog during transient Wolt errors.
+const CITY_CATALOG_REFRESH_MS = 24 * 60 * 60 * 1000;
+
 async function loadOrFetchCityCatalog() {
-  if (process.env.WOLT_REFRESH_CITY_CATALOG !== "true") {
-    const existing = await readJsonIfExists(PATHS.cityCatalog);
-    if (existing?.cities?.length) return existing;
+  const existing = await readJsonIfExists(PATHS.cityCatalog);
+  const lastAttempt = Date.parse(existing?.lastRefreshAttemptAt ?? existing?.generatedAt ?? "");
+  const cachedFresh = existing?.cities?.length &&
+    Number.isFinite(lastAttempt) && Date.now() - lastAttempt < CITY_CATALOG_REFRESH_MS;
+
+  if (cachedFresh && process.env.WOLT_REFRESH_CITY_CATALOG !== "true") {
+    return existing;
   }
-  return fetchWoltCityCatalog();
+
+  try {
+    return await fetchWoltCityCatalog();
+  } catch (error) {
+    if (!existing?.cities?.length) throw error;
+    console.warn("City catalog refresh failed; keeping last known good catalog for another 24h:", error.message);
+    return { ...existing, lastRefreshAttemptAt: new Date().toISOString() };
+  }
 }
 
 function findCity(cities, id) {

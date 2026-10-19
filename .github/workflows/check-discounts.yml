@@ -59,32 +59,6 @@ jobs:
       - name: Verify Node runtime
         run: node -e "const major = Number(process.versions.node.split('.')[0]); if (major < 20) process.exit(1)"
 
-      - name: Wolt connectivity preflight
-        shell: bash
-        env:
-          SCRAPERAPI_API_KEY: ${{ secrets.SCRAPERAPI_API_KEY }}
-        run: |
-          set -euo pipefail
-          status="$(
-            curl --max-time 30 --silent --show-error --output /dev/null \
-              --write-out '%{http_code}' \
-              'https://consumer-api.wolt.com/v1/pages/venue-list/promotions-near-you?lon=25.2682558&lat=54.6901231' \
-              -H 'Accept: application/json, text/plain, */*' \
-              -H 'Accept-Language: en-US,en;q=0.9' \
-              -H 'Platform: Web' \
-              -H 'Referer: https://wolt.com/' \
-              -H 'User-Agent: Mozilla/5.0' \
-              || true
-          )"
-          if [[ "$status" != "200" ]]; then
-            if [[ -n "${SCRAPERAPI_API_KEY:-}" ]]; then
-              echo "::warning::Direct Wolt preflight returned HTTP ${status:-request-error}; continuing because ScraperAPI fallback is configured."
-            else
-              echo "::error::Wolt preflight from GitHub-hosted runner returned HTTP ${status:-request-error}. Configure SCRAPERAPI_API_KEY or re-run with runner=windows or runner=linux."
-              exit 1
-            fi
-          fi
-
       - name: ScraperAPI smoke test
         if: inputs.scraperapi_smoke_test
         env:
@@ -132,7 +106,7 @@ jobs:
           WOLT_API_RETRY_BASE_MS: ${{ vars.WOLT_API_RETRY_BASE_MS }}
           WOLT_API_RETRY_JITTER_MS: ${{ vars.WOLT_API_RETRY_JITTER_MS }}
           FORCE_WRITE: ${{ inputs.force_refresh && 'true' || 'false' }}
-          WOLT_REFRESH_CITY_CATALOG: "true"
+          WOLT_REFRESH_CITY_CATALOG: "false"
           WOLT_CITIES: ${{ inputs.cities || 'ltu/vilnius,deu/nuremberg' }}
           WOLT_ALL_CITIES: ${{ inputs.all_cities }}
         run: node src/check-discounts.mjs
