@@ -186,9 +186,9 @@ const CITY_CATALOG_REFRESH_MS = 24 * 60 * 60 * 1000;
 
 async function loadOrFetchCityCatalog() {
   const existing = await readJsonIfExists(PATHS.cityCatalog);
-  const lastRefresh = Date.parse(existing?.generatedAt ?? "");
+  const lastAttempt = Date.parse(existing?.lastRefreshAttemptAt ?? existing?.generatedAt ?? "");
   const cachedFresh = existing?.cities?.length &&
-    Number.isFinite(lastRefresh) && Date.now() - lastRefresh < CITY_CATALOG_REFRESH_MS;
+    Number.isFinite(lastAttempt) && Date.now() - lastAttempt < CITY_CATALOG_REFRESH_MS;
 
   if (cachedFresh && process.env.WOLT_REFRESH_CITY_CATALOG !== "true") {
     return existing;
@@ -198,8 +198,8 @@ async function loadOrFetchCityCatalog() {
     return await fetchWoltCityCatalog();
   } catch (error) {
     if (!existing?.cities?.length) throw error;
-    console.warn("City catalog refresh failed; keeping last known good catalog:", error.message);
-    return existing;
+    console.warn("City catalog refresh failed; keeping last known good catalog for another 24h:", error.message);
+    return { ...existing, lastRefreshAttemptAt: new Date().toISOString() };
   }
 }
 
