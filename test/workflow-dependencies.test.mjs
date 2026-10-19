@@ -28,6 +28,9 @@ test("city catalog uses a daily cache and survives transient upstream failures",
   assert.match(source, /CITY_CATALOG_REFRESH_MS = 24 \* 60 \* 60 \* 1000/);
   assert.match(source, /cachedFresh && process\.env\.WOLT_REFRESH_CITY_CATALOG !== "true"/);
   assert.match(source, /if \(!existing\?\.cities\?\.length\) throw error/);
+  assert.match(source, /lastRefreshAttemptAt: new Date\(\)\.toISOString\(\)/);
+  const fetcher = await readFile(new URL("../src/wolt-cities.mjs", import.meta.url), "utf8");
+  assert.match(fetcher, /maxAttempts: 2, retryBaseMs: 60_000/);
 });
 
 test("direct Wolt fetch loads and runs without installed npm packages", async () => {
