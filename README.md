@@ -47,7 +47,7 @@ Wolt can have a lot of promotions at the same time, but finding the useful ones 
 3. Sort by **Best discount** to bring stronger offers to the top.
 4. Open the venue on Wolt when you find a deal you want.
 
-The city picker searches the full discovered catalog instead of presenting a hand-picked list of example cities. Bundled snapshots are used when available; the deployment can optionally use the live API for cities whose bundled data is missing or stale.
+The city picker searches the full discovered catalog. The public GitHub Pages deployment uses committed snapshots only, so a city without a saved snapshot cannot show fresh offers until it is included in a monitor run. This avoids requiring a VPS or exposing an on-demand proxy to every site visitor.
 
 ## How deals are ranked
 
@@ -94,7 +94,7 @@ flowchart LR
     F --> J[Optional Node API]
 ```
 
-The dashboard is **static-first**: cached snapshots under `docs/data/` can be served directly by GitHub Pages, so the public site is not designed around a mandatory private backend.
+The production dashboard is **static-only and independent of the VPS**: snapshots under `docs/data/` are published via GitHub Pages automatically whenever scheduled GitHub Actions checks commit changed data. The standalone Node API is optional legacy/local tooling, not used by the published site.
 
 ## Project structure
 
@@ -193,7 +193,7 @@ GET /api/cities
 GET /api/cities/<country>/<city>/latest
 ```
 
-The API binds to loopback by default. A public HTTPS origin can be injected into the Pages deployment through the repository variable `WOLT_API_BASE_URL`; that value is intentionally visible to browsers and is **not a secret**.
+The API binds to loopback by default. Older releases injected a public HTTPS origin through `WOLT_API_BASE_URL`, but the production Pages workflow now explicitly publishes an empty API origin. The Node server can still run separately for development or other consumers; it is not part of the website's production data path.
 
 See [`OPERATIONS.md`](OPERATIONS.md) for deployment and runtime configuration.
 
@@ -217,7 +217,7 @@ If a qualifying alert is pending but credentials are unavailable, the updater fa
 | [`compact-data.yml`](.github/workflows/compact-data.yml) | keeps generated history manageable |
 | [`deploy-pages.yml`](.github/workflows/deploy-pages.yml) | deploys the public dashboard |
 
-The data updater runs only through explicit dispatch events on self-hosted project runners; ordinary pull requests run tests on GitHub-hosted infrastructure instead.
+The updater runs automatically five times daily on GitHub-hosted runners, independent of any VPS or self-hosted runner. If new data is committed, the same Actions run invokes the reusable Pages deployment. Manual `workflow_dispatch` runs use GitHub-hosted runners too. Scheduled checks and current Vilnius Telegram notifications use `SCRAPERAPI_API_KEY` as a fallback when direct Wolt requests are rate-limited. Browsers never receive this key.
 
 ## Privacy and security
 
