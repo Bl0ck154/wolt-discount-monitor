@@ -1242,6 +1242,12 @@ function apiUrlForCity(city) {
 }
 
 function apiBaseUrl() {
+  // An explicitly empty public config means static-only, even on browsers that
+  // saved the old VPS URL in localStorage from an earlier deployment.
+  if (typeof window.WOLT_API_BASE_URL === "string" && !window.WOLT_API_BASE_URL.trim()) {
+    safeLocalStorageRemove("WOLT_API_BASE_URL");
+    return "";
+  }
   const params = new URLSearchParams(window.location.search);
   const fromQuery = params.has("api") ? params.get("api") : null;
   if (fromQuery && ["off", "none", "false", "0"].includes(fromQuery.trim().toLowerCase())) {
