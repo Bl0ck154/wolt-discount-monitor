@@ -1,4 +1,8 @@
 const DEFAULT_API_BASE_URL = "";
+const CITY_REFRESH_API = "https://wolt-city-refresh.bl0ck-c1b.workers.dev/api/refresh";
+const CITY_SNAPSHOT_TTL_MS = 4 * 60 * 60 * 1000;
+const CITY_REFRESH_POLL_MS = 12000;
+const CITY_REFRESH_MAX_POLLS = 20;
 const INITIAL_RENDER_LIMIT = 100;
 const RENDER_STEP = 100;
 const MAX_CITY_OPTIONS = 50;
@@ -59,50 +63,82 @@ async function loadSnapshotForCity(cityId) {
   const city = cityById(cityId) ?? defaultCity();
   showLoading(city);
 
-  const preferApi = state.apiBaseUrl && isCityIndexStale(city);
-  if (preferApi) {
-    try {
-      const apiResult = await loadApiSnapshot(city);
-      if (!isCurrentLoad(requestId)) return;
-      applySnapshot(city, apiResult.snapshot);
-      return;
-    } catch (error) {
-      if (!isCurrentLoad(requestId)) return;
-      console.warn("Live API failed; trying bundled data", error);
-    }
-  }
-
-  let staticResult;
+  let cached;
   try {
-    staticResult = await loadStaticSnapshot(city);
-  } catch (error) {
-    if (!isCurrentLoad(requestId)) return;
-    if (!state.apiBaseUrl || preferApi) throw error;
-    const apiResult = await loadApiSnapshot(city);
-    if (!isCurrentLoad(requestId)) return;
-    applySnapshot(city, apiResult.snapshot);
-    return;
+    cached = await loadStaticSnapshot(city);
+  } catch {
+    cached = { ok: false };
   }
   if (!isCurrentLoad(requestId)) return;
 
-  if (state.apiBaseUrl && !preferApi && (!staticResult.ok || isSnapshotStale(staticResult.snapshot))) {
-    try {
-      const apiResult = await loadApiSnapshot(city);
-      if (!isCurrentLoad(requestId)) return;
-      applySnapshot(city, apiResult.snapshot);
-      return;
-    } catch (error) {
-      if (!isCurrentLoad(requestId)) return;
-      if (!staticResult.ok) throw error;
-      console.warn("Live API failed; using bundled data", error);
+  if (cached.ok && cached.snapshot?.venues?.length) {
+    applySnapshot(city, cached.snapshot);
+    if (isCitySnapshotExpired(cached.snapshot)) {
+      // Stale-while-revalidate: keep the existing deals visible while the
+      // GitHub-hosted updater refreshes that city's shared snapshot.
+      void requestAndWatchCity(city, requestId, cached.snapshot.generatedAt);
     }
+    return;
   }
 
-  if (!staticResult.ok) {
-    throw new Error(apiDisabledMessage(city));
-  }
+  // First visit to a city: ask the coordinator once and fill the dashboard
+  // automatically after the shared GitHub Pages snapshot is published.
+  void requestAndWatchCity(city, requestId, null);
+}
 
-  applySnapshot(city, staticResult.snapshot);
+function isCitySnapshotExpired(snapshot) {
+  const timestamp = Date.parse(snapshot?.generatedAt ?? "");
+  return !Number.isFinite(timestamp) || Date.now() - timestamp >= CITY_SNAPSHOT_TTL_MS;
+}
+
+async function requestCityRefresh(city) {
+  const response = await fetch(CITY_REFRESH_API, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ cityId: city.id }),
+  });
+  if (!response.ok) throw new Error("City refresh is temporarily unavailable");
+  return response.json();
+}
+
+async function requestAndWatchCity(city, requestId, previousGeneratedAt) {
+  try {
+    const result = await requestCityRefresh(city);
+    if (!isCurrentLoad(requestId)) return;
+    const existing = Date.parse(previousGeneratedAt ?? "");
+    const requestTime = Number(result.requestedAt ?? Date.now());
+    // A previous attempt beyond our waiting window is not still in progress.
+    if (Date.now() - requestTime > CITY_REFRESH_POLL_MS * CITY_REFRESH_MAX_POLLS) {
+      if (!previousGeneratedAt) showCityFetchFailure(city);
+      return;
+    }
+    for (let attempt = 0; attempt < CITY_REFRESH_MAX_POLLS; attempt++) {
+      await new Promise((resolve) => setTimeout(resolve, CITY_REFRESH_POLL_MS));
+      if (!isCurrentLoad(requestId)) return;
+      let snapshot;
+      try {
+        const url = dataPathForCity(city);
+        const response = await fetch(`${url}?updated=${Date.now()}`, { cache: "no-store" });
+        if (response.ok) snapshot = await response.json();
+      } catch {
+        // Transient GitHub Pages network errors are retried silently.
+      }
+      if (!snapshot?.venues?.length) continue;
+      const timestamp = Date.parse(snapshot.generatedAt ?? "");
+      if (!Number.isFinite(timestamp) || (Number.isFinite(existing) && timestamp <= existing)) continue;
+      applySnapshot(city, snapshot);
+      return;
+    }
+    if (!previousGeneratedAt && isCurrentLoad(requestId)) showCityFetchFailure(city);
+  } catch {
+    if (!previousGeneratedAt && isCurrentLoad(requestId)) showCityFetchFailure(city);
+  }
+}
+
+function showCityFetchFailure(city) {
+  const label = escapeHtml(city.label ?? city.name ?? "this city");
+  elements.venueRows.innerHTML =
+    `<tr><td colspan="6" class="empty">Could not load deals for ${label} right now. Please try this city again later.</td></tr>`;
 }
 
 function isCurrentLoad(requestId) {
