@@ -73,7 +73,7 @@ async function loadSnapshotForCity(cityId) {
   if (!isCurrentLoad(requestId)) return;
 
   const generated = Date.parse(cached.snapshot?.generatedAt ?? "");
-  const isUsableCache = cached.ok && cached.snapshot?.venues?.length &&
+  const isUsableCache = cached.ok && Array.isArray(cached.snapshot?.venues) &&
     Number.isFinite(generated) && Date.now() - generated < CITY_MAX_DISPLAY_AGE_MS;
   if (isUsableCache) {
     applySnapshot(city, cached.snapshot);
@@ -127,7 +127,7 @@ async function requestAndWatchCity(city, requestId, previousGeneratedAt) {
       } catch {
         // Transient GitHub Pages network errors are retried silently.
       }
-      if (!snapshot?.venues?.length) continue;
+      if (!Array.isArray(snapshot?.venues)) continue;
       const timestamp = Date.parse(snapshot.generatedAt ?? "");
       if (!Number.isFinite(timestamp) || (Number.isFinite(existing) && timestamp <= existing)) continue;
       applySnapshot(city, snapshot);
