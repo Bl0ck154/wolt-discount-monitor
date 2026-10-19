@@ -11,9 +11,9 @@ test("production updater keeps the normal monitor path dependency-free", async (
 
   assert.equal(testCount, 1, "only the GitHub-hosted monitor should run tests");
   assert.match(workflow, /runs-on: ubuntu-latest/, "monitor must run on GitHub infrastructure");
-  assert.doesNotMatch(workflow, /runs-on:\\s*\\n\\s*- self-hosted/, "scheduled and manual checks must not require self-hosted runners");
-  assert.match(workflow, /uses: \\.\\/\\.github\\/workflows\\/deploy-pages\\.yml/, "updated data must trigger Pages");
-  assert.match(workflow, /if: needs\\.cloud\\.outputs\\.changed == 'true'/, "Pages should run only when data changed");
+  assert.doesNotMatch(workflow, /self-hosted/, "the update workflow must never require a self-hosted runner");
+  assert.ok(workflow.includes("uses: ./.github/workflows/deploy-pages.yml"), "updated data must trigger Pages");
+  assert.ok(workflow.includes("if: needs.cloud.outputs.changed == 'true'"), "Pages should run only when data changed");
   assert.doesNotMatch(workflow, /run: npm ci/, "production monitor must not depend on npm registry availability");
   const scraperSecretUses = (workflow.match(/SCRAPERAPI_API_KEY: \$\{\{ secrets\.SCRAPERAPI_API_KEY \}\}/g) ?? []).length;
   assert.equal(scraperSecretUses, 3, "ScraperAPI secret must reach preflight, smoke test, and GitHub-hosted updater");
