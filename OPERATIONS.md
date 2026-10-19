@@ -8,7 +8,7 @@ This document describes the production configuration without storing personal ho
 2. The check reads Wolt's public endpoints, uses the repository's secret `SCRAPERAPI_API_KEY` as a fallback for blocked GitHub egress, runs tests, updates cached snapshots, and sends relevant Vilnius Telegram alerts.
 3. Only when the updater commits changed `docs/` data, the `publish` job calls the reusable GitHub Pages workflow `.github/workflows/deploy-pages.yml`. This avoids the limitation where pushes authenticated by `GITHUB_TOKEN` do not trigger other `push` workflows.
 4. GitHub Pages publishes the latest committed data with an explicitly empty `WOLT_API_BASE_URL`. Browsers load snapshots from GitHub Pages, not the previous VPS API.
-5. The city picker indexes discovered cities; only cities with published snapshots can show venue data. Production scheduled checks currently refresh Vilnius. The optional standalone Node server remains separate and can serve other clients, but it is **not** in the production Pages/Telegram path.
+5. The city picker indexes discovered cities; only cities with published snapshots can show venue data. Production scheduled checks currently refresh **Vilnius (`ltu/vilnius`) and Nuremberg (`deu/nuremberg`)** five times daily. Telegram alerts remain Vilnius-only until explicitly enabled for another city. The optional standalone Node server remains separate and can serve other clients, but it is **not** in the production Pages/Telegram path.
 
 No Wolt-specific cron or Linux/Windows self-hosted runner should be scheduled externally: doing so duplicates scans. The old `scripts/dispatch-check.sh` and `scripts/trigger-wolt-monitor.sh` are legacy and are not used in production.
 

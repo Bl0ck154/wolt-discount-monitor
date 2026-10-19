@@ -217,7 +217,7 @@ If a qualifying alert is pending but credentials are unavailable, the updater fa
 | [`compact-data.yml`](.github/workflows/compact-data.yml) | keeps generated history manageable |
 | [`deploy-pages.yml`](.github/workflows/deploy-pages.yml) | deploys the public dashboard |
 
-The updater runs automatically five times daily on GitHub-hosted runners, independent of any VPS or self-hosted runner. If new data is committed, the same Actions run invokes the reusable Pages deployment. Manual `workflow_dispatch` runs use GitHub-hosted runners too. Scheduled checks and current Vilnius Telegram notifications use `SCRAPERAPI_API_KEY` as a fallback when direct Wolt requests are rate-limited. Browsers never receive this key.
+The updater runs automatically five times daily on GitHub-hosted runners, independent of any VPS or self-hosted runner. If new data is committed, the same Actions run invokes the reusable Pages deployment. Manual `workflow_dispatch` runs use GitHub-hosted runners too. Scheduled checks refresh **Vilnius (`ltu/vilnius`) and Nuremberg (`deu/nuremberg`)** five times daily, while Telegram notifications currently remain enabled for Vilnius only. Wolt requests use `SCRAPERAPI_API_KEY` as a fallback when direct access is rate-limited. [See Nuremberg deals](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Fnuremberg). Browsers never receive this key.
 
 ## Privacy and security
 
