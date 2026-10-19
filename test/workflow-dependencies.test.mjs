@@ -18,7 +18,9 @@ test("production updater keeps the normal monitor path dependency-free", async (
   assert.ok(workflow.includes("if: needs.cloud.outputs.changed == 'true'"), "Pages should run only when data changed");
   assert.doesNotMatch(workflow, /run: npm ci/, "production monitor must not depend on npm registry availability");
   const scraperSecretUses = (workflow.match(/SCRAPERAPI_API_KEY: \$\{\{ secrets\.SCRAPERAPI_API_KEY \}\}/g) ?? []).length;
-  assert.equal(scraperSecretUses, 3, "ScraperAPI secret must reach preflight, smoke test, and GitHub-hosted updater");
+  assert.equal(scraperSecretUses, 2, "ScraperAPI secret should reach only optional smoke and the updater");
+  assert.doesNotMatch(workflow, /Wolt connectivity preflight/, "avoid a spare Wolt request on every scan");
+  assert.match(workflow, /WOLT_REFRESH_CITY_CATALOG: "false"/, "reuse Wolt city catalog during normal scans");
 });
 
 test("direct Wolt fetch loads and runs without installed npm packages", async () => {
