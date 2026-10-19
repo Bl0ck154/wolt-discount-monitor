@@ -2,13 +2,15 @@
 
 This document describes the production configuration without storing personal hostnames, provider names, device names, IP addresses, private filesystem paths, or exact schedules in the public repository.
 
-## Runtime topology
+## Runtime topology (VPS-independent production)
 
-1. An external scheduler runs `scripts/dispatch-check.sh` at the desired times.
-2. The dispatcher checks whether the primary Linux VPS self-hosted runner is online and whether Wolt is reachable directly from the VPS.
-3. If the Linux runner or direct Wolt preflight is unavailable, the dispatcher selects the Windows self-hosted runner as the residential fallback when it is online.
-4. `.github/workflows/check-discounts.yml` runs tests, refreshes Wolt data, sends Telegram notifications when needed, and commits changed files under `docs/data/`.
-5. `.github/workflows/deploy-pages.yml` generates `docs/config.js` from a repository variable and deploys `docs/` to GitHub Pages.
+1. GitHub Actions runs `.github/workflows/check-discounts.yml` five times daily, using the GitHub-hosted `ubuntu-latest` runner. No external scheduler or self-hosted runner is required.
+2. The check reads Wolt's public endpoints, uses the repository's secret `SCRAPERAPI_API_KEY` as a fallback for blocked GitHub egress, runs tests, updates cached snapshots, and sends relevant Vilnius Telegram alerts.
+3. Only when the updater commits changed `docs/` data, the `publish` job calls the reusable GitHub Pages workflow `.github/workflows/deploy-pages.yml`. This avoids the limitation where pushes authenticated by `GITHUB_TOKEN` do not trigger other `push` workflows.
+4. GitHub Pages publishes the latest committed data with an explicitly empty `WOLT_API_BASE_URL`. Browsers load snapshots from GitHub Pages, not the previous VPS API.
+5. The city picker indexes discovered cities; only cities with published snapshots can show venue data. Production scheduled checks currently refresh Vilnius. The optional standalone Node server remains separate and can serve other clients, but it is **not** in the production Pages/Telegram path.
+
+No Wolt-specific cron or Linux/Windows self-hosted runner should be scheduled externally: doing so duplicates scans. The old `scripts/dispatch-check.sh` and `scripts/trigger-wolt-monitor.sh` are legacy and are not used in production.
 
 ## GitHub Actions secrets
 
@@ -27,7 +29,7 @@ Configure under **Settings → Secrets and variables → Actions → Variables**
 
 | Variable | Recommended value | Purpose |
 |---|---:|---|
-| `WOLT_API_BASE_URL` | Public HTTPS API origin | Injected into the deployed dashboard at Pages build time |
+| `WOLT_API_BASE_URL` | unset (deprecated) | Ignored by VPS-free GitHub Pages deployment |
 | `WOLT_API_CACHE_TTL_HOURS` | `1` | Live API per-city refresh floor |
 | `WOLT_CACHE_TTL_HOURS` | `1` | Scheduled updater snapshot cache lifetime |
 | `WOLT_API_TIMEOUT_MS` | `30000` | Timeout for one Wolt request attempt |
@@ -76,33 +78,22 @@ Bind Node to loopback and publish HTTPS through a reverse proxy. Do not expose t
 
 Transport is configured only on the API/runner host. `WOLT_PROXY_MODE` accepts `direct-first` (default), `proxy-first`, or `proxy-only`. With `WOLT_PROXYSCRAPE_ENABLED=1`, ProxyScrape first downloads HTTPS-capable anonymous/elite candidates, then health-checks them in parallel against `consumer-api.wolt.com` using a deliberately tiny `lat=0&lon=0` response. Only passing IPs enter the request pool. The default target is 20 healthy proxies, minimum usable pool is 8, health TTL is 10 minutes, source refresh is 15 minutes, health-check concurrency is 20, health timeout is 4 seconds, and failed request proxies cool down for 10 minutes. Useful variables are `WOLT_PROXYSCRAPE_TARGET_HEALTHY`, `WOLT_PROXYSCRAPE_MIN_HEALTHY`, `WOLT_PROXYSCRAPE_HEALTH_CONCURRENCY`, `WOLT_PROXYSCRAPE_HEALTH_TIMEOUT_MS`, `WOLT_PROXYSCRAPE_HEALTH_TTL_MS`, `WOLT_PROXYSCRAPE_HEALTH_MAX_CANDIDATES`, `WOLT_PROXYSCRAPE_REFRESH_MS`, `WOLT_PROXYSCRAPE_LIMIT`, `WOLT_PROXYSCRAPE_COUNTRY`, `WOLT_PROXYSCRAPE_MAX_TRIES`, and `WOLT_PROXYSCRAPE_PROXY_TIMEOUT_MS`. Set `WOLT_PROXYSCRAPE_HEALTH_CACHE_FILE` to a writable cache path to preserve the last healthy pool across restarts; the process uses it for fast warm start and schedules a fresh verification. ScraperAPI forwards the original Wolt headers with `keep_headers=true`; optional `SCRAPERAPI_COUNTRY_CODE` selects a country. Keep `WOLT_PROXY_URL` credentials and `SCRAPERAPI_API_KEY` in a root-only environment file or secret store, never in Git.
 
-## External scheduler
+## Scheduling and manual verification
 
-The scheduler host needs:
+The only production scheduler is the `schedule` trigger in `check-discounts.yml`. GitHub cron expressions use UTC and might run late; all five runs use GitHub-hosted infrastructure.
 
-- an authenticated `gh` CLI with permission to dispatch workflows;
-- a checkout containing the current `scripts/dispatch-check.sh`;
-- an exact schedule stored outside this public repository.
+You can manually run `Update Wolt discount monitor` under GitHub Actions, choosing a limited set of city IDs. Manual runs also use `ubuntu-latest` and publish changed snapshots. Avoid `all_cities=true` unless intentionally budgeting the large Wolt and ScraperAPI request volume.
 
-Run manually:
-
-```bash
-./scripts/dispatch-check.sh ltu/vilnius
-```
-
-The workflow defaults to `linux`. The dispatcher automatically switches to `windows` only when the Linux runner or direct Wolt preflight is unavailable. Manual runs can still explicitly select either runner.
+The old VPS scheduler should be disabled independently on its host if it still exists. Do not remove shared Node/API services without checking other consumers.
 
 ## Verification
 
-Check the system in this order:
-
-1. `npm test` passes locally or in `.github/workflows/test.yml`.
-2. The Linux primary and Windows fallback self-hosted runners are online and have labels `self-hosted`, `X64`, `wolt`, plus the correct OS label.
-3. A manual `Update Wolt discount monitor` run completes.
-4. `docs/data/cities.json` reports a non-zero `cacheTtlMs` after the next updater run.
-5. The Pages workflow completes and the dashboard loads bundled data.
-6. When `WOLT_API_BASE_URL` is configured, the deployed `config.js` contains that public origin and uncached cities can use the live API.
-7. The API `/health` endpoint returns `200`, reports refresh-pool status, and CORS allows the GitHub Pages origin.
+1. `Test` workflow passes on the default branch.
+2. `Update Wolt discount monitor` scheduled run executes job `cloud` on `ubuntu-latest`; no self-hosted job exists.
+3. When data changes, the `publish` reusable workflow completes and reports the latest GitHub Pages URL.
+4. View the deployed `/config.js`: it must contain `window.WOLT_API_BASE_URL = "";` and must not point at the old VPS.
+5. Verify the site's `/data/latest.json` timestamp advances after a committed Vilnius scan. Telegram alerts continue to come from the GitHub workflow.
+6. Cached browser `WOLT_API_BASE_URL` is cleared when Pages provides an empty API configuration; old visitors should not call the former VPS origin.
 
 ## Privacy boundary
 
@@ -110,7 +101,7 @@ Keep the following outside Git:
 
 - private server hostnames and IP addresses;
 - provider and device names;
-- exact cron schedules;
+- private schedules outside this repository; public GitHub Actions cron times live in the workflow;
 - private paths and service names;
 - access tokens, chat ids, keys, and credentials.
 
