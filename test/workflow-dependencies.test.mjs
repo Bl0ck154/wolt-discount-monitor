@@ -23,6 +23,13 @@ test("production updater keeps the normal monitor path dependency-free", async (
   assert.match(workflow, /WOLT_REFRESH_CITY_CATALOG: "false"/, "reuse Wolt city catalog during normal scans");
 });
 
+test("city catalog uses a daily cache and survives transient upstream failures", async () => {
+  const source = await readFile(new URL("../src/check-discounts.mjs", import.meta.url), "utf8");
+  assert.match(source, /CITY_CATALOG_REFRESH_MS = 24 \* 60 \* 60 \* 1000/);
+  assert.match(source, /cachedFresh && process\.env\.WOLT_REFRESH_CITY_CATALOG !== "true"/);
+  assert.match(source, /if \(!existing\?\.cities\?\.length\) throw error/);
+});
+
 test("direct Wolt fetch loads and runs without installed npm packages", async () => {
   const dir = await mkdtemp(join(tmpdir(), "wolt-runtime-"));
   try {
