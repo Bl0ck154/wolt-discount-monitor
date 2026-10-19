@@ -12,6 +12,11 @@ on:
         required: false
         default: false
         type: boolean
+      force_refresh:
+        description: "Force a fresh scan and publish current data (manual only)"
+        required: false
+        default: false
+        type: boolean
       scraperapi_smoke_test:
         description: "Force one tiny Wolt request through ScraperAPI to validate the configured secret"
         required: false
@@ -126,6 +131,7 @@ jobs:
           WOLT_API_MAX_ATTEMPTS: ${{ vars.WOLT_API_MAX_ATTEMPTS }}
           WOLT_API_RETRY_BASE_MS: ${{ vars.WOLT_API_RETRY_BASE_MS }}
           WOLT_API_RETRY_JITTER_MS: ${{ vars.WOLT_API_RETRY_JITTER_MS }}
+          FORCE_WRITE: ${{ inputs.force_refresh && 'true' || 'false' }}
           WOLT_REFRESH_CITY_CATALOG: "true"
           WOLT_CITIES: ${{ inputs.cities || 'ltu/vilnius' }}
           WOLT_ALL_CITIES: ${{ inputs.all_cities }}
