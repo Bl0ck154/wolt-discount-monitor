@@ -1,6 +1,7 @@
 const DEFAULT_API_BASE_URL = "";
 const CITY_REFRESH_API = "https://wolt-city-refresh.bl0ck-c1b.workers.dev/api/refresh";
 const CITY_SNAPSHOT_TTL_MS = 4 * 60 * 60 * 1000;
+const CITY_MAX_DISPLAY_AGE_MS = 24 * 60 * 60 * 1000;
 const CITY_REFRESH_POLL_MS = 12000;
 const CITY_REFRESH_MAX_POLLS = 20;
 const INITIAL_RENDER_LIMIT = 100;
@@ -71,7 +72,10 @@ async function loadSnapshotForCity(cityId) {
   }
   if (!isCurrentLoad(requestId)) return;
 
-  if (cached.ok && cached.snapshot?.venues?.length) {
+  const generated = Date.parse(cached.snapshot?.generatedAt ?? "");
+  const isUsableCache = cached.ok && cached.snapshot?.venues?.length &&
+    Number.isFinite(generated) && Date.now() - generated < CITY_MAX_DISPLAY_AGE_MS;
+  if (isUsableCache) {
     applySnapshot(city, cached.snapshot);
     if (isCitySnapshotExpired(cached.snapshot)) {
       // Stale-while-revalidate: keep the existing deals visible while the
