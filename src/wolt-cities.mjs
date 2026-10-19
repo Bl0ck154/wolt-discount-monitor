@@ -41,8 +41,8 @@ const FALLBACK_COUNTRY_NAMES = {
 
 export async function fetchWoltCityCatalog() {
   const [citiesPayload, countryPayload] = await Promise.all([
-    fetchJson(CITIES_URL, { headers: { "App-Language": "en" } }),
-    fetchJson(COUNTRY_LIST_URL, { headers: { "Accept-Language": "en-US,en;q=0.9" } }).catch(() => []),
+    fetchJson(CITIES_URL, { headers: { "App-Language": "en" }, maxAttempts: 2, retryBaseMs: 60_000 }),
+    fetchJson(COUNTRY_LIST_URL, { headers: { "Accept-Language": "en-US,en;q=0.9" }, maxAttempts: 2, retryBaseMs: 60_000 }).catch(() => []),
   ]);
 
   const countryNames = countryNameIndex(countryPayload);
