@@ -1,0 +1,9 @@
+name = "wolt-city-refresh"
+main = "worker.mjs"
+compatibility_date = "2026-10-19"
+workers_dev = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "wolt-demand-cache"
+database_id = "0d9c36eb-32b9-4ec1-b141-ec5f56342f33"
