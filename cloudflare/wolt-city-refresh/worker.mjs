@@ -85,6 +85,10 @@ async function refresh(request, env) {
   if (!globalAllowed) {
     // Restore eligibility for a later attempt; leave budget limits intact.
     await env.DB.prepare("DELETE FROM city_jobs WHERE city_id=? AND requested_at=?").bind(cityId, now).run();
+    if (visitorAllowed) {
+      await env.DB.prepare("UPDATE visitor_budget SET scans=scans-1 WHERE day=? AND visitor_hash=? AND scans>0")
+        .bind(day, visitor).run();
+    }
     return json({ ok: false, message: "Refresh temporarily unavailable" }, 429, request.headers.get("Origin"));
   }
 
@@ -105,7 +109,13 @@ async function refresh(request, env) {
     githubResponse = null;
   }
   if (githubResponse?.status !== 204) {
+    // A rejected dispatch is not a scan; do not consume visitor or global quota.
     await env.DB.prepare("DELETE FROM city_jobs WHERE city_id=? AND requested_at=?").bind(cityId, now).run();
+    await env.DB.prepare("UPDATE visitor_budget SET scans=scans-1 WHERE day=? AND visitor_hash=? AND scans>0")
+      .bind(day, visitor).run();
+    await env.DB.prepare("UPDATE daily_budget SET scans=scans-1 WHERE day=? AND scans>0")
+      .bind(day).run();
+    console.warn("GitHub workflow dispatch rejected:", githubResponse?.status ?? "network");
     return json({ ok: false, message: "Refresh temporarily unavailable" }, 502, request.headers.get("Origin"));
   }
   await env.DB.prepare("UPDATE city_jobs SET dispatch_status='dispatched' WHERE city_id=? AND requested_at=?").bind(cityId, now).run();
