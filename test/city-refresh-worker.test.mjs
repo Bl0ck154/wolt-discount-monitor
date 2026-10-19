@@ -26,7 +26,8 @@ test("Browser loads cached city data and requests a refresh in background", asyn
   const { readFile } = await import("node:fs/promises");
   const app = await readFile(new URL("../docs/app.js", import.meta.url), "utf8");
   assert.match(app, /function isCitySnapshotExpired/);
-  assert.match(app, /if \(cached\.ok && cached\.snapshot\?\.venues\?\.length\)/);
+  assert.match(app, /const isUsableCache = cached\.ok/);
+  assert.match(app, /CITY_MAX_DISPLAY_AGE_MS/);
   assert.match(app, /void requestAndWatchCity/);
   assert.match(app, /cache: "no-store"/);
   assert.doesNotMatch(app, /window\.WOLT_API_BASE_URL\s*=\s*"https:/);
