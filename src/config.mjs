@@ -32,6 +32,13 @@ export const DEFAULT_CITY = {
 
 export const CITY = DEFAULT_CITY;
 
+// Production notifications are explicitly limited to the two actively monitored cities.
+// Use this at scan time because the cached Wolt city catalog can be up to 24 hours old.
+export function notificationsEnabledFor(cityOrId) {
+  const id = typeof cityOrId === "string" ? cityOrId : cityOrId?.id;
+  return id === "ltu/vilnius" || id === "deu/nuremberg";
+}
+
 export function cityLabel(city) {
   return [city.name, city.country].filter(Boolean).join(", ");
 }

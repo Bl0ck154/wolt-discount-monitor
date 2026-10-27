@@ -1,4 +1,4 @@
-import { cityKey, cityLabel, isDefaultCity } from "./config.mjs";
+import { cityKey, cityLabel, isDefaultCity, notificationsEnabledFor } from "./config.mjs";
 import { fetchJson } from "./wolt-api.mjs";
 
 const CITIES_URL = "https://restaurant-api.wolt.com/v1/cities";
@@ -95,7 +95,7 @@ function normalizeCity(raw, countryNames) {
     timezone: raw.timezone ?? null,
     hasFrontpage: raw.has_frontpage !== false,
     hidden: raw.hidden === true,
-    notificationsEnabled: countryCode === "ltu" && slug === "vilnius",
+    notificationsEnabled: notificationsEnabledFor(`${countryCode}/${slug}`),
   };
 
   return {

@@ -37,6 +37,15 @@ test("Telegram starts with grouped added/ended summary and ranks best first", ()
   assert.ok(text.indexOf("Нові вигідні пропозиції") < text.indexOf("Завершилися"));
 });
 
+test("Nuremberg Telegram alerts are identified by city", () => {
+  const message = formatTelegramMessage({
+    city: { id: "deu/nuremberg", name: "Nuremberg" },
+    appeared: [offer({ venue: "Rice Spot", campaignId: "lunch", text: "20% off", score: 65 })],
+    ended: [],
+  });
+  assert.match(message, /^📍 <b>Nuremberg<\/b>\n➕/);
+});
+
 test("Telegram escapes venue and offer HTML", () => {
   const text = formatTelegramMessage({
     city: { id: "ltu/vilnius", name: "Vilnius" },

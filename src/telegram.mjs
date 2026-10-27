@@ -36,7 +36,11 @@ export async function sendTelegramMessage(text) {
 export function formatTelegramMessage(notification) {
   const appearedGroups = groupOffers(notification.appeared ?? notification.interestingAppeared ?? []);
   const endedGroups = groupOffers(notification.ended ?? []);
+  const cityHeading = notification.city?.id !== "ltu/vilnius" && notification.city?.name
+    ? `📍 <b>${escapeHtml(notification.city.name)}</b>`
+    : null;
   const lines = [
+    ...(cityHeading ? [cityHeading] : []),
     `➕ <b>${newCountLabel(appearedGroups.length)}</b> · ➖ <b>${endedCountLabel(endedGroups.length)}</b>`,
   ];
 

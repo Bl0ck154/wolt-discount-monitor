@@ -1,6 +1,6 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname } from "node:path";
-import { CACHE_TTL_MS, CITY, PATHS, cityDataPaths, cityKey, cityLabel, isDefaultCity } from "./config.mjs";
+import { CACHE_TTL_MS, CITY, PATHS, cityDataPaths, cityKey, cityLabel, isDefaultCity, notificationsEnabledFor } from "./config.mjs";
 import { diffSnapshots, interestingOfferIndex, isInterestingOffer, offerIndex } from "./diff.mjs";
 import { fetchCityData, isSnapshotFresh } from "./wolt-api.mjs";
 import { fetchWoltCityCatalog } from "./wolt-cities.mjs";
@@ -41,6 +41,7 @@ async function main() {
 
 async function checkCity(city) {
   const paths = cityDataPaths(city);
+  const notificationsEnabled = notificationsEnabledFor(city);
   const previousRaw = (await readJsonIfExists(paths.latest)) ?? (isDefaultCity(city) ? await readJsonIfExists(PATHS.latest) : null);
   const previous = previousRaw ? compactSnapshot(previousRaw) : null;
   const notified = compactNotifiedState((await readJsonIfExists(paths.notified)) ?? { activeOffers: [] });
@@ -125,12 +126,12 @@ async function checkCity(city) {
     await appendChangeLog(paths.log, changes, { newInteresting, endedNotified });
   }
 
-  const shouldNotify = city.notificationsEnabled === true && Boolean(previous) && (newInteresting.length > 0 || endedNotified.length > 0);
+  const shouldNotify = notificationsEnabled && Boolean(previous) && (newInteresting.length > 0 || endedNotified.length > 0);
   let telegram = {
     skipped: true,
-    reason: city.notificationsEnabled === true
+    reason: notificationsEnabled
       ? previous ? "No new interesting offers" : "Baseline created; no previous snapshot"
-      : "Notifications are enabled only for the default Vilnius monitor",
+      : "Notifications are disabled for this city",
   };
 
   if (shouldNotify) {
