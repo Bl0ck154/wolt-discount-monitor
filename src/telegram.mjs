@@ -1,3 +1,5 @@
+import { normalizeOfferText } from "./offer-value.mjs";
+
 const MAX_NEW_GROUPS = 15;
 const MAX_ENDED_GROUPS = 10;
 
@@ -77,7 +79,7 @@ function groupOffers(offers) {
 
   for (const offer of offers) {
     const rootName = chainRootName(offer.venue?.name);
-    const key = [rootName.toLowerCase(), offer.campaignId ?? offer.text].join("|");
+    const key = [rootName.toLowerCase(), normalizeOfferText(offer.text).toLowerCase()].join("|");
     const group = groups.get(key) ?? { rootName, offer, offers: [], score: offerValueScore(offer) };
     group.offers.push(offer);
     if (offerValueScore(offer) > group.score) {
