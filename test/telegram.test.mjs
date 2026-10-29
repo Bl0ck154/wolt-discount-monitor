@@ -22,7 +22,7 @@ test("Telegram starts with grouped added/ended summary and ranks best first", ()
     city: { id: "ltu/vilnius", name: "Vilnius" },
     appeared: [
       offer({ venue: "Chain (North)", campaignId: "cash", text: "5 € off", score: 81, tier: "exceptional" }),
-      offer({ venue: "Chain (South)", campaignId: "cash", text: "5 € off", score: 81, tier: "exceptional" }),
+      offer({ venue: "Chain (South)", campaignId: "another-internal-id", text: "5 € off", score: 81, tier: "exceptional" }),
       offer({ venue: "Market", campaignId: "grocery", text: "10% off", score: 46 }),
     ],
     ended: [
