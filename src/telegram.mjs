@@ -36,11 +36,12 @@ export async function sendTelegramMessage(text) {
 export function formatTelegramMessage(notification) {
   const appearedGroups = groupOffers(notification.appeared ?? notification.interestingAppeared ?? []);
   const endedGroups = groupOffers(notification.ended ?? []);
-  const cityHeading = notification.city?.id !== "ltu/vilnius" && notification.city?.name
-    ? `📍 <b>${escapeHtml(notification.city.name)}</b>`
-    : null;
+  const cityName = notification.city?.name ?? notification.city?.id ?? "Wolt Discount Monitor";
+  const cityQuery = notification.city?.id ? `?city=${encodeURIComponent(notification.city.id)}` : "";
+  const dashboardLink = `https://bl0ck154.github.io/wolt-discount-monitor/${cityQuery}`;
+  const cityHeading = `📍 <a href="${dashboardLink}"><b>${escapeHtml(cityName)}</b></a>`;
   const lines = [
-    ...(cityHeading ? [cityHeading] : []),
+    cityHeading,
     `➕ <b>${newCountLabel(appearedGroups.length)}</b> · ➖ <b>${endedCountLabel(endedGroups.length)}</b>`,
   ];
 
