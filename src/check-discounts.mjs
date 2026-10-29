@@ -1,7 +1,7 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname } from "node:path";
 import { CACHE_TTL_MS, CITY, PATHS, cityDataPaths, cityKey, cityLabel, isDefaultCity, notificationsEnabledFor } from "./config.mjs";
-import { diffSnapshots, interestingOfferIndex, isInterestingOffer, offerIndex } from "./diff.mjs";
+import { diffSnapshots, interestingOfferIndex, isInterestingOffer, offerIndex, offerStableKey } from "./diff.mjs";
 import { fetchCityData, isSnapshotFresh } from "./wolt-api.mjs";
 import { fetchWoltCityCatalog } from "./wolt-cities.mjs";
 import { normalizeSnapshot } from "./normalize.mjs";
@@ -44,7 +44,17 @@ async function checkCity(city) {
   const notificationsEnabled = notificationsEnabledFor(city);
   const previousRaw = (await readJsonIfExists(paths.latest)) ?? (isDefaultCity(city) ? await readJsonIfExists(PATHS.latest) : null);
   const previous = previousRaw ? compactSnapshot(previousRaw) : null;
-  const notified = compactNotifiedState((await readJsonIfExists(paths.notified)) ?? { activeOffers: [] });
+  const notifiedRaw = compactNotifiedState((await readJsonIfExists(paths.notified)) ?? { activeOffers: [] });
+  // Migrate notified records that used Wolt's sometimes-changing campaign ID
+  // to the same text-based key as the current snapshot, avoiding a one-time
+  // wave of duplicate "new" alerts after the key algorithm changes.
+  const notified = {
+    ...notifiedRaw,
+    activeOffers: (notifiedRaw.activeOffers ?? []).map((offer) => ({
+      ...offer,
+      stableKey: offerStableKey(offer.venue, offer),
+    })),
+  };
 
   if (process.env.FORCE_WRITE !== "true" && isSnapshotFresh(previous)) {
     return cityResult(city, previous, {

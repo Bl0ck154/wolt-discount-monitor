@@ -1,3 +1,5 @@
+import { normalizeOfferText } from "./offer-value.mjs";
+
 const MAX_NEW_GROUPS = 15;
 const MAX_ENDED_GROUPS = 10;
 
@@ -36,11 +38,12 @@ export async function sendTelegramMessage(text) {
 export function formatTelegramMessage(notification) {
   const appearedGroups = groupOffers(notification.appeared ?? notification.interestingAppeared ?? []);
   const endedGroups = groupOffers(notification.ended ?? []);
-  const cityHeading = notification.city?.id !== "ltu/vilnius" && notification.city?.name
-    ? `📍 <b>${escapeHtml(notification.city.name)}</b>`
-    : null;
+  const cityName = notification.city?.name ?? notification.city?.id ?? "Wolt Discount Monitor";
+  const cityQuery = notification.city?.id ? `?city=${encodeURIComponent(notification.city.id)}` : "";
+  const dashboardLink = `https://bl0ck154.github.io/wolt-discount-monitor/${cityQuery}`;
+  const cityHeading = `📍 <a href="${dashboardLink}"><b>${escapeHtml(cityName)}</b></a>`;
   const lines = [
-    ...(cityHeading ? [cityHeading] : []),
+    cityHeading,
     `➕ <b>${newCountLabel(appearedGroups.length)}</b> · ➖ <b>${endedCountLabel(endedGroups.length)}</b>`,
   ];
 
@@ -76,7 +79,7 @@ function groupOffers(offers) {
 
   for (const offer of offers) {
     const rootName = chainRootName(offer.venue?.name);
-    const key = [rootName.toLowerCase(), offer.campaignId ?? offer.text].join("|");
+    const key = [rootName.toLowerCase(), normalizeOfferText(offer.text).toLowerCase()].join("|");
     const group = groups.get(key) ?? { rootName, offer, offers: [], score: offerValueScore(offer) };
     group.offers.push(offer);
     if (offerValueScore(offer) > group.score) {

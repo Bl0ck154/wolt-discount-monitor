@@ -208,6 +208,8 @@ TELEGRAM_CHAT_ID
 
 If a qualifying alert is pending but credentials are unavailable, the updater fails before committing the new notification state. This avoids silently losing a deal notification.
 
+Each Telegram alert names the city in a clickable heading linking to that city's public dashboard view. Generic Wolt acquisition-style banners (notably `5 € off (spend 12 €)` and `10 € off (spend 15 €)`) and explicit new-customer offers are omitted **from Telegram alerts only**: the anonymous Wolt feed does not establish whether an existing account can redeem them. The dashboard still preserves the observed Wolt promotions. Alert identities are based on normalized venue and offer text rather than unstable internal campaign IDs; the notification-state reader migrates previous records automatically.
+
 ## Automation
 
 | Workflow | Purpose |

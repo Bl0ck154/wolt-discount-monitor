@@ -1,5 +1,5 @@
 import { NOTIFY_RULES } from "./config.mjs";
-import { isNotificationWorthy, sortOffersByValue } from "./offer-value.mjs";
+import { isNotificationWorthy, normalizeOfferText, sortOffersByValue } from "./offer-value.mjs";
 
 export function diffSnapshots(previous, current) {
   const previousOffers = offerIndex(previous);
@@ -31,7 +31,9 @@ export function diffSnapshots(previous, current) {
 }
 
 export function isInterestingOffer(offer) {
-  return !offer.isUtilityBadge && isNotificationWorthy(offer, NOTIFY_RULES);
+  return !offer.isUtilityBadge &&
+    !isLikelyAcquisitionOffer(offer) &&
+    isNotificationWorthy(offer, NOTIFY_RULES);
 }
 
 export function interestingOfferIndex(snapshot) {
@@ -47,10 +49,7 @@ export function offerIndex(snapshot) {
         continue;
       }
 
-      const stableKey = [
-        venue.slug ?? venue.id,
-        offer.campaignId ?? offer.text,
-      ].join("|");
+      const stableKey = offerStableKey(venue, offer);
 
       map.set(stableKey, {
         venue: {
@@ -69,4 +68,32 @@ export function offerIndex(snapshot) {
   }
 
   return map;
+}
+
+// Wolt's public, unauthenticated venue feed can advertise account-dependent
+// acquisition campaigns without disclosing who can redeem them. Keep them on
+// the dashboard as observed Wolt banners, but do not send misleading alerts.
+const GENERIC_ACQUISITION_BANNERS = new Set([
+  "5 € off (spend 12 €)",
+  "10 € off (spend 15 €)",
+]);
+
+export function isLikelyAcquisitionOffer(offer) {
+  const text = normalizeOfferText(offer?.text).toLowerCase()
+    .replace(/\b(?:eur|euros?)\b/gu, "€")
+    .replace(/\s*€\s*/gu, " € ")
+    .replace(/\s+/gu, " ")
+    .replace(/\(\s+/gu, "(")
+    .replace(/\s+\)/gu, ")")
+    .trim();
+  return GENERIC_ACQUISITION_BANNERS.has(text) ||
+    /\b(?:new\s+(?:customers?|users?)|first[- ]time\s+(?:customers?|users?)|first\s+orders?|neukund\w*|naujiems\s+klientams)\b/iu.test(text);
+}
+
+// The campaign ID may disappear or change when Wolt switches between its
+// promotions and telemetry feed. Offer text is deduped per venue already.
+export function offerStableKey(venue, offer) {
+  const venueId = String(venue?.slug ?? venue?.id ?? "");
+  const offerText = normalizeOfferText(offer?.text).toLowerCase();
+  return [venueId, offerText || String(offer?.campaignId ?? "")].join("|");
 }

@@ -22,7 +22,7 @@ test("Telegram starts with grouped added/ended summary and ranks best first", ()
     city: { id: "ltu/vilnius", name: "Vilnius" },
     appeared: [
       offer({ venue: "Chain (North)", campaignId: "cash", text: "5 € off", score: 81, tier: "exceptional" }),
-      offer({ venue: "Chain (South)", campaignId: "cash", text: "5 € off", score: 81, tier: "exceptional" }),
+      offer({ venue: "Chain (South)", campaignId: "another-internal-id", text: "5 € off", score: 81, tier: "exceptional" }),
       offer({ venue: "Market", campaignId: "grocery", text: "10% off", score: 46 }),
     ],
     ended: [
@@ -30,10 +30,10 @@ test("Telegram starts with grouped added/ended summary and ranks best first", ()
     ],
   });
 
-  assert.ok(text.startsWith("➕ <b>2 нові</b> · ➖ <b>1 завершилась</b>"));
+  assert.ok(text.startsWith('📍 <a href="https://bl0ck154.github.io/wolt-discount-monitor/?city=ltu%2Fvilnius"><b>Vilnius</b></a>\n' + "➕ <b>2 нові</b> · ➖ <b>1 завершилась</b>"));
   assert.ok(text.indexOf("Chain") < text.indexOf("Market"));
   assert.match(text, /2 локацій/);
-  assert.doesNotMatch(text, /(?:Vilnius|рейтинг за реальною вигодою|81\/100|дуже вигідно)/);
+  assert.doesNotMatch(text, /(?:рейтинг за реальною вигодою|81\/100|дуже вигідно)/);
   assert.ok(text.indexOf("Нові вигідні пропозиції") < text.indexOf("Завершилися"));
 });
 
@@ -43,7 +43,7 @@ test("Nuremberg Telegram alerts are identified by city", () => {
     appeared: [offer({ venue: "Rice Spot", campaignId: "lunch", text: "20% off", score: 65 })],
     ended: [],
   });
-  assert.match(message, /^📍 <b>Nuremberg<\/b>\n➕/);
+  assert.match(message, /^📍 <a href="https:\/\/bl0ck154\.github\.io\/wolt-discount-monitor\/\?city=deu%2Fnuremberg"><b>Nuremberg<\/b><\/a>\n➕/);
 });
 
 test("Telegram escapes venue and offer HTML", () => {
@@ -54,6 +54,7 @@ test("Telegram escapes venue and offer HTML", () => {
   });
   assert.match(text, /A&amp;B &lt;Shop&gt;/);
   assert.match(text, /20% &lt;off&gt;/);
+  assert.match(text, /<b>Vilnius<\/b><\/a>/);
 });
 
 test("Telegram refuses to silently drop a pending production notification", async () => {
