@@ -48,6 +48,36 @@ test("fresh city page has unique crawlable SEO metadata and static deal content"
   assert.match(html, /application\/ld\+json/);
 });
 
+test("SEO pages omit acquisition-only and closed venues and rank by their remaining deals", () => {
+  const snapshot = snapshotAt("2026-09-04T11:00:00Z");
+  snapshot.venues = [
+    {
+      name: "Acquisition Only", link: "https://wolt.com/acquisition",
+      offers: [{ text: "10 € off (spend 15 €)", value: { score: 95 } }],
+      bestDiscount: { label: "10 EUR", score: 95 },
+    },
+    {
+      name: "Mixed Venue", link: "https://wolt.com/mixed", currency: "EUR",
+      offers: [
+        { text: "10 € off (spend 15 €)", value: { score: 95 } },
+        { text: "20% off", value: { score: 65 }, amountLabel: "20%" },
+      ],
+      bestDiscount: { label: "10 EUR", score: 95 },
+    },
+    {
+      name: "Closed Venue", opening: { isOpen: false }, link: "https://wolt.com/closed",
+      offers: [{ text: "50% off", value: { score: 99 } }],
+      bestDiscount: { label: "50%", score: 99 },
+    },
+  ];
+  const html = cityPageHtml({ city, snapshot, indexable: true, countryRecords: [], siteBase: "https://example.test/" });
+  assert.match(html, /Mixed Venue/);
+  assert.match(html, /20% off/);
+  assert.doesNotMatch(html, /Acquisition Only/);
+  assert.doesNotMatch(html, /Closed Venue/);
+  assert.doesNotMatch(html, /10 EUR/);
+});
+
 test("stale city page stays usable but noindex", () => {
   const snapshot = snapshotAt("2026-06-01T11:00:00Z");
   const html = cityPageHtml({ city, snapshot, indexable: false, countryRecords: [], siteBase: "https://example.test/" });
