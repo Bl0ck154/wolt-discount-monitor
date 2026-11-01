@@ -1,6 +1,8 @@
 import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { extractDiscount, offerScore } from "./offer-value.mjs";
+import { isExplicitlyClosed, isLikelyAcquisitionOffer } from "../docs/offer-filters.mjs";
 
 export const DEFAULT_SITE_BASE = "https://bl0ck154.github.io/wolt-discount-monitor/";
 export const DEFAULT_SEO_FRESH_HOURS = 48;
@@ -345,20 +347,28 @@ async function updateHomepageLiveCities(path, liveRecords) {
 }
 
 function topDealVenues(snapshot, limit) {
-  return [...(snapshot?.venues ?? [])]
-    .filter((venue) => venue?.name && (venue.bestDiscount?.score ?? 0) > 0)
-    .sort((a, b) => (b.bestDiscount?.score ?? 0) - (a.bestDiscount?.score ?? 0) || a.name.localeCompare(b.name, "en"))
+  return (snapshot?.venues ?? [])
+    .flatMap((venue) => {
+      if (!venue?.name || isExplicitlyClosed(venue)) return [];
+      const eligible = (venue.offers ?? [])
+        .filter((offer) => offer?.text && !offer.isUtilityBadge && !isLikelyAcquisitionOffer(offer.text))
+        .filter((offer) => !offer?.value?.isDelivery && !/delivery/iu.test(offer.text))
+        .sort((a, b) => offerScore(b) - offerScore(a));
+      const best = eligible[0];
+      const score = best ? offerScore(best) : 0;
+      return score > 0 ? [{ ...venue, seoBestOffer: best, seoBestScore: score }] : [];
+    })
+    .sort((a, b) => b.seoBestScore - a.seoBestScore || a.name.localeCompare(b.name, "en"))
     .slice(0, limit);
 }
 
 function seoOfferText(venue) {
-  const offers = venue.offers ?? [];
-  const preferred = offers.find((offer) => !offer?.value?.isDelivery && !/new users?/i.test(offer?.text ?? "")) ?? offers[0];
-  return preferred?.text ?? "Current promotion";
+  return venue.seoBestOffer?.text ?? "Current promotion";
 }
 
 function bestValueLabel(venue) {
-  return venue.bestDiscount?.label || venue.bestDiscount?.amountLabel || (venue.bestDiscount?.amount ? `${venue.bestDiscount.amount}%` : "Deal");
+  const offer = venue.seoBestOffer;
+  return offer?.amountLabel || extractDiscount(offer?.text ?? "", { currencyCode: offer?.currencyCode ?? venue.currency })?.label || "Deal";
 }
 
 function groupByCountry(records) {
