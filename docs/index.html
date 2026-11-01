@@ -185,11 +185,19 @@
             <div class="toggles" aria-label="Offer visibility">
               <label class="toggle">
                 <input id="hideNewUserDelivery" type="checkbox" checked />
-                <span>Hide repeated citywide offers</span>
+                <span>Hide likely new-customer &amp; repeated offers</span>
               </label>
               <label class="toggle">
                 <input id="hideDeliveryDiscounts" type="checkbox" checked />
                 <span>Hide delivery discounts</span>
+              </label>
+              <label class="toggle" title="Opening status is from the most recent snapshot, not live account status">
+                <input id="hideClosedVenues" type="checkbox" checked />
+                <span>Hide closed / offline</span>
+              </label>
+              <label class="toggle">
+                <input id="onlyWithOffers" type="checkbox" checked />
+                <span>Only venues with offers</span>
               </label>
             </div>
             <span class="hidden-offers" id="hiddenCitywideOffers"></span>

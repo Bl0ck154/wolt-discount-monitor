@@ -1,3 +1,5 @@
+import { isLikelyAcquisitionOffer, shouldDisplayVenue } from "./offer-filters.mjs";
+
 const DEFAULT_API_BASE_URL = "";
 const CITY_REFRESH_API = "https://wolt-city-refresh.bl0ck-c1b.workers.dev/api/refresh";
 const CITY_SNAPSHOT_TTL_MS = 4 * 60 * 60 * 1000;
@@ -39,6 +41,8 @@ const elements = {
   sortSelect: document.querySelector("#sortSelect"),
   hideNewUserDelivery: document.querySelector("#hideNewUserDelivery"),
   hideDeliveryDiscounts: document.querySelector("#hideDeliveryDiscounts"),
+  hideClosedVenues: document.querySelector("#hideClosedVenues"),
+  onlyWithOffers: document.querySelector("#onlyWithOffers"),
   hiddenCitywideOffers: document.querySelector("#hiddenCitywideOffers"),
   shownCount: document.querySelector("#shownCount"),
   venueRows: document.querySelector("#venueRows"),
@@ -406,6 +410,8 @@ function bindControls() {
   elements.productFilter.addEventListener("change", resetAndRenderRows);
   elements.hideNewUserDelivery.addEventListener("change", resetAndRenderRows);
   elements.hideDeliveryDiscounts.addEventListener("change", resetAndRenderRows);
+  elements.hideClosedVenues.addEventListener("change", resetAndRenderRows);
+  elements.onlyWithOffers.addEventListener("change", resetAndRenderRows);
   elements.sortSelect.addEventListener("change", () => {
     setSortFromSelect(elements.sortSelect.value);
     resetAndRenderRows();
@@ -438,9 +444,16 @@ function renderRows() {
   const productLine = elements.productFilter.value;
 
   const rows = state.rows
-    .map((venue) => ({ venue, visibleOffers: visibleOffers(venue) }))
+    .map((venue) => {
+      const filteredOffers = visibleOffers(venue);
+      return { venue, visibleOffers: filteredOffers, best: bestDiscount(filteredOffers) };
+    })
     .filter(({ venue }) => !productLine || venue.productLine === productLine)
     .filter(({ venue }) => matchesQuery(venue, query))
+    .filter(({ venue, visibleOffers }) => shouldDisplayVenue(venue, visibleOffers, {
+      hideClosed: elements.hideClosedVenues.checked,
+      offersOnly: elements.onlyWithOffers.checked,
+    }))
     .sort(sorter());
   const allGroups = groupRows(rows);
   const groups = allGroups.slice(0, state.renderLimit);
@@ -492,7 +505,7 @@ function renderVenueParts(venue, visibleOffers) {
   const offers = visibleOffers.length
     ? visibleOffers.map((offer) => `<span class="offer ${offerClass(offer)}">${escapeHtml(offer.text)}</span>`).join("")
     : `<span class="venue-empty-offer">No visible offer</span>`;
-  const best = bestDiscount(venue);
+  const best = bestDiscount(visibleOffers);
   const bestLabel = formatBestValue(best);
   const amountClass = bestLabel.includes("%") ? "amount amount-percent" : "amount";
   const mapUrl = mapLink(venue);
@@ -844,7 +857,7 @@ function visibleOffers(venue) {
       return false;
     }
 
-    if (elements.hideNewUserDelivery.checked && isNewUserZeroDelivery(offer.text)) {
+    if (elements.hideNewUserDelivery.checked && (isNewUserZeroDelivery(offer.text) || isLikelyAcquisitionOffer(offer.text))) {
       return false;
     }
     if (elements.hideNewUserDelivery.checked && state.ubiquitousOfferKeys.has(key)) {
@@ -975,19 +988,17 @@ function sorter() {
   if (state.sortKey === "hours") {
     return (a, b) => dir * (openScore(a.venue) - openScore(b.venue)) || a.venue.name.localeCompare(b.venue.name);
   }
-  return (a, b) => dir * (bestSortValue(a.venue) - bestSortValue(b.venue)) || a.venue.name.localeCompare(b.venue.name);
+  return (a, b) => dir * (bestSortValue(a) - bestSortValue(b)) || a.venue.name.localeCompare(b.venue.name);
 }
 
-function bestSortValue(venue) {
-  return bestDiscount(venue)?.score ?? -1;
+function bestSortValue(row) {
+  return row.best?.score ?? -1;
 }
 
-function bestDiscount(venue) {
-  if (venue.bestDiscount?.tier && Number.isFinite(Number(venue.bestDiscount.score))) {
-    return venue.bestDiscount;
-  }
-
-  const discounts = sourceOffers(venue)
+// Rank only the offers that survived the visibility filters. Never reuse a
+// precomputed venue.bestDiscount from a campaign the user has hidden.
+function bestDiscount(offers) {
+  const discounts = offers
     .filter((offer) => !isDeliveryRelated(offer.text))
     .filter((offer) => !isUtilityOfferText(offer.text))
     .map((offer) => ({ ...offer, discount: offerDiscount(offer) }))

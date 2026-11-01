@@ -1,5 +1,6 @@
 import { NOTIFY_RULES } from "./config.mjs";
 import { isNotificationWorthy, normalizeOfferText, sortOffersByValue } from "./offer-value.mjs";
+import { isLikelyAcquisitionOffer as isLikelyAcquisitionBanner } from "../docs/offer-filters.mjs";
 
 export function diffSnapshots(previous, current) {
   const previousOffers = offerIndex(previous);
@@ -70,24 +71,9 @@ export function offerIndex(snapshot) {
   return map;
 }
 
-// Wolt's public, unauthenticated venue feed can advertise account-dependent
-// acquisition campaigns without disclosing who can redeem them. Keep them on
-// the dashboard as observed Wolt banners, but do not send misleading alerts.
-const GENERIC_ACQUISITION_BANNERS = new Set([
-  "5 € off (spend 12 €)",
-  "10 € off (spend 15 €)",
-]);
-
+// Use the same account-eligibility heuristic in alerts and the dashboard.
 export function isLikelyAcquisitionOffer(offer) {
-  const text = normalizeOfferText(offer?.text).toLowerCase()
-    .replace(/\b(?:eur|euros?)\b/gu, "€")
-    .replace(/\s*€\s*/gu, " € ")
-    .replace(/\s+/gu, " ")
-    .replace(/\(\s+/gu, "(")
-    .replace(/\s+\)/gu, ")")
-    .trim();
-  return GENERIC_ACQUISITION_BANNERS.has(text) ||
-    /\b(?:new\s+(?:customers?|users?)|first[- ]time\s+(?:customers?|users?)|first\s+orders?|neukund\w*|naujiems\s+klientams)\b/iu.test(text);
+  return isLikelyAcquisitionBanner(offer?.text);
 }
 
 // The campaign ID may disappear or change when Wolt switches between its
