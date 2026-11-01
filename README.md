@@ -32,7 +32,8 @@ Wolt can have a lot of promotions at the same time, but finding the useful ones 
 - 🔥 See current venue promotions in one place.
 - 📊 Sort deals by an estimated **0–100 value score**.
 - 🔎 Search by venue, promotion, address, or category.
-- 🧹 Hide repetitive citywide and ordinary delivery offers.
+- 🧹 Hide likely account-restricted/new-customer campaigns, repeated citywide offers, and ordinary delivery offers.
+- 🟢 Hide venues marked closed or offline in the latest snapshot and venues without visible deals.
 - 🍕 Distinguish broad basket discounts from selected-item promotions.
 - 🕒 Check opening status and put open venues first.
 - 📍 Open a venue on Wolt or view its location on the map.
@@ -208,7 +209,7 @@ TELEGRAM_CHAT_ID
 
 If a qualifying alert is pending but credentials are unavailable, the updater fails before committing the new notification state. This avoids silently losing a deal notification.
 
-Each Telegram alert names the city in a clickable heading linking to that city's public dashboard view. Generic Wolt acquisition-style banners (notably `5 € off (spend 12 €)` and `10 € off (spend 15 €)`) and explicit new-customer offers are omitted **from Telegram alerts only**: the anonymous Wolt feed does not establish whether an existing account can redeem them. The dashboard still preserves the observed Wolt promotions. Alert identities are based on normalized venue and offer text rather than unstable internal campaign IDs; the notification-state reader migrates previous records automatically.
+Each Telegram alert names the city in a clickable heading linking to that city's public dashboard view. Generic Wolt acquisition-style banners (notably `5 € off (spend 12 €)` and `10 € off (spend 15 €)`) and explicit new-customer offers are omitted from Telegram alerts. The dashboard **hides them by default**, but the checkbox can reveal the raw observed Wolt banners. The anonymous feed cannot verify eligibility for an existing account. Hidden banners cannot determine the visible discount value or ranking; venues without visible offers are hidden by default. Alert identities are based on normalized venue and offer text rather than unstable internal campaign IDs; the notification-state reader migrates previous records automatically.
 
 ## Automation
 
