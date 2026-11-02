@@ -105,19 +105,19 @@ test("homepage exposes the core SEO and accessibility structure without JavaScri
   assert.match(html, /name="twitter:card"/);
   assert.match(html, /application\/ld\+json/);
   assert.match(html, /GENERATED_LIVE_CITIES_START/);
-  assert.match(html, /<h2 id="how-title">/);
+  assert.match(html, /<h2 id="how-title"(?:\s+[^>]*)?>/);
 });
 
 test("production updater stages regenerated SEO artifacts", async () => {
   const workflow = await readFile(new URL("../.github/workflows/check-discounts.yml", import.meta.url), "utf8");
-  const stageLine = "git add -- README.md docs/data docs/cities docs/countries docs/methodology docs/sitemap.xml docs/robots.txt docs/llms.txt docs/index.html";
+  const stageLine = "git add -- README.md docs/data docs/feeds docs/cities docs/countries docs/methodology docs/sitemap.xml docs/robots.txt docs/llms.txt docs/index.html";
   assert.equal(workflow.split(stageLine).length - 1, 1, "GitHub-hosted updater must stage SEO output exactly once");
 });
 
 test("Pages deploy payload includes generated SEO routes and social assets", async () => {
   const workflow = await readFile(new URL("../.github/workflows/deploy-pages.yml", import.meta.url), "utf8");
   assert.match(workflow, /cp docs\/sitemap\.xml docs\/robots\.txt docs\/llms\.txt \.pages-site\//);
-  assert.match(workflow, /cp -a docs\/assets docs\/cities docs\/countries docs\/methodology \.pages-site\//);
+  assert.match(workflow, /cp -a docs\/assets docs\/cities docs\/countries docs\/methodology docs\/feeds \.pages-site\//);
 });
 
 

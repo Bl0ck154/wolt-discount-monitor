@@ -11,6 +11,7 @@
   .topnav { display: none; }
 
   .hero {
+    grid-template-columns: minmax(0, 1fr);
     width: calc(100% - 20px);
     margin-top: 18px;
     padding: 4px 0 22px;
@@ -26,7 +27,7 @@
   .hero-points { margin-top: 16px; gap: 7px 14px; }
   .hero-points span { font-size: 11px; }
 
-  .city-console { padding: 15px; border-radius: 10px; box-shadow: none; }
+  .city-console { grid-row: 1; padding: 15px; border-radius: 10px; box-shadow: none; }
   .console-heading { margin-bottom: 10px; }
   .console-heading strong { font-size: 16px; }
   .location-map-link { width: 27px; height: 27px; font-size: 15px; }
@@ -48,11 +49,11 @@
   .toolbar { position: static; margin-bottom: 8px; padding: 9px; border-radius: 9px; box-shadow: none; }
   .toolbar-main { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 7px; }
   .search-field { grid-column: 1 / -1; }
-  .search-field > span, .select-field > span { margin-bottom: 4px; font-size: 8.5px; }
-  input, select { height: 41px; font-size: 12px; }
+  .search-field > span, .select-field > span { margin-bottom: 5px; font-size: 11px; }
+  input, select { min-height: 44px; font-size: 14px; }
   .toolbar-secondary { align-items: stretch; flex-direction: column; gap: 6px; }
   .toggles { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-  .toggle { width: 100%; min-height: 34px; padding: 4px 7px; border-radius: 7px; font-size: 10px; line-height: 1.2; }
+  .toggle { width: 100%; min-height: 44px; padding: 6px 8px; border-radius: 7px; font-size: 12px; line-height: 1.2; }
   .hidden-offers { display: none; }
 
   .table-shell { overflow: visible; background: transparent; border: 0; }
@@ -101,7 +102,7 @@
   }
   .venue-title::after { content: " ↗"; color: var(--accent-dark); font-size: .85em; }
   .venue-heading { align-items: center; gap: 5px; }
-  .venue-type-inline { font-size: 8px; color: #98a3a8; }
+  .venue-type-inline { font-size: 10px; color: #98a3a8; }
   .venue-meta {
     display: -webkit-box;
     max-width: 100%;
@@ -131,7 +132,7 @@
     background: #fff1f7;
     border-color: #efcade;
   }
-  .map-link { width: 26px; height: 26px; padding: 0; font-size: 14px; }
+  .map-link { width: 44px; height: 44px; padding: 0; font-size: 16px; }
 
   .group-details-row { display: block; margin: -5px 0 8px; }
   .group-details-row > td { display: block; padding: 0; border: 0; }

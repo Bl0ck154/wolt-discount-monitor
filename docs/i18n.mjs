@@ -1,3 +1,4 @@
+import { extended } from "./i18n-extra.mjs";
 // Independent consumer UI translations; original Wolt promotion text is unchanged.
 const en = {
   deals: "Offers worth checking", hero: "Choose your city. Compare restaurant and grocery offers without scrolling through Wolt venue by venue. Check the final price in Wolt before ordering.",
@@ -47,5 +48,12 @@ export function normalizeLanguage(value) {
  return Object.hasOwn(dictionary, language) ? language : "en";
 }
 export function translate(language, key) {
- return dictionary[normalizeLanguage(language)][key] ?? dictionary.en[key] ?? en[key] ?? key;
+ const locale = normalizeLanguage(language);
+  return extended[locale]?.[key] ?? dictionary[locale][key] ?? extended.en[key] ?? dictionary.en[key] ?? key;
+}
+
+
+export function formatMessage(language, key, params = {}) {
+  return translate(language, key).replace(/\{([a-zA-Z][a-zA-Z0-9]*)\}/g,
+    (match, token) => Object.hasOwn(params, token) ? String(params[token]) : match);
 }

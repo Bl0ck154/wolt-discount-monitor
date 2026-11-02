@@ -3,6 +3,7 @@ import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { extractDiscount, offerScore } from "./offer-value.mjs";
 import { ubiquitousOfferIndex, visibleVenueOffers, visibleVenueCount } from "../docs/deal-visibility.mjs";
+import { buildCityRss } from "./rss.mjs";
 
 export const DEFAULT_SITE_BASE = "https://bl0ck154.github.io/wolt-discount-monitor/";
 export const DEFAULT_SEO_FRESH_HOURS = 48;
@@ -36,8 +37,18 @@ export async function buildSeoSite({
   const countries = groupByCountry(cityRecords);
   await rm(join(docsDir, "cities"), { recursive: true, force: true });
   await rm(join(docsDir, "countries"), { recursive: true, force: true });
+  await rm(join(docsDir, "feeds"), { recursive: true, force: true });
 
   for (const record of cityRecords) {
+    if (record.snapshot?.generatedAt) {
+      const logPath = record.city.latestPath === "data/latest.json"
+        ? join(docsDir, "data", "changes-log.json")
+        : join(docsDir, "data", "cities", record.city.key, "changes-log.json");
+      const log = await readJsonIfExists(logPath);
+      await writeText(join(docsDir, "feeds", record.city.key + ".xml"),
+        buildCityRss({ city: record.city, entries: Array.isArray(log) ? log : [],
+          snapshot: record.snapshot, siteBase, now }));
+    }
     const countryRecords = countries.get(record.city.country) ?? [];
     await writeText(
       cityOutputPath(docsDir, record.city),
@@ -155,7 +166,7 @@ export function cityPageHtml({ city, snapshot, indexable, countryRecords = [], s
           <span class="eyebrow"><span class="live-dot" aria-hidden="true"></span> ${escapeHtml(status)}</span>
           <h1>Wolt discounts in ${escapeHtml(city.name)}</h1>
           <p>Compare Wolt promotions in ${escapeHtml(label)} without scanning every venue manually. Recently scanned pages show observed deals ranked by estimated value; venue hours, final prices and account eligibility should always be confirmed in Wolt.</p>
-          <div class="landing-actions"><a class="primary-link" href="${dashboardUrl}">Open interactive dashboard</a>${city.url ? `<a class="secondary-link" href="${escapeHtml(city.url)}" target="_blank" rel="noreferrer">Open Wolt ${escapeHtml(city.name)} ↗</a>` : ""}</div>
+          <div class="landing-actions"><a class="primary-link" href="${dashboardUrl}">Open interactive dashboard</a>${snapshot ? `<a class="secondary-link" href="${siteBase}feeds/${city.key}.xml" aria-label="Subscribe to newly detected offers in RSS reader">RSS updates</a>` : ""}${city.url ? `<a class="secondary-link" href="${escapeHtml(city.url)}" target="_blank" rel="noreferrer">Open Wolt ${escapeHtml(city.name)} ↗</a>` : ""}</div>
         </section>
         <section class="landing-stats shell" aria-label="City deal summary">
           <div class="landing-stat"><span>Ranked deal venues</span><strong>${formatNumber(promoCount)}</strong></div>

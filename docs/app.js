@@ -1,6 +1,7 @@
 import { isLikelyAcquisitionOffer, shouldDisplayVenue } from "./offer-filters.mjs";
 import { favoriteKey, parseFavorites, serializeFavorites } from "./favorites.mjs";
-import { normalizeLanguage, translate } from "./i18n.mjs";
+import { normalizeLanguage, translate, formatMessage } from "./i18n.mjs";
+import { offerFeedbackUrl } from "./feedback.mjs";
 import { ubiquitousOfferIndex as sharedUbiquitousOfferIndex, visibleVenueOffers, visibleVenueCount } from "./deal-visibility.mjs";
 
 const DEFAULT_API_BASE_URL = "";
@@ -35,6 +36,7 @@ const state = {
 const elements = {
   cityLabel: document.querySelector("#cityLabel"),
   cityMapLink: document.querySelector("#cityMapLink"),
+  cityRssLink: document.querySelector("#cityRssLink"),
   cityPicker: document.querySelector("#cityPicker"),
   citySearch: document.querySelector("#citySearch"),
   cityOptions: document.querySelector("#cityOptions"),
@@ -123,9 +125,7 @@ async function requestAndWatchCity(city, requestId, previousGeneratedAt) {
   try {
     const result = await requestCityRefresh(city);
     if (!isCurrentLoad(requestId)) return;
-    elements.refreshStatus.textContent = result.queued
-      ? "Checking this city. Results will appear after the new snapshot is published."
-      : "A refresh was recently requested for this city. Checking for a published snapshot…";
+    elements.refreshStatus.textContent = t(result.queued ? "refreshQueued" : "refreshAlready");
     const existing = Date.parse(previousGeneratedAt ?? "");
     const requestTime = Number(result.requestedAt ?? Date.now());
     // A previous attempt beyond our waiting window is not still in progress.
@@ -148,7 +148,7 @@ async function requestAndWatchCity(city, requestId, previousGeneratedAt) {
       const timestamp = Date.parse(snapshot.generatedAt ?? "");
       if (!Number.isFinite(timestamp) || (Number.isFinite(existing) && timestamp <= existing)) continue;
       applySnapshot(city, snapshot);
-      elements.refreshStatus.textContent = "Updated city snapshot loaded.";
+      elements.refreshStatus.textContent = t("refreshLoaded");
       return;
     }
     if (!previousGeneratedAt && isCurrentLoad(requestId)) showCityFetchFailure(city);
@@ -158,10 +158,10 @@ async function requestAndWatchCity(city, requestId, previousGeneratedAt) {
 }
 
 function showCityFetchFailure(city) {
-  const label = escapeHtml(city.label ?? city.name ?? "this city");
+  const label = city.label ?? city.name ?? t("unknownCity");
   elements.venueRows.innerHTML =
-    `<tr><td colspan="6" class="empty">No recent deals available for ${label}. <button type="button" data-retry-city>Try again</button></td></tr>`;
-  elements.refreshStatus.textContent = "The refresh may be queued or temporarily rate limited. No deals are shown until a recent snapshot exists.";
+    `<tr><td colspan="6" class="empty">${escapeHtml(tf("refreshFailed", { city: label }))} <button type="button" data-retry-city>${escapeHtml(t("retry"))}</button></td></tr>`;
+  elements.refreshStatus.textContent = t("refreshLimit");
 }
 
 function isCurrentLoad(requestId) {
@@ -215,7 +215,7 @@ function showLoading(city) {
   hydrateSummary();
   hydrateFilters();
   hydrateHiddenCitywideOffers();
-  elements.venueRows.innerHTML = `<tr><td colspan="6" class="empty">Loading ${escapeHtml(city.label ?? city.name)}...</td></tr>`;
+  elements.venueRows.innerHTML = `<tr><td colspan="6" class="empty">${escapeHtml(tf("loadingCity", { city: city.label ?? city.name }))}</td></tr>`;
 }
 
 async function loadCitiesIndex() {
@@ -353,14 +353,18 @@ function renderCityOptions(query = "") {
   const selectedLabel = cityLabelText(selected).toLowerCase();
   const isCurrentSelection = !normalized || normalized === selectedLabel;
   const matches = isCurrentSelection ? [selected] : filteredCities(query);
-  const visible = matches.slice(0, MAX_CITY_OPTIONS);
+  // Prefer cities with recently published deals over catalog-only cities.
+  const visible = [...matches].sort((a, b) =>
+    Number(hasRecentSnapshot(b)) - Number(hasRecentSnapshot(a)) ||
+    a.name.localeCompare(b.name, state.language)
+  ).slice(0, MAX_CITY_OPTIONS);
   const groups = groupedCityOptions(visible).join("");
   const hint = isCurrentSelection
-    ? `<div class="city-empty">Type at least 2 characters to search ${formatNumber(state.citiesIndex?.cities?.length ?? 0)} cities</div>`
+    ? `<div class="city-empty">${escapeHtml(tf("typeToSearch", { count: formatNumber(state.citiesIndex?.cities?.length ?? 0) }))}</div>`
     : matches.length > visible.length
-      ? `<div class="city-empty">Showing first ${MAX_CITY_OPTIONS} of ${formatNumber(matches.length)} matches. Keep typing to narrow the list.</div>`
+      ? `<div class="city-empty">${escapeHtml(tf("moreMatches", { shown: MAX_CITY_OPTIONS, total: formatNumber(matches.length) }))}</div>`
       : "";
-  elements.cityOptions.innerHTML = groups || `<div class="city-empty">No matching cities</div>`;
+  elements.cityOptions.innerHTML = groups || `<div class="city-empty">${escapeHtml(t("noMatches"))}</div>`;
   if (hint) elements.cityOptions.insertAdjacentHTML("beforeend", hint);
 }
 
@@ -368,6 +372,12 @@ function filteredCities(query) {
   const normalized = query.trim().toLowerCase();
   if (normalized.length < 2) return [];
   return (state.citiesIndex.cities ?? []).filter((city) => citySearchText(city).includes(normalized));
+}
+
+function hasRecentSnapshot(city) {
+  const last = Date.parse(city?.updatedAt ?? "");
+  const age = Date.now() - last;
+  return Number.isFinite(last) && age >= 0 && age < CITY_MAX_DISPLAY_AGE_MS;
 }
 
 function groupedCityOptions(cities) {
@@ -389,6 +399,7 @@ function groupedCityOptions(cities) {
           const selected = city.id === state.selectedCity?.id ? " is-selected" : "";
           return `<button class="city-option${selected}" type="button" role="option" data-city-id="${escapeHtml(city.id)}" aria-selected="${city.id === state.selectedCity?.id}">
             <span>${escapeHtml(city.name)}</span>
+            <small class="city-option-status">${escapeHtml(t(hasRecentSnapshot(city) ? "recentData" : "scanNeeded"))}</small>
           </button>`;
         })
         .join("");
@@ -399,20 +410,22 @@ function groupedCityOptions(cities) {
 function hydrateSummary() {
   const city = state.selectedCity ?? {};
   const label = city.label ?? [city.name, city.country].filter(Boolean).join(", ");
-  elements.cityLabel.textContent = label || "Unknown city";
+  elements.cityLabel.textContent = label || t("unknownCity");
   elements.cityMapLink.href = cityMapUrl(city);
-  elements.cityMapLink.title = `Open ${label} coordinates in Maps`;
+  const hasFeed = Boolean(state.snapshot?.generatedAt && /^[a-z0-9-]+$/.test(city.key ?? ""));
+  elements.cityRssLink.hidden = !hasFeed;
+  if (hasFeed) elements.cityRssLink.href = "feeds/" + city.key + ".xml";
+  elements.cityMapLink.title = `${tf("cityMap", { city: label })}`;
   elements.cityMapLink.setAttribute("aria-label", `Open ${label} coordinates in Maps`);
   const metrics = state.snapshot ? visibleVenueCount(state.rows, offerScore) : null;
   elements.promoCount.textContent = metrics ? formatNumber(metrics.ranked) : "—";
   elements.restaurantCount.textContent = metrics ? formatNumber(metrics.scanned) : "—";
   const generatedAt = Date.parse(state.snapshot?.generatedAt ?? "");
   const hoursOld = Number.isFinite(generatedAt) ? Math.max(0, Math.floor((Date.now() - generatedAt) / 3600000)) : null;
-  elements.updatedAt.textContent = Number.isFinite(generatedAt) ? new Date(generatedAt).toLocaleString(state.language) : "not cached";
+  elements.updatedAt.textContent = Number.isFinite(generatedAt) ? new Date(generatedAt).toLocaleString(state.language) : t("notCached");
   elements.snapshotTrust.textContent = hoursOld === null
-    ? "No verified city snapshot yet. Offers cannot be shown until a scan completes."
-    : (hoursOld >= 4 ? "Snapshot is " + hoursOld + "h old. " : "Recently scanned. ") +
-      "Offers, account eligibility and opening status must be checked in Wolt before ordering.";
+    ? t("noSnapshot")
+    : (hoursOld >= 4 ? tf("staleHours", { hours: hoursOld }) : t("recentScan")) + t("checkInWolt");
 }
 
 function hydrateFilters() {
@@ -437,7 +450,7 @@ function bindControls() {
   elements.hideClosedVenues.addEventListener("change", resetAndRenderRows);
   elements.onlyWithOffers.addEventListener("change", resetAndRenderRows);
   elements.favoritesOnly.addEventListener("change", resetAndRenderRows);
-  elements.languagePicker.addEventListener("change", () => { state.language = normalizeLanguage(elements.languagePicker.value); safeLocalStorageSet("WOLT_LANGUAGE", state.language); applyLanguage(); hydrateSummary(); hydrateFilters(); resetAndRenderRows(); });
+  elements.languagePicker.addEventListener("change", () => { state.language = normalizeLanguage(elements.languagePicker.value); safeLocalStorageSet("WOLT_LANGUAGE", state.language); applyLanguage(); hydrateSummary(); hydrateFilters(); renderCityOptions(elements.citySearch.value); resetAndRenderRows(); });
   elements.sortSelect.addEventListener("change", () => {
     setSortFromSelect(elements.sortSelect.value);
     resetAndRenderRows();
@@ -498,18 +511,18 @@ function renderRows() {
   const groups = allGroups.slice(0, state.renderLimit);
   const rowsWithVisibleOffers = rows.filter(({ visibleOffers }) => visibleOffers.length > 0).length;
 
-  elements.shownCount.textContent = `${formatNumber(rows.length)} venues shown · ${formatNumber(rowsWithVisibleOffers)} with offers · ${formatNumber(state.rows.length)} scanned`;
+  elements.shownCount.textContent = `${tf("shown", { shown: formatNumber(rows.length), withOffers: formatNumber(rowsWithVisibleOffers), scanned: formatNumber(state.rows.length) })}`;
   hydrateHiddenCitywideOffers();
   syncSortUi();
 
   if (!groups.length) {
-    elements.venueRows.innerHTML = `<tr><td colspan="6" class="empty">No eligible deals match your filters. Try switching off a filter, or check Wolt directly.</td></tr>`;
+    elements.venueRows.innerHTML = `<tr><td colspan="6" class="empty">${escapeHtml(t("noDeals"))}</td></tr>`;
     return;
   }
 
   const remaining = allGroups.length - groups.length;
   const loadMore = remaining > 0
-    ? `<tr><td colspan="6" class="empty"><button type="button" class="load-more" data-load-more>Show ${formatNumber(Math.min(RENDER_STEP, remaining))} more (${formatNumber(remaining)} remaining)</button></td></tr>`
+    ? `<tr><td colspan="6" class="empty"><button type="button" class="load-more" data-load-more>${escapeHtml(tf("showMore", { count: formatNumber(Math.min(RENDER_STEP, remaining)), remaining: formatNumber(remaining) }))}</button></td></tr>`
     : "";
   elements.venueRows.innerHTML = groups.map((group, index) => renderVenueGroup(group, index + 1)).join("") + loadMore;
 }
@@ -543,7 +556,7 @@ function renderVenueParts(venue, visibleOffers) {
     : `<div class="venue-image" aria-hidden="true"></div>`;
   const offers = visibleOffers.length
     ? visibleOffers.map((offer) => `<span class="offer ${offerClass(offer)}">${escapeHtml(offer.text)}</span>`).join("")
-    : `<span class="venue-empty-offer">No visible offer</span>`;
+    : `<span class="venue-empty-offer">${escapeHtml(t("noVisibleOffer"))}</span>`;
   const best = bestDiscount(visibleOffers);
   const bestLabel = formatBestValue(best);
   const amountClass = bestLabel.includes("%") ? "amount amount-percent" : "amount";
@@ -551,6 +564,14 @@ function renderVenueParts(venue, visibleOffers) {
   const hours = openingLabel(venue);
   const favoriteId = String(venue.id ?? venue.slug ?? "");
   const isFavorite = state.favorites.has(favoriteKey(state.selectedCity?.id, favoriteId));
+  const reportUrl = visibleOffers.length ? offerFeedbackUrl({
+    city: state.selectedCity?.label ?? state.selectedCity?.name,
+    venue: venue.name,
+    offer: visibleOffers[0]?.text,
+  }) : null;
+  const report = reportUrl
+    ? `<a class="report-link" href="${escapeHtml(reportUrl)}" rel="noopener noreferrer" target="_blank">${escapeHtml(t("reportOffer"))}</a>`
+    : "";
   const bookmark = favoriteId
     ? '<button type="button" class="bookmark ' + (isFavorite ? "is-saved" : "") +
       '" data-favorite-id="' + escapeHtml(favoriteId) + '" aria-pressed="' + isFavorite +
@@ -569,6 +590,7 @@ function renderVenueParts(venue, visibleOffers) {
           <span class="venue-type-inline">${escapeHtml(label(venue.productLine ?? "unknown"))}</span>
         </div>
         <div class="venue-meta">${escapeHtml(venue.address ?? "")}</div>
+        ${report}
       </div>
     </div>`,
     offers: `<div class="offer-list">${offers}</div>`,
@@ -912,7 +934,7 @@ function hydrateHiddenCitywideOffers() {
     return;
   }
 
-  const prefix = elements.hideNewUserDelivery.checked ? "Hidden citywide" : "Detected citywide";
+  const prefix = t(elements.hideNewUserDelivery.checked ? "hiddenCitywide" : "detectedCitywide");
   const labels = state.ubiquitousOfferLabels;
   const visible = labels.slice(0, 4).join(" · ");
   const suffix = labels.length > 4 ? ` · +${labels.length - 4} more` : "";
@@ -1428,7 +1450,7 @@ function label(value) {
 }
 
 function formatNumber(value) {
-  return new Intl.NumberFormat().format(value ?? 0);
+  return new Intl.NumberFormat(state.language).format(value ?? 0);
 }
 
 function escapeHtml(value) {
@@ -1441,10 +1463,14 @@ function escapeHtml(value) {
 
 
 function t(key) { return translate(state.language, key); }
+function tf(key, values) { return formatMessage(state.language, key, values); }
 function applyLanguage() {
   document.documentElement.lang = state.language;
   elements.languagePicker.value = state.language;
   for (const element of document.querySelectorAll("[data-i18n]")) {
     element.textContent = t(element.dataset.i18n);
   }
+  for (const el of document.querySelectorAll("[data-i18n-placeholder]")) el.placeholder = t(el.dataset.i18nPlaceholder);
+  for (const el of document.querySelectorAll("[data-i18n-aria-label]")) el.setAttribute("aria-label", t(el.dataset.i18nAriaLabel));
+  for (const el of document.querySelectorAll("[data-i18n-title]")) el.title = t(el.dataset.i18nTitle);
 }
