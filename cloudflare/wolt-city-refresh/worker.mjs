@@ -53,7 +53,7 @@ async function budgetIncrement(db, table, day, visitor, maximum) {
 // A short database lease prevents two HTTP requests and the cron tick from
 // dispatching simultaneously. GitHub's workflow has one active/pending slot:
 // dispatching without serialization silently cancels other visitors' cities.
-export async function dispatchNext(env, now = Date.now()) {
+export async function dispatchNext(env, now = Date.now(), { completedScan = false } = {}) {
   if (!env.DB || !env.GITHUB_TOKEN) return { status: "unavailable" };
   const lease = await env.DB.prepare(
     "INSERT INTO scan_dispatch_lease(id,expires_at) VALUES(1,?) " +
@@ -69,7 +69,7 @@ export async function dispatchNext(env, now = Date.now()) {
     const recent = await env.DB.prepare(
       "SELECT dispatched_at FROM city_jobs WHERE dispatched_at IS NOT NULL ORDER BY dispatched_at DESC LIMIT 1"
     ).first();
-    if (recent && now - Number(recent.dispatched_at) < DISPATCH_PROPAGATION_MS) {
+    if (!completedScan && recent && now - Number(recent.dispatched_at) < DISPATCH_PROPAGATION_MS) {
       return { status: "recently-dispatched" };
     }
 
@@ -174,7 +174,7 @@ export default {
           "INSERT OR IGNORE INTO scan_drain_events(run_id,claimed_at) VALUES(?,?)"
         ).bind(runId,Date.now()).run();
         if (claimed.meta?.changes !== 1) return json({ok:true,status:"already-processed"});
-        const result = await dispatchNext(env);
+        const result = await dispatchNext(env, Date.now(), { completedScan: true });
         if (["github-unavailable","unavailable"].includes(result.status)) {
           await env.DB.prepare("DELETE FROM scan_drain_events WHERE run_id=?").bind(runId).run();
           return json({ok:false,status:result.status},503);

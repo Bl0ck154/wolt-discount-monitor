@@ -81,6 +81,25 @@ test("serial queue keeps the second user's city when a workflow is active", asyn
     assert.equal(dispatches,2);
   } finally {globalThis.fetch=originalFetch;}
 });
+test("completed workflow drains a second city even when the first scan finished within 90 seconds",async()=>{
+  const {db,state}=fakeDB();
+  const fetchBefore=globalThis.fetch;
+  let requests=0;
+  globalThis.fetch=async(url)=>{
+    if(String(url).includes("/runs?"))return new Response(JSON.stringify({workflow_runs:[]}),{status:200});
+    if(String(url).includes("/dispatches")){requests++;return new Response(null,{status:204});}
+    throw Error("Unexpected external request "+url);
+  };
+  try{
+    const env={DB:db,GITHUB_TOKEN:"test"};
+    const first=await dispatchNext(env,100000);
+    assert.equal(first.cityId,"deu/erlangen");
+    const second=await dispatchNext(env,155000,{completedScan:true});
+    assert.equal(second.cityId,"pol/krakow");
+    assert.equal(requests,2);
+    assert.equal(state.jobs[1].dispatch_status,"dispatched");
+  }finally{globalThis.fetch=fetchBefore;}
+});
 test("GitHub API failure leaves a queued city intact",async()=>{
   const {db,state}=fakeDB(),originalFetch=globalThis.fetch;
   globalThis.fetch=async()=>new Response("temporarily unavailable",{status:503});
