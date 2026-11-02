@@ -109,7 +109,9 @@ export const extended = {
     "refreshWaitingInQueue": "This city is queued for scanning. Deals will appear after the scan and publication finish.",
     "refreshDailyLimit": "The daily scanning limit has been reached. Try again tomorrow.",
     "refreshStillRunning": "Scanning or publishing is taking longer than expected. Check back later; the request is not lost.",
-    "refreshNoSnapshotYet": "No recent data for {city} yet. The scan may still be queued."
+    "refreshNoSnapshotYet": "No recent data for {city} yet. The scan may still be queued.",
+    "chooseCityFirst": "Choose a city",
+    "chooseCityHint": "Search for your city above to load its deals. Nothing is scanned until you select a city."
   },
   "de": {
     "brandSubtitle": "Unabhängiger Angebotsfinder",
@@ -220,7 +222,9 @@ export const extended = {
     "refreshWaitingInQueue": "Diese Stadt steht in der Scan-Warteschlange. Angebote erscheinen nach dem Scan und der Veröffentlichung.",
     "refreshDailyLimit": "Das tägliche Scan-Limit ist erreicht. Bitte morgen erneut versuchen.",
     "refreshStillRunning": "Der Scan oder die Veröffentlichung dauert länger. Schau später wieder vorbei; die Anfrage bleibt gespeichert.",
-    "refreshNoSnapshotYet": "Für {city} liegen noch keine aktuellen Daten vor. Der Scan kann noch in der Warteschlange stehen."
+    "refreshNoSnapshotYet": "Für {city} liegen noch keine aktuellen Daten vor. Der Scan kann noch in der Warteschlange stehen.",
+    "chooseCityFirst": "Stadt auswählen",
+    "chooseCityHint": "Suche oben nach deiner Stadt. Erst nach deiner Auswahl werden Angebote geladen."
   },
   "lt": {
     "brandSubtitle": "Nepriklausoma nuolaidų paieška",
@@ -331,7 +335,9 @@ export const extended = {
     "refreshWaitingInQueue": "Šis miestas laukia skenavimo eilėje. Pasiūlymai pasirodys po skenavimo ir paskelbimo.",
     "refreshDailyLimit": "Pasiektas dienos skenavimo limitas. Bandykite rytoj.",
     "refreshStillRunning": "Skenavimas arba paskelbimas užtrunka ilgiau. Sugrįžkite vėliau; užklausa išsaugota.",
-    "refreshNoSnapshotYet": "Dar nėra naujų {city} duomenų. Skenavimas gali laukti eilėje."
+    "refreshNoSnapshotYet": "Dar nėra naujų {city} duomenų. Skenavimas gali laukti eilėje.",
+    "chooseCityFirst": "Pasirinkite miestą",
+    "chooseCityHint": "Ieškokite miesto viršuje. Pasiūlymai įkeliami tik pasirinkus miestą."
   },
   "pl": {
     "brandSubtitle": "Niezależna wyszukiwarka promocji",
@@ -442,7 +448,9 @@ export const extended = {
     "refreshWaitingInQueue": "To miasto czeka w kolejce do skanowania. Oferty pojawią się po skanowaniu i publikacji.",
     "refreshDailyLimit": "Osiągnięto dzienny limit skanów. Spróbuj jutro.",
     "refreshStillRunning": "Skanowanie lub publikacja trwają dłużej. Wróć później — zgłoszenie nie przepadło.",
-    "refreshNoSnapshotYet": "Brak jeszcze aktualnych danych dla {city}. Skanowanie może być w kolejce."
+    "refreshNoSnapshotYet": "Brak jeszcze aktualnych danych dla {city}. Skanowanie może być w kolejce.",
+    "chooseCityFirst": "Wybierz miasto",
+    "chooseCityHint": "Znajdź swoje miasto powyżej. Oferty wczytają się dopiero po jego wybraniu."
   },
   "cs": {
     "brandSubtitle": "Nezávislý přehled slev",
@@ -553,6 +561,8 @@ export const extended = {
     "refreshWaitingInQueue": "Město čeká ve frontě na skenování. Nabídky se zobrazí po dokončení a zveřejnění.",
     "refreshDailyLimit": "Dosažen denní limit skenů. Zkuste to zítra.",
     "refreshStillRunning": "Skenování nebo zveřejnění trvá déle. Vraťte se později; požadavek zůstává uložený.",
-    "refreshNoSnapshotYet": "Aktuální data pro {city} zatím nejsou k dispozici. Skenování může čekat ve frontě."
+    "refreshNoSnapshotYet": "Aktuální data pro {city} zatím nejsou k dispozici. Skenování může čekat ve frontě.",
+    "chooseCityFirst": "Vyberte město",
+    "chooseCityHint": "Vyhledejte své město výše. Nabídky se načtou až po výběru města."
   }
 };

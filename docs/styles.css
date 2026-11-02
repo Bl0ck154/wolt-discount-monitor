@@ -1210,3 +1210,6 @@ tbody > tr:not(.group-details-row):hover > td { background: #fbfcfc; }
 .delivery-notice { display: inline-block; margin-top: 6px; font-size: 10px; color: #667b7f; }
 
 .mobile-filter-toggle { display: none; }
+
+/* Respect hidden map links on the initial choose-city state. */
+.location-map-link[hidden] { display: none !important; }

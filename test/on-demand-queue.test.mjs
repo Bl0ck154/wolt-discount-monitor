@@ -113,7 +113,9 @@ test("GitHub API failure leaves a queued city intact",async()=>{
 test("browser waits for queue and refuses ancient successful snapshots",async()=>{
   const {readFile}=await import("node:fs/promises");
   const app=await readFile(new URL("../docs/app.js",import.meta.url),"utf8");
-  assert.match(app,/CITY_REFRESH_MAX_POLLS = 48/);
+  assert.match(app,/CITY_REFRESH_MAX_POLLS = 144/);
+  assert.match(app,/CITY_SNAPSHOT_FAST_API/);
+  assert.match(app,/CITY_REFRESH_POLL_MS = 5000/);
   assert.match(app,/state === "queued"/);
   assert.match(app,/age >= CITY_MAX_DISPLAY_AGE_MS/);
   assert.match(app,/cached\.snapshot\?\.generatedAt \?\? null/);

@@ -13,11 +13,11 @@ prevents GitHub's single pending-workflow slot from cancelling requests
 when multiple people select different cities.
 
 The catalog lists 967 available cities, but it does not scan them all.
-New on-demand requests are capped at 36 cities globally and 8 per visitor
+New on-demand requests are capped at 240 cities globally and 20 per visitor
 per UTC day to bound costs and automated abuse. Repeat requests for the
 same city within four hours share the same job without using new quota.
 The browser waits up to 12 minutes and shows a clear queued status
-when publication takes longer. All requests use the existing GitHub
+when publication takes longer. After scanning finishes, the app first\nchecks the committed GitHub snapshot through GET /api/snapshot, rather than\nwaiting for the later GitHub Pages deployment. The Worker accepts only a\nrecently requested city and caches an eligible snapshot briefly to limit\nGitHub API reads. If this route is unavailable, GitHub Pages remains a\nfallback. All requests use the existing GitHub
 Actions Wolt monitor with the same ScraperAPI fallback.
 
 Infrastructure:
@@ -46,4 +46,4 @@ CREATE TABLE visitor_budget(day TEXT NOT NULL,visitor_hash TEXT NOT NULL,scans I
 
 This implementation intentionally avoids direct Worker calls to Wolt, because
 the promotions API has returned HTTP 429 from Cloudflare. On an uncached city
-the first load can take minutes while GitHub scans and republishes Pages.
+a first load will still take the GitHub Actions scan duration, but users\nno longer need to wait for the full Pages deployment if the newly committed\nJSON is already available.
