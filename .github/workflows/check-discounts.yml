@@ -17,6 +17,11 @@ on:
         required: false
         default: false
         type: boolean
+      parallel_scan:
+        description: "Scan up to three queued cities concurrently in one commit"
+        required: false
+        default: false
+        type: boolean
       scraperapi_smoke_test:
         description: "Force one tiny Wolt request through ScraperAPI to validate the configured secret"
         required: false
@@ -86,6 +91,8 @@ jobs:
           NODE
 
       - name: Run tests
+        # Pull-request CI already tests code: skip the full suite for data-only city refreshes.
+        if: ${{ !inputs.parallel_scan }}
         run: node --test
 
       - name: Update discount data
@@ -106,6 +113,7 @@ jobs:
           WOLT_API_RETRY_BASE_MS: ${{ vars.WOLT_API_RETRY_BASE_MS }}
           WOLT_API_RETRY_JITTER_MS: ${{ vars.WOLT_API_RETRY_JITTER_MS }}
           FORCE_WRITE: ${{ inputs.force_refresh && 'true' || 'false' }}
+          WOLT_SCAN_CONCURRENCY: ${{ inputs.parallel_scan && '3' || '1' }}
           WOLT_REFRESH_CITY_CATALOG: "false"
           WOLT_CITIES: ${{ inputs.cities || (github.event.schedule == '19 7 * * *' && 'ltu/vilnius,deu/nuremberg,deu/berlin,pol/warsaw,cze/prague' || 'ltu/vilnius,deu/nuremberg') }}
           WOLT_ALL_CITIES: ${{ inputs.all_cities }}

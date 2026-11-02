@@ -7,7 +7,7 @@ import { spawnSync } from "node:child_process";
 
 test("production updater keeps the normal monitor path dependency-free", async () => {
   const workflow = await readFile(new URL("../.github/workflows/check-discounts.yml", import.meta.url), "utf8");
-  const testCount = (workflow.match(/- name: Run tests\n\s+run: node --test/g) ?? []).length;
+  const testCount = (workflow.match(/- name: Run tests[\s\S]*?run: node --test/g) ?? []).length;
 
   assert.equal(testCount, 1, "only the GitHub-hosted monitor should run tests");
   assert.ok(workflow.includes("default: \"ltu/vilnius,deu/nuremberg\""), "scheduled monitor must include Nuremberg and Vilnius");

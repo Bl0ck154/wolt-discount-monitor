@@ -1,4 +1,4 @@
-// Wolt city refresh coordinator: queue on demand, serialize GitHub Actions scans.
+// Wolt city coordinator: batch up to 3 user-requested cities per GitHub scan.
 // Never requests Wolt directly. The catalog is discoverable without scanning 967 cities.
 const ALLOWED_ORIGIN = "https://bl0ck154.github.io";
 const REPO = "Bl0ck154/wolt-discount-monitor";
@@ -8,6 +8,7 @@ const MAX_GLOBAL_SCANS_PER_DAY = 240;
 const MAX_VISITOR_SCANS_PER_DAY = 20;
 const LEASE_MS = 90 * 1000;
 const DISPATCH_PROPAGATION_MS = 90 * 1000;
+export const ON_DEMAND_BATCH_SIZE = 3;
 
 const json = (data, status = 200, origin = "") => new Response(JSON.stringify(data), {
   status,
@@ -50,9 +51,9 @@ async function budgetIncrement(db, table, day, visitor, maximum) {
   return result.meta?.changes === 1;
 }
 
-// A short database lease prevents two HTTP requests and the cron tick from
-// dispatching simultaneously. GitHub's workflow has one active/pending slot:
-// dispatching without serialization silently cancels other visitors' cities.
+// A short D1 lease keeps only one workflow_dispatch active/pending at a time.
+// Inside that workflow up to 3 city tasks fetch concurrently; one commit
+// publishes them together, with no concurrent writes to main.
 export async function dispatchNext(env, now = Date.now(), { completedScan = false } = {}) {
   if (!env.DB || !env.GITHUB_TOKEN) return { status: "unavailable" };
   const lease = await env.DB.prepare(
@@ -61,11 +62,15 @@ export async function dispatchNext(env, now = Date.now(), { completedScan = fals
   ).bind(now + LEASE_MS, now).run();
   if (lease.meta?.changes !== 1) return { status: "locked" };
   try {
-    // On empty queues, avoid GitHub API calls.
-    const next = await env.DB.prepare(
-      "SELECT city_id,requested_at FROM city_jobs WHERE dispatch_status='queued' ORDER BY requested_at ASC LIMIT 1"
-    ).first();
-    if (!next) return { status: "empty" };
+    // When the queue is empty, avoid GitHub API calls.
+    const queued = await env.DB.prepare(
+      "SELECT city_id,requested_at FROM city_jobs WHERE dispatch_status='queued' " +
+      "ORDER BY requested_at ASC, city_id ASC LIMIT ?"
+    ).bind(ON_DEMAND_BATCH_SIZE).all();
+    const batch = (queued.results ?? []).filter((job) =>
+      /^[a-z]{3}[/][a-z0-9-]{2,70}$/.test(job.city_id)
+    ).slice(0,ON_DEMAND_BATCH_SIZE);
+    if (!batch.length) return { status: "empty" };
     const recent = await env.DB.prepare(
       "SELECT dispatched_at FROM city_jobs WHERE dispatched_at IS NOT NULL ORDER BY dispatched_at DESC LIMIT 1"
     ).first();
@@ -87,16 +92,24 @@ export async function dispatchNext(env, now = Date.now(), { completedScan = fals
     const dispatch = await fetch(
       "https://api.github.com/repos/" + REPO + "/actions/workflows/check-discounts.yml/dispatches",
       { method: "POST", headers: { ...githubHeaders(env.GITHUB_TOKEN), "Content-Type": "application/json" },
-        body: JSON.stringify({ ref: "main", inputs: { cities: next.city_id, force_refresh: "true" } }) }
+        body: JSON.stringify({ ref: "main", inputs: {
+          cities: batch.map((city) => city.city_id).join(","),
+          force_refresh: "true", parallel_scan: "true",
+        } }) }
     );
     if (dispatch.status !== 204) {
       console.warn("GitHub workflow dispatch rejected", dispatch.status);
       return { status: "github-unavailable" };
     }
-    await env.DB.prepare(
-      "UPDATE city_jobs SET dispatch_status='dispatched',dispatched_at=? WHERE city_id=? AND requested_at=? AND dispatch_status='queued'"
-    ).bind(now,next.city_id,next.requested_at).run();
-    return { status: "dispatched", cityId: next.city_id };
+    // D1 batch executes the status changes as one transaction, preventing
+    // half-updated groups when several cities share one dispatched workflow.
+    const updates = batch.map((city) => env.DB.prepare(
+      "UPDATE city_jobs SET dispatch_status='dispatched',dispatched_at=? " +
+      "WHERE city_id=? AND requested_at=? AND dispatch_status='queued'"
+    ).bind(now,city.city_id,city.requested_at));
+    await env.DB.batch(updates);
+    return { status: "dispatched", cityId: batch[0].city_id,
+      cityIds: batch.map((city) => city.city_id) };
   } finally {
     await env.DB.prepare("DELETE FROM scan_dispatch_lease WHERE id=1 AND expires_at=?")
       .bind(now + LEASE_MS).run().catch(() => {});
@@ -222,7 +235,8 @@ async function refresh(request, env) {
   }
   // Try immediately; workflow_run completion will dispatch the next queued city.
   const result = await dispatchNext(env,now);
-  return json({ok:true,queued:true,state:result.status==="dispatched"&&result.cityId===cityId?"dispatched":"queued",
+  return json({ok:true,queued:true,
+    state:result.status==="dispatched"&&result.cityIds?.includes(cityId)?"dispatched":"queued",
     requestedAt:now},202,origin);
 }
 export default {

@@ -1,49 +1,80 @@
-# On-demand Wolt cities
+# On-demand city scanning
 
-The GitHub Pages frontend uses published JSON snapshots for all cities. A user
-can pick any city from Wolt's catalog. If that city's snapshot is missing or
-older than four hours, the browser requests an asynchronous refresh and
-automatically shows the published snapshot after it becomes available.
+A visitor may select any city in the catalog. A new Wolt scan is requested only
+for a selected city with missing/stale data. Every other city remains unscanned.
 
-The Cloudflare Worker **queues the city selected by a visitor** in D1 and
-dispatches only one GitHub Actions scan at a time.
-A separate GitHub workflow_run.completed job starts the next city after
-the previous scan finishes; no new Cloudflare Cron Trigger is required. This
-prevents GitHub's single pending-workflow slot from cancelling requests
-when multiple people select different cities.
+## Parallel batch architecture
 
-The catalog lists 967 available cities, but it does not scan them all.
-New on-demand requests are capped at 240 cities globally and 20 per visitor
-per UTC day to bound costs and automated abuse. Repeat requests for the
-same city within four hours share the same job without using new quota.
-The browser waits up to 12 minutes and shows a clear queued status
-when publication takes longer. After scanning finishes, the app first\nchecks the committed GitHub snapshot through GET /api/snapshot, rather than\nwaiting for the later GitHub Pages deployment. The Worker accepts only a\nrecently requested city and caches an eligible snapshot briefly to limit\nGitHub API reads. If this route is unavailable, GitHub Pages remains a\nfallback. All requests use the existing GitHub
-Actions Wolt monitor with the same ScraperAPI fallback.
+Cloudflare `wolt-city-refresh` maintains a FIFO queue in D1
+(`wolt-demand-cache`). `dispatchNext()` reserves up to
+**3 queued cities** under a D1 dispatch lease, checks that the previous
+GitHub workflow has finished, then starts **one** `check-discounts.yml`
+run with `parallel_scan=true`. D1 `batch()` updates all
+three jobs transactionally.
 
-Infrastructure:
-- Worker: `wolt-city-refresh` on Cloudflare
-- D1: `wolt-demand-cache`
-- Public endpoint: `https://wolt-city-refresh.bl0ck-c1b.workers.dev/api/refresh`
-- GitHub workflow: `.github/workflows/check-discounts.yml`
-- Public cache: `docs/data/cities/<city-key>/latest.json`
+Inside the GitHub runner, `src/parallel-city-scans.mjs` processes up
+to 3 cities concurrently using bounded asynchronous workers. Each city has its
+own snapshot and change-log paths, so the fetches do not race on files.
+After all finish, a single process rebuilds the shared catalog, RSS, SEO and
+auto-generated README statistics, then makes **one Git commit** and starts one
+GitHub Pages deployment.
 
-**Required deployment configuration:** configure the Worker secret named
-`GITHUB_TOKEN` with a GitHub token authorized to dispatch Actions workflows in
-`Bl0ck154/wolt-discount-monitor`. Set it in Cloudflare Dashboard under
-Workers & Pages → wolt-city-refresh → Settings → Variables and Secrets.
-The queue-drain workflow posts a completed GitHub Actions run ID to
-POST /api/drain. The Worker verifies that run through GitHub, checks that it
-finished recently on main, then accepts the event only once using D1.
-No extra shared token or Cloudflare Cron Trigger is needed.
+The already existing GitHub `workflow_run.completed` handler
+validates a real completed workflow and drains the next batch. No Cloudflare
+Cron Trigger is needed. The GitHub concurrency group is intentionally shared
+with scheduled scans so two writers do not push to `main` at once.
+Scheduled checks of Vilnius/Nuremberg remain sequential (parallelism 1).
 
-Database schema (plus the one-time additive migration in queue-migration.sql):
+## User experience and limits
 
-```sql
-CREATE TABLE city_jobs(city_id TEXT PRIMARY KEY,requested_at INTEGER NOT NULL,dispatch_status TEXT NOT NULL);
-CREATE TABLE daily_budget(day TEXT PRIMARY KEY,scans INTEGER NOT NULL DEFAULT 0);
-CREATE TABLE visitor_budget(day TEXT NOT NULL,visitor_hash TEXT NOT NULL,scans INTEGER NOT NULL DEFAULT 0,PRIMARY KEY(day,visitor_hash));
-```
+The browser displays a stage-based progress bar, time elapsed, and queued
+cities ahead. It checks D1 status every 20 seconds and new JSON every five.
+The fast endpoint fetches the committed JSON before Pages is finished.
+The progress animation is **not an estimated percentage or ETA**.
 
-This implementation intentionally avoids direct Worker calls to Wolt, because
-the promotions API has returned HTTP 429 from Cloudflare. On an uncached city
-a first load will still take the GitHub Actions scan duration, but users\nno longer need to wait for the full Pages deployment if the newly committed\nJSON is already available.
+- Batch size: at most 3 cities, one GitHub-hosted runner.
+- Admission: 240 new cities/day globally, 20 per visitor/day (UTC).
+- Four-hour deduplication for repeat requests for the same city.
+- No bulk scan of all 967 catalog cities.
+- One failed city does not erase successful scans in the same batch.
+  The failure is logged; the affected city may require another scan later.
+- Bursts larger than 3 wait for successive batches.
+- On-demand data-only runs skip a redundant full test suite; PR CI and
+  scheduled monitoring still run tests.
+- Wolt/proxy requests still consume their own network quotas.
+
+## Request lifecycle
+
+`POST /api/refresh` validates the selected city and queues it in D1.
+`GET /api/status?cityId=...` returns queued/dispatched and queue
+position. `GET /api/snapshot?cityId=...` serves fresh committed
+snapshot JSON. `POST /api/drain` accepts a verified recent GitHub
+workflow completion only once. `GET /health` is public.
+
+A Worker secret named `GITHUB_TOKEN` (GitHub Actions dispatch/read)
+and a D1 binding named `DB` are required. The Worker never contacts
+Wolt directly. Keep secrets outside GitHub Pages and the repository.
+
+## Deployment and verification
+
+1. Commit and merge after passing Node tests and README consistency checks.
+2. Deploy `cloudflare/wolt-city-refresh/worker.mjs` to the **existing**
+   Worker, strictly inheriting the `GITHUB_TOKEN` secret and DB
+   binding. Do not replace or delete D1 or pending jobs.
+3. Verify /health and /api/status, and that a foreign Origin is denied.
+4. Request at most 1–2 uncached cities, then inspect the queue, workflow,
+   committed JSON and the Pages deployment.
+5. Ensure the auto-generated README coverage section still matches the
+   committed snapshots.
+
+No new D1 migration is needed: uses existing `city_jobs`,
+`scan_dispatch_lease`, `scan_drain_events`,
+`daily_budget` and `visitor_budget`. Existing migration
+files remain available for a fresh deployment.
+
+Source map:
+- `src/check-discounts.mjs`: per-city tasks, one shared write.
+- `src/parallel-city-scans.mjs`: bounded pool of 1–3.
+- `.github/workflows/check-discounts.yml`: controls parallel mode.
+- `cloudflare/wolt-city-refresh/worker.mjs`: D1 batching.
+- `test/parallel-city-scans.test.mjs`: concurrency and failure tests.

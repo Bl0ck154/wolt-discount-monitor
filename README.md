@@ -106,22 +106,30 @@ The public dashboard is backed by an automated monitoring pipeline:
 - detects appeared and ended campaigns;
 - can send Telegram alerts for qualifying offers in the production monitor;
 - deploys the website through GitHub Pages;
-- can optionally use a rate-limited Node.js API for uncached or stale city data.
+- batches up to **3 user-selected cities concurrently** in one GitHub Actions run;
+- shows real queue/scanning/ready stages and elapsed wait time;
+- keeps a local legacy Node API for separate development use.
 
 ```mermaid
 flowchart LR
-    A[Wolt public city catalog] --> B[City discovery]
-    B --> C[Venue + promotion fetch]
-    C --> D[Normalize + classify]
-    D --> E[0-100 scoring]
-    E --> F[Per-city cache]
-    F --> G[Change detection]
-    G --> H[GitHub Pages dashboard]
-    G --> I[Telegram alerts]
-    F --> J[Optional Node API]
+    A[Visitor picks a city] --> B{Fresh cache?}
+    B -->|Yes| H[Show deals]
+    B -->|No| C[Cloudflare D1 queue]
+    C --> D[Batch up to 3 cities]
+    D --> E[Concurrent city scans]
+    E --> F[Single commit + README + SEO]
+    F --> G[Fast JSON endpoint]
+    F --> I[GitHub Pages]
+    G --> H
+    I --> H
 ```
 
-The production dashboard is **static-only and independent of the VPS**: snapshots under `docs/data/` are published via GitHub Pages automatically whenever scheduled GitHub Actions checks commit changed data. The standalone Node API is optional legacy/local tooling, not used by the published site.
+The public site uses GitHub Pages for durable snapshots and a Cloudflare
+Worker for user-triggered city refreshes. Only selected cities are scanned.
+A fast endpoint makes a newly committed snapshot visible before Pages
+redeploys. The optional Node API is local/legacy tooling.
+
+[How batching, on-demand scanning and deployment work](cloudflare/wolt-city-refresh/README.md).
 
 ## Project structure
 
@@ -133,6 +141,8 @@ The production dashboard is **static-only and independent of the VPS**: snapshot
 | `test/` | Node.js test suite |
 | `.github/workflows/` | tests, monitoring, data compaction, Pages deployment |
 | `scripts/` | operational dispatcher helpers |
+| `cloudflare/wolt-city-refresh/` | D1 city queue, deployment and operations |
+| `src/parallel-city-scans.mjs` | bounded 1–3 city asynchronous scans |
 
 ## Public Wolt endpoints used
 
@@ -166,10 +176,16 @@ Check one discovered city:
 WOLT_CITY=<country-code>/<city-slug> node src/check-discounts.mjs
 ```
 
-Check several cities:
+Check several cities (sequential by default):
 
 ```bash
-WOLT_CITIES=<country>/<city>,<country>/<city> node src/check-discounts.mjs
+WOLT_CITIES=ltu/vilnius,deu/nuremberg node src/check-discounts.mjs
+```
+
+For an explicit concurrent run, bounded to three cities:
+
+```bash
+WOLT_CITIES=ltu/vilnius,deu/nuremberg,deu/berlin WOLT_SCAN_CONCURRENCY=3 node src/check-discounts.mjs
 ```
 
 Check the full discovered catalog:
