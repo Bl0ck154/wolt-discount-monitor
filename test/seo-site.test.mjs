@@ -48,7 +48,7 @@ test("fresh city page has unique crawlable SEO metadata and static deal content"
   assert.match(html, /application\/ld\+json/);
 });
 
-test("SEO pages omit acquisition-only and closed venues and rank by their remaining deals", () => {
+test("SEO pages omit acquisition-only deals but do not mistake a last-scan closed venue for a permanently closed venue", () => {
   const snapshot = snapshotAt("2026-09-04T11:00:00Z");
   snapshot.venues = [
     {
@@ -74,7 +74,7 @@ test("SEO pages omit acquisition-only and closed venues and rank by their remain
   assert.match(html, /Mixed Venue/);
   assert.match(html, /20% off/);
   assert.doesNotMatch(html, /Acquisition Only/);
-  assert.doesNotMatch(html, /Closed Venue/);
+  assert.match(html, /Closed Venue/);
   assert.doesNotMatch(html, /10 EUR/);
 });
 
@@ -110,7 +110,7 @@ test("homepage exposes the core SEO and accessibility structure without JavaScri
 
 test("production updater stages regenerated SEO artifacts", async () => {
   const workflow = await readFile(new URL("../.github/workflows/check-discounts.yml", import.meta.url), "utf8");
-  const stageLine = "git add -- docs/data docs/cities docs/countries docs/methodology docs/sitemap.xml docs/robots.txt docs/llms.txt docs/index.html";
+  const stageLine = "git add -- README.md docs/data docs/cities docs/countries docs/methodology docs/sitemap.xml docs/robots.txt docs/llms.txt docs/index.html";
   assert.equal(workflow.split(stageLine).length - 1, 1, "GitHub-hosted updater must stage SEO output exactly once");
 });
 
@@ -152,7 +152,7 @@ test("mobile UI keeps secondary controls quiet and non-sticky", async () => {
   assert.doesNotMatch(html, />GitHub ↗<\/a>/);
   assert.doesNotMatch(html, />Map ↗<\/a>/);
   assert.doesNotMatch(html, /Snapshot updated/);
-  assert.match(html, /class="summary-meta">Updated/);
+  assert.match(html, /class="summary-meta"><span data-i18n="updated">Updated/);
   assert.match(mobile, /\.topbar \{ position: relative; \}/);
   assert.match(mobile, /\.topnav \{ display: none; \}/);
   assert.match(mobile, /"venue map"/);

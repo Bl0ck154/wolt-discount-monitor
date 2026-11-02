@@ -1,4 +1,6 @@
 import { isLikelyAcquisitionOffer, shouldDisplayVenue } from "./offer-filters.mjs";
+import { favoriteKey, parseFavorites, serializeFavorites } from "./favorites.mjs";
+import { normalizeLanguage, translate } from "./i18n.mjs";
 
 const DEFAULT_API_BASE_URL = "";
 const CITY_REFRESH_API = "https://wolt-city-refresh.bl0ck-c1b.workers.dev/api/refresh";
@@ -25,6 +27,8 @@ const state = {
   searchTimer: null,
   sortKey: "best",
   sortDir: "desc",
+  favorites: parseFavorites(safeLocalStorageGet("WOLT_SAVED_VENUES")),
+  language: normalizeLanguage(safeLocalStorageGet("WOLT_LANGUAGE") || navigator.language),
 };
 
 const elements = {
@@ -36,6 +40,8 @@ const elements = {
   promoCount: document.querySelector("#promoCount"),
   restaurantCount: document.querySelector("#restaurantCount"),
   updatedAt: document.querySelector("#updatedAt"),
+  snapshotTrust: document.querySelector("#snapshotTrust"),
+  refreshStatus: document.querySelector("#refreshStatus"),
   searchInput: document.querySelector("#searchInput"),
   productFilter: document.querySelector("#productFilter"),
   sortSelect: document.querySelector("#sortSelect"),
@@ -43,6 +49,8 @@ const elements = {
   hideDeliveryDiscounts: document.querySelector("#hideDeliveryDiscounts"),
   hideClosedVenues: document.querySelector("#hideClosedVenues"),
   onlyWithOffers: document.querySelector("#onlyWithOffers"),
+  favoritesOnly: document.querySelector("#favoritesOnly"),
+  languagePicker: document.querySelector("#languagePicker"),
   hiddenCitywideOffers: document.querySelector("#hiddenCitywideOffers"),
   shownCount: document.querySelector("#shownCount"),
   venueRows: document.querySelector("#venueRows"),
@@ -54,6 +62,7 @@ init().catch((error) => {
 });
 
 async function init() {
+  applyLanguage();
   state.citiesIndex = await loadCitiesIndex();
   bindCityPicker();
   renderCityOptions();
@@ -78,7 +87,7 @@ async function loadSnapshotForCity(cityId) {
 
   const generated = Date.parse(cached.snapshot?.generatedAt ?? "");
   const isUsableCache = cached.ok && Array.isArray(cached.snapshot?.venues) &&
-    Number.isFinite(generated) && Date.now() - generated < CITY_MAX_DISPLAY_AGE_MS;
+    Number.isFinite(generated) && Date.now() - generated >= 0 && Date.now() - generated < CITY_MAX_DISPLAY_AGE_MS;
   if (isUsableCache) {
     applySnapshot(city, cached.snapshot);
     if (isCitySnapshotExpired(cached.snapshot)) {
@@ -113,6 +122,9 @@ async function requestAndWatchCity(city, requestId, previousGeneratedAt) {
   try {
     const result = await requestCityRefresh(city);
     if (!isCurrentLoad(requestId)) return;
+    elements.refreshStatus.textContent = result.queued
+      ? "Checking this city. Results will appear after the new snapshot is published."
+      : "A refresh was recently requested for this city. Checking for a published snapshot…";
     const existing = Date.parse(previousGeneratedAt ?? "");
     const requestTime = Number(result.requestedAt ?? Date.now());
     // A previous attempt beyond our waiting window is not still in progress.
@@ -135,6 +147,7 @@ async function requestAndWatchCity(city, requestId, previousGeneratedAt) {
       const timestamp = Date.parse(snapshot.generatedAt ?? "");
       if (!Number.isFinite(timestamp) || (Number.isFinite(existing) && timestamp <= existing)) continue;
       applySnapshot(city, snapshot);
+      elements.refreshStatus.textContent = "Updated city snapshot loaded.";
       return;
     }
     if (!previousGeneratedAt && isCurrentLoad(requestId)) showCityFetchFailure(city);
@@ -146,7 +159,8 @@ async function requestAndWatchCity(city, requestId, previousGeneratedAt) {
 function showCityFetchFailure(city) {
   const label = escapeHtml(city.label ?? city.name ?? "this city");
   elements.venueRows.innerHTML =
-    `<tr><td colspan="6" class="empty">Could not load deals for ${label} right now. Please try this city again later.</td></tr>`;
+    `<tr><td colspan="6" class="empty">No recent deals available for ${label}. <button type="button" data-retry-city>Try again</button></td></tr>`;
+  elements.refreshStatus.textContent = "The refresh may be queued or temporarily rate limited. No deals are shown until a recent snapshot exists.";
 }
 
 function isCurrentLoad(requestId) {
@@ -177,6 +191,7 @@ function applySnapshot(city, snapshot) {
   state.selectedCity = { ...(state.snapshot.city ?? {}), ...city };
   state.rows = state.snapshot.venues ?? [];
   state.renderLimit = INITIAL_RENDER_LIMIT;
+  elements.refreshStatus.textContent = "";
   const ubiquitousOffers = ubiquitousOfferIndex(state.rows);
   state.ubiquitousOfferKeys = ubiquitousOffers.keys;
   state.ubiquitousOfferLabels = ubiquitousOffers.labels;
@@ -194,6 +209,7 @@ function showLoading(city) {
   state.ubiquitousOfferKeys = new Set();
   state.ubiquitousOfferLabels = [];
   state.rows = [];
+  elements.refreshStatus.textContent = "";
   elements.citySearch.value = cityLabelText(city);
   hydrateSummary();
   hydrateFilters();
@@ -388,13 +404,19 @@ function hydrateSummary() {
   elements.cityMapLink.setAttribute("aria-label", `Open ${label} coordinates in Maps`);
   elements.promoCount.textContent = formatNumber(state.snapshot?.counts?.promotionsUniqueVenues);
   elements.restaurantCount.textContent = formatNumber(state.snapshot?.counts?.restaurantsUniqueVenues);
-  elements.updatedAt.textContent = state.snapshot?.generatedAt ? new Date(state.snapshot.generatedAt).toLocaleString() : "not cached";
+  const generatedAt = Date.parse(state.snapshot?.generatedAt ?? "");
+  const hoursOld = Number.isFinite(generatedAt) ? Math.max(0, Math.floor((Date.now() - generatedAt) / 3600000)) : null;
+  elements.updatedAt.textContent = Number.isFinite(generatedAt) ? new Date(generatedAt).toLocaleString(state.language) : "not cached";
+  elements.snapshotTrust.textContent = hoursOld === null
+    ? "No verified city snapshot yet. Offers cannot be shown until a scan completes."
+    : (hoursOld >= 4 ? "Snapshot is " + hoursOld + "h old. " : "Recently scanned. ") +
+      "Offers, account eligibility and opening status must be checked in Wolt before ordering.";
 }
 
 function hydrateFilters() {
   const productLines = Object.keys(state.snapshot?.counts?.productLines ?? {});
   elements.productFilter.innerHTML = [
-    `<option value="">All types</option>`,
+    `<option value="">${escapeHtml(t("allTypes"))}</option>`,
     ...productLines.map((line) => `<option value="${escapeHtml(line)}">${escapeHtml(label(line))}</option>`),
   ].join("");
 }
@@ -412,6 +434,8 @@ function bindControls() {
   elements.hideDeliveryDiscounts.addEventListener("change", resetAndRenderRows);
   elements.hideClosedVenues.addEventListener("change", resetAndRenderRows);
   elements.onlyWithOffers.addEventListener("change", resetAndRenderRows);
+  elements.favoritesOnly.addEventListener("change", resetAndRenderRows);
+  elements.languagePicker.addEventListener("change", () => { state.language = normalizeLanguage(elements.languagePicker.value); safeLocalStorageSet("WOLT_LANGUAGE", state.language); applyLanguage(); hydrateSummary(); hydrateFilters(); resetAndRenderRows(); });
   elements.sortSelect.addEventListener("change", () => {
     setSortFromSelect(elements.sortSelect.value);
     resetAndRenderRows();
@@ -423,6 +447,18 @@ function bindControls() {
     });
   });
   elements.venueRows.addEventListener("click", (event) => {
+    const saved = event.target.closest("[data-favorite-id]");
+    if (saved) {
+      const key = favoriteKey(state.selectedCity?.id, saved.dataset.favoriteId);
+      if (!key) return;
+      if (state.favorites.has(key)) state.favorites.delete(key);
+      else state.favorites.add(key);
+      safeLocalStorageSet("WOLT_SAVED_VENUES", serializeFavorites(state.favorites));
+      renderRows();
+      return;
+    }
+    const retry = event.target.closest("[data-retry-city]");
+    if (retry) { void loadSnapshotForCity(state.selectedCity?.id); return; }
     const button = event.target.closest("[data-load-more]");
     if (!button) return;
     state.renderLimit += RENDER_STEP;
@@ -449,6 +485,7 @@ function renderRows() {
       return { venue, visibleOffers: filteredOffers, best: bestDiscount(filteredOffers) };
     })
     .filter(({ venue }) => !productLine || venue.productLine === productLine)
+    .filter(({ venue }) => !elements.favoritesOnly.checked || state.favorites.has(favoriteKey(state.selectedCity?.id, venue.id ?? venue.slug)))
     .filter(({ venue }) => matchesQuery(venue, query))
     .filter(({ venue, visibleOffers }) => shouldDisplayVenue(venue, visibleOffers, {
       hideClosed: elements.hideClosedVenues.checked,
@@ -464,7 +501,7 @@ function renderRows() {
   syncSortUi();
 
   if (!groups.length) {
-    elements.venueRows.innerHTML = `<tr><td colspan="6" class="empty">No matching venues</td></tr>`;
+    elements.venueRows.innerHTML = `<tr><td colspan="6" class="empty">No eligible deals match your filters. Try switching off a filter, or check Wolt directly.</td></tr>`;
     return;
   }
 
@@ -510,6 +547,15 @@ function renderVenueParts(venue, visibleOffers) {
   const amountClass = bestLabel.includes("%") ? "amount amount-percent" : "amount";
   const mapUrl = mapLink(venue);
   const hours = openingLabel(venue);
+  const favoriteId = String(venue.id ?? venue.slug ?? "");
+  const isFavorite = state.favorites.has(favoriteKey(state.selectedCity?.id, favoriteId));
+  const bookmark = favoriteId
+    ? '<button type="button" class="bookmark ' + (isFavorite ? "is-saved" : "") +
+      '" data-favorite-id="' + escapeHtml(favoriteId) + '" aria-pressed="' + isFavorite +
+      '" title="' + (isFavorite ? "Remove saved venue" : "Save venue") + '" aria-label="' +
+      (isFavorite ? "Remove saved venue" : "Save venue") + '">' +
+      (isFavorite ? "★" : "☆") + '</button>'
+    : "";
 
   return {
     identity: `<div class="venue-cell">
@@ -517,6 +563,7 @@ function renderVenueParts(venue, visibleOffers) {
       <div>
         <div class="venue-heading">
           <a class="venue-title" href="${escapeHtml(venue.link ?? "#")}" target="_blank" rel="noreferrer">${escapeHtml(venue.name)}</a>
+          ${bookmark}
           <span class="venue-type-inline">${escapeHtml(label(venue.productLine ?? "unknown"))}</span>
         </div>
         <div class="venue-meta">${escapeHtml(venue.address ?? "")}</div>
@@ -1183,15 +1230,15 @@ function isUtilityOfferText(text = "") {
 function openingLabel(venue) {
   const opening = venue.opening ?? {};
   if (opening.isOpen === true || venue.isOpen === true) {
-    return { icon: "🟢", text: humanOpeningText(opening.label ?? venue.openingStatus, "Open now"), className: "hours-open" };
+    return { icon: "🟢", text: t("open"), className: "hours-open" };
   }
   if (opening.isOpen === false || venue.isOpen === false) {
-    return { icon: "🔴", text: humanOpeningText(opening.label ?? venue.openingStatus, "Closed"), className: "hours-closed" };
+    return { icon: "🔴", text: t("closed"), className: "hours-closed" };
   }
   if (venue.estimateRange) {
-    return { icon: "🟢", text: "Open now", className: "hours-open" };
+    return { icon: "⚪", text: t("unknown"), className: "hours-unknown" };
   }
-  return { icon: "⚪", text: opening.label ?? venue.openingStatus ?? venue.openingHours ?? "No status", className: "hours-unknown" };
+  return { icon: "⚪", text: t("unknown"), className: "hours-unknown" };
 }
 
 function humanOpeningText(text, fallback) {
@@ -1453,4 +1500,14 @@ function escapeHtml(value) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+}
+
+
+function t(key) { return translate(state.language, key); }
+function applyLanguage() {
+  document.documentElement.lang = state.language;
+  elements.languagePicker.value = state.language;
+  for (const element of document.querySelectorAll("[data-i18n]")) {
+    element.textContent = t(element.dataset.i18n);
+  }
 }

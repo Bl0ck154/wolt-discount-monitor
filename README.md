@@ -10,7 +10,7 @@
   [![Test](https://github.com/Bl0ck154/wolt-discount-monitor/actions/workflows/test.yml/badge.svg)](https://github.com/Bl0ck154/wolt-discount-monitor/actions/workflows/test.yml)
   [![Pages](https://github.com/Bl0ck154/wolt-discount-monitor/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/Bl0ck154/wolt-discount-monitor/actions/workflows/deploy-pages.yml)
   [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-  ![Cities](https://img.shields.io/badge/discovered_cities-964-00c2e8)
+  ![Cities](https://img.shields.io/badge/discovered_cities-967-00c2e8)
   ![Countries](https://img.shields.io/badge/countries-30-73e2c3)
   ![Status](https://img.shields.io/badge/status-active-success)
 </div>
@@ -28,7 +28,7 @@ Wolt can have a lot of promotions at the same time, but finding the useful ones 
 
 ### What you can do
 
-- 🌍 Search a discovered catalog of **964 Wolt cities across 30 countries**.
+- 🌍 Search a discovered catalog of **967 Wolt cities across 30 countries**.
 - 🔥 See current venue promotions in one place.
 - 📊 Sort deals by an estimated **0–100 value score**.
 - 🔎 Search by venue, promotion, address, or category.
@@ -48,7 +48,7 @@ Wolt can have a lot of promotions at the same time, but finding the useful ones 
 3. Sort by **Best discount** to bring stronger offers to the top.
 4. Open the venue on Wolt when you find a deal you want.
 
-The city picker searches the full discovered catalog. The public GitHub Pages deployment uses committed snapshots only, so a city without a saved snapshot cannot show fresh offers until it is included in a monitor run. This avoids requiring a VPS or exposing an on-demand proxy to every site visitor.
+The city picker searches the full discovered catalog. The public GitHub Pages deployment uses committed snapshots. An optional Cloudflare coordinator requests a bounded asynchronous refresh when a city has no recent snapshot; availability can be delayed or rate-limited, and not every discovered city has recent deals. This avoids requiring a VPS or exposing an on-demand proxy to every site visitor.
 
 ## How deals are ranked
 
@@ -213,6 +213,8 @@ Each Telegram alert names the city in a clickable heading linking to that city's
 
 ## Automation
 
+The first daily scheduled scan also checks Berlin, Warsaw and Prague (best effort); other scheduled runs continue monitoring Vilnius and Nuremberg.
+
 | Workflow | Purpose |
 | --- | --- |
 | [`test.yml`](.github/workflows/test.yml) | runs the Node.js test suite on relevant pushes and pull requests |
@@ -223,6 +225,8 @@ Each Telegram alert names the city in a clickable heading linking to that city's
 The updater runs automatically five times daily on GitHub-hosted runners, independent of any VPS or self-hosted runner. If new data is committed, the same Actions run invokes the reusable Pages deployment. Manual `workflow_dispatch` runs use GitHub-hosted runners too. Scheduled checks refresh **Vilnius (`ltu/vilnius`) and Nuremberg (`deu/nuremberg`)** five times daily, while Telegram notifications are enabled for Vilnius and Nuremberg. Wolt requests use `SCRAPERAPI_API_KEY` as a fallback when direct access is rate-limited. [See Nuremberg deals](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Fnuremberg). Browsers never receive this key.
 
 ## Privacy and security
+
+Anonymous, aggregate website traffic metrics are collected with Cloudflare Web Analytics. Saved venues remain in browser localStorage. The site needs no account.\n
 
 Secret values, Telegram chat IDs, private server addresses, private filesystem paths, and credentials must stay outside Git. The committed `docs/config.js` contains no backend address, and production Telegram credentials are referenced only through environment variables / GitHub Actions secrets.
 

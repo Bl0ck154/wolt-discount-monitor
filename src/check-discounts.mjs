@@ -8,6 +8,7 @@ import { normalizeSnapshot } from "./normalize.mjs";
 import { formatTelegramMessage, sendTelegramMessage } from "./telegram.mjs";
 import { offerScore, sortOffersByValue } from "./offer-value.mjs";
 import { buildSeoSite } from "./build-seo-site.mjs";
+import { syncCatalogStats } from "./sync-catalog-stats.mjs";
 import {
   compactChangeLog,
   compactChangesDocument,
@@ -34,6 +35,7 @@ async function main() {
 
   await writeCatalog(catalog);
   await writeCitiesIndex(catalog, results);
+  await syncCatalogStats();
   const seo = await buildSeoSite();
 
   console.log(JSON.stringify({ checkedAt: new Date().toISOString(), cacheTtlMs: CACHE_TTL_MS, cities: results, seo }, null, 2));

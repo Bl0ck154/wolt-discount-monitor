@@ -16,7 +16,7 @@ export function isLikelyAcquisitionOffer(value) {
     .trim();
 
   return GENERIC_ACQUISITION_BANNERS.has(text) ||
-    /\b(?:new\s+(?:customers?|users?)|first[- ]time\s+(?:customers?|users?)|first\s+orders?|neukund\w*|naujiems\s+klientams)\b/iu.test(text);
+    /\b(?:new\s+(?:customers?|users?)|first[- ]time\s+(?:customers?|users?)|first\s+orders?|new\s+account|neukund\w*|nur\s+f[üu]r\s+neukund\w*|naujiems\s+klientams|tik\s+naujiems|nowych\s+klient\w*|pierwsz\w*\s+zam[oó]wieni\w*|nov[eé]\s+z[aá]kazn[ií]ky|prvn[ií]\s+objedn[aá]vk\w*)\b/iu.test(text);
 }
 
 export function isExplicitlyClosed(venue) {
