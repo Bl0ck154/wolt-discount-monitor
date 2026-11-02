@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.2.0 — 2026-11-02
+## Unreleased\n\n- Count deliberate outbound clicks to Wolt by city and day in Cloudflare D1, without storing personal or basket information.\n\n## 0.2.0 — 2026-11-02
 
 This release focuses on making the deal finder easier to use and keeping its documentation honest.
 

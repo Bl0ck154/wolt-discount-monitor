@@ -468,6 +468,7 @@ function pageShell({ title, description, canonical, robots, siteBase, jsonLd, bo
   ${body}
   <footer class="site-footer"><div class="shell footer-inner"><div><strong>Wolt Discount Monitor</strong><span>Unofficial open-source project. Not affiliated with Wolt.</span></div><div class="footer-links"><a href="${escapeHtml(siteBase)}sitemap.xml">Sitemap</a><a href="https://github.com/Bl0ck154/wolt-discount-monitor" target="_blank" rel="noreferrer">Source code ↗</a></div></div></footer>
   <!-- Anonymous aggregate traffic analytics. -->
+  <script type="module" src="${escapeHtml(siteBase)}outbound-clicks.mjs"></script>
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"ea1f03a49f78410c854d426e832c69cc"}'></script>
 </body>
 </html>\n`;
