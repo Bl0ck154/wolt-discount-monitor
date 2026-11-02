@@ -23,7 +23,7 @@ on:
         default: false
         type: boolean
 
-  # Five daily UTC checks for Vilnius and Nuremberg, independent of the VPS.
+  # Five UTC checks for Vilnius and Nuremberg; the first adds Berlin, Warsaw and Prague.
   schedule:
     - cron: "19 7 * * *"
     - cron: "49 8 * * *"
@@ -107,7 +107,7 @@ jobs:
           WOLT_API_RETRY_JITTER_MS: ${{ vars.WOLT_API_RETRY_JITTER_MS }}
           FORCE_WRITE: ${{ inputs.force_refresh && 'true' || 'false' }}
           WOLT_REFRESH_CITY_CATALOG: "false"
-          WOLT_CITIES: ${{ inputs.cities || 'ltu/vilnius,deu/nuremberg' }}
+          WOLT_CITIES: ${{ inputs.cities || (github.event.schedule == '19 7 * * *' && 'ltu/vilnius,deu/nuremberg,deu/berlin,pol/warsaw,cze/prague' || 'ltu/vilnius,deu/nuremberg') }}
           WOLT_ALL_CITIES: ${{ inputs.all_cities }}
         run: node src/check-discounts.mjs
 
@@ -122,7 +122,7 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -- docs/data docs/cities docs/countries docs/methodology docs/sitemap.xml docs/robots.txt docs/llms.txt docs/index.html
+          git add -- README.md docs/data docs/cities docs/countries docs/methodology docs/sitemap.xml docs/robots.txt docs/llms.txt docs/index.html
           if ! git diff --cached --quiet; then
             git commit -m "Update Wolt discount monitor data"
             git push "https://x-access-token:${GH_TOKEN}@github.com/${REPOSITORY}.git" "HEAD:${REF_NAME}"

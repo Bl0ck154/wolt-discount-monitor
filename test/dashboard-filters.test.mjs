@@ -5,7 +5,7 @@ import { isLikelyAcquisitionOffer, isExplicitlyClosed, shouldDisplayVenue } from
 import { isLikelyAcquisitionOffer as isLikelyAcquisitionAlert } from "../src/diff.mjs";
 
 test("generic acquisition offers are hidden by default in dashboard and excluded from alerts", () => {
-  for (const text of ["10 € off (spend 15 €)", "10 EUR off (spend 15 EUR)", "10\u202f€ off (spend 15\u202f€)", "5 € off (spend 12 €)", "20% off for new customers"]) {
+  for (const text of ["10 € off (spend 15 €)", "10 EUR off (spend 15 EUR)", "10\u202f€ off (spend 15\u202f€)", "5 € off (spend 12 €)", "20% off for new customers", "20% Rabatt für Neukunden", "Zniżka dla nowych klientów", "Sleva pro nové zákazníky"]) {
     assert.equal(isLikelyAcquisitionOffer(text), true, text);
     assert.equal(isLikelyAcquisitionAlert({ text }), true, text);
   }

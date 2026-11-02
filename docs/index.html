@@ -101,8 +101,8 @@
       <section class="hero shell" aria-labelledby="page-title">
         <div class="hero-copy">
           <span class="eyebrow"><span class="live-dot" aria-hidden="true"></span> Independent Wolt deal tracker</span>
-          <h1 id="page-title">Current Wolt discounts, <span>sorted by value.</span></h1>
-          <p class="hero-lead">Choose a city and compare current restaurant, grocery and store promotions. The monitor normalizes offer types, estimates relative value and shows when the snapshot was updated.</p>
+          <h1 id="page-title">Find Wolt deals <span>worth ordering.</span></h1>
+          <p class="hero-lead" data-i18n="hero">Choose your city. Compare restaurant and grocery offers without scrolling through Wolt venue by venue. Check the final price in Wolt before ordering.</p>
           <div class="hero-points" aria-label="Key features">
             <span>Value-ranked deals</span>
             <span>City-by-city search</span>
@@ -137,15 +137,17 @@
               <strong id="restaurantCount">—</strong>
             </div>
           </div>
-          <div class="summary-meta">Updated <span id="updatedAt">—</span></div>
+          <div class="summary-meta"><span data-i18n="updated">Updated</span> <span id="updatedAt">—</span></div>
+          <div class="snapshot-trust" id="snapshotTrust" role="status" aria-live="polite">Offers and opening status were recorded during the last scan. Check eligibility and final price in Wolt.</div>
+          <div class="refresh-status" id="refreshStatus" role="status" aria-live="polite"></div>
         </div>
       </section>
 
       <section class="explorer shell" id="deals" aria-labelledby="deals-title">
         <div class="section-heading">
           <div>
-            <span class="eyebrow">Deal table</span>
-            <h2 id="deals-title">Current deals</h2>
+            <span class="eyebrow">Deals in your city</span>
+            <h2 id="deals-title" data-i18n="deals">Offers worth checking</h2>
             <p>Search the selected city snapshot, filter by category, or sort by estimated value.</p>
           </div>
           <span class="shown-count" id="shownCount">Loading deals…</span>
@@ -185,21 +187,22 @@
             <div class="toggles" aria-label="Offer visibility">
               <label class="toggle">
                 <input id="hideNewUserDelivery" type="checkbox" checked />
-                <span>Hide likely new-customer &amp; repeated offers</span>
+                <span data-i18n="hideNew">Hide likely new-customer &amp; repeated offers</span>
               </label>
               <label class="toggle">
                 <input id="hideDeliveryDiscounts" type="checkbox" checked />
-                <span>Hide delivery discounts</span>
+                <span data-i18n="hideDelivery">Hide delivery discounts</span>
               </label>
               <label class="toggle" title="Opening status is from the most recent snapshot, not live account status">
-                <input id="hideClosedVenues" type="checkbox" checked />
-                <span>Hide closed / offline</span>
+                <input id="hideClosedVenues" type="checkbox" />
+                <span data-i18n="hideClosed">Hide venues closed when checked</span>
               </label>
               <label class="toggle">
                 <input id="onlyWithOffers" type="checkbox" checked />
-                <span>Only venues with offers</span>
+                <span data-i18n="onlyOffers">Only venues with offers</span>
               </label>
             </div>
+            <label class="toggle"><input id="favoritesOnly" type="checkbox" /><span data-i18n="favoritesOnly">Saved only</span></label>
             <span class="hidden-offers" id="hiddenCitywideOffers"></span>
           </div>
         </div>
@@ -308,6 +311,7 @@
           <span>Unofficial open-source project. Not affiliated with Wolt.</span>
         </div>
         <div class="footer-links">
+          <label class="language-switcher">Language <select id="languagePicker" aria-label="Language"><option value="en">English</option><option value="de">Deutsch</option><option value="lt">Lietuvių</option><option value="pl">Polski</option><option value="cs">Čeština</option></select></label>
           <a href="sitemap.xml">Sitemap</a>
           <a href="https://github.com/Bl0ck154/wolt-discount-monitor" target="_blank" rel="noreferrer">Source code ↗</a>
         </div>
@@ -315,6 +319,8 @@
     </footer>
 
     <noscript><div class="noscript">JavaScript is required for the interactive deal explorer. Search engines and users can still access the static city pages linked above.</div></noscript>
+    <!-- Aggregate page analytics. Bookmarks are never transmitted. -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"ea1f03a49f78410c854d426e832c69cc"}'></script>
     <script src="config.js"></script>
     <script src="app.js" type="module"></script>
   </body>

@@ -898,3 +898,14 @@ tbody > tr:not(.group-details-row):hover > td { background: #fbfcfc; }
     gap: 9px;
   }
 }
+
+.snapshot-trust { margin-top: 8px; color: #566875; font-size: 11px; line-height: 1.55; }
+.refresh-status { margin-top: 6px; color: #375876; font-size: 11px; line-height: 1.55; }
+.empty [data-retry-city] { padding: 7px 11px; margin-left: 7px; border: 1px solid #bbcdd5; border-radius: 8px; background: white; font: inherit; cursor: pointer; }
+
+.bookmark { padding: 4px 7px; border: 1px solid #cbd6d9; border-radius: 7px; background: white; color: #697f83; font-size: 18px; line-height: 1; cursor: pointer; }
+.bookmark.is-saved { color: #b97b06; background: #fff7e3; border-color: #e7d09a; }
+.bookmark:focus-visible { outline: 2px solid #087b83; outline-offset: 2px; }
+
+.language-switcher { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; }
+.language-switcher select { padding: 5px 6px; border: 1px solid #c6d2d5; border-radius: 6px; font: inherit; }

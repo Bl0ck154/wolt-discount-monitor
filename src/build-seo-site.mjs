@@ -77,6 +77,8 @@ export async function buildSeoSite({
 
 export function isSnapshotIndexable(snapshot, now = new Date(), freshHours = DEFAULT_SEO_FRESH_HOURS) {
   if (!snapshot?.generatedAt || !Array.isArray(snapshot.venues) || snapshot.venues.length === 0) return false;
+  // A city with nothing but acquisition banners should not be promoted as a live deal page.
+  if (topDealVenues(snapshot, 1).length === 0) return false;
   const generatedAt = Date.parse(snapshot.generatedAt);
   const nowMs = now instanceof Date ? now.getTime() : Number(now);
   if (!Number.isFinite(generatedAt) || !Number.isFinite(nowMs)) return false;
@@ -97,11 +99,11 @@ export function cityPageHtml({ city, snapshot, indexable, countryRecords = [], s
     : snapshot?.generatedAt
       ? `Snapshot is older than ${freshHours} hours · last captured ${updated}`
       : "No stored snapshot yet";
-  const title = `Wolt Discounts in ${city.name} | Live Deals & Promotions`;
+  const title = `Wolt Discounts in ${city.name} | Recent Deals & Promotions`;
   const description = indexable
-    ? `Compare ${formatNumber(promoCount)} current Wolt promoted venues in ${city.name}, ${city.country}. See restaurant and grocery deals ranked by estimated value.`
+    ? `Compare up to ${formatNumber(promoCount)} venues with observed Wolt promotions in ${city.name}, ${city.country}. See restaurant and grocery deals ranked by estimated value.`
     : `Wolt deal tracking page for ${city.name}, ${city.country}. Open the interactive monitor or check back when a fresh city snapshot is available.`;
-  const topDeals = topDealVenues(snapshot, 12);
+  const topDeals = indexable ? topDealVenues(snapshot, 12) : [];
   const peerLinks = countryRecords
     .filter((record) => record.city.id !== city.id)
     .sort((a, b) => a.city.name.localeCompare(b.city.name, "en"))
@@ -151,7 +153,7 @@ export function cityPageHtml({ city, snapshot, indexable, countryRecords = [], s
           <nav class="landing-breadcrumbs" aria-label="Breadcrumb"><a href="${siteBase}">Home</a><span>›</span><a href="${countryUrl}">${escapeHtml(city.country)}</a><span>›</span><span>${escapeHtml(city.name)}</span></nav>
           <span class="eyebrow"><span class="live-dot" aria-hidden="true"></span> ${escapeHtml(status)}</span>
           <h1>Wolt discounts in ${escapeHtml(city.name)}</h1>
-          <p>Compare Wolt promotions in ${escapeHtml(label)} without scanning every venue manually. Fresh pages show stored deals ranked by estimated value; final prices and eligibility should always be confirmed in Wolt.</p>
+          <p>Compare Wolt promotions in ${escapeHtml(label)} without scanning every venue manually. Recently scanned pages show observed deals ranked by estimated value; venue hours, final prices and account eligibility should always be confirmed in Wolt.</p>
           <div class="landing-actions"><a class="primary-link" href="${dashboardUrl}">Open interactive dashboard</a>${city.url ? `<a class="secondary-link" href="${escapeHtml(city.url)}" target="_blank" rel="noreferrer">Open Wolt ${escapeHtml(city.name)} ↗</a>` : ""}</div>
         </section>
         <section class="landing-stats shell" aria-label="City deal summary">
@@ -327,6 +329,8 @@ function pageShell({ title, description, canonical, robots, siteBase, jsonLd, bo
   <header class="topbar"><div class="shell topbar-inner"><a class="brand" href="${escapeHtml(siteBase)}"><span class="brand-mark" aria-hidden="true">%</span><span class="brand-copy"><strong>Wolt Discount Monitor</strong><small>Independent deal tracker</small></span></a><nav class="topnav" aria-label="Primary navigation"><a href="${escapeHtml(siteBase)}#deals">Deals</a><a href="${escapeHtml(siteBase)}#live-cities">Cities</a><a href="${escapeHtml(siteBase)}#how-it-works">How it works</a></nav></div></header>
   ${body}
   <footer class="site-footer"><div class="shell footer-inner"><div><strong>Wolt Discount Monitor</strong><span>Unofficial open-source project. Not affiliated with Wolt.</span></div><div class="footer-links"><a href="${escapeHtml(siteBase)}sitemap.xml">Sitemap</a><a href="https://github.com/Bl0ck154/wolt-discount-monitor" target="_blank" rel="noreferrer">Source code ↗</a></div></div></footer>
+  <!-- Anonymous aggregate traffic analytics. -->
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"ea1f03a49f78410c854d426e832c69cc"}'></script>
 </body>
 </html>\n`;
 }
@@ -349,7 +353,7 @@ async function updateHomepageLiveCities(path, liveRecords) {
 function topDealVenues(snapshot, limit) {
   return (snapshot?.venues ?? [])
     .flatMap((venue) => {
-      if (!venue?.name || isExplicitlyClosed(venue)) return [];
+      if (!venue?.name) return [];
       const eligible = (venue.offers ?? [])
         .filter((offer) => offer?.text && !offer.isUtilityBadge && !isLikelyAcquisitionOffer(offer.text))
         .filter((offer) => !offer?.value?.isDelivery && !/delivery/iu.test(offer.text))
