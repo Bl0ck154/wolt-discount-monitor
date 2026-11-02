@@ -113,11 +113,13 @@ async function fastSnapshot(request, env, url, ctx) {
   const cityId = url.searchParams.get("cityId") || "";
   if (!/^[a-z]{3}\/[a-z0-9-]{2,70}$/.test(cityId)) return json({ok:false},400,origin);
   const job = await env.DB.prepare(
-    "SELECT requested_at,dispatch_status FROM city_jobs WHERE city_id=?"
+    "SELECT requested_at,dispatch_status,dispatched_at FROM city_jobs WHERE city_id=?"
   ).bind(cityId).first();
   // Only fresh user-initiated requests can consume GitHub API reads.
-  if (!job || job.dispatch_status === "queued" ||
-      Date.now() - Number(job.requested_at) > 30 * 60 * 1000) {
+  const dispatchTime = Number(job?.dispatched_at);
+  // A long queue must not consume the fast-path window before scanning starts.
+  if (!job || job.dispatch_status === "queued" || !Number.isFinite(dispatchTime) ||
+      dispatchTime <= 0 || Date.now() - dispatchTime > 30 * 60 * 1000) {
     return json({ok:false,pending:true},202,origin);
   }
   const key = new Request("https://wolt-city-refresh.bl0ck-c1b.workers.dev/.internal-cache/" + cityId.replace("/", "-"));

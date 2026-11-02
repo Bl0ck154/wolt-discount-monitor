@@ -10,7 +10,7 @@ function mockDB(timestamp = requestedAt) {
  return { prepare(sql) {
   assert.match(sql, /FROM city_jobs WHERE city_id=\?/);
   return { bind(cityId) { assert.equal(cityId,"deu/erlangen");
-    return { async first() { return {requested_at:timestamp,dispatch_status:"dispatched"}; } }; } };
+    return { async first() { return {requested_at:timestamp,dispatched_at:timestamp,dispatch_status:"dispatched"}; } }; } };
  } };
 }
 test("snapshot endpoint refuses visitors outside GitHub Pages and invalid cities",async()=>{
@@ -38,6 +38,24 @@ test("latest committed GitHub JSON is available before Pages deployment",async()
   assert.equal(response.headers.get("Access-Control-Allow-Origin"),origin);
   assert.deepEqual(await response.json(),snapshot);
  } finally {globalThis.fetch=original;Date.now=now;}
+});
+test("a city can wait in queue for hours and still use the fast endpoint after dispatch",async()=>{
+ const realFetch=globalThis.fetch;
+ const realNow=Date.now;
+ Date.now=()=>Date.parse("2026-11-02T13:01:00Z");
+ globalThis.fetch=async()=>new Response(JSON.stringify({city:{id:"deu/erlangen"},
+  generatedAt:"2026-11-02T13:00:50Z",venues:[{name:"Restaurant"}]}),{status:200});
+ try {
+  const db={prepare(){return {bind(){return {async first(){return {
+    requested_at:Date.parse("2026-11-02T10:00:00Z"),
+    dispatched_at:Date.parse("2026-11-02T13:00:00Z"),
+    dispatch_status:"dispatched"
+  };}};}}}};
+  const response=await worker.fetch(new Request(endpoint,{headers:{Origin:origin}}),
+   {DB:db,GITHUB_TOKEN:"test"});
+  assert.equal(response.status,200);
+  assert.equal((await response.json()).city.id,"deu/erlangen");
+ } finally {globalThis.fetch=realFetch;Date.now=realNow;}
 });
 test("missing snapshot stays pending; browser must validate age",async()=>{
  const original = globalThis.fetch;
