@@ -27,7 +27,7 @@ export function diffSnapshots(previous, current) {
     counts: current.counts,
     appeared,
     disappeared,
-    interestingAppeared: sortOffersByValue(appeared.filter(isInterestingOffer)),
+    interestingAppeared: sortOffersByValue(appeared.filter((offer) => isInterestingOffer(offer) && !ubiquitousOfferIndex(current?.venues).keys.has(offerTextKey(offer.text)) && !isDeliveryOffer(offer))),
     interestingDisappeared: sortOffersByValue(disappeared.filter(isInterestingOffer)),
   };
 }
