@@ -1,6 +1,6 @@
 {
   "name": "wolt-discount-monitor",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Static-first dashboard and monitoring pipeline for discovering, ranking and tracking Wolt promotions across cities.",
   "private": true,
   "type": "module",
