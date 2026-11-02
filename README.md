@@ -47,10 +47,11 @@ Wolt can have a lot of promotions at the same time, but finding the useful ones 
 <!-- AUTO_COVERAGE_START -->
 ### Latest snapshot coverage
 
-**18 cities with stored snapshots**, including **8 updated within 24 hours** as of 2026-11-02 10:15 UTC. The full catalog is much larger; catalog membership does not mean fresh deals are available.
+**19 cities with stored snapshots**, including **9 updated within 24 hours** as of 2026-11-02 10:20 UTC. The full catalog is much larger; catalog membership does not mean fresh deals are available.
 
 | City | Last scan (UTC) | Ranked deal venues |
 | --- | --- | ---: |
+| [Fürth](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Ffurth) | 2026-11-02 10:20 | 47 |
 | [Erlangen](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Ferlangen) | 2026-11-02 10:15 | 36 |
 | [Almaty](https://bl0ck154.github.io/wolt-discount-monitor/?city=kaz%2Falmaty) | 2026-11-02 06:26 | 315 |
 | [Vilnius](https://bl0ck154.github.io/wolt-discount-monitor/?city=ltu%2Fvilnius) | 2026-11-02 06:26 | 197 |
@@ -60,7 +61,6 @@ Wolt can have a lot of promotions at the same time, but finding the useful ones 
 | [Prague](https://bl0ck154.github.io/wolt-discount-monitor/?city=cze%2Fprague) | 2026-11-01 12:59 | 228 |
 | [Pardubice](https://bl0ck154.github.io/wolt-discount-monitor/?city=cze%2Fpardubice) | 2026-11-01 11:43 | 11 |
 | [Košice](https://bl0ck154.github.io/wolt-discount-monitor/?city=svk%2Fkosice) | 2026-10-30 22:48 | 55 |
-| [Belgrade](https://bl0ck154.github.io/wolt-discount-monitor/?city=srb%2Fbelgrade) | 2026-10-30 16:28 | 246 |
 
 Offers are observed, not personalized. Check eligibility and the final delivery/service fees in Wolt.
 <!-- AUTO_COVERAGE_END -->
