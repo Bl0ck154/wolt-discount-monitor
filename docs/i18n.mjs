@@ -47,5 +47,5 @@ export function normalizeLanguage(value) {
  return Object.hasOwn(dictionary, language) ? language : "en";
 }
 export function translate(language, key) {
- return dictionary[normalizeLanguage(language)][key] ?? en[key] ?? key;
+ return dictionary[normalizeLanguage(language)][key] ?? dictionary.en[key] ?? en[key] ?? key;
 }
