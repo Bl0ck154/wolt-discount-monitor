@@ -4,8 +4,8 @@ const ALLOWED_ORIGIN = "https://bl0ck154.github.io";
 const REPO = "Bl0ck154/wolt-discount-monitor";
 const CITIES_URL = "https://bl0ck154.github.io/wolt-discount-monitor/data/cities.json";
 const MIN_REFRESH_MS = 4 * 60 * 60 * 1000;
-const MAX_GLOBAL_SCANS_PER_DAY = 36;
-const MAX_VISITOR_SCANS_PER_DAY = 8;
+const MAX_GLOBAL_SCANS_PER_DAY = 240;
+const MAX_VISITOR_SCANS_PER_DAY = 20;
 const LEASE_MS = 90 * 1000;
 const DISPATCH_PROPAGATION_MS = 90 * 1000;
 
@@ -16,7 +16,7 @@ const json = (data, status = 200, origin = "") => new Response(JSON.stringify(da
     "Cache-Control": "no-store",
     ...(origin === ALLOWED_ORIGIN ? {
       "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
-      "Access-Control-Allow-Methods": "POST, OPTIONS",
+      "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
       "Access-Control-Allow-Headers": "Content-Type",
       "Vary": "Origin",
     } : {}),
@@ -61,7 +61,7 @@ export async function dispatchNext(env, now = Date.now(), { completedScan = fals
   ).bind(now + LEASE_MS, now).run();
   if (lease.meta?.changes !== 1) return { status: "locked" };
   try {
-    // Idle cron ticks perform one tiny D1 read and no GitHub API call.
+    // On empty queues, avoid GitHub API calls.
     const next = await env.DB.prepare(
       "SELECT city_id,requested_at FROM city_jobs WHERE dispatch_status='queued' ORDER BY requested_at ASC LIMIT 1"
     ).first();
@@ -102,6 +102,62 @@ export async function dispatchNext(env, now = Date.now(), { completedScan = fals
       .bind(now + LEASE_MS).run().catch(() => {});
   }
 }
+
+// A completed scan reaches the main GitHub branch before a new GitHub Pages
+// deployment finishes. Serve that just-committed snapshot via GitHub's
+// authenticated raw-content endpoint, with a tiny edge cache to bound API use.
+// This never requests Wolt or queues scans.
+async function fastSnapshot(request, env, url, ctx) {
+  const origin = request.headers.get("Origin") || "";
+  if (!env.DB || !env.GITHUB_TOKEN) return json({ok:false},503,origin);
+  const cityId = url.searchParams.get("cityId") || "";
+  if (!/^[a-z]{3}\/[a-z0-9-]{2,70}$/.test(cityId)) return json({ok:false},400,origin);
+  const job = await env.DB.prepare(
+    "SELECT requested_at,dispatch_status FROM city_jobs WHERE city_id=?"
+  ).bind(cityId).first();
+  // Only fresh user-initiated requests can consume GitHub API reads.
+  if (!job || job.dispatch_status === "queued" ||
+      Date.now() - Number(job.requested_at) > 30 * 60 * 1000) {
+    return json({ok:false,pending:true},202,origin);
+  }
+  const key = new Request("https://wolt-city-refresh.bl0ck-c1b.workers.dev/.internal-cache/" + cityId.replace("/", "-"));
+  const cache = typeof caches === "undefined" ? null : caches.default;
+  if (cache) {
+    const hit = await cache.match(key);
+    if (hit) return new Response(hit.body, {status:200,headers:{
+      "Content-Type":"application/json; charset=utf-8",
+      "Cache-Control":"no-store","Access-Control-Allow-Origin":ALLOWED_ORIGIN,
+      "Vary":"Origin"
+    }});
+  }
+  const path = cityId === "ltu/vilnius"
+    ? "docs/data/latest.json"
+    : "docs/data/cities/" + cityId.replace("/", "-") + "/latest.json";
+  const upstream = await fetch(
+    "https://api.github.com/repos/" + REPO + "/contents/" + path + "?ref=main",
+    { headers: { ...githubHeaders(env.GITHUB_TOKEN),
+      Accept:"application/vnd.github.raw+json" },
+      cf: { cacheTtl: 0 } }
+  );
+  if (upstream.status === 404) return json({ok:false,pending:true},202,origin);
+  if (!upstream.ok) return json({ok:false},503,origin);
+  const contentLength = Number(upstream.headers.get("Content-Length") || 0);
+  if (contentLength > 6_000_000) return json({ok:false},413,origin);
+  // Stream large venue documents without parsing in the Worker:
+  // Workers Free has a 10ms CPU budget. The browser verifies the city and age.
+  const result = new Response(upstream.body, {status:200,headers:{
+    "Content-Type":"application/json; charset=utf-8",
+    "Cache-Control":"no-store","Access-Control-Allow-Origin":ALLOWED_ORIGIN,
+    "Vary":"Origin"
+  }});
+  if (cache && ctx?.waitUntil) {
+    const entry = new Response(result.clone().body,{status:200,
+      headers:{"Content-Type":"application/json","Cache-Control":"public,max-age=10"}});
+    ctx.waitUntil(cache.put(key,entry).catch(() => {}));
+  }
+  return result;
+}
+
 async function refresh(request, env) {
   if (!env.DB || !env.GITHUB_TOKEN) return json({ok:false,message:"Refresh service unavailable"},503,request.headers.get("Origin"));
   let body;
@@ -138,14 +194,13 @@ async function refresh(request, env) {
     if (visitorAllowed) await env.DB.prepare("UPDATE visitor_budget SET scans=scans-1 WHERE day=? AND visitor_hash=? AND scans>0").bind(day,visitor).run();
     return json({ok:false,code:"daily_limit",message:"The daily scan budget is full. Try again tomorrow."},429,origin);
   }
-  // Try to start immediately. If another scan is running the cron trigger
-  // dispatches the next queued city after that run completes.
+  // Try immediately; workflow_run completion will dispatch the next queued city.
   const result = await dispatchNext(env,now);
   return json({ok:true,queued:true,state:result.status==="dispatched"&&result.cityId===cityId?"dispatched":"queued",
     requestedAt:now},202,origin);
 }
 export default {
-  async fetch(request,env) {
+  async fetch(request,env,ctx) {
     const url = new URL(request.url);
     const origin = request.headers.get("Origin") || "";
     if (request.method === "GET" && url.pathname === "/health") return json({ok:true,service:"wolt-city-refresh",queue:true});
@@ -184,6 +239,10 @@ export default {
     }
     if (origin !== ALLOWED_ORIGIN) return json({ok:false},403);
     if (request.method === "OPTIONS") return json({ok:true},200,origin);
+    if (url.pathname === "/api/snapshot" && request.method === "GET") {
+      try { return await fastSnapshot(request,env,url,ctx); }
+      catch { return json({ok:false},503,origin); }
+    }
     if (url.pathname !== "/api/refresh" || request.method !== "POST") return json({ok:false},404,origin);
     try { return await refresh(request,env); }
     catch (error) { console.warn("Refresh queue failed",String(error)); return json({ok:false,message:"Refresh temporarily unavailable"},503,origin); }

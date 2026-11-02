@@ -7,10 +7,11 @@ import { ubiquitousOfferIndex as sharedUbiquitousOfferIndex, visibleVenueOffers,
 
 const DEFAULT_API_BASE_URL = "";
 const CITY_REFRESH_API = "https://wolt-city-refresh.bl0ck-c1b.workers.dev/api/refresh";
+const CITY_SNAPSHOT_FAST_API = "https://wolt-city-refresh.bl0ck-c1b.workers.dev/api/snapshot";
 const CITY_SNAPSHOT_TTL_MS = 4 * 60 * 60 * 1000;
 const CITY_MAX_DISPLAY_AGE_MS = 24 * 60 * 60 * 1000;
-const CITY_REFRESH_POLL_MS = 15000;
-const CITY_REFRESH_MAX_POLLS = 48;
+const CITY_REFRESH_POLL_MS = 5000;
+const CITY_REFRESH_MAX_POLLS = 144;
 const INITIAL_RENDER_LIMIT = 100;
 const RENDER_STEP = 100;
 const MAX_CITY_OPTIONS = 50;
@@ -82,14 +83,36 @@ async function init() {
   renderCityOptions();
 
   const cityId = requestedCityId();
-  await loadSnapshotForCity(cityId);
+  if (cityId) await loadSnapshotForCity(cityId);
+  else showChooseCityPrompt();
   bindControls();
+}
+
+function showChooseCityPrompt() {
+  // The landing page must not silently scan Vilnius for first-time visitors.
+  state.selectedCity = null;
+  state.snapshot = null;
+  state.rows = [];
+  hideCheckoutEstimator();
+  elements.citySearch.value = "";
+  elements.cityLabel.textContent = t("chooseCityFirst");
+  elements.cityMapLink.hidden = true;
+  elements.cityRssLink.hidden = true;
+  elements.promoCount.textContent = "—";
+  elements.restaurantCount.textContent = "—";
+  elements.updatedAt.textContent = "—";
+  elements.shownCount.textContent = "—";
+  elements.refreshStatus.textContent = "";
+  elements.snapshotTrust.textContent = t("chooseCityHint");
+  elements.venueRows.innerHTML = '<tr><td colspan="6" class="empty">' +
+    escapeHtml(t("chooseCityHint")) + '</td></tr>';
 }
 
 async function loadSnapshotForCity(cityId) {
   const requestId = ++state.loadRequestId;
   const city = cityById(cityId) ?? defaultCity();
   hideCheckoutEstimator();
+  elements.cityMapLink.hidden = false;
   showLoading(city);
 
   let cached;
@@ -150,14 +173,25 @@ async function requestAndWatchCity(city, requestId, previousGeneratedAt) {
       await new Promise((resolve) => setTimeout(resolve, CITY_REFRESH_POLL_MS));
       if (!isCurrentLoad(requestId)) return;
       let snapshot;
+      // Fast path: a GitHub commit is available before Pages finishes deploying.
+      // Every third attempt checks Pages as fallback if the Worker is unavailable.
       try {
-        const url = dataPathForCity(city);
-        const response = await fetch(url + "?updated=" + Date.now(), { cache: "no-store" });
+        const response = await fetch(CITY_SNAPSHOT_FAST_API +
+          "?cityId=" + encodeURIComponent(city.id), { cache: "no-store" });
         if (response.ok) snapshot = await response.json();
       } catch {
-        // GitHub Pages may briefly return 404 or stale content during publication.
+        // A GitHub Pages check below still provides a fallback.
       }
-      if (!Array.isArray(snapshot?.venues)) continue;
+      if (!Array.isArray(snapshot?.venues) && attempt % 3 === 0) {
+        try {
+          const response = await fetch(dataPathForCity(city) +
+            "?updated=" + Date.now(), { cache: "no-store" });
+          if (response.ok) snapshot = await response.json();
+        } catch {
+          // GitHub Pages can return 404 until the first publication.
+        }
+      }
+      if (!Array.isArray(snapshot?.venues) || snapshot.city?.id !== city.id) continue;
       const timestamp = Date.parse(snapshot.generatedAt ?? "");
       const age = Date.now() - timestamp;
       // Never show an ancient snapshot as a successful first-time refresh.
@@ -471,7 +505,10 @@ function bindControls() {
   elements.hideClosedVenues.addEventListener("change", resetAndRenderRows);
   elements.onlyWithOffers.addEventListener("change", resetAndRenderRows);
   elements.favoritesOnly.addEventListener("change", resetAndRenderRows);
-  elements.languagePicker.addEventListener("change", () => { state.language = normalizeLanguage(elements.languagePicker.value); safeLocalStorageSet("WOLT_LANGUAGE", state.language); applyLanguage(); hydrateSummary(); hydrateFilters(); renderCityOptions(elements.citySearch.value); resetAndRenderRows();
+  elements.languagePicker.addEventListener("change", () => { state.language = normalizeLanguage(elements.languagePicker.value); safeLocalStorageSet("WOLT_LANGUAGE", state.language); applyLanguage();
+    if (!state.selectedCity) showChooseCityPrompt();
+    else { hydrateSummary(); hydrateFilters(); resetAndRenderRows(); }
+    renderCityOptions(elements.citySearch.value);
     if (state.estimate) elements.checkoutVenueName.textContent = tf("estimateFor", { venue: state.estimate.venue.name }) + " · " + state.estimate.offer.text; });
   elements.sortSelect.addEventListener("change", () => {
     setSortFromSelect(elements.sortSelect.value);
@@ -1347,16 +1384,13 @@ function mapLink(venue) {
 function requestedCityId() {
   const requested = new URLSearchParams(window.location.search).get("city");
   const stored = safeLocalStorageGet("WOLT_SELECTED_CITY");
-  return cityById(requested)?.id ?? cityById(stored)?.id ?? defaultCity().id;
+  return cityById(requested)?.id ?? cityById(stored)?.id ?? null;
 }
 
 function setCityInUrl(cityId) {
   const url = new URL(window.location.href);
-  if (cityId === defaultCity().id) {
-    url.searchParams.delete("city");
-  } else {
-    url.searchParams.set("city", cityId);
-  }
+  // Even the default city's link must work for visitors without saved preferences.
+  url.searchParams.set("city", cityId);
   window.history.replaceState({}, "", url);
 }
 
