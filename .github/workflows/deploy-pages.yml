@@ -50,6 +50,8 @@ jobs:
           [[ -f docs/.nojekyll ]] && cp docs/.nojekyll .pages-site/ || true
           cp docs/data/cities.json docs/data/latest.json .pages-site/data/
           cp docs/sitemap.xml docs/robots.txt docs/llms.txt .pages-site/
+          # Keep GSC HTML verification at the root of the GitHub Pages project site.
+          cp docs/google19176d0a89dbf1c7.html .pages-site/
           cp -a docs/assets docs/cities docs/countries docs/methodology docs/feeds .pages-site/
           for locale in de lt pl cs; do
             [[ ! -d "docs/${locale}" ]] || cp -a "docs/${locale}" .pages-site/
