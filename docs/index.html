@@ -85,14 +85,14 @@
           <span class="brand-mark" aria-hidden="true">%</span>
           <span class="brand-copy">
             <strong>Wolt Discount Monitor</strong>
-            <small>Independent deal tracker</small>
+            <small data-i18n="brandSubtitle">Independent deal tracker</small>
           </span>
         </a>
 
         <nav class="topnav" aria-label="Primary navigation">
-          <a href="#deals">Deals</a>
-          <a href="#live-cities">Cities</a>
-          <a href="#how-it-works">How it works</a>
+          <a href="#deals" data-i18n="navDeals">Deals</a>
+          <a href="#live-cities" data-i18n="navCities">Cities</a>
+          <a href="#how-it-works" data-i18n="navHow">How it works</a>
         </nav>
       </div>
     </header>
@@ -100,20 +100,20 @@
     <main>
       <section class="hero shell" aria-labelledby="page-title">
         <div class="hero-copy">
-          <span class="eyebrow"><span class="live-dot" aria-hidden="true"></span> Independent Wolt deal tracker</span>
-          <h1 id="page-title">Find Wolt deals <span>worth ordering.</span></h1>
+          <span class="eyebrow"><span class="live-dot" aria-hidden="true"></span> <span data-i18n="eyebrow">Independent Wolt deal tracker</span></span>
+          <h1 id="page-title"><span class="hero-title-main" data-i18n="heroTitle">Find Wolt deals</span> <span data-i18n="heroEmphasis">worth ordering.</span></h1>
           <p class="hero-lead" data-i18n="hero">Choose your city. Compare restaurant and grocery offers without scrolling through Wolt venue by venue. Check the final price in Wolt before ordering.</p>
           <div class="hero-points" aria-label="Key features">
-            <span>Value-ranked deals</span>
-            <span>City-by-city search</span>
-            <span>Hourly cache for monitored cities</span>
+            <span data-i18n="pointValue">Value-ranked deals</span>
+            <span data-i18n="pointCities">City-by-city search</span>
+            <span data-i18n="pointCache">Hourly cache for monitored cities</span>
           </div>
         </div>
 
         <div class="city-console" aria-label="Choose a Wolt city">
           <div class="console-heading">
             <div>
-              <span class="console-kicker">Explore a city</span>
+              <span class="console-kicker" data-i18n="cityIntro">Explore a city</span>
               <strong id="cityLabel">Loading city...</strong>
             </div>
             <a class="location-map-link" id="cityMapLink" href="#" target="_blank" rel="noreferrer" title="Open city in Maps" aria-label="Open city in Maps"><span aria-hidden="true">🗺️</span></a>
@@ -122,7 +122,7 @@
           <div class="city-area">
             <div class="city-picker" id="cityPicker">
               <span class="search-icon" aria-hidden="true"></span>
-              <input id="citySearch" type="search" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="cityOptions" aria-label="Search Wolt city or country" placeholder="Search city or country..." />
+              <input id="citySearch" type="search" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="cityOptions" aria-label="Search Wolt city or country" data-i18n-aria-label="cityPickerAria" placeholder="Search city or country..." data-i18n-placeholder="citySearchPlaceholder" />
               <div class="city-options" id="cityOptions" role="listbox" hidden></div>
             </div>
           </div>
@@ -137,7 +137,7 @@
               <strong id="restaurantCount">—</strong>
             </div>
           </div>
-          <div class="summary-meta"><span data-i18n="updated">Updated</span> <span id="updatedAt">—</span></div>
+          <div class="summary-meta"><span data-i18n="updated">Updated</span> <span id="updatedAt">—</span> · <a id="cityRssLink" class="rss-link" href="#" data-i18n="rss" hidden>Subscribe to updates (RSS)</a></div>
           <div class="snapshot-trust" id="snapshotTrust" role="status" aria-live="polite">Offers and opening status were recorded during the last scan. Check eligibility and final price in Wolt.</div>
           <div class="refresh-status" id="refreshStatus" role="status" aria-live="polite"></div>
         </div>
@@ -146,9 +146,9 @@
       <section class="explorer shell" id="deals" aria-labelledby="deals-title">
         <div class="section-heading">
           <div>
-            <span class="eyebrow">Deals in your city</span>
+            <span class="eyebrow" data-i18n="dealEyebrow">Deals in your city</span>
             <h2 id="deals-title" data-i18n="deals">Offers worth checking</h2>
-            <p>Search the selected city snapshot, filter by category, or sort by estimated value.</p>
+            <p data-i18n="dealHelp">Search the selected city snapshot, filter by category, or sort by estimated value.</p>
           </div>
           <span class="shown-count" id="shownCount">Loading deals…</span>
         </div>
@@ -156,29 +156,29 @@
         <div class="toolbar" aria-label="Deal filters">
           <div class="toolbar-main">
             <label class="search-field">
-              <span>Search deals</span>
+              <span data-i18n="search">Search deals</span>
               <div class="input-shell">
                 <span class="search-icon" aria-hidden="true"></span>
-                <input id="searchInput" type="search" placeholder="Restaurant, offer or address..." />
+                <input id="searchInput" type="search" placeholder="Restaurant, offer or address..." data-i18n-placeholder="searchPlaceholder" />
               </div>
             </label>
 
             <label class="select-field">
-              <span>Type</span>
-              <select id="productFilter" aria-label="Filter by venue type"></select>
+              <span data-i18n="type">Type</span>
+              <select id="productFilter" aria-label="Filter by venue type" data-i18n-aria-label="typeAria"></select>
             </label>
 
             <label class="select-field">
-              <span>Sort</span>
-              <select id="sortSelect" aria-label="Sort deals">
-                <option value="best-desc">Best discount</option>
-                <option value="best-asc">Worst discount</option>
-                <option value="name-asc">Name A–Z</option>
-                <option value="name-desc">Name Z–A</option>
-                <option value="type-asc">Type</option>
-                <option value="type-desc">Type desc</option>
-                <option value="hours-asc">Open first</option>
-                <option value="hours-desc">Closed first</option>
+              <span data-i18n="sort">Sort</span>
+              <select id="sortSelect" aria-label="Sort deals" data-i18n-aria-label="sortAria">
+                <option value="best-desc" data-i18n="sortBest">Best discount</option>
+                <option value="best-asc" data-i18n="sortWorst">Worst discount</option>
+                <option value="name-asc" data-i18n="sortNameAsc">Name A–Z</option>
+                <option value="name-desc" data-i18n="sortNameDesc">Name Z–A</option>
+                <option value="type-asc" data-i18n="sortTypeAsc">Type</option>
+                <option value="type-desc" data-i18n="sortTypeDesc">Type desc</option>
+                <option value="hours-asc" data-i18n="sortOpen">Open first</option>
+                <option value="hours-desc" data-i18n="sortClosed">Closed first</option>
               </select>
             </label>
           </div>
@@ -212,12 +212,12 @@
             <table>
               <thead>
                 <tr>
-                  <th class="num-col"><button class="sort-header" data-sort-key="rank" aria-label="Sort by rank">#</button></th>
-                  <th><button class="sort-header" data-sort-key="name">Venue</button></th>
-                  <th>Current offers</th>
-                  <th><button class="sort-header" data-sort-key="best">Best value</button></th>
-                  <th><button class="sort-header" data-sort-key="hours">Status</button></th>
-                  <th>Map</th>
+                  <th class="num-col"><button class="sort-header" data-sort-key="rank" aria-label="Sort by rank" data-i18n-aria-label="rank">#</button></th>
+                  <th><button class="sort-header" data-sort-key="name" data-i18n="venue">Venue</button></th>
+                  <th data-i18n="offers">Current offers</th>
+                  <th><button class="sort-header" data-sort-key="best" data-i18n="bestValue">Best value</button></th>
+                  <th><button class="sort-header" data-sort-key="hours" data-i18n="status">Status</button></th>
+                  <th data-i18n="map">Map</th>
                 </tr>
               </thead>
               <tbody id="venueRows">
@@ -232,8 +232,8 @@
         <div class="section-heading section-heading-compact">
           <div>
             <span class="eyebrow">Search-friendly city pages</span>
-            <h2 id="cities-title">Live Wolt deal pages</h2>
-            <p>These pages have a recent stored snapshot, unique metadata and crawlable deal content. More cities appear automatically when fresh data becomes available.</p>
+            <h2 id="cities-title" data-i18n="liveTitle">Live Wolt deal pages</h2>
+            <p data-i18n="liveText">These pages have a recent stored snapshot, unique metadata and crawlable deal content. More cities appear automatically when fresh data becomes available.</p>
           </div>
         </div>
         <!-- GENERATED_LIVE_CITIES_START -->
@@ -246,32 +246,32 @@
           <a class="city-link-card" href="cities/cze/pardubice/"><span>Pardubice, Czech Republic</span><strong>11 ranked deal venues · View deals →</strong></a>
         </div>
         <!-- GENERATED_LIVE_CITIES_END -->
-        <div class="section-cta"><a href="cities/">Browse the complete city directory →</a></div>
+        <div class="section-cta"><a href="cities/"><span data-i18n="browseCities">Browse the complete city directory</span> →</a></div>
       </section>
 
       <section class="content-section shell" id="how-it-works" aria-labelledby="how-title">
         <div class="section-heading section-heading-compact">
           <div>
             <span class="eyebrow">Less noise, better comparisons</span>
-            <h2 id="how-title">How the monitor works</h2>
-            <p>Wolt promotions are not all equally useful. The monitor turns raw promotion data into a cleaner comparison layer.</p>
+            <h2 id="how-title" data-i18n="howTitle">How the monitor works</h2>
+            <p data-i18n="howText">Wolt promotions are not all equally useful. The monitor turns raw promotion data into a cleaner comparison layer.</p>
           </div>
         </div>
         <div class="feature-grid">
           <article class="feature-card">
             <span class="feature-number">01</span>
-            <h3>Collect</h3>
-            <p>We read public Wolt venue and promotion data for monitored cities and keep a compact snapshot.</p>
+            <h3 data-i18n="collectTitle">Collect</h3>
+            <p data-i18n="collectText">We read public Wolt venue and promotion data for monitored cities and keep a compact snapshot.</p>
           </article>
           <article class="feature-card">
             <span class="feature-number">02</span>
-            <h3>Normalize</h3>
-            <p>Percentage discounts, basket discounts, multibuy offers and delivery promos are classified into comparable fields.</p>
+            <h3 data-i18n="normalizeTitle">Normalize</h3>
+            <p data-i18n="normalizeText">Percentage discounts, basket discounts, multibuy offers and delivery promos are classified into comparable fields.</p>
           </article>
           <article class="feature-card">
             <span class="feature-number">03</span>
-            <h3>Rank</h3>
-            <p>A value score favors broad, meaningful discounts and demotes weaker or highly conditional offers.</p>
+            <h3 data-i18n="rankTitle">Rank</h3>
+            <p data-i18n="rankText">A value score favors broad, meaningful discounts and demotes weaker or highly conditional offers.</p>
           </article>
         </div>
         <div class="section-cta"><a href="methodology/">Read the full ranking methodology →</a></div>
@@ -281,25 +281,25 @@
         <div class="section-heading section-heading-compact">
           <div>
             <span class="eyebrow">FAQ</span>
-            <h2 id="faq-title">About the data</h2>
+            <h2 id="faq-title" data-i18n="aboutTitle">About the data</h2>
           </div>
         </div>
         <div class="faq-list">
           <details>
-            <summary>Is this an official Wolt website?</summary>
-            <p>No. Wolt Discount Monitor is an independent, open-source project and is not affiliated with or endorsed by Wolt.</p>
+            <summary data-i18n="faqOfficialQ">Is this an official Wolt website?</summary>
+            <p data-i18n="faqOfficialA">No. Wolt Discount Monitor is an independent, open-source project and is not affiliated with or endorsed by Wolt.</p>
           </details>
           <details>
-            <summary>How fresh are the deals?</summary>
-            <p>Monitored city snapshots use a one-hour cache. The exact snapshot time is shown above. If a city is not actively monitored, its data can be older or unavailable.</p>
+            <summary data-i18n="faqFreshQ">How fresh are the deals?</summary>
+            <p data-i18n="faqFreshA">Monitored city snapshots use a one-hour cache. The exact snapshot time is shown above. If a city is not actively monitored, its data can be older or unavailable.</p>
           </details>
           <details>
-            <summary>What does “best value” mean?</summary>
-            <p>It is an estimate used for sorting, not a guarantee of savings. The score considers discount size, minimum-spend conditions, offer scope and promotion type.</p>
+            <summary data-i18n="faqValueQ">What does “best value” mean?</summary>
+            <p data-i18n="faqValueA">It is an estimate used for sorting, not a guarantee of savings. The score considers discount size, minimum-spend conditions, offer scope and promotion type.</p>
           </details>
           <details>
-            <summary>Why can a deal differ from what I see in Wolt?</summary>
-            <p>Promotions can change, expire, depend on account eligibility or differ by location. Always confirm the final price and conditions in Wolt before ordering.</p>
+            <summary data-i18n="faqDifferentQ">Why can a deal differ from what I see in Wolt?</summary>
+            <p data-i18n="faqDifferentA">Promotions can change, expire, depend on account eligibility or differ by location. Always confirm the final price and conditions in Wolt before ordering.</p>
           </details>
         </div>
       </section>
@@ -309,12 +309,12 @@
       <div class="shell footer-inner">
         <div>
           <strong>Wolt Discount Monitor</strong>
-          <span>Unofficial open-source project. Not affiliated with Wolt.</span>
+          <span data-i18n="footerNote">Unofficial open-source project. Not affiliated with Wolt.</span>
         </div>
         <div class="footer-links">
-          <label class="language-switcher">Language <select id="languagePicker" aria-label="Language"><option value="en">English</option><option value="de">Deutsch</option><option value="lt">Lietuvių</option><option value="pl">Polski</option><option value="cs">Čeština</option></select></label>
-          <a href="sitemap.xml">Sitemap</a>
-          <a href="https://github.com/Bl0ck154/wolt-discount-monitor" target="_blank" rel="noreferrer">Source code ↗</a>
+          <label class="language-switcher"><span data-i18n="language">Language</span> <select id="languagePicker" aria-label="Language"><option value="en">English</option><option value="de">Deutsch</option><option value="lt">Lietuvių</option><option value="pl">Polski</option><option value="cs">Čeština</option></select></label>
+          <a href="sitemap.xml" data-i18n="sitemap">Sitemap</a>
+          <a href="https://github.com/Bl0ck154/wolt-discount-monitor" target="_blank" rel="noreferrer"><span data-i18n="source">Source code</span> ↗</a>
         </div>
       </div>
     </footer>
