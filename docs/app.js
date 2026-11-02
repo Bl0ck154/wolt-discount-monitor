@@ -1,6 +1,7 @@
 import { isLikelyAcquisitionOffer, shouldDisplayVenue } from "./offer-filters.mjs";
 import { favoriteKey, parseFavorites, serializeFavorites } from "./favorites.mjs";
 import { normalizeLanguage, translate } from "./i18n.mjs";
+import { ubiquitousOfferIndex as sharedUbiquitousOfferIndex, visibleVenueOffers, visibleVenueCount } from "./deal-visibility.mjs";
 
 const DEFAULT_API_BASE_URL = "";
 const CITY_REFRESH_API = "https://wolt-city-refresh.bl0ck-c1b.workers.dev/api/refresh";
@@ -192,7 +193,7 @@ function applySnapshot(city, snapshot) {
   state.rows = state.snapshot.venues ?? [];
   state.renderLimit = INITIAL_RENDER_LIMIT;
   elements.refreshStatus.textContent = "";
-  const ubiquitousOffers = ubiquitousOfferIndex(state.rows);
+  const ubiquitousOffers = sharedUbiquitousOfferIndex(state.rows);
   state.ubiquitousOfferKeys = ubiquitousOffers.keys;
   state.ubiquitousOfferLabels = ubiquitousOffers.labels;
   syncCityPickerValue();
@@ -402,8 +403,9 @@ function hydrateSummary() {
   elements.cityMapLink.href = cityMapUrl(city);
   elements.cityMapLink.title = `Open ${label} coordinates in Maps`;
   elements.cityMapLink.setAttribute("aria-label", `Open ${label} coordinates in Maps`);
-  elements.promoCount.textContent = formatNumber(state.snapshot?.counts?.promotionsUniqueVenues);
-  elements.restaurantCount.textContent = formatNumber(state.snapshot?.counts?.restaurantsUniqueVenues);
+  const metrics = state.snapshot ? visibleVenueCount(state.rows, offerScore) : null;
+  elements.promoCount.textContent = metrics ? formatNumber(metrics.ranked) : "—";
+  elements.restaurantCount.textContent = metrics ? formatNumber(metrics.scanned) : "—";
   const generatedAt = Date.parse(state.snapshot?.generatedAt ?? "");
   const hoursOld = Number.isFinite(generatedAt) ? Math.max(0, Math.floor((Date.now() - generatedAt) / 3600000)) : null;
   elements.updatedAt.textContent = Number.isFinite(generatedAt) ? new Date(generatedAt).toLocaleString(state.language) : "not cached";
@@ -496,7 +498,7 @@ function renderRows() {
   const groups = allGroups.slice(0, state.renderLimit);
   const rowsWithVisibleOffers = rows.filter(({ visibleOffers }) => visibleOffers.length > 0).length;
 
-  elements.shownCount.textContent = `${formatNumber(rows.length)} shown venues · ${formatNumber(rowsWithVisibleOffers)} with visible offers · ${formatNumber(state.rows.length)} total venues`;
+  elements.shownCount.textContent = `${formatNumber(rows.length)} venues shown · ${formatNumber(rowsWithVisibleOffers)} with offers · ${formatNumber(state.rows.length)} scanned`;
   hydrateHiddenCitywideOffers();
   syncSortUi();
 
@@ -892,76 +894,11 @@ function last(items) {
 }
 
 function visibleOffers(venue) {
-  const seen = new Set();
-  const offers = sourceOffers(venue).filter((offer) => {
-    const key = normalizeOfferText(offer.text).toLowerCase();
-    if (!key || seen.has(key)) {
-      return false;
-    }
-    seen.add(key);
-
-    if (isUtilityOfferText(offer.text)) {
-      return false;
-    }
-
-    if (elements.hideNewUserDelivery.checked && (isNewUserZeroDelivery(offer.text) || isLikelyAcquisitionOffer(offer.text))) {
-      return false;
-    }
-    if (elements.hideNewUserDelivery.checked && state.ubiquitousOfferKeys.has(key)) {
-      return false;
-    }
-    if (elements.hideDeliveryDiscounts.checked && isDeliveryDiscount(offer.text)) {
-      return false;
-    }
-    return true;
+  return visibleVenueOffers(venue, {
+    ubiquitousKeys: state.ubiquitousOfferKeys,
+    hideAcquisition: elements.hideNewUserDelivery.checked,
+    hideDelivery: elements.hideDeliveryDiscounts.checked,
   });
-
-  return offers;
-}
-
-function ubiquitousOfferIndex(venues) {
-  const counts = new Map();
-  const labels = new Map();
-  let venuesWithOffers = 0;
-
-  for (const venue of venues) {
-    const keys = new Set();
-
-    for (const offer of sourceOffers(venue)) {
-      const label = normalizeOfferText(offer.text);
-      const key = label.toLowerCase();
-      if (!key || isUtilityOfferText(key)) {
-        continue;
-      }
-      keys.add(key);
-      if (!labels.has(key)) {
-        labels.set(key, label);
-      }
-    }
-
-    if (!keys.size) {
-      continue;
-    }
-
-    venuesWithOffers += 1;
-    for (const key of keys) {
-      counts.set(key, (counts.get(key) ?? 0) + 1);
-    }
-  }
-
-  if (venuesWithOffers < 10) {
-    return { keys: new Set(), labels: [] };
-  }
-
-  const threshold = Math.max(10, Math.ceil(venuesWithOffers * 0.75));
-  const entries = [...counts.entries()]
-    .filter(([, count]) => count >= threshold)
-    .sort((a, b) => b[1] - a[1] || labels.get(a[0]).localeCompare(labels.get(b[0]), "en"));
-
-  return {
-    keys: new Set(entries.map(([key]) => key)),
-    labels: entries.map(([key]) => labels.get(key)),
-  };
 }
 
 function hydrateHiddenCitywideOffers() {
