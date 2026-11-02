@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import { extractDiscount, offerScore } from "./offer-value.mjs";
 import { ubiquitousOfferIndex, visibleVenueOffers, visibleVenueCount } from "../docs/deal-visibility.mjs";
 import { buildCityRss } from "./rss.mjs";
+import { localLanguageForCity, cityCopy, localizedCityUrl } from "./city-localization.mjs";
 
 export const DEFAULT_SITE_BASE = "https://bl0ck154.github.io/wolt-discount-monitor/";
 export const DEFAULT_SEO_FRESH_HOURS = 48;
@@ -38,6 +39,9 @@ export async function buildSeoSite({
   await rm(join(docsDir, "cities"), { recursive: true, force: true });
   await rm(join(docsDir, "countries"), { recursive: true, force: true });
   await rm(join(docsDir, "feeds"), { recursive: true, force: true });
+  for (const locale of ["de", "lt", "pl", "cs"]) {
+    await rm(join(docsDir, locale), { recursive: true, force: true });
+  }
 
   for (const record of cityRecords) {
     if (record.snapshot?.generatedAt) {
@@ -54,6 +58,12 @@ export async function buildSeoSite({
       cityOutputPath(docsDir, record.city),
       cityPageHtml({ ...record, countryRecords, siteBase, freshHours }),
     );
+    const nativeLang = localLanguageForCity(record.city);
+    if (record.indexable && nativeLang !== "en") {
+      const [country, slug] = record.city.id.split("/");
+      await writeText(join(docsDir, nativeLang, "cities", safeSegment(country), safeSegment(slug), "index.html"),
+        localizedCityPageHtml({ ...record, language: nativeLang, siteBase }));
+    }
   }
 
   const countrySummaries = [];
@@ -159,6 +169,7 @@ export function cityPageHtml({ city, snapshot, indexable, countryRecords = [], s
     robots: indexable ? "index,follow,max-image-preview:large,max-snippet:-1" : "noindex,follow",
     siteBase,
     jsonLd,
+    alternates: indexable ? cityAlternates(city, siteBase) : [],
     body: `
       <main class="landing-main">
         <section class="landing-hero shell">
@@ -180,6 +191,89 @@ export function cityPageHtml({ city, snapshot, indexable, countryRecords = [], s
         </section>
         ${peerLinks ? `<section class="landing-section shell"><h2>Other Wolt cities in ${escapeHtml(city.country)}</h2><p>Browse other city pages from the same country. Fresh deal pages are marked separately.</p><div class="city-directory">${peerLinks}</div></section>` : ""}
       </main>`,
+  });
+}
+
+
+function cityAlternates(city, siteBase) {
+  const native = localLanguageForCity(city);
+  if (native === "en") return [];
+  const englishUrl = cityUrl(city, siteBase);
+  return [
+    { language: "en", url: englishUrl },
+    { language: native, url: localizedCityUrl(city, siteBase, native) },
+    { language: "x-default", url: englishUrl },
+  ];
+}
+
+export function localizedCityPageHtml({
+  city, snapshot, indexable = true, language = localLanguageForCity(city),
+  siteBase = DEFAULT_SITE_BASE,
+}) {
+  if (!indexable || language === "en" || language !== localLanguageForCity(city)) {
+    throw new Error("Localized pages require a fresh city and its supported native language");
+  }
+  const text = (key, params) => cityCopy(language, key, params);
+  const canonical = localizedCityUrl(city, siteBase, language);
+  const dashboardUrl = siteBase + "?city=" + encodeURIComponent(city.id);
+  const countryUrl = siteBase + "countries/" + countryCode(city) + "/";
+  const label = city.label || city.name + ", " + city.country;
+  const top = topDealVenues(snapshot, 12);
+  if (!top.length) throw new Error("Do not index a city without useful deals");
+  const count = visibleVenueCount(snapshot.venues, offerScore).ranked;
+  const nowLabel = formatDateTime(snapshot.generatedAt);
+  const title = text("title", { city: city.name });
+  const description = text("description", { city: city.name, country: city.country, count: formatNumber(count) });
+  const dealCards = top.map((venue) => {
+    const url = /^https:\/\/(?:[a-z0-9-]+\.)?wolt\.com\//i.test(venue.link ?? "") ? venue.link : dashboardUrl;
+    const offer = seoOfferText(venue);
+    return '<article class="landing-deal"><div class="landing-deal-name"><a href="' +
+      escapeHtml(url) + '" target="_blank" rel="noopener noreferrer">' +
+      escapeHtml(venue.name) + '</a><span>' +
+      escapeHtml([offer, venue.address].filter(Boolean).join(" · ")) +
+      '</span></div><strong class="landing-deal-value">' +
+      escapeHtml(bestValueLabel(venue)) + '</strong></article>';
+  }).join("");
+  const html = '<main class="landing-main">' +
+    '<section class="landing-hero shell"><nav class="landing-breadcrumbs" aria-label="Breadcrumb"><a href="' +
+    escapeHtml(siteBase) + '">' + escapeHtml(text("home")) + '</a><span>›</span><a href="' +
+    escapeHtml(countryUrl) + '">' + escapeHtml(city.country) +
+    '</a><span>›</span><span>' + escapeHtml(city.name) + '</span></nav>' +
+    '<span class="eyebrow"><span class="live-dot" aria-hidden="true"></span> ' +
+    escapeHtml(text("status", { time: nowLabel })) + '</span>' +
+    '<h1>' + escapeHtml(text("h1", { city: city.name })) + '</h1>' +
+    '<p>' + escapeHtml(text("intro", { label })) + '</p>' +
+    '<div class="landing-actions"><a class="primary-link" href="' +
+    escapeHtml(dashboardUrl) + '">' + escapeHtml(text("open")) + '</a>' +
+    '<a class="secondary-link" href="' +
+    escapeHtml(siteBase + "feeds/" + city.key + ".xml") + '">' +
+    escapeHtml(text("rss")) + '</a></div></section>' +
+    '<section class="landing-stats shell" aria-label="City deal summary">' +
+    '<div class="landing-stat"><span>' + escapeHtml(text("ranked")) + '</span><strong>' + formatNumber(count) + '</strong></div>' +
+    '<div class="landing-stat"><span>' + escapeHtml(text("restaurants")) + '</span><strong>' +
+    formatNumber(snapshot.counts?.restaurantsUniqueVenues ?? 0) + '</strong></div>' +
+    '<div class="landing-stat"><span>' + escapeHtml(text("snapshot")) + '</span><strong>' + escapeHtml(nowLabel) + '</strong></div>' +
+    '</section><section class="landing-section shell"><h2>' +
+    escapeHtml(text("best", { city: city.name })) + '</h2><p>' +
+    escapeHtml(text("hint")) + '</p><div class="deal-grid">' + dealCards +
+    '</div></section></main>';
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: title,
+    url: canonical,
+    description,
+    inLanguage: language,
+    isPartOf: { "@type": "WebSite", name: "Wolt Discount Monitor", url: siteBase },
+    about: { "@type": "City", name: city.name,
+      containedInPlace: { "@type": "Country", name: city.country } },
+    mainEntity: { "@type": "ItemList", itemListElement: top.slice(0, 10).map((venue, i) => ({
+      "@type": "ListItem", position: i + 1, name: venue.name, url: venue.link || dashboardUrl,
+    })) },
+  };
+  return pageShell({
+    title, description, canonical, robots: "index,follow,max-image-preview:large,max-snippet:-1",
+    siteBase, jsonLd, body: html, language, alternates: cityAlternates(city, siteBase),
   });
 }
 
@@ -305,14 +399,17 @@ export function sitemapXml({ siteBase = DEFAULT_SITE_BASE, liveRecords = [], cou
   }
   for (const record of liveRecords) {
     urls.push({ loc: cityUrl(record.city, siteBase), lastmod: dateOnly(record.snapshot?.generatedAt) });
+    if (localLanguageForCity(record.city) !== "en") {
+      urls.push({ loc: localizedCityUrl(record.city, siteBase), lastmod: dateOnly(record.snapshot?.generatedAt) });
+    }
   }
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((entry) => `  <url>\n    <loc>${escapeXml(entry.loc)}</loc>${entry.lastmod ? `\n    <lastmod>${escapeXml(entry.lastmod)}</lastmod>` : ""}\n  </url>`).join("\n")}\n</urlset>\n`;
 }
 
-function pageShell({ title, description, canonical, robots, siteBase, jsonLd, body }) {
+function pageShell({ title, description, canonical, robots, siteBase, jsonLd, body, language = "en", alternates = [] }) {
   const json = JSON.stringify(jsonLd).replaceAll("<", "\\u003c");
   return `<!doctype html>
-<html lang="en">
+<html lang="${escapeHtml(language)}">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -321,7 +418,7 @@ function pageShell({ title, description, canonical, robots, siteBase, jsonLd, bo
   <meta name="description" content="${escapeHtml(description)}" />
   <meta name="robots" content="${escapeHtml(robots)}" />
   <meta name="theme-color" content="#07161b" />
-  <link rel="canonical" href="${escapeHtml(canonical)}" />
+  <link rel="canonical" href="${escapeHtml(canonical)}" />${alternates.length ? "\n  " + alternates.map((item) => '<link rel="alternate" hreflang="' + escapeHtml(item.language) + '" href="' + escapeHtml(item.url) + '" />').join("\n") : ""}
   <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
   <meta property="og:site_name" content="Wolt Discount Monitor" />
   <meta property="og:title" content="${escapeHtml(title)}" />

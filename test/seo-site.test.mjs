@@ -110,7 +110,7 @@ test("homepage exposes the core SEO and accessibility structure without JavaScri
 
 test("production updater stages regenerated SEO artifacts", async () => {
   const workflow = await readFile(new URL("../.github/workflows/check-discounts.yml", import.meta.url), "utf8");
-  const stageLine = "git add -- README.md docs/data docs/feeds docs/cities docs/countries docs/methodology docs/sitemap.xml docs/robots.txt docs/llms.txt docs/index.html";
+  const stageLine = "git add -A -- README.md docs/";
   assert.equal(workflow.split(stageLine).length - 1, 1, "GitHub-hosted updater must stage SEO output exactly once");
 });
 

@@ -51,6 +51,9 @@ jobs:
           cp docs/data/cities.json docs/data/latest.json .pages-site/data/
           cp docs/sitemap.xml docs/robots.txt docs/llms.txt .pages-site/
           cp -a docs/assets docs/cities docs/countries docs/methodology docs/feeds .pages-site/
+          for locale in de lt pl cs; do
+            [[ ! -d "docs/${locale}" ]] || cp -a "docs/${locale}" .pages-site/
+          done
 
           if [[ -d docs/data/cities ]]; then
             while IFS= read -r -d '' source; do
