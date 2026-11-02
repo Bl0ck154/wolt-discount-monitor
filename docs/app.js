@@ -9,8 +9,8 @@ const DEFAULT_API_BASE_URL = "";
 const CITY_REFRESH_API = "https://wolt-city-refresh.bl0ck-c1b.workers.dev/api/refresh";
 const CITY_SNAPSHOT_TTL_MS = 4 * 60 * 60 * 1000;
 const CITY_MAX_DISPLAY_AGE_MS = 24 * 60 * 60 * 1000;
-const CITY_REFRESH_POLL_MS = 12000;
-const CITY_REFRESH_MAX_POLLS = 20;
+const CITY_REFRESH_POLL_MS = 15000;
+const CITY_REFRESH_MAX_POLLS = 48;
 const INITIAL_RENDER_LIMIT = 100;
 const RENDER_STEP = 100;
 const MAX_CITY_OPTIONS = 50;
@@ -115,7 +115,7 @@ async function loadSnapshotForCity(cityId) {
 
   // First visit to a city: ask the coordinator once and fill the dashboard
   // automatically after the shared GitHub Pages snapshot is published.
-  void requestAndWatchCity(city, requestId, null);
+  void requestAndWatchCity(city, requestId, cached.snapshot?.generatedAt ?? null);
 }
 
 function isCitySnapshotExpired(snapshot) {
@@ -129,51 +129,60 @@ async function requestCityRefresh(city) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ cityId: city.id }),
   });
-  if (!response.ok) throw new Error("City refresh is temporarily unavailable");
-  return response.json();
+  let result = null;
+  try { result = await response.json(); } catch {}
+  if (!response.ok) {
+    const error = new Error("City refresh is temporarily unavailable");
+    error.code = result?.code ?? "service";
+    throw error;
+  }
+  return result ?? {};
 }
 
 async function requestAndWatchCity(city, requestId, previousGeneratedAt) {
   try {
     const result = await requestCityRefresh(city);
     if (!isCurrentLoad(requestId)) return;
-    elements.refreshStatus.textContent = t(result.queued ? "refreshQueued" : "refreshAlready");
-    const existing = Date.parse(previousGeneratedAt ?? "");
-    const requestTime = Number(result.requestedAt ?? Date.now());
-    // A previous attempt beyond our waiting window is not still in progress.
-    if (Date.now() - requestTime > CITY_REFRESH_POLL_MS * CITY_REFRESH_MAX_POLLS) {
-      if (!previousGeneratedAt) showCityFetchFailure(city);
-      return;
-    }
+    elements.refreshStatus.textContent = t(result.state === "queued" ? "refreshWaitingInQueue"
+      : result.queued ? "refreshQueued" : "refreshAlready");
+    const previous = Date.parse(previousGeneratedAt ?? "");
     for (let attempt = 0; attempt < CITY_REFRESH_MAX_POLLS; attempt++) {
       await new Promise((resolve) => setTimeout(resolve, CITY_REFRESH_POLL_MS));
       if (!isCurrentLoad(requestId)) return;
       let snapshot;
       try {
         const url = dataPathForCity(city);
-        const response = await fetch(`${url}?updated=${Date.now()}`, { cache: "no-store" });
+        const response = await fetch(url + "?updated=" + Date.now(), { cache: "no-store" });
         if (response.ok) snapshot = await response.json();
       } catch {
-        // Transient GitHub Pages network errors are retried silently.
+        // GitHub Pages may briefly return 404 or stale content during publication.
       }
       if (!Array.isArray(snapshot?.venues)) continue;
       const timestamp = Date.parse(snapshot.generatedAt ?? "");
-      if (!Number.isFinite(timestamp) || (Number.isFinite(existing) && timestamp <= existing)) continue;
+      const age = Date.now() - timestamp;
+      // Never show an ancient snapshot as a successful first-time refresh.
+      if (!Number.isFinite(timestamp) || age < -300000 || age >= CITY_MAX_DISPLAY_AGE_MS ||
+          (Number.isFinite(previous) && timestamp <= previous)) continue;
       applySnapshot(city, snapshot);
       elements.refreshStatus.textContent = t("refreshLoaded");
       return;
     }
-    if (!previousGeneratedAt && isCurrentLoad(requestId)) showCityFetchFailure(city);
-  } catch {
-    if (!previousGeneratedAt && isCurrentLoad(requestId)) showCityFetchFailure(city);
+    if (isCurrentLoad(requestId)) showCityPending(city);
+  } catch (error) {
+    if (!isCurrentLoad(requestId)) return;
+    const message = error.code === "daily_limit" ? t("refreshDailyLimit") : t("refreshLimit");
+    showCityPending(city, message);
   }
 }
-
-function showCityFetchFailure(city) {
+function showCityPending(city, message = t("refreshStillRunning")) {
   const label = city.label ?? city.name ?? t("unknownCity");
-  elements.venueRows.innerHTML =
-    `<tr><td colspan="6" class="empty">${escapeHtml(tf("refreshFailed", { city: label }))} <button type="button" data-retry-city>${escapeHtml(t("retry"))}</button></td></tr>`;
-  elements.refreshStatus.textContent = t("refreshLimit");
+  if (!state.snapshot) {
+    elements.venueRows.innerHTML =
+      '<tr><td colspan="6" class="empty">' +
+      escapeHtml(tf("refreshNoSnapshotYet", { city: label })) +
+      ' <button type="button" data-retry-city>' + escapeHtml(t("retry")) + '</button></td></tr>';
+  }
+  elements.refreshStatus.textContent = message;
 }
 
 function isCurrentLoad(requestId) {

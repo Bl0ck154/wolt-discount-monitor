@@ -105,7 +105,11 @@ export const extended = {
     "estimateDisclaimer": "Estimate only. Account eligibility, item limits, Wolt+ and final checkout may differ.",
     "estimateAction": "Estimate checkout",
     "deliveryUnknown": "Delivery fee: check in Wolt",
-    "moreFilters": "More filters"
+    "moreFilters": "More filters",
+    "refreshWaitingInQueue": "This city is queued for scanning. Deals will appear after the scan and publication finish.",
+    "refreshDailyLimit": "The daily scanning limit has been reached. Try again tomorrow.",
+    "refreshStillRunning": "Scanning or publishing is taking longer than expected. Check back later; the request is not lost.",
+    "refreshNoSnapshotYet": "No recent data for {city} yet. The scan may still be queued."
   },
   "de": {
     "brandSubtitle": "Unabhängiger Angebotsfinder",
@@ -212,7 +216,11 @@ export const extended = {
     "estimateDisclaimer": "Nur eine Schätzung. Berechtigung, Einschränkungen und Endpreis können abweichen.",
     "estimateAction": "Warenkorb berechnen",
     "deliveryUnknown": "Liefergebühr: in Wolt prüfen",
-    "moreFilters": "Weitere Filter"
+    "moreFilters": "Weitere Filter",
+    "refreshWaitingInQueue": "Diese Stadt steht in der Scan-Warteschlange. Angebote erscheinen nach dem Scan und der Veröffentlichung.",
+    "refreshDailyLimit": "Das tägliche Scan-Limit ist erreicht. Bitte morgen erneut versuchen.",
+    "refreshStillRunning": "Der Scan oder die Veröffentlichung dauert länger. Schau später wieder vorbei; die Anfrage bleibt gespeichert.",
+    "refreshNoSnapshotYet": "Für {city} liegen noch keine aktuellen Daten vor. Der Scan kann noch in der Warteschlange stehen."
   },
   "lt": {
     "brandSubtitle": "Nepriklausoma nuolaidų paieška",
@@ -319,7 +327,11 @@ export const extended = {
     "estimateDisclaimer": "Tik apytiksliai. Sąlygos, tinkamumas ir galutinė kaina Wolt gali skirtis.",
     "estimateAction": "Skaičiuoti krepšelį",
     "deliveryUnknown": "Pristatymas: tikrinti Wolt",
-    "moreFilters": "Daugiau filtrų"
+    "moreFilters": "Daugiau filtrų",
+    "refreshWaitingInQueue": "Šis miestas laukia skenavimo eilėje. Pasiūlymai pasirodys po skenavimo ir paskelbimo.",
+    "refreshDailyLimit": "Pasiektas dienos skenavimo limitas. Bandykite rytoj.",
+    "refreshStillRunning": "Skenavimas arba paskelbimas užtrunka ilgiau. Sugrįžkite vėliau; užklausa išsaugota.",
+    "refreshNoSnapshotYet": "Dar nėra naujų {city} duomenų. Skenavimas gali laukti eilėje."
   },
   "pl": {
     "brandSubtitle": "Niezależna wyszukiwarka promocji",
@@ -426,7 +438,11 @@ export const extended = {
     "estimateDisclaimer": "To szacunek. Warunki promocji i ostateczna cena w Wolt mogą się różnić.",
     "estimateAction": "Oblicz koszt",
     "deliveryUnknown": "Dostawa: sprawdź w Wolt",
-    "moreFilters": "Więcej filtrów"
+    "moreFilters": "Więcej filtrów",
+    "refreshWaitingInQueue": "To miasto czeka w kolejce do skanowania. Oferty pojawią się po skanowaniu i publikacji.",
+    "refreshDailyLimit": "Osiągnięto dzienny limit skanów. Spróbuj jutro.",
+    "refreshStillRunning": "Skanowanie lub publikacja trwają dłużej. Wróć później — zgłoszenie nie przepadło.",
+    "refreshNoSnapshotYet": "Brak jeszcze aktualnych danych dla {city}. Skanowanie może być w kolejce."
   },
   "cs": {
     "brandSubtitle": "Nezávislý přehled slev",
@@ -533,6 +549,10 @@ export const extended = {
     "estimateDisclaimer": "Jde o odhad. Podmínky a konečná cena ve Wolt se mohou lišit.",
     "estimateAction": "Vypočítat cenu",
     "deliveryUnknown": "Doručení: ověřte ve Wolt",
-    "moreFilters": "Další filtry"
+    "moreFilters": "Další filtry",
+    "refreshWaitingInQueue": "Město čeká ve frontě na skenování. Nabídky se zobrazí po dokončení a zveřejnění.",
+    "refreshDailyLimit": "Dosažen denní limit skenů. Zkuste to zítra.",
+    "refreshStillRunning": "Skenování nebo zveřejnění trvá déle. Vraťte se později; požadavek zůstává uložený.",
+    "refreshNoSnapshotYet": "Aktuální data pro {city} zatím nejsou k dispozici. Skenování může čekat ve frontě."
   }
 };

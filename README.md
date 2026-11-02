@@ -74,7 +74,7 @@ Offers are observed, not personalized. Check eligibility and the final delivery/
 3. Sort by **Best discount** to bring stronger offers to the top.
 4. Open the venue on Wolt when you find a deal you want.
 
-The city picker searches the full discovered catalog. The public GitHub Pages deployment uses committed snapshots. An optional Cloudflare coordinator requests a bounded asynchronous refresh when a city has no recent snapshot; availability can be delayed or rate-limited, and not every discovered city has recent deals. This avoids requiring a VPS or exposing an on-demand proxy to every site visitor.
+The city picker searches the full discovered catalog. The public GitHub Pages deployment uses committed snapshots. When you pick a city without a recent snapshot, a Cloudflare coordinator queues just that city for a GitHub Actions scan. Other cities are not scanned automatically. Queued scans run one at a time to avoid losing jobs; the result is published to GitHub Pages. The first load can take several minutes, with a daily abuse-protection budget. This avoids requiring a VPS or exposing an on-demand proxy to every site visitor.
 
 ## How deals are ranked
 

@@ -5,10 +5,20 @@ can pick any city from Wolt's catalog. If that city's snapshot is missing or
 older than four hours, the browser requests an asynchronous refresh and
 automatically shows the published snapshot after it becomes available.
 
-The Cloudflare Worker coordinates requests in D1. It validates city IDs,
-deduplicates refreshes for four hours and limits dispatches to 8 globally and 3
-per visitor each UTC day. GitHub Actions fetches Wolt data with the existing
-ScraperAPI fallback, commits the new city snapshot and publishes Pages.
+The Cloudflare Worker **queues the city selected by a visitor** in D1 and
+dispatches only one GitHub Actions scan at a time.
+A separate GitHub workflow_run.completed job starts the next city after
+the previous scan finishes; no new Cloudflare Cron Trigger is required. This
+prevents GitHub's single pending-workflow slot from cancelling requests
+when multiple people select different cities.
+
+The catalog lists 967 available cities, but it does not scan them all.
+New on-demand requests are capped at 36 cities globally and 8 per visitor
+per UTC day to bound costs and automated abuse. Repeat requests for the
+same city within four hours share the same job without using new quota.
+The browser waits up to 12 minutes and shows a clear queued status
+when publication takes longer. All requests use the existing GitHub
+Actions Wolt monitor with the same ScraperAPI fallback.
 
 Infrastructure:
 - Worker: `wolt-city-refresh` on Cloudflare
@@ -21,9 +31,12 @@ Infrastructure:
 `GITHUB_TOKEN` with a GitHub token authorized to dispatch Actions workflows in
 `Bl0ck154/wolt-discount-monitor`. Set it in Cloudflare Dashboard under
 Workers & Pages → wolt-city-refresh → Settings → Variables and Secrets.
-Keep credentials out of the repo, website, and chat.
+The queue-drain workflow posts a completed GitHub Actions run ID to
+POST /api/drain. The Worker verifies that run through GitHub, checks that it
+finished recently on main, then accepts the event only once using D1.
+No extra shared token or Cloudflare Cron Trigger is needed.
 
-Database schema:
+Database schema (plus the one-time additive migration in queue-migration.sql):
 
 ```sql
 CREATE TABLE city_jobs(city_id TEXT PRIMARY KEY,requested_at INTEGER NOT NULL,dispatch_status TEXT NOT NULL);
