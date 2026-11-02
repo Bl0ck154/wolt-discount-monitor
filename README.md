@@ -47,20 +47,20 @@ Wolt can have a lot of promotions at the same time, but finding the useful ones 
 <!-- AUTO_COVERAGE_START -->
 ### Latest snapshot coverage
 
-**24 cities with stored snapshots**, including **12 updated within 24 hours** as of 2026-11-02 13:42 UTC. The full catalog is much larger; catalog membership does not mean fresh deals are available.
+**24 cities with stored snapshots**, including **13 updated within 24 hours** as of 2026-11-02 17:07 UTC. The full catalog is much larger; catalog membership does not mean fresh deals are available.
 
 | City | Last scan (UTC) | Ranked deal venues |
 | --- | --- | ---: |
+| [Prague](https://bl0ck154.github.io/wolt-discount-monitor/?city=cze%2Fprague) | 2026-11-02 17:07 | 221 |
+| [Warsaw](https://bl0ck154.github.io/wolt-discount-monitor/?city=pol%2Fwarsaw) | 2026-11-02 17:07 | 271 |
+| [Berlin](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Fberlin) | 2026-11-02 17:07 | 444 |
+| [Nuremberg](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Fnuremberg) | 2026-11-02 17:07 | 113 |
+| [Vilnius](https://bl0ck154.github.io/wolt-discount-monitor/?city=ltu%2Fvilnius) | 2026-11-02 17:06 | 207 |
 | [Augsburg](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Faugsburg) | 2026-11-02 13:42 | 49 |
 | [Landshut](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Flandshut) | 2026-11-02 13:42 | 13 |
 | [Bayreuth](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Fbayreuth) | 2026-11-02 13:41 | 6 |
 | [Regensburg](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Fregensburg) | 2026-11-02 10:50 | 34 |
 | [Ingolstadt](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Fingolstadt) | 2026-11-02 10:48 | 27 |
-| [Fürth](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Ffurth) | 2026-11-02 10:20 | 47 |
-| [Erlangen](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Ferlangen) | 2026-11-02 10:15 | 36 |
-| [Almaty](https://bl0ck154.github.io/wolt-discount-monitor/?city=kaz%2Falmaty) | 2026-11-02 06:26 | 315 |
-| [Vilnius](https://bl0ck154.github.io/wolt-discount-monitor/?city=ltu%2Fvilnius) | 2026-11-02 06:26 | 197 |
-| [Warsaw](https://bl0ck154.github.io/wolt-discount-monitor/?city=pol%2Fwarsaw) | 2026-11-02 01:57 | 228 |
 
 Offers are observed, not personalized. Check eligibility and the final delivery/service fees in Wolt.
 <!-- AUTO_COVERAGE_END -->
