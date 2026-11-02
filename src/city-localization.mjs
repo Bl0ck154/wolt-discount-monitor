@@ -4,13 +4,13 @@ const COPY = {
     "title": "Wolt-Angebote in {city} | Rabatte und Aktionen",
     "description": "Vergleiche {count} bewertete Wolt-Angebote in {city}, {country}. Die Angebote stammen aus einem aktuellen Scan; Endpreis und Bedingungen bitte bei Wolt prüfen.",
     "h1": "Wolt-Angebote in {city}",
-    "intro": "Vergleiche öffentliche Wolt-Aktionen in {label}, ohne jedes Geschäft einzeln zu öffnen. Alle Preise, Bedingungen und Öffnungszeiten müssen vor der Bestellung bei Wolt geprüft werden.",
+    "intro": "Zuletzt erfasste Wolt-Angebote in {label}. Den Endpreis bitte bei Wolt prüfen.",
     "status": "Kürzlich geprüft · {time}",
     "home": "Startseite",
     "open": "Angebote vergleichen",
-    "rss": "Neue Angebote per RSS",
+    "rss": "Neue Aktionen per RSS",
     "openWolt": "{city} bei Wolt öffnen",
-    "ranked": "Bewertete Angebote",
+    "ranked": "Lokale mit Angeboten",
     "restaurants": "Restaurants",
     "snapshot": "Letzter Scan",
     "best": "Ausgewählte Angebote in {city}",
@@ -18,19 +18,25 @@ const COPY = {
     "other": "Weitere Wolt-Städte in {country}",
     "related": "Entdecke weitere Städte. Seiten mit frischen Angeboten sind entsprechend gekennzeichnet.",
     "fresh": "Aktuelle Angebote",
-    "catalog": "Katalogseite"
+    "catalog": "Katalogseite",
+    "scanned": "Geprüfte Lokale",
+    "viewWolt": "Bei Wolt ansehen",
+    "shortNote": "Die Aktionen stammen aus dem letzten Scan. Preis und Verfügbarkeit bitte bei Wolt prüfen.",
+    "updatedShort": "Stand",
+    "seeAll": "Alle Angebote ansehen",
+    "dealCount": "Aktuelle Angebote im Überblick"
   },
   "lt": {
     "title": "Wolt pasiūlymai mieste {city} | Nuolaidos ir akcijos",
     "description": "Palyginkite {count} įvertintų Wolt pasiūlymų mieste {city}, {country}. Duomenys iš naujausio patikrinimo; galutinę kainą ir sąlygas tikrinkite Wolt.",
     "h1": "Wolt pasiūlymai mieste {city}",
-    "intro": "Palyginkite viešas Wolt akcijas mieste {label}, neatsidarydami kiekvienos parduotuvės. Prieš užsakydami patikrinkite kainą, sąlygas ir darbo laiką Wolt.",
+    "intro": "Neseniai rasti Wolt pasiūlymai mieste {label}. Galutinę kainą tikrinkite Wolt.",
     "status": "Neseniai patikrinta · {time}",
     "home": "Pradžia",
     "open": "Palyginti pasiūlymus",
-    "rss": "Nauji pasiūlymai per RSS",
+    "rss": "Naujų akcijų RSS",
     "openWolt": "Atidaryti {city} Wolt",
-    "ranked": "Įvertinti pasiūlymai",
+    "ranked": "Vietos su pasiūlymais",
     "restaurants": "Restoranai",
     "snapshot": "Patikrinimo laikas",
     "best": "Atrinkti pasiūlymai mieste {city}",
@@ -38,19 +44,25 @@ const COPY = {
     "other": "Kiti Wolt miestai šalyje {country}",
     "related": "Peržiūrėkite kitus miestus. Nauji pasiūlymai pažymimi atskirai.",
     "fresh": "Nauji pasiūlymai",
-    "catalog": "Miestų katalogas"
+    "catalog": "Miestų katalogas",
+    "scanned": "Patikrintos vietos",
+    "viewWolt": "Peržiūrėti Wolt",
+    "shortNote": "Pasiūlymai gauti paskutinio tikrinimo metu. Kainą ir tinkamumą patikrinkite Wolt.",
+    "updatedShort": "Patikrinta",
+    "seeAll": "Visi pasiūlymai",
+    "dealCount": "Naujausi pasiūlymai"
   },
   "pl": {
     "title": "Promocje Wolt w {city} | Rabaty i oferty",
     "description": "Porównaj {count} ocenionych promocji Wolt w {city}, {country}. Dane pochodzą z ostatniego skanu; ostateczną cenę i warunki sprawdź w Wolt.",
     "h1": "Promocje Wolt w {city}",
-    "intro": "Porównuj publiczne promocje Wolt w {label} bez sprawdzania każdego lokalu osobno. Przed zamówieniem potwierdź cenę, warunki i godziny w Wolt.",
+    "intro": "Ostatnio znalezione promocje Wolt w {label}. Sprawdź cenę końcową w Wolt.",
     "status": "Niedawno sprawdzone · {time}",
     "home": "Strona główna",
     "open": "Porównaj promocje",
-    "rss": "Nowe oferty przez RSS",
+    "rss": "Nowe promocje RSS",
     "openWolt": "Otwórz {city} w Wolt",
-    "ranked": "Ocenione oferty",
+    "ranked": "Lokale z ofertami",
     "restaurants": "Restauracje",
     "snapshot": "Ostatni skan",
     "best": "Wybrane promocje Wolt w {city}",
@@ -58,19 +70,25 @@ const COPY = {
     "other": "Inne miasta Wolt w {country}",
     "related": "Przeglądaj inne miasta. Strony z aktualnymi ofertami są oznaczone osobno.",
     "fresh": "Aktualne oferty",
-    "catalog": "Katalog miast"
+    "catalog": "Katalog miast",
+    "scanned": "Sprawdzone lokale",
+    "viewWolt": "Zobacz w Wolt",
+    "shortNote": "Promocje pochodzą z ostatniego skanu. Cenę i warunki sprawdź w Wolt.",
+    "updatedShort": "Aktualizacja",
+    "seeAll": "Zobacz wszystkie oferty",
+    "dealCount": "Wybrane promocje"
   },
   "cs": {
     "title": "Akce Wolt v {city} | Slevy a nabídky",
     "description": "Porovnejte {count} hodnocených nabídek Wolt ve městě {city}, {country}. Údaje pocházejí z nedávné kontroly; cenu a podmínky ověřte na Wolt.",
     "h1": "Nabídky Wolt v {city}",
-    "intro": "Porovnejte veřejné akce Wolt ve městě {label}, aniž byste procházeli každý podnik. Před objednáním ověřte cenu, podmínky a otevírací dobu na Wolt.",
+    "intro": "Nedávno nalezené nabídky Wolt ve městě {label}. Konečnou cenu ověřte ve Wolt.",
     "status": "Nedávno zkontrolováno · {time}",
     "home": "Úvod",
     "open": "Porovnat nabídky",
-    "rss": "Nové nabídky přes RSS",
+    "rss": "Nové akce přes RSS",
     "openWolt": "Otevřít {city} na Wolt",
-    "ranked": "Hodnocené nabídky",
+    "ranked": "Podniky s nabídkami",
     "restaurants": "Restaurace",
     "snapshot": "Poslední kontrola",
     "best": "Vybrané nabídky Wolt v {city}",
@@ -78,12 +96,79 @@ const COPY = {
     "other": "Další města Wolt v {country}",
     "related": "Prohlédněte si další města. Stránky s aktuálními nabídkami jsou označeny zvlášť.",
     "fresh": "Aktuální nabídky",
-    "catalog": "Katalog měst"
+    "catalog": "Katalog měst",
+    "scanned": "Prověřené podniky",
+    "viewWolt": "Zobrazit ve Wolt",
+    "shortNote": "Akce pocházejí z poslední kontroly. Cenu a podmínky ověřte ve Wolt.",
+    "updatedShort": "Kontrola",
+    "seeAll": "Zobrazit všechny nabídky",
+    "dealCount": "Vybrané nabídky"
+  },
+  "en": {
+    "title": "Wolt Discounts in {city} | Recent Deals & Promotions",
+    "description": "Compare {count} Wolt venues with ranked offers in {city}, {country}. Check actual eligibility and final prices in Wolt.",
+    "h1": "Wolt discounts in {city}",
+    "intro": "Recently found Wolt offers in {label}. Check the final price in Wolt.",
+    "status": "Last checked · {time}",
+    "home": "Home",
+    "open": "Compare offers",
+    "rss": "New deals via RSS",
+    "openWolt": "Open {city} in Wolt",
+    "ranked": "Venues with deals",
+    "scanned": "Venues scanned",
+    "restaurants": "Restaurants",
+    "snapshot": "Last scan",
+    "best": "Best recent offers in {city}",
+    "hint": "Recently observed deals, ranked by estimated value.",
+    "other": "Other Wolt cities in {country}",
+    "related": "Browse other city pages.",
+    "fresh": "Recent offers",
+    "catalog": "City directory",
+    "viewWolt": "View in Wolt",
+    "shortNote": "Offer eligibility, venue hours and final checkout price must be confirmed in Wolt.",
+    "updatedShort": "Checked",
+    "seeAll": "View all offers",
+    "dealCount": "Featured deals"
   }
 };
 const COUNTRY_LANGUAGES = { DE: "de", LT: "lt", PL: "pl", CZ: "cs" };
 export function localLanguageForCity(city) {
   return COUNTRY_LANGUAGES[String(city?.countryCode2 ?? "").toUpperCase()] ?? "en";
+}
+const COUNTRIES = {
+  DE: { de: "Deutschland" },
+  LT: { lt: "Lietuva" },
+  PL: { pl: "Polska" },
+  CZ: { cs: "Česko" },
+};
+const NATIVE_LOCALES = { de: "de-DE", lt: "lt-LT", pl: "pl-PL", cs: "cs-CZ" };
+const TIME_ZONES = { de: "Europe/Berlin", lt: "Europe/Vilnius", pl: "Europe/Warsaw", cs: "Europe/Prague" };
+export function localizedCountryName(city, language) {
+  return COUNTRIES[String(city?.countryCode2 ?? "").toUpperCase()]?.[language] ?? city?.country ?? "";
+}
+export function localizedSnapshotTime(value, language) {
+  const date = new Date(value);
+  if (!Number.isFinite(date.getTime())) return "—";
+  const formatted = new Intl.DateTimeFormat(NATIVE_LOCALES[language] ?? "en-GB", {
+    day: "numeric", month: "short", hour: "2-digit", minute: "2-digit",
+    timeZone: TIME_ZONES[language] ?? "UTC"
+  }).format(date);
+  return language === "en" ? formatted + " UTC" : formatted;
+}
+export function localizedValueLabel(venue, language) {
+  const offer = venue?.seoBestOffer ?? {};
+  const value = Number(offer.amount);
+  const locale = NATIVE_LOCALES[language] ?? "en-GB";
+  if (Number.isFinite(value) && value >= 0 && value <= 1e6) {
+    if (offer.amountType === "percent") return new Intl.NumberFormat(locale,{ maximumFractionDigits: 1 }).format(value) + " %";
+    if (offer.amountType === "money") {
+      const currency = String(offer.currencyCode ?? venue.currency ?? "EUR").toUpperCase();
+      if (/^[A-Z]{3}$/.test(currency)) {
+        try { return new Intl.NumberFormat(locale, { style: "currency", currency, maximumFractionDigits: 2 }).format(value); } catch {}
+      }
+    }
+  }
+  return offer.amountLabel || "";
 }
 export function cityCopy(lang, key, values = {}) {
   const template = COPY[lang]?.[key] ?? "";
