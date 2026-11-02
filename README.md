@@ -29,15 +29,41 @@ Wolt can have a lot of promotions at the same time, but finding the useful ones 
 ### What you can do
 
 - 🌍 Search a discovered catalog of **967 Wolt cities across 30 countries**.
-- 🔥 See current venue promotions in one place.
+- 🔥 See recently observed venue promotions and the last scan time.
 - 📊 Sort deals by an estimated **0–100 value score**.
 - 🔎 Search by venue, promotion, address, or category.
 - 🧹 Hide likely account-restricted/new-customer campaigns, repeated citywide offers, and ordinary delivery offers.
-- 🟢 Hide venues marked closed or offline in the latest snapshot and venues without visible deals.
+- 🟢 Optionally hide venues marked closed at the last scan; this is not a live status.
 - 🍕 Distinguish broad basket discounts from selected-item promotions.
-- 🕒 Check opening status and put open venues first.
+- 🕒 Put venues marked open at the last scan first, with a reminder to confirm in Wolt.
 - 📍 Open a venue on Wolt or view its location on the map.
 - 🔗 Share the current city directly from the URL.
+- ⭐ Save venues locally in this browser, without an account.
+- 🌐 Browse in English, German, Lithuanian, Polish, or Czech.
+- 📰 Subscribe to city RSS updates; feeds only include newly observed deals.
+- 🧾 Estimate a checkout total using delivery/service fees shown by Wolt.
+- 🗣️ Report incorrect offers through optional, prefilled GitHub Issues.
+
+<!-- AUTO_COVERAGE_START -->
+### Latest snapshot coverage
+
+**17 cities with stored snapshots**, including **7 updated within 24 hours** as of 2026-11-02 06:26 UTC. The full catalog is much larger; catalog membership does not mean fresh deals are available.
+
+| City | Last scan (UTC) | Ranked deal venues |
+| --- | --- | ---: |
+| [Almaty](https://bl0ck154.github.io/wolt-discount-monitor/?city=kaz%2Falmaty) | 2026-11-02 06:26 | 315 |
+| [Vilnius](https://bl0ck154.github.io/wolt-discount-monitor/?city=ltu%2Fvilnius) | 2026-11-02 06:26 | 197 |
+| [Warsaw](https://bl0ck154.github.io/wolt-discount-monitor/?city=pol%2Fwarsaw) | 2026-11-02 01:57 | 228 |
+| [Berlin](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Fberlin) | 2026-11-02 01:56 | 404 |
+| [Nuremberg](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Fnuremberg) | 2026-11-02 00:43 | 107 |
+| [Prague](https://bl0ck154.github.io/wolt-discount-monitor/?city=cze%2Fprague) | 2026-11-01 12:59 | 228 |
+| [Pardubice](https://bl0ck154.github.io/wolt-discount-monitor/?city=cze%2Fpardubice) | 2026-11-01 11:43 | 11 |
+| [Košice](https://bl0ck154.github.io/wolt-discount-monitor/?city=svk%2Fkosice) | 2026-10-30 22:48 | 55 |
+| [Belgrade](https://bl0ck154.github.io/wolt-discount-monitor/?city=srb%2Fbelgrade) | 2026-10-30 16:28 | 246 |
+| [Brno](https://bl0ck154.github.io/wolt-discount-monitor/?city=cze%2Fbrno) | 2026-10-30 09:07 | 98 |
+
+Offers are observed, not personalized. Check eligibility and the final delivery/service fees in Wolt.
+<!-- AUTO_COVERAGE_END -->
 
 ## Use the dashboard
 
@@ -124,7 +150,7 @@ Platform: Web
 
 ## Run locally
 
-**Requirements:** Node.js 20 or newer. The project currently has no runtime npm dependencies; it uses Node's built-in `fetch` and test runner.
+**Requirements:** Node.js 20 or newer. The monitor uses Node.js built-ins and `undici` for proxy-enabled requests; see `package.json`.
 
 ```bash
 git clone https://github.com/Bl0ck154/wolt-discount-monitor.git
@@ -226,12 +252,18 @@ The updater runs automatically five times daily on GitHub-hosted runners, indepe
 
 ## Privacy and security
 
-Anonymous, aggregate website traffic metrics are collected with Cloudflare Web Analytics. Saved venues remain in browser localStorage. The site needs no account.
+Anonymous, aggregate website traffic metrics are collected with Cloudflare Web Analytics. Saved venues remain in browser localStorage. The site needs no account; checkout estimates remain in your browser.
 
 
 Secret values, Telegram chat IDs, private server addresses, private filesystem paths, and credentials must stay outside Git. The committed `docs/config.js` contains no backend address, and production Telegram credentials are referenced only through environment variables / GitHub Actions secrets.
 
 For vulnerability reporting and the public/private deployment boundary, see [`SECURITY.md`](SECURITY.md).
+
+## Keeping this README fresh
+
+The coverage table is generated from committed city snapshots. The scheduled monitoring workflow calls syncCatalogStats() after collecting data and commits README counts with snapshots. Regenerate using npm run readme:sync; npm run readme:check detects outdated generated text against the same timestamp.
+
+Edit descriptions and features normally. Do not manually change the text between AUTO_COVERAGE markers. The generator cannot know account-specific eligibility or address-dependent delivery fees.
 
 ## Contributing
 

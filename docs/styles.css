@@ -1182,3 +1182,31 @@ tbody > tr:not(.group-details-row):hover > td { background: #fbfcfc; }
   .deal-first-image { width: 44px; height: 44px; }
   .landing-page .deal-first-value { grid-column: 2; grid-row: 2; justify-self: start; margin-top: -2px; }
 }
+
+/* Mobile-first deal comparison, including an opt-in checkout estimator. */
+.checkout-estimator[hidden] { display: none !important; }
+.checkout-estimator {
+  margin: 0 0 20px;
+  padding: 22px;
+  background: linear-gradient(140deg, #f5fcfa, #fff 75%);
+  border: 1px solid #a8d5cb;
+  border-radius: 16px;
+  box-shadow: 0 8px 28px rgba(7, 88, 79, .06);
+  scroll-margin-top: 20px;
+}
+.checkout-estimator-heading { display: flex; gap: 16px; justify-content: space-between; align-items: start; }
+.checkout-estimator h3 { margin: 0 0 4px; color: #183b3b; font-size: 20px; }
+.checkout-estimator p { margin: 0 0 14px; color: #587075; font-size: 12px; line-height: 1.5; }
+.checkout-fields { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; }
+.checkout-fields label { display: grid; flex: 1 1 130px; gap: 6px; color: #34575d; font-weight: 650; font-size: 12px; }
+.checkout-fields input { width: 100%; min-width: 0; min-height: 44px; padding: 8px 11px; border: 1px solid #bad5d0; border-radius: 9px; font-size: 15px; background: white; }
+.checkout-fields input:focus-visible { outline: 2px solid #087f7f; outline-offset: 1px; }
+.checkout-calculate { min-height: 44px; padding: 9px 16px; border-radius: 9px; border: 0; background: #046e70; color: white; font-weight: 750; cursor: pointer; }
+.checkout-close { min-height: 40px; padding: 8px 12px; border: 1px solid #cedddb; border-radius: 8px; background: white; cursor: pointer; }
+.checkout-result { margin-top: 14px; color: #065b53; font-size: 15px; font-weight: 700; }
+.checkout-estimator .checkout-caveat { margin: 12px 0 0; color: #607479; font-size: 11px; }
+.estimate-venue-button { display: inline-flex; align-items: center; min-height: 34px; margin: 6px 6px 0 0; padding: 5px 9px; border: 1px solid #9dc6bd; border-radius: 8px; background: #f1faf6; color: #00655d; font-size: 11px; font-weight: 720; cursor: pointer; }
+.estimate-venue-button:hover, .estimate-venue-button:focus-visible { border-color: #3b9b91; background: #e3f5ed; }
+.delivery-notice { display: inline-block; margin-top: 6px; font-size: 10px; color: #667b7f; }
+
+.mobile-filter-toggle { display: none; }
