@@ -1,6 +1,20 @@
 # Changelog
 
-## 0.2.1 — 2026-11-02\n\n- Count deliberate outbound clicks to Wolt by city and day in Cloudflare D1, without storing personal or basket information.\n\n## 0.2.0 — 2026-11-02
+## 0.3.0 — 2026-11-02
+
+- Scan up to three selected cities concurrently inside one GitHub Actions run,
+  sharing one index update, commit and Pages deployment.
+- Dispatch up to three queued cities via a transactional Cloudflare D1 update.
+- Skip the redundant full test suite on user-triggered data-only scans; keep
+  tests on PRs and scheduled monitoring.
+- Keep successful city results when another member of the batch fails.
+- Updated architecture diagram, deployment guide and regression tests.
+
+## 0.2.1 — 2026-11-02
+
+- Count deliberate outbound clicks to Wolt by city and day in Cloudflare D1, without storing personal or basket information.
+
+## 0.2.0 — 2026-11-02
 
 This release focuses on making the deal finder easier to use and keeping its documentation honest.
 

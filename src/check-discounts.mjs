@@ -9,6 +9,7 @@ import { formatTelegramMessage, sendTelegramMessage } from "./telegram.mjs";
 import { offerScore, sortOffersByValue } from "./offer-value.mjs";
 import { buildSeoSite } from "./build-seo-site.mjs";
 import { syncCatalogStats } from "./sync-catalog-stats.mjs";
+import { runCityScans } from "./parallel-city-scans.mjs";
 import {
   compactChangeLog,
   compactChangesDocument,
@@ -23,14 +24,25 @@ async function main() {
   const catalog = await loadOrFetchCityCatalog();
   const cities = catalog.cities ?? [];
   const selectedCityIds = cityIdsToCheck(cities);
-  const results = [];
-
-  for (const cityId of selectedCityIds) {
+  const selectedCities = selectedCityIds.map((cityId) => {
     const city = findCity(cities, cityId);
     if (!city) {
-      throw new Error(`Unknown city "${cityId}". Use country/slug like "ltu/vilnius" or a city key like "ltu-vilnius".`);
+      throw new Error('Unknown city "' + cityId + '". Use country/slug like "ltu/vilnius" or a city key like "ltu-vilnius".');
     }
-    results.push(await checkCity(city));
+    return city;
+  });
+  // City files are independent; shared index and SEO write only after all settle.
+  const requestedParallelism = Number(process.env.WOLT_SCAN_CONCURRENCY || 1);
+  const concurrency = Number.isInteger(requestedParallelism)
+    ? Math.max(1, Math.min(3, requestedParallelism)) : 1;
+  const { results, failures } = await runCityScans(
+    selectedCities, checkCity, { concurrency },
+  );
+  for (const failure of failures) {
+    console.error("City scan failed (" + failure.cityId.id + "): " + failure.error.message);
+  }
+  if (!results.length && failures.length) {
+    throw new AggregateError(failures.map((f) => f.error), "All requested city scans failed");
   }
 
   await writeCatalog(catalog);
@@ -38,7 +50,12 @@ async function main() {
   await syncCatalogStats();
   const seo = await buildSeoSite();
 
-  console.log(JSON.stringify({ checkedAt: new Date().toISOString(), cacheTtlMs: CACHE_TTL_MS, cities: results, seo }, null, 2));
+  console.log(JSON.stringify({
+    checkedAt: new Date().toISOString(), cacheTtlMs: CACHE_TTL_MS,
+    concurrency, cities: results,
+    failures: failures.map((f) => ({ cityId: f.cityId.id, message: f.error.message })),
+    seo,
+  }, null, 2));
 }
 
 async function checkCity(city) {
