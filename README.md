@@ -47,10 +47,11 @@ Wolt can have a lot of promotions at the same time, but finding the useful ones 
 <!-- AUTO_COVERAGE_START -->
 ### Latest snapshot coverage
 
-**21 cities with stored snapshots**, including **11 updated within 24 hours** as of 2026-11-02 10:50 UTC. The full catalog is much larger; catalog membership does not mean fresh deals are available.
+**22 cities with stored snapshots**, including **10 updated within 24 hours** as of 2026-11-02 13:41 UTC. The full catalog is much larger; catalog membership does not mean fresh deals are available.
 
 | City | Last scan (UTC) | Ranked deal venues |
 | --- | --- | ---: |
+| [Bayreuth](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Fbayreuth) | 2026-11-02 13:41 | 6 |
 | [Regensburg](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Fregensburg) | 2026-11-02 10:50 | 34 |
 | [Ingolstadt](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Fingolstadt) | 2026-11-02 10:48 | 27 |
 | [Fürth](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Ffurth) | 2026-11-02 10:20 | 47 |
@@ -60,7 +61,6 @@ Wolt can have a lot of promotions at the same time, but finding the useful ones 
 | [Warsaw](https://bl0ck154.github.io/wolt-discount-monitor/?city=pol%2Fwarsaw) | 2026-11-02 01:57 | 228 |
 | [Berlin](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Fberlin) | 2026-11-02 01:56 | 404 |
 | [Nuremberg](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Fnuremberg) | 2026-11-02 00:43 | 107 |
-| [Prague](https://bl0ck154.github.io/wolt-discount-monitor/?city=cze%2Fprague) | 2026-11-01 12:59 | 228 |
 
 Offers are observed, not personalized. Check eligibility and the final delivery/service fees in Wolt.
 <!-- AUTO_COVERAGE_END -->
