@@ -8,7 +8,7 @@ const en = {
   type: "Type", sort: "Sort", allTypes: "All types"
 };
 const dictionary = {
-  en,
+  en: { ...en, rankedVenues: "Ranked deal venues", scannedVenues: "Scanned venues" },
   de: {
     deals: "Angebote zum Entdecken", hero: "Wähle deine Stadt und vergleiche Restaurant- und Lebensmittelangebote. Prüfe den Endpreis bei Wolt.",
     hideNew: "Neukunden- und wiederholte Aktionen ausblenden", hideDelivery: "Lieferrabatte ausblenden",
