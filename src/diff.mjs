@@ -1,6 +1,7 @@
 import { NOTIFY_RULES } from "./config.mjs";
 import { isNotificationWorthy, normalizeOfferText, sortOffersByValue } from "./offer-value.mjs";
 import { isLikelyAcquisitionOffer as isLikelyAcquisitionBanner } from "../docs/offer-filters.mjs";
+import { ubiquitousOfferIndex, offerTextKey, isDeliveryOffer } from "../docs/deal-visibility.mjs";
 
 export function diffSnapshots(previous, current) {
   const previousOffers = offerIndex(previous);
