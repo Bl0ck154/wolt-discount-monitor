@@ -8,8 +8,8 @@ const en = {
   type: "Type", sort: "Sort", allTypes: "All types"
 };
 const dictionary = {
-  en,
-  de: {
+  en: { ...en, rankedVenues: "Ranked deal venues", scannedVenues: "Scanned venues" },
+  de: { rankedVenues: "Bewertete Angebote", scannedVenues: "Geprüfte Geschäfte",
     deals: "Angebote zum Entdecken", hero: "Wähle deine Stadt und vergleiche Restaurant- und Lebensmittelangebote. Prüfe den Endpreis bei Wolt.",
     hideNew: "Neukunden- und wiederholte Aktionen ausblenden", hideDelivery: "Lieferrabatte ausblenden",
     hideClosed: "Bei der Prüfung geschlossene Geschäfte ausblenden", onlyOffers: "Nur mit Angeboten",
@@ -17,7 +17,7 @@ const dictionary = {
     open: "Bei letzter Prüfung geöffnet", closed: "Bei letzter Prüfung geschlossen",
     unknown: "Status nicht bestätigt", type: "Kategorie", sort: "Sortieren", allTypes: "Alle Kategorien"
   },
-  lt: {
+  lt: { rankedVenues: "Įvertinti pasiūlymai", scannedVenues: "Patikrintos vietos",
     deals: "Verta patikrinti", hero: "Pasirinkite miestą ir palyginkite restoranų bei parduotuvių pasiūlymus. Galutinę kainą patikrinkite Wolt.",
     hideNew: "Slėpti naujų klientų ir pasikartojančias akcijas", hideDelivery: "Slėpti pristatymo nuolaidas",
     hideClosed: "Slėpti paskutinio tikrinimo metu uždarytas vietas", onlyOffers: "Tik su pasiūlymais",
@@ -25,7 +25,7 @@ const dictionary = {
     open: "Veikė paskutinio tikrinimo metu", closed: "Neveikė paskutinio tikrinimo metu",
     unknown: "Būsena nepatvirtinta", type: "Kategorija", sort: "Rikiuoti", allTypes: "Visos kategorijos"
   },
-  pl: {
+  pl: { rankedVenues: "Ocenione oferty", scannedVenues: "Sprawdzone lokale",
     deals: "Oferty warte sprawdzenia", hero: "Wybierz miasto i porównaj promocje restauracji i sklepów. Sprawdź cenę końcową w Wolt.",
     hideNew: "Ukryj promocje dla nowych klientów i powtarzające się", hideDelivery: "Ukryj rabaty na dostawę",
     hideClosed: "Ukryj lokale zamknięte przy ostatnim sprawdzeniu", onlyOffers: "Tylko z ofertami",
@@ -33,7 +33,7 @@ const dictionary = {
     open: "Otwarte przy ostatnim sprawdzeniu", closed: "Zamknięte przy ostatnim sprawdzeniu",
     unknown: "Status niepotwierdzony", type: "Rodzaj", sort: "Sortuj", allTypes: "Wszystkie rodzaje"
   },
-  cs: {
+  cs: { rankedVenues: "Hodnocené nabídky", scannedVenues: "Prověřené podniky",
     deals: "Nabídky, které stojí za kontrolu", hero: "Vyberte město a porovnejte nabídky restaurací a obchodů. Konečnou cenu ověřte na Wolt.",
     hideNew: "Skrýt akce pro nové zákazníky a opakované akce", hideDelivery: "Skrýt slevy na doručení",
     hideClosed: "Skrýt podniky zavřené při poslední kontrole", onlyOffers: "Jen s nabídkami",
@@ -47,5 +47,5 @@ export function normalizeLanguage(value) {
  return Object.hasOwn(dictionary, language) ? language : "en";
 }
 export function translate(language, key) {
- return dictionary[normalizeLanguage(language)][key] ?? en[key] ?? key;
+ return dictionary[normalizeLanguage(language)][key] ?? dictionary.en[key] ?? en[key] ?? key;
 }

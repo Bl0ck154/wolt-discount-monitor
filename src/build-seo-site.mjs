@@ -2,7 +2,7 @@ import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { extractDiscount, offerScore } from "./offer-value.mjs";
-import { isExplicitlyClosed, isLikelyAcquisitionOffer } from "../docs/offer-filters.mjs";
+import { ubiquitousOfferIndex, visibleVenueOffers, visibleVenueCount } from "../docs/deal-visibility.mjs";
 
 export const DEFAULT_SITE_BASE = "https://bl0ck154.github.io/wolt-discount-monitor/";
 export const DEFAULT_SEO_FRESH_HOURS = 48;
@@ -91,7 +91,8 @@ export function cityPageHtml({ city, snapshot, indexable, countryRecords = [], s
   const dashboardUrl = `${siteBase}?city=${encodeURIComponent(city.id)}`;
   const countryUrl = `${siteBase}countries/${countryCode(city)}/`;
   const label = city.label || `${city.name}, ${city.country}`;
-  const promoCount = snapshot?.counts?.promotionsUniqueVenues ?? null;
+  const metrics = snapshot ? visibleVenueCount(snapshot.venues, offerScore) : null;
+  const promoCount = metrics?.ranked ?? null;
   const restaurantCount = snapshot?.counts?.restaurantsUniqueVenues ?? null;
   const updated = snapshot?.generatedAt ? formatDateTime(snapshot.generatedAt) : "Not cached yet";
   const status = indexable
@@ -101,7 +102,7 @@ export function cityPageHtml({ city, snapshot, indexable, countryRecords = [], s
       : "No stored snapshot yet";
   const title = `Wolt Discounts in ${city.name} | Recent Deals & Promotions`;
   const description = indexable
-    ? `Compare up to ${formatNumber(promoCount)} venues with observed Wolt promotions in ${city.name}, ${city.country}. See restaurant and grocery deals ranked by estimated value.`
+    ? `Compare ${formatNumber(promoCount)} ranked Wolt deal venues in ${city.name}, ${city.country}. See restaurant and grocery deals ranked by estimated value.`
     : `Wolt deal tracking page for ${city.name}, ${city.country}. Open the interactive monitor or check back when a fresh city snapshot is available.`;
   const topDeals = indexable ? topDealVenues(snapshot, 12) : [];
   const peerLinks = countryRecords
@@ -157,7 +158,7 @@ export function cityPageHtml({ city, snapshot, indexable, countryRecords = [], s
           <div class="landing-actions"><a class="primary-link" href="${dashboardUrl}">Open interactive dashboard</a>${city.url ? `<a class="secondary-link" href="${escapeHtml(city.url)}" target="_blank" rel="noreferrer">Open Wolt ${escapeHtml(city.name)} ↗</a>` : ""}</div>
         </section>
         <section class="landing-stats shell" aria-label="City deal summary">
-          <div class="landing-stat"><span>Promoted venues</span><strong>${formatNumber(promoCount)}</strong></div>
+          <div class="landing-stat"><span>Ranked deal venues</span><strong>${formatNumber(promoCount)}</strong></div>
           <div class="landing-stat"><span>Restaurants</span><strong>${formatNumber(restaurantCount)}</strong></div>
           <div class="landing-stat"><span>Snapshot</span><strong>${escapeHtml(updated)}</strong></div>
         </section>
@@ -341,26 +342,26 @@ async function updateHomepageLiveCities(path, liveRecords) {
   const end = html.indexOf(LIVE_END);
   if (start < 0 || end < 0 || end <= start) throw new Error("Homepage live-city markers are missing");
   const cards = liveRecords
-    .sort((a, b) => (b.snapshot?.counts?.promotionsUniqueVenues ?? 0) - (a.snapshot?.counts?.promotionsUniqueVenues ?? 0) || a.city.name.localeCompare(b.city.name, "en"))
+    .sort((a, b) => visibleVenueCount(b.snapshot?.venues, offerScore).ranked - visibleVenueCount(a.snapshot?.venues, offerScore).ranked || a.city.name.localeCompare(b.city.name, "en"))
     .slice(0, 24)
-    .map((record) => `          <a class="city-link-card" href="${cityRelativeUrl(record.city)}"><span>${escapeHtml(record.city.label || `${record.city.name}, ${record.city.country}`)}</span><strong>${formatNumber(record.snapshot?.counts?.promotionsUniqueVenues)} promoted venues · View deals →</strong></a>`)
+    .map((record) => `          <a class="city-link-card" href="${cityRelativeUrl(record.city)}"><span>${escapeHtml(record.city.label || `${record.city.name}, ${record.city.country}`)}</span><strong>${formatNumber(visibleVenueCount(record.snapshot?.venues, offerScore).ranked)} ranked deal venues · View deals →</strong></a>`)
     .join("\n");
   const block = `${LIVE_START}\n        <div class="city-link-grid">\n${cards || "          <div class=\"stale-note\">No city currently has a fresh SEO snapshot.</div>"}\n        </div>\n        ${LIVE_END}`;
   html = html.slice(0, start) + block + html.slice(end + LIVE_END.length);
   await writeText(path, html);
 }
 
-function topDealVenues(snapshot, limit) {
-  return (snapshot?.venues ?? [])
+export function topDealVenues(snapshot, limit) {
+  const venues = snapshot?.venues ?? [];
+  const ubiquitousKeys = ubiquitousOfferIndex(venues).keys;
+  return venues
     .flatMap((venue) => {
       if (!venue?.name) return [];
-      const eligible = (venue.offers ?? [])
-        .filter((offer) => offer?.text && !offer.isUtilityBadge && !isLikelyAcquisitionOffer(offer.text))
-        .filter((offer) => !offer?.value?.isDelivery && !/delivery/iu.test(offer.text))
+      const candidates = visibleVenueOffers(venue, { ubiquitousKeys })
+        .filter((offer) => offerScore(offer) > 0)
         .sort((a, b) => offerScore(b) - offerScore(a));
-      const best = eligible[0];
-      const score = best ? offerScore(best) : 0;
-      return score > 0 ? [{ ...venue, seoBestOffer: best, seoBestScore: score }] : [];
+      const best = candidates[0];
+      return best ? [{ ...venue, seoBestOffer: best, seoBestScore: offerScore(best) }] : [];
     })
     .sort((a, b) => b.seoBestScore - a.seoBestScore || a.name.localeCompare(b.name, "en"))
     .slice(0, limit);

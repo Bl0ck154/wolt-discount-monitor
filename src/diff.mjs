@@ -1,6 +1,7 @@
 import { NOTIFY_RULES } from "./config.mjs";
 import { isNotificationWorthy, normalizeOfferText, sortOffersByValue } from "./offer-value.mjs";
 import { isLikelyAcquisitionOffer as isLikelyAcquisitionBanner } from "../docs/offer-filters.mjs";
+import { ubiquitousOfferIndex, offerTextKey, isDeliveryOffer } from "../docs/deal-visibility.mjs";
 
 export function diffSnapshots(previous, current) {
   const previousOffers = offerIndex(previous);
@@ -20,14 +21,16 @@ export function diffSnapshots(previous, current) {
     }
   }
 
+  const repeatedCurrent = ubiquitousOfferIndex(current?.venues).keys;
+  const repeatedPrevious = ubiquitousOfferIndex(previous?.venues).keys;
   return {
     generatedAt: current.generatedAt,
     previousGeneratedAt: previous?.generatedAt ?? null,
     counts: current.counts,
     appeared,
     disappeared,
-    interestingAppeared: sortOffersByValue(appeared.filter(isInterestingOffer)),
-    interestingDisappeared: sortOffersByValue(disappeared.filter(isInterestingOffer)),
+    interestingAppeared: sortOffersByValue(appeared.filter((offer) => isInterestingOffer(offer) && !repeatedCurrent.has(offerTextKey(offer.text)) && !isDeliveryOffer(offer))),
+    interestingDisappeared: sortOffersByValue(disappeared.filter((offer) => isInterestingOffer(offer) && !repeatedPrevious.has(offerTextKey(offer.text)) && !isDeliveryOffer(offer))),
   };
 }
 
