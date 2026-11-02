@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { localLanguageForCity, localizedCityUrl, cityCopy } from "../src/city-localization.mjs";
+import { localLanguageForCity, localizedCityUrl, cityCopy, localizedCountryName, localizedSnapshotTime, localizedValueLabel } from "../src/city-localization.mjs";
 import { cityPageHtml, localizedCityPageHtml, sitemapXml } from "../src/build-seo-site.mjs";
 
 const siteBase = "https://bl0ck154.github.io/wolt-discount-monitor/";
@@ -42,4 +42,45 @@ test("sitemap includes localized city URLs only for recent indexable records", (
  assert.match(xml, /wolt-discount-monitor\/de\/cities\/deu\/berlin\//);
  const stale=sitemapXml({siteBase,liveRecords:[]});
  assert.doesNotMatch(stale, /\/de\/cities\/deu\/berlin\//);
+});
+
+
+test("mobile city page shows deal cards before oversized statistics and uses native money formats", () => {
+ const cityData = { ...city, country:"Germany" };
+ const oneOffer = { text: "Get €5.90 off", amount: 5.9, amountType: "money", currencyCode:"EUR", value:{ score:80 } };
+ const example = {
+  name:"Schnitzery Kreuzberg", address:"Reichenberger Straße 176",
+  currency:"EUR", link:"https://wolt.com/en/deu/berlin/venue/example",
+  imageUrl:"https://imageproxy.wolt.com/assets/123", seoBestOffer: oneOffer
+ };
+ assert.match(localizedValueLabel(example, "de"), /5,90\s*€/);
+ assert.match(localizedSnapshotTime("2026-11-02T01:56:48Z", "de"), /02:56/);
+ assert.equal(localizedCountryName(cityData, "de"), "Deutschland");
+ const html = localizedCityPageHtml({city:cityData, snapshot:{
+   generatedAt:"2026-11-02T01:56:48Z",
+   venues:[{...example, offers:[oneOffer]}],
+   counts:{restaurantsUniqueVenues:1999},
+ },language:"de",siteBase});
+ assert.match(html, /Schnitzery Kreuzberg/);
+ assert.match(html, /5,90\s*€/);
+ assert.match(html, /Deutschland/);
+ assert.ok(!html.includes("<strong>1.999</strong>"));
+ assert.doesNotMatch(html, /Nov 2, 2026/);
+ assert.match(html, /class="landing-deal deal-first-card"/);
+ assert.match(html, /class="deal-first-image"/);
+ assert.match(html, /Bei Wolt ansehen/);
+ assert.match(html, /Reichenberger Straße 176/);
+ assert.match(html, /class="deal-first-summary"/);
+ const indexOfCards=html.indexOf("deal-first-grid");
+ const indexOfOldStatistics=html.indexOf('class="landing-stats');
+ assert.ok(indexOfCards>0 && indexOfOldStatistics<0);
+});
+test("money labels use the correct native currency for each supported market", () => {
+ for (const [language, currency, amount, expected] of [
+  ["de","EUR",5.9,/5,90/],["lt","EUR",5.9,/5,90/],
+  ["pl","PLN",12.5,/12,50/],["cs","CZK",180,/180/],
+ ]) {
+  const venue = {seoBestOffer:{amount,amountType:"money",currencyCode:currency}};
+  assert.match(localizedValueLabel(venue,language),expected);
+ }
 });
