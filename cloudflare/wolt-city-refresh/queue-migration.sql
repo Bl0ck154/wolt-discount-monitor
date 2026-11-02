@@ -5,3 +5,7 @@ CREATE TABLE IF NOT EXISTS scan_dispatch_lease (
  id INTEGER PRIMARY KEY CHECK (id=1),
  expires_at INTEGER NOT NULL
 );
+CREATE TABLE IF NOT EXISTS scan_drain_events(
+  run_id TEXT PRIMARY KEY,
+  claimed_at INTEGER NOT NULL
+);

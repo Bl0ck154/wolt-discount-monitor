@@ -115,8 +115,9 @@ async function refresh(request, env) {
   const day = utcDate(now);
   const existing = await env.DB.prepare("SELECT requested_at,dispatch_status FROM city_jobs WHERE city_id=?").bind(cityId).first();
   if (existing && (existing.dispatch_status === "queued" || now - existing.requested_at < MIN_REFRESH_MS)) {
-    // A repeated click should keep watching the existing job rather than
-    // consume a quota or claim that the scan failed.
+    // A repeat request also pokes the dispatcher in case the previous
+    // completion notification was delayed, without charging a new scan.
+    if (existing.dispatch_status === "queued") await dispatchNext(env).catch(() => {});
     return json({ok:true,queued:existing.dispatch_status==='queued',
       state:existing.dispatch_status,requestedAt:existing.requested_at},200,origin);
   }
@@ -148,11 +149,44 @@ export default {
     const url = new URL(request.url);
     const origin = request.headers.get("Origin") || "";
     if (request.method === "GET" && url.pathname === "/health") return json({ok:true,service:"wolt-city-refresh",queue:true});
+    // Only genuine, recently completed scans can trigger the next queued city.
+    // GitHub verifies the run; D1 makes each completion event single-use.
+    if (request.method === "POST" && url.pathname === "/api/drain") {
+      try {
+        const raw = await request.text();
+        if (raw.length > 128) return json({ok:false},413);
+        const runId = String(JSON.parse(raw).runId ?? "");
+        if (!/^[0-9]{6,16}$/.test(runId) || !env.DB || !env.GITHUB_TOKEN) return json({ok:false},403);
+        const response = await fetch("https://api.github.com/repos/" + REPO + "/actions/runs/" + runId,
+          {headers:githubHeaders(env.GITHUB_TOKEN)});
+        if (!response.ok) return json({ok:false},403);
+        const run = await response.json();
+        const completedAt = Date.parse(run.updated_at ?? "");
+        if (run.name !== "Update Wolt discount monitor" || run.status !== "completed" ||
+            run.head_branch !== "main" ||
+            !["schedule","workflow_dispatch"].includes(run.event) ||
+            !Number.isFinite(completedAt) ||
+            Date.now() - completedAt > 60 * 60 * 1000 ||
+            completedAt - Date.now() > 5 * 60 * 1000) {
+          return json({ok:false},403);
+        }
+        const claimed = await env.DB.prepare(
+          "INSERT OR IGNORE INTO scan_drain_events(run_id,claimed_at) VALUES(?,?)"
+        ).bind(runId,Date.now()).run();
+        if (claimed.meta?.changes !== 1) return json({ok:true,status:"already-processed"});
+        const result = await dispatchNext(env);
+        if (["github-unavailable","unavailable"].includes(result.status)) {
+          await env.DB.prepare("DELETE FROM scan_drain_events WHERE run_id=?").bind(runId).run();
+          return json({ok:false,status:result.status},503);
+        }
+        return json({ok:true,...result});
+      } catch { return json({ok:false,message:"Queue drain unavailable"},503); }
+    }
     if (origin !== ALLOWED_ORIGIN) return json({ok:false},403);
     if (request.method === "OPTIONS") return json({ok:true},200,origin);
     if (url.pathname !== "/api/refresh" || request.method !== "POST") return json({ok:false},404,origin);
     try { return await refresh(request,env); }
     catch (error) { console.warn("Refresh queue failed",String(error)); return json({ok:false,message:"Refresh temporarily unavailable"},503,origin); }
   },
-  async scheduled(event,env,ctx) { ctx.waitUntil(dispatchNext(env)); },
+  // GitHub completion events drain this queue without a Cloudflare cron trigger.
 };

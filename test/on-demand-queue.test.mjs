@@ -100,3 +100,20 @@ test("browser waits for queue and refuses ancient successful snapshots",async()=
   assert.match(app,/cached\.snapshot\?\.generatedAt \?\? null/);
   assert.doesNotMatch(app,/showCityFetchFailure\(/);
 });
+
+
+test("drain endpoint rejects malformed completed-run IDs", async () => {
+  const worker=(await import("../cloudflare/wolt-city-refresh/worker.mjs")).default;
+  const response=await worker.fetch(new Request("https://example.test/api/drain",{
+    method:"POST",body:JSON.stringify({runId:"wrong"})
+  }),{DB:{},GITHUB_TOKEN:"test"});
+  assert.equal(response.status,403);
+});
+test("GitHub completion event drains without needing a Cloudflare cron",async()=>{
+  const {readFile}=await import("node:fs/promises");
+  const yaml=await readFile(new URL("../.github/workflows/drain-city-queue.yml",import.meta.url),"utf8");
+  assert.match(yaml,/workflow_run:/);
+  assert.match(yaml,/types: \[completed\]/);
+  assert.match(yaml,/workflow_run\.id/);
+  assert.match(yaml,/api\/drain/);
+});

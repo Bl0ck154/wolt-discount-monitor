@@ -7,6 +7,3 @@ workers_dev = true
 binding = "DB"
 database_name = "wolt-demand-cache"
 database_id = "0d9c36eb-32b9-4ec1-b141-ec5f56342f33"
-
-[triggers]
-crons = ["* * * * *"]

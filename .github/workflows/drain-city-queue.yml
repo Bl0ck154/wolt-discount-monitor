@@ -1,0 +1,25 @@
+name: Drain Wolt city queue
+
+on:
+  workflow_run:
+    workflows: ["Update Wolt discount monitor"]
+    types: [completed]
+
+permissions: {}
+
+jobs:
+  drain:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Ask the coordinator to start the next city
+        shell: bash
+        env:
+          FINISHED_RUN_ID: ${{ github.event.workflow_run.id }}
+        run: |
+          set -euo pipefail
+          curl --fail --silent --show-error --retry 2 --retry-delay 3 \
+            --max-time 20 -X POST \
+            -H "Content-Type: application/json" \
+            --data-binary "$(printf '{"runId":"%s"}' "$FINISHED_RUN_ID")" \
+            "https://wolt-city-refresh.bl0ck-c1b.workers.dev/api/drain"

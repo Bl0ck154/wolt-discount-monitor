@@ -6,8 +6,9 @@ older than four hours, the browser requests an asynchronous refresh and
 automatically shows the published snapshot after it becomes available.
 
 The Cloudflare Worker **queues the city selected by a visitor** in D1 and
-dispatches only one GitHub Actions scan at a time. Its one-minute cron
-trigger starts the next city after the previous workflow finishes. This
+dispatches only one GitHub Actions scan at a time.
+A separate GitHub workflow_run.completed job starts the next city after
+the previous scan finishes; no new Cloudflare Cron Trigger is required. This
 prevents GitHub's single pending-workflow slot from cancelling requests
 when multiple people select different cities.
 
@@ -30,7 +31,10 @@ Infrastructure:
 `GITHUB_TOKEN` with a GitHub token authorized to dispatch Actions workflows in
 `Bl0ck154/wolt-discount-monitor`. Set it in Cloudflare Dashboard under
 Workers & Pages → wolt-city-refresh → Settings → Variables and Secrets.
-Keep credentials out of the repo, website, and chat.
+The queue-drain workflow posts a completed GitHub Actions run ID to
+POST /api/drain. The Worker verifies that run through GitHub, checks that it
+finished recently on main, then accepts the event only once using D1.
+No extra shared token or Cloudflare Cron Trigger is needed.
 
 Database schema (plus the one-time additive migration in queue-migration.sql):
 
