@@ -203,3 +203,29 @@
   .venue-image { width: 42px; height: 42px; }
   .landing-actions { display: grid; }
 }
+
+@media (max-width: 760px) {
+  .checkout-estimator { padding: 15px 13px; margin-bottom: 12px; border-radius: 12px; }
+  .checkout-estimator h3 { font-size: 18px; }
+  .checkout-fields { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; }
+  .checkout-fields label:first-child { grid-column: 1 / -1; }
+  .checkout-fields label { min-width: 0; }
+  .checkout-fields input { width: 100%; }
+  .checkout-calculate { grid-column: 1 / -1; }
+  .estimate-venue-button { min-height: 42px; font-size: 12px; }
+  .delivery-notice { font-size: 11px; }
+  tbody > tr:not(.group-details-row) { border-radius: 13px; padding: 14px; box-shadow: 0 3px 16px rgba(10, 48, 50, .04); }
+  .venue-image { width: 52px; height: 52px; border-radius: 10px; }
+  .venue-cell { grid-template-columns: 52px minmax(0,1fr); gap: 11px; }
+  .venue-title { font-size: 14px; }
+  .offer { font-size: 12px; line-height: 1.4; }
+  .amount { border-radius: 9px; font-size: 15px !important; }
+}
+
+@media (max-width: 760px) {
+  .mobile-filter-toggle { display: block; width: 100%; min-height: 44px; margin: 8px 0 3px; padding: 8px 14px; border: 1px solid #b2d6d0; border-radius: 10px; background: #f1faf7; color: #066f68; font-weight: 730; text-align: left; cursor: pointer; }
+  .mobile-filter-toggle::after { content: "⌄"; float: right; font-size: 17px; }
+  .show-advanced-filters .mobile-filter-toggle::after { content: "⌃"; }
+  #mobileAdvancedFilters { display: none; }
+  .show-advanced-filters #mobileAdvancedFilters { display: flex; }
+}

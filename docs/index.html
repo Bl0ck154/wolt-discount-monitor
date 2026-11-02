@@ -183,7 +183,8 @@
             </label>
           </div>
 
-          <div class="toolbar-secondary">
+          <button type="button" id="mobileFilterToggle" class="mobile-filter-toggle" aria-controls="mobileAdvancedFilters" aria-expanded="false" data-i18n="moreFilters">More filters</button>
+          <div class="toolbar-secondary" id="mobileAdvancedFilters">
             <div class="toggles" aria-label="Offer visibility">
               <label class="toggle">
                 <input id="hideNewUserDelivery" type="checkbox" checked />
@@ -207,6 +208,21 @@
           </div>
         </div>
 
+        <section class="checkout-estimator" id="checkoutEstimator" aria-label="Checkout estimator" hidden>
+          <div class="checkout-estimator-heading">
+            <div><h3 data-i18n="estimateTitle">Estimate total</h3><p id="checkoutVenueName"></p></div>
+            <button type="button" id="checkoutClose" class="checkout-close" data-i18n="estimateClose">Close</button>
+          </div>
+          <p data-i18n="estimateIntro">Delivery depends on your address. Enter the fee Wolt shows.</p>
+          <form id="checkoutForm" class="checkout-fields">
+            <label><span data-i18n="basketSubtotal">Basket subtotal</span><input id="checkoutBasket" type="number" min="0" max="100000" step="0.01" inputmode="decimal" required /></label>
+            <label><span data-i18n="deliveryFee">Delivery fee from Wolt</span><input id="checkoutDelivery" type="number" min="0" max="100000" step="0.01" inputmode="decimal" required /></label>
+            <label><span data-i18n="otherFees">Other Wolt fees</span><input id="checkoutOtherFees" type="number" min="0" max="100000" step="0.01" inputmode="decimal" required /></label>
+            <button type="submit" class="checkout-calculate" data-i18n="estimateButton">Estimate</button>
+          </form>
+          <div id="checkoutResult" class="checkout-result" role="status" aria-live="polite"></div>
+          <p class="checkout-caveat" data-i18n="estimateDisclaimer">Estimate only. Eligibility and checkout may differ.</p>
+        </section>
         <section class="results" aria-label="Wolt venues and promotions">
           <div class="table-shell">
             <table>

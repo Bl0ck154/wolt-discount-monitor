@@ -2,6 +2,7 @@ import { isLikelyAcquisitionOffer, shouldDisplayVenue } from "./offer-filters.mj
 import { favoriteKey, parseFavorites, serializeFavorites } from "./favorites.mjs";
 import { normalizeLanguage, translate, formatMessage } from "./i18n.mjs";
 import { offerFeedbackUrl } from "./feedback.mjs";
+import { bestEstimatableOffer, estimateCheckout } from "./checkout-estimate.mjs";
 import { ubiquitousOfferIndex as sharedUbiquitousOfferIndex, visibleVenueOffers, visibleVenueCount } from "./deal-visibility.mjs";
 
 const DEFAULT_API_BASE_URL = "";
@@ -17,6 +18,7 @@ const SEARCH_DEBOUNCE_MS = 200;
 
 const state = {
   snapshot: null,
+  estimate: null,
   citiesIndex: null,
   selectedCity: null,
   apiBaseUrl: apiBaseUrl(),
@@ -53,10 +55,19 @@ const elements = {
   hideClosedVenues: document.querySelector("#hideClosedVenues"),
   onlyWithOffers: document.querySelector("#onlyWithOffers"),
   favoritesOnly: document.querySelector("#favoritesOnly"),
+  mobileFilterToggle: document.querySelector("#mobileFilterToggle"),
   languagePicker: document.querySelector("#languagePicker"),
   hiddenCitywideOffers: document.querySelector("#hiddenCitywideOffers"),
   shownCount: document.querySelector("#shownCount"),
   venueRows: document.querySelector("#venueRows"),
+  checkoutEstimator: document.querySelector("#checkoutEstimator"),
+  checkoutForm: document.querySelector("#checkoutForm"),
+  checkoutClose: document.querySelector("#checkoutClose"),
+  checkoutVenueName: document.querySelector("#checkoutVenueName"),
+  checkoutBasket: document.querySelector("#checkoutBasket"),
+  checkoutDelivery: document.querySelector("#checkoutDelivery"),
+  checkoutOtherFees: document.querySelector("#checkoutOtherFees"),
+  checkoutResult: document.querySelector("#checkoutResult"),
   sortHeaders: document.querySelectorAll(".sort-header"),
 };
 
@@ -78,6 +89,7 @@ async function init() {
 async function loadSnapshotForCity(cityId) {
   const requestId = ++state.loadRequestId;
   const city = cityById(cityId) ?? defaultCity();
+  hideCheckoutEstimator();
   showLoading(city);
 
   let cached;
@@ -450,7 +462,8 @@ function bindControls() {
   elements.hideClosedVenues.addEventListener("change", resetAndRenderRows);
   elements.onlyWithOffers.addEventListener("change", resetAndRenderRows);
   elements.favoritesOnly.addEventListener("change", resetAndRenderRows);
-  elements.languagePicker.addEventListener("change", () => { state.language = normalizeLanguage(elements.languagePicker.value); safeLocalStorageSet("WOLT_LANGUAGE", state.language); applyLanguage(); hydrateSummary(); hydrateFilters(); renderCityOptions(elements.citySearch.value); resetAndRenderRows(); });
+  elements.languagePicker.addEventListener("change", () => { state.language = normalizeLanguage(elements.languagePicker.value); safeLocalStorageSet("WOLT_LANGUAGE", state.language); applyLanguage(); hydrateSummary(); hydrateFilters(); renderCityOptions(elements.citySearch.value); resetAndRenderRows();
+    if (state.estimate) elements.checkoutVenueName.textContent = tf("estimateFor", { venue: state.estimate.venue.name }) + " · " + state.estimate.offer.text; });
   elements.sortSelect.addEventListener("change", () => {
     setSortFromSelect(elements.sortSelect.value);
     resetAndRenderRows();
@@ -461,6 +474,13 @@ function bindControls() {
       resetAndRenderRows();
     });
   });
+  elements.mobileFilterToggle.addEventListener("click", () => {
+    const open = elements.mobileFilterToggle.getAttribute("aria-expanded") !== "true";
+    elements.mobileFilterToggle.setAttribute("aria-expanded", String(open));
+    document.body.classList.toggle("show-advanced-filters", open);
+  });
+  elements.checkoutClose.addEventListener("click", hideCheckoutEstimator);
+  elements.checkoutForm.addEventListener("submit", onCheckoutSubmit);
   elements.venueRows.addEventListener("click", (event) => {
     const saved = event.target.closest("[data-favorite-id]");
     if (saved) {
@@ -472,6 +492,11 @@ function bindControls() {
       renderRows();
       return;
     }
+    const estimate = event.target.closest("[data-estimate-id]");
+    if (estimate) {
+      showCheckoutEstimator(estimate.dataset.estimateId);
+      return;
+    }
     const retry = event.target.closest("[data-retry-city]");
     if (retry) { void loadSnapshotForCity(state.selectedCity?.id); return; }
     const button = event.target.closest("[data-load-more]");
@@ -479,6 +504,58 @@ function bindControls() {
     state.renderLimit += RENDER_STEP;
     renderRows();
   });
+}
+
+function hideCheckoutEstimator() {
+  if (!elements.checkoutEstimator) return;
+  state.estimate = null;
+  elements.checkoutEstimator.hidden = true;
+  elements.checkoutResult.textContent = "";
+  elements.checkoutForm.reset();
+}
+function showCheckoutEstimator(venueId) {
+  const venue = state.rows.find((v) => String(v.id ?? v.slug ?? "") === String(venueId));
+  if (!venue) return;
+  const offer = bestEstimatableOffer(visibleOffers(venue));
+  const currency = offer?.currencyCode ?? venue.currency;
+  if (!offer || !/^[A-Z]{3}$/.test(currency ?? "")) return;
+  state.estimate = { venue, offer, currency };
+  elements.checkoutForm.reset();
+  elements.checkoutResult.textContent = "";
+  elements.checkoutVenueName.textContent = tf("estimateFor", { venue: venue.name }) + " · " + offer.text;
+  elements.checkoutEstimator.hidden = false;
+  elements.checkoutEstimator.scrollIntoView({ block: "start", behavior: "smooth" });
+  elements.checkoutBasket.focus({ preventScroll: true });
+}
+function checkoutAmount(input) {
+  return input.value.trim() === "" ? null : Number(input.value);
+}
+function formatCheckoutMoney(amount, currency) {
+  try {
+    return new Intl.NumberFormat(state.language, { style: "currency", currency,
+      minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(amount);
+  } catch { return String(amount) + " " + currency; }
+}
+function onCheckoutSubmit(event) {
+  event.preventDefault();
+  const stateValue = state.estimate;
+  if (!stateValue) return;
+  const { offer, currency } = stateValue;
+  const result = estimateCheckout({
+    offer, currency,
+    basket: checkoutAmount(elements.checkoutBasket),
+    deliveryFee: checkoutAmount(elements.checkoutDelivery),
+    serviceFee: checkoutAmount(elements.checkoutOtherFees),
+  });
+  const money = (n) => formatCheckoutMoney(n, currency);
+  if (result.status === "ok") {
+    elements.checkoutResult.textContent = tf("estimateTotal", { amount: money(result.total) }) +
+      " · " + tf("estimateSavings", { amount: money(result.savings) });
+  } else if (result.status === "minimum") {
+    elements.checkoutResult.textContent = tf("estimateMinimum", { amount: money(result.minimumSpend) });
+  } else {
+    elements.checkoutResult.textContent = t(result.status === "unsupported" ? "estimateUnsupported" : "estimateMissing");
+  }
 }
 
 function resetAndRenderRows() {
@@ -572,6 +649,11 @@ function renderVenueParts(venue, visibleOffers) {
   const report = reportUrl
     ? `<a class="report-link" href="${escapeHtml(reportUrl)}" rel="noopener noreferrer" target="_blank">${escapeHtml(t("reportOffer"))}</a>`
     : "";
+  const estimateOffer = bestEstimatableOffer(visibleOffers);
+  const estimateButton = favoriteId && estimateOffer
+    ? '<button class="estimate-venue-button" type="button" data-estimate-id="' +
+       escapeHtml(favoriteId) + '">' + escapeHtml(t("estimateAction")) + '</button>'
+    : '<span class="delivery-notice">' + escapeHtml(t("deliveryUnknown")) + '</span>';
   const bookmark = favoriteId
     ? '<button type="button" class="bookmark ' + (isFavorite ? "is-saved" : "") +
       '" data-favorite-id="' + escapeHtml(favoriteId) + '" aria-pressed="' + isFavorite +
@@ -591,6 +673,7 @@ function renderVenueParts(venue, visibleOffers) {
         </div>
         <div class="venue-meta">${escapeHtml(venue.address ?? "")}</div>
         ${report}
+        ${estimateButton}
       </div>
     </div>`,
     offers: `<div class="offer-list">${offers}</div>`,
@@ -1018,6 +1101,9 @@ function bestDiscount(offers) {
   const best = discounts[0];
   return {
     label: best.discount.label,
+    amount: best.discount.amount,
+    type: best.discount.type,
+    currency: best.currencyCode ?? best.value?.currencyCode ?? state.snapshot?.city?.currency ?? null,
     score: offerScore(best),
   };
 }
@@ -1144,6 +1230,13 @@ function formatDiscountLabel(amount, type) {
 function formatBestValue(best) {
   if (!best) {
     return "-";
+  }
+  if (best.type === "money" && Number.isFinite(best.amount) &&
+      /^[A-Z]{3}$/.test(best.currency ?? "")) {
+    return "-" + formatCheckoutMoney(best.amount, best.currency);
+  }
+  if (best.type === "percent" && Number.isFinite(best.amount)) {
+    return "-" + new Intl.NumberFormat(state.language, { maximumFractionDigits: 1 }).format(best.amount) + "%";
   }
   const label = String(best.label ?? "-").trim();
   return /^\d+(?:[.,]\d+)?%$/.test(label) ? `-${label}` : label;
