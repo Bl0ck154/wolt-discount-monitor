@@ -252,7 +252,7 @@ The updater runs automatically five times daily on GitHub-hosted runners, indepe
 
 ## Privacy and security
 
-Anonymous, aggregate website traffic metrics are collected with Cloudflare Web Analytics. Saved venues remain in browser localStorage. The site needs no account; checkout estimates remain in your browser.
+Anonymous pageview metrics are collected with Cloudflare Web Analytics. Explicit clicks to Wolt are recorded only as daily aggregate counts per city using a Cloudflare Worker; no destination URL, address, account ID, IP, basket amounts or persistent visitor ID is stored by the click counter. Saved venues remain in browser localStorage. The site needs no account; checkout estimates remain in your browser.
 
 
 Secret values, Telegram chat IDs, private server addresses, private filesystem paths, and credentials must stay outside Git. The committed `docs/config.js` contains no backend address, and production Telegram credentials are referenced only through environment variables / GitHub Actions secrets.
