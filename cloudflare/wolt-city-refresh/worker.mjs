@@ -160,6 +160,30 @@ async function fastSnapshot(request, env, url, ctx) {
   return result;
 }
 
+// Lightweight, public per-city queue status for a browser waiting on its
+// own refresh. No visitor identifiers and no GitHub API requests.
+async function queueStatus(request, env, url) {
+  const origin = request.headers.get("Origin") || "";
+  if (!env.DB) return json({ok:false},503,origin);
+  const cityId = url.searchParams.get("cityId") || "";
+  if (!/^[a-z]{3}\/[a-z0-9-]{2,70}$/.test(cityId)) return json({ok:false},400,origin);
+  const job = await env.DB.prepare(
+    "SELECT requested_at,dispatched_at,dispatch_status FROM city_jobs WHERE city_id=?"
+  ).bind(cityId).first();
+  if (!job) return json({ok:true,state:"missing"},200,origin);
+  const state = job.dispatch_status === "queued" ? "queued" :
+    job.dispatch_status === "dispatched" ? "dispatched" : "unknown";
+  let ahead = null;
+  if (state === "queued") {
+    const counts = await env.DB.prepare(
+      "SELECT COUNT(*) AS ahead FROM city_jobs WHERE dispatch_status='queued' AND requested_at < ?"
+    ).bind(job.requested_at).first();
+    ahead = Math.max(0,Number(counts?.ahead ?? 0));
+  }
+  return json({ok:true,state,queueAhead:ahead,
+    requestedAt:job.requested_at,dispatchedAt:job.dispatched_at ?? null},200,origin);
+}
+
 async function refresh(request, env) {
   if (!env.DB || !env.GITHUB_TOKEN) return json({ok:false,message:"Refresh service unavailable"},503,request.headers.get("Origin"));
   let body;
@@ -241,6 +265,10 @@ export default {
     }
     if (origin !== ALLOWED_ORIGIN) return json({ok:false},403);
     if (request.method === "OPTIONS") return json({ok:true},200,origin);
+    if (url.pathname === "/api/status" && request.method === "GET") {
+      try { return await queueStatus(request,env,url); }
+      catch { return json({ok:false},503,origin); }
+    }
     if (url.pathname === "/api/snapshot" && request.method === "GET") {
       try { return await fastSnapshot(request,env,url,ctx); }
       catch { return json({ok:false},503,origin); }
