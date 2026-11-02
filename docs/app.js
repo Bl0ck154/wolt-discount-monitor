@@ -3,11 +3,13 @@ import { favoriteKey, parseFavorites, serializeFavorites } from "./favorites.mjs
 import { normalizeLanguage, translate, formatMessage } from "./i18n.mjs";
 import { offerFeedbackUrl } from "./feedback.mjs";
 import { bestEstimatableOffer, estimateCheckout } from "./checkout-estimate.mjs";
+import { elapsedTime, progressFromCoordinator, progressStep } from "./city-progress.mjs";
 import { ubiquitousOfferIndex as sharedUbiquitousOfferIndex, visibleVenueOffers, visibleVenueCount } from "./deal-visibility.mjs";
 
 const DEFAULT_API_BASE_URL = "";
 const CITY_REFRESH_API = "https://wolt-city-refresh.bl0ck-c1b.workers.dev/api/refresh";
 const CITY_SNAPSHOT_FAST_API = "https://wolt-city-refresh.bl0ck-c1b.workers.dev/api/snapshot";
+const CITY_SCAN_STATUS_API = "https://wolt-city-refresh.bl0ck-c1b.workers.dev/api/status";
 const CITY_SNAPSHOT_TTL_MS = 4 * 60 * 60 * 1000;
 const CITY_MAX_DISPLAY_AGE_MS = 24 * 60 * 60 * 1000;
 const CITY_REFRESH_POLL_MS = 5000;
@@ -20,6 +22,9 @@ const SEARCH_DEBOUNCE_MS = 200;
 const state = {
   snapshot: null,
   estimate: null,
+  scanProgress: null,
+  scanProgressTimer: null,
+  scanProgressHideTimer: null,
   citiesIndex: null,
   selectedCity: null,
   apiBaseUrl: apiBaseUrl(),
@@ -48,6 +53,13 @@ const elements = {
   updatedAt: document.querySelector("#updatedAt"),
   snapshotTrust: document.querySelector("#snapshotTrust"),
   refreshStatus: document.querySelector("#refreshStatus"),
+  scanProgress: document.querySelector("#scanProgress"),
+  scanProgressTitle: document.querySelector("#scanProgressTitle"),
+  scanProgressDetail: document.querySelector("#scanProgressDetail"),
+  scanProgressElapsed: document.querySelector("#scanProgressElapsed"),
+  scanProgressTrack: document.querySelector("#scanProgressTrack"),
+  scanQueuePosition: document.querySelector("#scanQueuePosition"),
+  scanSteps: document.querySelectorAll("[data-scan-step]"),
   searchInput: document.querySelector("#searchInput"),
   productFilter: document.querySelector("#productFilter"),
   sortSelect: document.querySelector("#sortSelect"),
@@ -88,7 +100,93 @@ async function init() {
   bindControls();
 }
 
+function clearScanProgressTimers() {
+  if (state.scanProgressTimer != null) clearInterval(state.scanProgressTimer);
+  if (state.scanProgressHideTimer != null) clearTimeout(state.scanProgressHideTimer);
+  state.scanProgressTimer = null;
+  state.scanProgressHideTimer = null;
+}
+function hideScanProgress() {
+  clearScanProgressTimers();
+  state.scanProgress = null;
+  elements.scanProgress.hidden = true;
+}
+function beginScanProgress(requestId, { background = false } = {}) {
+  clearScanProgressTimers();
+  state.scanProgress = {
+    requestId, phase: "checking", queueAhead: null,
+    startedAt: Date.now(), background,
+  };
+  renderScanProgress();
+  state.scanProgressTimer = setInterval(renderScanProgress, 1000);
+}
+function setScanProgress(requestId, phase, queueAhead = null) {
+  if (state.scanProgress?.requestId !== requestId || !isCurrentLoad(requestId)) return;
+  if (state.scanProgress.phase === "ready") return;
+  state.scanProgress.phase = phase;
+  state.scanProgress.queueAhead = phase === "queued" && Number.isInteger(queueAhead)
+    ? queueAhead : null;
+  if (phase === "ready" || phase === "delayed" || phase === "error") {
+    clearScanProgressTimers();
+    if (phase === "ready") {
+      state.scanProgressHideTimer = setTimeout(() => {
+        if (state.scanProgress?.requestId === requestId &&
+            state.scanProgress.phase === "ready") hideScanProgress();
+      }, 6000);
+    }
+  }
+  renderScanProgress();
+}
+function renderScanProgress() {
+  const progress = state.scanProgress;
+  if (!progress) { elements.scanProgress.hidden = true; return; }
+  elements.scanProgress.hidden = false;
+  elements.scanProgress.dataset.phase = progress.phase;
+  const titleKey = {
+    checking: "scanChecking", queued: "scanQueued",
+    scanning: "scanScanning", ready: "scanReady",
+    delayed: "scanDelayed", error: "scanError",
+  }[progress.phase];
+  elements.scanProgressTitle.textContent = t(titleKey);
+  const detailKey = progress.background ? "scanBackgroundDetail" : "scanDetail";
+  elements.scanProgressDetail.textContent =
+    ["delayed","error","ready"].includes(progress.phase) ? t("scanStageNote") : t(detailKey);
+  elements.scanProgressElapsed.textContent = elapsedTime(progress.startedAt);
+  elements.scanProgressElapsed.setAttribute("aria-label",t("scanElapsedAria"));
+  elements.scanProgressTrack.setAttribute("aria-label", t("scanProgressAria"));
+  elements.scanProgressTrack.setAttribute("aria-valuetext",t(titleKey));
+  // An indeterminate bar is intentional: GitHub does not report percent done.
+  elements.scanProgressTrack.removeAttribute("aria-valuenow");
+  const current = progressStep(progress.phase);
+  for (const [index, step] of [...elements.scanSteps].entries()) {
+    const number = index + 1;
+    step.dataset.status = progress.phase === "ready" || number < current
+      ? "done" : number === current && !["delayed","error"].includes(progress.phase)
+        ? "active" : "pending";
+  }
+  const showAhead = progress.phase === "queued" && Number.isInteger(progress.queueAhead);
+  elements.scanQueuePosition.hidden = !showAhead;
+  if (showAhead) {
+    elements.scanQueuePosition.textContent =
+      tf("scanQueueAhead",{count:progress.queueAhead});
+  }
+}
+async function updateScanQueueStatus(city, requestId) {
+  try {
+    const response = await fetch(CITY_SCAN_STATUS_API +
+      "?cityId=" + encodeURIComponent(city.id), {cache:"no-store"});
+    if (!response.ok) return;
+    const status = await response.json();
+    if (status.ok && ["queued","dispatched"].includes(status.state)) {
+      setScanProgress(requestId, progressFromCoordinator(status), status.queueAhead);
+    }
+  } catch {
+    // Queue status is optional: the snapshot poll is still active.
+  }
+}
+
 function showChooseCityPrompt() {
+  hideScanProgress();
   // The landing page must not silently scan Vilnius for first-time visitors.
   state.selectedCity = null;
   state.snapshot = null;
@@ -114,6 +212,7 @@ async function loadSnapshotForCity(cityId) {
   hideCheckoutEstimator();
   elements.cityMapLink.hidden = false;
   showLoading(city);
+  beginScanProgress(requestId);
 
   let cached;
   try {
@@ -131,6 +230,7 @@ async function loadSnapshotForCity(cityId) {
     if (isCitySnapshotExpired(cached.snapshot)) {
       // Stale-while-revalidate: keep the existing deals visible while the
       // GitHub-hosted updater refreshes that city's shared snapshot.
+      beginScanProgress(requestId, {background:true});
       void requestAndWatchCity(city, requestId, cached.snapshot.generatedAt);
     }
     return;
@@ -166,11 +266,14 @@ async function requestAndWatchCity(city, requestId, previousGeneratedAt) {
   try {
     const result = await requestCityRefresh(city);
     if (!isCurrentLoad(requestId)) return;
+    setScanProgress(requestId, progressFromCoordinator(result), result.queueAhead);
     elements.refreshStatus.textContent = t(result.state === "queued" ? "refreshWaitingInQueue"
       : result.queued ? "refreshQueued" : "refreshAlready");
     const previous = Date.parse(previousGeneratedAt ?? "");
     for (let attempt = 0; attempt < CITY_REFRESH_MAX_POLLS; attempt++) {
       await new Promise((resolve) => setTimeout(resolve, CITY_REFRESH_POLL_MS));
+      if (!isCurrentLoad(requestId)) return;
+      if (attempt % 4 === 0) await updateScanQueueStatus(city, requestId);
       if (!isCurrentLoad(requestId)) return;
       let snapshot;
       // Fast path: a GitHub commit is available before Pages finishes deploying.
@@ -201,9 +304,13 @@ async function requestAndWatchCity(city, requestId, previousGeneratedAt) {
       elements.refreshStatus.textContent = t("refreshLoaded");
       return;
     }
-    if (isCurrentLoad(requestId)) showCityPending(city);
+    if (isCurrentLoad(requestId)) {
+      setScanProgress(requestId,"delayed");
+      showCityPending(city);
+    }
   } catch (error) {
     if (!isCurrentLoad(requestId)) return;
+    setScanProgress(requestId,"error");
     const message = error.code === "daily_limit" ? t("refreshDailyLimit") : t("refreshLimit");
     showCityPending(city, message);
   }
@@ -243,6 +350,7 @@ async function loadApiSnapshot(city) {
 }
 
 function applySnapshot(city, snapshot) {
+  if (state.scanProgress) setScanProgress(state.loadRequestId,"ready");
   state.snapshot = snapshot;
   state.selectedCity = { ...(state.snapshot.city ?? {}), ...city };
   state.rows = state.snapshot.venues ?? [];
@@ -509,6 +617,7 @@ function bindControls() {
     if (!state.selectedCity) showChooseCityPrompt();
     else { hydrateSummary(); hydrateFilters(); resetAndRenderRows(); }
     renderCityOptions(elements.citySearch.value);
+    renderScanProgress();
     if (state.estimate) elements.checkoutVenueName.textContent = tf("estimateFor", { venue: state.estimate.venue.name }) + " · " + state.estimate.offer.text; });
   elements.sortSelect.addEventListener("change", () => {
     setSortFromSelect(elements.sortSelect.value);

@@ -1213,3 +1213,53 @@ tbody > tr:not(.group-details-row):hover > td { background: #fbfcfc; }
 
 /* Respect hidden map links on the initial choose-city state. */
 .location-map-link[hidden] { display: none !important; }
+
+/* First-load progress. Stages reflect coordinator events; no guessed percentage. */
+.scan-progress[hidden] { display: none !important; }
+.scan-progress {
+  margin-top: 13px;
+  padding: 15px 16px 12px;
+  background: linear-gradient(116deg,#f0fbf9,#f7fbfd);
+  border: 1px solid #b6dcd7;
+  border-radius: 13px;
+  box-shadow: 0 4px 16px rgba(13,100,90,.055);
+}
+.scan-progress-head, .scan-progress-copy { display: flex; align-items: flex-start; gap: 11px; }
+.scan-progress-head { align-items: center; justify-content: space-between; }
+.scan-progress-copy { min-width: 0; align-items: center; }
+.scan-progress-copy strong { display: block; font-size: 13px; line-height: 1.35; color: #17544e; }
+.scan-progress-copy p { margin: 3px 0 0; color: #5b7675; font-size: 11px; line-height: 1.45; }
+.scan-progress-time { align-self: center; font-size: 12px; font-variant-numeric: tabular-nums; font-weight: 700; color: #35736c; white-space: nowrap; }
+.scan-progress-icon { display: block; flex: 0 0 19px; width: 19px; height: 19px; border-radius: 50%; border: 2px solid #a9d3cd; border-top-color: #12877d; animation: scan-spin 1.1s linear infinite; }
+.scan-progress[data-phase="ready"] .scan-progress-icon { animation: none; border-color: #087e64; background: #087e64; position: relative; }
+.scan-progress[data-phase="ready"] .scan-progress-icon::after { content: ""; position: absolute; top: 3px; left: 5px; width: 5px; height: 8px; border: solid white; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.scan-progress[data-phase="delayed"] .scan-progress-icon,
+.scan-progress[data-phase="error"] .scan-progress-icon { animation: none; border-color: #a8754f; border-top-color: #a8754f; }
+.scan-progress-track { position: relative; overflow: hidden; height: 6px; background: #cee7e4; border-radius: 100px; margin: 13px 0 12px; }
+.scan-progress-track::before { content:""; position: absolute; height: 100%; width: 32%; left: -35%; background: linear-gradient(90deg,#6bc5b4,#0a8d7e); border-radius: inherit; animation: scan-move 1.75s ease-in-out infinite; }
+.scan-progress[data-phase="ready"] .scan-progress-track::before { left: 0; width: 100%; animation: none; background: #158a75; }
+.scan-progress[data-phase="delayed"] .scan-progress-track::before,
+.scan-progress[data-phase="error"] .scan-progress-track::before { width: 100%; left: 0; animation: none; background: #9ab4ad; }
+.scan-progress-steps { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); list-style: none; padding: 0; margin: 0; gap: 6px; }
+.scan-progress-steps li { display: flex; align-items: center; gap: 6px; min-width: 0; color: #7e9694; font-size: 11px; font-weight: 550; }
+.scan-step-dot { display: inline-block; flex: 0 0 7px; width: 7px; height: 7px; border: 1px solid #b5ccc8; border-radius: 50%; background: #e4f0ee; }
+.scan-progress-steps li[data-status="active"] { color: #067766; font-weight: 750; }
+.scan-progress-steps li[data-status="active"] .scan-step-dot { background: #0d9c82; border-color: #0d9c82; box-shadow: 0 0 0 3px #d6f0e9; }
+.scan-progress-steps li[data-status="done"] { color: #356b60; }
+.scan-progress-steps li[data-status="done"] .scan-step-dot { border-color: #137e65; background: #137e65; }
+.scan-queue-position { margin: 10px 0 0; font-size: 11px; color: #516f71; }
+.scan-queue-position[hidden] { display: none; }
+@keyframes scan-spin { to { transform: rotate(360deg); } }
+@keyframes scan-move { 0% { left: -35%; } 100% { left: 103%; } }
+@media (max-width: 760px) {
+  .scan-progress { padding: 13px 12px; margin-top: 10px; border-radius: 11px; }
+  .scan-progress-copy strong { font-size: 12px; }
+  .scan-progress-copy p { font-size: 11px; }
+  .scan-progress-steps li { font-size: 10px; }
+  .scan-progress-steps { gap: 4px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scan-progress-icon, .scan-progress-track::before { animation: none !important; }
+  .scan-progress-track::before { left: 0; width: 44%; }
+  .scan-progress[data-phase="ready"] .scan-progress-track::before { width: 100%; }
+}

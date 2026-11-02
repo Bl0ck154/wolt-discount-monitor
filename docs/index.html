@@ -141,6 +141,25 @@
           <div class="summary-meta"><span data-i18n="updated">Updated</span> <span id="updatedAt">—</span> · <a id="cityRssLink" class="rss-link" href="#" data-i18n="rss" hidden>Subscribe to updates (RSS)</a></div>
           <div class="snapshot-trust" id="snapshotTrust" role="status" aria-live="polite">Offers and opening status were recorded during the last scan. Check eligibility and final price in Wolt.</div>
           <div class="refresh-status" id="refreshStatus" role="status" aria-live="polite"></div>
+          <section class="scan-progress" id="scanProgress" aria-label="City scan status" data-i18n-aria-label="scanProgressAria" hidden>
+            <div class="scan-progress-head">
+              <div class="scan-progress-copy">
+                <span class="scan-progress-icon" aria-hidden="true"></span>
+                <div>
+                  <strong id="scanProgressTitle"></strong>
+                  <p id="scanProgressDetail"></p>
+                </div>
+              </div>
+              <time id="scanProgressElapsed" class="scan-progress-time" aria-label="Elapsed waiting time"></time>
+            </div>
+            <div class="scan-progress-track" id="scanProgressTrack" role="progressbar" aria-label="City scan progress"></div>
+            <ol class="scan-progress-steps" aria-hidden="true">
+              <li data-scan-step="queue"><span class="scan-step-dot"></span><span data-i18n="scanStepQueue">Queued</span></li>
+              <li data-scan-step="scan"><span class="scan-step-dot"></span><span data-i18n="scanStepScan">Scanning</span></li>
+              <li data-scan-step="ready"><span class="scan-step-dot"></span><span data-i18n="scanStepReady">Ready</span></li>
+            </ol>
+            <p id="scanQueuePosition" class="scan-queue-position" hidden></p>
+          </section>
         </div>
       </section>
 
