@@ -10,7 +10,7 @@
   [![Test](https://github.com/Bl0ck154/wolt-discount-monitor/actions/workflows/test.yml/badge.svg)](https://github.com/Bl0ck154/wolt-discount-monitor/actions/workflows/test.yml)
   [![Pages](https://github.com/Bl0ck154/wolt-discount-monitor/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/Bl0ck154/wolt-discount-monitor/actions/workflows/deploy-pages.yml)
   [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-  ![Cities](https://img.shields.io/badge/discovered_cities-968-00c2e8)
+  ![Cities](https://img.shields.io/badge/discovered_cities-969-00c2e8)
   ![Countries](https://img.shields.io/badge/countries-30-73e2c3)
   ![Status](https://img.shields.io/badge/status-active-success)
 </div>
@@ -28,7 +28,7 @@ Wolt can have a lot of promotions at the same time, but finding the useful ones 
 
 ### What you can do
 
-- 🌍 Search a discovered catalog of **968 Wolt cities across 30 countries**.
+- 🌍 Search a discovered catalog of **969 Wolt cities across 30 countries**.
 - 🔥 See recently observed venue promotions and the last scan time.
 - 📊 Sort deals by an estimated **0–100 value score**.
 - 🔎 Search by venue, promotion, address, or category.
@@ -47,7 +47,7 @@ Wolt can have a lot of promotions at the same time, but finding the useful ones 
 <!-- AUTO_COVERAGE_START -->
 ### Latest snapshot coverage
 
-**24 cities with stored snapshots**, including **5 updated within 24 hours** as of 2026-11-05 21:09 UTC. The full catalog is much larger; catalog membership does not mean fresh deals are available.
+**24 cities with stored snapshots**, including **5 updated within 24 hours** as of 2026-11-05 21:55 UTC. The full catalog is much larger; catalog membership does not mean fresh deals are available.
 
 | City | Last scan (UTC) | Ranked deal venues |
 | --- | --- | ---: |
