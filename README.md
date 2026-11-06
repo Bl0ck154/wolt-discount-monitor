@@ -47,7 +47,7 @@ Wolt can have a lot of promotions at the same time, but finding the useful ones 
 <!-- AUTO_COVERAGE_START -->
 ### Latest snapshot coverage
 
-**25 cities with stored snapshots**, including **6 updated within 24 hours** as of 2026-11-06 20:30 UTC. The full catalog is much larger; catalog membership does not mean fresh deals are available.
+**25 cities with stored snapshots**, including **6 updated within 24 hours** as of 2026-11-06 21:26 UTC. The full catalog is much larger; catalog membership does not mean fresh deals are available.
 
 | City | Last scan (UTC) | Ranked deal venues |
 | --- | --- | ---: |
