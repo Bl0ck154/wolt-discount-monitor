@@ -5,8 +5,7 @@ const TARGET =
 
 export async function dispatchCourierstartWorkflow(env, fetcher = fetch) {
   if (!env?.GITHUB_TOKEN) {
-    console.warn("courierstart_worker_dispatch", "missing_github_token");
-    return false;
+    throw new Error("courierstart_github_token_missing");
   }
   const result = await fetcher(TARGET, {
     method: "POST",
@@ -20,8 +19,7 @@ export async function dispatchCourierstartWorkflow(env, fetcher = fetch) {
     body: JSON.stringify({ ref: "master" })
   });
   if (result.status !== 204) {
-    console.warn("courierstart_worker_dispatch", "http_" + result.status);
-    return false;
+    throw new Error("courierstart_github_dispatch_http_" + result.status);
   }
   return true;
 }

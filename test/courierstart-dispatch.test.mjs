@@ -3,9 +3,9 @@ import assert from "node:assert/strict";
 import { dispatchCourierstartWorkflow } from "../cloudflare/wolt-city-refresh/courierstart-dispatch.mjs";
 
 test("without a Github credential, do not call GitHub", async () => {
-  assert.equal(await dispatchCourierstartWorkflow({}, () => {
+  await assert.rejects(dispatchCourierstartWorkflow({}, () => {
     throw new Error("No request expected");
-  }), false);
+  }), /courierstart_github_token_missing/);
 });
 
 test("only one scoped workflow dispatch is called", async () => {
@@ -23,7 +23,9 @@ test("only one scoped workflow dispatch is called", async () => {
 });
 
 test("non-success Github response is a safe failure", async () => {
-  const ok = await dispatchCourierstartWorkflow({ GITHUB_TOKEN: "test-only" },
-    async () => ({ status: 403 }));
-  assert.equal(ok, false);
+  await assert.rejects(
+    dispatchCourierstartWorkflow({ GITHUB_TOKEN: "test-only" },
+      async () => ({ status: 403 })),
+    /courierstart_github_dispatch_http_403/
+  );
 });
