@@ -1,5 +1,5 @@
 name = "wolt-city-refresh"
-main = "worker.mjs"
+main = "entrypoint.mjs"
 compatibility_date = "2026-10-19"
 workers_dev = true
 

@@ -78,3 +78,13 @@ Source map:
 - `.github/workflows/check-discounts.yml`: controls parallel mode.
 - `cloudflare/wolt-city-refresh/worker.mjs`: D1 batching.
 - `test/parallel-city-scans.test.mjs`: concurrency and failure tests.
+
+## CourierStart cross-Worker dispatch
+`entrypoint.mjs` wraps the existing public Wolt fetch handler, adding a
+private named `CourierstartDispatcher` RPC entrypoint. Only the Cloudflare
+CourierStart scheduler binds to it; it dispatches the fixed
+`Bl0ck154/Wolt-Referral-Site` / `referral-cloudflare.yml` workflow on
+`master`, using the existing `GITHUB_TOKEN` binding. The public endpoints,
+city queue, D1 and Wolt GitHub workflows are unchanged. A failed Github API
+response returns `false`, allowing the upstream scheduler to keep the
+pending message rather than lose it. No other Github operations are exposed.
