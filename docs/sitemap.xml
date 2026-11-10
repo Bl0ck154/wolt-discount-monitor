@@ -2,18 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://bl0ck154.github.io/wolt-discount-monitor/</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-10</lastmod>
   </url>
   <url>
     <loc>https://bl0ck154.github.io/wolt-discount-monitor/cities/</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-10</lastmod>
   </url>
   <url>
     <loc>https://bl0ck154.github.io/wolt-discount-monitor/countries/</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-10</lastmod>
   </url>
   <url>
     <loc>https://bl0ck154.github.io/wolt-discount-monitor/methodology/</loc>
+  </url>
+  <url>
+    <loc>https://bl0ck154.github.io/wolt-discount-monitor/countries/hrv/</loc>
+    <lastmod>2026-11-10</lastmod>
   </url>
   <url>
     <loc>https://bl0ck154.github.io/wolt-discount-monitor/countries/cze/</loc>
@@ -70,5 +74,9 @@
   <url>
     <loc>https://bl0ck154.github.io/wolt-discount-monitor/de/cities/deu/nuremberg/</loc>
     <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bl0ck154.github.io/wolt-discount-monitor/cities/hrv/vinkovci/</loc>
+    <lastmod>2026-11-10</lastmod>
   </url>
 </urlset>
