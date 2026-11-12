@@ -47,16 +47,16 @@ Wolt can have a lot of promotions at the same time, but finding the useful ones 
 <!-- AUTO_COVERAGE_START -->
 ### Latest snapshot coverage
 
-**30 cities with stored snapshots**, including **6 updated within 24 hours** as of 2026-11-12 00:01 UTC. The full catalog is much larger; catalog membership does not mean fresh deals are available.
+**30 cities with stored snapshots**, including **6 updated within 24 hours** as of 2026-11-12 16:00 UTC. The full catalog is much larger; catalog membership does not mean fresh deals are available.
 
 | City | Last scan (UTC) | Ranked deal venues |
 | --- | --- | ---: |
+| [Prague](https://bl0ck154.github.io/wolt-discount-monitor/?city=cze%2Fprague) | 2026-11-12 16:00 | 305 |
+| [Warsaw](https://bl0ck154.github.io/wolt-discount-monitor/?city=pol%2Fwarsaw) | 2026-11-12 16:00 | 268 |
+| [Berlin](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Fberlin) | 2026-11-12 15:59 | 496 |
+| [Nuremberg](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Fnuremberg) | 2026-11-12 15:59 | 143 |
+| [Vilnius](https://bl0ck154.github.io/wolt-discount-monitor/?city=ltu%2Fvilnius) | 2026-11-12 15:59 | 188 |
 | [Bremen](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Fbremen) | 2026-11-12 00:01 | 78 |
-| [Nuremberg](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Fnuremberg) | 2026-11-11 22:37 | 136 |
-| [Vilnius](https://bl0ck154.github.io/wolt-discount-monitor/?city=ltu%2Fvilnius) | 2026-11-11 22:37 | 165 |
-| [Prague](https://bl0ck154.github.io/wolt-discount-monitor/?city=cze%2Fprague) | 2026-11-11 15:17 | 445 |
-| [Warsaw](https://bl0ck154.github.io/wolt-discount-monitor/?city=pol%2Fwarsaw) | 2026-11-11 15:16 | 37 |
-| [Berlin](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Fberlin) | 2026-11-11 15:16 | 485 |
 | [Oslo](https://bl0ck154.github.io/wolt-discount-monitor/?city=nor%2Foslo) | 2026-11-10 19:26 | 80 |
 | [Vinkovci](https://bl0ck154.github.io/wolt-discount-monitor/?city=hrv%2Fvinkovci) | 2026-11-10 06:40 | 6 |
 | [Mandal](https://bl0ck154.github.io/wolt-discount-monitor/?city=nor%2Fmandal) | 2026-11-08 10:13 | 0 |
