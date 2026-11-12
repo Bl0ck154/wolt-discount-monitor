@@ -2,15 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://bl0ck154.github.io/wolt-discount-monitor/</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://bl0ck154.github.io/wolt-discount-monitor/cities/</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://bl0ck154.github.io/wolt-discount-monitor/countries/</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://bl0ck154.github.io/wolt-discount-monitor/methodology/</loc>
@@ -25,7 +25,7 @@
   </url>
   <url>
     <loc>https://bl0ck154.github.io/wolt-discount-monitor/countries/deu/</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://bl0ck154.github.io/wolt-discount-monitor/countries/ltu/</loc>
@@ -74,6 +74,14 @@
   <url>
     <loc>https://bl0ck154.github.io/wolt-discount-monitor/cities/nor/oslo/</loc>
     <lastmod>2026-11-10</lastmod>
+  </url>
+  <url>
+    <loc>https://bl0ck154.github.io/wolt-discount-monitor/cities/deu/bremen/</loc>
+    <lastmod>2026-11-12</lastmod>
+  </url>
+  <url>
+    <loc>https://bl0ck154.github.io/wolt-discount-monitor/de/cities/deu/bremen/</loc>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://bl0ck154.github.io/wolt-discount-monitor/cities/pol/warsaw/</loc>
