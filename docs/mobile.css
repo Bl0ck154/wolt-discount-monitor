@@ -117,8 +117,6 @@
   .toolbar-main { grid-template-columns: 1fr; }
   .search-field { grid-column: auto; }
   .toggles { grid-template-columns: 1fr; }
-  .venue-cell { grid-template-columns: 42px minmax(0, 1fr); }
-  .venue-image { width: 42px; height: 42px; }
   .landing-actions { display: grid; }
 }
 

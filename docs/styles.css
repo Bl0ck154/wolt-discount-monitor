@@ -501,7 +501,7 @@ input:focus, select:focus, button:focus-visible, a:focus-visible, summary:focus-
 .venue-meta.venue-address-link { color: #356d7a; text-decoration: underline; text-underline-offset: 2px; }
 .venue-meta.venue-address-link:hover { color: #004d68; }
 .venue-address-link:focus-visible { outline: 2px solid #056b8b; outline-offset: 3px; }
-.venue-photo .bookmark { position: absolute; z-index: 1; right: -7px; bottom: -7px; display: grid; place-items: center; width: 30px; height: 30px; padding: 0; border: 1px solid #cbd6d9; border-radius: 50%; background: #fff; color: #647f87; font-size: 18px; cursor: pointer; box-shadow: 0 1px 5px rgba(10,40,50,.12); }
+.venue-photo .bookmark { position: absolute; z-index: 1; right: -7px; bottom: -7px; display: grid; place-items: center; width: 30px; height: 30px; padding: 0; border: 1px solid #cbd6d9; border-radius: 50%; background: #fff; color: #647f87; font-size: 18px; cursor: pointer; box-shadow: 0 1px 5px rgba(10,40,50,.12); min-width: 30px; min-height: 30px; }
 .venue-photo .bookmark.is-saved { color: #b4444c; background: #fff4f5; border-color: #e7c5c9; }
 .venue-photo .bookmark:focus-visible { outline: 2px solid #087b83; outline-offset: 3px; }
 .deal-card-promotions { display: flex; gap: 8px 12px; align-items: center; flex-wrap: wrap; min-width: 0; padding: 2px 0; }
@@ -731,38 +731,22 @@ input:focus, select:focus, button:focus-visible, a:focus-visible, summary:focus-
   .feature-grid { grid-template-columns: 1fr; }
   .feature-card { min-height: 0; }
   .feature-card h3 { margin-top: 10px; }
-  .group-location-card {
-    grid-template-columns: 26px minmax(190px, 1.35fr) minmax(150px, 1fr) minmax(82px, .35fr) 105px 54px;
-    gap: 9px;
-  }
 }
 
 .snapshot-trust { margin-top: 8px; color: #566875; font-size: 11px; line-height: 1.55; }
 .refresh-status { margin-top: 6px; color: #375876; font-size: 11px; line-height: 1.55; }
 .empty [data-retry-city] { padding: 7px 11px; margin-left: 7px; border: 1px solid #bbcdd5; border-radius: 8px; background: white; font: inherit; cursor: pointer; }
 
-.venue-photo .bookmark {
-  position: absolute; right: -7px; bottom: -7px; z-index: 1;
-  display: grid; place-items: center; width: 30px; height: 30px;
-  min-width: 30px; min-height: 30px; padding: 0;
-  border: 1px solid #cbd6d9; border-radius: 50%;
-  box-shadow: 0 1px 5px rgba(10,40,50,.12);
-  background: white; color: #647f87; font-size: 18px; line-height: 1; cursor: pointer;
-}
-.venue-photo .bookmark.is-saved { color: #b4444c; background: #fff4f5; border-color: #e7c5c9; }
-.bookmark:focus-visible { outline: 2px solid #087b83; outline-offset: 2px; }
 
 .language-switcher { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; }
 .language-switcher select { padding: 5px 6px; border: 1px solid #c6d2d5; border-radius: 6px; font: inherit; }
 
 /* Browsable filter controls and tappable actions. */
-.venue-photo .bookmark { min-width: 30px; min-height: 30px; }
 .report-link { display: inline-flex; align-items: center; padding: 5px 7px; margin-top: 5px; color: var(--muted); font-size: 11px; text-decoration: underline; text-underline-offset: 2px; }
 .report-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .language-switcher select { min-height: 40px; }
 @media (max-width: 760px) {
   .report-link { min-height: 40px; align-items: center; font-size: 12px; }
-  .bookmark { min-width: 44px; min-height: 44px; }
   .location-map-link { min-width: 44px; min-height: 44px; }
   .hero-copy { grid-row: 2; }
   .hero { gap: 16px; }
