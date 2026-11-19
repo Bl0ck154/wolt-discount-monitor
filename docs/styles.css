@@ -474,6 +474,12 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+.col-rank { width: 3.5%; }
+.col-venue { width: 32%; }
+.col-offers { width: 35%; }
+.col-value { width: 11.5%; }
+.col-status { width: 14%; }
+.col-map { width: 4%; }
 thead th {
   padding: 10px 11px;
   color: #64747b;

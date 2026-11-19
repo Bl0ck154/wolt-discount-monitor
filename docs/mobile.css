@@ -58,6 +58,7 @@
 
   .table-shell { overflow: visible; background: transparent; border: 0; }
   table, thead, tbody { display: block; width: 100%; min-width: 0; }
+  colgroup { display: none; }
   thead { display: none; }
   tbody > tr:not(.group-details-row) {
     display: grid;

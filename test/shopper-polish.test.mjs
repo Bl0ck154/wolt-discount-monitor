@@ -72,3 +72,13 @@ test("legacy snapshots trigger one background refresh for real Wolt ratings", as
   assert.match(source, /cached\.snapshot\.schemaVersion !== 2/);
   assert.match(scan, /previous\?\.schemaVersion === 2/);
 });
+
+test("desktop uses explicit table proportions while mobile uses venue cards", async () => {
+  const html = await readFile(new URL("../docs/index.html", import.meta.url), "utf8");
+  const css = await readFile(new URL("../docs/styles.css", import.meta.url), "utf8");
+  const mobile = await readFile(new URL("../docs/mobile.css", import.meta.url), "utf8");
+  assert.match(html, /class="col-venue"/);
+  assert.match(html, /class="col-map"/);
+  assert.match(css, /\.col-offers \{ width:/);
+  assert.match(mobile, /colgroup \{ display: none;/);
+});
