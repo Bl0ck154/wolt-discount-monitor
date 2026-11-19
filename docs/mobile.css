@@ -216,6 +216,7 @@
   .delivery-notice { font-size: 11px; }
   tbody > tr:not(.group-details-row) { border-radius: 13px; padding: 14px; box-shadow: 0 3px 16px rgba(10, 48, 50, .04); }
   .venue-image { width: 52px; height: 52px; border-radius: 10px; }
+  .venue-photo { width: 52px; }
   .venue-cell { grid-template-columns: 52px minmax(0,1fr); gap: 11px; }
   .venue-title { font-size: 14px; }
   .offer { font-size: 12px; line-height: 1.4; }
@@ -234,9 +235,10 @@
   .has-selected-city .hero { margin-top: 8px; padding: 0 0 8px; }
   .has-selected-city .city-console { padding: 12px; }
   .has-selected-city .explorer { padding-top: 10px; }
-  .venue-heading { align-items: start; }
-  .venue-heading .bookmark { min-width: 28px; min-height: 28px; }
-  .venue-subline { gap: 4px 9px; margin-top: 3px; }
+  .venue-photo { width: 52px; }
+  .venue-photo .bookmark { width: 34px; height: 34px; min-width: 34px; min-height: 34px; }
+  .venue-subline { gap: 4px 9px; margin-top: 4px; }
   .venue-type-inline, .venue-rating { font-size: 11px; }
   .venue-meta.venue-address-link { white-space: normal; }
+  .venue-actions-panel .report-link { min-height: 34px; }
 }

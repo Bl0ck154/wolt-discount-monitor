@@ -158,3 +158,8 @@ test("compactSnapshot preserves only valid numeric rating data", () => {
   assert.deepEqual(output.venues[3].rating, { score: 8.8 });
   assert.deepEqual(output.venues[4].rating, { score: 4.5 });
 });
+
+test("nested public Wolt venue ratings preserve a score without raw objects", () => {
+  const snapshot = compactSnapshot({venues: [{rating: {rating: {score: 8.9}, score: 8.9}}]});
+  assert.deepEqual(snapshot.venues[0].rating, {score: 8.9});
+});

@@ -29,12 +29,12 @@ export function compactVenue(venue = {}) {
 }
 
 function compactVenueRating(rating) {
-  const raw = rating && typeof rating === "object"
-    ? rating.rating ?? rating.score ?? rating.value
-    : rating;
-  const score = finiteOrUndefined(raw);
-  return score !== undefined && score >= 0 && score <= 10
-    ? { score } : undefined;
+  const candidates = rating && typeof rating === "object"
+    ? [rating.score, rating.rating, rating.rating?.score, rating.value]
+    : [rating];
+  const score = candidates.map(finiteOrUndefined)
+    .find((value) => value !== undefined && value >= 0 && value <= 10);
+  return score === undefined ? undefined : { score };
 }
 
 export function compactOffer(offer = {}) {

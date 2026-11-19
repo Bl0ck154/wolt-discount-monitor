@@ -835,7 +835,7 @@ function renderVenueParts(venue, visibleOffers) {
   const estimateButton = favoriteId && estimateOffer
     ? '<button class="estimate-venue-button" type="button" data-estimate-id="' +
        escapeHtml(favoriteId) + '">' + escapeHtml(t("estimateAction")) + '</button>'
-    : '<span class="delivery-notice">' + escapeHtml(t("deliveryUnknown")) + '</span>';
+    : "";
   const ratingScore = Number(venue.rating?.score);
   const ratingAvailable = venue.rating?.score != null &&
     Number.isFinite(ratingScore) && ratingScore >= 0 && ratingScore <= 10;
@@ -846,8 +846,10 @@ function renderVenueParts(venue, visibleOffers) {
     ? '<span class="venue-rating" aria-label="' +
       escapeHtml(tf("venueRating", { score: ratingText })) + '" title="' +
       escapeHtml(tf("venueRating", { score: ratingText })) + '">★ ' +
-      escapeHtml(ratingText) + '</span>'
-    : "";
+      escapeHtml(ratingText) + '<small>/10</small></span>'
+    : '<span class="venue-rating venue-rating-missing" title="' +
+      escapeHtml(t("ratingUnavailable")) + '" aria-label="' +
+      escapeHtml(t("ratingUnavailable")) + '">★ —</span>';
   const address = venue.address
     ? mapUrl
       ? '<a class="venue-meta venue-address-link" href="' + escapeHtml(mapUrl) +
@@ -862,22 +864,24 @@ function renderVenueParts(venue, visibleOffers) {
       (isFavorite ? "Remove saved venue" : "Save venue") + '">' +
       (isFavorite ? "♥" : "♡") + '</button>'
     : "";
+  const actions = estimateButton || report
+    ? '<details class="venue-actions"><summary>' + escapeHtml(t("moreActions")) +
+      '</summary><div class="venue-actions-panel">' + estimateButton + report + '</div></details>'
+    : "";
 
   return {
     identity: `<div class="venue-cell">
-      ${image}
+      <div class="venue-photo">${image}${bookmark}</div>
       <div class="venue-info">
         <div class="venue-heading">
-          <a class="venue-title" href="${escapeHtml(venue.link ?? "#")}" target="_blank" rel="noreferrer">${escapeHtml(venue.name)}</a>
-          ${bookmark}
+          <a class="venue-title" href="${escapeHtml(venue.link ?? "#")}" target="_blank" rel="noopener noreferrer">${escapeHtml(venue.name)}</a>
         </div>
         <div class="venue-subline">
-          <span class="venue-type-inline">${escapeHtml(label(venue.productLine ?? "unknown"))}</span>
           ${rating}
+          <span class="venue-type-inline">${escapeHtml(label(venue.productLine ?? "unknown"))}</span>
         </div>
         ${address}
-        ${report}
-        ${estimateButton}
+        ${actions}
       </div>
     </div>`,
     offers: `<div class="offer-list">${offers}</div>`,

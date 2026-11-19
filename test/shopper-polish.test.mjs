@@ -53,3 +53,15 @@ test("city results handoff and venue metadata are present", async () => {
   assert.match(app, /venue-address-link/);
   assert.match(css, /has-selected-city/);
 });
+
+test("venue layout keeps actions secondary and favorites anchored to image", async () => {
+  const app = await readFile(new URL("../docs/app.js", import.meta.url), "utf8");
+  const css = await readFile(new URL("../docs/styles.css", import.meta.url), "utf8");
+  const mobile = await readFile(new URL("../docs/mobile.css", import.meta.url), "utf8");
+  assert.match(app, /class="venue-photo"/);
+  assert.match(app, /class="venue-rating venue-rating-missing"/);
+  assert.match(app, /class="venue-actions"/);
+  assert.match(css, /\.venue-photo \.bookmark \{/);
+  assert.match(css, /\.venue-actions-panel/);
+  assert.match(mobile, /\.venue-photo \{ width: 52px/);
+});
