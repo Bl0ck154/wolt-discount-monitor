@@ -544,7 +544,7 @@ input:focus, select:focus, button:focus-visible, a:focus-visible, summary:focus-
 .group-location-offers { grid-area: offers; min-width: 0; }
 .group-location-value { grid-area: value; min-width: 0; justify-self: end; }
 .group-location-status { grid-area: status; min-width: 0; }
-.group-location-map { grid-area: map; justify-self: end; }
+.group-location-map { justify-self: end; grid-area: map; }
 .group-location-main .venue-cell { min-width: 0; }
 .group-location-main .venue-meta { max-width: 100%; }
 .group-location-offers .offer-list { min-width: 0; }
