@@ -25,6 +25,7 @@ const state = {
   scanProgress: null,
   scanProgressTimer: null,
   scanProgressHideTimer: null,
+  waitingForFirstScan: false,
   citiesIndex: null,
   selectedCity: null,
   apiBaseUrl: apiBaseUrl(),
@@ -54,6 +55,8 @@ const elements = {
   snapshotTrust: document.querySelector("#snapshotTrust"),
   refreshStatus: document.querySelector("#refreshStatus"),
   scanProgress: document.querySelector("#scanProgress"),
+  dealsJumpLink: document.querySelector("#dealsJumpLink"),
+  dealsSection: document.querySelector("#deals"),
   scanProgressTitle: document.querySelector("#scanProgressTitle"),
   scanProgressDetail: document.querySelector("#scanProgressDetail"),
   scanProgressElapsed: document.querySelector("#scanProgressElapsed"),
@@ -149,8 +152,9 @@ function renderScanProgress() {
   }[progress.phase];
   elements.scanProgressTitle.textContent = t(titleKey);
   const detailKey = progress.background ? "scanBackgroundDetail" : "scanDetail";
-  elements.scanProgressDetail.textContent =
-    ["delayed","error","ready"].includes(progress.phase) ? t("scanStageNote") : t(detailKey);
+  elements.scanProgressDetail.textContent = progress.phase === "ready"
+    ? t("scanReadyDetail")
+    : ["delayed","error"].includes(progress.phase) ? t("scanStageNote") : t(detailKey);
   elements.scanProgressElapsed.textContent = elapsedTime(progress.startedAt);
   elements.scanProgressElapsed.setAttribute("aria-label",t("scanElapsedAria"));
   elements.scanProgressTrack.setAttribute("aria-label", t("scanProgressAria"));
@@ -187,6 +191,9 @@ async function updateScanQueueStatus(city, requestId) {
 
 function showChooseCityPrompt() {
   hideScanProgress();
+  state.waitingForFirstScan = false;
+  document.body.classList.remove("has-selected-city");
+  elements.dealsJumpLink.hidden = true;
   // The landing page must not silently scan Vilnius for first-time visitors.
   state.selectedCity = null;
   state.snapshot = null;
@@ -238,6 +245,7 @@ async function loadSnapshotForCity(cityId) {
 
   // First visit to a city: ask the coordinator once and fill the dashboard
   // automatically after the shared GitHub Pages snapshot is published.
+  state.waitingForFirstScan = true;
   void requestAndWatchCity(city, requestId, cached.snapshot?.generatedAt ?? null);
 }
 
@@ -350,7 +358,11 @@ async function loadApiSnapshot(city) {
 }
 
 function applySnapshot(city, snapshot) {
-  if (state.scanProgress) setScanProgress(state.loadRequestId,"ready");
+  const requestId = state.loadRequestId;
+  const shouldReveal = state.waitingForFirstScan &&
+    window.scrollY < Math.max(400, window.innerHeight * 0.8);
+  state.waitingForFirstScan = false;
+  if (state.scanProgress) setScanProgress(requestId,"ready");
   state.snapshot = snapshot;
   state.selectedCity = { ...(state.snapshot.city ?? {}), ...city };
   state.rows = state.snapshot.venues ?? [];
@@ -365,9 +377,23 @@ function applySnapshot(city, snapshot) {
   hydrateSummary();
   hydrateFilters();
   renderRows();
+  elements.dealsJumpLink.hidden = false;
+  if (shouldReveal) {
+    requestAnimationFrame(() => {
+      if (isCurrentLoad(requestId) && !document.hidden) {
+        elements.dealsSection.scrollIntoView({
+          block: "start",
+          behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+        });
+      }
+    });
+  }
 }
 
 function showLoading(city) {
+  state.waitingForFirstScan = false;
+  document.body.classList.add("has-selected-city");
+  elements.dealsJumpLink.hidden = true;
   state.selectedCity = city;
   state.snapshot = null;
   state.ubiquitousOfferKeys = new Set();
@@ -376,6 +402,7 @@ function showLoading(city) {
   elements.refreshStatus.textContent = "";
   elements.citySearch.value = cityLabelText(city);
   hydrateSummary();
+  elements.snapshotTrust.textContent = t("scanDetail");
   hydrateFilters();
   hydrateHiddenCitywideOffers();
   elements.venueRows.innerHTML = `<tr><td colspan="6" class="empty">${escapeHtml(tf("loadingCity", { city: city.label ?? city.name }))}</td></tr>`;
@@ -809,24 +836,46 @@ function renderVenueParts(venue, visibleOffers) {
     ? '<button class="estimate-venue-button" type="button" data-estimate-id="' +
        escapeHtml(favoriteId) + '">' + escapeHtml(t("estimateAction")) + '</button>'
     : '<span class="delivery-notice">' + escapeHtml(t("deliveryUnknown")) + '</span>';
+  const ratingScore = Number(venue.rating?.score);
+  const ratingAvailable = venue.rating?.score != null &&
+    Number.isFinite(ratingScore) && ratingScore >= 0 && ratingScore <= 10;
+  const ratingText = ratingAvailable
+    ? ratingScore.toLocaleString(state.language, { maximumFractionDigits: 1 })
+    : null;
+  const rating = ratingText
+    ? '<span class="venue-rating" aria-label="' +
+      escapeHtml(tf("venueRating", { score: ratingText })) + '" title="' +
+      escapeHtml(tf("venueRating", { score: ratingText })) + '">★ ' +
+      escapeHtml(ratingText) + '</span>'
+    : "";
+  const address = venue.address
+    ? mapUrl
+      ? '<a class="venue-meta venue-address-link" href="' + escapeHtml(mapUrl) +
+        '" target="_blank" rel="noopener noreferrer" title="' + escapeHtml(t("openMap")) +
+        '">📍 ' + escapeHtml(venue.address) + '</a>'
+      : '<span class="venue-meta">📍 ' + escapeHtml(venue.address) + '</span>'
+    : "";
   const bookmark = favoriteId
     ? '<button type="button" class="bookmark ' + (isFavorite ? "is-saved" : "") +
       '" data-favorite-id="' + escapeHtml(favoriteId) + '" aria-pressed="' + isFavorite +
       '" title="' + (isFavorite ? "Remove saved venue" : "Save venue") + '" aria-label="' +
       (isFavorite ? "Remove saved venue" : "Save venue") + '">' +
-      (isFavorite ? "★" : "☆") + '</button>'
+      (isFavorite ? "♥" : "♡") + '</button>'
     : "";
 
   return {
     identity: `<div class="venue-cell">
       ${image}
-      <div>
+      <div class="venue-info">
         <div class="venue-heading">
           <a class="venue-title" href="${escapeHtml(venue.link ?? "#")}" target="_blank" rel="noreferrer">${escapeHtml(venue.name)}</a>
           ${bookmark}
-          <span class="venue-type-inline">${escapeHtml(label(venue.productLine ?? "unknown"))}</span>
         </div>
-        <div class="venue-meta">${escapeHtml(venue.address ?? "")}</div>
+        <div class="venue-subline">
+          <span class="venue-type-inline">${escapeHtml(label(venue.productLine ?? "unknown"))}</span>
+          ${rating}
+        </div>
+        ${address}
         ${report}
         ${estimateButton}
       </div>

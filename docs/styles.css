@@ -1263,3 +1263,22 @@ tbody > tr:not(.group-details-row):hover > td { background: #fbfcfc; }
   .scan-progress-track::before { left: 0; width: 44%; }
   .scan-progress[data-phase="ready"] .scan-progress-track::before { width: 100%; }
 }
+
+/* Selected-city visits prioritize results over the marketing hero. */
+.has-selected-city .hero { grid-template-columns: minmax(0, 1fr); margin-top: 14px; padding: 0 0 14px; gap: 0; }
+.has-selected-city .hero-copy { display: none; }
+.has-selected-city .city-console { padding: 15px 20px; }
+.has-selected-city .explorer { margin-top: 8px; padding-top: 16px; }
+.deals-jump-link { display: inline-flex; min-height: 38px; align-items: center; margin-top: 12px; padding: 8px 12px; border-radius: 8px; color: #fff; background: #087a72; text-decoration: none; font-size: 12px; font-weight: 700; }
+.deals-jump-link:hover { background: #056158; }
+.deals-jump-link[hidden] { display: none !important; }
+#deals { scroll-margin-top: 12px; }
+.venue-info { min-width: 0; }
+.venue-heading { display: grid; grid-template-columns: minmax(0, 1fr) 28px; align-items: center; gap: 8px; }
+.venue-heading .bookmark { grid-column: 2; justify-self: end; }
+.venue-subline { display: flex; align-items: center; flex-wrap: wrap; gap: 5px 10px; margin-top: 4px; }
+.venue-type-inline { font-size: 11px; line-height: 1.3; }
+.venue-rating { color: #73520c; font-weight: 750; font-size: 11px; white-space: nowrap; }
+.venue-meta.venue-address-link { display: block; width: fit-content; max-width: 100%; color: #366d7b; text-decoration: underline; text-underline-offset: 2px; }
+.venue-meta.venue-address-link:hover { color: #004d68; }
+.venue-address-link:focus-visible, .deals-jump-link:focus-visible { outline: 2px solid #056b8b; outline-offset: 3px; }

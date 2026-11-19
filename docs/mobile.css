@@ -229,3 +229,14 @@
   #mobileAdvancedFilters { display: none; }
   .show-advanced-filters #mobileAdvancedFilters { display: flex; }
 }
+
+@media (max-width: 760px) {
+  .has-selected-city .hero { margin-top: 8px; padding: 0 0 8px; }
+  .has-selected-city .city-console { padding: 12px; }
+  .has-selected-city .explorer { padding-top: 10px; }
+  .venue-heading { align-items: start; }
+  .venue-heading .bookmark { min-width: 28px; min-height: 28px; }
+  .venue-subline { gap: 4px 9px; margin-top: 3px; }
+  .venue-type-inline, .venue-rating { font-size: 11px; }
+  .venue-meta.venue-address-link { white-space: normal; }
+}

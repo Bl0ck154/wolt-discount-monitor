@@ -41,3 +41,15 @@ test("shopper page shows scan availability and a safe RSS subscription link", as
  assert.match(app, /scanNeeded/);
  assert.match(mobile, /min-height: 44px/);
 });
+
+test("city results handoff and venue metadata are present", async () => {
+  const html = await readFile(new URL("../docs/index.html", import.meta.url), "utf8");
+  const app = await readFile(new URL("../docs/app.js", import.meta.url), "utf8");
+  const css = await readFile(new URL("../docs/styles.css", import.meta.url), "utf8");
+  assert.match(html, /id="dealsJumpLink"/);
+  assert.match(app, /waitingForFirstScan/);
+  assert.match(app, /dealsSection.scrollIntoView/);
+  assert.match(app, /ratingScore/);
+  assert.match(app, /venue-address-link/);
+  assert.match(css, /has-selected-city/);
+});
