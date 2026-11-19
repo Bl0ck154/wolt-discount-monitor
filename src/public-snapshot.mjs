@@ -15,6 +15,7 @@ export function compactVenue(venue = {}) {
     productLine: venue.productLine,
     currency: venue.currency,
     address: venue.address,
+    rating: compactVenueRating(venue.rating),
     coordinates: compactCoordinates(venue.coordinates ?? venue.location),
     mapUrl: venue.mapUrl,
     link: venue.link,
@@ -25,6 +26,15 @@ export function compactVenue(venue = {}) {
     offers: (venue.offers ?? []).map(compactOffer),
     bestDiscount: compactBestDiscount(venue.bestDiscount),
   });
+}
+
+function compactVenueRating(rating) {
+  const raw = rating && typeof rating === "object"
+    ? rating.rating ?? rating.score ?? rating.value
+    : rating;
+  const score = finiteOrUndefined(raw);
+  return score !== undefined && score >= 0 && score <= 10
+    ? { score } : undefined;
 }
 
 export function compactOffer(offer = {}) {

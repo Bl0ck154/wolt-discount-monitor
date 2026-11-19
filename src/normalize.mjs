@@ -3,8 +3,11 @@ import { analyzeOffer, extractDiscount as extractValueDiscount, normalizeOfferTe
 
 export function normalizeSnapshot({ city = CITY, urls, restaurantRows, promoRows }) {
   const generatedAt = new Date().toISOString();
+  const restaurantRatings = new Map(restaurantRows
+    .filter((row) => row.venue?.id && row.venue?.rating != null)
+    .map((row) => [row.venue.id, row.venue.rating]));
   const venues = promoRows
-    .map((row) => normalizeVenueRow(row, urls.promotions, city))
+    .map((row) => normalizeVenueRow(row, urls.promotions, city, restaurantRatings.get(row.venue?.id)))
     .sort((a, b) =>
       Number(b.bestDiscount?.score ?? 0) - Number(a.bestDiscount?.score ?? 0) ||
       a.name.localeCompare(b.name, "en"));
@@ -26,7 +29,7 @@ export function normalizeSnapshot({ city = CITY, urls, restaurantRows, promoRows
   };
 }
 
-function normalizeVenueRow(row, sourceEndpoint, city) {
+function normalizeVenueRow(row, sourceEndpoint, city, fallbackRating = null) {
   const venue = row.venue;
   const offers = extractOffers(venue);
   const best = bestDiscount(offers);
@@ -45,7 +48,7 @@ function normalizeVenueRow(row, sourceEndpoint, city) {
     link: row.item?.link?.target ?? buildWoltLink(venue, city),
     imageUrl: venue.image?.url ?? venue.brand_image?.url ?? row.item?.image?.url ?? null,
     brandImageUrl: venue.brand_image?.url ?? null,
-    rating: venue.rating ?? null,
+    rating: venue.rating ?? fallbackRating,
     deliveryPrice: venue.delivery_price ?? null,
     deliveryPriceInt: venue.delivery_price_int ?? null,
     estimateRange: venue.estimate_range ?? venue.estimate_box?.title ?? null,

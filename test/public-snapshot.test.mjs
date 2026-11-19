@@ -28,6 +28,7 @@ test("compactSnapshot removes raw and duplicate public fields", () => {
     counts: { promotionsUniqueVenues: 1, restaurantsUniqueVenues: 1 },
     venues: [{
       id: "venue-1",
+      rating: { rating: 9.2, volume: 100 },
       slug: "venue-1",
       name: "Venue 1",
       productLine: "restaurant",
@@ -80,6 +81,7 @@ test("compactSnapshot removes raw and duplicate public fields", () => {
   assert.equal(output.source, undefined);
   assert.equal(output.city.timezone, undefined);
   assert.equal(venue.raw, undefined);
+  assert.deepEqual(venue.rating, { score: 9.2 });
   assert.equal(venue.offerTexts, undefined);
   assert.equal(venue.bestAmount, undefined);
   assert.equal(venue.sourceEndpoint, undefined);
@@ -145,4 +147,14 @@ test("compactCitiesIndex keeps fields required by the dashboard", () => {
   assert.equal(output.cities[0].timezone, undefined);
   assert.equal(output.cities[0].latestPath, "data/latest.json");
   assert.equal(output.cities[0].countryCode2, "LT");
+});
+
+test("compactSnapshot preserves only valid numeric rating data", () => {
+  const ratings = [null, { score: "n/a" }, { rating: 12 }, { score: 8.8 }, 4.5];
+  const output = compactSnapshot({ venues: ratings.map((rating) => ({ rating })) });
+  assert.equal(output.venues[0].rating, undefined);
+  assert.equal(output.venues[1].rating, undefined);
+  assert.equal(output.venues[2].rating, undefined);
+  assert.deepEqual(output.venues[3].rating, { score: 8.8 });
+  assert.deepEqual(output.venues[4].rating, { score: 4.5 });
 });

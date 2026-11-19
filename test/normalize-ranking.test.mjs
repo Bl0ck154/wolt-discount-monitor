@@ -131,3 +131,18 @@ test("diff ranks strong cash before weaker conditional cash", () => {
   assert.deepEqual(changes.interestingAppeared.map((offer) => offer.venue.name), ["Strong"]);
   assert.ok(snapshot.venues[0].bestDiscount.score > snapshot.venues[1].bestDiscount.score);
 });
+
+test("restaurant rating supplements the same promotion venue when its rating is missing", () => {
+  const mkrow = (id, rating) => ({
+    venue: { id, slug: id, name: id, product_line: "restaurant", currency: "EUR",
+      rating, promotions: [{ text: "20% off" }] },
+    item: {}, sectionName: "Restaurants", sectionTemplate: "venue",
+  });
+  const snapshot = compactSnapshot(normalizeSnapshot({
+    city,
+    urls: { promotions: "test", restaurants: "test" },
+    restaurantRows: [mkrow("same", { rating: 9.3 }), mkrow("other", { rating: 4.1 })],
+    promoRows: [mkrow("same", null)],
+  }));
+  assert.deepEqual(snapshot.venues[0].rating, { score: 9.3 });
+});
