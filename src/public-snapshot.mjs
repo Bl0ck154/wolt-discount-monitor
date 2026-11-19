@@ -1,6 +1,7 @@
 export function compactSnapshot(snapshot = {}) {
   return cleanObject({
     generatedAt: snapshot.generatedAt,
+    schemaVersion: snapshot.schemaVersion,
     city: compactSnapshotCity(snapshot.city),
     counts: snapshot.counts,
     venues: (snapshot.venues ?? []).map(compactVenue),

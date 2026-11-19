@@ -75,7 +75,9 @@ async function checkCity(city) {
     })),
   };
 
-  if (process.env.FORCE_WRITE !== "true" && isSnapshotFresh(previous)) {
+  // A schema upgrade must not reuse a fresh, pre-rating snapshot.
+  if (process.env.FORCE_WRITE !== "true" && previous?.schemaVersion === 2 &&
+      isSnapshotFresh(previous)) {
     return cityResult(city, previous, {
       cacheHit: true,
       appeared: 0,

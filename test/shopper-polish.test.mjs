@@ -65,3 +65,10 @@ test("venue layout keeps actions secondary and favorites anchored to image", asy
   assert.match(css, /\.venue-actions-panel/);
   assert.match(mobile, /\.venue-photo \{ width: 52px/);
 });
+
+test("legacy snapshots trigger one background refresh for real Wolt ratings", async () => {
+  const source = await readFile(new URL("../docs/app.js", import.meta.url), "utf8");
+  const scan = await readFile(new URL("../src/check-discounts.mjs", import.meta.url), "utf8");
+  assert.match(source, /cached\.snapshot\.schemaVersion !== 2/);
+  assert.match(scan, /previous\?\.schemaVersion === 2/);
+});

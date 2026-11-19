@@ -163,3 +163,8 @@ test("nested public Wolt venue ratings preserve a score without raw objects", ()
   const snapshot = compactSnapshot({venues: [{rating: {rating: {score: 8.9}, score: 8.9}}]});
   assert.deepEqual(snapshot.venues[0].rating, {score: 8.9});
 });
+
+test("public snapshots retain the schema revision without upgrading legacy cached data", () => {
+  assert.equal(compactSnapshot({schemaVersion:2}).schemaVersion, 2);
+  assert.equal(compactSnapshot({generatedAt:"old"}).schemaVersion, undefined);
+});

@@ -14,6 +14,7 @@ export function normalizeSnapshot({ city = CITY, urls, restaurantRows, promoRows
 
   return {
     generatedAt,
+    schemaVersion: 2,
     city: publicCity(city),
     source: {
       promotionsEndpoint: urls.promotions,

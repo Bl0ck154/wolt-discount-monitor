@@ -234,7 +234,7 @@ async function loadSnapshotForCity(cityId) {
     Number.isFinite(generated) && Date.now() - generated >= 0 && Date.now() - generated < CITY_MAX_DISPLAY_AGE_MS;
   if (isUsableCache) {
     applySnapshot(city, cached.snapshot);
-    if (isCitySnapshotExpired(cached.snapshot)) {
+    if (isCitySnapshotExpired(cached.snapshot) || cached.snapshot.schemaVersion !== 2) {
       // Stale-while-revalidate: keep the existing deals visible while the
       // GitHub-hosted updater refreshes that city's shared snapshot.
       beginScanProgress(requestId, {background:true});
