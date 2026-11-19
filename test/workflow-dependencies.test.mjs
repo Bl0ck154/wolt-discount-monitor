@@ -10,7 +10,8 @@ test("production updater keeps the normal monitor path dependency-free", async (
   const testCount = (workflow.match(/- name: Run tests[\s\S]*?run: node --test/g) ?? []).length;
 
   assert.equal(testCount, 1, "only the GitHub-hosted monitor should run tests");
-  assert.ok(workflow.includes("default: \"ltu/vilnius,deu/nuremberg\""), "scheduled monitor must include Nuremberg and Vilnius");
+  assert.ok(workflow.includes("default: \"ltu/vilnius,deu/frankfurt\""), "scheduled monitor must include Frankfurt and Vilnius");
+  assert.doesNotMatch(workflow, /WOLT_CITIES:.*deu\/nuremberg/, "scheduled scans must exclude Nuremberg");
   assert.match(workflow, /inputs\.cities \|\| \(github\.event\.schedule/, "scheduled expansion must be explicit and preserve manual city selection");
   assert.match(workflow, /runs-on: ubuntu-latest/, "monitor must run on GitHub infrastructure");
   assert.doesNotMatch(workflow, /self-hosted/, "the update workflow must never require a self-hosted runner");
