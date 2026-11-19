@@ -36,7 +36,7 @@ export const CITY = DEFAULT_CITY;
 // Use this at scan time because the cached Wolt city catalog can be up to 24 hours old.
 export function notificationsEnabledFor(cityOrId) {
   const id = typeof cityOrId === "string" ? cityOrId : cityOrId?.id;
-  return id === "ltu/vilnius" || id === "deu/nuremberg";
+  return id === "ltu/vilnius" || id === "deu/frankfurt";
 }
 
 export function cityLabel(city) {

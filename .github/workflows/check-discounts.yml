@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       cities:
-        description: "Cities to monitor (default: Vilnius and Nuremberg)"
+        description: "Cities to monitor (default: Vilnius and Frankfurt)"
         required: false
-        default: "ltu/vilnius,deu/nuremberg"
+        default: "ltu/vilnius,deu/frankfurt"
       all_cities:
         description: "Check every city from the Wolt catalog (large run)"
         required: false
@@ -28,7 +28,7 @@ on:
         default: false
         type: boolean
 
-  # Five UTC checks for Vilnius and Nuremberg; the first adds Berlin, Warsaw and Prague.
+  # Five UTC checks for Vilnius and Frankfurt; the first adds Berlin, Warsaw and Prague.
   schedule:
     - cron: "19 7 * * *"
     - cron: "49 8 * * *"
@@ -115,7 +115,7 @@ jobs:
           FORCE_WRITE: ${{ inputs.force_refresh && 'true' || 'false' }}
           WOLT_SCAN_CONCURRENCY: ${{ inputs.parallel_scan && '3' || '1' }}
           WOLT_REFRESH_CITY_CATALOG: "false"
-          WOLT_CITIES: ${{ inputs.cities || (github.event.schedule == '19 7 * * *' && 'ltu/vilnius,deu/nuremberg,deu/berlin,pol/warsaw,cze/prague' || 'ltu/vilnius,deu/nuremberg') }}
+          WOLT_CITIES: ${{ inputs.cities || (github.event.schedule == '19 7 * * *' && 'ltu/vilnius,deu/frankfurt,deu/berlin,pol/warsaw,cze/prague' || 'ltu/vilnius,deu/frankfurt') }}
           WOLT_ALL_CITIES: ${{ inputs.all_cities }}
         run: node src/check-discounts.mjs
 

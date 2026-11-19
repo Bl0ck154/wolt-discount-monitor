@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 
-import { readNumericEnv } from "../src/config.mjs";
+import { notificationsEnabledFor, readNumericEnv } from "../src/config.mjs";
 
 test("numeric workflow variables use defaults when unset, blank, or invalid", () => {
   const name = "TEST_WOLT_NUMERIC_ENV";
@@ -36,4 +36,11 @@ test("blank WOLT_CACHE_TTL_HOURS keeps the one-hour default", async () => {
     if (previous === undefined) delete process.env.WOLT_CACHE_TTL_HOURS;
     else process.env.WOLT_CACHE_TTL_HOURS = previous;
   }
+});
+
+test("production Telegram alerts are enabled for Vilnius and Frankfurt only", () => {
+  assert.equal(notificationsEnabledFor("ltu/vilnius"), true);
+  assert.equal(notificationsEnabledFor({ id: "deu/frankfurt" }), true);
+  assert.equal(notificationsEnabledFor("deu/nuremberg"), false);
+  assert.equal(notificationsEnabledFor({ id: "deu/berlin" }), false);
 });

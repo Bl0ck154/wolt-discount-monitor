@@ -255,7 +255,7 @@ Each Telegram alert names the city in a clickable heading linking to that city's
 
 ## Automation
 
-The first daily scheduled scan also checks Berlin, Warsaw and Prague (best effort); other scheduled runs continue monitoring Vilnius and Nuremberg.
+The first daily scheduled scan also checks Berlin, Warsaw and Prague (best effort); other scheduled runs continue monitoring Vilnius and Frankfurt.
 
 | Workflow | Purpose |
 | --- | --- |
@@ -264,7 +264,7 @@ The first daily scheduled scan also checks Berlin, Warsaw and Prague (best effor
 | [`compact-data.yml`](.github/workflows/compact-data.yml) | keeps generated history manageable |
 | [`deploy-pages.yml`](.github/workflows/deploy-pages.yml) | deploys the public dashboard |
 
-The updater runs automatically five times daily on GitHub-hosted runners, independent of any VPS or self-hosted runner. If new data is committed, the same Actions run invokes the reusable Pages deployment. Manual `workflow_dispatch` runs use GitHub-hosted runners too. Scheduled checks refresh **Vilnius (`ltu/vilnius`) and Nuremberg (`deu/nuremberg`)** five times daily, while Telegram notifications are enabled for Vilnius and Nuremberg. Wolt requests use `SCRAPERAPI_API_KEY` as a fallback when direct access is rate-limited. [See Nuremberg deals](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Fnuremberg). Browsers never receive this key.
+The updater runs automatically five times daily on GitHub-hosted runners, independent of any VPS or self-hosted runner. If new data is committed, the same Actions run invokes the reusable Pages deployment. Manual `workflow_dispatch` runs use GitHub-hosted runners too. Scheduled checks refresh **Vilnius (`ltu/vilnius`) and Frankfurt (`deu/frankfurt`)** five times daily, while Telegram notifications are enabled for Vilnius and Frankfurt. Wolt requests use `SCRAPERAPI_API_KEY` as a fallback when direct access is rate-limited. [See Frankfurt deals](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Ffrankfurt). Browsers never receive this key.
 
 ## Privacy and security
 
