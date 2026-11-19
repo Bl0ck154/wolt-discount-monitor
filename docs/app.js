@@ -787,26 +787,44 @@ function renderRows() {
 }
 
 function renderVenueGroup(group, index) {
-  const main = renderVenueRow(group.primary.venue, group.primary.visibleOffers, index);
-  if (group.rows.length === 1) {
-    return main;
-  }
-
-  const additionalRows = group.rows.filter(({ venue }) => venue.id !== group.primary.venue.id);
+  const primary = group.primary;
+  const parts = renderVenueParts(primary.venue, primary.visibleOffers);
+  const additionalRows = group.rows.filter(({ venue }) => venue.id !== primary.venue.id);
   const detailRows = additionalRows
-    .map(({ venue, visibleOffers }, locationIndex) => renderGroupDetailRow(venue, visibleOffers, locationIndex + 1))
+    .map(({ venue, visibleOffers }, locationIndex) =>
+      renderGroupDetailRow(venue, visibleOffers, locationIndex + 1))
     .join("");
+  const locationLabel = additionalRows.length === 1
+    ? "1 more location" : `${additionalRows.length} more locations`;
+  const details = additionalRows.length
+    ? `<details class="group-details">
+        <summary><span>${escapeHtml(group.rootName)}</span><strong>${escapeHtml(locationLabel)}</strong></summary>
+        <div class="group-location-list">${detailRows}</div>
+      </details>`
+    : "";
 
-  const locationLabel = additionalRows.length === 1 ? "1 more location" : `${additionalRows.length} more locations`;
-  return `${main}
-    <tr class="group-details-row">
-      <td colspan="6">
-        <details class="group-details">
-          <summary><span>${escapeHtml(group.rootName)}</span><strong>${escapeHtml(locationLabel)}</strong></summary>
-          <div class="group-location-list">${detailRows}</div>
-        </details>
-      </td>
-    </tr>`;
+  // Keep all information for a venue together. Separate 6-column rows
+  // spread a one-badge offer across an otherwise empty desktop screen.
+  return `<tr class="deal-row"><td colspan="6">
+    <article class="deal-card">
+      <div class="deal-card-top">
+        <span class="deal-rank">${index}</span>
+        ${parts.identity}
+      </div>
+      <div class="deal-card-promotions">
+        ${parts.offers}
+        <div class="deal-card-value" aria-label="${escapeHtml(t("bestValue"))}">
+          <span class="deal-card-value-label">${escapeHtml(t("bestValue"))}</span>
+          ${parts.value}
+        </div>
+      </div>
+      <div class="deal-card-footer">
+        ${parts.status}
+        ${parts.map}
+      </div>
+      ${details}
+    </article>
+  </td></tr>`;
 }
 
 function renderVenueParts(venue, visibleOffers) {
@@ -891,21 +909,6 @@ function renderVenueParts(venue, visibleOffers) {
       ? `<a class="map-link" href="${escapeHtml(mapUrl)}" target="_blank" rel="noreferrer" title="Open in Google Maps" aria-label="Open in Google Maps"><span aria-hidden="true">🗺️</span></a>`
       : `<span class="venue-map-empty">—</span>`,
   };
-}
-
-function renderVenueRow(venue, visibleOffers, index) {
-  const parts = renderVenueParts(venue, visibleOffers);
-
-  return `
-    <tr>
-      <td class="num-col row-num">${index}</td>
-      <td>${parts.identity}</td>
-      <td>${parts.offers}</td>
-      <td>${parts.value}</td>
-      <td>${parts.status}</td>
-      <td>${parts.map}</td>
-    </tr>
-  `;
 }
 
 function renderGroupDetailRow(venue, visibleOffers, index) {

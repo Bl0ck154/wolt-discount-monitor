@@ -73,12 +73,17 @@ test("legacy snapshots trigger one background refresh for real Wolt ratings", as
   assert.match(scan, /previous\?\.schemaVersion === 2/);
 });
 
-test("desktop uses explicit table proportions while mobile uses venue cards", async () => {
+test("compact offer cards keep badges adjacent to the savings value", async () => {
   const html = await readFile(new URL("../docs/index.html", import.meta.url), "utf8");
+  const app = await readFile(new URL("../docs/app.js", import.meta.url), "utf8");
   const css = await readFile(new URL("../docs/styles.css", import.meta.url), "utf8");
   const mobile = await readFile(new URL("../docs/mobile.css", import.meta.url), "utf8");
-  assert.match(html, /class="col-venue"/);
-  assert.match(html, /class="col-map"/);
-  assert.match(css, /\.col-offers \{ width:/);
-  assert.match(mobile, /colgroup \{ display: none;/);
+  assert.match(html, /class="deal-list-table"/);
+  assert.match(app, /class="deal-card-promotions"/);
+  assert.match(app, /class="deal-card-value"/);
+  assert.match(css, /grid-template-columns: repeat\(2, minmax\(0, 1fr\)\)/);
+  assert.match(mobile, /\.results \.deal-list-table tbody \{ grid-template-columns: 1fr/);
+  assert.doesNotMatch(css, /\.col-offers \{ width:/);
+  assert.doesNotMatch(app, /function renderVenueRow\(/);
 });
+

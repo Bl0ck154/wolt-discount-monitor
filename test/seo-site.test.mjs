@@ -155,8 +155,7 @@ test("mobile UI keeps secondary controls quiet and non-sticky", async () => {
   assert.match(html, /class="summary-meta"><span data-i18n="updated">Updated/);
   assert.match(mobile, /\.topbar \{ position: relative; \}/);
   assert.match(mobile, /\.topnav \{ display: none; \}/);
-  assert.match(mobile, /"venue map"/);
-  assert.match(mobile, /"status best"/);
+  assert.match(mobile, /\.results \.deal-list-table tbody \{ grid-template-columns: 1fr/);
 });
 
 

@@ -459,277 +459,95 @@ input:focus, select:focus, button:focus-visible, a:focus-visible, summary:focus-
   white-space: nowrap;
 }
 
-/* Desktop data table */
+/* Compact, responsive offer cards. Each offer and its value share a single row. */
 .results { overflow: visible; }
-.table-shell {
-  overflow-x: auto;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
+.results .table-shell { overflow: visible; background: none; border: 0; }
+.results .deal-list-table { display: block; min-width: 0; width: 100%; border: 0; }
+.results .deal-list-table thead {
+  position: absolute; overflow: hidden; clip-path: inset(50%);
+  width: 1px; height: 1px; white-space: nowrap;
 }
-table {
-  width: 100%;
-  min-width: 1030px;
-  table-layout: fixed;
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-.col-rank { width: 3.5%; }
-.col-venue { width: 32%; }
-.col-offers { width: 35%; }
-.col-value { width: 11.5%; }
-.col-status { width: 14%; }
-.col-map { width: 4%; }
-thead th {
-  padding: 10px 11px;
-  color: #64747b;
-  background: #f7f9fa;
-  border-bottom: 1px solid var(--line);
-  font-size: 9px;
-  font-weight: 650;
-  letter-spacing: .045em;
-  text-transform: uppercase;
-  text-align: left;
-}
-.sort-header {
-  padding: 0;
-  color: inherit;
-  background: none;
-  border: 0;
-  font: inherit;
-  font-weight: inherit;
-  letter-spacing: inherit;
-  text-transform: inherit;
-  cursor: pointer;
-}
-.sort-header::after { content: " ↕"; color: #a4afb4; }
-.sort-header.is-active[data-direction="asc"]::after { content: " ↑"; color: var(--accent-dark); }
-.sort-header.is-active[data-direction="desc"]::after { content: " ↓"; color: var(--accent-dark); }
-tbody > tr:not(.group-details-row) > td {
-  padding: 12px 11px;
-  background: #fff;
-  border-bottom: 1px solid #e7ebed;
-  vertical-align: middle;
-  font-size: 13px;
-}
-tbody > tr:not(.group-details-row):hover > td { background: #fbfcfc; }
-.num-col { width: 46px; text-align: right; }
-.row-num { color: #98a4a9; font-size: 10px !important; font-weight: 550; font-variant-numeric: tabular-nums; }
-.venue-cell {
-  min-width: 0;
+.results .deal-list-table tbody {
   display: grid;
-  grid-template-columns: 48px minmax(0, 1fr);
-  gap: 11px;
-  align-items: center;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
 }
-.venue-photo { position: relative; width: 48px; align-self: start; }
-.venue-info { min-width: 0; }
-.venue-image {
-  display: block;
-  width: 48px;
-  height: 48px;
-  object-fit: cover;
-  background: #eef2f3;
-  border: 1px solid var(--line);
-  border-radius: 8px;
+.results .deal-list-table tbody > tr,
+.results .deal-list-table tbody > tr > td { display: block; min-width: 0; }
+.results .deal-list-table tbody > tr > td { padding: 0; border: 0; }
+.results .deal-list-table tbody > tr:not(.deal-row) { grid-column: 1 / -1; }
+.deal-card {
+  height: 100%;
+  display: flex; flex-direction: column; gap: 11px;
+  padding: 16px;
+  background: #fff; border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(24, 53, 59, .035);
 }
-.venue-title {
-  display: -webkit-box;
-  max-width: 100%;
-  overflow: hidden;
-  color: var(--text-strong);
-  font-size: 14px;
-  font-weight: 650;
-  line-height: 1.3;
-  text-decoration: none;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  white-space: normal;
-}
+.deal-card-top { display: grid; grid-template-columns: 18px minmax(0,1fr); gap: 8px; align-items: start; }
+.deal-rank { padding-top: 19px; color: #8b9ba2; font-size: 11px; font-variant-numeric: tabular-nums; }
+.venue-cell { min-width: 0; display: grid; grid-template-columns: 56px minmax(0,1fr); gap: 12px; align-items: start; }
+.venue-photo { position: relative; width: 56px; }
+.venue-image { display: block; width: 56px; height: 56px; object-fit: cover; border: 1px solid var(--line); border-radius: 9px; background: #eef2f3; }
+.venue-info, .venue-heading { min-width: 0; }
+.venue-title { display: -webkit-box; overflow: hidden; -webkit-line-clamp: 2; -webkit-box-orient: vertical; color: var(--text-strong); font-size: 15px; line-height: 1.3; font-weight: 680; text-decoration: none; }
 .venue-title:hover { color: var(--accent-dark); }
-.venue-heading { min-width: 0; }
-.venue-subline { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
-.venue-rating {
-  display: inline-flex; align-items: baseline; gap: 3px;
-  color: #775019; background: #fff6e7; border: 1px solid #f0dfb8;
-  border-radius: 5px; padding: 2px 6px; font-size: 12px; font-weight: 750;
-  white-space: nowrap;
-}
+.venue-subline { display: flex; flex-wrap: wrap; gap: 5px 8px; align-items: center; margin-top: 5px; }
+.venue-rating { display: inline-flex; gap: 3px; align-items: baseline; padding: 2px 6px; border: 1px solid #f0dfb8; border-radius: 5px; background: #fff6e7; color: #775019; font-size: 12px; font-weight: 750; white-space: nowrap; }
 .venue-rating small { font-size: 9px; font-weight: 600; color: #92774d; }
 .venue-rating-missing { background: transparent; border-color: #e1e5e7; color: #87949a; font-weight: 500; }
-.venue-type-inline {
-  flex: 0 0 auto;
-  color: #8b979c;
-  font-size: 9px;
-  font-weight: 500;
-  line-height: 1;
-  text-transform: lowercase;
-  white-space: nowrap;
-}
-.venue-meta.venue-address-link {
-  display: block; width: fit-content; max-width: 100%;
-  color: #356d7a; text-decoration: underline; text-underline-offset: 2px;
-}
+.venue-type-inline { color: #778790; font-size: 11px; font-weight: 500; text-transform: lowercase; }
+.venue-meta { display: block; width: fit-content; max-width: 100%; margin-top: 5px; color: var(--muted); font-size: 11px; line-height: 1.45; overflow-wrap: anywhere; }
+.venue-meta.venue-address-link { color: #356d7a; text-decoration: underline; text-underline-offset: 2px; }
 .venue-meta.venue-address-link:hover { color: #004d68; }
 .venue-address-link:focus-visible { outline: 2px solid #056b8b; outline-offset: 3px; }
-.venue-meta {
-  max-width: 390px;
-  margin-top: 3px;
-  overflow: hidden;
-  color: var(--muted);
-  font-size: 11px;
-  line-height: 1.4;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.pill {
-  display: inline-flex;
-  align-items: center;
-  min-height: 24px;
-  padding: 2px 7px;
-  color: #435c65;
-  background: #f3f6f7;
-  border: 1px solid #dce5e7;
-  border-radius: 6px;
-  font-size: 9px;
-  font-weight: 600;
-  white-space: nowrap;
-}
-.offer-list { min-width: 210px; display: flex; flex-wrap: wrap; gap: 5px; }
-.offer {
-  display: inline-flex;
-  align-items: center;
-  min-height: 26px;
-  padding: 3px 7px;
-  color: #564700;
-  background: #fff9e7;
-  border: 1px solid #ebdfb1;
-  border-radius: 6px;
-  font-size: 10px;
-  font-weight: 550;
-  line-height: 1.25;
-}
+.venue-photo .bookmark { position: absolute; z-index: 1; right: -7px; bottom: -7px; display: grid; place-items: center; width: 30px; height: 30px; padding: 0; border: 1px solid #cbd6d9; border-radius: 50%; background: #fff; color: #647f87; font-size: 18px; cursor: pointer; box-shadow: 0 1px 5px rgba(10,40,50,.12); }
+.venue-photo .bookmark.is-saved { color: #b4444c; background: #fff4f5; border-color: #e7c5c9; }
+.venue-photo .bookmark:focus-visible { outline: 2px solid #087b83; outline-offset: 3px; }
+.deal-card-promotions { display: flex; gap: 8px 12px; align-items: center; flex-wrap: wrap; min-width: 0; padding: 2px 0; }
+.offer-list { display: flex; flex-wrap: wrap; gap: 5px; min-width: 0; }
+.offer { display: inline-flex; align-items: center; min-height: 27px; max-width: 100%; padding: 4px 8px; color: #564700; background: #fff9e7; border: 1px solid #ebdfb1; border-radius: 6px; font-size: 11px; font-weight: 550; line-height: 1.25; overflow-wrap: anywhere; }
 .offer-percent { color: #84245c; background: #fff2f8; border-color: #efcade; }
 .offer-money { color: #116248; background: #eef8f3; border-color: #c8e5d6; }
 .offer-delivery { color: #2f5875; background: #f1f6fb; border-color: #d2e0ec; }
 .offer-new-user { color: #735400; background: #fff6dd; border-color: #ead79c; }
 .offer-free { color: #385f20; background: #f3f9ec; border-color: #d5e7c2; }
 .offer-other { color: #4f5b60; background: #f5f6f7; border-color: #e0e4e6; }
-.amount {
-  min-width: 92px;
-  color: var(--warning);
-  font-size: 16px !important;
-  font-weight: 700;
-  letter-spacing: -.015em;
-  white-space: nowrap;
-}
+.deal-card-value { display: inline-flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+.deal-card-value-label { color: #8a969b; font-size: 10px; font-weight: 500; }
+.amount { color: var(--warning); font-size: 16px; font-weight: 750; letter-spacing: -.015em; white-space: nowrap; }
 .amount-percent { color: #922351; }
-.hours {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 10px;
-  font-weight: 600;
-  white-space: nowrap;
-}
+.deal-card-footer { margin-top: auto; padding-top: 9px; border-top: 1px solid #edf0f1; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.hours { display: inline-flex; align-items: center; gap: 5px; color: var(--muted); font-size: 11px; font-weight: 550; white-space: normal; }
 .hours-open { color: var(--positive); }
 .hours-closed { color: var(--danger); }
 .hours-unknown { color: var(--muted); }
-.map-link {
-  width: 28px;
-  height: 28px;
-  padding: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--accent-dark);
-  background: transparent;
-  border: 0;
-  border-radius: 5px;
-  font-size: 15px;
-  text-decoration: none;
-  white-space: nowrap;
-  opacity: .72;
-}
-.map-link:hover { background: var(--accent-soft); opacity: 1; }
-.empty {
-  padding: 34px !important;
-  color: var(--muted);
-  text-align: center;
-}
-.load-more {
-  min-height: 38px;
-  padding: 7px 14px;
-  color: var(--accent-dark);
-  background: #fff;
-  border: 1px solid var(--line-strong);
-  border-radius: 8px;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-}
+.map-link { display: inline-flex; align-items: center; justify-content: center; min-width: 36px; min-height: 36px; color: var(--accent-dark); background: #f3f8f8; border: 1px solid #dbe8e7; border-radius: 8px; font-size: 16px; text-decoration: none; }
+.map-link:hover { background: var(--accent-soft); }
+.venue-empty-offer, .venue-map-empty { color: var(--muted-2); font-size: 11px; }
+.empty { padding: 30px !important; border: 1px solid var(--line); border-radius: 10px; color: var(--muted); text-align: center; background: #fff; }
+.load-more { min-height: 40px; padding: 8px 16px; color: var(--accent-dark); background: #fff; border: 1px solid var(--line-strong); border-radius: 8px; font-size: 12px; font-weight: 650; cursor: pointer; }
 .load-more:hover { background: var(--accent-soft); }
-
-/* Grouped locations */
-.group-details-row > td {
-  padding: 0;
-  background: #fff;
-  border-bottom: 1px solid #e7ebed;
-}
-.group-details {
-  margin: 0 10px 10px 58px;
-  color: var(--muted);
-  background: #f7f9fa;
-  border: 1px solid var(--line);
-  border-top: 0;
-  border-radius: 0 0 9px 9px;
-  font-size: 11px;
-}
-.group-details summary {
-  min-height: 38px;
-  padding: 8px 11px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  list-style: none;
-  cursor: pointer;
-}
+.group-details { margin-top: 2px; border: 1px solid var(--line); border-radius: 9px; background: #f8fafb; color: var(--muted); font-size: 11px; overflow: hidden; }
+.group-details summary { min-height: 38px; padding: 9px 12px; display: flex; gap: 12px; align-items: center; justify-content: space-between; list-style: none; cursor: pointer; }
 .group-details summary::-webkit-details-marker { display: none; }
-.group-details summary span { color: var(--accent-dark); font-weight: 600; }
-.group-details summary strong { color: var(--muted); font-size: 10px; font-weight: 500; }
+.group-details summary span { color: var(--accent-dark); font-weight: 650; }
+.group-details summary strong { font-size: 10px; font-weight: 550; color: var(--muted); }
 .group-details summary span::before { content: "+"; margin-right: 7px; color: #7b8b92; }
 .group-details[open] summary span::before { content: "−"; }
 .group-details[open] summary { border-bottom: 1px solid var(--line); }
 .group-location-list { display: grid; }
-.group-location-card {
-  min-width: 0;
-  padding: 10px 11px;
-  display: grid;
-  grid-template-columns: 28px minmax(210px, 1.35fr) minmax(170px, 1fr) minmax(88px, .35fr) minmax(110px, .45fr) 58px;
-  gap: 12px;
-  align-items: center;
-  background: #fff;
-  border-bottom: 1px solid #e7ebed;
-}
+.group-location-card { display: grid; grid-template-columns: minmax(0,1fr) auto; grid-template-areas: "main main" "offers value" "status map"; gap: 8px 12px; align-items: center; padding: 12px; border-bottom: 1px solid var(--line); background: #fff; }
 .group-location-card:last-child { border-bottom: 0; }
-.group-location-index { color: #94a1a6; font-size: 10px; font-weight: 550; text-align: center; }
-.group-location-main,
-.group-location-offers,
-.group-location-value,
-.group-location-status,
-.group-location-map { min-width: 0; }
+.group-location-index { display: none; }
+.group-location-main { grid-area: main; min-width: 0; }
+.group-location-offers { grid-area: offers; min-width: 0; }
+.group-location-value { grid-area: value; min-width: 0; justify-self: end; }
+.group-location-status { grid-area: status; min-width: 0; }
+.group-location-map { grid-area: map; justify-self: end; }
 .group-location-main .venue-cell { min-width: 0; }
 .group-location-main .venue-meta { max-width: 100%; }
 .group-location-offers .offer-list { min-width: 0; }
-.group-location-value {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-.group-location-map { justify-self: end; }
-.venue-empty-offer,
-.venue-map-empty { color: var(--muted-2); font-size: 10px; }
 
 /* SEO / explanatory content */
 .content-section {
