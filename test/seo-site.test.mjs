@@ -172,7 +172,7 @@ test("deal rows hide implementation metadata and keep venue type beside the name
 test("primary and grouped locations share the same venue presentation fragments", async () => {
   const app = await readFile(new URL("../docs/app.js", import.meta.url), "utf8");
   assert.match(app, /function renderVenueParts\(venue, visibleOffers\)/);
-  assert.match(app, /function renderVenueRow[\s\S]*const parts = renderVenueParts\(venue, visibleOffers\)/);
+  assert.match(app, /function renderVenueGroup[\s\S]*const parts = renderVenueParts\(primary\.venue, primary\.visibleOffers\)/);
   assert.match(app, /function renderGroupDetailRow[\s\S]*const parts = renderVenueParts\(venue, visibleOffers\)/);
   assert.match(app, /group-location-value">\$\{parts\.value\}/);
   assert.doesNotMatch(app, /<span>Best<\/span>/);
