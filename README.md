@@ -47,15 +47,15 @@ Wolt can have a lot of promotions at the same time, but finding the useful ones 
 <!-- AUTO_COVERAGE_START -->
 ### Latest snapshot coverage
 
-**31 cities with stored snapshots**, including **5 updated within 24 hours** as of 2026-11-26 00:12 UTC. The full catalog is much larger; catalog membership does not mean fresh deals are available.
+**31 cities with stored snapshots**, including **5 updated within 24 hours** as of 2026-11-26 17:46 UTC. The full catalog is much larger; catalog membership does not mean fresh deals are available.
 
 | City | Last scan (UTC) | Ranked deal venues |
 | --- | --- | ---: |
-| [Frankfurt](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Ffrankfurt) | 2026-11-26 00:12 | 274 |
-| [Vilnius](https://bl0ck154.github.io/wolt-discount-monitor/?city=ltu%2Fvilnius) | 2026-11-26 00:12 | 251 |
-| [Prague](https://bl0ck154.github.io/wolt-discount-monitor/?city=cze%2Fprague) | 2026-11-25 18:00 | 390 |
-| [Warsaw](https://bl0ck154.github.io/wolt-discount-monitor/?city=pol%2Fwarsaw) | 2026-11-25 17:59 | 300 |
-| [Berlin](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Fberlin) | 2026-11-25 17:59 | 494 |
+| [Prague](https://bl0ck154.github.io/wolt-discount-monitor/?city=cze%2Fprague) | 2026-11-26 17:46 | 384 |
+| [Warsaw](https://bl0ck154.github.io/wolt-discount-monitor/?city=pol%2Fwarsaw) | 2026-11-26 17:45 | 300 |
+| [Berlin](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Fberlin) | 2026-11-26 17:45 | 586 |
+| [Frankfurt](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Ffrankfurt) | 2026-11-26 17:45 | 287 |
+| [Vilnius](https://bl0ck154.github.io/wolt-discount-monitor/?city=ltu%2Fvilnius) | 2026-11-26 17:44 | 269 |
 | [Nuremberg](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Fnuremberg) | 2026-11-19 16:36 | 152 |
 | [Bremen](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Fbremen) | 2026-11-12 00:01 | 78 |
 | [Oslo](https://bl0ck154.github.io/wolt-discount-monitor/?city=nor%2Foslo) | 2026-11-10 19:26 | 80 |
