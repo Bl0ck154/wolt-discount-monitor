@@ -47,10 +47,11 @@ Wolt can have a lot of promotions at the same time, but finding the useful ones 
 <!-- AUTO_COVERAGE_START -->
 ### Latest snapshot coverage
 
-**31 cities with stored snapshots**, including **5 updated within 24 hours** as of 2026-11-27 00:30 UTC. The full catalog is much larger; catalog membership does not mean fresh deals are available.
+**31 cities with stored snapshots**, including **6 updated within 24 hours** as of 2026-11-27 09:47 UTC. The full catalog is much larger; catalog membership does not mean fresh deals are available.
 
 | City | Last scan (UTC) | Ranked deal venues |
 | --- | --- | ---: |
+| [Belgrade](https://bl0ck154.github.io/wolt-discount-monitor/?city=srb%2Fbelgrade) | 2026-11-27 09:47 | 362 |
 | [Frankfurt](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Ffrankfurt) | 2026-11-27 00:30 | 276 |
 | [Vilnius](https://bl0ck154.github.io/wolt-discount-monitor/?city=ltu%2Fvilnius) | 2026-11-27 00:30 | 250 |
 | [Prague](https://bl0ck154.github.io/wolt-discount-monitor/?city=cze%2Fprague) | 2026-11-26 17:46 | 384 |
@@ -60,7 +61,6 @@ Wolt can have a lot of promotions at the same time, but finding the useful ones 
 | [Bremen](https://bl0ck154.github.io/wolt-discount-monitor/?city=deu%2Fbremen) | 2026-11-12 00:01 | 78 |
 | [Oslo](https://bl0ck154.github.io/wolt-discount-monitor/?city=nor%2Foslo) | 2026-11-10 19:26 | 80 |
 | [Vinkovci](https://bl0ck154.github.io/wolt-discount-monitor/?city=hrv%2Fvinkovci) | 2026-11-10 06:40 | 6 |
-| [Mandal](https://bl0ck154.github.io/wolt-discount-monitor/?city=nor%2Fmandal) | 2026-11-08 10:13 | 0 |
 
 Offers are observed, not personalized. Check eligibility and the final delivery/service fees in Wolt.
 <!-- AUTO_COVERAGE_END -->
